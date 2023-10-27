@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Treatment_Report" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b518412f-c05f-46d6-849f-4990c315632b">
+	<subDataset name="Dataset1" uuid="a7c0e75a-3a79-4243-b50e-a08ff19501fc">
+		<parameter name="alarm_hf" class="java.lang.String"/>
+		<field name="alarm_qf" class="java.lang.String"/>
+		<field name="alarm_tf" class="java.lang.String"/>
+		<field name="alarm_other" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="lotno" class="java.lang.String"/>
+	<parameter name="work_start" class="java.lang.String"/>
+	<parameter name="model_code" class="java.lang.String"/>
+	<parameter name="weight" class="java.lang.String"/>
+	<parameter name="heatno" class="java.lang.String"/>
+	<parameter name="work_end" class="java.lang.String"/>
+	<parameter name="model_name" class="java.lang.String"/>
+	<parameter name="qty" class="java.lang.String"/>
+	<parameter name="hogi" class="java.lang.String"/>
+	<parameter name="duration" class="java.lang.String"/>
+	<parameter name="model_desc" class="java.lang.String"/>
+	<parameter name="process_type" class="java.lang.String"/>
+	<parameter name="recipe" class="java.lang.String"/>
+	<parameter name="description2" class="java.lang.String"/>
+	<parameter name="q1" class="java.lang.String"/>
+	<parameter name="q2" class="java.lang.String"/>
+	<parameter name="q3" class="java.lang.String"/>
+	<parameter name="q4" class="java.lang.String"/>
+	<parameter name="q5" class="java.lang.String"/>
+	<parameter name="qt" class="java.lang.String"/>
+	<parameter name="dipp" class="java.lang.String"/>
+	<parameter name="shower" class="java.lang.String"/>
+	<parameter name="t1" class="java.lang.String"/>
+	<parameter name="t2" class="java.lang.String"/>
+	<parameter name="t3" class="java.lang.String"/>
+	<parameter name="t4" class="java.lang.String"/>
+	<parameter name="t5" class="java.lang.String"/>
+	<parameter name="t6" class="java.lang.String"/>
+	<parameter name="hf1_stime" class="java.lang.String"/>
+	<parameter name="hf2_stime" class="java.lang.String"/>
+	<parameter name="hf3_stime" class="java.lang.String"/>
+	<parameter name="hf4_stime" class="java.lang.String"/>
+	<parameter name="hf5_stime" class="java.lang.String"/>
+	<parameter name="hf1_etime" class="java.lang.String"/>
+	<parameter name="hf2_etime" class="java.lang.String"/>
+	<parameter name="hf3_etime" class="java.lang.String"/>
+	<parameter name="hf4_etime" class="java.lang.String"/>
+	<parameter name="hf5_etime" class="java.lang.String"/>
+	<parameter name="alarm_list" class="java.util.List"/>
+	<parameter name="alarm_list1" class="java.util.List"/>
+	<parameter name="alarm_list2" class="java.util.List"/>
+	<parameter name="alarm_list3" class="java.util.List"/>
+	<parameter name="hf_stime" class="java.lang.String"/>
+	<parameter name="dipp_stime" class="java.lang.String"/>
+	<parameter name="qt_stime" class="java.lang.String"/>
+	<parameter name="tf_stime" class="java.lang.String"/>
+	<parameter name="sh_stime" class="java.lang.String"/>
+	<parameter name="a_list" class="java.util.List"/>
+	<field name="alarm_qf" class="java.lang.String"/>
+	<field name="alarm_tf" class="java.lang.String"/>
+	<field name="alarm_other" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="497" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="481" height="30" uuid="b9ef7fa4-984f-47fd-9df2-414f70aab686"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Treatement Report: QT3-180503-02]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="-1" y="10" width="482" height="30" uuid="f8f0a32b-5a49-4c4f-aef6-b98ebc8ace5a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-8" y="66" width="571" height="120" uuid="6af6e4ea-18f7-4e24-8f11-ce47db2d950d"/>
+			</rectangle>
+			<image hAlign="Center">
+				<reportElement x="480" y="7" width="88" height="53" uuid="0b466709-85b4-4d0b-8c7f-8398e389186b"/>
+				<imageExpression><![CDATA["http://150.200.50.191/sunil/resources/img/sunil_logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement mode="Opaque" x="-2" y="71" width="560" height="20" backcolor="#F0EBEB" uuid="8178c22e-571e-4e15-b4e2-bf6f2e86854b"/>
+				<textElement>
+					<font fontName="arial_unicode_ms" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[General]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="-1" y="94" width="90" height="20" backcolor="#F0EBEB" uuid="5ee3beac-fc52-4ef3-9969-ce449d952448"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[LOT No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="-1" y="117" width="90" height="20" backcolor="#F0EBEB" uuid="bd84a0d0-d1a2-4c70-b437-8fb4283c05f4"/>
+				<text><![CDATA[Begin Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="-1" y="140" width="90" height="20" backcolor="#F0EBEB" uuid="f856b876-5317-4d3a-ba98-6c18f030985b"/>
+				<text><![CDATA[model_code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="-1" y="163" width="90" height="20" backcolor="#F0EBEB" uuid="2a5ff793-9fb6-4a62-b1dd-cca8144a2e7d"/>
+				<text><![CDATA[Weight]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="93" y="94" width="100" height="20" uuid="5e8916e7-d47e-4b17-bd29-a317bf0a2222"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lotno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="198" y="95" width="70" height="20" backcolor="#F0EBEB" uuid="24e5451b-ee5b-4f7e-bb23-5e98bdaca9da"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[HEAT LOT NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="197" y="118" width="70" height="20" backcolor="#F0EBEB" uuid="e7befeb9-83dd-424d-adc9-30e5a43c6849"/>
+				<text><![CDATA[End Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="375" y="96" width="90" height="20" backcolor="#F0EBEB" uuid="2d047868-2f8d-4860-b8ba-366cc2144687"/>
+				<text><![CDATA[Machine]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="375" y="119" width="90" height="20" backcolor="#F0EBEB" uuid="584a8e35-112c-4b3a-a0e6-8e2150727c1a"/>
+				<text><![CDATA[Duration]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="93" y="117" width="100" height="20" uuid="1c9e0931-9689-4486-b297-f2c6df6beb24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{work_start}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="93" y="140" width="70" height="20" uuid="edeb0582-dd4b-48d5-bd81-18f813b02a7e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{model_code}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="93" y="163" width="70" height="20" uuid="a46e5261-baf3-42f9-b417-fc1d2c9cca23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{weight}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="168" y="140" width="90" height="20" backcolor="#F0EBEB" uuid="cd55eeef-40b8-4c4a-b7ef-4c3a10ea17e7"/>
+				<text><![CDATA[model_name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="168" y="163" width="90" height="20" backcolor="#F0EBEB" uuid="e9ef53e4-bf86-4cce-9894-978bd613f3dc"/>
+				<text><![CDATA[Count]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="272" y="96" width="100" height="20" uuid="40d070b1-c78d-4eb9-8049-5015f79afe00"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{heatno}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="272" y="119" width="100" height="20" uuid="c4c5fbda-7002-4a0b-bda8-ce9e05c863c0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{work_end}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="261" y="141" width="70" height="20" uuid="d6a33429-771f-4269-afbb-39d4b806f8eb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{model_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="261" y="163" width="70" height="20" uuid="8d407aaf-3e15-4cf4-a533-b1086bb9f451"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{qty}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="334" y="141" width="70" height="20" backcolor="#F0EBEB" uuid="2d5086c9-2ced-4f0d-b346-289b6c7696f2"/>
+				<text><![CDATA[model_desc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="333" y="163" width="70" height="20" backcolor="#F0EBEB" uuid="08747317-4822-40c3-ab6a-b1ffcbc16e0d"/>
+				<text><![CDATA[Pattern]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="468" y="96" width="90" height="20" uuid="8590d1be-31d3-4dde-b80a-7c39a5bf23e3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{hogi}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="468" y="119" width="90" height="20" uuid="8a86ad16-8645-47ed-8c8a-d18e72f126ed"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{duration}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="406" y="141" width="152" height="20" uuid="1b3bee0f-4b20-4c3a-8ab3-114af06b000d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{model_desc}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="406" y="164" width="152" height="20" uuid="9024aa18-17de-4d3c-b8b2-779074da358a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{process_type}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="-9" y="194" width="571" height="165" uuid="785ca409-cf34-4e49-9c80-b337128b15da"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Opaque" x="-3" y="199" width="560" height="20" backcolor="#F0EBEB" uuid="ff5c9d02-5e1c-4afe-b17c-8b004ac3d3cc"/>
+				<textElement>
+					<font fontName="arial_unicode_ms" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Working Setpoint]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="-2" y="222" width="90" height="20" backcolor="#F0EBEB" uuid="b0c91e71-327c-4ca0-a1d2-375e6203ccb4"/>
+				<text><![CDATA[Pattern Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="-2" y="245" width="90" height="20" backcolor="#F0EBEB" uuid="187b8a97-d867-4db1-99e1-c56e46392a18"/>
+				<text><![CDATA[Remark]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="92" y="222" width="465" height="20" uuid="6a4aa4e3-7824-427c-9f6d-bca8ae758594"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{recipe}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="94" y="245" width="466" height="20" uuid="5338aa9e-6240-42c5-8576-4e9c77c81759"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{description2}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="-9" y="365" width="571" height="85" uuid="ca48f874-d4bb-4296-a5d8-676ae5a15af4"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Opaque" x="-3" y="372" width="560" height="20" backcolor="#F0EBEB" uuid="34fd920d-6542-4f83-b311-32710af12f1d"/>
+				<textElement>
+					<font fontName="arial_unicode_ms" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Entry/Exit times of the parts]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="92" y="398" width="80" height="20" backcolor="#F0EBEB" uuid="0c3e9d10-ae35-4e1e-9d10-3f9817aabec1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<text><![CDATA[HF zone]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="91" y="421" width="80" height="20" uuid="6ee73059-1457-439d-ba94-33456e731c1e"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{hf_stime}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="8" y="421" width="80" height="20" backcolor="#F0EBEB" uuid="f90b7f7e-4139-46f6-bee4-c1dd37565cc6"/>
+				<textElement>
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<text><![CDATA[Entry Time]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="10" width="480" height="30" backcolor="#F0EBEB" uuid="b7cf72b0-0f08-46dd-809c-ec95a890b20a"/>
+				<textElement>
+					<font fontName="arial_unicode_ms" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Treatment Report: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="275" width="187" height="21" backcolor="#F0EBEB" uuid="0abce4bf-d5de-4160-9ab5-9e33a0f2c03d"/>
+				<textElement textAlignment="Center">
+					<font fontName="arial_unicode_ms" size="14" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Quenching Furnace]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="298" width="35" height="15" backcolor="#F0EBEB" uuid="f98f54df-f485-4040-a88d-f7fefe5946e8"/>
+				<textElement>
+					<font fontName="arial_unicode_ms" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ZONE1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="40" y="298" width="35" height="15" backcolor="#F0EBEB" uuid="2c994e1e-0d57-4bc8-981b-7b569ad9b5a3"/>
+				<textElement>
+					<font fontName="arial_unicode_ms" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ZONE2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="116" y="298" width="35" height="15" backcolor="#F0EBEB" uuid="cbafa2c2-45c4-4a3a-a42d-1da550a8e37b"/>
+				<textElement>
+					<font fontName="arial_unicode_ms" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ZONE4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="78" y="298" width="35" height="15" backcolor="#F0EBEB" uuid="6753f123-546e-4f24-afaa-0c6f6f34b384"/>
+				<textElement>
+					<font fontName="arial_unicode_ms" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ZONE3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="154" y="298" width="35" height="15" backcolor="#F0EBEB" uuid="390fe362-189a-4d8a-b910-add70b9f9ff0"/>
+				<textElement>
+					<font fontName="arial_unicode_ms" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ZONE5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="315" width="35" height="15" backcolor="#F5F5F5" uuid="cc23d308-80f4-4501-9267-053d2a2bac81"/>
+				<textElement textAlignment="Center">
+					<font fontName="arial_unicode_ms" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Temp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="40" y="315" width="35" height="15" backcolor="#F5F5F5" uuid="0f2ac7b6-5385-4f5b-b060-ee5dfde9f52d"/>
+				<textElement textAlignment="Center">
+					<font fontName="arial_unicode_ms" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Temp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="116" y="315" width="35" height="15" backcolor="#F5F5F5" uuid="dad2dfb8-d370-4190-8c18-51cd2f3f451f"/>
+				<textElement textAlignment="Center">
+					<font fontName="arial_unicode_ms" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Temp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="78" y="315" width="35" height="15" backcolor="#F5F5F5" uuid="765834ea-53b0-4b2d-885b-96cc7f838154"/>
+				<textElement textAlignment="Center">
+					<font fontName="arial_unicode_ms" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Temp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="154" y="315" width="35" height="15" backcolor="#F5F5F5" uuid="fb8040c2-1143-4cfb-add8-6c01df6e200d"/>
+				<textElement textAlignment="Center">
+					<font fontName="arial_unicode_ms" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Temp]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="2" y="330" width="35" height="15" backcolor="#F5F5F5" uuid="a1943371-5e1c-4bbf-9ac0-37c07a770bee"/>
+				<textElement textAlignment="Right">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="40" y="330" width="35" height="15" backcolor="#F5F5F5" uuid="0a7dffd8-ae7d-4d87-8d0a-25b54cdfc7f8"/>
+				<textElement textAlignment="Right">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="116" y="330" width="35" height="15" backcolor="#F5F5F5" uuid="9883a695-1f52-4de6-a64b-2b6900f408b2"/>
+				<textElement textAlignment="Right">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="78" y="330" width="35" height="15" backcolor="#F5F5F5" uuid="14711710-d3e1-49d9-a3e2-00bdd027c499"/>
+				<textElement textAlignment="Right">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="154" y="330" width="35" height="15" backcolor="#F5F5F5" uuid="d99446b1-ae6e-4a5a-9870-70484e4ec2a6"/>
+				<textElement textAlignment="Right">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q5}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="194" y="275" width="40" height="40" backcolor="#F0EBEB" uuid="3aba397d-baa4-406e-97ef-3d075cbd2ea2"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quench      Tank]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="194" y="317" width="40" height="15" backcolor="#F5F5F5" uuid="c5571320-1b28-4cd5-9f4e-fcacbf50d9a4"/>
+				<textElement textAlignment="Center">
+					<font fontName="arial_unicode_ms" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Temp]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="194" y="332" width="40" height="15" backcolor="#F5F5F5" uuid="d02ec4a9-57f5-459b-acd5-37c1771e436e"/>
+				<textElement textAlignment="Right">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{qt}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="239" y="275" width="40" height="40" backcolor="#F0EBEB" uuid="b382aa7d-87f9-43b6-abd2-c990e9341a5e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIPP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="239" y="317" width="40" height="15" backcolor="#F5F5F5" uuid="c0e918f9-c366-45d0-a0b8-97d531ed30d2"/>
+				<textElement textAlignment="Center">
+					<font fontName="arial_unicode_ms" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Temp]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="239" y="332" width="40" height="15" backcolor="#F5F5F5" uuid="42beb58e-1407-4e6d-9159-e1019988d5d2"/>
+				<textElement textAlignment="Right">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dipp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="283" y="275" width="40" height="40" backcolor="#F0EBEB" uuid="9bfed415-7313-44ba-94d8-aec06df0eced"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" isBold="true"/>
+				</textElement>
+				<text><![CDATA[shower]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="283" y="317" width="40" height="15" backcolor="#F5F5F5" uuid="069a4005-19a0-4960-908f-3885c76c8b30"/>
+				<textElement textAlignment="Center">
+					<font fontName="arial_unicode_ms" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Temp]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="283" y="332" width="40" height="15" backcolor="#F5F5F5" uuid="dbdf3412-0e91-41e4-a7d8-f77166bc30bd"/>
+				<textElement textAlignment="Right">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{shower}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="330" y="275" width="226" height="21" backcolor="#F0EBEB" uuid="5c0cb5b4-ce33-475c-b33e-562a8459485a"/>
+				<textElement textAlignment="Center">
+					<font fontName="arial_unicode_ms" size="14" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Tempering Furnace]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="331" y="299" width="35" height="15" backcolor="#F0EBEB" uuid="c8b9be07-f248-4c57-b3bc-a987cb91fdbe"/>
+				<textElement>
+					<font fontName="arial_unicode_ms" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ZONE1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="331" y="316" width="35" height="15" backcolor="#F5F5F5" uuid="ae7b6a61-8d8d-438c-9ec4-9206c0c7a761"/>
+				<textElement textAlignment="Center">
+					<font fontName="arial_unicode_ms" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Temp]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="331" y="331" width="35" height="15" backcolor="#F5F5F5" uuid="b080d935-3d01-4209-9f35-0e5e65d06470"/>
+				<textElement textAlignment="Right">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{t1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="369" y="299" width="35" height="15" backcolor="#F0EBEB" uuid="a32eb065-e203-464e-b0b0-25d21cfe1172"/>
+				<textElement>
+					<font fontName="arial_unicode_ms" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ZONE2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="369" y="316" width="35" height="15" backcolor="#F5F5F5" uuid="79bf3a3c-e32b-4953-9d8d-9dce9336e9ba"/>
+				<textElement textAlignment="Center">
+					<font fontName="arial_unicode_ms" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Temp]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="369" y="331" width="35" height="15" backcolor="#F5F5F5" uuid="b0fba1a5-47e3-43da-bcb4-da8797f141cc"/>
+				<textElement textAlignment="Right">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{t2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="407" y="299" width="35" height="15" backcolor="#F0EBEB" uuid="e39e1fd7-4a48-4462-ac84-f479d3dd625b"/>
+				<textElement>
+					<font fontName="arial_unicode_ms" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ZONE3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="407" y="316" width="35" height="15" backcolor="#F5F5F5" uuid="082580a1-0827-4132-9bb1-89b6342a5015"/>
+				<textElement textAlignment="Center">
+					<font fontName="arial_unicode_ms" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Temp]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="407" y="331" width="35" height="15" backcolor="#F5F5F5" uuid="5dd485b0-086a-436c-9ce0-16236ceeb618"/>
+				<textElement textAlignment="Right">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{t3}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="445" y="299" width="35" height="15" backcolor="#F0EBEB" uuid="eeda19e7-1600-4203-8126-c830fcdc4c65"/>
+				<textElement>
+					<font fontName="arial_unicode_ms" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ZONE4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="445" y="316" width="35" height="15" backcolor="#F5F5F5" uuid="1660be4d-f5a3-4d15-ac4b-6b2e649d7f71"/>
+				<textElement textAlignment="Center">
+					<font fontName="arial_unicode_ms" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Temp]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="445" y="331" width="35" height="15" backcolor="#F5F5F5" uuid="67990ae3-2235-45bd-95f8-09c1d875c1ab"/>
+				<textElement textAlignment="Right">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{t4}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="483" y="299" width="35" height="15" backcolor="#F0EBEB" uuid="44162456-52c5-4cc5-af22-7f18aad91161"/>
+				<textElement>
+					<font fontName="arial_unicode_ms" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ZONE5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="483" y="316" width="35" height="15" backcolor="#F5F5F5" uuid="18c4e649-a40e-490b-94fc-b4ed3134dd56"/>
+				<textElement textAlignment="Center">
+					<font fontName="arial_unicode_ms" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Temp]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="483" y="331" width="35" height="15" backcolor="#F5F5F5" uuid="ef3603f6-1b15-427f-b54d-6fc3e6d12fbf"/>
+				<textElement textAlignment="Right">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{t5}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="521" y="299" width="35" height="15" backcolor="#F0EBEB" uuid="3c425de2-f03d-4c7b-9d7b-dfd14d74f45e"/>
+				<textElement>
+					<font fontName="arial_unicode_ms" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ZONE6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="521" y="316" width="35" height="15" backcolor="#F5F5F5" uuid="132ccbbb-5905-46a5-9a9e-2b7992c779ef"/>
+				<textElement textAlignment="Center">
+					<font fontName="arial_unicode_ms" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Temp]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="521" y="331" width="35" height="15" backcolor="#F5F5F5" uuid="5fd383a7-7c4e-4a9e-bc64-f114d66e55d2"/>
+				<textElement textAlignment="Right">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{t6}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="437" y="398" width="80" height="20" backcolor="#F0EBEB" uuid="746b9dcd-62b7-43fa-9f9f-92d2fb5be1d2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<text><![CDATA[TF zone]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="177" y="421" width="80" height="20" uuid="7301f149-af00-4a90-811e-f024e92595ea"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dipp_stime}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="263" y="398" width="80" height="20" backcolor="#F0EBEB" uuid="5ed5f53b-be5c-424e-a847-6d745fc943da"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<text><![CDATA[Quench Tank]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="263" y="421" width="80" height="20" uuid="f39f407f-d177-43a5-8c29-4daa7800ed86"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{qt_stime}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="178" y="398" width="80" height="20" backcolor="#F0EBEB" uuid="036f73cd-181c-4915-8938-4afeb44b9d16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<text><![CDATA[DIPP zone]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="437" y="421" width="80" height="20" uuid="23dd743d-23a5-4a8e-a478-092ff9222dcd"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tf_stime}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="350" y="398" width="80" height="20" backcolor="#F0EBEB" uuid="88c947d2-3b7a-4da4-94cc-30826404484d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<text><![CDATA[SHOWER zone]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="351" y="421" width="80" height="20" uuid="e53bbad5-d58d-47ed-849e-51125be5a48f"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sh_stime}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="151" y="10" width="328" height="30" uuid="31e29f74-56d7-42fa-b198-fbce470590a1"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="arial_unicode_ms" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lotno}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="-3" y="480" width="179" height="12" uuid="c749feac-24ef-4d67-9901-12e5f4222122"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="Dataset1" uuid="d2aa6d26-334d-4adf-964b-66a67b94a2f7">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{a_list})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="12" width="179">
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement mode="Opaque" x="0" y="0" width="179" height="12" isRemoveLineWhenBlank="true" backcolor="#F0EBEB" uuid="3d78080d-446b-4aa7-a669-b29e27d52d55"/>
+							<textElement>
+								<font fontName="arial_unicode_ms" size="8" isBold="false"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{alarm_qf}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="185" y="480" width="189" height="12" uuid="ecc7cc8a-b4e4-4d77-bc0b-e3c798546c14"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="Dataset1" uuid="ad29d518-936c-47d6-b3ae-49231866510b">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{a_list})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="12" width="189">
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement mode="Opaque" x="0" y="0" width="189" height="12" isRemoveLineWhenBlank="true" backcolor="#F0EBEB" uuid="732a8860-0719-4dfb-8b10-d4fa951cf060"/>
+							<textElement>
+								<font fontName="arial_unicode_ms" size="8" isBold="false"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{alarm_tf}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="380" y="480" width="175" height="12" uuid="c0615765-a923-4509-a3d1-4c1eabad84d9">
+					<property name="net.sf.jasperreports.export.headertoolbar.table.name" value=""/>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="Dataset1" uuid="ea0454a1-d972-48fa-975d-edcb5f008057">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{a_list})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="12" width="175">
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement mode="Opaque" x="0" y="0" width="175" height="12" isRemoveLineWhenBlank="true" backcolor="#F0EBEB" uuid="0d17525f-9a05-4260-9c67-e64a7a204ed2"/>
+							<textElement>
+								<font fontName="arial_unicode_ms" size="8" isBold="false"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{alarm_other}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement mode="Opaque" x="-6" y="455" width="567" height="20" backcolor="#F0EBEB" uuid="b57b32a9-f3f1-4ea3-8676-83a052023857"/>
+				<textElement>
+					<font fontName="arial_unicode_ms" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Alarm]]></text>
+			</staticText>
+		</band>
+	</title>
+</jasperReport>

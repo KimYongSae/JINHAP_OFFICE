@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+
+.content1{
+	height:630px;
+}
+
+
+.nav1{
+	margin-bottom: 10px;
+}
+
+.nav1 h2{
+	color:#000;
+}
+
+.box1 label{
+	padding:0;
+	color:#000;
+	padding-top:5px;
+}
+
+
+.vh3{
+	padding-right:0px;
+}
+
+.image{
+	margin-top:10px;
+}
+
+.image label{
+	color:#000;
+	padding-top:8px;
+}
+
+
+.image_div{
+	margin-bottom:10px;
+}
+
+.box7{
+	margin-top:10px;
+}

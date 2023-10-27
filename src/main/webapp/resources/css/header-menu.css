@@ -1,0 +1,22 @@
+@CHARSET "EUC-KR";
+.menuName{
+	color:#F9F9F9; 
+	text-shadow: 1px 1px #000000;	
+}
+.icon1 {
+	background: url(../icons/menu.svg) 3px 8px no-repeat;
+	background-size: 8px;
+	margin-left : 20px;
+}
+.icon2 {
+	background: url(../icons/desktop-monitor.svg) 3px 8px no-repeat;
+	background-size: 8px;
+	margin-left : 20px;
+
+}
+.icon3 {
+	background: url(../icons/info-button.svg) 3px 8px no-repeat;
+	background-size: 8px;
+	margin-left : 20px;
+
+}

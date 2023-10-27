@@ -1,0 +1,973 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="work_LotManage" pageWidth="1191" pageHeight="842" orientation="Landscape" columnWidth="1151" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="99cc624f-db81-4c3f-987b-41d72ddbc095">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="762" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="570" height="40" uuid="793de14e-c646-4f32-bc38-1356cb71cb68"/>
+				<box>
+					<topPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[[ 열처리 블록 ] 근무자 인수인계일지]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="570" height="29" uuid="8d9b05aa-f948-4e1b-b2fe-f0418012af1c"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="margun" size="14"/>
+				</textElement>
+				<text><![CDATA[ 20     년      월      일]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="69" width="570" height="28" uuid="c53a9adf-7e2b-491f-b4ca-955879737127"/>
+				<box>
+					<topPen lineWidth="1.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="margun" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[    1. 품질 현황  (부적합품 발생 및 처리현항)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="97" width="70" height="24" uuid="9acda689-f037-4fee-a398-d978c5c47a02"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[업   체]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="97" width="100" height="24" uuid="502d7e9b-36c3-478a-b894-8d2a8cd6d839"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[품   번]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="97" width="55" height="24" uuid="5dd7e05f-e968-4c7b-8f63-e9cbb880b9cb"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[품   명]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="225" y="97" width="55" height="24" uuid="50688ade-fd7a-49ce-99b8-34187ff875e8"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[규   격]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="97" width="100" height="24" uuid="bf5bfa81-a8d8-4f87-a81f-5e29a07810cd"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[열처리  LOT-NO.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="97" width="190" height="24" uuid="1951ce80-d40a-4d29-8aa0-8b6256fc8205"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[부적합품  의심내용 및  처리현황]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="121" width="70" height="24" uuid="7ede6b8f-d211-4a9f-b952-80eab16d7138"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="145" width="70" height="24" uuid="76d8b872-fb06-4fa2-8c66-93387cf6e82e"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="169" width="70" height="24" uuid="125bfdb3-ce01-495a-b200-3cf14a44c8fe"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="193" width="70" height="24" uuid="14fce5bb-9a1d-4ce2-a10a-ccceee9a2a8e"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="217" width="70" height="24" uuid="92e847fe-030f-4fa9-b5a3-e8ee684c9991"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="241" width="70" height="24" uuid="35020112-c207-4d0e-a238-f5f613e83150"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="265" width="70" height="24" uuid="e5e98c42-6379-4916-b876-b0d2f1d6a46e"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="121" width="100" height="24" uuid="4bacbc40-a1c8-41c3-ab64-98ea1a19c45b"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="145" width="100" height="24" uuid="25dca323-09dd-43fa-8ceb-e4f575e04c1c"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="169" width="100" height="24" uuid="100f2fa9-198a-405b-a4a0-18ac711491a9"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="193" width="100" height="24" uuid="956ba882-9199-44f6-8a10-0714974a6b75"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="217" width="100" height="24" uuid="00fa3be5-0428-4b1c-b3c4-f984017a8813"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="241" width="100" height="24" uuid="f82373af-f7dc-4ec7-9856-9c2a1b27aee6"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="265" width="100" height="24" uuid="6bc62021-d67d-4c36-8ede-52f646456554"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="170" y="121" width="55" height="24" uuid="052aed06-fb14-49e1-86b6-1302e0c90868"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="170" y="145" width="55" height="24" uuid="2efbc566-730b-4e35-bb10-3f9c8ecf88f0"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="170" y="169" width="55" height="24" uuid="3365a1c5-2098-4ded-a4ff-35c15f6d225f"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="170" y="193" width="55" height="24" uuid="d7124898-ad10-4ff3-b8f7-053dcd067318"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="170" y="217" width="55" height="24" uuid="0fac462e-48e5-4706-bed8-352072b76a4f"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="170" y="241" width="55" height="24" uuid="ab91abc4-526b-4647-b8f7-09e0f2cf4395"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="170" y="265" width="55" height="24" uuid="af8af02c-2649-4d2d-b50c-077cf7fd15b1"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="225" y="121" width="55" height="24" uuid="1ba81ec5-ebb4-4a3d-b3e8-ff2c84183101"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="225" y="145" width="55" height="24" uuid="09a4b34f-23ed-4c35-b40e-c0db7f96d8a8"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="225" y="169" width="55" height="24" uuid="9875680c-02ea-4186-acea-7be08603eddf"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="225" y="193" width="55" height="24" uuid="a063fd8a-638b-4fd5-a53e-04196b3e2994"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="225" y="217" width="55" height="24" uuid="c4b6d45f-52f1-4960-aefd-5d48e22e566e"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="225" y="241" width="55" height="24" uuid="5762ff68-0381-4e40-8f10-a69614ef6ccc"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="225" y="265" width="55" height="24" uuid="1426e5b7-a99d-4536-bd56-1bf0bb78e8dd"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="280" y="121" width="100" height="24" uuid="072746a1-1b4b-46e1-aabf-ab0525399051"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="280" y="145" width="100" height="24" uuid="869bfa63-a146-4759-a1e6-af0afc4ff5f7"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="280" y="169" width="100" height="24" uuid="5bdd72f3-d889-4225-a074-52ce2c1f6189"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="280" y="193" width="100" height="24" uuid="aab5da70-e972-4ee5-9290-7db8cba6e6be"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="280" y="217" width="100" height="24" uuid="d1532961-7b5c-4a7c-84eb-556f8a12ce23"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="280" y="241" width="100" height="24" uuid="50343be4-42dd-469e-b567-42700b18687a"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="280" y="265" width="100" height="24" uuid="f7aca7ca-5dfb-4c53-a850-aab1d5d93298"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="121" width="190" height="24" uuid="6e9a68b5-5ace-453a-9b46-82c8dfca31b5"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="145" width="190" height="24" uuid="5a972c81-bed3-4fbf-9181-26002384f1c1"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="169" width="190" height="24" uuid="a31063ec-3311-45bc-bc31-0150958ff472"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="193" width="190" height="24" uuid="41ec4d56-128e-442c-8525-cd692d514bc5"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="217" width="190" height="24" uuid="7cccec33-ac6b-481c-bf1d-67cbf4c429ac"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="241" width="190" height="24" uuid="8ea3d8b0-50a4-491e-888b-d5ec4bc4096d"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="265" width="190" height="24" uuid="68c607cb-95f8-4dfa-976a-bc5201bad0f5"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<staticText>
+				<reportElement key="" x="0" y="289" width="275" height="29" uuid="cedc7aef-acb7-4506-9265-89b08f354042"/>
+				<box>
+					<topPen lineWidth="1.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="margun" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[    2. 안돈 시스템 현황 (설비, 전기, 안전]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="318" width="70" height="31" uuid="32d264fb-e742-4b2d-8ac3-913010c20013"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[안돈현황]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="445" width="70" height="24" uuid="818788cb-877f-44a0-9c70-209aa306bb1d"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="421" width="70" height="24" uuid="8fdc86da-52fd-4d1f-be43-0328a50119bf"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="373" width="70" height="24" uuid="9c09f26d-55ff-46c8-9524-bc991f6bb5ca"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="469" width="70" height="24" uuid="eb7df819-35c3-45fc-944e-b567c7b37fd9"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="397" width="70" height="24" uuid="df076d62-3a84-4816-8b13-8912ded84947"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="349" width="70" height="24" uuid="05de5f3a-8548-4fb3-a6b7-b9be3962382e"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="493" width="70" height="24" uuid="63c786cf-49cf-4502-9c5c-8c747c2253b6"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="373" width="240" height="24" uuid="5b5f0dd3-018a-4cd9-9752-403ca5548b87"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="469" width="240" height="24" uuid="4732465a-cbf9-4c3d-856d-d48a80934a69"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="445" width="240" height="24" uuid="653ded9e-647d-43f5-935e-3dacd3fee700"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="397" width="240" height="24" uuid="d1053128-e9d7-4af2-a11a-b7853112746f"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<staticText>
+				<reportElement x="70" y="318" width="240" height="31" uuid="02dfa85b-e3f1-4e50-9ee7-5840b2020906"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[문   제   점]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="349" width="240" height="24" uuid="1c65f9c7-debd-4762-96da-c86af96549f1"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="493" width="240" height="24" uuid="c0bda309-ebc6-4bf1-a58d-9310a3905966"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="421" width="240" height="24" uuid="bd9f784a-dcb3-4746-b76c-38775f839177"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="373" width="260" height="24" uuid="e79c17a2-0b7a-4d76-a758-902fe1d19deb"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="445" width="260" height="24" uuid="a8d67a85-60d0-4fda-9b0f-c8cc31f233df"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="421" width="260" height="24" uuid="a115038d-bea3-400c-86a4-ea4a03ad0af2"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="349" width="260" height="24" uuid="5c540fd4-49c2-4a8a-997d-cd3bf1a0691f"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="397" width="260" height="24" uuid="a471d8f2-0a3a-407b-a5e6-4d910aa4d034"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="469" width="260" height="24" uuid="2384bfee-2a6c-4f38-a05e-6c97320df445"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="318" width="260" height="31" uuid="bd9a10e5-55e5-4dee-a35a-9a22b2549933"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[조치 현황 및 개선 대책]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="493" width="260" height="24" uuid="27b93e92-b3da-4be6-98bd-b7d228c1ba33"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="517" width="570" height="28" uuid="2124dbbd-5df5-44c3-b9fd-7f98e9b80797"/>
+				<box>
+					<topPen lineWidth="1.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="margun" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[    3. 주/야  업무전달  및 처리 현황]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="545" width="70" height="31" uuid="bc45fc07-9bdc-425c-92bc-da86828b088f"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[안돈현황]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="545" width="500" height="31" uuid="0f734693-d06b-4feb-bf47-154c3b7b57f9"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[업무전달 및 처리현황]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="576" width="70" height="64" uuid="421f3a65-6438-42a6-94d1-e16560a8188a"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[생산관련]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="576" width="500" height="24" uuid="f343371f-3c60-4eee-8190-18e316a4efc9"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="600" width="500" height="24" uuid="086a2501-77bf-4ac2-b456-c2aa2baab85e"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="648" width="500" height="24" uuid="1d12e1c2-5d09-4ecd-b7bc-cc14f0cffd0a"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="624" width="500" height="24" uuid="15e3526c-4532-4feb-82a2-56ee45b3a59e"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="696" width="500" height="24" uuid="4d018163-8767-4526-ad3d-d3094d05a661"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="672" width="500" height="24" uuid="f2cec8f7-ccb7-4919-8b11-d61f3b76ef15"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="640" width="70" height="20" uuid="29125c4e-63aa-4541-a683-c191d951d915"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[및]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="660" width="70" height="60" uuid="636b2f49-c078-4612-9b6e-8f9e31b5d898"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[생산관련]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="286" y="289" width="34" height="29" uuid="f990ebc2-7b6f-446f-9a88-b488aa764101"/>
+				<box>
+					<topPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[자재]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="289" width="34" height="29" uuid="488fc1cd-4070-4432-924a-dcc11f53b7ee"/>
+				<box>
+					<topPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[품질]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="289" width="5" height="29" uuid="fbdfbe64-314d-4e60-934f-44751e6ee00e"/>
+				<box>
+					<topPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="289" width="10" height="29" uuid="e2c0dd3a-f1dd-45b0-9ca3-044a5c28b3ed"/>
+				<box>
+					<topPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="289" width="5" height="29" uuid="9451c1aa-69aa-4116-84ea-dac5494fbeee"/>
+				<box>
+					<topPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="margun" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="325" y="289" width="5" height="29" uuid="66314818-81f2-4637-8d48-c23672b13861"/>
+				<box>
+					<topPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="margun" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="289" width="5" height="29" uuid="542d6302-2c5f-4552-82e7-b07aab3523d1"/>
+				<box>
+					<topPen lineWidth="1.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[,]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageFooter>
+		<band height="35">
+			<image>
+				<reportElement x="442" y="0" width="40" height="35" uuid="a8264853-ebc7-4855-86f2-23b2d1452da1"/>
+				<imageExpression><![CDATA["WebContent/resources/img/sunil_logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="472" y="7" width="110" height="21" uuid="a5afae72-8e37-4156-819a-7146741c8629"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(주) 선일다이파스]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

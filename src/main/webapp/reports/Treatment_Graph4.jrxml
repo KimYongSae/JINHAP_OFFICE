@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Treatment_Graph4" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="457a8e5b-687b-4747-a69a-ed069cbbd335">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="row_tdate" mode="Opaque" pattern=""/>
+	<parameter name="q_lot" class="java.lang.String"/>
+	<parameter name="t_lot" class="java.lang.String"/>
+	<parameter name="s_sign" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="tdatetime" class="java.lang.String"/>
+	<field name="q1" class="java.lang.Double"/>
+	<field name="q2" class="java.lang.Double"/>
+	<field name="q3" class="java.lang.Double"/>
+	<field name="q4" class="java.lang.Double"/>
+	<field name="q5" class="java.lang.Double"/>
+	<field name="t1" class="java.lang.Double"/>
+	<field name="t2" class="java.lang.Double"/>
+	<field name="t3" class="java.lang.Double"/>
+	<field name="t4" class="java.lang.Double"/>
+	<field name="fw" class="java.lang.Double"/>
+	<field name="mw" class="java.lang.Double"/>
+	<field name="oil" class="java.lang.Double"/>
+	<field name="cp" class="java.lang.Double"/>
+	<field name="qun" class="java.lang.Double"/>
+	<field name="sign" class="java.lang.Double"/>
+	<field name="tem" class="java.lang.Double"/>
+	<field name="chartIdx" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="725" splitType="Stretch">
+			<lineChart>
+				<chart isShowLegend="true" evaluationTime="Report">
+					<reportElement key="" isPrintRepeatedValues="false" mode="Transparent" x="2" y="80" width="550" height="600" isRemoveLineWhenBlank="true" backcolor="#F5F5F5" uuid="7ca55ce5-f84f-4235-8bff-d02bd912a291"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["전세정기"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{fw}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["퀜칭1존"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{q1}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["퀜칭2존"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{q2}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["퀜칭3존"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{q3}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["퀜칭4존"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{q4}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["퀜칭5존"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{q5}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["CP"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{cp}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["유조"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{oil}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["중간세정기"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{mw}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["템퍼링1존"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{t1}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["템퍼링2존"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{t2}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["템퍼링3존"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{t3}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["템퍼링4존"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{t4}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["qun"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[null]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["tem"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[null]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["sign"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[null]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<linePlot isShowLines="true" isShowShapes="false">
+					<plot orientation="Horizontal" foregroundAlpha="1.0" labelRotation="0.0">
+						<seriesColor seriesOrder="0" color="#FFBB00"/>
+						<seriesColor seriesOrder="1" color="#FF0000"/>
+						<seriesColor seriesOrder="2" color="#000000"/>
+						<seriesColor seriesOrder="3" color="#0000FF"/>
+						<seriesColor seriesOrder="4" color="#008000"/>
+						<seriesColor seriesOrder="5" color="#993300"/>
+						<seriesColor seriesOrder="6" color="#993300"/>
+						<seriesColor seriesOrder="7" color="#FF0000"/>
+						<seriesColor seriesOrder="8" color="#000000"/>
+						<seriesColor seriesOrder="9" color="#0000FF"/>
+						<seriesColor seriesOrder="10" color="#008000"/>
+						<seriesColor seriesOrder="11" color="#ABF200"/>
+						<seriesColor seriesOrder="12" color="#993300"/>
+						<seriesColor seriesOrder="13" color="#8E4EB2"/>
+						<seriesColor seriesOrder="14" color="#E51BCD"/>
+						<seriesColor seriesOrder="15" color="#5D5D5D"/>
+					</plot>
+					<categoryAxisFormat labelRotation="0.0">
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" verticalTickLabels="true" axisLineColor="#000000">
+							<tickLabelFont>
+								<font fontName="margun" size="8"/>
+							</tickLabelFont>
+						</axisFormat>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000">
+							<labelFont>
+								<font fontName="margun" size="8" isBold="true"/>
+							</labelFont>
+							<tickLabelFont>
+								<font fontName="margun"/>
+							</tickLabelFont>
+						</axisFormat>
+					</valueAxisFormat>
+					<rangeAxisMaxValueExpression><![CDATA[1200]]></rangeAxisMaxValueExpression>
+				</linePlot>
+			</lineChart>
+			<staticText>
+				<reportElement mode="Transparent" x="6" y="690" width="61" height="20" backcolor="#F0EBEB" uuid="dd6343e7-2b9d-4eb9-8ee4-fecad4f81cdf"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[퀜칭 투입]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="67" y="690" width="120" height="20" uuid="6c765e18-ea08-4d21-b485-c955871ecb65"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q_lot}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="187" y="690" width="61" height="20" backcolor="#F0EBEB" uuid="c4c107fc-7798-4a09-8437-a644847216a7"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[템퍼링 투입]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="248" y="690" width="120" height="20" uuid="dde9209a-9a9e-4424-84a1-2c7f453776eb"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{t_lot}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="368" y="690" width="61" height="20" backcolor="#F0EBEB" uuid="30de89d8-73c6-4560-a61b-613ce90e1669"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[작업자 싸인]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="429" y="690" width="120" height="20" uuid="4fe7a40c-b4ff-45a5-8ac0-1700c5fd9a3c"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{s_sign}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

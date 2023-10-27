@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Treatment_Graph4" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="457a8e5b-687b-4747-a69a-ed069cbbd335">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Style1" mode="Transparent" pattern=""/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="tdatetime" class="java.lang.String"/>
+	<field name="q1" class="java.lang.Double"/>
+	<field name="q2" class="java.lang.Double"/>
+	<field name="q3" class="java.lang.Double"/>
+	<field name="q4" class="java.lang.Double"/>
+	<field name="q5" class="java.lang.Double"/>
+	<field name="t1" class="java.lang.Double"/>
+	<field name="t2" class="java.lang.Double"/>
+	<field name="t3" class="java.lang.Double"/>
+	<field name="t4" class="java.lang.Double"/>
+	<field name="fw" class="java.lang.Double"/>
+	<field name="mw" class="java.lang.Double"/>
+	<field name="oil" class="java.lang.Double"/>
+	<field name="cp" class="java.lang.Double"/>
+	<field name="qun" class="java.lang.Double"/>
+	<field name="sign" class="java.lang.Double"/>
+	<field name="tem" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="725" splitType="Stretch">
+			<lineChart>
+				<chart isShowLegend="true" evaluationTime="Report">
+					<reportElement key="" isPrintRepeatedValues="false" mode="Transparent" x="2" y="80" width="550" height="640" backcolor="#F5F5F5" uuid="dd7e28be-93a6-4db5-95bf-2b62960c58d2"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["퀜칭1존"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{q1}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["퀜칭2존"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{q2}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["퀜칭3존"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{q3}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["퀜칭4존"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{q4}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["퀜칭5존"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{q5}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["템퍼링1존"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{t1}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["템퍼링2존"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{t2}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["템퍼링3존"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{t3}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["템퍼링4존"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{t4}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["전세정기"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{fw}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["중간세정기"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{mw}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["유조"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{oil}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["CP"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{cp}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["qun"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[null]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["tem"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[null]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["sign"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tdatetime}]]></categoryExpression>
+						<valueExpression><![CDATA[null]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<linePlot isShowLines="true" isShowShapes="false">
+					<plot orientation="Horizontal" foregroundAlpha="1.0" labelRotation="0.0">
+						<seriesColor seriesOrder="0" color="#FF0000"/>
+						<seriesColor seriesOrder="1" color="#000000"/>
+						<seriesColor seriesOrder="2" color="#0000FF"/>
+						<seriesColor seriesOrder="3" color="#008000"/>
+						<seriesColor seriesOrder="4" color="#993300"/>
+						<seriesColor seriesOrder="5" color="#FF0000"/>
+						<seriesColor seriesOrder="6" color="#000000"/>
+						<seriesColor seriesOrder="7" color="#0000FF"/>
+						<seriesColor seriesOrder="8" color="#008000"/>
+						<seriesColor seriesOrder="9" color="#000000"/>
+						<seriesColor seriesOrder="10" color="#0000FF"/>
+						<seriesColor seriesOrder="11" color="#800080"/>
+						<seriesColor seriesOrder="12" color="#993300"/>
+						<seriesColor seriesOrder="13" color="#8E4EB2"/>
+						<seriesColor seriesOrder="14" color="#E51BCD"/>
+						<seriesColor seriesOrder="15" color="#5D5D5D"/>
+					</plot>
+					<categoryAxisFormat labelRotation="0.0">
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" verticalTickLabels="true" axisLineColor="#000000">
+							<tickLabelFont>
+								<font fontName="margun" size="8"/>
+							</tickLabelFont>
+						</axisFormat>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000">
+							<labelFont>
+								<font fontName="margun" size="8" isBold="true"/>
+							</labelFont>
+							<tickLabelFont>
+								<font fontName="margun"/>
+							</tickLabelFont>
+						</axisFormat>
+					</valueAxisFormat>
+				</linePlot>
+			</lineChart>
+		</band>
+	</title>
+</jasperReport>

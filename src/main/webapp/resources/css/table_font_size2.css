@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+.table_font_size th{
+	font-size:11pt;
+}
+
+.table_font_size td{
+	height:20px;
+	font-size:10.5pt;
+}

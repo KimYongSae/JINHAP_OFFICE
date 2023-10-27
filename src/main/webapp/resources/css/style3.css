@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* reset marginesów oraz dopełnień */
+html, body, ul, li { margin: 0; padding: 0px; line-height: 1.2em;}
+br {line-height:8px; margin:0px;}
+
+/* reset wysokości linii i fontu */
+
+
+/* ustawienia globalne */
+html, body {font-size: 0.625em/1.5em; background:#EAEAEA; }
+a {color:#1c769a; text-decoration:none; font-size:1.1em;}
+a:hover {text-decoration:none;}
+a:active {text-decoration:none;}
+
+/* TYTUŁ */
+
+h3 {
+	font-size:0.8em;
+	text-align:center;
+	color:#8f8f8f;
+	margin-top:3px; padding-top:0px;
+	margin-bottom:18px;
+}
+h3 a { 
+	color:#747474;
+}
+/* CONTENT */ 
+.content {
+	position:relative; 
+	/* width:1875px;   */
+	 /* height:800px; */
+	 
+	background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-color: #CECECE;
+	margin:0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 12px;
+	padding-bottom: 0px;
+}
+
+.content p {
+	margin-bottom: 10px;
+	font-size:14px;
+	line-height: 20px;
+	color: #454545;
+}
+

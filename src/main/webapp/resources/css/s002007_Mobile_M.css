@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+.box8 label{
+	color:#000;
+	font-size:9pt;
+	padding:0;
+	padding-top:10px;
+}
+
+.box8 #writer2{
+	padding:0;
+	width:80px;
+}
+
+.box8 #tday2,#stime2,#etime2{
+	width:60px;
+}
+
+.box8 select{
+	padding:0;
+}
+
+.icol{
+	padding:0;
+}
+
+.box3 label{
+	font-size:10pt;
+	padding:0;
+}
+
+.vh3{
+	padding-right:0px;
+}
+
+.image{
+	margin-top:15px;
+}
+
+.image label{
+	padding-top:5px;
+}
+
+
+.box7{
+	margin-top:10px;
+}

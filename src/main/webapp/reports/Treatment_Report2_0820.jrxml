@@ -1,0 +1,1376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Treatment_Report" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b518412f-c05f-46d6-849f-4990c315632b">
+	<subDataset name="Dataset1" uuid="a7c0e75a-3a79-4243-b50e-a08ff19501fc">
+		<parameter name="alarm_hf" class="java.lang.String"/>
+		<field name="alarm_qf" class="java.lang.String"/>
+		<field name="alarm_tf" class="java.lang.String"/>
+		<field name="alarm_other" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="lotno" class="java.lang.String"/>
+	<parameter name="work_start" class="java.lang.String"/>
+	<parameter name="model_code" class="java.lang.String"/>
+	<parameter name="weight" class="java.lang.String"/>
+	<parameter name="heatno" class="java.lang.String"/>
+	<parameter name="work_end" class="java.lang.String"/>
+	<parameter name="model_name" class="java.lang.String"/>
+	<parameter name="qty" class="java.lang.String"/>
+	<parameter name="hogi" class="java.lang.String"/>
+	<parameter name="duration" class="java.lang.String"/>
+	<parameter name="model_desc" class="java.lang.String"/>
+	<parameter name="kg_hr" class="java.lang.String"/>
+	<parameter name="recipe" class="java.lang.String"/>
+	<parameter name="description2" class="java.lang.String"/>
+	<parameter name="q1" class="java.lang.String"/>
+	<parameter name="q2" class="java.lang.String"/>
+	<parameter name="q3" class="java.lang.String"/>
+	<parameter name="q4" class="java.lang.String"/>
+	<parameter name="q5" class="java.lang.String"/>
+	<parameter name="pre" class="java.lang.String"/>
+	<parameter name="oil" class="java.lang.String"/>
+	<parameter name="post" class="java.lang.String"/>
+	<parameter name="t1" class="java.lang.String"/>
+	<parameter name="t2" class="java.lang.String"/>
+	<parameter name="t3" class="java.lang.String"/>
+	<parameter name="t4" class="java.lang.String"/>
+	<parameter name="cp" class="java.lang.String"/>
+	<parameter name="q_inv" class="java.lang.String"/>
+	<parameter name="t_inv" class="java.lang.String"/>
+	<parameter name="hf1_stime" class="java.lang.String"/>
+	<parameter name="hf2_stime" class="java.lang.String"/>
+	<parameter name="hf3_stime" class="java.lang.String"/>
+	<parameter name="hf4_stime" class="java.lang.String"/>
+	<parameter name="hf5_stime" class="java.lang.String"/>
+	<parameter name="hf1_etime" class="java.lang.String"/>
+	<parameter name="hf2_etime" class="java.lang.String"/>
+	<parameter name="hf3_etime" class="java.lang.String"/>
+	<parameter name="hf4_etime" class="java.lang.String"/>
+	<parameter name="hf5_etime" class="java.lang.String"/>
+	<parameter name="alarm_list" class="java.util.List"/>
+	<parameter name="alarm_list1" class="java.util.List"/>
+	<parameter name="alarm_list2" class="java.util.List"/>
+	<parameter name="alarm_list3" class="java.util.List"/>
+	<parameter name="q_stime" class="java.lang.String"/>
+	<parameter name="q_etime" class="java.lang.String"/>
+	<parameter name="oil_stime" class="java.lang.String"/>
+	<parameter name="oil_etime" class="java.lang.String"/>
+	<parameter name="t_stime" class="java.lang.String"/>
+	<parameter name="t_etime" class="java.lang.String"/>
+	<parameter name="w_stime" class="java.lang.String"/>
+	<parameter name="w_etime" class="java.lang.String"/>
+	<parameter name="a_list" class="java.util.List"/>
+	<parameter name="s_m1" class="java.lang.Double"/>
+	<parameter name="s_m2" class="java.lang.Double"/>
+	<parameter name="s_m3" class="java.lang.Double"/>
+	<parameter name="s_m4" class="java.lang.Double"/>
+	<parameter name="s_m5" class="java.lang.Double"/>
+	<parameter name="s_m6" class="java.lang.Double"/>
+	<parameter name="p_m1" class="java.lang.Double"/>
+	<parameter name="p_m2" class="java.lang.Double"/>
+	<parameter name="p_m3" class="java.lang.Double"/>
+	<parameter name="p_m4" class="java.lang.Double"/>
+	<parameter name="p_m5" class="java.lang.Double"/>
+	<parameter name="p_m6" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="582" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-7" y="429" width="571" height="104" uuid="3c48cff8-4e6a-40d7-a7ab-207d82e73678"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="10" width="481" height="30" uuid="b9ef7fa4-984f-47fd-9df2-414f70aab686"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Treatement Report: QT3-180503-02]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="-1" y="10" width="482" height="30" uuid="f8f0a32b-5a49-4c4f-aef6-b98ebc8ace5a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-8" y="66" width="571" height="120" uuid="6af6e4ea-18f7-4e24-8f11-ce47db2d950d"/>
+			</rectangle>
+			<image hAlign="Center">
+				<reportElement x="480" y="7" width="88" height="53" uuid="0b466709-85b4-4d0b-8c7f-8398e389186b"/>
+				<imageExpression><![CDATA["http://150.200.50.191/sunil/resources/img/sunil_logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="74" width="555" height="20" backcolor="#F0EBEB" uuid="8178c22e-571e-4e15-b4e2-bf6f2e86854b"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="margun" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  LOT 정보]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="94" width="61" height="20" backcolor="#F0EBEB" uuid="5ee3beac-fc52-4ef3-9969-ce449d952448"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[LOT 번호]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="114" width="61" height="20" backcolor="#F0EBEB" uuid="bd84a0d0-d1a2-4c70-b437-8fb4283c05f4"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[작업시작]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="134" width="61" height="20" backcolor="#F0EBEB" uuid="f856b876-5317-4d3a-ba98-6c18f030985b"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[품번]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="154" width="61" height="20" backcolor="#F0EBEB" uuid="2a5ff793-9fb6-4a62-b1dd-cca8144a2e7d"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[중량]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="61" y="94" width="120" height="20" uuid="5e8916e7-d47e-4b17-bd29-a317bf0a2222"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lotno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="186" y="94" width="52" height="20" backcolor="#F0EBEB" uuid="24e5451b-ee5b-4f7e-bb23-5e98bdaca9da"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="9"/>
+				</textElement>
+				<text><![CDATA[열처리 LOT 번호]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="186" y="114" width="52" height="20" backcolor="#F0EBEB" uuid="e7befeb9-83dd-424d-adc9-30e5a43c6849"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[작업완료]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="363" y="94" width="72" height="20" backcolor="#F0EBEB" uuid="2d047868-2f8d-4860-b8ba-366cc2144687"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[설비명]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="363" y="114" width="72" height="20" backcolor="#F0EBEB" uuid="584a8e35-112c-4b3a-a0e6-8e2150727c1a"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[장입 소요시간]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="61" y="114" width="120" height="20" uuid="1c9e0931-9689-4486-b297-f2c6df6beb24"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{work_start}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="61" y="134" width="120" height="20" uuid="edeb0582-dd4b-48d5-bd81-18f813b02a7e"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{model_code}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="61" y="154" width="100" height="20" uuid="a46e5261-baf3-42f9-b417-fc1d2c9cca23"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{weight}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="186" y="134" width="52" height="20" backcolor="#F0EBEB" uuid="cd55eeef-40b8-4c4a-b7ef-4c3a10ea17e7"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[품명]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="186" y="154" width="52" height="20" backcolor="#F0EBEB" uuid="e9ef53e4-bf86-4cce-9894-978bd613f3dc"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[수량]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="238" y="94" width="120" height="20" uuid="40d070b1-c78d-4eb9-8049-5015f79afe00"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{heatno}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="238" y="114" width="120" height="20" uuid="c4c5fbda-7002-4a0b-bda8-ce9e05c863c0"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{work_end}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="238" y="134" width="120" height="20" uuid="d6a33429-771f-4269-afbb-39d4b806f8eb"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{model_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="238" y="154" width="100" height="20" uuid="8d407aaf-3e15-4cf4-a533-b1086bb9f451"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{qty}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="363" y="134" width="72" height="20" backcolor="#F0EBEB" uuid="2d5086c9-2ced-4f0d-b346-289b6c7696f2"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[규격]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="363" y="154" width="72" height="20" backcolor="#F0EBEB" uuid="08747317-4822-40c3-ab6a-b1ffcbc16e0d"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[시간당 장입량]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="435" y="94" width="120" height="20" uuid="8590d1be-31d3-4dde-b80a-7c39a5bf23e3"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{hogi}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="435" y="114" width="120" height="20" uuid="8a86ad16-8645-47ed-8c8a-d18e72f126ed"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{duration}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="435" y="134" width="120" height="20" uuid="1b3bee0f-4b20-4c3a-8ab3-114af06b000d"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{model_desc}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="435" y="154" width="90" height="20" uuid="9024aa18-17de-4d3c-b8b2-779074da358a"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kg_hr}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="-8" y="196" width="571" height="126" uuid="785ca409-cf34-4e49-9c80-b337128b15da"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="201" width="555" height="20" backcolor="#F0EBEB" uuid="ff5c9d02-5e1c-4afe-b17c-8b004ac3d3cc"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="margun" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  LOT 설정값]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="-8" y="333" width="571" height="85" uuid="ca48f874-d4bb-4296-a5d8-676ae5a15af4"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Transparent" x="-1" y="340" width="555" height="20" backcolor="#F0EBEB" uuid="34fd920d-6542-4f83-b311-32710af12f1d"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="margun" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  존 투입/완료시간]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="134" y="360" width="60" height="20" backcolor="#F0EBEB" uuid="0c3e9d10-ae35-4e1e-9d10-3f9817aabec1"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[퀜칭투입]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="134" y="380" width="60" height="20" uuid="6ee73059-1457-439d-ba94-33456e731c1e"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q_stime}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="-1" y="380" width="75" height="20" backcolor="#F0EBEB" uuid="f90b7f7e-4139-46f6-bee4-c1dd37565cc6"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[투입시간]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="10" width="480" height="30" backcolor="#F0EBEB" uuid="b7cf72b0-0f08-46dd-809c-ec95a890b20a"/>
+				<textElement textAlignment="Left">
+					<font fontName="margun" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LOT별 작업조건확인 결과보고서: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="43" y="221" width="200" height="20" backcolor="#F0EBEB" uuid="0abce4bf-d5de-4160-9ab5-9e33a0f2c03d"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="14" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[퀜칭로]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="43" y="241" width="40" height="20" backcolor="#F0EBEB" uuid="f98f54df-f485-4040-a88d-f7fefe5946e8"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1존]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="83" y="241" width="40" height="20" backcolor="#F0EBEB" uuid="2c994e1e-0d57-4bc8-981b-7b569ad9b5a3"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2존]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="163" y="241" width="40" height="20" backcolor="#F0EBEB" uuid="cbafa2c2-45c4-4a3a-a42d-1da550a8e37b"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[4존]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="123" y="241" width="40" height="20" backcolor="#F0EBEB" uuid="6753f123-546e-4f24-afaa-0c6f6f34b384"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[3존]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="203" y="241" width="40" height="20" backcolor="#F0EBEB" uuid="390fe362-189a-4d8a-b910-add70b9f9ff0"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[5존]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="43" y="261" width="40" height="20" backcolor="#F5F5F5" uuid="a1943371-5e1c-4bbf-9ac0-37c07a770bee"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="83" y="261" width="40" height="20" backcolor="#F5F5F5" uuid="0a7dffd8-ae7d-4d87-8d0a-25b54cdfc7f8"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="163" y="261" width="40" height="20" backcolor="#F5F5F5" uuid="9883a695-1f52-4de6-a64b-2b6900f408b2"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="123" y="261" width="40" height="20" backcolor="#F5F5F5" uuid="14711710-d3e1-49d9-a3e2-00bdd027c499"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="203" y="261" width="40" height="20" backcolor="#F5F5F5" uuid="d99446b1-ae6e-4a5a-9870-70484e4ec2a6"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q5}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="221" width="43" height="40" backcolor="#F0EBEB" uuid="3aba397d-baa4-406e-97ef-3d075cbd2ea2"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[전세정기]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="0" y="261" width="43" height="20" backcolor="#F5F5F5" uuid="d02ec4a9-57f5-459b-acd5-37c1771e436e"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="285" y="221" width="42" height="40" backcolor="#F0EBEB" uuid="b382aa7d-87f9-43b6-abd2-c990e9341a5e"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" isBold="true"/>
+				</textElement>
+				<text><![CDATA[유조]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="285" y="261" width="42" height="20" backcolor="#F5F5F5" uuid="42beb58e-1407-4e6d-9159-e1019988d5d2"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{oil}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="327" y="221" width="68" height="40" backcolor="#F0EBEB" uuid="9bfed415-7313-44ba-94d8-aec06df0eced"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" isBold="true"/>
+				</textElement>
+				<text><![CDATA[중간세정기]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="327" y="261" width="68" height="20" backcolor="#F5F5F5" uuid="dbdf3412-0e91-41e4-a7d8-f77166bc30bd"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{post}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="395" y="221" width="160" height="20" backcolor="#F0EBEB" uuid="5c0cb5b4-ce33-475c-b33e-562a8459485a"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="14" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[템퍼링로]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="395" y="241" width="40" height="20" backcolor="#F0EBEB" uuid="c8b9be07-f248-4c57-b3bc-a987cb91fdbe"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1존]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="395" y="261" width="40" height="20" backcolor="#F5F5F5" uuid="b080d935-3d01-4209-9f35-0e5e65d06470"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{t1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="435" y="241" width="40" height="20" backcolor="#F0EBEB" uuid="a32eb065-e203-464e-b0b0-25d21cfe1172"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2존]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="435" y="261" width="40" height="20" backcolor="#F5F5F5" uuid="b0fba1a5-47e3-43da-bcb4-da8797f141cc"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{t2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="475" y="241" width="40" height="20" backcolor="#F0EBEB" uuid="e39e1fd7-4a48-4462-ac84-f479d3dd625b"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[3존]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="475" y="261" width="40" height="20" backcolor="#F5F5F5" uuid="5dd485b0-086a-436c-9ce0-16236ceeb618"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{t3}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="515" y="241" width="40" height="20" backcolor="#F0EBEB" uuid="eeda19e7-1600-4203-8126-c830fcdc4c65"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[4존]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="515" y="261" width="40" height="20" backcolor="#F5F5F5" uuid="67990ae3-2235-45bd-95f8-09c1d875c1ab"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{t4}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="374" y="360" width="60" height="20" backcolor="#F0EBEB" uuid="746b9dcd-62b7-43fa-9f9f-92d2fb5be1d2"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[템퍼링투입]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="194" y="380" width="60" height="20" uuid="7301f149-af00-4a90-811e-f024e92595ea"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q_etime}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="254" y="360" width="60" height="20" backcolor="#F0EBEB" uuid="5ed5f53b-be5c-424e-a847-6d745fc943da"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[유조투입]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="254" y="380" width="60" height="20" uuid="f39f407f-d177-43a5-8c29-4daa7800ed86"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{oil_stime}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="194" y="360" width="60" height="20" backcolor="#F0EBEB" uuid="036f73cd-181c-4915-8938-4afeb44b9d16"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[퀜칭완료]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="374" y="380" width="60" height="20" uuid="23dd743d-23a5-4a8e-a478-092ff9222dcd"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{t_stime}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="264" y="10" width="215" height="30" uuid="31e29f74-56d7-42fa-b198-fbce470590a1"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="arial_unicode_ms" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lotno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="243" y="221" width="42" height="40" backcolor="#F0EBEB" uuid="a80845a7-8c16-4fc3-8c33-be9ceb40a0be"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CP]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="243" y="261" width="42" height="20" backcolor="#F5F5F5" uuid="88378e80-06be-4958-9916-9f8fdd645c3f"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="314" y="360" width="60" height="20" backcolor="#F0EBEB" uuid="1921a33e-cba4-4d14-8502-5ca9deacbb5c"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[유조완료]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="314" y="380" width="60" height="20" uuid="953d035f-d80c-42c3-826e-a7ab89616964"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{oil_etime}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="434" y="380" width="60" height="20" uuid="f27d40cc-d030-44c3-98fd-b2c9e006bdaf"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{t_etime}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="434" y="360" width="60" height="20" backcolor="#F0EBEB" uuid="4dd14062-836e-4abc-b5d3-272428f4672b"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[템퍼링완료]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="124" y="281" width="35" height="20" backcolor="#F5F5F5" uuid="98a0a22a-c36f-4fca-8ab3-97fefd9f4469"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{q_inv}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="281" width="43" height="20" backcolor="#F0EBEB" uuid="1f41b266-01b2-4ae0-81dc-fd386c943d5a"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[인버터]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="454" y="281" width="35" height="20" backcolor="#F5F5F5" uuid="ec68787c-e51a-494b-b54d-4a4dc102944d"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{t_inv}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="-1" y="435" width="555" height="20" backcolor="#F0EBEB" uuid="b2678314-562a-466c-9d87-3d694bbd0d68"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  측정데이터]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="54" y="455" width="100" height="20" backcolor="#F0EBEB" uuid="a4031c4a-5655-4a02-a0dd-8cb7ea73b6cd"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[초물]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="54" y="475" width="50" height="20" uuid="71cf8760-be52-4c4a-857d-de890558a202"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{s_m1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="159" y="455" width="200" height="20" backcolor="#F0EBEB" uuid="790c079d-689e-463e-a42f-d0c11bfe5265"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[자주검사 1회 / 1hr (N=2)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="-1" y="475" width="55" height="20" backcolor="#F0EBEB" uuid="f537dd5f-5dfb-4f50-b999-c051d3aa3d80"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[심부]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="-1" y="495" width="55" height="20" backcolor="#F0EBEB" uuid="b6b5827a-8ec9-4fdc-97a2-1a4aa4d2209c"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[표면]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="104" y="475" width="50" height="20" uuid="d4bd4a29-3a5a-4a4f-8bbd-613d176e582c"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{s_m2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="54" y="495" width="50" height="20" uuid="81660aa6-ea0e-4429-a044-d8b58cd2ac3a"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_m1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="104" y="495" width="50" height="20" uuid="8f64ea49-c1fb-471f-a271-f0887ccef314"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_m2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="159" y="475" width="50" height="20" uuid="8053550f-8ba5-4d06-8658-9fdfc51bcc66"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{s_m3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="159" y="495" width="50" height="20" uuid="2a0677b4-55da-49ba-b97d-83dd8735bd0f"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_m3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="209" y="475" width="50" height="20" uuid="1ccfa7f8-688d-4299-8f24-30464b02fa67"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{s_m4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="209" y="495" width="50" height="20" uuid="9c9c27d1-0747-4c20-94bb-155f53e2b0b3"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_m4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="259" y="475" width="50" height="20" uuid="f859893c-d0d9-42ee-a9af-e14ca8ebccbc"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{s_m5}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="309" y="475" width="50" height="20" uuid="39b798c9-382c-4b38-8b0c-029019f6eafb"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{s_m6}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="259" y="495" width="50" height="20" uuid="ec3aaf2a-3932-43b3-a111-3868aff6144e"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_m5}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="309" y="495" width="50" height="20" uuid="75357c68-7b10-413d-a5a8-25a168ba1c25"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_m6}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="161" y="154" width="20" height="20" backcolor="#F0EBEB" uuid="f71f34cc-25b3-4253-9499-0b4b46cf6089"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[kg]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="338" y="154" width="20" height="20" backcolor="#F0EBEB" uuid="f4f1c1b8-6fd3-4442-8754-8f81e31750f8"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[EA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="525" y="154" width="30" height="20" backcolor="#F0EBEB" uuid="01a11707-add8-4a04-ab7d-df79fc664572"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[kg/hr]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="74" y="360" width="60" height="20" backcolor="#F0EBEB" uuid="46c35d42-c992-4f17-b6a0-95ce66b184d7"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[제품투입]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="74" y="380" width="60" height="20" uuid="179e5b3d-ecad-46ab-855a-af7dba3387ac"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{w_stime}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="494" y="380" width="60" height="20" uuid="047167ab-1a88-42e6-a606-03b831f2c803"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="arial_unicode_ms" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{w_etime}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="494" y="360" width="60" height="20" backcolor="#F0EBEB" uuid="c5ab5da7-d643-4a73-ab45-76e9c1f3b075"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[작업완료]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="-1" y="360" width="75" height="20" backcolor="#F0EBEB" uuid="c848b006-4ccc-4484-9799-46980a08c6c8"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="-1" y="455" width="55" height="20" backcolor="#F0EBEB" uuid="2fbb15b7-d4c8-4005-9071-8400a2db552e"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</title>
+</jasperReport>

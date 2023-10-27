@@ -1,0 +1,1866 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="work_LotManage" pageWidth="1191" pageHeight="842" orientation="Landscape" columnWidth="1171" leftMargin="15" rightMargin="5" topMargin="20" bottomMargin="20" uuid="99cc624f-db81-4c3f-987b-41d72ddbc095">
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="689" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="140" height="40" uuid="ed8bf4db-25d4-42b3-a847-9293fd401014"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="140" height="40" uuid="5553d1b9-690f-4b6c-9255-1323b5da4bc6"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ 작   업    일     자]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="40" width="140" height="60" uuid="afffb184-5276-4ed2-bce4-bdfcd6f59a28"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="40" width="140" height="60" uuid="95afcdfa-4356-416d-b23a-f9128fff48f5"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="12"/>
+				</textElement>
+				<text><![CDATA[20    년   월    일]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="140" y="0" width="250" height="100" uuid="81fb13f5-9922-4700-b475-a7f7f1a59e73"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="140" y="0" width="250" height="20" uuid="3558e1ca-77f7-47db-bc91-93610e17391c"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[POP용 저울 측정결과]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="20" width="32" height="40" uuid="a00bb9cd-ca6a-41d0-be6a-32dabf0d2887"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[구 분]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="60" width="32" height="20" uuid="08155be1-4a85-4ab2-acaf-54de7683322a"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[주 간]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="80" width="32" height="20" uuid="a90ab28e-4c82-49c5-b33c-17a943d5ccb8"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[야 간]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="172" y="20" width="100" height="20" uuid="42aab3af-9d55-4073-8448-5dca8dcb4c85"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[주기 : 1회/주-야]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="272" y="20" width="58" height="20" uuid="cead3672-a833-4301-8296-f067feabbaae"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[오  차]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="20" width="60" height="40" uuid="6f9d3249-1947-4dbf-a27c-15c58df7a622"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[측정시간]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="172" y="40" width="50" height="20" uuid="f6858d73-a896-4ef5-b469-cca60bb52968"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[설비저울]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="40" width="50" height="20" uuid="177e0f3c-f182-4897-9875-2d8056409765"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[표준저울]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="272" y="40" width="58" height="20" uuid="4f7606f2-8ad2-4f16-b4e1-ec977545d584"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[±0.5%이내]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="172" y="60" width="50" height="20" uuid="0d38a84c-5f92-499c-b4d3-9fe7397ee545"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</textField>
+			<textField>
+				<reportElement x="172" y="80" width="50" height="20" uuid="6d88e5fc-b0db-440f-a5a6-f44dfb4faed6"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</textField>
+			<textField>
+				<reportElement x="222" y="80" width="50" height="20" uuid="4741b037-8535-4872-827b-bb67049e3909"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</textField>
+			<textField>
+				<reportElement x="222" y="60" width="50" height="20" uuid="d633dce9-fccd-4b74-9dea-dca6b63000c5"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</textField>
+			<textField>
+				<reportElement x="272" y="60" width="58" height="20" uuid="42e1a86e-18bd-48ec-ab31-335dc1b130f1"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</textField>
+			<textField>
+				<reportElement x="272" y="80" width="58" height="20" uuid="cee7a494-62ae-4611-a312-8f52afe86003"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</textField>
+			<textField>
+				<reportElement x="330" y="60" width="60" height="20" uuid="92a93d70-eb0b-4109-80e8-2e3cb9e61381"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</textField>
+			<textField>
+				<reportElement x="330" y="80" width="60" height="20" uuid="81e8c146-05dc-42b8-8e74-8fcfe74d71eb"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="100" width="50" height="100" uuid="41340cb8-4198-4883-a685-9aa5f25adec6"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="100" width="50" height="40" uuid="e1549d22-694d-45d2-bdee-5ccfc570c61c"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[열처리]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="140" width="50" height="20" uuid="9d7ec424-dfe2-4be9-a9e3-b408ecc720e9"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[LOT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="160" width="50" height="40" uuid="74ed10c4-b394-425b-8794-1632177e7f1e"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[-NO.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="50" y="100" width="35" height="100" uuid="1ab05c80-e83f-4e5a-9f25-046df982eaaa"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="50" y="100" width="35" height="40" uuid="9db18806-b5a9-45a8-b9e3-d28e131a5aa5"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[고]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="140" width="35" height="20" uuid="55f8062e-ff82-403a-8a6c-ec66c1a99693"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[객]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="160" width="35" height="40" uuid="dfe99e55-89e4-40ab-a4e0-33415f79b0cc"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[명]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="85" y="100" width="42" height="100" uuid="b59643b9-4053-42b9-a100-61714bccc334"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="85" y="100" width="42" height="40" uuid="732bdc8c-faaf-48c4-9026-5fe96d526c64"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[작.지]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="85" y="140" width="42" height="20" uuid="9ad0ea6a-758c-4c43-b47c-b30d33c4ef5a"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="85" y="160" width="42" height="40" uuid="ffef85b7-4437-4cbb-bace-fe58854d3a17"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[-NO.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="126" y="100" width="46" height="100" uuid="1ea0ae6e-51e6-41d0-8fdc-1a89d4996296"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="126" y="100" width="46" height="40" uuid="2d1d5dbc-d58f-46bf-89b6-48705f3f3e66"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[품 명]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="126" y="140" width="46" height="20" uuid="580c0574-616a-4cd0-a653-c2ae5125d965"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="126" y="160" width="46" height="40" uuid="f5f4c939-9838-43b7-89ad-faa33045c9d0"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[규 격]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="172" y="100" width="46" height="100" uuid="575451c4-e4f7-48f9-bb51-db80c5325dd7"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="172" y="100" width="46" height="100" uuid="5f7b6057-5cc3-4eba-af3e-e6c73ef34352"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[품 번]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="218" y="100" width="44" height="100" uuid="58eefcf9-0139-4a5d-bcb9-2b68f63a0a43"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="218" y="100" width="44" height="40" uuid="12c17cb7-c5a9-451e-ab0f-377d15841a0f"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[원재료]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="218" y="140" width="44" height="20" uuid="8463d1d4-dd49-4afe-a22d-a67cf383cb04"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="218" y="160" width="44" height="40" uuid="e1f7d9cd-9d4c-4e58-85fa-a6530ea1d9d6"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[LOT-NO.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="262" y="100" width="38" height="100" uuid="88d192bd-3cbe-48d3-9514-683ecfb0a0c9"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="262" y="100" width="38" height="40" uuid="e0d7419d-2a2b-440a-8e0e-0ad600e69686"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[중]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="262" y="140" width="38" height="20" uuid="2245c23c-083c-46f4-939f-101b99093352"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="262" y="160" width="38" height="40" uuid="57d8551f-14f2-4044-a8c6-b84f58ea9933"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[량]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="300" y="100" width="30" height="100" uuid="269e7566-1bc2-4225-9602-d0915e550f85"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="300" y="100" width="30" height="40" uuid="8780e640-b5b2-4f19-be25-52d3a3f58135"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[투 입]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="140" width="30" height="20" uuid="b759c982-4ca1-47e5-8f0c-2b785bab038a"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="160" width="30" height="40" uuid="3059bbf1-aaf3-48c4-bf78-95c5667d6905"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[철통수]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="330" y="100" width="30" height="100" uuid="06b899f0-cfc5-49de-aba0-5b895ec2f4d1"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="330" y="100" width="30" height="40" uuid="af3c773c-628b-4f2d-b73a-7f4a0759ac4b"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[투 입]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="140" width="30" height="20" uuid="178a225d-3594-4fb6-a81a-06be3feddb55"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="160" width="30" height="40" uuid="cbc276a3-c6f7-49fb-8b89-955b683c44be"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[시간]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="360" y="100" width="30" height="100" uuid="875d3d75-8541-4b87-b2ac-3ad777d0aa65"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="360" y="100" width="30" height="40" uuid="9d8a5277-6ee4-4211-8b3e-30c0523247c8"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[항 목]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="140" width="30" height="30" uuid="1c94e74c-4448-43db-9fb0-c3548d5ca3b5"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[기 준]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="170" width="30" height="15" uuid="35bc0a0b-a583-490e-b0ae-69a50aff4f18"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[확 인]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="185" width="30" height="15" uuid="5ea73d4e-1e2e-41d4-838f-de7c8e30057f"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[방 법]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="460" height="100" uuid="35ada0d0-8d40-4c64-b685-76547a7b1136"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="margun" size="22" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[열처리 8호 작업조건 확인 및 LOT관리대장]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="870" y="1" width="220" height="99" uuid="9bad2c81-d034-4470-90b7-75b63c090176"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="870" y="0" width="21" height="31" uuid="3fd9dc9c-69ca-420a-8b2a-1de69729d359"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None"/>
+				<text><![CDATA[결]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="870" y="71" width="21" height="29" uuid="73fe822f-a218-4944-a732-2e0aafe3380c"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[재]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="870" y="31" width="21" height="40" uuid="2f2137f5-67c0-4b29-a7f0-0cf836d4a475"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="891" y="0" width="49" height="21" uuid="2ca9ef82-3a12-4111-823c-aaa6d4d2779a"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[작    성]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="891" y="21" width="49" height="60" uuid="8879edaf-2144-455d-a13b-92192c4222e9"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="891" y="81" width="49" height="19" uuid="4bf96dc2-6998-46e0-b8d7-5fbb563c8c5b"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="940" y="0" width="100" height="21" uuid="c6f66f8e-117f-4b7e-8ece-972a9fb2bfa4"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[검    토]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1040" y="0" width="50" height="21" uuid="6b2e0004-8239-4c3b-acdd-6e9847403da2"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[작    성]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="940" y="21" width="50" height="60" uuid="3d0ca19f-4519-439f-80c3-b4a6af0b6be3"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1040" y="21" width="50" height="60" uuid="1e6a5ecc-a1a6-4880-96e9-7f5ae46a685d"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="940" y="81" width="50" height="19" uuid="baa0b1a5-bc46-4c4c-b23c-ccc127c3f4b9"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="990" y="21" width="50" height="60" uuid="35e398c2-f168-476c-9a66-3ea7bc0c41c1"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="990" y="81" width="50" height="19" uuid="5825f0e5-6700-4df9-a595-6c78d5b65446"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1040" y="81" width="50" height="19" uuid="de4fa743-063a-40e2-93cf-5063f47d5991"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="1100" y="1" width="71" height="99" uuid="6b381d7e-f0d5-4587-8ac7-58aa78cf9190"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="1100" y="1" width="21" height="40" uuid="ca082bc9-1cd6-4c7a-84e8-8b76e16cff68"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[품]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1100" y="41" width="21" height="20" uuid="7d1e43bc-d855-496b-9a25-d14f7c2e4ed4"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[질]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1100" y="61" width="21" height="20" uuid="4b8443d0-54e9-4900-ad74-111f471c6b9e"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[본]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1100" y="82" width="21" height="18" uuid="156c8259-de44-4632-8f79-986e72cc94b0"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[부]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1120" y="1" width="51" height="21" uuid="177ee41e-5f82-4fb6-9777-3e98c5415948"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[본부장]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1120" y="22" width="51" height="60" uuid="fd78a9e3-c16d-4cbd-99e1-f464fc28d2d2"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1120" y="82" width="51" height="18" uuid="029ccb0c-2a0b-4865-9272-e22e796453cf"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="389" y="100" width="70" height="101" uuid="c9045a60-c1f6-4914-83ac-7313f03fc59d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="390" y="100" width="35" height="20" uuid="aa634f35-da7c-4a81-b72e-06bb355aac42"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[공급기]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="140" width="35" height="30" uuid="83a062ca-516f-4e4f-bf81-b200db36d02c"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[기준표]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="170" width="35" height="30" uuid="b33bb8e7-e2ba-45d5-8f4b-af3ae75ff07b"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[타이머]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="120" width="35" height="20" uuid="bea72c39-da08-4db2-8d32-8816f4f6122d"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[속  도]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="100" width="35" height="20" uuid="57729923-6b9f-45c0-b138-d17e8b37829d"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[이종품]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="120" width="35" height="20" uuid="958ad7a1-76cd-44f7-894e-cf141d3b17f8"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[확  인]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="140" width="35" height="15" uuid="daf252bf-2abf-46d5-b543-2cc3dea0b21f"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[잔류품]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="155" width="35" height="15" uuid="39193ed8-4e97-420c-9984-b1e8758215a7"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[없을것]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="170" width="35" height="15" uuid="980c5510-4f23-4cd1-9a28-249e491b170c"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[확인자]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="185" width="35" height="15" uuid="5dd3499a-c3e5-4207-99cb-d8f6176af199"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="8"/>
+				</textElement>
+				<text><![CDATA[잔류수량]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="460" y="100" width="105" height="101" uuid="fb03e27e-154b-4006-b38b-f61fec19c6c8"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="460" y="100" width="35" height="20" uuid="d6faf19b-1e4c-4bab-883d-c7adc216a1c5"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[퀜칭로]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="120" width="35" height="20" uuid="aba07df8-f063-446f-baef-a61d2ce5786a"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[온   도]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="140" width="35" height="15" uuid="ef6d7d22-e0fd-473d-b8df-4604c88e5057"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[작업표]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="170" width="35" height="15" uuid="7124de92-f911-403b-9c2a-60af52ce75fc"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[온   도]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="155" width="35" height="15" uuid="2fb71485-af73-4b63-bebc-ed51a8dbb1c5"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[준참조]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="186" width="35" height="14" uuid="d4c431de-ddab-4dc1-8932-6ccf980496b4"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[조절계]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="495" y="100" width="35" height="20" uuid="eaef053a-b303-4dad-b67d-d12f3c4a9348"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[퀜칭로]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="495" y="120" width="35" height="20" uuid="dc38ab06-36ba-4be9-946f-5917c0d8500e"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[오   일]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="495" y="140" width="35" height="15" uuid="9a31de08-7547-43b6-b6bb-1ee3d3050369"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[작업표]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="495" y="155" width="35" height="15" uuid="fbc826db-666a-4773-9dce-f9835846a544"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[준참조]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="495" y="170" width="35" height="15" uuid="3e5328ca-0401-4f97-8444-8605f2514074"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[온   도]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="495" y="186" width="35" height="14" uuid="66d0c9e6-3b13-46ac-a6a4-85023b625025"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[조절계]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="530" y="100" width="35" height="20" uuid="586ff790-8d3c-4e76-ad18-ae0aff642e5c"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[퀜칭로]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="530" y="120" width="35" height="20" uuid="40671301-ddd7-4658-971f-8ad01baeb7e9"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[속   도]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="530" y="140" width="35" height="30" uuid="35555fbf-1321-42a9-89ae-cae42bb97159"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[기준표]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="530" y="170" width="35" height="30" uuid="130b064c-845b-4e54-8ce5-6392c94ef922"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[인버터]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="566" y="100" width="75" height="101" uuid="63f85291-271e-49aa-b17d-931f56dd8bd6"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="566" y="100" width="35" height="20" uuid="8a6af730-b0c5-49bb-8b8e-b98f60bc0ac6"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[퀜칭로]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="566" y="120" width="35" height="20" uuid="849f2b95-71c2-46e0-9c65-2a2d27ec4423"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="9"/>
+				</textElement>
+				<text><![CDATA[RX유량]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="566" y="140" width="35" height="15" uuid="c0dc38b8-bf1d-40be-922a-fa3fce3863db"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="9"/>
+				</textElement>
+				<text><![CDATA[50m3/H]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="566" y="155" width="35" height="15" uuid="12a1b887-6709-4819-929b-a85a9377dd03"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[이상]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="566" y="170" width="35" height="15" uuid="cac9f1b1-03cb-47de-a777-18ecb2955630"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[퀜칭로]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="566" y="186" width="35" height="14" uuid="dc2bd805-e066-4570-8f30-d11d4cae2600"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[유량계]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="601" y="100" width="40" height="20" uuid="4ac0b086-53cb-4eca-aaf5-62a3d5c7a295"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[퀜  칭]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="601" y="120" width="40" height="20" uuid="ce350fd0-497c-425a-a612-8a5e3734cf40"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[경  도]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="601" y="140" width="40" height="15" uuid="e7328798-8c79-4a33-851e-b56f0ff94ff0"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="9"/>
+				</textElement>
+				<text><![CDATA[심부:2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="601" y="155" width="40" height="15" uuid="99dbaa3d-ec73-4596-97e6-453b8db98d82"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[표면:2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="601" y="170" width="40" height="15" uuid="00bcd814-7731-4d04-8f5f-9ed7df60d969"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[비커스]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="601" y="185" width="40" height="15" uuid="d736407a-25e0-4509-87b5-53a1b59ef4a2"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[비커스]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="640" y="100" width="100" height="101" uuid="bda7bb09-e00a-4d3e-ab40-6d9c46f887fe"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="640" y="100" width="60" height="20" uuid="77755901-8517-4f71-9343-0f702d3aa620"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[퀜  칭]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="640" y="140" width="60" height="30" uuid="3640f59a-5614-45cb-a6a0-71979cf4c477"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="9"/>
+				</textElement>
+				<text><![CDATA[작업표준참조]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="640" y="170" width="30" height="11" uuid="4e41fe0c-98ec-4207-9f20-4cdfe26c29c1"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="8"/>
+				</textElement>
+				<text><![CDATA[O2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="640" y="120" width="60" height="20" uuid="46b4f288-1543-4cb3-81a5-908bc461a624"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[C  P]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="670" y="170" width="30" height="13" uuid="bc590fb8-c2c3-4870-88f7-1ef429f646ba"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="8"/>
+				</textElement>
+				<text><![CDATA[O2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="640" y="179" width="30" height="11" uuid="1e0d7366-558a-42e4-9e0e-f6b4bc4fce68"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="8"/>
+				</textElement>
+				<text><![CDATA[분석계]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="640" y="189" width="30" height="11" uuid="3fc9022e-2fdb-44f8-88c1-66614a3e3886"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="8"/>
+				</textElement>
+				<text><![CDATA[(기준값)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="670" y="179" width="30" height="11" uuid="fd8d78a9-9d7b-42ef-b974-48be9f45956d"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="8"/>
+				</textElement>
+				<text><![CDATA[분석계]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="670" y="189" width="30" height="11" uuid="3270019d-7ebb-4d67-8cb3-b4ed013e58fd"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="8"/>
+				</textElement>
+				<text><![CDATA[(기준값)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="100" width="40" height="20" uuid="1a8e597d-efcc-4faf-8e8c-13161a28275a"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[변성로]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="120" width="40" height="20" uuid="f33d26b1-9ec7-4cf9-961c-6f1ced5a020e"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[CO2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="140" width="40" height="15" uuid="c1495c89-4987-4b44-bce1-2945e860752d"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[0.30~]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="155" width="40" height="15" uuid="6f04c727-f352-45b9-b0ba-132b1a79d8e2"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[0.40]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="170" width="40" height="15" uuid="46379b35-72dc-43a3-b654-201fb2038761"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[CO2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="186" width="40" height="14" uuid="1cc3ffe2-d83d-4805-8fd6-75f4af79e3f6"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[분석기]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="740" y="100" width="105" height="101" uuid="b1a23b30-382d-4103-a397-10b9853f02d8"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="810" y="185" width="35" height="15" uuid="b19b7b5e-7a00-444b-9e6b-58bee77ed0b9"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[조절계]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="810" y="170" width="35" height="15" uuid="8057ab37-adbf-4c78-aff5-a258b6f7a724"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[온도]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="810" y="140" width="35" height="30" uuid="a3efea04-fd74-4a8d-91c5-c251e63727d4"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[기준표]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="810" y="120" width="35" height="20" uuid="95a60cf7-968f-4e67-9a3d-77ef0f8a83f9"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[온  도]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="810" y="100" width="35" height="20" uuid="963f723a-c3fa-43bb-a9f7-5b34f63ae81a"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[템퍼링]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="775" y="100" width="35" height="20" uuid="5c39f099-1945-426a-95c3-c18f96206010"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[템퍼링]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="775" y="120" width="35" height="20" uuid="55fc7203-5f61-4947-a0fb-12739a212088"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[속  도]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="775" y="140" width="35" height="30" uuid="43b708b1-0a9a-4625-9d1a-94e87dad5417"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[기준표]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="775" y="170" width="35" height="30" uuid="cf1a38e3-7178-4a74-ae7c-682b46994ad2"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[인버터]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="740" y="120" width="35" height="20" uuid="a29c0bec-5bcd-456f-98da-7176559d91dc"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun" size="10"/>
+				</textElement>
+				<text><![CDATA[확  인]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="740" y="170" width="35" height="15" uuid="632999f7-9428-4a2e-9a65-ba166e96e256"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[온도]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="740" y="185" width="35" height="15" uuid="a29b8477-aece-4aea-adbe-f2c95d5bea33"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[조절계]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="740" y="140" width="35" height="15" uuid="b3fc16b5-a0c2-4902-ad95-6a2a45aca1a3"/>
+				<box>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[잔류품]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="740" y="100" width="35" height="20" uuid="8fe1e711-0c5a-4f0e-8b36-3931f5a68318"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[이종품]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="740" y="155" width="35" height="15" uuid="a94a492b-4a0f-498e-a9cb-434f105d951b"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[없을것]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="846" y="100" width="30" height="55" uuid="6ecf767e-c28c-4efe-88a8-90853ca179a2"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[완료]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="846" y="155" width="30" height="46" uuid="a186f317-b88a-467e-9bf1-d5475c7dbb42"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[시간]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="876" y="100" width="30" height="55" uuid="a1f97258-4ef1-43f2-998f-20c88e4d65ba"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[경도]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="876" y="155" width="30" height="46" uuid="02a1e991-5c1a-4b9d-96c1-631636dde205"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="margun"/>
+				</textElement>
+				<text><![CDATA[규격]]></text>
+			</staticText>
+		</band>
+	</title>
+</jasperReport>
