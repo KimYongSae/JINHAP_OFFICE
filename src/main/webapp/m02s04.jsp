@@ -1912,8 +1912,8 @@ $("#searchbtn").on("click",function(){
 						var rsAr = rsJson.rows;
 //						console.log(rsAr[0].filename);
 										
-						//var file = "/JINHAP_OFFICE/upload/"+encodeURIComponent(rsAr[0].filename);
-						var file = "D:/file/m02s04/"+encodeURIComponent(rsAr[0].filename);
+						// var file = "/JINHAP_OFFICE/upload/"+encodeURIComponent(rsAr[0].filename);
+						var file = "/JINHAP_OFFICE/file/m02s04/"+encodeURIComponent(rsAr[0].filename);
 						$("#image_view").attr("src",(decodeURIComponent(file)));
 						$("#image_view").show();
 						
@@ -1956,8 +1956,8 @@ $("#searchbtn").on("click",function(){
 //						console.log(rsAr[0].filename);
 						
 						console.log(rsAr[0]);
-						//var file = "/JINHAP_OFFICE/upload/"+encodeURIComponent(rsAr[0].filename);
-						var file = "D:/file/m02s04/"+encodeURIComponent(rsAr[0].filename);
+						// var file = "/JINHAP_OFFICE/upload/"+encodeURIComponent(rsAr[0].filename);
+						var file = "/JINHAP_OFFICE/file/m02s04/"+encodeURIComponent(rsAr[0].filename);
 						$("#image_view").attr("src",(decodeURIComponent(file)));
 						$("#image_view").show();
 						

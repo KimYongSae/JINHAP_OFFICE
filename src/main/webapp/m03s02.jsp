@@ -1261,7 +1261,7 @@ function fileOpen(c_val, gb){
 //				console.log(rsAr[0].filename);
 								
 				//var file = "/JINHAP_OFFICE/upload/"+encodeURIComponent(rsAr[0].filename);
-				var file = "D:/file/m03s02/"+encodeURIComponent(rsAr[0].filename);
+				var file = "/JINHAP_OFFICE/file/m03s02/"+encodeURIComponent(rsAr[0].filename);
 				$("#image_view").attr("src",(decodeURIComponent(file)));
 				$("#image_view").show();
 				

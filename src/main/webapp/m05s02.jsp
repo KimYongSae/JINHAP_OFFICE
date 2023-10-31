@@ -651,7 +651,8 @@ function viewFile(c_val){
 //				console.log(rsAr[0].filename);
 								
 				//var file = "/JINHAP_OFFICE/upload/"+(decodeURIComponent(rsAr[0].filename));
-				var file = "D:/file/m05s02/"+(decodeURIComponent(rsAr[0].filename));
+				//var file = "D:/file/m05s02/"+(decodeURIComponent(rsAr[0].filename));
+				var file = "/JINHAP_OFFICE/file/m05s02/"+(decodeURIComponent(rsAr[0].filename));
 				
 				console.log((decodeURIComponent(file)));
 				
@@ -696,7 +697,8 @@ function downFile(c_val){
 //				console.log(rsAr[0].filename);
 								
 				//var file = "/JINHAP_OFFICE/upload/"+(decodeURIComponent(rsAr[0].filename));
-				var file = "D:/file/m05s02/"+(decodeURIComponent(rsAr[0].filename));
+				//var file = "D:/file/m05s02/"+(decodeURIComponent(rsAr[0].filename));
+				var file = "/JINHAP_OFFICE/file/m05s02/"+(decodeURIComponent(rsAr[0].filename));
 //				console.log((decodeURIComponent(file)));
 				
 				

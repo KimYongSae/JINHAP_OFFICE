@@ -911,8 +911,8 @@ function init(){
 					var rsAr = rsJson.rows;		
 					
 					
-					//var _iframe = "<iframe src='/JINHAP_OFFICE/upload/"+rsAr[0].filename+"' style='width:100%; height:780px;'></iframe>";
-					var _iframe = "<iframe src='D:/file/m02s02/"+rsAr[0].filename+"' style='width:100%; height:780px;'></iframe>";
+					// var _iframe = "<iframe src='/JINHAP_OFFICE/upload/"+rsAr[0].filename+"' style='width:100%; height:780px;'></iframe>";
+					var _iframe = "<iframe src='/JINHAP_OFFICE/file/m02s02/"+rsAr[0].filename+"' style='width:100%; height:780px;'></iframe>";
 					
 					
 					$("#carousel-form").empty().append(_iframe);					

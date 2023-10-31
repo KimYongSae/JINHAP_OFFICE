@@ -1790,7 +1790,7 @@ function fileOpen(c_val, gb){
 //				console.log(rsAr[0].filename);
 								
 				//var file = "/JINHAP_OFFICE/upload/"+encodeURIComponent(rsAr[0].filename);
-				var file = "D:/file/m03s03/"+encodeURIComponent(rsAr[0].filename);
+				var file = "/JINHAP_OFFICE/file/m03s03/"+encodeURIComponent(rsAr[0].filename);
 				$("#image_view").attr("src",(decodeURIComponent(file)));
 				$("#image_view").show();
 				
@@ -1832,7 +1832,7 @@ function fileOpen_bungi(c_val, gb){
 //				console.log(rsAr[0].filename);
 								
 				//var file = "/JINHAP_OFFICE/upload/"+encodeURIComponent(rsAr[0].filename);
-				var file = "D:/file/m03s03/"+encodeURIComponent(rsAr[0].filename);
+				var file = "/JINHAP_OFFICE/file/m03s03/"+encodeURIComponent(rsAr[0].filename);
 				$("#image_view").attr("src",(decodeURIComponent(file)));
 				$("#image_view").show();
 //				$("#image_view").attr("name","열전대비교측정결과표(SAT)");
