@@ -237,7 +237,7 @@ var fn_logout = function () {
 	</div>
 	<div id="contents">
         
-<div class="content" style="height:810px;"> 
+<div class="content" style="height:1000px;"> 
 	  <div style="position:relative;left:-275px;top:-185px;">
 	  
 	  
@@ -268,7 +268,7 @@ var fn_logout = function () {
 						<div class="form-group">
 							<select class="form-control input-sm" 
 							id="s_hogi" name="s_hogi" 
-							style="margin-top:5px; height: 30px; width: 140px; font-size: 14pt;
+							style="margin-top:5px; height: 30px; width: 180px; font-size: 14pt;
 									padding-top : 1px; padding-bottom : 1px; font-family:headline;
 									font-weight:700;">	
 								<option value="1">Q01-HN01</option>
@@ -283,102 +283,14 @@ var fn_logout = function () {
             </header> 
             
              
-            <div id="collapse4" class="body" style="height:730px;">
-            	<div class="row">
-              <table id="temp"
-               class="table table-bordered table-hover table-responsive"
-               style= "font-size: 25px; width: 1000px; margin: auto; height: 700px;">
-					
-						<tr>
-							<th rowspan = "2" style="background-color: white;">1호기(시간당 1000kg)<br>설비효율</th>
-							<th>전 LOT품명</th>
-							<td colspan = "2" id = "v_1"></td>
-						</tr>
-						<tr>
-							<th>현 LOT품명</th>
-							<td colspan = "2" id = "v_2"></td>
-						</tr>
-						<tr>
-							<th rowspan = "2">기준시간</th>
-							<th rowspan = "2">주간<br>08:00 ~ 20:00</th>
-							<th>목표 생산량</th>
-							<td>12,000Kg</td>
-						</tr>
-						<tr>
-							<th>현 생산량</th>
-							<td id = "v_3"></td>
-						</tr>
-						<tr>
-							<th>시간당 생산량</th>
-							<td id = "v_4"></td>
-							<th>진도율 (%)</th>
-							<td id = "v_5"></td>
-						</tr>
-						<tr>
-							<th>비가동 시간(로트간격제외)</th>
-							<td id = "v_6"></td>
-							<th>로트수</th>
-							<td id = "v_7"></td>
-						</tr>
-						<tr>
-							<th>capa 장입량 준수율 (%)</th>
-							<td id = "v_8"></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<th rowspan = "2">기준시간</th>
-							<th rowspan = "2">야간<br>20:00 ~ 08:00</th>
-							<th>목표 생산량</th>
-							<td>12,000Kg</td>
-						</tr>
-						<tr>
-							<th>현 생산량</th>
-							<td id = "v_9"></td>
-						</tr>
-						<tr>
-							<th>시간당 생산량</th>
-							<td id = "v_10"></td>
-							<th>진도율 (%)</th>
-							<td id = "v_11"></td>
-						</tr>
-						<tr>
-							<th>비가동 시간(로트간격제외)</th>
-							<td id = "v_12"></td>
-							<th>로트수</th>
-							<td id = "v_13"></td>
-						</tr>
-						<tr>
-							<th>capa 장입량 준수율 (%)</th>
-							<td id = "v_14"></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr class = "sum">
-							<th colspan = "2">합계</th>
-							<th>현 생산량</th>
-							<td id = "v_15"></td>
-						</tr>
-						<tr class = "sum">
-							<th>시간당 생산량</th>
-							<td id = "v_16"></td>
-							<th>진도율 (%)</th>
-							<td id = "v_17"></td>
-						</tr>
-						<tr class = "sum">
-							<th>비가동 시간(로트간격제외)</th>
-							<td id = "v_18"></td>
-							<th>로트수</th>
-							<td id = "v_19"></td>
-						</tr>
-						<tr class = "sum">
-							<th>capa 장입량 준수율 (%)</th>
-							<td id = "v_20"></td>
-							<td></td>
-							<td></td>
-						</tr>
-				</table>
-			</div>
+            <div id="collapse4" class="body" style="padding-top:0; padding-bottom:0;
+	            background-color:white;">
+			       	<iframe id="hogi" class="row" frameborder="0"
+	            	scrolling="no" ALLOWTRANSPARENCY="true"
+	            		style="width:1800px; height:950px;">
+	            	</iframe>           		            		            		            		            	
+	            
+	            </div>
             	
             </div>
             
@@ -407,6 +319,97 @@ var fn_logout = function () {
 			
 		</div>
 </div>
+
+<script>
+$(function(){
+	  fn_check();
+	  getHogi1();
+	 
+});
+
+	
+/*함수*/	
+			var fn_check = function() {
+				
+				
+				$.ajax({
+					 method: "POST",
+					 url: "set_chk.jsp",
+					 contentType: "application/json; charset=utf-8",
+					 data: {'time':new Date().getTime()},
+					 
+					 success : function(data) {
+						
+						var rsJson = JSON.parse(data);
+						var rsAr = rsJson.data;
+							
+						if ($.isArray(rsAr)){
+
+							if (rsAr[0].sec == "")
+							{
+								alert("로그인 정보가 없습니다.");
+							    location.href="index.jsp";
+							}
+							
+							$("#user_span").html("<font color='#428bca'><strong><a href = 'javascript:popupOpen();'>" + rsAr[0].sec + "</a></strong></font> 님이 로그인중입니다. ");
+
+							if (rsAr[0].lev == "관리자")
+							{
+								//alert("확인");
+								$("#pwd").attr("disabled",false).attr("readonly",false);
+							}
+						}
+						
+					 }
+				}).done(function( msg ) {
+				
+			  });
+
+			};	
+	function getHogi1(){
+		$("#hogi").attr("src","m01s02_ht1_monitor.jsp");
+	}
+	function getHogi2(){
+		$("#hogi").attr("src","m01s02_ht2_monitor.jsp");
+	}
+	function getHogi3(){
+		$("#hogi").attr("src","m01s02_ht3_monitor.jsp");
+	}
+	function getHogi4(){
+		$("#hogi").attr("src","m01s02_ht4_monitor.jsp");
+	}
+	function getHogi5(){
+		$("#hogi").attr("src","m01s02_ht5_monitor.jsp");
+	}
+	function getHogi6(){
+		$("#hogi").attr("src","m01s02_ht6_monitor.jsp");
+	}	
+
+	
+	$("#s_hogi").change(function(){
+		 var h = $("#s_hogi").val();
+		 console.log(h);
+		 switch(h){
+		 case "1":
+			 getHogi1();
+			 break;
+		 case "2":
+			 getHogi2();
+			 break;
+		 case "3":
+			 getHogi3();
+			 break;
+		 case "4":
+			 getHogi4();
+			 break;
+		 case "5":
+			 getHogi5();
+			 break;
+		 case "6":
+			 getHogi6();
+			 break;
+		 }})
+</script>
 
 	<!-- <script>
 

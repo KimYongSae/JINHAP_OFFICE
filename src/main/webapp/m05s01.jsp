@@ -150,6 +150,15 @@
 		font-style:normal;
 		font-weight:normal;
 	}	
+	table th{
+		background-color: #122d64 !important;
+		color:#FFFFFF;
+		border-color: #FFFFFF !important;
+		text-align: center;
+		font-size: 16pt;
+		font-family: headline;
+		font-weight: 700;
+	}
 	
 </style>
 

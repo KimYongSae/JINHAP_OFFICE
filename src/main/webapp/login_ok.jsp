@@ -29,6 +29,7 @@
   	
   	sql.append("select u_id, u_pw, u_name, u_level, u_group from tb_user where u_id = '"+u_id+"' AND yn='Y' ");
 	System.out.println("sql=" + sql.toString());
+	stmt = conn.createStatement();
 	rs = stmt.executeQuery(sql.toString());
 	
 	//System.out.println(p1v.toString());
@@ -114,6 +115,7 @@
 
  }catch(Exception e){
 	 out.println("연결 오류!!");
+	 e.printStackTrace();
 }finally{
 	if(rs != null){
 		rs.close();	

@@ -79,7 +79,7 @@
 
 .scrolltbody tbody {
     display: block;
-    height: 255px;
+    height: 285px;
 
     overflow-x: hidden;
 }
@@ -145,6 +145,42 @@
 		font-style:normal;
 		font-weight:normal;
 	}	
+	#qun_list th {
+	background-color: #122d64 !important;
+	color:#FFFFFF;
+	border-color: #FFFFFF !important;
+	text-align: center;
+	font-size: 16pt;
+	font-family: headline;
+	font-weight: 700;
+	}
+	#qun_list2 th {
+	background-color: #122d64 !important;
+	color:#FFFFFF;
+	border-color: #FFFFFF !important;
+	text-align: center;
+	font-size: 16pt;
+	font-family: headline;
+	font-weight: 700;
+	}
+	#tem_list th {
+	background-color: #122d64 !important;
+	color:#FFFFFF;
+	border-color: #FFFFFF !important;
+	text-align: center;
+	font-size: 16pt;
+	font-family: headline;
+	font-weight: 700;
+	}
+	#tem_list2 th {
+	background-color: #122d64 !important;
+	color:#FFFFFF;
+	border-color: #FFFFFF !important;
+	text-align: center;
+	font-size: 16pt;
+	font-family: headline;
+	font-weight: 700;
+	}
 	
 </style>
 
@@ -413,7 +449,7 @@ var fn_logout = function () {
         <div class="box">
             <header>
                 <div style="padding:11px 14px;" class="icons"><i style="color:white;" class="fa fa-line-chart"></i></div>
-                <h5 style="font-size:14pt; font-family: headline;">조건관리 - 온도 조절계 보정 현황</h5>
+                <h5 style="font-size:14pt; font-family: headline;">조건관리 - 각종 조절계 보정 현황</h5>
             </header>
             <header style="background:white; height:43px;">
                 <form class="form-inline" role="form" name="searchform" method="post" autocomplete="off">
@@ -566,93 +602,93 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								보정일
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q1_b_date');"
 							id="q1_b_date">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q1_a_tdate');"
 							id="q1_a_tdate">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q1_a_bdate');"
 							id="q1_a_bdate">
 								
-							</th>												
+							</td>												
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q2_b_date');"
 							id="q2_b_date">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q2_a_tdate');"
 							id="q2_a_tdate">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q2_a_bdate');"
 							id="q2_a_bdate">
 								
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q3_b_date');"
 							id="q3_b_date">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q3_a_tdate');"
 							id="q3_a_tdate">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q3_a_bdate');"
 							id="q3_a_bdate">
 								
-							</th>						
+							</td>						
 						
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q6_b_date');"
 							id="q6_b_date">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q6_a_tdate');"
 							id="q6_a_tdate">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q6_a_bdate');"
 							id="q6_a_bdate">
 								
-							</th>						
+							</td>						
 						</tr>
 						
 						<tr>
@@ -661,93 +697,93 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								#1
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q1_b1_val');"
 							id="q1_b1_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q1_a1_tval');"
 							id="q1_a1_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q1_a1_bval');"
 							id="q1_a1_bval">
 								
-							</th>	
+							</td>	
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q2_b1_val');"
 							id="q2_b1_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q2_a1_tval');"
 							id="q2_a1_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q2_a1_bval');"
 							id="q2_a1_bval">
 								
-							</th>														
+							</td>														
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q3_b1_val');"
 							id="q3_b1_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q3_a1_tval');"
 							id="q3_a1_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q3_a1_bval');"
 							id="q3_a1_bval">
 								
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q6_b1_val');"
 							id="q6_b1_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q6_a1_tval');"
 							id="q6_a1_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q6_a1_bval');"
 							id="q6_a1_bval">
 								
-							</th>
+							</td>
 
 						</tr>
 						
@@ -757,93 +793,93 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								#2
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q1_b2_val');"
 							id="q1_b2_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q1_a2_tval');"
 							id="q1_a2_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q1_a2_bval');"
 							id="q1_a2_bval">
 								
-							</th>	
+							</td>	
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q2_b2_val');"
 							id="q2_b2_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q2_a2_tval');"
 							id="q2_a2_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q2_a2_bval');"
 							id="q2_a2_bval">
 								
-							</th>														
+							</td>														
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q3_b2_val');"
 							id="q3_b2_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q3_a2_tval');"
 							id="q3_a2_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q3_a2_bval');"
 							id="q3_a2_bval">
 								
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q6_b2_val');"
 							id="q6_b2_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q6_a2_tval');"
 							id="q6_a2_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q6_a2_bval');"
 							id="q6_a2_bval">
 								
-							</th>
+							</td>
 
 						</tr>						
 						
@@ -853,93 +889,93 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								#3
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q1_b3_val');"
 							id="q1_b3_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q1_a3_tval');"
 							id="q1_a3_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q1_a3_bval');"
 							id="q1_a3_bval">
 								
-							</th>	
+							</td>	
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q2_b3_val');"
 							id="q2_b3_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q2_a3_tval');"
 							id="q2_a3_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q2_a3_bval');"
 							id="q2_a3_bval">
 								
-							</th>														
+							</td>														
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q3_b3_val');"
 							id="q3_b3_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q3_a3_tval');"
 							id="q3_a3_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q3_a3_bval');"
 							id="q3_a3_bval">
 								
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q6_b3_val');"
 							id="q6_b3_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q6_a3_tval');"
 							id="q6_a3_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q6_a3_bval');"
 							id="q6_a3_bval">
 								
-							</th>
+							</td>
 
 						</tr>						
 						
@@ -949,93 +985,93 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								#4
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q1_b4_val');"
 							id="q1_b4_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q1_a4_tval');"
 							id="q1_a4_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q1_a4_bval');"
 							id="q1_a4_bval">
 								
-							</th>	
+							</td>	
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q2_b4_val');"
 							id="q2_b4_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q2_a4_tval');"
 							id="q2_a4_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q2_a4_bval');"
 							id="q2_a4_bval">
 								
-							</th>														
+							</td>														
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q3_b4_val');"
 							id="q3_b4_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q3_a4_tval');"
 							id="q3_a4_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q3_a4_bval');"
 							id="q3_a4_bval">
 								
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q6_b4_val');"
 							id="q6_b4_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q6_a4_tval');"
 							id="q6_a4_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q6_a4_bval');"
 							id="q6_a4_bval">
 								
-							</th>
+							</td>
 						</tr>						
 						
 						<tr>
@@ -1044,93 +1080,187 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								#5
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q1_b5_val');"
 							id="q1_b5_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q1_a5_tval');"
 							id="q1_a5_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q1_a5_bval');"
 							id="q1_a5_bval">
 								
-							</th>	
+							</td>	
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q2_b5_val');"
 							id="q2_b5_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q2_a5_tval');"
 							id="q2_a5_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q2_a5_bval');"
 							id="q2_a5_bval">
 								
-							</th>														
+							</td>														
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q3_b5_val');"
 							id="q3_b5_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q3_a5_tval');"
 							id="q3_a5_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q3_a5_bval');"
 							id="q3_a5_bval">
 								
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q6_b5_val');"
 							id="q6_b5_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q6_a5_tval');"
 							id="q6_a5_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q6_a5_bval');"
 							id="q6_a5_bval">
 								
+							</td>
+						</tr>
+						<tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								cp
 							</th>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg('q1_bcp_val');"
+							id="q1_bcp_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg('q1_acp_tval');"
+							id="q1_acp_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg('q1_acp_bval');"
+							id="q1_acp_bval">
+								
+							</td>	
+							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg('q2_bcp_val');"
+							id="q2_bcp_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg('q2_acp_tval');"
+							id="q2_acp_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg('q2_acp_bval');"
+							id="q2_acp_bval">
+								
+							</td>														
+
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg('q3_bcp_val');"
+							id="q3_bcp_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg('q3_acp_tval');"
+							id="q3_acp_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg('q3_acp_bval');"
+							id="q3_acp_bval">
+								
+							</td>
+
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg('q6_bcp_val');"
+							id="q6_bcp_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg('q6_acp_tval');"
+							id="q6_acp_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg('q6_acp_bval');"
+							id="q6_acp_bval">
+								
+							</td>
 						</tr>
 						
 						<tr>
@@ -1139,34 +1269,34 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								특기사항
 							</th>
-							<th colspan="3" class="text-center cell" 
+							<td colspan="3" class="text-center cell" 
 							style="width: 140px; height: 45px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="special_reg('q1_special');"
 							id="q1_special">
 								
-							</th>
-							<th colspan="3" class="text-center cell" 
+							</td>
+							<td colspan="3" class="text-center cell" 
 							style="width: 140px; height: 45px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="special_reg('q2_special');"
 							id="q2_special">
 								
-							</th>
-							<th colspan="3" class="text-center cell" 
+							</td>
+							<td colspan="3" class="text-center cell" 
 							style="width: 140px; height: 45px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="special_reg('q3_special');"
 							id="q3_special">
-							</th>														
+							</td>														
 						
-							<th colspan="3" class="text-center cell" 
+							<td colspan="3" class="text-center cell" 
 							style="width: 140px; height: 45px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="special_reg('q6_special');"
 							id="q6_special">
 								
-							</th>						
+							</td>						
 											
 						</tr>
 						
@@ -1292,93 +1422,93 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								보정일
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q4_b_date');"
 							id="q4_b_date">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q4_a_tdate');"
 							id="q4_a_tdate">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q4_a_bdate');"
 							id="q4_a_bdate">
 								
-							</th>												
+							</td>												
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q5_b_date');"
 							id="q5_b_date">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q5_a_tdate');"
 							id="q5_a_tdate">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q5_a_bdate');"
 							id="q5_a_bdate">
 								
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q9_b_date');"
 							id="q9_b_date">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q9_a_tdate');"
 							id="q9_a_tdate">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('q9_a_bdate');"
 							id="q9_a_bdate">
 								
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('qc_b_date');"
 							id="qc_b_date">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('qc_a_tdate');"
 							id="qc_a_tdate">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg('qc_a_bdate');"
 							id="qc_a_bdate">
 								
-							</th>	
+							</td>	
 							
 							<!-- <th colspan="3" rowspan="5" class="text-center cell" 
 							style="width: 420px; height: 30px; 
@@ -1396,93 +1526,93 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								#1-1
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q4_b1-1_val');"
 							id="q4_b1-1_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q4_a1-1_tval');"
 							id="q4_a1-1_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q4_a1-1_bval');"
 							id="q4_a1-1_bval">
 								
-							</th>	
+							</td>	
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q5_b1-1_val');"
 							id="q5_b1-1_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q5_a1-1_tval');"
 							id="q5_a1-1_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q5_a1-1_bval');"
 							id="q5_a1-1_bval">
 								
-							</th>														
+							</td>														
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q9_b1-1_val');"
 							id="q9_b1-1_val">
 							
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q9_a1-1_tval');"
 							id="q9_a1-1_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q9_a1-1_bval');"
 							id="q9_a1-1_bval">
 								
-							</th>														
+							</td>														
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('qc_b1-1_val');"
 							id="qc_b1-1_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('qc_a1-1_tval');"
 							id="qc_a1-1_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('qc_a1-1_bval');"
 							id="qc_a1-1_bval">
 								
-							</th>
+							</td>
 
 
 						</tr>
@@ -1493,94 +1623,94 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								#1-2
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q4_b1-2_val');"
 							id="q4_b1-2_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q4_a1-2_tval');"
 							id="q4_a1-2_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q4_a1-2_bval');"
 							id="q4_a1-2_bval">
 								
-							</th>	
+							</td>	
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q5_b1-2_val');"
 							id="q5_b1-2_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q5_a1-2_tval');"
 							id="q5_a1-2_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q5_a1-2_bval');"
 							id="q5_a1-2_bval">
 								
-							</th>														
+							</td>														
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q9_b1-2_val');"
 							id="q9_b1-2_val">
 							
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q9_a1-2_tval');"
 							id="q9_a1-2_tval">
 								
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q9_a1-2_bval');"
 							id="q9_a1-2_bval">
 								
-							</th>														
+							</td>														
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('qc_b1-2_val');"
 							id="qc_b1-2_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('qc_a1-2_tval');"
 							id="qc_a1-2_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('qc_a1-2_bval');"
 							id="qc_a1-2_bval">
 								
-							</th>
+							</td>
 
 
 						</tr>
@@ -1591,71 +1721,71 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								#2
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q4_b2_val');"
 							id="q4_b2_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q4_a2_tval');"
 							id="q4_a2_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q4_a2_bval');"
 							id="q4_a2_bval">
 								
-							</th>	
+							</td>	
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q5_b2_val');"
 							id="q5_b2_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q5_a2_tval');"
 							id="q5_a2_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q5_a2_bval');"
 							id="q5_a2_bval">
 								
-							</th>														
+							</td>														
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q9_b2_val');"
 							id="q9_b2_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q9_a2_tval');"
 							id="q9_a2_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q9_a2_bval');"
 							id="q9_a2_bval">
 								
-							</th>
+							</td>
 							<th colspan="3" class="text-center cell" 
 							style="background-color:#24FCFF; width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline;">
@@ -1672,79 +1802,79 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								#3
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q4_b3_val');"
 							id="q4_b3_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q4_a3_tval');"
 							id="q4_a3_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q4_a3_bval');"
 							id="q4_a3_bval">
 								
-							</th>	
+							</td>	
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q5_b3_val');"
 							id="q5_b3_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q5_a3_tval');"
 							id="q5_a3_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q5_a3_bval');"
 							id="q5_a3_bval">
 								
-							</th>														
+							</td>														
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q9_b3_val');"
 							id="q9_b3_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q9_a3_tval');"
 							id="q9_a3_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q9_a3_bval');"
 							id="q9_a3_bval">
 								
-							</th>
+							</td>
 																					
-							<th colspan="3" rowspan="5" class="text-center cell" 
+							<td colspan="3" rowspan="5" class="text-center cell" 
 							style="width: 420px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="bigo_reg('qbigo');"
 							id="qbigo">
 								
-							</th>
+							</td>
 						</tr>						
 						
 						<tr>
@@ -1753,71 +1883,71 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								#4
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q4_b4_val');"
 							id="q4_b4_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q4_a4_tval');"
 							id="q4_a4_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q4_a4_bval');"
 							id="q4_a4_bval">
 								
-							</th>	
+							</td>	
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q5_b4_val');"
 							id="q5_b4_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q5_a4_tval');"
 							id="q5_a4_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q5_a4_bval');"
 							id="q5_a4_bval">
 								
-							</th>
+							</td>
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q9_b4_val');"
 							id="q9_b4_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q9_a4_tval');"
 							id="q9_a4_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg('q9_a4_bval');"
 							id="q9_a4_bval">
 								
-							</th>
+							</td>
 						</tr>
 						
 						<tr>
@@ -1826,71 +1956,71 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								#5
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="val_reg('q4_b4_val');"
-							id="q4_b4_val">
+							onclick="val_reg('q4_b5_val');"
+							id="q4_b5_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="val_reg('q4_a4_tval');"
-							id="q4_a4_tval">
+							onclick="val_reg('q4_a5_tval');"
+							id="q4_a5_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="val_reg('q4_a4_bval');"
-							id="q4_a4_bval">
+							onclick="val_reg('q4_a5_bval');"
+							id="q4_a5_bval">
 								
-							</th>	
+							</td>	
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="val_reg('q5_b4_val');"
-							id="q5_b4_val">
+							onclick="val_reg('q5_b5_val');"
+							id="q5_b5_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="val_reg('q5_a4_tval');"
-							id="q5_a4_tval">
+							onclick="val_reg('q5_a5_tval');"
+							id="q5_a5_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="val_reg('q5_a4_bval');"
-							id="q5_a4_bval">
+							onclick="val_reg('q5_a5_bval');"
+							id="q5_a5_bval">
 								
-							</th>
+							</td>
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="val_reg('q9_b4_val');"
-							id="q9_b4_val">
+							onclick="val_reg('q9_b5_val');"
+							id="q9_b5_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="val_reg('q9_a4_tval');"
-							id="q9_a4_tval">
+							onclick="val_reg('q9_a5_tval');"
+							id="q9_a5_tval">
 								
-							</th>							
-							<th class="text-center cell" 
+							</td>							
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="val_reg('q9_a4_bval');"
-							id="q9_a4_bval">
+							onclick="val_reg('q9_a5_bval');"
+							id="q9_a5_bval">
 								
-							</th>
+							</td>
 						</tr>		
 										
 						
@@ -1900,27 +2030,27 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								특기사항
 							</th>
-							<th colspan="3" class="text-center cell" 
+							<td colspan="3" class="text-center cell" 
 							style="width: 140px; height: 45px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="special_reg('q4_special');"
 							id="q4_special">
 								
-							</th>
-							<th colspan="3" class="text-center cell" 
+							</td>
+							<td colspan="3" class="text-center cell" 
 							style="width: 140px; height: 45px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="special_reg('q5_special');"
 							id="q5_special">
-							</th>
+							</td>
 							
-							<th colspan="3" class="text-center cell" 
+							<td colspan="3" class="text-center cell" 
 							style="width: 140px; height: 45px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="special_reg('q9_special');"
 							id="q9_special">
 								
-							</th>														
+							</td>														
 						
 							<!-- <th colspan="3" class="text-center cell" 
 							style="width: 140px; height: 45px; 
@@ -2045,90 +2175,90 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								보정일
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg_t('t1_b_date');"
 							id="t1_b_date">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg_t('t1_a_tdate');"
 							id="t1_a_tdate">
 							
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg_t('t2_b_date');"
 							id="t2_b_date">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg_t('t2_a_tdate');"
 							id="t2_a_tdate">
 							
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg_t('t3_b_date');"
 							id="t3_b_date">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg_t('t3_a_tdate');"
 							id="t3_a_tdate">
 							
-							</th>														
-							<th class="text-center cell" 
+							</td>														
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg_t('t4_b_date');"
 							id="t4_b_date">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg_t('t4_a_tdate');"
 							id="t4_a_tdate">
 							
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg_t('t5_b_date');"
 							id="t5_b_date">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg_t('t5_a_tdate');"
 							id="t5_a_tdate">
 							
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg_t('t6_b_date');"
 							id="t6_b_date">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg_t('t6_a_tdate');"
 							id="t6_a_tdate">
 							
-							</th>
+							</td>
 						</tr>
 						
 						<tr>
@@ -2137,95 +2267,95 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								#1
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t1_b1_val');"
 							id="t1_b1_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t1_a1_tval');"
 							id="t1_a1_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t2_b1_val');"
 							id="t2_b1_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t2_a1_tval');"
 							id="t2_a1_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t3_b1_val');"
 							id="t3_b1_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t3_a1_tval');"
 							id="t3_a1_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t4_b1_val');"
 							id="t4_b1_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t4_a1_tval');"
 							id="t4_a1_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t5_b1_val');"
 							id="t5_b1_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t5_a1_tval');"
 							id="t5_a1_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t6_b1_val');"
 							id="t6_b1_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t6_a1_tval');"
 							id="t6_a1_tval">
 							
-							</th>
+							</td>
 						</tr>						
 						
 
@@ -2235,95 +2365,95 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								#2
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t1_b2_val');"
 							id="t1_b2_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t1_a2_tval');"
 							id="t1_a2_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t2_b2_val');"
 							id="t2_b2_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t2_a2_tval');"
 							id="t2_a2_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t3_b2_val');"
 							id="t3_b2_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t3_a2_tval');"
 							id="t3_a2_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t4_b2_val');"
 							id="t4_b2_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t4_a2_tval');"
 							id="t4_a2_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t5_b2_val');"
 							id="t5_b2_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t5_a2_tval');"
 							id="t5_a2_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t6_b2_val');"
 							id="t6_b2_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t6_a2_tval');"
 							id="t6_a2_tval">
 							
-							</th>
+							</td>
 						</tr>
 
 
@@ -2332,96 +2462,96 @@ var fn_logout = function () {
 							style="background-color:#24FCFF; width: 100px; height: 30px; 
 							font-size: 15pt; font-family:headline;">
 								#3
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t1_b3_val');"
 							id="t1_b3_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t1_a3_tval');"
 							id="t1_a3_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t2_b3_val');"
 							id="t2_b3_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t2_a3_tval');"
 							id="t2_a3_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t3_b3_val');"
 							id="t3_b3_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t3_a3_tval');"
 							id="t3_a3_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t4_b3_val');"
 							id="t4_b3_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t4_a3_tval');"
 							id="t4_a3_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t5_b3_val');"
 							id="t5_b3_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t5_a3_tval');"
 							id="t5_a3_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t6_b3_val');"
 							id="t6_b3_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t6_a3_tval');"
 							id="t6_a3_tval">
 							
-							</th>
+							</td>
 						</tr>
 
 
@@ -2431,95 +2561,95 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								#4
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t1_b4_val');"
 							id="t1_b4_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t1_a4_tval');"
 							id="t1_a4_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t2_b4_val');"
 							id="t2_b4_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t2_a4_tval');"
 							id="t2_a4_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t3_b4_val');"
 							id="t3_b4_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t3_a4_tval');"
 							id="t3_a4_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t4_b4_val');"
 							id="t4_b4_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t4_a4_tval');"
 							id="t4_a4_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t5_b4_val');"
 							id="t5_b4_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t5_a4_tval');"
 							id="t5_a4_tval">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t6_b4_val');"
 							id="t6_b4_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t6_a4_tval');"
 							id="t6_a4_tval">
 							
-							</th>
+							</td>
 						</tr>
 
 						<tr>
@@ -2528,51 +2658,51 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								특기사항
 							</th>
-							<th colspan="2" class="text-center cell" 
+							<td colspan="2" class="text-center cell" 
 							style="width: 140px; height: 60px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="special_reg_t('t1_special');"
 							id="t1_special">
 								
-							</th>
-							<th colspan="2" class="text-center cell" 
+							</td>
+							<td colspan="2" class="text-center cell" 
 							style="width: 140px; height: 60px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="special_reg_t('t2_special');"
 							id="t2_special">
-							</th>
+							</td>
 							
-							<th colspan="2" class="text-center cell" 
+							<td colspan="2" class="text-center cell" 
 							style="width: 140px; height: 60px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="special_reg_t('t3_special');"
 							id="t3_special">
 								
-							</th>														
+							</td>														
 						
-							<th colspan="2" class="text-center cell" 
+							<td colspan="2" class="text-center cell" 
 							style="width: 140px; height: 60px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="special_reg_t('t4_special');"
 							id="t4_special">
 								
-							</th>						
+							</td>						
 
-							<th colspan="2" class="text-center cell" 
+							<td colspan="2" class="text-center cell" 
 							style="width: 140px; height: 60px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="special_reg_t('t5_special');"
 							id="t5_special">
 								
-							</th>
+							</td>
 
-							<th colspan="2" class="text-center cell" 
+							<td colspan="2" class="text-center cell" 
 							style="width: 140px; height: 60px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="special_reg_t('t6_special');"
 							id="t6_special">
 								
-							</th>
+							</td>
 						</tr>
 					</tbody>
 				</table>             	
@@ -2658,59 +2788,59 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg_t('t9_b_date');"
 							id="t9_b_date">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg_t('t9_a_tdate');"
 							id="t9_a_tdate">
 							
-							</th>
+							</td>
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg_t('tp_b_date');"
 							id="tp_b_date">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg_t('tp_a_tdate');"
 							id="tp_a_tdate">
 							
-							</th>
+							</td>
 
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg_t('tc_b_date');"
 							id="tc_b_date">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="date_reg_t('tc_a_tdate');"
 							id="tc_a_tdate">
 							
-							</th>
+							</td>
 							
-							<th colspan="6" rowspan="5" class="text-center cell" 
+							<td colspan="6" rowspan="5" class="text-center cell" 
 							style="width: 1120px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="bigo_reg_t('tbigo');"
 							id="tbigo">
 								
 								
-							</th>							
+							</td>							
 							
 						</tr>
 						
@@ -2721,50 +2851,50 @@ var fn_logout = function () {
 							
 							</th>
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t9_b1_val');"
 							id="t9_b1_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t9_a1_tval');"
 							id="t9_a1_tval">
 							
-							</th>
+							</td>
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('tp_b1_val');"
 							id="tp_b1_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('tp_a1_tval');"
 							id="tp_a1_tval">
 							
-							</th>						
+							</td>						
 
-							<th rowspan="4" class="text-center cell" 
+							<td rowspan="4" class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('tc_b1_val');"
 							id="tc_b1_val">
 								
-							</th>
-							<th rowspan="4" class="text-center cell" 
+							</td>
+							<td rowspan="4" class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('tc_a1_tval');"
 							id="tc_a1_tval">
 							
-							</th>						
+							</td>						
 
 						</tr>
 						
@@ -2774,34 +2904,34 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t9_b2_val');"
 							id="t9_b2_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t9_a2_tval');"
 							id="t9_a2_tval">
 							
-							</th>						
-							<th class="text-center cell" 
+							</td>						
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('tp_b2_val');"
 							id="tp_b2_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('tp_a2_tval');"
 							id="tp_a2_tval">
 							
-							</th>						
+							</td>						
 						</tr>						
 
 						<tr>
@@ -2810,34 +2940,34 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t9_b3_val');"
 							id="t9_b3_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t9_a3_tval');"
 							id="t9_a3_tval">
 							
-							</th>						
-							<th class="text-center cell" 
+							</td>						
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('tp_b3_val');"
 							id="tp_b3_val">
 								
-							</th>
-							<th class="text-center cell" 
+							</td>
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('tp_a3_tval');"
 							id="tp_a3_tval">
 							
-							</th>						
+							</td>						
 						</tr>						
 
 						<tr>
@@ -2846,36 +2976,36 @@ var fn_logout = function () {
 							font-size: 15pt; font-family:headline;">
 								
 							</th>
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t9_b4_val');"
 							id="t9_b4_val">
 								
-							</th>
+							</td>
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('t9_a4_tval');"
 							id="t9_a4_tval">
 							
-							</th>						
-							<th class="text-center cell" 
+							</td>						
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('tp_b4_val');"
 							id="tp_b4_val">
 								
-							</th>
+							</td>
 							
-							<th class="text-center cell" 
+							<td class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="val_reg_t('tp_a4_tval');"
 							id="tp_a4_tval">
 							
-							</th>						
+							</td>						
 						</tr>						
 						
 						<tr>
@@ -2885,31 +3015,31 @@ var fn_logout = function () {
 								
 							</th>
 
-							<th colspan="2" class="text-center cell" 
+							<td colspan="2" class="text-center cell" 
 							style="width: 140px; height: 60px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="special_reg_t('t9_special');"
 							id="t9_special">
 								
-							</th>
-							<th colspan="2" class="text-center cell" 
+							</td>
+							<td colspan="2" class="text-center cell" 
 							style="width: 140px; height: 60px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="special_reg_t('tp_special');"
 							id="tp_special">
 								
-							</th>
-							<th colspan="2" class="text-center cell" 
+							</td>
+							<td colspan="2" class="text-center cell" 
 							style="width: 140px; height: 60px; 
 							font-size: 15pt; font-family:headline; cursor: pointer;"
 							onclick="special_reg_t('tc_special');"
 							id="tc_special">
-							</th>
+							</td>
 							
-							<th colspan="2" class="text-center cell" 
+							<td colspan="2" class="text-center cell" 
 							style="width: 140px; height: 60px; 
 							font-size: 15pt; font-family:headline;">
-							</th>							
+							</td>							
 							
 						</tr>
 
@@ -3103,66 +3233,75 @@ function getQunList(){
 				$("#q1_b5_val").text(rsAr[5].q1_b5_val);
 				$("#q1_a5_tval").text(rsAr[5].q1_a5_tval);
 				$("#q1_a5_bval").text(rsAr[5].q1_a5_bval);
+				$("#q1_bcp_val").text(rsAr[6].q1_bcp_val);
+				$("#q1_acp_tval").text(rsAr[6].q1_acp_tval);
+				$("#q1_acp_bval").text(rsAr[6].q1_acp_bval);
 				
 				//4
-				$("#q2_b_date").text(rsAr[6].q2_b_date);
-				$("#q2_a_tdate").text(rsAr[6].q2_a_tdate);
-				$("#q2_a_bdate").text(rsAr[6].q2_a_bdate);
-				$("#q2_special").text(rsAr[6].q2_special);
+				$("#q2_b_date").text(rsAr[7].q2_b_date);
+				$("#q2_a_tdate").text(rsAr[7].q2_a_tdate);
+				$("#q2_a_bdate").text(rsAr[7].q2_a_bdate);
+				$("#q2_special").text(rsAr[7].q2_special);
 
-				$("#q2_b1_val").text(rsAr[7].q2_b1_val);
-				$("#q2_a1_tval").text(rsAr[7].q2_a1_tval);
-				$("#q2_a1_bval").text(rsAr[7].q2_a1_bval);
-				$("#q2_b2_val").text(rsAr[8].q2_b2_val);
-				$("#q2_a2_tval").text(rsAr[8].q2_a2_tval);
-				$("#q2_a2_bval").text(rsAr[8].q2_a2_bval);
-				$("#q2_b3_val").text(rsAr[9].q2_b3_val);
-				$("#q2_a3_tval").text(rsAr[9].q2_a3_tval);
-				$("#q2_a3_bval").text(rsAr[9].q2_a3_bval);
-				$("#q2_b4_val").text(rsAr[10].q2_b4_val);
-				$("#q2_a4_tval").text(rsAr[10].q2_a4_tval);
-				$("#q2_a4_bval").text(rsAr[10].q2_a4_bval);
-				$("#q2_b5_val").text(rsAr[11].q2_b5_val);
-				$("#q2_a5_tval").text(rsAr[11].q2_a5_tval);
-				$("#q2_a5_bval").text(rsAr[11].q2_a5_bval);
+				$("#q2_b1_val").text(rsAr[8].q2_b1_val);
+				$("#q2_a1_tval").text(rsAr[8].q2_a1_tval);
+				$("#q2_a1_bval").text(rsAr[8].q2_a1_bval);
+				$("#q2_b2_val").text(rsAr[9].q2_b2_val);
+				$("#q2_a2_tval").text(rsAr[9].q2_a2_tval);
+				$("#q2_a2_bval").text(rsAr[9].q2_a2_bval);
+				$("#q2_b3_val").text(rsAr[10].q2_b3_val);
+				$("#q2_a3_tval").text(rsAr[10].q2_a3_tval);
+				$("#q2_a3_bval").text(rsAr[10].q2_a3_bval);
+				$("#q2_b4_val").text(rsAr[11].q2_b4_val);
+				$("#q2_a4_tval").text(rsAr[11].q2_a4_tval);
+				$("#q2_a4_bval").text(rsAr[11].q2_a4_bval);
+				$("#q2_b5_val").text(rsAr[12].q2_b5_val);
+				$("#q2_a5_tval").text(rsAr[12].q2_a5_tval);
+				$("#q2_a5_bval").text(rsAr[12].q2_a5_bval);
+				$("#q2_bcp_val").text(rsAr[13].q2_bcp_val);
+				$("#q2_acp_tval").text(rsAr[13].q2_acp_tval);
+				$("#q2_acp_bval").text(rsAr[13].q2_acp_bval);
 				
 				
 				
 				//5
-				$("#q3_b_date").text(rsAr[12].q3_b_date);
-				$("#q3_a_tdate").text(rsAr[12].q3_a_tdate);
-				$("#q3_a_bdate").text(rsAr[12].q3_a_bdate);
-				$("#q3_special").text(rsAr[12].q3_special);
+				$("#q3_b_date").text(rsAr[14].q3_b_date);
+				$("#q3_a_tdate").text(rsAr[14].q3_a_tdate);
+				$("#q3_a_bdate").text(rsAr[14].q3_a_bdate);
+				$("#q3_special").text(rsAr[14].q3_special);
 
-				$("#q3_b1_val").text(rsAr[13].q3_b1_val);
-				$("#q3_a1_tval").text(rsAr[13].q3_a1_tval);
-				$("#q3_a1_bval").text(rsAr[13].q3_a1_bval);
-				$("#q3_b2_val").text(rsAr[14].q3_b2_val);
-				$("#q3_a2_tval").text(rsAr[14].q3_a2_tval);
-				$("#q3_a2_bval").text(rsAr[14].q3_a2_bval);
-				$("#q3_b3_val").text(rsAr[15].q3_b3_val);
-				$("#q3_a3_tval").text(rsAr[15].q3_a3_tval);
-				$("#q3_a3_bval").text(rsAr[15].q3_a3_bval);
-				$("#q3_b4_val").text(rsAr[16].q3_b4_val);
-				$("#q3_a4_tval").text(rsAr[16].q3_a4_tval);
-				$("#q3_a4_bval").text(rsAr[16].q3_a4_bval);
-				$("#q3_b5_val").text(rsAr[17].q3_b5_val);
-				$("#q3_a5_tval").text(rsAr[17].q3_a5_tval);
-				$("#q3_a5_bval").text(rsAr[17].q3_a5_bval);
+				$("#q3_b1_val").text(rsAr[15].q3_b1_val);
+				$("#q3_a1_tval").text(rsAr[15].q3_a1_tval);
+				$("#q3_a1_bval").text(rsAr[15].q3_a1_bval);
+				$("#q3_b2_val").text(rsAr[16].q3_b2_val);
+				$("#q3_a2_tval").text(rsAr[16].q3_a2_tval);
+				$("#q3_a2_bval").text(rsAr[16].q3_a2_bval);
+				$("#q3_b3_val").text(rsAr[17].q3_b3_val);
+				$("#q3_a3_tval").text(rsAr[17].q3_a3_tval);
+				$("#q3_a3_bval").text(rsAr[17].q3_a3_bval);
+				$("#q3_b4_val").text(rsAr[18].q3_b4_val);
+				$("#q3_a4_tval").text(rsAr[18].q3_a4_tval);
+				$("#q3_a4_bval").text(rsAr[18].q3_a4_bval);
+				$("#q3_b5_val").text(rsAr[19].q3_b5_val);
+				$("#q3_a5_tval").text(rsAr[19].q3_a5_tval);
+				$("#q3_a5_bval").text(rsAr[19].q3_a5_bval);
+				$("#q3_bcp_val").text(rsAr[20].q3_bcp_val);
+				$("#q3_acp_tval").text(rsAr[20].q3_acp_tval);
+				$("#q3_acp_bval").text(rsAr[20].q3_acp_bval);
 				
 				
 				//6
-				$("#q4_b_date").text(rsAr[18].q4_b_date);
-				$("#q4_a_tdate").text(rsAr[18].q4_a_tdate);
-				$("#q4_a_bdate").text(rsAr[18].q4_a_bdate);
-				$("#q4_special").text(rsAr[18].q4_special);
+				$("#q4_b_date").text(rsAr[21].q4_b_date);
+				$("#q4_a_tdate").text(rsAr[21].q4_a_tdate);
+				$("#q4_a_bdate").text(rsAr[21].q4_a_bdate);
+				$("#q4_special").text(rsAr[21].q4_special);
 
-				$("#q4_b1-1_val").text(rsAr[19]["q4_b1-1_val"]);
-				$("#q4_a1-1_tval").text(rsAr[19]["q4_a1-1_tval"]);
-				$("#q4_a1-1_bval").text(rsAr[19]["q4_a1-1_bval"]);
-				$("#q4_b1-2_val").text(rsAr[20]["q4_b1-2_val"]);
-				$("#q4_a1-2_tval").text(rsAr[20]["q4_a1-2_tval"]);
-				$("#q4_a1-2_bval").text(rsAr[20]["q4_a1-2_bval"]);
+				$("#q4_b1-1_val").text(rsAr[22]["q4_b1-1_val"]);
+				$("#q4_a1-1_tval").text(rsAr[22]["q4_a1-1_tval"]);
+				$("#q4_a1-1_bval").text(rsAr[22]["q4_a1-1_bval"]);
+				$("#q4_b1-2_val").text(rsAr[23]["q4_b1-2_val"]);
+				$("#q4_a1-2_tval").text(rsAr[23]["q4_a1-2_tval"]);
+				$("#q4_a1-2_bval").text(rsAr[23]["q4_a1-2_bval"]);
 
 // 				$("#q4_b1-1_val").text(rsAr[19].q4_b1-1_val);
 // 				$("#q4_a1-1_tval").text(rsAr[19].q4_a1-1_tval);
@@ -3170,32 +3309,32 @@ function getQunList(){
 // 				$("#q4_b1-2_val").text(rsAr[20].q4_b1-2_val);
 // 				$("#q4_a1-2_tval").text(rsAr[20].q4_a1-2_tval);
 // 				$("#q4_a1-2_bval").text(rsAr[20].q4_a1-2_bval);
-				$("#q4_b2_val").text(rsAr[21].q4_b2_val);
-				$("#q4_a2_tval").text(rsAr[21].q4_a2_tval);
-				$("#q4_a2_bval").text(rsAr[21].q4_a2_bval);
-				$("#q4_b3_val").text(rsAr[22].q4_b3_val);
-				$("#q4_a3_tval").text(rsAr[22].q4_a3_tval);
-				$("#q4_a3_bval").text(rsAr[22].q4_a3_bval);
-				$("#q4_b4_val").text(rsAr[23].q4_b4_val);
-				$("#q4_a4_tval").text(rsAr[23].q4_a4_tval);
-				$("#q4_a4_bval").text(rsAr[23].q4_a4_bval);
-				$("#q4_b5_val").text(rsAr[24].q4_b5_val);
-				$("#q4_a5_tval").text(rsAr[24].q4_a5_tval);
-				$("#q4_a5_bval").text(rsAr[24].q4_a5_bval);
+				$("#q4_b2_val").text(rsAr[24].q4_b2_val);
+				$("#q4_a2_tval").text(rsAr[24].q4_a2_tval);
+				$("#q4_a2_bval").text(rsAr[24].q4_a2_bval);
+				$("#q4_b3_val").text(rsAr[25].q4_b3_val);
+				$("#q4_a3_tval").text(rsAr[25].q4_a3_tval);
+				$("#q4_a3_bval").text(rsAr[25].q4_a3_bval);
+				$("#q4_b4_val").text(rsAr[26].q4_b4_val);
+				$("#q4_a4_tval").text(rsAr[26].q4_a4_tval);
+				$("#q4_a4_bval").text(rsAr[26].q4_a4_bval);
+				$("#q4_b5_val").text(rsAr[27].q4_b5_val);
+				$("#q4_a5_tval").text(rsAr[27].q4_a5_tval);
+				$("#q4_a5_bval").text(rsAr[27].q4_a5_bval);
 				
 				
 				//7
-				$("#q5_b_date").text(rsAr[25].q5_b_date);
-				$("#q5_a_tdate").text(rsAr[25].q5_a_tdate);
-				$("#q5_a_bdate").text(rsAr[25].q5_a_bdate);
-				$("#q5_special").text(rsAr[25].q5_special);
+				$("#q5_b_date").text(rsAr[28].q5_b_date);
+				$("#q5_a_tdate").text(rsAr[28].q5_a_tdate);
+				$("#q5_a_bdate").text(rsAr[28].q5_a_bdate);
+				$("#q5_special").text(rsAr[28].q5_special);
 
-				$("#q5_b1-1_val").text(rsAr[26]["q5_b1-1_val"]);
-				$("#q5_a1-1_tval").text(rsAr[26]["q5_a1-1_tval"]);
-				$("#q5_a1-1_bval").text(rsAr[26]["q5_a1-1_bval"]);
-				$("#q5_b1-2_val").text(rsAr[27]["q5_b1-2_val"]);
-				$("#q5_a1-2_tval").text(rsAr[27]["q5_a1-2_tval"]);
-				$("#q5_a1-2_bval").text(rsAr[27]["q5_a1-2_bval"]);
+				$("#q5_b1-1_val").text(rsAr[29]["q5_b1-1_val"]);
+				$("#q5_a1-1_tval").text(rsAr[29]["q5_a1-1_tval"]);
+				$("#q5_a1-1_bval").text(rsAr[29]["q5_a1-1_bval"]);
+				$("#q5_b1-2_val").text(rsAr[30]["q5_b1-2_val"]);
+				$("#q5_a1-2_tval").text(rsAr[30]["q5_a1-2_tval"]);
+				$("#q5_a1-2_bval").text(rsAr[30]["q5_a1-2_bval"]);
 				
 				
 // 				$("#q5_b1-1_val").text(rsAr[26].q5_b1-1_val);
@@ -3204,41 +3343,44 @@ function getQunList(){
 // 				$("#q5_b1-2_val").text(rsAr[27].q5_b1-2_val);
 // 				$("#q5_a1-2_tval").text(rsAr[27].q5_a1-2_tval);
 // 				$("#q5_a1-2_bval").text(rsAr[27].q5_a1-2_bval);
-				$("#q5_b2_val").text(rsAr[28].q5_b2_val);
-				$("#q5_a2_tval").text(rsAr[28].q5_a2_tval);
-				$("#q5_a2_bval").text(rsAr[28].q5_a2_bval);
-				$("#q5_b3_val").text(rsAr[29].q5_b3_val);
-				$("#q5_a3_tval").text(rsAr[29].q5_a3_tval);
-				$("#q5_a3_bval").text(rsAr[29].q5_a3_bval);
-				$("#q5_b4_val").text(rsAr[30].q5_b4_val);
-				$("#q5_a4_tval").text(rsAr[30].q5_a4_tval);
-				$("#q5_a4_bval").text(rsAr[30].q5_a4_bval);
-				$("#q5_b5_val").text(rsAr[31].q5_b5_val);
-				$("#q5_a5_tval").text(rsAr[31].q5_a5_tval);
-				$("#q5_a5_bval").text(rsAr[31].q5_a5_bval);
+				$("#q5_b2_val").text(rsAr[31].q5_b2_val);
+				$("#q5_a2_tval").text(rsAr[31].q5_a2_tval);
+				$("#q5_a2_bval").text(rsAr[31].q5_a2_bval);
+				$("#q5_b3_val").text(rsAr[32].q5_b3_val);
+				$("#q5_a3_tval").text(rsAr[32].q5_a3_tval);
+				$("#q5_a3_bval").text(rsAr[32].q5_a3_bval);
+				$("#q5_b4_val").text(rsAr[33].q5_b4_val);
+				$("#q5_a4_tval").text(rsAr[33].q5_a4_tval);
+				$("#q5_a4_bval").text(rsAr[33].q5_a4_bval);
+				$("#q5_b5_val").text(rsAr[34].q5_b5_val);
+				$("#q5_a5_tval").text(rsAr[34].q5_a5_tval);
+				$("#q5_a5_bval").text(rsAr[34].q5_a5_bval);
 				
 				
 				//8
-				$("#q6_b_date").text(rsAr[32].q6_b_date);
-				$("#q6_a_tdate").text(rsAr[32].q6_a_tdate);
-				$("#q6_a_bdate").text(rsAr[32].q6_a_bdate);
-				$("#q6_special").text(rsAr[32].q6_special);
+				$("#q6_b_date").text(rsAr[35].q6_b_date);
+				$("#q6_a_tdate").text(rsAr[35].q6_a_tdate);
+				$("#q6_a_bdate").text(rsAr[35].q6_a_bdate);
+				$("#q6_special").text(rsAr[35].q6_special);
 
-				$("#q6_b1_val").text(rsAr[33].q6_b1_val);
-				$("#q6_a1_tval").text(rsAr[33].q6_a1_tval);
-				$("#q6_a1_bval").text(rsAr[33].q6_a1_bval);
-				$("#q6_b2_val").text(rsAr[34].q6_b2_val);
-				$("#q6_a2_tval").text(rsAr[34].q6_a2_tval);
-				$("#q6_a2_bval").text(rsAr[34].q6_a2_bval);
-				$("#q6_b3_val").text(rsAr[35].q6_b3_val);
-				$("#q6_a3_tval").text(rsAr[35].q6_a3_tval);
-				$("#q6_a3_bval").text(rsAr[35].q6_a3_bval);
-				$("#q6_b4_val").text(rsAr[36].q6_b4_val);
-				$("#q6_a4_tval").text(rsAr[36].q6_a4_tval);
-				$("#q6_a4_bval").text(rsAr[36].q6_a4_bval);
-				$("#q6_b5_val").text(rsAr[37].q6_b5_val);
-				$("#q6_a5_tval").text(rsAr[37].q6_a5_tval);
-				$("#q6_a5_bval").text(rsAr[37].q6_a5_bval);
+				$("#q6_b1_val").text(rsAr[36].q6_b1_val);
+				$("#q6_a1_tval").text(rsAr[36].q6_a1_tval);
+				$("#q6_a1_bval").text(rsAr[36].q6_a1_bval);
+				$("#q6_b2_val").text(rsAr[37].q6_b2_val);
+				$("#q6_a2_tval").text(rsAr[37].q6_a2_tval);
+				$("#q6_a2_bval").text(rsAr[37].q6_a2_bval);
+				$("#q6_b3_val").text(rsAr[38].q6_b3_val);
+				$("#q6_a3_tval").text(rsAr[38].q6_a3_tval);
+				$("#q6_a3_bval").text(rsAr[38].q6_a3_bval);
+				$("#q6_b4_val").text(rsAr[39].q6_b4_val);
+				$("#q6_a4_tval").text(rsAr[39].q6_a4_tval);
+				$("#q6_a4_bval").text(rsAr[39].q6_a4_bval);
+				$("#q6_b5_val").text(rsAr[40].q6_b5_val);
+				$("#q6_a5_tval").text(rsAr[40].q6_a5_tval);
+				$("#q6_a5_bval").text(rsAr[40].q6_a5_bval);
+				$("#q6_bcp_val").text(rsAr[41].q6_bcp_val);
+				$("#q6_acp_tval").text(rsAr[41].q6_acp_tval);
+				$("#q6_acp_bval").text(rsAr[41].q6_acp_bval);
 				
 				
 				

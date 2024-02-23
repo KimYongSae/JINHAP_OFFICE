@@ -9,7 +9,7 @@
 <%
 
 		int hogi = Integer.parseInt(request.getParameter("hogi"));
-		String pname = request.getParameter("pname");
+		String pnum = request.getParameter("pnum");
 		String gang = request.getParameter("gang");
 		String t_gb = request.getParameter("t_gb");
 
@@ -35,9 +35,9 @@
 		 sql.append("tb_recipe_auto");
 		 sql.append(hogi);
 		 sql.append(" WHERE 1=1");
-		 //if (!"0".equals(pname)) {
-		 if (pname != null && !pname.isEmpty() && !pname.equals("0")) {
-		    sql.append(" AND pname = '" +pname+ "'");
+		 //if (!"0".equals(pnum)) {
+		 if (pnum != null && !pnum.isEmpty() && !pnum.equals("0")) {
+		    sql.append(" AND pnum = '" +pnum+ "'");
 		}
 
 			//if (!"0".equals(gang)) {

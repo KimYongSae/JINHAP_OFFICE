@@ -103,6 +103,45 @@
 		font-weight:normal;
 		src:url("fonts/malgungothic.ttf") format("truetype");
 	}
+	/* 모든 th와 td 태그에 대한 기본 스타일 */
+.table th {
+    background-color: #122d64;
+    color:#FFFFFF;
+    height: 50px;
+    font-size: 20pt;
+    font-family: headline;
+    font-weight: 700;
+    text-align: center;
+    border-color: #FFFFFF !important;
+}
+.table td {
+    background-color: #FFFFFF;
+    height: 50px;
+    font-size: 20pt;
+    font-family: headline;
+    font-weight: 700;
+    text-align: center;
+}
+.table th:nth-child(1), .table td:nth-child(1) {
+    width: 100px;
+}
+
+.table th:nth-child(2), .table td:nth-child(2) {
+    width: 200px;
+}
+
+.table th:nth-child(3), .table td:nth-child(3) {
+    width: 800px;
+}
+
+.table th:nth-child(4), .table td:nth-child(4) {
+    width: 300px;
+}
+
+.table th:nth-child(5), .table td:nth-child(5) {
+    width: 300px;
+}
+	
 	
 </style>
 
@@ -199,7 +238,7 @@ var fn_logout = function () {
         <div class="box">
             <header>
                 <div style="padding:11px 14px;" class="icons"><i style="color:white;" class="fa fa-list-alt"></i></div>
-                <h5 style="font-family: headline; font-size:14pt;">모니터링 - 알람화면</h5>
+                <h5 style="font-family: headline; font-size:14pt;">모니터링 - 경보 이력</h5>
             </header>
             <header style="background:white; height:43px;">
                 <form class="form-inline" role="form" id="searchform" 
@@ -299,34 +338,23 @@ var fn_logout = function () {
                <table id="alarm_list" cellspacing="0" class="table table-bordered table-hover table-responsive scrolltbody">
 					<thead>
 						<tr>
-							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 60px; height: 40px; 
-									font-size: 16pt; font-family:headline; font-weight:700;">
+							<th class="text-center cell">
 								No.
 							</th>
 							
-							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 120px; height: 40px; 
-									font-size: 16pt; font-family:headline; font-weight:700;">
+							<th class="text-center cell">
 								설 비 명
 							</th>
 							
-							
-							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 300px; height: 40px; 
-									font-size: 16pt; font-family:headline; font-weight:700;">
+							<th class="text-center cell">
 								알 람 내 용
 							</th>
 							
-							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 220px; height: 40px; 
-									font-size: 16pt; font-family:headline; font-weight:700;">
+							<th class="text-center cell">
 								발 생 시 간
 							</th>	
 													
-							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 220px; height: 40px; 
-									font-size: 16pt; font-family:headline;">
+							<th class="text-center cell">
 								복 구 시 간
 							</th>				
 										
@@ -496,11 +524,11 @@ function auto_date_format( e, oThis ){
 					var listHtml = "";
 						for(var i=0; i<rsAr.length; i++){
 							listHtml += "<tr>";
-							listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 60px; word-break:break-all; font-size:15pt; font-weight: 600; font-family:headline;">'+(i+1)+'</td>';
-							listHtml += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:15pt; font-weight: 600; font-family:headline;">'+rsAr[i].hogi+'</td>';
-							listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 300px; word-break:break-all; font-size:15pt; font-weight: 600; font-family:headline;">'+rsAr[i].comment+'</td>';
-							listHtml += '<td class="nr5" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 220px; word-break:break-all; font-size:15pt; font-weight: 600; font-family:headline;">'+rsAr[i].time_h+'</td>';
-							listHtml += '<td class="nr6" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 220px; word-break:break-all; font-size:15pt; font-weight: 600; font-family:headline;">'+rsAr[i].time_r+'</td>';
+							listHtml += '<td class="nr1" >'+(i+1)+'</td>';
+							listHtml += '<td class="nr2" >'+rsAr[i].hogi+'</td>';
+							listHtml += '<td class="nr4" >'+rsAr[i].comment+'</td>';
+							listHtml += '<td class="nr5" >'+rsAr[i].time_h+'</td>';
+							listHtml += '<td class="nr6" >'+rsAr[i].time_r+'</td>';
 							listHtml += "</tr>";							
 						}
 						

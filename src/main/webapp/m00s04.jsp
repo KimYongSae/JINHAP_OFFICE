@@ -78,7 +78,7 @@
 
 .scrolltbody tbody {
     display: block;
-    height: 590px;
+    /* height: 590px; */
 
     overflow-x: hidden;
 }
@@ -160,6 +160,16 @@
 		font-weight:normal;
 	}	
 	
+	.tableHeader {
+	    background-color: #122d64;
+	    color:#FFFFFF;
+	    height: 50px;
+	    font-size: 20pt;
+	    font-family: headline;
+	    font-weight: 700;
+	    text-align: center;
+	    border-color: #FFFFFF !important;
+	}
 	
 </style>
 
@@ -285,18 +295,18 @@ var fn_logout = function () {
         <div class="box">
             <header>
                 <div style="padding:11px 14px;" class="icons"><i style="color:white;" class="fa fa-desktop"></i></div>
-                <h5 style="font-size:14pt; font-family:headline;">조건관리 - 로 온도/CO2/CP 모니터링</h5>
+                <h5 style="font-size:14pt; font-family:headline;">조건관리 - 온도/CP 상태감시</h5>
             </header>
-            <header style="background:white; height:43px;">
+            <!-- <header style="background:white; height:43px;">
                 <form class="form-inline" role="form" name="searchform" method="post" autocomplete="off">
 					<div class="form-group">
 						<label class="control-label" 
 							style="font-size: 14pt; font-family: headline;
 							color:#8C8C8C; width: 70px; text-align: right;">설비명 : </label>
 					</div>
-					<!-- 설비명 -->
+					설비명
 					<div class="form-group">
-						<select class="form-control input-sm" 
+						<select class="form-control input-sm" disabled
 						id="s_hogi" name="s_hogi" 
 						style="padding-top:1px; padding-botom:1px;
 							margin-top:5px; height: 30px; width: 140px; 
@@ -317,7 +327,7 @@ var fn_logout = function () {
 							style="padding-top:1px; padding-bottom:1px;
 							margin-top:6px; height: 31px; width: 100px; 
 							font-size:13pt; font-family: headline; font-weight:700;" 
-							id="trend_btn" onclick="div_change('t');">
+							id="trend_btn" onclick="location.href='m00s04_trend.jsp';">
 							<i class="fa fa-line-chart" aria-hidden="true"></i>트렌드</button>
 							<button class="btn btn-default pull-right btn-sm" type="button" 
 							style="padding-top:1px; padding-bottom:1px;
@@ -328,9 +338,9 @@ var fn_logout = function () {
 						</div>
 					</div>																				
 				</form>
-            </header>
+            </header> -->
             
-            <div id="collapse4" class="body">
+            <div id="collapse4" class="body" style="padding-top:50px">
 				
 					<div id="monitoring_chart" style="display:none;"></div>
 				            
@@ -339,1025 +349,804 @@ var fn_logout = function () {
 					
 					
 						<tr>
-							<th rowspan="2" class="text-center cell" 
-							style="background-color:#24FCFF; width: 160px; height: 40px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
+							<th rowspan="2" class="text-center cell tableHeader" 
+							style=" width: 170px; height: 40px; 
+							font-size: 20pt; font-weight:700; font-family: headline;">
 								구 분
 							</th>
 							
-							<th colspan="5" class="text-center cell" 
-							style="background-color:#24FCFF; width: 475px; height: 30px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
+							<th colspan="5" class="text-center cell tableHeader" 
+							style="  height: 35px; 
+							font-size: 20pt; font-weight:700; font-family: headline;">
 								퀜칭로
 							</th>
 							
-							<th colspan="4" class="text-center cell" 
-							style="background-color:#24FCFF; width: 380px; height: 30px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
+							<th colspan="4" class="text-center cell tableHeader" 
+							style="  height: 35px; 
+							font-size: 20pt; font-weight:700; font-family: headline;">
 								템퍼링로
 							</th>
-							<th rowspan="2" class="text-center cell" 
-							style="background-color:#24FCFF; width: 90px; height: 60px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
-								전세정기
-							</th>
-							<th rowspan="2" class="text-center cell" 
-							style="background-color:#24FCFF; width: 90px; height: 60px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
+							<th rowspan="2" class="text-center cell tableHeader" 
+							style=" width: 130px; height: 60px; 
+							font-size: 20pt; font-weight:700; font-family: headline;">
 								중간<br />세정기
 							</th>
-							<th rowspan="2" class="text-center cell" 
-							style="background-color:#24FCFF; width: 80px; height: 60px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
+							<th rowspan="2" class="text-center cell tableHeader" 
+							style=" width: 130px; height: 60px; 
+							font-size: 20pt; font-weight:700; font-family: headline;">
 								유조온도
 							</th>
-							
-							<th rowspan="2" class="text-center cell" 
-							style="background-color:#24FCFF; width: 70px; height: 60px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
-								냉각조
-							</th>													
-							
-							<th rowspan="2" class="text-center cell" 
-							style="background-color:#24FCFF; width: 115px; height: 60px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
-								변성로<br /> 온도
-							</th>					
-
-							<th rowspan="2" class="text-center cell" 
-							style="background-color:#24FCFF; width: 110px; height: 60px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
-								CO₂
-							</th>
-
-
-							<th rowspan="2" class="text-center cell" 
-							style="background-color:#24FCFF; width: 100px; height: 60px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
+											
+							<th rowspan="2" class="text-center cell tableHeader" 
+							style=" width: 150px; height: 60px; 
+							font-size: 20pt; font-weight:700; font-family: headline;">
 								CP
 							</th>
 						</tr>
 												
 						<tr>
-							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 95px; height: 30px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
+							<th class="text-center cell tableHeader" 
+							style=" width: 130px; height: 35px; 
+							font-size: 20pt; font-weight:700; font-family: headline;">
 								#1
 							</th>
-							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 95px; height: 30px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
+							<th class="text-center cell tableHeader" 
+							style=" width: 130px; height: 35px; 
+							font-size: 20pt; font-weight:700; font-family: headline;">
 								#2
 							</th>														
-							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 95px; height: 30px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
+							<th class="text-center cell tableHeader" 
+							style=" width: 130px; height: 35px; 
+							font-size: 20pt; font-weight:700; font-family: headline;">
 								#3
 							</th>
-							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 95px; height: 30px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
+							<th class="text-center cell tableHeader" 
+							style=" width: 130px; height: 35px; 
+							font-size: 20pt; font-weight:700; font-family: headline;">
 								#4
 							</th>														
-							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 95px; height: 30px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
+							<th class="text-center cell tableHeader" 
+							style=" width: 130px; height: 35px; 
+							font-size: 20pt; font-weight:700; font-family: headline;">
 								#5
 							</th>
 							
 
-							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 95px; height: 30px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
+							<th class="text-center cell tableHeader" 
+							style=" width: 130px; height: 35px; 
+							font-size: 20pt; font-weight:700; font-family: headline;">
 								#1
 							</th>
-							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 95px; height: 30px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
+							<th class="text-center cell tableHeader" 
+							style=" width: 130px; height: 35px; 
+							font-size: 20pt; font-weight:700; font-family: headline;">
 								#2
 							</th>														
-							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 95px; height: 30px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
+							<th class="text-center cell tableHeader" 
+							style=" width: 130px; height: 35px; 
+							font-size: 20pt; font-weight:700; font-family: headline;">
 								#3
 							</th>
 							
-							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 95px; height: 30px; 
-							font-size: 14pt; font-weight:700; font-family: headline;">
+							<th class="text-center cell tableHeader" 
+							style=" width: 130px; height: 35px; 
+							font-size: 20pt; font-weight:700; font-family: headline;">
 								#4
-							</th>																											
+							</th>																
 						</tr>		
 														
 					</thead>
 					
 					<tbody id="monitoring_contents">
+					<!-- 1호기 -->
 						<tr>							
 							<th rowspan="2" class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 80px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_hogi"></th>
+							style="background-color:#FFFFFF; width: 110px; height: 90px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_pv_hogi">열처리<br>1호기</th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							>SPEC</th>
+							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							>현재값</th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_pv_q1_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_pv_q2_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_pv_q3_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_pv_q4_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_pv_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_t1_spec"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_pv_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_t2_spec"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_pv_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_t3_spec"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_pv_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_t4_spec"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_pv_t4_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_pv_mw"></th>							
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>							
-							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 80px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 70px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 115px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 110px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_pv_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_cp_spec"></th>
+							style="background-color:#FFFFFF; width: 150px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_pv_cp"></th>
 
 						</tr>
 						<tr>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							>ACT</th>						
+							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							font-size: 10pt; font-family:headline; font-weight:700;"
+							>기준범위</th>						
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_q1"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_sp_q1_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_q2"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_sp_q2_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_q3"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_sp_q3_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_q4"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_sp_q4_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_q5"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_sp_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_t1"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_sp_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_t2"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_sp_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_t3"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_sp_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_t4"></th>
-								
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_sp_t4_spec"></th>
+					
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_bw"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_sp_mw"></th>							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_mw"></th>							
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_sp_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_oil"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h1_sp_cp"></th>														
+						
+						</tr>
+					<!-- 2호기 -->
+						<tr>							
+							<th rowspan="2" class="text-center cell" 
+							style="background-color:#FFFFFF; width: 100px; height: 90px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_pv_hogi">열처리<br>2호기</th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 70px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_cold"></th>
+							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							>현재값</th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_pv_q1_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_pv_q2_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_pv_q3_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_pv_q4_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_pv_q5_spec"></th>
+							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 115px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_detect"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_pv_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 110px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_co2"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_pv_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h3_cp"></th>														
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_pv_t3_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_pv_t4_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_pv_mw"></th>							
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_pv_oil"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 100px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_pv_cp"></th>
+
+						</tr>
+						<tr>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							font-size: 10pt; font-family:headline; font-weight:700;"
+							>기준범위</th>						
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_sp_q1_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_sp_q2_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_sp_q3_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_sp_q4_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_sp_q5_spec"></th>
+							
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_sp_t1_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_sp_t2_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_sp_t3_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_sp_t4_spec"></th>
+					
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_sp_mw"></th>							
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_sp_oil"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 100px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h2_sp_cp"></th>														
+						
+						</tr>
+					<!-- 3호기 -->
+						<tr>							
+							<th rowspan="2" class="text-center cell" 
+							style="background-color:#FFFFFF; width: 100px; height: 90px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_pv_hogi">열처리<br>3호기</th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							>현재값</th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_pv_q1_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_pv_q2_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_pv_q3_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_pv_q4_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_pv_q5_spec"></th>
+							
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_pv_t1_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_pv_t2_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_pv_t3_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_pv_t4_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_pv_mw"></th>							
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_pv_oil"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 100px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_pv_cp"></th>
+
+						</tr>
+						<tr>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							font-size: 10pt; font-family:headline; font-weight:700;"
+							>기준범위</th>						
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_sp_q1_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_sp_q2_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_sp_q3_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_sp_q4_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_sp_q5_spec"></th>
+							
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_sp_t1_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_sp_t2_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_sp_t3_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_sp_t4_spec"></th>
+					
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_sp_mw"></th>							
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_sp_oil"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 100px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h3_sp_cp"></th>														
 						
 						</tr>
 					<!-- 4호기 -->
 						<tr>							
 							<th rowspan="2" class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 80px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_hogi"></th>
+							style="background-color:#FFFFFF; width: 100px; height: 90px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_pv_hogi">열처리<br>4호기</th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							>SPEC</th>
-							<th class="text-center cell q4_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q4_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q4_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q4_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q4_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
+							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							>현재값</th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_pv_q1_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_pv_q2_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_pv_q3_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_pv_q4_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_pv_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_t1_spec"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_pv_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_t2_spec"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_pv_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_t3_spec"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_pv_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_t4_spec"></th>
-							<th class="text-center cell q4_zero" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q4_zero" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>							
-							<th class="text-center cell q4_zero" 
-							style="background-color:#FFFFFF; width: 80px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q4_zero" 
-							style="background-color:#FFFFFF; width: 70px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q4_zero" 
-							style="background-color:#FFFFFF; width: 115px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q4_zero" 
-							style="background-color:#FFFFFF; width: 110px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_pv_t4_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_pv_mw"></th>							
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_pv_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_cp_spec"></th>
+							style="background-color:#FFFFFF; width: 100px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_pv_cp"></th>
 
 						</tr>
 						<tr>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							>ACT</th>						
+							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							font-size: 10pt; font-family:headline; font-weight:700;"
+							>기준범위</th>						
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_q1"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_sp_q1_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_q2"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_sp_q2_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_q3"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_sp_q3_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_q4"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_sp_q4_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_q5"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_sp_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_t1"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_sp_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_t2"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_sp_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_t3"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_sp_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_t4"></th>
-								
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_sp_t4_spec"></th>
+					
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_bw"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_sp_mw"></th>							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_mw"></th>							
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_sp_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_oil"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 70px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_cold"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 115px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_detect"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 110px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_co2"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h4_cp"></th>														
+							style="background-color:#FFFFFF; width: 100px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h4_sp_cp"></th>														
 						
-						</tr>					
+						</tr>
 					<!-- 5호기 -->
-					
 						<tr>							
 							<th rowspan="2" class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 80px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_hogi"></th>
+							style="background-color:#FFFFFF; width: 100px; height: 90px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_pv_hogi">열처리<br>5호기</th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							>SPEC</th>
-							<th class="text-center cell q5_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q5_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q5_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q5_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q5_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
+							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							>현재값</th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_pv_q1_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_pv_q2_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_pv_q3_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_pv_q4_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_pv_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_t1_spec"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_pv_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_t2_spec"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_pv_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_t3_spec"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_pv_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_t4_spec"></th>
-							<th class="text-center cell q5_zero" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q5_zero" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>							
-							<th class="text-center cell q5_zero" 
-							style="background-color:#FFFFFF; width: 80px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q5_zero" 
-							style="background-color:#FFFFFF; width: 70px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q5_zero" 
-							style="background-color:#FFFFFF; width: 115px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q5_zero" 
-							style="background-color:#FFFFFF; width: 110px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_pv_t4_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_pv_mw"></th>							
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_pv_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_cp_spec"></th>
+							style="background-color:#FFFFFF; width: 100px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_pv_cp"></th>
 
 						</tr>
 						<tr>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							>ACT</th>						
+							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							font-size: 10pt; font-family:headline; font-weight:700;"
+							>기준범위</th>						
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_q1"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_sp_q1_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_q2"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_sp_q2_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_q3"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_sp_q3_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_q4"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_sp_q4_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_q5"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_sp_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_t1"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_sp_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_t2"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_sp_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_t3"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_sp_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_t4"></th>
-								
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_bw"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_mw"></th>							
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_oil"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 70px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_cold"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 115px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_detect"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 110px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_co2"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h5_cp"></th>														
-						
-						</tr>					
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_sp_t4_spec"></th>
 					
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_sp_mw"></th>							
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_sp_oil"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 100px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h5_sp_cp"></th>														
+						
+						</tr>
 					<!-- 6호기 -->
-					
 						<tr>							
 							<th rowspan="2" class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 80px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_hogi"></th>
+							style="background-color:#FFFFFF; width: 100px; height: 90px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_pv_hogi">열처리<br>6호기</th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							>SPEC</th>
-							<th class="text-center cell q6_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q6_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q6_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q6_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q6_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
+							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							>현재값</th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_pv_q1_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_pv_q2_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_pv_q3_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_pv_q4_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_pv_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_t1_spec"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_pv_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_t2_spec"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_pv_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_t3_spec"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_pv_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_t4_spec"></th>
-							<th class="text-center cell q6_zero" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q6_zero" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>							
-							<th class="text-center cell q6_zero" 
-							style="background-color:#FFFFFF; width: 80px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q6_zero" 
-							style="background-color:#FFFFFF; width: 70px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q6_zero" 
-							style="background-color:#FFFFFF; width: 115px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q6_zero" 
-							style="background-color:#FFFFFF; width: 110px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_pv_t4_spec"></th>
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_pv_mw"></th>							
+							<th class="text-center cell q3_zero" 
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_pv_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_cp_spec"></th>
+							style="background-color:#FFFFFF; width: 100px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_pv_cp"></th>
 
 						</tr>
 						<tr>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							>ACT</th>						
+							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							font-size: 10pt; font-family:headline; font-weight:700;"
+							>기준범위</th>						
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_q1"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_sp_q1_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_q2"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_sp_q2_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_q3"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_sp_q3_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_q4"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_sp_q4_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_q5"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_sp_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_t1"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_sp_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_t2"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_sp_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_t3"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_sp_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_t4"></th>
-								
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_sp_t4_spec"></th>
+					
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_bw"></th>
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_sp_mw"></th>							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_mw"></th>							
+							style="background-color:#FFFFFF; width: 130px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_sp_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_oil"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 70px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_cold"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 115px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_detect"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 110px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_co2"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h6_cp"></th>														
+							style="background-color:#FFFFFF; width: 100px; height: 45px; 
+							font-size: 17pt; font-family:headline; font-weight:700;"
+							id="h6_sp_cp"></th>														
 						
-						</tr>					
-					
-					<!-- 7호기 -->
-					
-						<tr>							
-							<th rowspan="2" class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 80px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_hogi"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							>SPEC</th>
-							<th class="text-center cell q7_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q7_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q7_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q7_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q7_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_t1_spec"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_t2_spec"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_t3_spec"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_t4_spec"></th>
-							<th class="text-center cell q7_zero" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q7_zero" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>							
-							<th class="text-center cell q7_zero" 
-							style="background-color:#FFFFFF; width: 80px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q7_zero" 
-							style="background-color:#FFFFFF; width: 70px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q7_zero" 
-							style="background-color:#FFFFFF; width: 115px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q7_zero" 
-							style="background-color:#FFFFFF; width: 110px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_cp_spec"></th>
-
 						</tr>
-						<tr>
-							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							>ACT</th>						
-							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_q1"></th>
-							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_q2"></th>
-							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_q3"></th>
-							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_q4"></th>
-							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_q5"></th>
-							
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_t1"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_t2"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_t3"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_t4"></th>
 								
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_bw"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_mw"></th>							
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_oil"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 70px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_cold"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 115px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_detect"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 110px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_co2"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h7_cp"></th>														
-						
-						</tr>					
-					
-					<!-- 8호기 -->
-					
-						<tr>							
-							<th rowspan="2" class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 80px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_hogi"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							>SPEC</th>
-							<th class="text-center cell q8_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q8_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q8_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q8_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q8_zero" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_t1_spec"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_t2_spec"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_t3_spec"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_t4_spec"></th>
-							<th class="text-center cell q8_zero" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q8_zero" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>							
-							<th class="text-center cell q8_zero" 
-							style="background-color:#FFFFFF; width: 80px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q8_zero" 
-							style="background-color:#FFFFFF; width: 70px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q8_zero" 
-							style="background-color:#FFFFFF; width: 115px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell q8_zero" 
-							style="background-color:#FFFFFF; width: 110px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_cp_spec"></th>
-
-						</tr>
-						<tr>
-							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							>ACT</th>						
-							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_q1"></th>
-							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_q2"></th>
-							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_q3"></th>
-							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_q4"></th>
-							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_q5"></th>
-							
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_t1"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_t2"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_t3"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 95px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_t4"></th>
-								
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_bw"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 90px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_mw"></th>							
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_oil"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 70px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_cold"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 115px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_detect"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 110px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_co2"></th>
-							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 40px; 
-							font-size: 15pt; font-family:headline; font-weight:700;"
-							id="h8_cp"></th>														
-						
-						</tr>					
 					
 					</tbody>
 					
@@ -1606,9 +1395,11 @@ function date_set(v){
 			};	
 
 function init(){
-/*	
+
 	getMonitoringList();
-*/	
+
+	setInterval(getMonitoringList, 10000);
+	
 	$("#trend_btn").show();
 	$("#data_btn").hide();
 	
@@ -1709,178 +1500,382 @@ function div_change(value){
 }
 
 	function getMonitoringList(){
+		getMonitoringList1();
+		getMonitoringList2();
 		getMonitoringList3();
 		getMonitoringList4();
 		getMonitoringList5();
 		getMonitoringList6();
-		getMonitoringList7();
-		getMonitoringList8();
 	}
 
 
+	function getMonitoringList1(){
+				
+		$.ajax({
+			type : "POST",
+			url : "m00/s04/select_m00s04_ht1.jsp",
+			cache : false,
+			dataType : "json",
+			data : {'time':new Date().getTime()},
+			success : function(rsJson) {
+				if (rsJson && rsJson.status == "ok") {
+					var rsAr = rsJson.rows;
+					console.log(rsAr);
+					$("#h1_pv_q1_spec").text(rsAr.q1_pv);
+					$("#h1_pv_q2_spec").text(rsAr.q2_pv);
+					$("#h1_pv_q3_spec").text(rsAr.q3_pv);
+					$("#h1_pv_q4_spec").text(rsAr.q4_pv);
+					$("#h1_pv_q5_spec").text(rsAr.q5_pv);
+					$("#h1_pv_t1_spec").text(rsAr.t1_pv);
+					$("#h1_pv_t2_spec").text(rsAr.t2_pv);
+					$("#h1_pv_t3_spec").text(rsAr.t3_pv);
+					$("#h1_pv_t4_spec").text(rsAr.t4_pv);
+					$("#h1_pv_mw").text(rsAr.a_pv); // 중간세정기
+					$("#h1_pv_oil").text(rsAr.oil_pv);	// 유조
+					$("#h1_pv_cp").text(rsAr.cp_pv.toFixed(3));
+					
+					// 퀜칭로 온도범위
+					$("#h1_sp_q1_spec").text((rsAr.q1_sp-150)+"~"+(rsAr.q1_sp+50));
+					if((rsAr.q1_pv < rsAr.q1_sp-150) || (rsAr.q1_pv > rsAr.q1_sp+50)){
+						$("#h1_pv_q1_spec").css("background-color", "red");
+					} else{
+						$("#h1_pv_q1_spec").css("background-color", "");
+					}
+					$("#h1_sp_q2_spec").text((rsAr.q2_sp-100)+"~"+(rsAr.q2_sp+30));
+					if((rsAr.q2_pv < rsAr.q2_sp-100) || (rsAr.q2_pv > rsAr.q2_sp+30)){
+						$("#h1_pv_q2_spec").css("background-color", "red");
+					} else{
+						$("#h1_pv_q2_spec").css("background-color", "");
+					}
+					$("#h1_sp_q3_spec").text((rsAr.q3_sp-10)+"~"+(rsAr.q3_sp+10));
+					if((rsAr.q3_pv < rsAr.q3_sp-10) || (rsAr.q3_pv > rsAr.q3_sp+10)){
+						$("#h1_pv_q3_spec").css("background-color", "red");
+					} else{
+						$("#h1_pv_q3_spec").css("background-color", "");
+					}
+					$("#h1_sp_q4_spec").text((rsAr.q4_sp-10)+"~"+(rsAr.q4_sp+10));
+					if((rsAr.q4_pv < rsAr.q4_sp-10) || (rsAr.q4_pv > rsAr.q4_sp+10)){
+						$("#h1_pv_q4_spec").css("background-color", "red");
+					} else{
+						$("#h1_pv_q4_spec").css("background-color", "");
+					}
+					$("#h1_sp_q5_spec").text((rsAr.q5_sp-10)+"~"+(rsAr.q5_sp+10));
+					if((rsAr.q5_pv < rsAr.q5_sp-10) || (rsAr.q5_pv > rsAr.q5_sp+10)){
+						$("#h1_pv_q5_spec").css("background-color", "red");
+					} else{
+						$("#h1_pv_q5_spec").css("background-color", "");
+					}
+					
+					// 템퍼링로 온도범위
+					$("#h1_sp_t1_spec").text((rsAr.t1_sp-200)+"~"+(rsAr.t1_sp+20));
+					if((rsAr.t1_pv < rsAr.t1_sp-200) || (rsAr.t1_pv > rsAr.t1_sp+20)){
+						$("#h1_pv_t1_spec").css("background-color", "red");
+					} else{
+						$("#h1_pv_t1_spec").css("background-color", "");
+					}
+					$("#h1_sp_t2_spec").text((rsAr.t2_sp-50)+"~"+(rsAr.t2_sp+20));
+					if((rsAr.t2_pv < rsAr.t2_sp-50) || (rsAr.t2_pv > rsAr.t2_sp+20)){
+						$("#h1_pv_t2_spec").css("background-color", "red");
+					} else{
+						$("#h1_pv_t2_spec").css("background-color", "");
+					}
+					$("#h1_sp_t3_spec").text((rsAr.t3_sp-10)+"~"+(rsAr.t3_sp+10));
+					if((rsAr.t3_pv < rsAr.t3_sp-10) || (rsAr.t3_pv > rsAr.t3_sp+10)){
+						$("#h1_pv_t3_spec").css("background-color", "red");
+					} else{
+						$("#h1_pv_t3_spec").css("background-color", "");
+					}
+					$("#h1_sp_t4_spec").text((rsAr.t4_sp-10)+"~"+(rsAr.t4_sp+10));
+					if((rsAr.t4_pv < rsAr.t4_sp-10) || (rsAr.t4_pv > rsAr.t4_sp+10)){
+						$("#h1_pv_t4_spec").css("background-color", "red");
+					} else{
+						$("#h1_pv_t4_spec").css("background-color", "");
+					}
+					
+					//중간세정기 유조 cp
+					$("#h1_sp_mw").text((rsAr.a_sp-10)+"~"+(rsAr.a_sp+10));
+					if((rsAr.a_pv < rsAr.a_sp-10) || (rsAr.a_pv > rsAr.a_sp+10)){
+						$("#h1_pv_mw").css("background-color", "red");
+					} else{
+						$("#h1_pv_mw").css("background-color", "");
+					}
+					
+					$("#h1_sp_oil").text((rsAr.oil_sp-10)+"~"+(rsAr.oil_sp+10));
+					if((rsAr.oil_pv < rsAr.oil_sp-10) || (rsAr.oil_pv > rsAr.oil_sp+10)){
+						$("#h1_pv_oil").css("background-color", "red");
+					} else{
+						$("#h1_pv_oil").css("background-color", "");
+					}
+					
+					$("#h1_sp_cp").text((rsAr.cp_sp-0.05).toFixed(3)+"~"+(rsAr.cp_sp+0.05).toFixed(3));
+					if((rsAr.cp_pv.toFixed(3) < (rsAr.cp_sp-0.05).toFixed(3)) || (rsAr.cp_pv.toFixed(3) > (rsAr.cp_sp+0.05).toFixed(3))){
+						$("#h1_pv_cp").css("background-color", "red");
+					} else{
+						$("#h1_pv_cp").css("background-color", "");
+					}
+					
+				} else if (rsJson && rsJson.status == "fail") {
+					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
+				} else {
+					alert("에러발생!");
+				}
+				
+				
+			},	// success 끝
+			error: function(req, status) {
+				if (req.status == 0 || status == "timeout") {
+					alert("네트워크 연결 확인 후 다시 시도해주세요.");
+				} else {
+					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
+				}
+			},
+			
+		});
+					
+	
+	}
+	function getMonitoringList2(){
+				
+		$.ajax({
+			type : "POST",
+			url : "m00/s04/select_m00s04_ht2.jsp",
+			cache : false,
+			dataType : "json",
+			data : {'time':new Date().getTime()},
+			success : function(rsJson) {
+				if (rsJson && rsJson.status == "ok") {
+					var rsAr = rsJson.rows;
+					console.log(rsAr);
+					$("#h2_pv_q1_spec").text(rsAr.q1_pv);
+					$("#h2_pv_q2_spec").text(rsAr.q2_pv);
+					$("#h2_pv_q3_spec").text(rsAr.q3_pv);
+					$("#h2_pv_q4_spec").text(rsAr.q4_pv);
+					$("#h2_pv_q5_spec").text(rsAr.q5_pv);
+					$("#h2_pv_t1_spec").text(rsAr.t1_pv);
+					$("#h2_pv_t2_spec").text(rsAr.t2_pv);
+					$("#h2_pv_t3_spec").text(rsAr.t3_pv);
+					$("#h2_pv_t4_spec").text(rsAr.t4_pv);
+					$("#h2_pv_mw").text(rsAr.a_pv); // 중간세정기
+					$("#h2_pv_oil").text(rsAr.oil_pv);	// 유조
+					$("#h2_pv_cp").text(rsAr.cp_pv.toFixed(3)); // cp
+					
+					// 퀜칭로 온도범위
+					$("#h2_sp_q1_spec").text((rsAr.q1_sp-150)+"~"+(rsAr.q1_sp+50));
+					if((rsAr.q1_pv < rsAr.q1_sp-150) || (rsAr.q1_pv > rsAr.q1_sp+50)){
+						$("#h2_pv_q1_spec").css("background-color", "red");
+					} else{
+						$("#h2_pv_q1_spec").css("background-color", "");
+					}
+					$("#h2_sp_q2_spec").text((rsAr.q2_sp-100)+"~"+(rsAr.q2_sp+30));
+					if((rsAr.q2_pv < rsAr.q2_sp-100) || (rsAr.q2_pv > rsAr.q2_sp+30)){
+						$("#h2_pv_q2_spec").css("background-color", "red");
+					} else{
+						$("#h2_pv_q2_spec").css("background-color", "");
+					}
+					$("#h2_sp_q3_spec").text((rsAr.q3_sp-10)+"~"+(rsAr.q3_sp+10));
+					if((rsAr.q3_pv < rsAr.q3_sp-10) || (rsAr.q3_pv > rsAr.q3_sp+10)){
+						$("#h2_pv_q3_spec").css("background-color", "red");
+					} else{
+						$("#h2_pv_q3_spec").css("background-color", "");
+					}
+					$("#h2_sp_q4_spec").text((rsAr.q4_sp-10)+"~"+(rsAr.q4_sp+10));
+					if((rsAr.q4_pv < rsAr.q4_sp-10) || (rsAr.q4_pv > rsAr.q4_sp+10)){
+						$("#h2_pv_q4_spec").css("background-color", "red");
+					} else{
+						$("#h2_pv_q4_spec").css("background-color", "");
+					}
+					$("#h2_sp_q5_spec").text((rsAr.q5_sp-10)+"~"+(rsAr.q5_sp+10));
+					if((rsAr.q5_pv < rsAr.q5_sp-10) || (rsAr.q5_pv > rsAr.q5_sp+10)){
+						$("#h2_pv_q5_spec").css("background-color", "red");
+					} else{
+						$("#h2_pv_q5_spec").css("background-color", "");
+					}
+					
+					// 템퍼링로 온도범위
+					$("#h2_sp_t1_spec").text((rsAr.t1_sp-200)+"~"+(rsAr.t1_sp+20));
+					if((rsAr.t1_pv < rsAr.t1_sp-200) || (rsAr.t1_pv > rsAr.t1_sp+20)){
+						$("#h2_pv_t1_spec").css("background-color", "red");
+					} else{
+						$("#h2_pv_t1_spec").css("background-color", "");
+					}
+					$("#h2_sp_t2_spec").text((rsAr.t2_sp-50)+"~"+(rsAr.t2_sp+20));
+					if((rsAr.t2_pv < rsAr.t2_sp-50) || (rsAr.t2_pv > rsAr.t2_sp+20)){
+						$("#h2_pv_t2_spec").css("background-color", "red");
+					} else{
+						$("#h2_pv_t2_spec").css("background-color", "");
+					}
+					$("#h2_sp_t3_spec").text((rsAr.t3_sp-10)+"~"+(rsAr.t3_sp+10));
+					if((rsAr.t3_pv < rsAr.t3_sp-10) || (rsAr.t3_pv > rsAr.t3_sp+10)){
+						$("#h2_pv_t3_spec").css("background-color", "red");
+					} else{
+						$("#h2_pv_t3_spec").css("background-color", "");
+					}
+					$("#h2_sp_t4_spec").text((rsAr.t4_sp-10)+"~"+(rsAr.t4_sp+10));
+					if((rsAr.t4_pv < rsAr.t4_sp-10) || (rsAr.t4_pv > rsAr.t4_sp+10)){
+						$("#h2_pv_t4_spec").css("background-color", "red");
+					} else{
+						$("#h2_pv_t4_spec").css("background-color", "");
+					}
+					
+					//중간세정기 유조 cp
+					$("#h2_sp_mw").text((rsAr.a_sp-10)+"~"+(rsAr.a_sp+10));
+					if((rsAr.a_pv < rsAr.a_sp-10) || (rsAr.a_pv > rsAr.a_sp+10)){
+						$("#h2_pv_mw").css("background-color", "red");
+					} else{
+						$("#h2_pv_mw").css("background-color", "");
+					}
+					
+					$("#h2_sp_oil").text((rsAr.oil_sp-10)+"~"+(rsAr.oil_sp+10));
+					if((rsAr.oil_pv < rsAr.oil_sp-10) || (rsAr.oil_pv > rsAr.oil_sp+10)){
+						$("#h2_pv_oil").css("background-color", "red");
+					} else{
+						$("#h2_pv_oil").css("background-color", "");
+					}
+					
+					$("#h2_sp_cp").text((rsAr.cp_sp-0.05).toFixed(3)+"~"+(rsAr.cp_sp+0.05).toFixed(3));
+					if((rsAr.cp_pv.toFixed(3) < (rsAr.cp_sp-0.05).toFixed(3)) || (rsAr.cp_pv.toFixed(3) > (rsAr.cp_sp+0.05).toFixed(3))){
+						$("#h2_pv_cp").css("background-color", "red");
+					} else{
+						$("#h2_pv_cp").css("background-color", "");
+					}
+					
+				} else if (rsJson && rsJson.status == "fail") {
+					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
+				} else {
+					alert("에러발생!");
+				}
+				
+				
+			},	// success 끝
+			error: function(req, status) {
+				if (req.status == 0 || status == "timeout") {
+					alert("네트워크 연결 확인 후 다시 시도해주세요.");
+				} else {
+					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
+				}
+			},
+			
+		});
+					
+	
+	}
 	function getMonitoringList3(){
-//		console.log("t");
-		
+				
 		$.ajax({
 			type : "POST",
-			url : "l002001_list3.jsp",
+			url : "m00/s04/select_m00s04_ht3.jsp",
 			cache : false,
 			dataType : "json",
 			data : {'time':new Date().getTime()},
 			success : function(rsJson) {
 				if (rsJson && rsJson.status == "ok") {
 					var rsAr = rsJson.rows;
+					console.log(rsAr);
+					$("#h3_pv_q1_spec").text(rsAr.q1_pv);
+					$("#h3_pv_q2_spec").text(rsAr.q2_pv);
+					$("#h3_pv_q3_spec").text(rsAr.q3_pv);
+					$("#h3_pv_q4_spec").text(rsAr.q4_pv);
+					$("#h3_pv_q5_spec").text(rsAr.q5_pv);
+					$("#h3_pv_t1_spec").text(rsAr.t1_pv);
+					$("#h3_pv_t2_spec").text(rsAr.t2_pv);
+					$("#h3_pv_t3_spec").text(rsAr.t3_pv);
+					$("#h3_pv_t4_spec").text(rsAr.t4_pv);
+					$("#h3_pv_mw").text(rsAr.a_pv); // 중간세정기
+					$("#h3_pv_oil").text(rsAr.oil_pv);	// 유조
+					$("#h3_pv_cp").text(rsAr.cp_pv.toFixed(3)); // cp
 					
-					if(rsAr.length != 0){
-						$("#h3_hogi").text("HT-"+rsAr[0].hogi);
-						if(rsAr[0].t1 != 0){
-							$("#h3_t1_spec").text((eval(rsAr[0].t1)-50)+"-"+(eval(rsAr[0].t1)+10));	
-						}else{
-							$("#h3_t1_spec").text("");
-						}
-						
-						if(rsAr[0].t2 != 0){
-							$("#h3_t2_spec").text((eval(rsAr[0].t2)-5)+"-"+(eval(rsAr[0].t2)+5));	
-						}else{
-							$("#h3_t2_spec").text("");
-						}
-						
-						if(rsAr[0].t3 != 0){
-							$("#h3_t3_spec").text((eval(rsAr[0].t3)-5)+"-"+(eval(rsAr[0].t3)+5));	
-						}else{
-							$("#h3_t3_spec").text("");
-						}
-						
-						if(rsAr[0].t4 != 0){
-							$("#h3_t4_spec").text((eval(rsAr[0].t4)-5)+"-"+(eval(rsAr[0].t4)+5));	
-						}else{
-							$("#h3_t4_spec").text("");
-						}
-						
-						
-						if(rsAr[0].cp != 0){
-							$("#h3_cp_spec").text(((eval(rsAr[0].cp)/1000)-0.03).toFixed(2)+"-"+((eval(rsAr[0].cp)/1000)+0.03).toFixed(2));	
-						}else{
-							$("#h3_cp_spec").text("");
-						}						
-						
-//						$("#h3_cp_spec").text(((eval(rsAr[0].cp)/1000)+0.03).toFixed(2));
-//						$("#h3_cp_spec").text("설정±0.03");
-						
-
-						$("#h3_q1").text(rsAr[0].q1);
-						
-						if((rsAr[0].q1 < 730) || (rsAr[0].q1 > 900) ){
-							$("#h3_q1").css("background-color","#FF0000");
-						}else{
-							$("#h3_q1").css("background-color","#FFFFFF");
-						}						
-						
-						$("#h3_q2").text(rsAr[0].q2);
-
-						if((rsAr[0].q2 < 825) || (rsAr[0].q2 > 900) ){
-							$("#h3_q2").css("background-color","#FF0000");
-						}else{
-							$("#h3_q2").css("background-color","#FFFFFF");
-						}
-						
-						$("#h3_q3").text(rsAr[0].q3);
-
-						if((rsAr[0].q3 < 871) || (rsAr[0].q3 > 889) ){
-							$("#h3_q3").css("background-color","#FF0000");
-						}else{
-							$("#h3_q3").css("background-color","#FFFFFF");
-						}						
-						
-						$("#h3_q4").text(rsAr[0].q4);
-						
-						if((rsAr[0].q4 < 871) || (rsAr[0].q4 > 889) ){
-							$("#h3_q4").css("background-color","#FF0000");
-						}else{
-							$("#h3_q4").css("background-color","#FFFFFF");
-						}
-						$("#h3_q5").text("");		//퀜칭
-						
-						$("#h3_t1").text(rsAr[0].t1);
-						$("#h3_t2").text(rsAr[0].t2);
-						$("#h3_t3").text(rsAr[0].t3);
-						$("#h3_t4").text(rsAr[0].t4);		//템퍼링
-						
-						$("#h3_bw").text(rsAr[0].fw);		//전세정기
-						if((rsAr[0].fw < 60) ){
-							$("#h3_bw").css("background-color","#FF0000");
-						}else{
-							$("#h3_bw").css("background-color","#FFFFFF");
-						}
-						
-						
-						$("#h3_mw").text(rsAr[0].mw);		//중간세정기
-						if((rsAr[0].mw < 50) ){
-							$("#h3_mw").css("background-color","#FF0000");
-						}else{
-							$("#h3_mw").css("background-color","#FFFFFF");
-						}
-						
-						$("#h3_oil").text(rsAr[0].oil);		//유조
-						if((rsAr[0].oil < 60) || (rsAr[0].oil > 80) ){
-							$("#h3_oil").css("background-color","#FF0000");
-						}else{
-							$("#h3_oil").css("background-color","#FFFFFF");
-						}
-						
-						$("#h3_heat").text('');	//가열경보				
-						
-						$("#h3_cold").text(rsAr[0].cold);	//냉각조
-						$("#h3_detect").text(rsAr[0].detect);//변성로
-						if((rsAr[0].detect < 1030) || (rsAr[0].detect > 1100) ){
-							$("#h3_detect").css("background-color","#FF0000");
-						}else{
-							$("#h3_detect").css("background-color","#FFFFFF");
-						}						
-						
-						
-						$("#h3_co").text("");				//CO
-						$("#h3_co2").text((eval(rsAr[0].co2)).toFixed(3));		//CO2
-						if((rsAr[0].co2 < 0.3) || (rsAr[0].co2 > 0.4) ){
-							$("#h3_co2").css("background-color","#FF0000");
-						}else{
-							$("#h3_co2").css("background-color","#FFFFFF");
-						}						
-						
-						$("#h3_cp").text((eval(rsAr[0].cp)/1000).toFixed(2));	//CP
-					}else{
-						$("#h3_hogi").text("HT-"+"QT3");
-						
-						$("#h3_hogi").css("background-color","#D2D2D2");
-						$(".q3_zero").text("");
-						
-						//3
-						if(rsAr[0].t1 != 0){
-							$("#h3_t1_spec").text((eval(rsAr[0].t1)-50)+"-"+(eval(rsAr[0].t1)+10));	
-						}else{
-							$("#h3_t1_spec").text("");
-						}
-						
-						if(rsAr[0].t2 != 0){
-							$("#h3_t2_spec").text((eval(rsAr[0].t2)-5)+"-"+(eval(rsAr[0].t2)+5));	
-						}else{
-							$("#h3_t2_spec").text("");
-						}
-						
-						if(rsAr[0].t3 != 0){
-							$("#h3_t3_spec").text((eval(rsAr[0].t3)-5)+"-"+(eval(rsAr[0].t3)+5));	
-						}else{
-							$("#h3_t3_spec").text("");
-						}
-						
-						if(rsAr[0].t4 != 0){
-							$("#h3_t4_spec").text((eval(rsAr[0].t4)-5)+"-"+(eval(rsAr[0].t4)+5));	
-						}else{
-							$("#h3_t4_spec").text("");
-						}
-					}	
-						
-//					$("#monitoring_list tbody").html(listHtml);
+					$("#h3_sp_q1_spec").text(rsAr.q1_sp);
+					$("#h3_sp_q2_spec").text(rsAr.q2_sp);
+					$("#h3_sp_q3_spec").text(rsAr.q3_sp);
+					$("#h3_sp_q4_spec").text(rsAr.q4_sp);
+					$("#h3_sp_q5_spec").text(rsAr.q5_sp);
+					$("#h3_sp_t1_spec").text(rsAr.t1_sp);
+					$("#h3_sp_t2_spec").text(rsAr.t2_sp);
+					$("#h3_sp_t3_spec").text(rsAr.t3_sp);
+					$("#h3_sp_t4_spec").text(rsAr.t4_sp);
+					$("#h3_sp_mw").text(rsAr.a_sp); // 중간세정기
+					$("#h3_sp_oil").text(rsAr.oil_sp);	// 유조
+					$("#h3_sp_cp").text(rsAr.cp_sp.toFixed(3)); // cp
+					
+					/* // 퀜칭로 온도범위
+					$("#h3_sp_q1_spec").text((rsAr.q1_sp-150)+"~"+(rsAr.q1_sp+50));
+					if((rsAr.q1_pv < rsAr.q1_sp-150) || (rsAr.q1_pv > rsAr.q1_sp+50)){
+						$("#h3_pv_q1_spec").css("background-color", "red");
+					} else{
+						$("#h3_pv_q1_spec").css("background-color", "");
+					}
+					$("#h3_sp_q2_spec").text((rsAr.q2_sp-100)+"~"+(rsAr.q2_sp+30));
+					if((rsAr.q2_pv < rsAr.q2_sp-100) || (rsAr.q2_pv > rsAr.q2_sp+30)){
+						$("#h3_pv_q2_spec").css("background-color", "red");
+					} else{
+						$("#h3_pv_q2_spec").css("background-color", "");
+					}
+					$("#h3_sp_q3_spec").text((rsAr.q3_sp-10)+"~"+(rsAr.q3_sp+10));
+					if((rsAr.q3_pv < rsAr.q3_sp-10) || (rsAr.q3_pv > rsAr.q3_sp+10)){
+						$("#h3_pv_q3_spec").css("background-color", "red");
+					} else{
+						$("#h3_pv_q3_spec").css("background-color", "");
+					}
+					$("#h3_sp_q4_spec").text((rsAr.q4_sp-10)+"~"+(rsAr.q4_sp+10));
+					if((rsAr.q4_pv < rsAr.q4_sp-10) || (rsAr.q4_pv > rsAr.q4_sp+10)){
+						$("#h3_pv_q4_spec").css("background-color", "red");
+					} else{
+						$("#h3_pv_q4_spec").css("background-color", "");
+					}
+					$("#h3_sp_q5_spec").text((rsAr.q5_sp-10)+"~"+(rsAr.q5_sp+10));
+					if((rsAr.q5_pv < rsAr.q5_sp-10) || (rsAr.q5_pv > rsAr.q5_sp+10)){
+						$("#h3_pv_q5_spec").css("background-color", "red");
+					} else{
+						$("#h3_pv_q5_spec").css("background-color", "");
+					}
+					
+					// 템퍼링로 온도범위
+					$("#h3_sp_t1_spec").text((rsAr.t1_sp-200)+"~"+(rsAr.t1_sp+20));
+					if((rsAr.t1_pv < rsAr.t1_sp-200) || (rsAr.t1_pv > rsAr.t1_sp+20)){
+						$("#h3_pv_t1_spec").css("background-color", "red");
+					} else{
+						$("#h3_pv_t1_spec").css("background-color", "");
+					}
+					$("#h3_sp_t2_spec").text((rsAr.t2_sp-50)+"~"+(rsAr.t2_sp+20));
+					if((rsAr.t2_pv < rsAr.t2_sp-50) || (rsAr.t2_pv > rsAr.t2_sp+20)){
+						$("#h3_pv_t2_spec").css("background-color", "red");
+					} else{
+						$("#h3_pv_t2_spec").css("background-color", "");
+					}
+					$("#h3_sp_t3_spec").text((rsAr.t3_sp-10)+"~"+(rsAr.t3_sp+10));
+					if((rsAr.t3_pv < rsAr.t3_sp-10) || (rsAr.t3_pv > rsAr.t3_sp+10)){
+						$("#h3_pv_t3_spec").css("background-color", "red");
+					} else{
+						$("#h3_pv_t3_spec").css("background-color", "");
+					}
+					$("#h3_sp_t4_spec").text((rsAr.t4_sp-10)+"~"+(rsAr.t4_sp+10));
+					if((rsAr.t4_pv < rsAr.t4_sp-10) || (rsAr.t4_pv > rsAr.t4_sp+10)){
+						$("#h3_pv_t4_spec").css("background-color", "red");
+					} else{
+						$("#h3_pv_t4_spec").css("background-color", "");
+					}
+					
+					//중간세정기 유조 cp
+					$("#h3_sp_mw").text((rsAr.a_sp-10)+"~"+(rsAr.a_sp+10));
+					if((rsAr.a_pv < rsAr.a_sp-10) || (rsAr.a_pv > rsAr.a_sp+10)){
+						$("#h3_sp_mw").css("background-color", "red");
+					} else{
+						$("#h3_sp_mw").css("background-color", "");
+					}
+					
+					$("#h3_sp_oil").text((rsAr.oil_sp-10)+"~"+(rsAr.oil_sp+10));
+					if((rsAr.oil_pv < rsAr.oil_sp-10) || (rsAr.oil_pv > rsAr.oil_sp+10)){
+						$("#h3_sp_oil").css("background-color", "red");
+					} else{
+						$("#h3_sp_oil").css("background-color", "");
+					}
+					
+					$("#h3_sp_cp").text((rsAr.cp_sp-0.05).toFixed(3)+"~"+(rsAr.cp_sp+0.05).toFixed(3));
+					if((rsAr.cp_pv.toFixed(3) < (rsAr.cp_sp-0.05).toFixed(3)) || (rsAr.cp_pv.toFixed(3) > (rsAr.cp_sp+0.05).toFixed(3))){
+						$("#h3_sp_cp").css("background-color", "red");
+					} else{
+						$("#h3_sp_cp").css("background-color", "");
+					} */
 					
 				} else if (rsJson && rsJson.status == "fail") {
 					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
@@ -1888,7 +1883,6 @@ function div_change(value){
 					alert("에러발생!");
 				}
 				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
 				
 			},	// success 끝
 			error: function(req, status) {
@@ -1903,170 +1897,110 @@ function div_change(value){
 					
 	
 	}
-
-	//4
-
 	function getMonitoringList4(){
-//		console.log("t");
-		
+				
 		$.ajax({
 			type : "POST",
-			url : "l002001_list4.jsp",
+			url : "m00/s04/select_m00s04_ht4.jsp",
 			cache : false,
 			dataType : "json",
 			data : {'time':new Date().getTime()},
 			success : function(rsJson) {
 				if (rsJson && rsJson.status == "ok") {
-					var rsAr2 = rsJson.rows2;
-
+					var rsAr = rsJson.rows;
+					console.log(rsAr);
+					$("#h4_pv_q1_spec").text(rsAr.q1_pv);
+					$("#h4_pv_q2_spec").text(rsAr.q2_pv);
+					$("#h4_pv_q3_spec").text(rsAr.q3_pv);
+					$("#h4_pv_q4_spec").text(rsAr.q4_pv);
+					$("#h4_pv_q5_spec").text(rsAr.q5_pv);
+					$("#h4_pv_t1_spec").text(rsAr.t1_pv);
+					$("#h4_pv_t2_spec").text(rsAr.t2_pv);
+					$("#h4_pv_t3_spec").text(rsAr.t3_pv);
+					$("#h4_pv_t4_spec").text(rsAr.t4_pv);
+					$("#h4_pv_mw").text(rsAr.a_pv); // 중간세정기
+					$("#h4_pv_oil").text(rsAr.oil_pv);	// 유조
+					$("#h4_pv_cp").text(rsAr.cp_pv.toFixed(3)); // cp
 					
+					// 퀜칭로 온도범위
+					$("#h4_sp_q1_spec").text((rsAr.q1_sp-150)+"~"+(rsAr.q1_sp+50));
+					if((rsAr.q1_pv < rsAr.q1_sp-150) || (rsAr.q1_pv > rsAr.q1_sp+50)){
+						$("#h4_pv_q1_spec").css("background-color", "red");
+					} else{
+						$("#h4_pv_q1_spec").css("background-color", "");
+					}
+					$("#h4_sp_q2_spec").text((rsAr.q2_sp-100)+"~"+(rsAr.q2_sp+30));
+					if((rsAr.q2_pv < rsAr.q2_sp-100) || (rsAr.q2_pv > rsAr.q2_sp+30)){
+						$("#h4_pv_q2_spec").css("background-color", "red");
+					} else{
+						$("#h4_pv_q2_spec").css("background-color", "");
+					}
+					$("#h4_sp_q3_spec").text((rsAr.q3_sp-10)+"~"+(rsAr.q3_sp+10));
+					if((rsAr.q3_pv < rsAr.q3_sp-10) || (rsAr.q3_pv > rsAr.q3_sp+10)){
+						$("#h4_pv_q3_spec").css("background-color", "red");
+					} else{
+						$("#h4_pv_q3_spec").css("background-color", "");
+					}
+					$("#h4_sp_q4_spec").text((rsAr.q4_sp-10)+"~"+(rsAr.q4_sp+10));
+					if((rsAr.q4_pv < rsAr.q4_sp-10) || (rsAr.q4_pv > rsAr.q4_sp+10)){
+						$("#h4_pv_q4_spec").css("background-color", "red");
+					} else{
+						$("#h4_pv_q4_spec").css("background-color", "");
+					}
+					$("#h4_sp_q5_spec").text((rsAr.q5_sp-10)+"~"+(rsAr.q5_sp+10));
+					if((rsAr.q5_pv < rsAr.q5_sp-10) || (rsAr.q5_pv > rsAr.q5_sp+10)){
+						$("#h4_pv_q5_spec").css("background-color", "red");
+					} else{
+						$("#h4_pv_q5_spec").css("background-color", "");
+					}
 					
-						//4호기
-						if(rsAr2.length != 0){
-							$("#h4_hogi").text("HT-"+rsAr2[0].hogi);
-							if(rsAr2[0].t1 != 0){
-								$("#h4_t1_spec").text((eval(rsAr2[0].t1)-50)+"-"+(eval(rsAr2[0].t1)+10));	
-							}else{
-								$("#h4_t1_spec").text("");
-							}
-							
-							if(rsAr2[0].t2 != 0){
-								$("#h4_t2_spec").text((eval(rsAr2[0].t2)-5)+"-"+(eval(rsAr2[0].t2)+5));	
-							}else{
-								$("#h4_t2_spec").text("");
-							}
-							
-							if(rsAr2[0].t3 != 0){
-								$("#h4_t3_spec").text((eval(rsAr2[0].t3)-5)+"-"+(eval(rsAr2[0].t3)+5));	
-							}else{
-								$("#h4_t3_spec").text("");
-							}
-							
-							if(rsAr2[0].t4 != 0){
-								$("#h4_t4_spec").text((eval(rsAr2[0].t4)-5)+"-"+(eval(rsAr2[0].t4)+5));	
-							}else{
-								$("#h4_t4_spec").text("");
-							}
-//							$("#h4_cp_spec").text(((eval(rsAr2[0].cp)/1000)+0.03).toFixed(2));
-//							$("#h4_cp_spec").text("설정±0.03");
-						
-							if(rsAr2[0].cp != 0){
-								$("#h4_cp_spec").text(((eval(rsAr2[0].cp)/1000)-0.03).toFixed(2)+"-"+((eval(rsAr2[0].cp)/1000)+0.03).toFixed(2));	
-							}else{
-								$("#h4_cp_spec").text("");
-							}	
-
-							$("#h4_q1").text(rsAr2[0].q1);
-							
-							if((rsAr2[0].q1 < 730) || (rsAr2[0].q1 > 900) ){
-								$("#h4_q1").css("background-color","#FF0000");
-							}else{
-								$("#h4_q1").css("background-color","#FFFFFF");
-							}						
-							
-							$("#h4_q2").text(rsAr2[0].q2);
-
-							if((rsAr2[0].q2 < 825) || (rsAr2[0].q2 > 900) ){
-								$("#h4_q2").css("background-color","#FF0000");
-							}else{
-								$("#h4_q2").css("background-color","#FFFFFF");
-							}
-							
-							$("#h4_q3").text(rsAr2[0].q3);
-
-							if((rsAr2[0].q3 < 871) || (rsAr2[0].q3 > 889) ){
-								$("#h4_q3").css("background-color","#FF0000");
-							}else{
-								$("#h4_q3").css("background-color","#FFFFFF");
-							}						
-							
-							$("#h4_q4").text(rsAr2[0].q4);
-							
-							if((rsAr2[0].q4 < 871) || (rsAr2[0].q4 > 889) ){
-								$("#h4_q4").css("background-color","#FF0000");
-							}else{
-								$("#h4_q4").css("background-color","#FFFFFF");
-							}
-							$("#h4_q5").text(rsAr2[0].q5);		//퀜칭
-							
-							$("#h4_t1").text(rsAr2[0].t1);
-							$("#h4_t2").text(rsAr2[0].t2);
-							$("#h4_t3").text(rsAr2[0].t3);
-							$("#h4_t4").text(rsAr2[0].t4);		//템퍼링
-							
-							$("#h4_bw").text(rsAr2[0].fw);		//전세정기
-							if((rsAr2[0].fw < 60) ){
-								$("#h4_bw").css("background-color","#FF0000");
-							}else{
-								$("#h4_bw").css("background-color","#FFFFFF");
-							}
-							
-							
-							$("#h4_mw").text(rsAr2[0].mw);		//중간세정기
-							if((rsAr2[0].mw < 50) ){
-								$("#h4_mw").css("background-color","#FF0000");
-							}else{
-								$("#h4_mw").css("background-color","#FFFFFF");
-							}
-							
-							$("#h4_oil").text(rsAr2[0].oil);		//유조
-							if((rsAr2[0].oil < 60) || (rsAr2[0].oil > 80) ){
-								$("#h4_oil").css("background-color","#FF0000");
-							}else{
-								$("#h4_oil").css("background-color","#FFFFFF");
-							}
-							
-							$("#h4_heat").text("");	//가열경보				
-							
-							$("#h4_cold").text("");	//냉각조
-							$("#h4_detect").text(rsAr2[0].detect);//변성로
-							if((rsAr2[0].detect < 1030) || (rsAr2[0].detect > 1100) ){
-								$("#h4_detect").css("background-color","#FF0000");
-							}else{
-								$("#h4_detect").css("background-color","#FFFFFF");
-							}						
-							
-							$("#h4_co").text("");				//CO
-							$("#h4_co2").text((eval(rsAr2[0].co2)).toFixed(3));		//CO2
-							if((rsAr2[0].co2 < 0.3) || (rsAr2[0].co2 > 0.4) ){
-								$("#h4_co2").css("background-color","#FF0000");
-							}else{
-								$("#h4_co2").css("background-color","#FFFFFF");
-							}						
-							
-							$("#h4_cp").text((eval(rsAr2[0].cp)/1000).toFixed(2));	//CP
-						}else{
-							$("#h4_hogi").text("HT-"+"QT4");
-							
-							$("#h4_hogi").css("background-color","#D2D2D2");
-							$(".q4_zero").text("");
-							
-							if(rsAr2[0].t1 != 0){
-								$("#h4_t1_spec").text((eval(rsAr2[0].t1)-50)+"-"+(eval(rsAr2[0].t1)+10));	
-							}else{
-								$("#h4_t1_spec").text("");
-							}
-							
-							if(rsAr2[0].t2 != 0){
-								$("#h4_t2_spec").text((eval(rsAr2[0].t2)-5)+"-"+(eval(rsAr2[0].t2)+5));	
-							}else{
-								$("#h4_t2_spec").text("");
-							}
-							
-							if(rsAr2[0].t3 != 0){
-								$("#h4_t3_spec").text((eval(rsAr2[0].t3)-5)+"-"+(eval(rsAr2[0].t3)+5));	
-							}else{
-								$("#h4_t3_spec").text("");
-							}
-							
-							if(rsAr2[0].t4 != 0){
-								$("#h4_t4_spec").text((eval(rsAr2[0].t4)-5)+"-"+(eval(rsAr2[0].t4)+5));	
-							}else{
-								$("#h4_t4_spec").text("");
-							}							
-							
-						}	
-//					$("#monitoring_list tbody").html(listHtml);
+					// 템퍼링로 온도범위
+					$("#h4_sp_t1_spec").text((rsAr.t1_sp-200)+"~"+(rsAr.t1_sp+20));
+					if((rsAr.t1_pv < rsAr.t1_sp-200) || (rsAr.t1_pv > rsAr.t1_sp+20)){
+						$("#h4_pv_t1_spec").css("background-color", "red");
+					} else{
+						$("#h4_pv_t1_spec").css("background-color", "");
+					}
+					$("#h4_sp_t2_spec").text((rsAr.t2_sp-50)+"~"+(rsAr.t2_sp+20));
+					if((rsAr.t2_pv < rsAr.t2_sp-50) || (rsAr.t2_pv > rsAr.t2_sp+20)){
+						$("#h4_pv_t2_spec").css("background-color", "red");
+					} else{
+						$("#h4_pv_t2_spec").css("background-color", "");
+					}
+					$("#h4_sp_t3_spec").text((rsAr.t3_sp-10)+"~"+(rsAr.t3_sp+10));
+					if((rsAr.t3_pv < rsAr.t3_sp-10) || (rsAr.t3_pv > rsAr.t3_sp+10)){
+						$("#h4_pv_t3_spec").css("background-color", "red");
+					} else{
+						$("#h4_pv_t3_spec").css("background-color", "");
+					}
+					$("#h4_sp_t4_spec").text((rsAr.t4_sp-10)+"~"+(rsAr.t4_sp+10));
+					if((rsAr.t4_pv < rsAr.t4_sp-10) || (rsAr.t4_pv > rsAr.t4_sp+10)){
+						$("#h4_pv_t4_spec").css("background-color", "red");
+					} else{
+						$("#h4_pv_t4_spec").css("background-color", "");
+					}
+					
+					//중간세정기 유조 cp
+					$("#h4_sp_mw").text((rsAr.a_sp-10)+"~"+(rsAr.a_sp+10));
+					if((rsAr.a_pv < rsAr.a_sp-10) || (rsAr.a_pv > rsAr.a_sp+10)){
+						$("#h4_pv_mw").css("background-color", "red");
+					} else{
+						$("#h4_pv_mw").css("background-color", "");
+					}
+					
+					$("#h4_sp_oil").text((rsAr.oil_sp-10)+"~"+(rsAr.oil_sp+10));
+					if((rsAr.oil_pv < rsAr.oil_sp-10) || (rsAr.oil_pv > rsAr.oil_sp+10)){
+						$("#h4_pv_oil").css("background-color", "red");
+					} else{
+						$("#h4_pv_oil").css("background-color", "");
+					}
+					
+					$("#h4_sp_cp").text((rsAr.cp_sp-0.05).toFixed(3)+"~"+(rsAr.cp_sp+0.05).toFixed(3));
+					if((rsAr.cp_pv.toFixed(3) < (rsAr.cp_sp-0.05).toFixed(3)) || (rsAr.cp_pv.toFixed(3) > (rsAr.cp_sp+0.05).toFixed(3))){
+						$("#h4_pv_cp").css("background-color", "red");
+					} else{
+						$("#h4_pv_cp").css("background-color", "");
+					}
 					
 				} else if (rsJson && rsJson.status == "fail") {
 					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
@@ -2074,7 +2008,6 @@ function div_change(value){
 					alert("에러발생!");
 				}
 				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
 				
 			},	// success 끝
 			error: function(req, status) {
@@ -2089,175 +2022,110 @@ function div_change(value){
 					
 	
 	}
-	
-	//5
-	
 	function getMonitoringList5(){
-//		console.log("t");
-		
+				
 		$.ajax({
 			type : "POST",
-			url : "l002001_list5.jsp",
+			url : "m00/s04/select_m00s04_ht5.jsp",
 			cache : false,
 			dataType : "json",
 			data : {'time':new Date().getTime()},
 			success : function(rsJson) {
 				if (rsJson && rsJson.status == "ok") {
-					var rsAr3 = rsJson.rows3;
-						console.log(rsAr3.length);
-						
-						if(rsAr3.length != 0){
-							//5호기
-							
-								$("#h5_hogi").text("HT-"+rsAr3[0].hogi);
-								if(rsAr3[0].t1 != 0){
-									$("#h5_t1_spec").text((eval(rsAr3[0].t1)-50)+"-"+(eval(rsAr3[0].t1)+10));	
-								}else{
-									$("#h5_t1_spec").text("");
-								}
-								
-								if(rsAr3[0].t2 != 0){
-									$("#h5_t2_spec").text((eval(rsAr3[0].t2)-5)+"-"+(eval(rsAr3[0].t2)+5));	
-								}else{
-									$("#h5_t2_spec").text("");
-								}
-								
-								if(rsAr3[0].t3 != 0){
-									$("#h5_t3_spec").text((eval(rsAr3[0].t3)-5)+"-"+(eval(rsAr3[0].t3)+5));	
-								}else{
-									$("#h5_t3_spec").text("");
-								}
-								
-								if(rsAr3[0].t4 != 0){
-									$("#h5_t4_spec").text((eval(rsAr3[0].t4)-5)+"-"+(eval(rsAr3[0].t4)+5));	
-								}else{
-									$("#h5_t4_spec").text("");
-								}
-//								$("#h5_cp_spec").text(((eval(rsAr3[0].cp)/1000)+0.03).toFixed(2));
-//								$("#h5_cp_spec").text("설정±0.03");
-	
-								if(rsAr3[0].cp != 0){
-									$("#h5_cp_spec").text(((eval(rsAr3[0].cp)/1000)-0.03).toFixed(2)+"-"+((eval(rsAr3[0].cp)/1000)+0.03).toFixed(2));	
-								}else{
-									$("#h5_cp_spec").text("");
-								}	
-
-
-								$("#h5_q1").text(rsAr3[0].q1);
-								
-								if((rsAr3[0].q1 < 730) || (rsAr3[0].q1 > 900) ){
-									$("#h5_q1").css("background-color","#FF0000");
-								}else{
-									$("#h5_q1").css("background-color","#FFFFFF");
-								}						
-								
-								$("#h5_q2").text(rsAr3[0].q2);
-
-								if((rsAr3[0].q2 < 825) || (rsAr3[0].q2 > 900) ){
-									$("#h5_q2").css("background-color","#FF0000");
-								}else{
-									$("#h5_q2").css("background-color","#FFFFFF");
-								}
-								
-								$("#h5_q3").text(rsAr3[0].q3);
-
-								if((rsAr3[0].q3 < 871) || (rsAr3[0].q3 > 889) ){
-									$("#h5_q3").css("background-color","#FF0000");
-								}else{
-									$("#h5_q3").css("background-color","#FFFFFF");
-								}						
-								
-								$("#h5_q4").text(rsAr3[0].q4);
-								
-								if((rsAr3[0].q4 < 871) || (rsAr3[0].q4 > 889) ){
-									$("#h5_q4").css("background-color","#FF0000");
-								}else{
-									$("#h5_q4").css("background-color","#FFFFFF");
-								}
-								$("#h5_q5").text(rsAr3[0].q5);		//퀜칭
-								
-								$("#h5_t1").text(rsAr3[0].t1);
-								$("#h5_t2").text(rsAr3[0].t2);
-								$("#h5_t3").text(rsAr3[0].t3);
-								$("#h5_t4").text(rsAr3[0].t4);		//템퍼링
-								
-								$("#h5_bw").text(rsAr3[0].fw);		//전세정기
-								if((rsAr3[0].fw < 60) ){
-									$("#h5_bw").css("background-color","#FF0000");
-								}else{
-									$("#h5_bw").css("background-color","#FFFFFF");
-								}
-								
-								
-								$("#h5_mw").text(rsAr3[0].mw);		//중간세정기
-								if((rsAr3[0].mw < 50) ){
-									$("#h5_mw").css("background-color","#FF0000");
-								}else{
-									$("#h5_mw").css("background-color","#FFFFFF");
-								}
-								
-								$("#h5_oil").text(rsAr3[0].oil);		//유조
-								if((rsAr3[0].oil < 60) || (rsAr3[0].oil > 80) ){
-									$("#h5_oil").css("background-color","#FF0000");
-								}else{
-									$("#h5_oil").css("background-color","#FFFFFF");
-								}
-								
-								
-								
-								$("#h5_heat").text('');	//가열경보				
-								
-								$("#h5_cold").text("");	//냉각조
-								$("#h5_detect").text(rsAr3[0].detect);//변성로
-								if((rsAr3[0].detect < 1030) || (rsAr3[0].detect > 1100) ){
-									$("#h5_detect").css("background-color","#FF0000");
-								}else{
-									$("#h5_detect").css("background-color","#FFFFFF");
-								}						
-								
-								$("#h5_co").text("");				//CO
-								$("#h5_co2").text((eval(rsAr3[0].co2)).toFixed(3));		//CO2
-								if((rsAr3[0].co2 < 0.3) || (rsAr3[0].co2 > 0.4) ){
-									$("#h5_co2").css("background-color","#FF0000");
-								}else{
-									$("#h5_co2").css("background-color","#FFFFFF");
-								}						
-								
-								$("#h5_cp").text((eval(rsAr3[0].cp)/1000).toFixed(2));	//CP
-						}else{
-							$("#h5_hogi").text("HT-"+"QT5");
-							$("#h5_hogi").css("background-color","#D2D2D2");
-							$(".q5_zero").text("");
-							
-							
-							if(rsAr3[0].t1 != 0){
-								$("#h5_t1_spec").text((eval(rsAr3[0].t1)-50)+"-"+(eval(rsAr3[0].t1)+10));	
-							}else{
-								$("#h5_t1_spec").text("");
-							}
-							
-							if(rsAr3[0].t2 != 0){
-								$("#h5_t2_spec").text((eval(rsAr3[0].t2)-5)+"-"+(eval(rsAr3[0].t2)+5));	
-							}else{
-								$("#h5_t2_spec").text("");
-							}
-							
-							if(rsAr3[0].t3 != 0){
-								$("#h5_t3_spec").text((eval(rsAr3[0].t3)-5)+"-"+(eval(rsAr3[0].t3)+5));	
-							}else{
-								$("#h5_t3_spec").text("");
-							}
-							
-							if(rsAr3[0].t4 != 0){
-								$("#h5_t4_spec").text((eval(rsAr3[0].t4)-5)+"-"+(eval(rsAr3[0].t4)+5));	
-							}else{
-								$("#h5_t4_spec").text("");
-							}
-							
-							
-						}
-							
-//					$("#monitoring_list tbody").html(listHtml);
+					var rsAr = rsJson.rows;
+					console.log(rsAr);
+					$("#h5_pv_q1_spec").text(rsAr.q1_pv);
+					$("#h5_pv_q2_spec").text(rsAr.q2_pv);
+					$("#h5_pv_q3_spec").text(rsAr.q3_pv);
+					$("#h5_pv_q4_spec").text(rsAr.q4_pv);
+					$("#h5_pv_q5_spec").text(rsAr.q5_pv);
+					$("#h5_pv_t1_spec").text(rsAr.t1_pv);
+					$("#h5_pv_t2_spec").text(rsAr.t2_pv);
+					$("#h5_pv_t3_spec").text(rsAr.t3_pv);
+					$("#h5_pv_t4_spec").text(rsAr.t4_pv);
+					$("#h5_pv_mw").text(rsAr.a_pv); // 중간세정기
+					$("#h5_pv_oil").text(rsAr.oil_pv);	// 유조
+					$("#h5_pv_cp").text(rsAr.cp_pv.toFixed(3)); // cp
+					
+					// 퀜칭로 온도범위
+					$("#h5_sp_q1_spec").text((rsAr.q1_sp-150)+"~"+(rsAr.q1_sp+50));
+					if((rsAr.q1_pv < rsAr.q1_sp-150) || (rsAr.q1_pv > rsAr.q1_sp+50)){
+						$("#h5_pv_q1_spec").css("background-color", "red");
+					} else{
+						$("#h5_pv_q1_spec").css("background-color", "");
+					}
+					$("#h5_sp_q2_spec").text((rsAr.q2_sp-100)+"~"+(rsAr.q2_sp+30));
+					if((rsAr.q2_pv < rsAr.q2_sp-100) || (rsAr.q2_pv > rsAr.q2_sp+30)){
+						$("#h5_pv_q2_spec").css("background-color", "red");
+					} else{
+						$("#h5_pv_q2_spec").css("background-color", "");
+					}
+					$("#h5_sp_q3_spec").text((rsAr.q3_sp-10)+"~"+(rsAr.q3_sp+10));
+					if((rsAr.q3_pv < rsAr.q3_sp-10) || (rsAr.q3_pv > rsAr.q3_sp+10)){
+						$("#h5_pv_q3_spec").css("background-color", "red");
+					} else{
+						$("#h5_pv_q3_spec").css("background-color", "");
+					}
+					$("#h5_sp_q4_spec").text((rsAr.q4_sp-10)+"~"+(rsAr.q4_sp+10));
+					if((rsAr.q4_pv < rsAr.q4_sp-10) || (rsAr.q4_pv > rsAr.q4_sp+10)){
+						$("#h5_pv_q4_spec").css("background-color", "red");
+					} else{
+						$("#h5_pv_q4_spec").css("background-color", "");
+					}
+					$("#h5_sp_q5_spec").text((rsAr.q5_sp-10)+"~"+(rsAr.q5_sp+10));
+					if((rsAr.q5_pv < rsAr.q5_sp-10) || (rsAr.q5_pv > rsAr.q5_sp+10)){
+						$("#h5_pv_q5_spec").css("background-color", "red");
+					} else{
+						$("#h5_pv_q5_spec").css("background-color", "");
+					}
+					
+					// 템퍼링로 온도범위
+					$("#h5_sp_t1_spec").text((rsAr.t1_sp-200)+"~"+(rsAr.t1_sp+20));
+					if((rsAr.t1_pv < rsAr.t1_sp-200) || (rsAr.t1_pv > rsAr.t1_sp+20)){
+						$("#h5_pv_t1_spec").css("background-color", "red");
+					} else{
+						$("#h5_pv_t1_spec").css("background-color", "");
+					}
+					$("#h5_sp_t2_spec").text((rsAr.t2_sp-50)+"~"+(rsAr.t2_sp+20));
+					if((rsAr.t2_pv < rsAr.t2_sp-50) || (rsAr.t2_pv > rsAr.t2_sp+20)){
+						$("#h5_pv_t2_spec").css("background-color", "red");
+					} else{
+						$("#h5_pv_t2_spec").css("background-color", "");
+					}
+					$("#h5_sp_t3_spec").text((rsAr.t3_sp-10)+"~"+(rsAr.t3_sp+10));
+					if((rsAr.t3_pv < rsAr.t3_sp-10) || (rsAr.t3_pv > rsAr.t3_sp+10)){
+						$("#h5_pv_t3_spec").css("background-color", "red");
+					} else{
+						$("#h5_pv_t3_spec").css("background-color", "");
+					}
+					$("#h5_sp_t4_spec").text((rsAr.t4_sp-10)+"~"+(rsAr.t4_sp+10));
+					if((rsAr.t4_pv < rsAr.t4_sp-10) || (rsAr.t4_pv > rsAr.t4_sp+10)){
+						$("#h5_pv_t4_spec").css("background-color", "red");
+					} else{
+						$("#h5_pv_t4_spec").css("background-color", "");
+					}
+					
+					//중간세정기 유조 cp
+					$("#h5_sp_mw").text((rsAr.a_sp-10)+"~"+(rsAr.a_sp+10));
+					if((rsAr.a_pv < rsAr.a_sp-10) || (rsAr.a_pv > rsAr.a_sp+10)){
+						$("#h5_pv_mw").css("background-color", "red");
+					} else{
+						$("#h5_pv_mw").css("background-color", "");
+					}
+					
+					$("#h5_sp_oil").text((rsAr.oil_sp-10)+"~"+(rsAr.oil_sp+10));
+					if((rsAr.oil_pv < rsAr.oil_sp-10) || (rsAr.oil_pv > rsAr.oil_sp+10)){
+						$("#h5_pv_oil").css("background-color", "red");
+					} else{
+						$("#h5_pv_oil").css("background-color", "");
+					}
+					
+					$("#h5_sp_cp").text((rsAr.cp_sp-0.05).toFixed(3)+"~"+(rsAr.cp_sp+0.05).toFixed(3));
+					if((rsAr.cp_pv.toFixed(3) < (rsAr.cp_sp-0.05).toFixed(3)) || (rsAr.cp_pv.toFixed(3) > (rsAr.cp_sp+0.05).toFixed(3))){
+						$("#h5_pv_cp").css("background-color", "red");
+					} else{
+						$("#h5_pv_cp").css("background-color", "");
+					}
 					
 				} else if (rsJson && rsJson.status == "fail") {
 					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
@@ -2265,7 +2133,6 @@ function div_change(value){
 					alert("에러발생!");
 				}
 				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
 				
 			},	// success 끝
 			error: function(req, status) {
@@ -2277,173 +2144,113 @@ function div_change(value){
 			},
 			
 		});
+					
 	
 	}
-
-	
-	//6
-
 	function getMonitoringList6(){
-//		console.log("t");
-		
+				
 		$.ajax({
 			type : "POST",
-			url : "l002001_list6.jsp",
+			url : "m00/s04/select_m00s04_ht6.jsp",
 			cache : false,
 			dataType : "json",
 			data : {'time':new Date().getTime()},
 			success : function(rsJson) {
 				if (rsJson && rsJson.status == "ok") {
-					var rsAr4 = rsJson.rows4;
-
+					var rsAr = rsJson.rows;
+					console.log(rsAr);
+					$("#h6_pv_q1_spec").text(rsAr.q1_pv);
+					$("#h6_pv_q2_spec").text(rsAr.q2_pv);
+					$("#h6_pv_q3_spec").text(rsAr.q3_pv);
+					$("#h6_pv_q4_spec").text(rsAr.q4_pv);
+					$("#h6_pv_q5_spec").text(rsAr.q5_pv);
+					$("#h6_pv_t1_spec").text(rsAr.t1_pv);
+					$("#h6_pv_t2_spec").text(rsAr.t2_pv);
+					$("#h6_pv_t3_spec").text(rsAr.t3_pv);
+					$("#h6_pv_t4_spec").text(rsAr.t4_pv);
+					$("#h6_pv_mw").text(rsAr.a_pv); // 중간세정기
+					$("#h6_pv_oil").text(rsAr.oil_pv);	// 유조
+					$("#h6_pv_cp").text(rsAr.cp_pv.toFixed(3)); // cp
 					
-						if(rsAr4.length != 0){
-							//6호기
-								$("#h6_hogi").text("HT-"+rsAr4[0].hogi);
-								if(rsAr4[0].t1 != 0){
-									$("#h6_t1_spec").text((eval(rsAr4[0].t1)-50)+"-"+(eval(rsAr4[0].t1)+10));	
-								}else{
-									$("#h6_t1_spec").text("");
-								}
-								
-								if(rsAr4[0].t2 != 0){
-									$("#h6_t2_spec").text((eval(rsAr4[0].t2)-5)+"-"+(eval(rsAr4[0].t2)+5));	
-								}else{
-									$("#h6_t2_spec").text("");
-								}
-								
-								if(rsAr4[0].t3 != 0){
-									$("#h6_t3_spec").text((eval(rsAr4[0].t3)-5)+"-"+(eval(rsAr4[0].t3)+5));	
-								}else{
-									$("#h6_t3_spec").text("");
-								}
-								
-								if(rsAr4[0].t4 != 0){
-									$("#h6_t4_spec").text((eval(rsAr4[0].t4)-5)+"-"+(eval(rsAr4[0].t4)+5));	
-								}else{
-									$("#h6_t4_spec").text("");
-								}
-//								$("#h6_cp_spec").text(((eval(rsAr4[0].cp)/1000)+0.03).toFixed(2));
-//								$("#h6_cp_spec").text("설정±0.03");
-	
-								if(rsAr4[0].cp != 0){
-									$("#h6_cp_spec").text(((eval(rsAr4[0].cp)/1000)-0.03).toFixed(2)+"-"+((eval(rsAr4[0].cp)/1000)+0.03).toFixed(2));	
-								}else{
-									$("#h6_cp_spec").text("");
-								}	
-
-
-								$("#h6_q1").text(rsAr4[0].q1);
-								
-								if((rsAr4[0].q1 < 740) || (rsAr4[0].q1 > 910) ){
-									$("#h6_q1").css("background-color","#FF0000");
-								}else{
-									$("#h6_q1").css("background-color","#FFFFFF");
-								}						
-								
-								$("#h6_q2").text(rsAr4[0].q2);
-
-								if((rsAr4[0].q2 < 835) || (rsAr4[0].q2 > 910) ){
-									$("#h6_q2").css("background-color","#FF0000");
-								}else{
-									$("#h6_q2").css("background-color","#FFFFFF");
-								}
-								
-								$("#h6_q3").text(rsAr4[0].q3);
-
-								if((rsAr4[0].q3 < 881) || (rsAr4[0].q3 > 889) ){
-									$("#h6_q3").css("background-color","#FF0000");
-								}else{
-									$("#h6_q3").css("background-color","#FFFFFF");
-								}						
-								
-								$("#h6_q4").text(rsAr4[0].q4);
-								
-								if((rsAr4[0].q4 < 881) || (rsAr4[0].q4 > 889) ){
-									$("#h6_q4").css("background-color","#FF0000");
-								}else{
-									$("#h6_q4").css("background-color","#FFFFFF");
-								}
-								$("#h6_q5").text(rsAr4[0].q5);		//퀜칭
-								
-								$("#h6_t1").text(rsAr4[0].t1);
-								$("#h6_t2").text(rsAr4[0].t2);
-								$("#h6_t3").text(rsAr4[0].t3);
-								$("#h6_t4").text(rsAr4[0].t4);		//템퍼링
-								
-								$("#h6_bw").text(rsAr4[0].fw);		//전세정기
-								if((rsAr4[0].fw < 60) ){
-									$("#h6_bw").css("background-color","#FF0000");
-								}else{
-									$("#h6_bw").css("background-color","#FFFFFF");
-								}
-								
-								
-								$("#h6_mw").text(rsAr4[0].mw);		//중간세정기
-								if((rsAr4[0].mw < 50) ){
-									$("#h6_mw").css("background-color","#FF0000");
-								}else{
-									$("#h6_mw").css("background-color","#FFFFFF");
-								}
-								
-								$("#h6_oil").text(rsAr4[0].oil);		//유조
-								if((rsAr4[0].oil < 60) || (rsAr4[0].oil > 80) ){
-									$("#h6_oil").css("background-color","#FF0000");
-								}else{
-									$("#h6_oil").css("background-color","#FFFFFF");
-								}
-								
-								$("#h6_heat").text('');	//가열경보				
-								
-								$("#h6_cold").text(rsAr4[0].cold);	//냉각조
-								$("#h6_detect").text(rsAr4[0].detect);//변성로
-								if((rsAr4[0].detect < 1030) || (rsAr4[0].detect > 1100) ){
-									$("#h6_detect").css("background-color","#FF0000");
-								}else{
-									$("#h6_detect").css("background-color","#FFFFFF");
-								}						
-								
-								$("#h6_co").text("");				//CO
-								$("#h6_co2").text((eval(rsAr4[0].co2)).toFixed(3));		//CO2
-								if((rsAr4[0].co2 < 0.3) || (rsAr4[0].co2 > 0.4) ){
-									$("#h6_co2").css("background-color","#FF0000");
-								}else{
-									$("#h6_co2").css("background-color","#FFFFFF");
-								}						
-								
-								$("#h6_cp").text((eval(rsAr4[0].cp)/1000).toFixed(2));	//CP
-						}else{
-							$("#h6_hogi").text("HT-"+"QT6");
-							$("#h6_hogi").css("background-color","#D2D2D2");
-							$(".q6_zero").text("");
-							
-							
-							if(rsAr4[0].t1 != 0){
-								$("#h6_t1_spec").text((eval(rsAr4[0].t1)-50)+"-"+(eval(rsAr4[0].t1)+10));	
-							}else{
-								$("#h6_t1_spec").text("");
-							}
-							
-							if(rsAr4[0].t2 != 0){
-								$("#h6_t2_spec").text((eval(rsAr4[0].t2)-5)+"-"+(eval(rsAr4[0].t2)+5));	
-							}else{
-								$("#h6_t2_spec").text("");
-							}
-							
-							if(rsAr4[0].t3 != 0){
-								$("#h6_t3_spec").text((eval(rsAr4[0].t3)-5)+"-"+(eval(rsAr4[0].t3)+5));	
-							}else{
-								$("#h6_t3_spec").text("");
-							}
-							
-							if(rsAr4[0].t4 != 0){
-								$("#h6_t4_spec").text((eval(rsAr4[0].t4)-5)+"-"+(eval(rsAr4[0].t4)+5));	
-							}else{
-								$("#h6_t4_spec").text("");
-							}
-						}
-							
-//					$("#monitoring_list tbody").html(listHtml);
+					// 퀜칭로 온도범위
+					$("#h6_sp_q1_spec").text((rsAr.q1_sp-150)+"~"+(rsAr.q1_sp+50));
+					if((rsAr.q1_pv < rsAr.q1_sp-150) || (rsAr.q1_pv > rsAr.q1_sp+50)){
+						$("#h6_pv_q1_spec").css("background-color", "red");
+					} else{
+						$("#h6_pv_q1_spec").css("background-color", "");
+					}
+					$("#h6_sp_q2_spec").text((rsAr.q2_sp-100)+"~"+(rsAr.q2_sp+30));
+					if((rsAr.q2_pv < rsAr.q2_sp-100) || (rsAr.q2_pv > rsAr.q2_sp+30)){
+						$("#h6_pv_q2_spec").css("background-color", "red");
+					} else{
+						$("#h6_pv_q2_spec").css("background-color", "");
+					}
+					$("#h6_sp_q3_spec").text((rsAr.q3_sp-10)+"~"+(rsAr.q3_sp+10));
+					if((rsAr.q3_pv < rsAr.q3_sp-10) || (rsAr.q3_pv > rsAr.q3_sp+10)){
+						$("#h6_pv_q3_spec").css("background-color", "red");
+					} else{
+						$("#h6_pv_q3_spec").css("background-color", "");
+					}
+					$("#h6_sp_q4_spec").text((rsAr.q4_sp-10)+"~"+(rsAr.q4_sp+10));
+					if((rsAr.q4_pv < rsAr.q4_sp-10) || (rsAr.q4_pv > rsAr.q4_sp+10)){
+						$("#h6_pv_q4_spec").css("background-color", "red");
+					} else{
+						$("#h6_pv_q4_spec").css("background-color", "");
+					}
+					$("#h6_sp_q5_spec").text((rsAr.q5_sp-10)+"~"+(rsAr.q5_sp+10));
+					if((rsAr.q5_pv < rsAr.q5_sp-10) || (rsAr.q5_pv > rsAr.q5_sp+10)){
+						$("#h6_pv_q5_spec").css("background-color", "red");
+					} else{
+						$("#h6_pv_q5_spec").css("background-color", "");
+					}
+					
+					// 템퍼링로 온도범위
+					$("#h6_sp_t1_spec").text((rsAr.t1_sp-200)+"~"+(rsAr.t1_sp+20));
+					if((rsAr.t1_pv < rsAr.t1_sp-200) || (rsAr.t1_pv > rsAr.t1_sp+20)){
+						$("#h6_pv_t1_spec").css("background-color", "red");
+					} else{
+						$("#h6_pv_t1_spec").css("background-color", "");
+					}
+					$("#h6_sp_t2_spec").text((rsAr.t2_sp-50)+"~"+(rsAr.t2_sp+20));
+					if((rsAr.t2_pv < rsAr.t2_sp-50) || (rsAr.t2_pv > rsAr.t2_sp+20)){
+						$("#h6_pv_t2_spec").css("background-color", "red");
+					} else{
+						$("#h6_pv_t2_spec").css("background-color", "");
+					}
+					$("#h6_sp_t3_spec").text((rsAr.t3_sp-10)+"~"+(rsAr.t3_sp+10));
+					if((rsAr.t3_pv < rsAr.t3_sp-10) || (rsAr.t3_pv > rsAr.t3_sp+10)){
+						$("#h6_pv_t3_spec").css("background-color", "red");
+					} else{
+						$("#h6_pv_t3_spec").css("background-color", "");
+					}
+					$("#h6_sp_t4_spec").text((rsAr.t4_sp-10)+"~"+(rsAr.t4_sp+10));
+					if((rsAr.t4_pv < rsAr.t4_sp-10) || (rsAr.t4_pv > rsAr.t4_sp+10)){
+						$("#h6_pv_t4_spec").css("background-color", "red");
+					} else{
+						$("#h6_pv_t4_spec").css("background-color", "");
+					}
+					
+					//중간세정기 유조 cp
+					$("#h6_sp_mw").text((rsAr.a_sp-10)+"~"+(rsAr.a_sp+10));
+					if((rsAr.a_pv < rsAr.a_sp-10) || (rsAr.a_pv > rsAr.a_sp+10)){
+						$("#h6_pv_mw").css("background-color", "red");
+					} else{
+						$("#h6_pv_mw").css("background-color", "");
+					}
+					
+					$("#h6_sp_oil").text((rsAr.oil_sp-10)+"~"+(rsAr.oil_sp+10));
+					if((rsAr.oil_pv < rsAr.oil_sp-10) || (rsAr.oil_pv > rsAr.oil_sp+10)){
+						$("#h6_pv_oil").css("background-color", "red");
+					} else{
+						$("#h6_pv_oil").css("background-color", "");
+					}
+					
+					$("#h6_sp_cp").text((rsAr.cp_sp-0.05).toFixed(3)+"~"+(rsAr.cp_sp+0.05).toFixed(3));
+					if((rsAr.cp_pv.toFixed(3) < (rsAr.cp_sp-0.05).toFixed(3)) || (rsAr.cp_pv.toFixed(3) > (rsAr.cp_sp+0.05).toFixed(3))){
+						$("#h6_pv_cp").css("background-color", "red");
+					} else{
+						$("#h6_pv_cp").css("background-color", "");
+					}
 					
 				} else if (rsJson && rsJson.status == "fail") {
 					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
@@ -2451,7 +2258,6 @@ function div_change(value){
 					alert("에러발생!");
 				}
 				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
 				
 			},	// success 끝
 			error: function(req, status) {
@@ -2466,383 +2272,9 @@ function div_change(value){
 					
 	
 	}
+
 	
-	//7
-
-	function getMonitoringList7(){
-//		console.log("t");
-		
-		$.ajax({
-			type : "POST",
-			url : "l002001_list7.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr5 = rsJson.rows5;
-					
-						if(rsAr5.length != 0){
-							//7호기
-								$("#h7_hogi").text("HT-"+rsAr5[0].hogi);
-								if(rsAr5[0].t1 != 0){
-									$("#h7_t1_spec").text((eval(rsAr5[0].t1)-50)+"-"+(eval(rsAr5[0].t1)+10));	
-								}else{
-									$("#h7_t1_spec").text("");
-								}
-								
-								if(rsAr5[0].t2 != 0){
-									$("#h7_t2_spec").text((eval(rsAr5[0].t2)-5)+"-"+(eval(rsAr5[0].t2)+5));	
-								}else{
-									$("#h7_t2_spec").text("");
-								}
-								
-								if(rsAr5[0].t3 != 0){
-									$("#h7_t3_spec").text((eval(rsAr5[0].t3)-5)+"-"+(eval(rsAr5[0].t3)+5));	
-								}else{
-									$("#h7_t3_spec").text("");
-								}
-								
-								if(rsAr5[0].t4 != 0){
-									$("#h7_t4_spec").text((eval(rsAr5[0].t4)-5)+"-"+(eval(rsAr5[0].t4)+5));	
-								}else{
-									$("#h7_t4_spec").text("");
-								}
-//								$("#h7_cp_spec").text(((eval(rsAr5[0].cp)/1000)+0.03).toFixed(2));
-//								$("#h7_cp_spec").text("설정±0.03");
-								
-								if(rsAr5[0].cp != 0){
-									$("#h7_cp_spec").text(((eval(rsAr5[0].cp)/1000)-0.03).toFixed(2)+"-"+((eval(rsAr5[0].cp)/1000)+0.03).toFixed(2));	
-								}else{
-									$("#h7_cp_spec").text("");
-								}	
-
-
-								$("#h7_q1").text(rsAr5[0].q1);
-								
-								if((rsAr5[0].q1 < 730) || (rsAr5[0].q1 > 900) ){
-									$("#h7_q1").css("background-color","#FF0000");
-								}else{
-									$("#h7_q1").css("background-color","#FFFFFF");
-								}						
-								
-								$("#h7_q2").text(rsAr5[0].q2);
-
-								if((rsAr5[0].q2 < 825) || (rsAr5[0].q2 > 900) ){
-									$("#h7_q2").css("background-color","#FF0000");
-								}else{
-									$("#h7_q2").css("background-color","#FFFFFF");
-								}
-								
-								$("#h7_q3").text(rsAr5[0].q3);
-
-								if((rsAr5[0].q3 < 871) || (rsAr5[0].q3 > 889) ){
-									$("#h7_q3").css("background-color","#FF0000");
-								}else{
-									$("#h7_q3").css("background-color","#FFFFFF");
-								}						
-								
-								$("#h7_q4").text(rsAr5[0].q4);
-								
-								if((rsAr5[0].q4 < 871) || (rsAr5[0].q4 > 889) ){
-									$("#h7_q4").css("background-color","#FF0000");
-								}else{
-									$("#h7_q4").css("background-color","#FFFFFF");
-								}
-								$("#h7_q5").text("");		//퀜칭
-								
-								$("#h7_t1").text(rsAr5[0].t1);
-								$("#h7_t2").text(rsAr5[0].t2);
-								$("#h7_t3").text(rsAr5[0].t3);
-								$("#h7_t4").text(rsAr5[0].t4);		//템퍼링
-								
-								$("#h7_bw").text(rsAr5[0].fw);		//전세정기
-								if((rsAr5[0].fw < 60) ){
-									$("#h7_bw").css("background-color","#FF0000");
-								}else{
-									$("#h7_bw").css("background-color","#FFFFFF");
-								}
-								
-								
-								$("#h7_mw").text(rsAr5[0].mw);		//중간세정기
-								if((rsAr5[0].mw < 50) ){
-									$("#h7_mw").css("background-color","#FF0000");
-								}else{
-									$("#h7_mw").css("background-color","#FFFFFF");
-								}
-								
-								$("#h7_oil").text(rsAr5[0].oil);		//유조
-								if((rsAr5[0].oil < 60) || (rsAr5[0].oil > 80) ){
-									$("#h7_oil").css("background-color","#FF0000");
-								}else{
-									$("#h7_oil").css("background-color","#FFFFFF");
-								}
-								
-								$("#h7_heat").text('');	//가열경보				
-								
-								$("#h7_cold").text(rsAr5[0].cold);	//냉각조
-								$("#h7_detect").text(rsAr5[0].detect);//변성로
-								if((rsAr5[0].detect < 1030) || (rsAr5[0].detect > 1100) ){
-									$("#h7_detect").css("background-color","#FF0000");
-								}else{
-									$("#h7_detect").css("background-color","#FFFFFF");
-								}						
-								
-								$("#h7_co").text("");				//CO
-								$("#h7_co2").text((eval(rsAr5[0].co2)).toFixed(3));		//CO2
-								if((rsAr5[0].co2 < 0.3) || (rsAr5[0].co2 > 0.4) ){
-									$("#h7_co2").css("background-color","#FF0000");
-								}else{
-									$("#h7_co2").css("background-color","#FFFFFF");
-								}						
-								
-								$("#h7_cp").text((eval(rsAr5[0].cp)/1000).toFixed(2));	//CP
-						}else{
-							$("#h7_hogi").text("HT-"+"QT7");
-							$("#h7_hogi").css("background-color","#D2D2D2");
-							$(".q7_zero").text("");
-							
-							
-							if(rsAr5[0].t1 != 0){
-								$("#h7_t1_spec").text((eval(rsAr5[0].t1)-50)+"-"+(eval(rsAr5[0].t1)+10));	
-							}else{
-								$("#h7_t1_spec").text("");
-							}
-							
-							if(rsAr5[0].t2 != 0){
-								$("#h7_t2_spec").text((eval(rsAr5[0].t2)-5)+"-"+(eval(rsAr5[0].t2)+5));	
-							}else{
-								$("#h7_t2_spec").text("");
-							}
-							
-							if(rsAr5[0].t3 != 0){
-								$("#h7_t3_spec").text((eval(rsAr5[0].t3)-5)+"-"+(eval(rsAr5[0].t3)+5));	
-							}else{
-								$("#h7_t3_spec").text("");
-							}
-							
-							if(rsAr5[0].t4 != 0){
-								$("#h7_t4_spec").text((eval(rsAr5[0].t4)-5)+"-"+(eval(rsAr5[0].t4)+5));	
-							}else{
-								$("#h7_t4_spec").text("");
-							}
-						}
-						
-						
-//					$("#monitoring_list tbody").html(listHtml);
-					
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});
-					
 	
-	}
-	
-	//8
-
-	function getMonitoringList8(){
-//		console.log("t");
-		
-		$.ajax({
-			type : "POST",
-			url : "l002001_list8.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr6 = rsJson.rows6;
-
-					
-						
-						
-						if(rsAr6.length != 0){
-							//8호기
-								$("#h8_hogi").text("HT-"+rsAr6[0].hogi);
-								if(rsAr6[0].t1 != 0){
-									$("#h8_t1_spec").text((eval(rsAr6[0].t1)-50)+"-"+(eval(rsAr6[0].t1)+10));	
-								}else{
-									$("#h8_t1_spec").text("");
-								}
-								
-								if(rsAr6[0].t2 != 0){
-									$("#h8_t2_spec").text((eval(rsAr6[0].t2)-5)+"-"+(eval(rsAr6[0].t2)+5));	
-								}else{
-									$("#h8_t2_spec").text("");
-								}
-								
-								if(rsAr6[0].t3 != 0){
-									$("#h8_t3_spec").text((eval(rsAr6[0].t3)-5)+"-"+(eval(rsAr6[0].t3)+5));	
-								}else{
-									$("#h8_t3_spec").text("");
-								}
-								
-								if(rsAr6[0].t4 != 0){
-									$("#h8_t4_spec").text((eval(rsAr6[0].t4)-5)+"-"+(eval(rsAr6[0].t4)+5));	
-								}else{
-									$("#h8_t4_spec").text("");
-								}
-								
-								
-								
-//								$("#h8_cp_spec").text(((eval(rsAr6[0].cp)/1000)+0.03).toFixed(2));
-//								$("#h8_cp_spec").text("설정±0.03");
-								if(rsAr6[0].cp != 0){
-									$("#h8_cp_spec").text(((eval(rsAr6[0].cp)/1000)-0.03).toFixed(2)+"-"+((eval(rsAr6[0].cp)/1000)+0.03).toFixed(2));	
-								}else{
-									$("#h8_cp_spec").text("");
-								}	
-								
-
-								$("#h8_q1").text(rsAr6[0].q1);
-								
-								if((rsAr6[0].q1 < 740) || (rsAr6[0].q1 > 910) ){
-									$("#h8_q1").css("background-color","#FF0000");
-								}else{
-									$("#h8_q1").css("background-color","#FFFFFF");
-								}						
-								
-								$("#h8_q2").text(rsAr6[0].q2);
-
-								if((rsAr6[0].q2 < 835) || (rsAr6[0].q2 > 910) ){
-									$("#h8_q2").css("background-color","#FF0000");
-								}else{
-									$("#h8_q2").css("background-color","#FFFFFF");
-								}
-								
-								$("#h8_q3").text(rsAr6[0].q3);
-
-								if((rsAr6[0].q3 < 881) || (rsAr6[0].q3 > 889) ){
-									$("#h8_q3").css("background-color","#FF0000");
-								}else{
-									$("#h8_q3").css("background-color","#FFFFFF");
-								}						
-								
-								$("#h8_q4").text(rsAr6[0].q4);
-								
-								if((rsAr6[0].q4 < 881) || (rsAr6[0].q4 > 889) ){
-									$("#h8_q4").css("background-color","#FF0000");
-								}else{
-									$("#h8_q4").css("background-color","#FFFFFF");
-								}
-								
-								
-								$("#h8_q5").text("");		//퀜칭
-								
-								$("#h8_t1").text(rsAr6[0].t1);
-								$("#h8_t2").text(rsAr6[0].t2);
-								$("#h8_t3").text(rsAr6[0].t3);
-								$("#h8_t4").text(rsAr6[0].t4);		//템퍼링
-								
-								$("#h8_bw").text(rsAr6[0].fw);		//전세정기
-								if((rsAr6[0].fw < 60) ){
-									$("#h8_bw").css("background-color","#FF0000");
-								}else{
-									$("#h8_bw").css("background-color","#FFFFFF");
-								}
-								
-								
-								$("#h8_mw").text(rsAr6[0].mw);		//중간세정기
-								if((rsAr6[0].mw < 50) ){
-									$("#h8_mw").css("background-color","#FF0000");
-								}else{
-									$("#h8_mw").css("background-color","#FFFFFF");
-								}
-								
-								$("#h8_oil").text(rsAr6[0].oil);		//유조
-								if((rsAr6[0].oil < 60) || (rsAr6[0].oil > 80) ){
-									$("#h8_oil").css("background-color","#FF0000");
-								}else{
-									$("#h8_oil").css("background-color","#FFFFFF");
-								}
-								
-								$("#h8_heat").text('');	//가열경보				
-								
-								$("#h8_cold").text(rsAr6[0].cold);	//냉각조
-								$("#h8_detect").text(rsAr6[0].detect);//변성로
-								if((rsAr6[0].detect < 1030) || (rsAr6[0].detect > 1100) ){
-									$("#h8_detect").css("background-color","#FF0000");
-								}else{
-									$("#h8_detect").css("background-color","#FFFFFF");
-								}						
-								
-								$("#h8_co").text("");				//CO
-								$("#h8_co2").text((eval(rsAr6[0].co2)).toFixed(3));		//CO2
-								if((rsAr6[0].co2 < 0.3) || (rsAr6[0].co2 > 0.4) ){
-									$("#h8_co2").css("background-color","#FF0000");
-								}else{
-									$("#h8_co2").css("background-color","#FFFFFF");
-								}						
-								
-								$("#h8_cp").text((eval(rsAr6[0].cp)/1000).toFixed(2));	//CP
-						}else{
-							$("#h8_hogi").text("HT-"+"QT8");
-							$("#h8_hogi").css("background-color","#D2D2D2");
-							$(".q8_zero").text("");
-							
-							
-							if(rsAr6[0].t1 != 0){
-								$("#h8_t1_spec").text((eval(rsAr6[0].t1)-50)+"-"+(eval(rsAr6[0].t1)+10));	
-							}else{
-								$("#h8_t1_spec").text("");
-							}
-							
-							if(rsAr6[0].t2 != 0){
-								$("#h8_t2_spec").text((eval(rsAr6[0].t2)-5)+"-"+(eval(rsAr6[0].t2)+5));	
-							}else{
-								$("#h8_t2_spec").text("");
-							}
-							
-							if(rsAr6[0].t3 != 0){
-								$("#h8_t3_spec").text((eval(rsAr6[0].t3)-5)+"-"+(eval(rsAr6[0].t3)+5));	
-							}else{
-								$("#h8_t3_spec").text("");
-							}
-							
-							if(rsAr6[0].t4 != 0){
-								$("#h8_t4_spec").text((eval(rsAr6[0].t4)-5)+"-"+(eval(rsAr6[0].t4)+5));	
-							}else{
-								$("#h8_t4_spec").text("");
-							}
-						}	
-//					$("#monitoring_list tbody").html(listHtml);
-					
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});
-					
-	
-	}
 	
 	
 	
@@ -2850,1680 +2282,10 @@ function div_change(value){
 	
 	*/
 
-	function data_load3(){
-		$.ajax({
-			type : "POST",
-			url : "l002001_chart3.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					jsonData3 = rsAr;
-					for(var i=0; i<rsAr.length; i++){
-						x3 = i;
-					}
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});
-				
-	}	
-
-	function data_load4(){
-		$.ajax({
-			type : "POST",
-			url : "l002001_chart4.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					jsonData4 = rsAr;
-					for(var i=0; i<rsAr.length; i++){
-						x4 = i;
-					}
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});
-				
-	}
-	
-	function data_load5(){
-		$.ajax({
-			type : "POST",
-			url : "l002001_chart5.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					jsonData5 = rsAr;
-					for(var i=0; i<rsAr.length; i++){
-						x5 = i;
-					}
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});
-				
-	}	
-	
-	
-	function data_load6(){
-		$.ajax({
-			type : "POST",
-			url : "l002001_chart6.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					jsonData6 = rsAr;
-					for(var i=0; i<rsAr.length; i++){
-						x6 = i;
-					}
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});
-				
-	}	
-	
-	function data_load7(){
-		$.ajax({
-			type : "POST",
-			url : "l002001_chart7.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					jsonData7 = rsAr;
-					for(var i=0; i<rsAr.length; i++){
-						x7 = i;
-					}
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});
-				
-	}	
-	
-	function data_load8(){
-		$.ajax({
-			type : "POST",
-			url : "l002001_chart8.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					jsonData8 = rsAr;
-					for(var i=0; i<rsAr.length; i++){
-						x8 = i;
-					}
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});
-				
-	}
-	
-	
-	function chart3_generate(){
-		chart3= bb.generate({
-			size:{
-				height:630
-			},
-			title:{
-				text: "3호기",
-				position:"center"
-			},
-		      data: {
-		        json: jsonData3,
-		        keys: {
-		        	x:"date1",
-		        	y:"q1",
-					value: 
-						 [
-						  "q1","q2","q3","q4","t1","t2","t3","t4",
-						  "oil","cp","co2","detect"
-						  
-					     ]
-		        },
-		        onover: function(d, element) {
-//		        	console.log(d);
-		        	
-		        	
-					$.ajax({
-						type : "POST",
-						url : "l002001_onover.jsp",
-						cache : false,
-						dataType : "json",
-						data : {'time':new Date().getTime(),
-								"rowId":d.index,
-								"table":"3"
-								},
-						success : function(rsJson) {
-							if (rsJson && rsJson.status == "ok") {
-								var rows = rsJson.rows;
-								for(var i=0; i<rows.length; i++){
-									$("#n_date").val(rows[i].tdate);
-									$("#n_time").val(rows[i].ttime);
-								}
-//								console.log(over_index);
-							}
-						}
-					});
-				},
-				onclick: function(d){
-//					console.log(d);
-					$.ajax({
-						type : "POST",
-						url : "l002001_onover.jsp",
-						cache : false,
-						dataType : "json",
-						data : {'time':new Date().getTime(),
-								"rowId":d.index,
-								"table":"3"
-								},
-						success : function(rsJson) {
-							if (rsJson && rsJson.status == "ok") {
-								var rows = rsJson.rows;
-								for(var i=0; i<rows.length; i++){
-									$("#cmt_date").val(rows[i].tdate+" "+rows[i].ttime);
-									$("#cmt_comment").val(rows[i].cmt);
-								}
-							}
-						}
-					});						
-					
-					
-					commentDialog.dialog("open");
-					$("#cmt_comment").focus();
-					//설비명
-					$("#cmt_hogi").val("3");
-					$("#cmt_zone").val(d.id);
-//					console.log(d);
-				},
-			     colors:{
-			    	 "q1":"#FF0000",
-			    	 "q2":"#000000",
-			    	 "q3":"#0000FF",
-			    	 "q4":"#008000",
-			    	 "t1":"#FF0000",
-			    	 "t2":"#000000",
-			    	 "t3":"#0000FF",
-			    	 "t4":"#008000",
-			    	 "oil":"#800080",
-			    	 "cp":"#993300",
-			    	 "co2":"#993300",
-			    	 "detect":"#993300"
-
-			     }			        
-		      },
-		      point :{
-		    	  r: 0.03
-		      },
-		      axis: {
-					x: {
-				    		label: {
-				    			position:"outer-middle"
-				    		},
-							type: "category",
-						    tick: {
-						        centered: true,
-					            outer: false,
-						        tooltip: true,
-						        count:12
-						      }
-					     },
-					y: {			    
-			            label:{
-			            	position:"outer-center"
-			            }, 
-			            tick:{
-			              tooltip: true
-			            }
-		          }					      
-	        	},zoom: {
-	            	enabled: {
-	                	type: "drag"
-	              	}
-	            },legend:{
-	    		    contents: {
-	  			      bindto: "#legend3",
-	  			      template: function(title, color) {
-	  					var result = "";
-	  					var t_value = "";
-	  						if(title == "q1"){
-	  							t_value = "퀜칭1";
-	  						}else if(title == "q2"){
-	  							t_value = "퀜칭2";
-	  						}else if(title == "q3"){
-	  							t_value = "퀜칭3";
-	  						}else if(title == "q4"){
-	  							t_value = "퀜칭4";
-	  						}else if(title == "t1"){
-	  							t_value = "템퍼링1";
-	  						}else if(title == "t2"){
-	  							t_value = "템퍼링2";
-	  						}else if(title == "t3"){
-	  							t_value = "템퍼링3";
-	  						}else if(title == "t4"){
-	  							t_value = "템퍼링4";
-	  						}else if(title == "fw"){
-	  							t_value = "전세정기";
-	  						}else if(title == "mw"){
-	  							t_value = "중간세정기";
-	  						}else if(title == "oil"){
-	  							t_value = "유조";
-	  						}else if(title == "cp"){
-	  							t_value = "CP";
-	  						}else if(title == "co2"){
-	  							t_value = "CO₂";
-	  						}else if(title == "detect"){
-	  							t_value = "변성로";
-	  						}
-	  						result += "<span style='width:120px;height:35px;display:block;color:white;background-color:" + color + ";padding-top:10px;margin:1px;font-size:14pt;'>"+t_value+"</span>";
-	  					return result;
-	  			     }
-	  			    }
-	  			},tooltip: {
-				    init: {
-					      show: true,
-					      x:x3
-					    },
-					    doNotHide: true,
-					      contents: {
-					       	bindto: "#tooltip3",
-					       	template: '{{' +
-					'<span style=width:50px;height:35px;padding-top:10px;margin:1px;font-size:14pt;display:block;color:white;background-color:{=COLOR}> {=VALUE}</span>' +
-					       		'}}'
-					       }
-					    
-					  },
-		      bindto: "#chart3"
-		    });			
-	}
-
-	function chart4_generate(){
-		chart4= bb.generate({
-			size:{
-				height:630
-			},
-			title:{
-				text: "4호기",
-				position:"center"
-			},
-		      data: {
-		        json: jsonData4,
-		        keys: {
-		        	x:"date1",
-		        	y:"q1",
-					value: 
-						 [
-						  "q1","q2","q3","q4","q5","t1","t2","t3","t4",
-						  "oil","cp","co2","detect"
-						  
-					     ]
-		        },
-		        onover: function(d, element) {
-//		        	console.log(d);
-		        	
-		        	
-					$.ajax({
-						type : "POST",
-						url : "l002001_onover.jsp",
-						cache : false,
-						dataType : "json",
-						data : {'time':new Date().getTime(),
-								"rowId":d.index,
-								"table":"4"
-								},
-						success : function(rsJson) {
-							if (rsJson && rsJson.status == "ok") {
-								var rows = rsJson.rows;
-								for(var i=0; i<rows.length; i++){
-									$("#n_date").val(rows[i].tdate);
-									$("#n_time").val(rows[i].ttime);
-								}
-//								console.log(over_index);
-							}
-						}
-					});
-				},
-				onclick: function(d){
-//					console.log(d);
-					$.ajax({
-						type : "POST",
-						url : "l002001_onover.jsp",
-						cache : false,
-						dataType : "json",
-						data : {'time':new Date().getTime(),
-								"rowId":d.index,
-								"table":"4"
-								},
-						success : function(rsJson) {
-							if (rsJson && rsJson.status == "ok") {
-								var rows = rsJson.rows;
-								for(var i=0; i<rows.length; i++){
-									$("#cmt_date").val(rows[i].tdate+" "+rows[i].ttime);
-									$("#cmt_comment").val(rows[i].cmt);
-								}
-							}
-						}
-					});						
-					
-					
-					commentDialog.dialog("open");
-					$("#cmt_comment").focus();
-					//설비명
-					$("#cmt_hogi").val("4");
-					$("#cmt_zone").val(d.id);
-//					console.log(d);
-				},
-			     colors:{
-			    	 "q1":"#FF0000",
-			    	 "q2":"#000000",
-			    	 "q3":"#0000FF",
-			    	 "q4":"#008000",
-			    	 "q5":"#993300",
-			    	 "t1":"#FF0000",
-			    	 "t2":"#000000",
-			    	 "t3":"#0000FF",
-			    	 "t4":"#008000",
-			    	 "oil":"#800080",
-			    	 "cp":"#993300",
-			    	 "co2":"#008000",
-			    	 "detect":"#993300"
-
-			     }			        
-				
-		      },
-		      point :{
-		    	  r: 0.03
-		      },
-		      axis: {
-					x: {
-				    		label: {
-				    			position:"outer-middle"
-				    		},
-							type: "category",
-						    tick: {
-						        centered: true,
-					            outer: false,
-						        tooltip: true,
-						        count:12
-						      }
-					     },
-					y: {			    
-			            label:{
-			            	position:"outer-center"
-			            }, 
-			            tick:{
-			              tooltip: true
-			            }
-		          }					      
-	        	},zoom: {
-	            	enabled: {
-	                	type: "drag"
-	              	}
-	            },legend:{
-	    		    contents: {
-	  			      bindto: "#legend4",
-	  			      template: function(title, color) {
-	  					var result = "";
-	  					var t_value = "";
-	  						if(title == "q1"){
-	  							t_value = "퀜칭1";
-	  						}else if(title == "q2"){
-	  							t_value = "퀜칭2";
-	  						}else if(title == "q3"){
-	  							t_value = "퀜칭3";
-	  						}else if(title == "q4"){
-	  							t_value = "퀜칭4";
-	  						}else if(title == "t1"){
-	  							t_value = "템퍼링1";
-	  						}else if(title == "t2"){
-	  							t_value = "템퍼링2";
-	  						}else if(title == "t3"){
-	  							t_value = "템퍼링3";
-	  						}else if(title == "t4"){
-	  							t_value = "템퍼링4";
-	  						}else if(title == "fw"){
-	  							t_value = "전세정기";
-	  						}else if(title == "mw"){
-	  							t_value = "중간세정기";
-	  						}else if(title == "oil"){
-	  							t_value = "유조";
-	  						}else if(title == "cp"){
-	  							t_value = "CP";
-	  						}else if(title == "co2"){
-	  							t_value = "CO₂";
-	  						}else if(title == "detect"){
-	  							t_value = "변성로";
-	  						}
-	  						result += "<span style='width:120px;height:35px;display:block;color:white;background-color:" + color + ";padding-top:10px;margin:1px;font-size:14pt;'>"+t_value+"</span>";
-	  					return result;
-	  			     }
-	  			    }
-	  			},tooltip: {
-				    init: {
-					      show: true,
-					      x:x4
-					    },
-					    doNotHide: true,
-					      contents: {
-					       	bindto: "#tooltip4",
-					       	template: '{{' +
-					'<span style=width:50px;height:35px;padding-top:10px;margin:1px;font-size:14pt;display:block;color:white;background-color:{=COLOR}> {=VALUE}</span>' +
-					       		'}}'
-					       }
-					    
-					  },
-		      bindto: "#chart4"
-		    });			
-	}	
-	
-	function chart5_generate(){
-		chart5= bb.generate({
-			size:{
-				height:630
-			},
-			title:{
-				text: "5호기",
-				position:"center"
-			},
-		      data: {
-		        json: jsonData5,
-		        keys: {
-		        	x:"date1",
-		        	y:"q1",
-					value: 
-						 [
-						  "q1","q2","q3","q4","q5","t1","t2","t3","t4",
-						  "oil","cp","co2","detect"
-						  
-					     ]
-		        },
-		        onover: function(d, element) {
-//		        	console.log(d);
-		        	
-		        	
-					$.ajax({
-						type : "POST",
-						url : "l002001_onover.jsp",
-						cache : false,
-						dataType : "json",
-						data : {'time':new Date().getTime(),
-								"rowId":d.index,
-								"table":"5"
-								},
-						success : function(rsJson) {
-							if (rsJson && rsJson.status == "ok") {
-								var rows = rsJson.rows;
-								for(var i=0; i<rows.length; i++){
-									$("#n_date").val(rows[i].tdate);
-									$("#n_time").val(rows[i].ttime);
-								}
-//								console.log(over_index);
-							}
-						}
-					});
-				},
-				onclick: function(d){
-//					console.log(d);
-					$.ajax({
-						type : "POST",
-						url : "l002001_onover.jsp",
-						cache : false,
-						dataType : "json",
-						data : {'time':new Date().getTime(),
-								"rowId":d.index,
-								"table":"5"
-								},
-						success : function(rsJson) {
-							if (rsJson && rsJson.status == "ok") {
-								var rows = rsJson.rows;
-								for(var i=0; i<rows.length; i++){
-									$("#cmt_date").val(rows[i].tdate+" "+rows[i].ttime);
-									$("#cmt_comment").val(rows[i].cmt);
-								}
-							}
-						}
-					});						
-					
-					
-					commentDialog.dialog("open");
-					$("#cmt_comment").focus();
-					//설비명
-					$("#cmt_hogi").val("5");
-					$("#cmt_zone").val(d.id);
-//					console.log(d);
-				},
-			     colors:{
-			    	 "q1":"#FF0000",
-			    	 "q2":"#000000",
-			    	 "q3":"#0000FF",
-			    	 "q4":"#008000",
-			    	 "q5":"#993300",
-			    	 "t1":"#FF0000",
-			    	 "t2":"#000000",
-			    	 "t3":"#0000FF",
-			    	 "t4":"#008000",
-			    	 "oil":"#800080",
-			    	 "cp":"#993300",
-			    	 "co2":"#008000",
-			    	 "detect":"#993300"
-
-			     }			        
-				
-				
-		      },
-		      point :{
-		    	  r: 0.03
-		      },
-		      axis: {
-					x: {
-				    		label: {
-				    			position:"outer-middle"
-				    		},
-							type: "category",
-						    tick: {
-						        centered: true,
-					            outer: false,
-						        tooltip: true,
-						        count:12
-						      }
-					     },
-					y: {			    
-			            label:{
-			            	position:"outer-center"
-			            }, 
-			            tick:{
-			              tooltip: true
-			            }
-		          }					      
-	        	},zoom: {
-	            	enabled: {
-	                	type: "drag"
-	              	}
-	            },legend:{
-	    		    contents: {
-	  			      bindto: "#legend5",
-	  			      template: function(title, color) {
-	  					var result = "";
-	  					var t_value = "";
-	  						if(title == "q1"){
-	  							t_value = "퀜칭1";
-	  						}else if(title == "q2"){
-	  							t_value = "퀜칭2";
-	  						}else if(title == "q3"){
-	  							t_value = "퀜칭3";
-	  						}else if(title == "q4"){
-	  							t_value = "퀜칭4";
-	  						}else if(title == "t1"){
-	  							t_value = "템퍼링1";
-	  						}else if(title == "t2"){
-	  							t_value = "템퍼링2";
-	  						}else if(title == "t3"){
-	  							t_value = "템퍼링3";
-	  						}else if(title == "t4"){
-	  							t_value = "템퍼링4";
-	  						}else if(title == "fw"){
-	  							t_value = "전세정기";
-	  						}else if(title == "mw"){
-	  							t_value = "중간세정기";
-	  						}else if(title == "oil"){
-	  							t_value = "유조";
-	  						}else if(title == "cp"){
-	  							t_value = "CP";
-	  						}else if(title == "co2"){
-	  							t_value = "CO₂";
-	  						}else if(title == "detect"){
-	  							t_value = "변성로";
-	  						}
-	  						result += "<span style='width:120px;height:35px;display:block;color:white;background-color:" + color + ";padding-top:10px;margin:1px;font-size:14pt;'>"+t_value+"</span>";
-	  					return result;
-	  			     }
-	  			    }
-	  			},tooltip: {
-				    init: {
-					      show: true,
-					      x:x5
-					    },
-					    doNotHide: true,
-					      contents: {
-					       	bindto: "#tooltip5",
-					       	template: '{{' +
-					'<span style=width:50px;height:35px;padding-top:10px;margin:1px;font-size:14pt;display:block;color:white;background-color:{=COLOR}> {=VALUE}</span>' +
-					       		'}}'
-					       }
-					    
-					  },
-		      bindto: "#chart5"
-		    });			
-	}	
-	
 	
 
-	function chart6_generate(){
-		chart6= bb.generate({
-			size:{
-				height:630
-			},
-			title:{
-				text: "6호기",
-				position:"center"
-			},
-		      data: {
-		        json: jsonData6,
-		        keys: {
-		        	x:"date1",
-		        	y:"q1",
-					value: 
-						 [
-						  "q1","q2","q3","q4","q5","t1","t2","t3","t4",
-						  "oil","cp","co2","detect"
-						  
-					     ]
-		        },
-		        onover: function(d, element) {
-//		        	console.log(d);
-		        	
-		        	
-					$.ajax({
-						type : "POST",
-						url : "l002001_onover.jsp",
-						cache : false,
-						dataType : "json",
-						data : {'time':new Date().getTime(),
-								"rowId":d.index,
-								"table":"6"
-								},
-						success : function(rsJson) {
-							if (rsJson && rsJson.status == "ok") {
-								var rows = rsJson.rows;
-								for(var i=0; i<rows.length; i++){
-									$("#n_date").val(rows[i].tdate);
-									$("#n_time").val(rows[i].ttime);
-								}
-//								console.log(over_index);
-							}
-						}
-					});
-				},
-				onclick: function(d){
-//					console.log(d);
-					$.ajax({
-						type : "POST",
-						url : "l002001_onover.jsp",
-						cache : false,
-						dataType : "json",
-						data : {'time':new Date().getTime(),
-								"rowId":d.index,
-								"table":"6"
-								},
-						success : function(rsJson) {
-							if (rsJson && rsJson.status == "ok") {
-								var rows = rsJson.rows;
-								for(var i=0; i<rows.length; i++){
-									$("#cmt_date").val(rows[i].tdate+" "+rows[i].ttime);
-									$("#cmt_comment").val(rows[i].cmt);
-								}
-							}
-						}
-					});						
-					
-					
-					commentDialog.dialog("open");
-					$("#cmt_comment").focus();
-					//설비명
-					$("#cmt_hogi").val("6");
-					$("#cmt_zone").val(d.id);
-//					console.log(d);
-				},
-			     colors:{
-			    	 "q1":"#FF0000",
-			    	 "q2":"#000000",
-			    	 "q3":"#0000FF",
-			    	 "q4":"#008000",
-			    	 "q5":"#993300",
-			    	 "t1":"#FF0000",
-			    	 "t2":"#000000",
-			    	 "t3":"#0000FF",
-			    	 "t4":"#008000",
-			    	 "oil":"#800080",
-			    	 "cp":"#993300",
-			    	 "co2":"#800080",
-			    	 "detect":"#008000"
-			     }			        
-		      },
-		      point :{
-		    	  r: 0.03
-		      },
-		      axis: {
-					x: {
-				    		label: {
-				    			position:"outer-middle"
-				    		},
-							type: "category",
-						    tick: {
-						        centered: true,
-					            outer: false,
-						        tooltip: true,
-						        count:12
-						      }
-					     },
-					y: {			    
-			            label:{
-			            	position:"outer-center"
-			            }, 
-			            tick:{
-			              tooltip: true
-			            }
-		          }					      
-	        	},zoom: {
-	            	enabled: {
-	                	type: "drag"
-	              	}
-	            },legend:{
-	    		    contents: {
-	  			      bindto: "#legend6",
-	  			      template: function(title, color) {
-	  					var result = "";
-	  					var t_value = "";
-	  						if(title == "q1"){
-	  							t_value = "퀜칭1";
-	  						}else if(title == "q2"){
-	  							t_value = "퀜칭2";
-	  						}else if(title == "q3"){
-	  							t_value = "퀜칭3";
-	  						}else if(title == "q4"){
-	  							t_value = "퀜칭4";
-	  						}else if(title == "t1"){
-	  							t_value = "템퍼링1";
-	  						}else if(title == "t2"){
-	  							t_value = "템퍼링2";
-	  						}else if(title == "t3"){
-	  							t_value = "템퍼링3";
-	  						}else if(title == "t4"){
-	  							t_value = "템퍼링4";
-	  						}else if(title == "fw"){
-	  							t_value = "전세정기";
-	  						}else if(title == "mw"){
-	  							t_value = "중간세정기";
-	  						}else if(title == "oil"){
-	  							t_value = "유조";
-	  						}else if(title == "cp"){
-	  							t_value = "CP";
-	  						}else if(title == "co2"){
-	  							t_value = "CO₂";
-	  						}else if(title == "detect"){
-	  							t_value = "변성로";
-	  						}
-	  						result += "<span style='width:120px;height:35px;display:block;color:white;background-color:" + color + ";padding-top:10px;margin:1px;font-size:14pt;'>"+t_value+"</span>";
-	  					return result;
-	  			     }
-	  			    }
-	  			},tooltip: {
-				    init: {
-					      show: true,
-					      x:x6
-					    },
-					    doNotHide: true,
-					      contents: {
-					       	bindto: "#tooltip6",
-					       	template: '{{' +
-					'<span style=width:50px;height:35px;padding-top:10px;margin:1px;font-size:14pt;display:block;color:white;background-color:{=COLOR}> {=VALUE}</span>' +
-					       		'}}'
-					       }
-					    
-					  },
-		      bindto: "#chart6"
-		    });			
-	}	
-
-	
-	function chart7_generate(){
-		chart7= bb.generate({
-			size:{
-				height:630
-			},
-			title:{
-				text: "7호기",
-				position:"center"
-			},
-		      data: {
-		        json: jsonData7,
-		        keys: {
-		        	x:"date1",
-		        	y:"q1",
-					value: 
-						 [
-						  "q1","q2","q3","q4","t1","t2","t3","t4",
-						  "oil","cp","co2","detect"
-						  
-					     ]
-		        },
-		        onover: function(d, element) {
-//		        	console.log(d);
-		        	
-		        	
-					$.ajax({
-						type : "POST",
-						url : "l002001_onover.jsp",
-						cache : false,
-						dataType : "json",
-						data : {'time':new Date().getTime(),
-								"rowId":d.index,
-								"table":"7"
-								},
-						success : function(rsJson) {
-							if (rsJson && rsJson.status == "ok") {
-								var rows = rsJson.rows;
-								for(var i=0; i<rows.length; i++){
-									$("#n_date").val(rows[i].tdate);
-									$("#n_time").val(rows[i].ttime);
-								}
-//								console.log(over_index);
-							}
-						}
-					});
-				},
-				onclick: function(d){
-//					console.log(d);
-					$.ajax({
-						type : "POST",
-						url : "l002001_onover.jsp",
-						cache : false,
-						dataType : "json",
-						data : {'time':new Date().getTime(),
-								"rowId":d.index,
-								"table":"7"
-								},
-						success : function(rsJson) {
-							if (rsJson && rsJson.status == "ok") {
-								var rows = rsJson.rows;
-								for(var i=0; i<rows.length; i++){
-									$("#cmt_date").val(rows[i].tdate+" "+rows[i].ttime);
-									$("#cmt_comment").val(rows[i].cmt);
-								}
-							}
-						}
-					});						
-					
-					
-					commentDialog.dialog("open");
-					$("#cmt_comment").focus();
-					//설비명
-					$("#cmt_hogi").val("7");
-					$("#cmt_zone").val(d.id);
-//					console.log(d);
-				},
-			     colors:{
-			    	 "q1":"#FF0000",
-			    	 "q2":"#000000",
-			    	 "q3":"#0000FF",
-			    	 "q4":"#008000",
-			    	 "t1":"#FF0000",
-			    	 "t2":"#000000",
-			    	 "t3":"#0000FF",
-			    	 "t4":"#008000",
-			    	 "oil":"#800080",
-			    	 "cp":"#993300",
-			    	 "co2":"#FF0000",
-			    	 "detect":"#0000FF"
-			     }			        
-				
-		      },
-		      point :{
-		    	  r: 0.03
-		      },
-		      axis: {
-					x: {
-				    		label: {
-				    			position:"outer-middle"
-				    		},
-							type: "category",
-						    tick: {
-						        centered: true,
-					            outer: false,
-						        tooltip: true,
-						        count:12
-						      }
-					     },
-					y: {			    
-			            label:{
-			            	position:"outer-center"
-			            }, 
-			            tick:{
-			              tooltip: true
-			            }
-		          }					      
-	        	},zoom: {
-	            	enabled: {
-	                	type: "drag"
-	              	}
-	            },legend:{
-	    		    contents: {
-	  			      bindto: "#legend7",
-	  			      template: function(title, color) {
-	  					var result = "";
-	  					var t_value = "";
-	  						if(title == "q1"){
-	  							t_value = "퀜칭1";
-	  						}else if(title == "q2"){
-	  							t_value = "퀜칭2";
-	  						}else if(title == "q3"){
-	  							t_value = "퀜칭3";
-	  						}else if(title == "q4"){
-	  							t_value = "퀜칭4";
-	  						}else if(title == "t1"){
-	  							t_value = "템퍼링1";
-	  						}else if(title == "t2"){
-	  							t_value = "템퍼링2";
-	  						}else if(title == "t3"){
-	  							t_value = "템퍼링3";
-	  						}else if(title == "t4"){
-	  							t_value = "템퍼링4";
-	  						}else if(title == "fw"){
-	  							t_value = "전세정기";
-	  						}else if(title == "mw"){
-	  							t_value = "중간세정기";
-	  						}else if(title == "oil"){
-	  							t_value = "유조";
-	  						}else if(title == "cp"){
-	  							t_value = "CP";
-	  						}else if(title == "co2"){
-	  							t_value = "CO₂";
-	  						}else if(title == "detect"){
-	  							t_value = "변성로";
-	  						}
-	  						result += "<span style='width:120px;height:35px;display:block;color:white;background-color:" + color + ";padding-top:10px;margin:1px;font-size:14pt;'>"+t_value+"</span>";
-	  					return result;
-	  			     }
-	  			    }
-	  			},tooltip: {
-				    init: {
-					      show: true,
-					      x:x6
-					    },
-					    doNotHide: true,
-					      contents: {
-					       	bindto: "#tooltip7",
-					       	template: '{{' +
-					'<span style=width:50px;height:35px;padding-top:10px;margin:1px;font-size:14pt;display:block;color:white;background-color:{=COLOR}> {=VALUE}</span>' +
-					       		'}}'
-					       }
-					    
-					  },
-		      bindto: "#chart7"
-		    });			
-	}
-	
-	
-	function chart8_generate(){
-		chart8= bb.generate({
-			size:{
-				height:630
-			},
-			title:{
-				text: "8호기",
-				position:"center"
-			},
-		      data: {
-		        json: jsonData8,
-		        keys: {
-		        	x:"date1",
-		        	y:"q1",
-					value: 
-						 [
-						  "q1","q2","q3","q4","t1","t2","t3","t4",
-						  "oil","cp","co2","detect"
-						  
-					     ]
-		        },
-		        onover: function(d, element) {
-//		        	console.log(d);
-		        	
-		        	
-					$.ajax({
-						type : "POST",
-						url : "l002001_onover.jsp",
-						cache : false,
-						dataType : "json",
-						data : {'time':new Date().getTime(),
-								"rowId":d.index,
-								"table":"8"
-								},
-						success : function(rsJson) {
-							if (rsJson && rsJson.status == "ok") {
-								var rows = rsJson.rows;
-								for(var i=0; i<rows.length; i++){
-									$("#n_date").val(rows[i].tdate);
-									$("#n_time").val(rows[i].ttime);
-								}
-//								console.log(over_index);
-							}
-						}
-					});
-				},
-				onclick: function(d){
-//					console.log(d);
-					$.ajax({
-						type : "POST",
-						url : "l002001_onover.jsp",
-						cache : false,
-						dataType : "json",
-						data : {'time':new Date().getTime(),
-								"rowId":d.index,
-								"table":"8"
-								},
-						success : function(rsJson) {
-							if (rsJson && rsJson.status == "ok") {
-								var rows = rsJson.rows;
-								for(var i=0; i<rows.length; i++){
-									$("#cmt_date").val(rows[i].tdate+" "+rows[i].ttime);
-									$("#cmt_comment").val(rows[i].cmt);
-								}
-							}
-						}
-					});						
-					
-					
-					commentDialog.dialog("open");
-					$("#cmt_comment").focus();
-					//설비명
-					$("#cmt_hogi").val("8");
-					$("#cmt_zone").val(d.id);
-//					console.log(d);
-				},
-			     colors:{
-			    	 "q1":"#FF0000",
-			    	 "q2":"#000000",
-			    	 "q3":"#0000FF",
-			    	 "q4":"#008000",
-			    	 "t1":"#FF0000",
-			    	 "t2":"#000000",
-			    	 "t3":"#0000FF",
-			    	 "t4":"#008000",
-			    	 "oil":"#800080",
-			    	 "cp":"#993300",
-			    	 "co2":"#008000",
-			    	 "detect":"#800080"
-			     }			        
-				
-				
-		      },
-		      point :{
-		    	  r: 0.03
-		      },
-		      axis: {
-					x: {
-				    		label: {
-				    			position:"outer-middle"
-				    		},
-							type: "category",
-						    tick: {
-						        centered: true,
-					            outer: false,
-						        tooltip: true,
-						        count:12
-						      }
-					     },
-					y: {			    
-			            label:{
-			            	position:"outer-center"
-			            }, 
-			            tick:{
-			              tooltip: true
-			            }
-		          }					      
-	        	},zoom: {
-	            	enabled: {
-	                	type: "drag"
-	              	}
-	            },legend:{
-	    		    contents: {
-	  			      bindto: "#legend8",
-	  			      template: function(title, color) {
-	  					var result = "";
-	  					var t_value = "";
-	  						if(title == "q1"){
-	  							t_value = "퀜칭1";
-	  						}else if(title == "q2"){
-	  							t_value = "퀜칭2";
-	  						}else if(title == "q3"){
-	  							t_value = "퀜칭3";
-	  						}else if(title == "q4"){
-	  							t_value = "퀜칭4";
-	  						}else if(title == "t1"){
-	  							t_value = "템퍼링1";
-	  						}else if(title == "t2"){
-	  							t_value = "템퍼링2";
-	  						}else if(title == "t3"){
-	  							t_value = "템퍼링3";
-	  						}else if(title == "t4"){
-	  							t_value = "템퍼링4";
-	  						}else if(title == "fw"){
-	  							t_value = "전세정기";
-	  						}else if(title == "mw"){
-	  							t_value = "중간세정기";
-	  						}else if(title == "oil"){
-	  							t_value = "유조";
-	  						}else if(title == "cp"){
-	  							t_value = "CP";
-	  						}else if(title == "co2"){
-	  							t_value = "CO₂";
-	  						}else if(title == "detect"){
-	  							t_value = "변성로";
-	  						}
-	  						result += "<span style='width:120px;height:35px;display:block;color:white;background-color:" + color + ";padding-top:10px;margin:1px;font-size:14pt;'>"+t_value+"</span>";
-	  					return result;
-	  			     }
-	  			    }
-	  			},tooltip: {
-				    init: {
-					      show: true,
-					      x:x8
-					    },
-					    doNotHide: true,
-					      contents: {
-					       	bindto: "#tooltip8",
-					       	template: '{{' +
-					'<span style=width:50px;height:35px;padding-top:10px;margin:1px;font-size:14pt;display:block;color:white;background-color:{=COLOR}> {=VALUE}</span>' +
-					       		'}}'
-					       }
-					    
-					  },
-		      bindto: "#chart8"
-		    });			
-	}	
-	
-	
-	function chart3_load(){
-		chart3.load({
-	        json: jsonData3,
-	        keys: {
-	        	x:"date1",
-	        	y:"q1",
-				value: 
-					 [
-					  "q1","q2","q3","q4","t1","t2","t3","t4",
-					  "fw","mw","oil","cp","co2","detect"
-				     ]
-	        }
-		});
-	}
-	
-	function chart4_load(){
-		chart4.load({
-	        json: jsonData4,
-	        keys: {
-	        	x:"date1",
-	        	y:"q1",
-				value: 
-					 [
-					  "q1","q2","q3","q4","t1","t2","t3","t4",
-					  "fw","mw","oil","cp","co2","detect"
-				     ]
-	        }
-		});
-	}	
-	
-	function chart5_load(){
-		chart5.load({
-	        json: jsonData5,
-	        keys: {
-	        	x:"date1",
-	        	y:"q1",
-				value: 
-					 [
-					  "q1","q2","q3","q4","t1","t2","t3","t4",
-					  "fw","mw","oil","cp","co2","detect"
-				     ]
-	        }
-		});
-	}	
-	
-	function chart6_load(){
-		chart6.load({
-	        json: jsonData6,
-	        keys: {
-	        	x:"date1",
-	        	y:"q1",
-				value: 
-					 [
-					  "q1","q2","q3","q4","t1","t2","t3","t4",
-					  "fw","mw","oil","cp","co2","detect"
-				     ]
-	        }
-		});
-	}	
-	
-	function chart7_load(){
-		chart7.load({
-	        json: jsonData7,
-	        keys: {
-	        	x:"date1",
-	        	y:"q1",
-				value: 
-					 [
-					  "q1","q2","q3","q4","t1","t2","t3","t4",
-					  "fw","mw","oil","cp","co2","detect"
-				     ]
-	        }
-		});
-	}	
-	
-	function chart8_load(){
-		chart8.load({
-	        json: jsonData8,
-	        keys: {
-	        	x:"date1",
-	        	y:"q1",
-				value: 
-					 [
-					  "q1","q2","q3","q4","t1","t2","t3","t4",
-					  "fw","mw","oil","cp","co2","detect"
-				     ]
-	        }
-		});
-	}	
-	
-	/*
- chart3 = bb.generate({
-  title: {
-	    text: "QT3"
-	  },
-	size:{
-		height:620
-	},
-	data: {
-	    columns: [
-		["퀜칭로1", 850,851,852,853,854,855,856],
-		["퀜칭로2", 870,871,872,873,874,875,876],
-		["퀜칭로3", 880,881,882,883,884,885,886],
-		["퀜칭로4", 880,881,882,883,884,885,886],
-		["퀜칭로5", 0,0,0,0,0,0,0],
-		["템퍼링로1", 540,541,542,543,544,545,546],
-		["템퍼링로2", 560,561,562,563,564,565,566],
-		["템퍼링로3", 565,566,567,568,569,570,571],
-		["템퍼링로4", 565,566,567,568,569,570,571],
-		["전세정기", 65,66,67,68,69,70,71],
-		["중간세정기", 55,56,57,58,59,60,61],
-		["유조", 70,71,72,73,74,75,76],
-		["가열경보", 0,0,0,0,0,0,0],
-		["퀜칭과온", 0,0,0,0,0,0,0],
-		["냉각조", 0,0,0,0,0,0,0],
-		["변성로", 1130,1132,1133,1134,1135,1136,1137],
-		["CO₂",0.35,0.36,0.37,0.38,0.39,0.4,0.41],
-		["CO",21,21.05,21,21,22,23,21],
-		["CP",0.3,0.31,0.32,0.33,0.34,0.35,0.36]
-	    ],axes: {
-	        "CO₂":"y2",
-	        "CO":"y2",
-	        "CP": "y2"
-	      },types: {
-	    	  "CO₂":"spline",
-	    	  "CO": "spline",
-	    	  "CP": "spline"
-	        }	      
-	  },
-	  point:{
-		  pattern:[
-		           "circle","circle","circle","circle","circle","circle","circle","circle","circle","circle",
-		           "circle","circle","circle","circle","circle","circle",
-		           "<g><circle cx='10' cy='10' r='10'></circle><rect x='5' y='5' width='10' height='10' style='fill:#fff'></rect></g>",
-		           "<g><circle cx='10' cy='10' r='10'></circle><rect x='5' y='5' width='10' height='10' style='fill:#fff'></rect></g>",
-		           "<g><circle cx='10' cy='10' r='10'></circle><rect x='5' y='5' width='10' height='10' style='fill:#fff'></rect></g>"
-		         ]
-	  }
-	  ,legend: {
-		    contents: {
-			      bindto: "#legend",
-			      template: function(title, color) {
-					var result = "";
-						result += "<span style='width:100px;height:30px;display:block;color:white;background-color:" + color + ";padding:10px;margin:1px;'>"+title+"</span>";
-					return result;
-			     }
-			    }
-			},tooltip: {
-				    init: {
-				      show: true
-				    },
-				    doNotHide: true,
-				      contents: {
-				       	bindto: "#tooltip",
-				       	template: '{{' +
-				'<span style=width:120px;height:30px;padding:10px;margin:1px;font-size:13px;display:block;color:white;background-color:{=COLOR}>{=NAME} : {=VALUE}</span>' +
-				       		'}}'
-				       }
-				  },
-				  axis:{
-				    y2: {
-				      show: true
-				    }
-				  },
-	  bindto: "#chart3"
-	});
-	*/
 /*이벤트*/	
 
-$("#s_hogi").change(function(){
-	var h = $("#s_hogi").val();
-	$("#n_date").val("");
-	$("#n_time").val("");
-	
-	if(h == "3"){
-		if(typeof chart3 == "undefined"){
-			data_load3();
-			start_interval = setInterval('start_chart()',60000);
-			//3호기 차트가 undefined라면 추가
-			setTimeout(function(){
-				chart3_generate();							
-			},400);
-
-		}else{
-			//3호기 차트가 undefined가 아니라면 데이터만 갱신
-			data_load3();
-			setTimeout(function(){
-				chart3_load();
-			},400);
-		}
-		
-		
-		$("#chart3").show(); $("#chart3_right").show();
-		$("#chart4").hide(); $("#chart4_right").hide();
-		
-		$("#chart5").hide(); $("#chart5_right").hide();
-		$("#chart6").hide(); $("#chart6_right").hide();
-		
-		$("#chart7").hide(); $("#chart7_right").hide();
-		$("#chart8").hide(); $("#chart8_right").hide();
-		
-		start_chart();			
-		
-		start_interval = setInterval('start_chart()',60000);
-		clearInterval(start_interval2);
-		clearInterval(start_interval3);
-		clearInterval(start_interval4);	
-		clearInterval(start_interval5);	
-		clearInterval(start_interval6);	
-			
-	}else if(h == "4"){
-		if(typeof chart4 == "undefined"){
-			data_load4();
-			start_interval2 = setInterval('start_chart2()',60000);					
-			//4호기 차트가 undefined라면 추가
-			setTimeout(function(){
-				chart4_generate();							
-			},400);
-
-		}else{
-			//4호기 차트가 undefined가 아니라면 데이터만 갱신
-			data_load4();
-			setTimeout(function(){
-				chart4_load();
-			},400);
-		}
-		
-		
-		$("#chart3").hide(); $("#chart3_right").hide();
-		$("#chart4").show(); $("#chart4_right").show();
-		
-		$("#chart5").hide(); $("#chart5_right").hide();
-		$("#chart6").hide(); $("#chart6_right").hide();
-		
-		$("#chart7").hide(); $("#chart7_right").hide();
-		$("#chart8").hide(); $("#chart8_right").hide();
-		
-		start_chart2();			
-		
-		start_interval2 = setInterval('start_chart2()',60000);
-		clearInterval(start_interval);
-		clearInterval(start_interval3);
-		clearInterval(start_interval4);	
-		clearInterval(start_interval5);	
-		clearInterval(start_interval6);	
-	}else if(h == "5"){
-		if(typeof chart5 == "undefined"){
-			data_load5();
-			start_interval3 = setInterval('start_chart3()',60000);					
-			//4호기 차트가 undefined라면 추가
-			setTimeout(function(){
-				chart5_generate();							
-			},400);
-
-		}else{
-			//4호기 차트가 undefined가 아니라면 데이터만 갱신
-			data_load5();
-			setTimeout(function(){
-				chart5_load();
-			},400);
-		}
-		
-		
-		$("#chart3").hide(); $("#chart3_right").hide();
-		$("#chart4").hide(); $("#chart4_right").hide();
-		
-		$("#chart5").show(); $("#chart5_right").show();
-		$("#chart6").hide(); $("#chart6_right").hide();
-		
-		$("#chart7").hide(); $("#chart7_right").hide();
-		$("#chart8").hide(); $("#chart8_right").hide();
-		
-		start_chart3();			
-		
-		start_interval3 = setInterval('start_chart3()',60000);
-		clearInterval(start_interval);
-		clearInterval(start_interval2);
-		clearInterval(start_interval4);	
-		clearInterval(start_interval5);	
-		clearInterval(start_interval6);			
-	}else if(h == "6"){
-		if(typeof chart6 == "undefined"){
-			data_load6();
-			start_interval4 = setInterval('start_chart4()',60000);					
-			//4호기 차트가 undefined라면 추가
-			setTimeout(function(){
-				chart6_generate();							
-			},400);
-
-		}else{
-			//4호기 차트가 undefined가 아니라면 데이터만 갱신
-			data_load6();
-			setTimeout(function(){
-				chart6_load();
-			},400);
-		}
-		
-		
-		$("#chart3").hide(); $("#chart3_right").hide();
-		$("#chart4").hide(); $("#chart4_right").hide();
-		
-		$("#chart5").hide(); $("#chart5_right").hide();
-		$("#chart6").show(); $("#chart6_right").show();
-		
-		$("#chart7").hide(); $("#chart7_right").hide();
-		$("#chart8").hide(); $("#chart8_right").hide();
-		
-		start_chart4();			
-		
-		start_interval4 = setInterval('start_chart4()',60000);
-		clearInterval(start_interval);
-		clearInterval(start_interval2);
-		clearInterval(start_interval3);	
-		clearInterval(start_interval5);	
-		clearInterval(start_interval6);		
-	}else if(h == "7"){
-		if(typeof chart7 == "undefined"){
-			data_load7();
-			start_interval5 = setInterval('start_chart5()',60000);					
-			//4호기 차트가 undefined라면 추가
-			setTimeout(function(){
-				chart7_generate();							
-			},400);
-
-		}else{
-			//4호기 차트가 undefined가 아니라면 데이터만 갱신
-			data_load7();
-			setTimeout(function(){
-				chart7_load();
-			},400);
-		}
-		
-		
-		$("#chart3").hide(); $("#chart3_right").hide();
-		$("#chart4").hide(); $("#chart4_right").hide();
-		
-		$("#chart5").hide(); $("#chart5_right").hide();
-		$("#chart6").hide(); $("#chart6_right").hide();
-		
-		$("#chart7").show(); $("#chart7_right").show();
-		$("#chart8").hide(); $("#chart8_right").hide();
-		
-		start_chart5();			
-		
-		start_interval5 = setInterval('start_chart5()',60000);
-		clearInterval(start_interval);
-		clearInterval(start_interval2);
-		clearInterval(start_interval3);	
-		clearInterval(start_interval4);	
-		clearInterval(start_interval6);		
-	}else if(h == "8"){
-		if(typeof chart8 == "undefined"){
-			data_load8();
-			start_interval6 = setInterval('start_chart6()',60000);					
-			//4호기 차트가 undefined라면 추가
-			setTimeout(function(){
-				chart8_generate();							
-			},400);
-
-		}else{
-			//4호기 차트가 undefined가 아니라면 데이터만 갱신
-			data_load8();
-			setTimeout(function(){
-				chart8_load();
-			},400);
-		}
-		
-		
-		$("#chart3").hide(); $("#chart3_right").hide();
-		$("#chart4").hide(); $("#chart4_right").hide();
-		
-		$("#chart5").hide(); $("#chart5_right").hide();
-		$("#chart6").hide(); $("#chart6_right").hide();
-		
-		$("#chart7").hide(); $("#chart7_right").hide();
-		$("#chart8").show(); $("#chart8_right").show();
-		
-		start_chart6();			
-		
-		start_interval6 = setInterval('start_chart6()',60000);
-		clearInterval(start_interval);
-		clearInterval(start_interval2);
-		clearInterval(start_interval3);	
-		clearInterval(start_interval4);	
-		clearInterval(start_interval5);			
-	}
-
-	
-});
 
 /*다이얼로그*/
 		commentDialog = $("#comment-form").dialog({

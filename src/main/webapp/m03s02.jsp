@@ -156,7 +156,15 @@
 		font-style:normal;
 		font-weight:normal;
 	}		
-	
+	table th{
+	background-color: #122d64 !important;
+	color:#FFFFFF;
+	border-color: #FFFFFF !important;
+	text-align: center;
+	font-size: 16pt;
+	font-family: headline;
+	font-weight: 700;
+	}
 </style>
 
 	
@@ -1260,8 +1268,8 @@ function fileOpen(c_val, gb){
 				var rsAr = rsJson.rows;
 //				console.log(rsAr[0].filename);
 								
-				//var file = "/JINHAP_OFFICE/upload/"+encodeURIComponent(rsAr[0].filename);
-				var file = "/JINHAP_OFFICE/file/m03s02/"+encodeURIComponent(rsAr[0].filename);
+				var file = "/JINHAP_OFFICE/upload/"+encodeURIComponent(rsAr[0].filename);
+				//var file = "/JINHAP_OFFICE/file/m03s02/"+encodeURIComponent(rsAr[0].filename);
 				$("#image_view").attr("src",(decodeURIComponent(file)));
 				$("#image_view").show();
 				

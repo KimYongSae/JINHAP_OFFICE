@@ -578,7 +578,9 @@ function getFileList(){
 					listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline;">'+(i+1)+'</td>';
 					listHtml += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].tdate+'</td>';
 					listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 400px; word-break:break-all; font-size:15pt; font-family:headline;">'+o_fname+rsAr[i].version+'</td>';
-					if(rsAr[i].version == ".pdf"){
+					//if(rsAr[i].version == ".pdf"){
+					if (rsAr[i].version == ".pdf" || rsAr[i].version == ".png") {
+
 						listHtml += '<td style="text-align: center; height: 20px; width: 130px;"><button type="button" style="font-size:15pt; font-family:headline;" class="btn btn-default" onclick=viewFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true;><i class="fa fa-search"></i>파일보기</button></td>';	
 					}else{
 						listHtml += '<td style="text-align: center; height: 20px; width: 130px;"><button type="button" style="font-size:15pt; font-family:headline;" class="btn btn-default" onclick=downFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true;><i class="fa fa-save"></i>파일다운</button></td>';
@@ -650,9 +652,9 @@ function viewFile(c_val){
 				var rsAr = rsJson.rows;
 //				console.log(rsAr[0].filename);
 								
-				//var file = "/JINHAP_OFFICE/upload/"+(decodeURIComponent(rsAr[0].filename));
+				var file = "/JINHAP_OFFICE/upload/"+(decodeURIComponent(rsAr[0].filename));
 				//var file = "D:/file/m05s02/"+(decodeURIComponent(rsAr[0].filename));
-				var file = "/JINHAP_OFFICE/file/m05s02/"+(decodeURIComponent(rsAr[0].filename));
+				//var file = "/JINHAP_OFFICE/file/m05s02/"+(decodeURIComponent(rsAr[0].filename));
 				
 				console.log((decodeURIComponent(file)));
 				
@@ -696,10 +698,10 @@ function downFile(c_val){
 				var rsAr = rsJson.rows;
 //				console.log(rsAr[0].filename);
 								
-				//var file = "/JINHAP_OFFICE/upload/"+(decodeURIComponent(rsAr[0].filename));
+				var file = "/JINHAP_OFFICE/upload/"+(decodeURIComponent(rsAr[0].filename));
 				//var file = "D:/file/m05s02/"+(decodeURIComponent(rsAr[0].filename));
-				var file = "/JINHAP_OFFICE/file/m05s02/"+(decodeURIComponent(rsAr[0].filename));
-//				console.log((decodeURIComponent(file)));
+				//var file = "/JINHAP_OFFICE/file/m05s02/"+(decodeURIComponent(rsAr[0].filename));
+				console.log((decodeURIComponent(file)));
 				
 				
 				$("#image_view").attr("src",file);

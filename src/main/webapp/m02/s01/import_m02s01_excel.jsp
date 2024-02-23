@@ -78,26 +78,31 @@ request.setCharacterEncoding("UTF-8");
         	String sql = "{call sp_recipe_auto(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
         	pstmt = conn.prepareStatement(sql);
         	
-        	
             // 각 셀을 순회하면서 데이터를 가져옵니다.
             for (int i = 0; i < 17; i++) {
             	XSSFCell cell = row.getCell(i);
             	
-            	switch(cell.getCellType()){
-            		case NUMERIC:
-            			if(cell.getNumericCellValue() % 1 == 0){
-            				pstmt.setInt(i + 1, (int) cell.getNumericCellValue());
-            			} else{
-            				pstmt.setDouble(i + 1, cell.getNumericCellValue());
-            			}
-            			break;
-            		case STRING:
-            			pstmt.setString(i + 1, cell.toString());
-            			break;
-            		default:
-            			pstmt.setString(i + 1, cell.toString());
-            			break;
-            	}
+            	System.out.println(row.getCell(i));
+            	if (cell != null) {
+	            	switch(cell.getCellType()){
+	            		case NUMERIC:
+	            			if(cell.getNumericCellValue() % 1 == 0){
+	            				pstmt.setInt(i + 1, (int) cell.getNumericCellValue());
+	            			} else{
+	            				pstmt.setDouble(i + 1, cell.getNumericCellValue());
+	            			}
+	            			break;
+	            		case STRING:
+	            			pstmt.setString(i + 1, cell.toString());
+	            			break;
+	            		default:
+	            			pstmt.setString(i + 1, cell.toString());
+	            			break;
+	            	}
+            	}else {
+                    pstmt.setString(i + 1, "");
+                }
+            	
             	
             }
             

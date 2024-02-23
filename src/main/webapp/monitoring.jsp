@@ -341,6 +341,10 @@ div[aria-describedby="alarm-form5"]{
 			            	scrolling="no" ALLOWTRANSPARENCY="true"
 			            		style="width:1800px; height:910px;">
 			            	</iframe>			            				            	
+							<iframe id="monitor8" class="row" frameborder="0"
+			            	scrolling="no" ALLOWTRANSPARENCY="true"
+			            		style="width:1800px; height:910px;">
+			            	</iframe>			            				            	
 			            </div>
 		            </div>
 		        </div>
@@ -463,11 +467,12 @@ div[aria-describedby="alarm-form5"]{
 
 		
 		$("#monitor").hide(); $("#monitor2").hide(); $("#monitor3").hide(); 
-		$("#monitor4").hide(); $("#monitor5").hide(); $("#monitor6").hide(); $("#monitor7").hide();
+		$("#monitor4").hide(); $("#monitor5").hide(); $("#monitor6").hide(); $("#monitor7").hide(); $("#monitor8").hide();
 		
 		
 		
-		$("#monitor").attr("src","m01s01_monitor.jsp");
+		$("#monitor").attr("src","m01s00_monitor.jsp");
+//		$("#monitor").attr("src","m01s01_monitor_1.jsp");
 	
 //		$("#monitor").attr("src","m01s05_ht6_monitor.jsp");
 //		$("#monitor").attr("src","s000005_kiosk1.jsp");
@@ -509,51 +514,54 @@ div[aria-describedby="alarm-form5"]{
 	
 	function page_switch(){
 		page_idx++;
+		console.log(page_idx);
 		
-		if(page_idx == 2){
-			$("#monitor2").attr("src","m01s05_ht1_monitor.jsp");
-		}
-		else if(page_idx == 12){
-			$("#monitor3").attr("src","m01s05_ht2_monitor.jsp");
-		}else if(page_idx == 22){				
-			$("#monitor4").attr("src","m01s05_ht3_monitor.jsp");
+		if(page_idx == 22){
+			$("#monitor2").attr("src","m01s01_monitor_1.jsp");	
 		}else if(page_idx == 32){
-			$("#monitor5").attr("src","m01s05_ht4_monitor.jsp");
-		}else if(page_idx == 42){
-			$("#monitor6").attr("src","m01s05_ht5_monitor.jsp");
+			$("#monitor3").attr("src","m01s02_ht1_monitor.jsp");
+		}else if(page_idx == 42){				
+			$("#monitor4").attr("src","m01s02_ht2_monitor.jsp");
 		}else if(page_idx == 52){
-			$("#monitor7").attr("src","m01s05_ht6_monitor.jsp");
+			$("#monitor5").attr("src","m01s02_ht3_monitor.jsp");
 		}else if(page_idx == 62){
-			$("#monitor").attr("src","m01s01_monitor.jsp");	
+			$("#monitor6").attr("src","m01s02_ht4_monitor.jsp");
+		}else if(page_idx == 72){
+			$("#monitor7").attr("src","m01s02_ht5_monitor.jsp");
+		}else if(page_idx == 82){
+			$("#monitor8").attr("src","m01s02_ht6_monitor.jsp");
+		} else if(page_idx == 92){
+			$("#monitor").attr("src","m01s00_monitor.jsp");	
 		}
+	
 		
-		
-		if(page_idx == 10){				
+		if(page_idx == 30){				
 			$("#monitor").hide(); $("#monitor2").show(); $("#monitor3").hide();
-			$("#monitor4").hide(); $("#monitor5").hide(); $("#monitor6").hide(); $("#monitor7").hide();
-//			page_idx = 0;
-		}else if(page_idx == 20){
-			$("#monitor").hide(); $("#monitor2").hide(); 
-			$("#monitor3").show();
-			$("#monitor4").hide(); $("#monitor5").hide(); $("#monitor6").hide(); $("#monitor7").hide();
-		}else if(page_idx == 30){
-			$("#monitor").hide(); $("#monitor2").hide(); $("#monitor3").hide();
-			$("#monitor4").show(); $("#monitor5").hide(); $("#monitor6").hide(); $("#monitor7").hide();
+			$("#monitor4").hide(); $("#monitor5").hide(); $("#monitor6").hide(); $("#monitor7").hide(); $("#monitor8").hide();
 		}else if(page_idx == 40){
-			$("#monitor").hide(); $("#monitor2").hide(); $("#monitor3").hide();
-			$("#monitor4").hide(); $("#monitor5").show(); $("#monitor6").hide(); $("#monitor7").hide();
+			$("#monitor").hide(); $("#monitor2").hide(); $("#monitor3").show();
+			$("#monitor4").hide(); $("#monitor5").hide(); $("#monitor6").hide(); $("#monitor7").hide(); $("#monitor8").hide();
 		}else if(page_idx == 50){
 			$("#monitor").hide(); $("#monitor2").hide(); $("#monitor3").hide();
-			$("#monitor4").hide(); $("#monitor5").hide(); $("#monitor6").show(); $("#monitor7").hide();
+			$("#monitor4").show(); $("#monitor5").hide(); $("#monitor6").hide(); $("#monitor7").hide(); $("#monitor8").hide();
 		}else if(page_idx == 60){
 			$("#monitor").hide(); $("#monitor2").hide(); $("#monitor3").hide();
-			$("#monitor4").hide(); $("#monitor5").hide(); $("#monitor6").hide(); $("#monitor7").show();
+			$("#monitor4").hide(); $("#monitor5").show(); $("#monitor6").hide(); $("#monitor7").hide(); $("#monitor8").hide();
 		}else if(page_idx == 70){
+			$("#monitor").hide(); $("#monitor2").hide(); $("#monitor3").hide();
+			$("#monitor4").hide(); $("#monitor5").hide(); $("#monitor6").show(); $("#monitor7").hide(); $("#monitor8").hide();
+		}else if(page_idx == 80){
+			$("#monitor").hide(); $("#monitor2").hide(); $("#monitor3").hide();
+			$("#monitor4").hide(); $("#monitor5").hide(); $("#monitor6").hide(); $("#monitor7").show(); $("#monitor8").hide();
+		}else if(page_idx == 90){
+			$("#monitor").hide(); $("#monitor2").hide(); $("#monitor3").hide();
+			$("#monitor4").hide(); $("#monitor5").hide(); $("#monitor6").hide(); $("#monitor7").hide(); $("#monitor8").show();
+		}else if(page_idx == 100){
 			$("#monitor").show(); $("#monitor2").hide(); $("#monitor3").hide();
-			$("#monitor4").hide(); $("#monitor5").hide(); $("#monitor6").hide(); $("#monitor7").hide();
+			$("#monitor4").hide(); $("#monitor5").hide(); $("#monitor6").hide(); $("#monitor7").hide(); $("#monitor8").hide();
 			page_idx = 0;
 		}
-		
+	
 	}
 	
 	

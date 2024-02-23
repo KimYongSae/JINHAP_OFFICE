@@ -38,7 +38,7 @@
 	String edate = request.getParameter("s_edate"); */ 
 
 	int hogi = Integer.parseInt(request.getParameter("hogi"));
-	String pname = request.getParameter("pname");
+	String pnum = request.getParameter("pnum");
 	String gang = request.getParameter("gang");
 	String t_gb = request.getParameter("t_gb");
 	
@@ -86,8 +86,8 @@
 		 sql.append("tb_recipe_auto");
 		 sql.append(hogi);
 		 sql.append(" WHERE 1=1");
-		 if (!"0".equals(pname)) {
-			    sql.append(" AND pname = '" +pname+ "'");
+		 if (!"0".equals(pnum)) {
+			    sql.append(" AND pnum = '" +pnum+ "'");
 			}
 
 			if (!"0".equals(gang)) {

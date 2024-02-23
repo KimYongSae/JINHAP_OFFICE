@@ -134,8 +134,11 @@ $(document).ready(function(){
 							<span class="big-h3 head-container"><strong>설비관리</strong></span>
 						</div>
 						<div class="col-xs-2 text-muted text-center head-container" style="display: inline-block;">
-							<span class="big-h3 head-container"><strong>인원관리</strong></span>
+							<span class="big-h3 head-container"><strong>투입 운전관리</strong></span>
 						</div>
+<!-- 						<div class="col-xs-2 text-muted text-center head-container" style="display: inline-block;">
+							<span class="big-h3 head-container"><strong>인원관리</strong></span>
+						</div> -->
 					</div>
 				</div>								
 			</div>
@@ -145,6 +148,64 @@ $(document).ready(function(){
 			    <div class="col-xs-12">
 			    
 			    	<div class="col-xs-2 menuLists">
+			    		<ul style="text-align: center;">
+							<li><a href="sample_7.jsp"><span>통합모니터링(미완)</span></a></li>
+							<li><a href="sample_3.jsp"><span>경보 모니터링(미완)</span></a></li>							
+							<li><a href="m00s01.jsp"><span>경보 이력</span></a></li>
+							<!-- <li><a href="m00s02.jsp"><span>경보 발생빈도(랭킹)</span></a></li> -->
+							<li><a href="sample_1.jsp"><span>경보 발생빈도(랭킹)</span></a></li>
+							<li><a href="m01s05.jsp"><span>LOT 현황</span></a></li>				
+							<li><a href="m00s04.jsp"><span>온도/CP 상태감시</span></a></li>				
+							<li><a href="m00s04_trend.jsp"><span>온도/CP 경향모니터링</span></a></li>				
+						</ul>
+			    	</div>			    
+			    
+			    	<div class="col-xs-2 menuLists">
+			    		<ul style="text-align: center;">
+							<li><a href="m01s00.jsp"><span>종합생산현황</span></a></li>
+							<li><a href="m01s01.jsp"><span>설비별 생산실적</span></a></li>
+							<li><a href="m01s02.jsp"><span>설비별 효율관리</span></a></li>							
+							<li><a href="sample_8.jsp"><span>생산 모니터링 현황(미완)</span></a></li>							
+							<li><a href="sample_9.jsp"><span>열처리 제공현황(미완)</span></a></li>
+							<li><a href="m01s04.jsp"><span>열처리 작업일보 현황(미완)</span></a></li>
+							<li><a href="sample_10.jsp"><span>LOT 보고서(미완)</span></a></li>
+						</ul>
+			    	</div>
+			    	
+			    	<div class="col-xs-2 menuLists">
+			    		<ul style="text-align: center;">			    		
+							<li><a href="m02s01.jsp"><span>생산조건관리</span></a></li>
+							<li><a href="m02s02.jsp"><span>T/C 교체이력</span></a></li>
+							<li><a href="m02s03.jsp"><span>각종 조절계 교정이력</span></a></li>
+							<li><a href="m02s04.jsp"><span>열처리유 성상분석</span></a></li>
+							<li><a href="m02s05.jsp"><span>O₂ 센서 교체이력</span></a></li>
+						</ul>
+			    	</div>	
+			    	 	    	
+			    	<div class="col-xs-2 menuLists">
+			    		<ul style="text-align: center;"> 
+			    			<li><a href="m03s01.jsp"><span>Cpk 분석(미완)</span></a></li>
+			    			<li><a href="m03s04.jsp"><span>PPK 관리</span></a></li>
+			    			<li><a href="m03s02.jsp"><span>온도균일성 조사보고서</span></a></li>
+			    			<li><a href="m03s03.jsp"><span>열전대 비교측정</span></a></li>
+						</ul>
+			    	</div>
+			    	<div class="col-xs-2 menuLists">
+			    		<ul style="text-align: center;">			    			 
+							<li><a href="m04s01.jsp"><span>설비보전관리</span></a></li>
+							<li><a href="m04s02.jsp"><span>OPL 요령서</span></a></li>
+						</ul>
+			    	</div>
+
+			    	<div class="col-xs-2 menuLists">
+			    		<ul style="text-align: center;">
+			    			<li><a href="sample_11.jsp"><span>투입제어 및 모니터링(미완)</span></a></li>			    			 
+			    			<li><a href="sample_12.jsp"><span>LOT 정보확인(미완)</span></a></li>			    			 
+			    			<li><a href="sample_13.jsp"><span>생산/설비 실시간 정보(미완)</span></a></li>			    			 
+			    			<li><a href="sample_14.jsp"><span>투입FLOW 모니터링(미완)</span></a></li>			    			 
+						</ul>
+			    	</div>
+<!-- 			    	<div class="col-xs-2 menuLists">
 			    		<ul style="text-align: center;">
 							<li><a href="m00s01.jsp"><span>알람화면</span></a></li>
 							<li><a href="m00s02.jsp"><span>알람랭킹</span></a></li>							
@@ -192,7 +253,7 @@ $(document).ready(function(){
 			    			<li><a href="m05s01.jsp"><span>사용자 관리</span></a></li>			    			 
 			    			<li><a href="m05s02.jsp"><span>자격증관리</span></a></li>			    			 
 						</ul>
-			    	</div>
+			    	</div> -->
 			    				    	
 			    </div>
  			 </div>

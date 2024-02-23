@@ -19,8 +19,8 @@
 
 <%   
     // 설정값
-    //String uploadPath = request.getRealPath("/") + "upload";
-    String uploadPath = "D:/file/m03s03";
+    String uploadPath = request.getRealPath("/") + "upload";
+    //String uploadPath = "D:/file/m03s03";
     int maxSize = 30 * 1024 * 1024 ;
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
     Date currentDate = new Date();

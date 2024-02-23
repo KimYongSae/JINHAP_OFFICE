@@ -155,6 +155,15 @@
 		font-style:normal;
 		font-weight:normal;
 	}		
+	table th{
+	background-color: #122d64 !important;
+	color:#FFFFFF;
+	border-color: #FFFFFF !important;
+	text-align: center;
+	font-size: 16pt;
+	font-family: headline;
+	font-weight: 700;
+	}
 	
 </style>
 
@@ -491,7 +500,7 @@ var fn_logout = function () {
 				</form>
             </header>
             <div id="collapse4" class="body">
-            	<div id="tus_before" style="display:none;">
+            	<div id="tus_before">
 	               <table id="tus_list" cellspacing="0" 
 	               class="table table-bordered table-responsive scrolltbody">
 						<thead>
@@ -575,51 +584,7 @@ var fn_logout = function () {
 						</tbody>
 					</table>
 				</div>
-				<div id="tus_after" style="display:none;">
-	               <table id="tus_list_bungi" cellspacing="0" 
-	               class="table table-bordered table-responsive scrolltbody">
-						<thead>
-							<tr>
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 80px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									설비명
-								</th>
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 100px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									로
-								</th>
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 360px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									1분기
-								</th>
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 360px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									2분기
-								</th>
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 360px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									3분기
-								</th>
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 360px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									4분기
-								</th>					
-							
-							</tr>
-							
-						</thead>
-						<tbody id="tus_contents_bungi">
-						
-						</tbody>
-					</table>
-				
-				</div>				
+								
             </div>
         </div>
     </div>
@@ -684,11 +649,11 @@ $(function(){
 	
 	
 	sid = '<%=session.getAttribute("sid")%>';
-	if(eval($("#s_year").val()) <= 2020){
-		getYearCount();	
+	getYearCount();	
+	/* if(eval($("#s_year").val()) <= 2020){
 	}else{
 		getYearCount_bungi();
-	}
+	} */
 	
 });
 	
@@ -758,8 +723,8 @@ function init(){
 			//테이블 show, hide 추가필요
 			
 				//2020년 까지
-				$("#tus_before").show();
-				$("#tus_after").hide();
+				/* $("#tus_before").show();
+				$("#tus_after").hide(); */
 				getFileList();
 		},300);
 	}
@@ -773,8 +738,8 @@ function init(){
 		setTimeout(function(){
 			
 			//2020년 이후
-			$("#tus_before").hide();
-			$("#tus_after").show();
+			/* $("#tus_before").hide();
+			$("#tus_after").show(); */
 			getFileList_bungi();
 		},300);
 	}
@@ -1753,17 +1718,7 @@ $("#s_zone").change(function(){
 
 
 $("#s_year").change(function(){
-	if(eval($("#s_year").val()) <= 2020){
-		$("#tus_before").show();
-		$("#tus_after").hide();
-
-		getYearCount();	
-	}else{
-		$("#tus_before").hide();
-		$("#tus_after").show();
-		
-		getYearCount_bungi();
-	}
+	getYearCount();
 	
 });
 
@@ -1789,8 +1744,8 @@ function fileOpen(c_val, gb){
 				var rsAr = rsJson.rows;
 //				console.log(rsAr[0].filename);
 								
-				//var file = "/JINHAP_OFFICE/upload/"+encodeURIComponent(rsAr[0].filename);
-				var file = "/JINHAP_OFFICE/file/m03s03/"+encodeURIComponent(rsAr[0].filename);
+				var file = "/JINHAP_OFFICE/upload/"+encodeURIComponent(rsAr[0].filename);
+				//var file = "/JINHAP_OFFICE/file/m03s03/"+encodeURIComponent(rsAr[0].filename);
 				$("#image_view").attr("src",(decodeURIComponent(file)));
 				$("#image_view").show();
 				
@@ -1831,8 +1786,8 @@ function fileOpen_bungi(c_val, gb){
 				var rsAr = rsJson.rows;
 //				console.log(rsAr[0].filename);
 								
-				//var file = "/JINHAP_OFFICE/upload/"+encodeURIComponent(rsAr[0].filename);
-				var file = "/JINHAP_OFFICE/file/m03s03/"+encodeURIComponent(rsAr[0].filename);
+				var file = "/JINHAP_OFFICE/upload/"+encodeURIComponent(rsAr[0].filename);
+				//var file = "/JINHAP_OFFICE/file/m03s03/"+encodeURIComponent(rsAr[0].filename);
 				$("#image_view").attr("src",(decodeURIComponent(file)));
 				$("#image_view").show();
 //				$("#image_view").attr("name","열전대비교측정결과표(SAT)");

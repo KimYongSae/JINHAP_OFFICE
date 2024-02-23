@@ -9,7 +9,7 @@
 <%
 
 		String hogi = request.getParameter("hogi");
-		String pname = request.getParameter("pname");
+		String pnum = request.getParameter("pnum");
 		String gang = request.getParameter("gang");
 		String t_gb = request.getParameter("t_gb");
 
@@ -21,7 +21,7 @@
 		JSONObject mainObj = new JSONObject();
 		
 		 
-		sql1.append("select distinct(pname) from ");
+		sql1.append("select distinct(pnum) from ");
 	    sql1.append("tb_recipe_auto" + hogi);
 	    sql1.append(" where 1=1");
 	    if (gang != null && !gang.isEmpty() && !gang.equals("0")) {
@@ -30,13 +30,13 @@
 	    if (t_gb != null && !t_gb.isEmpty() && !t_gb.equals("0")) {
 	        sql1.append(" AND t_gb = '" + t_gb + "'");
 	    }
-	    sql1.append(" order by pname asc");
+	    sql1.append(" order by pnum asc");
 
 	    sql2.append("select distinct(gang) from ");
 	    sql2.append("tb_recipe_auto" + hogi);
 	    sql2.append(" where 1=1");
-	    if (pname != null && !pname.isEmpty() && !pname.equals("0")) {
-	        sql2.append(" AND pname = '" + pname + "'");
+	    if (pnum != null && !pnum.isEmpty() && !pnum.equals("0")) {
+	        sql2.append(" AND pnum = '" + pnum + "'");
 	    }
 	    if (t_gb != null && !t_gb.isEmpty() && !t_gb.equals("0")) {
 	        sql2.append(" AND t_gb = '" + t_gb + "'");
@@ -49,8 +49,8 @@
 	    if (gang != null && !gang.isEmpty() && !gang.equals("0")) {
 	        sql3.append(" AND gang = '" + gang + "'");
 	    }
-	    if (pname != null && !pname.isEmpty() && !pname.equals("0")) {
-	        sql3.append(" AND pname = '" + pname + "'");
+	    if (pnum != null && !pnum.isEmpty() && !pnum.equals("0")) {
+	        sql3.append(" AND pnum = '" + pnum + "'");
 	    }
 	    sql3.append(" order by t_gb asc");
 	    	
@@ -63,7 +63,7 @@
 	       /* rs.beforeFirst();   */
 	       stmt = conn.createStatement();  
 	       mainObj.put("status", String.valueOf("ok"));
-	       JSONArray pnameArray = new JSONArray();  
+	       JSONArray pnumArray = new JSONArray();  
 	       JSONArray gangArray = new JSONArray();  
 	       JSONArray t_gbArray = new JSONArray();  
 	       
@@ -73,10 +73,10 @@
 	       while(rs.next()){  
 	         JSONObject rowObj = new JSONObject();
 	         
-	         rowObj.put("pname", rs.getString("pname"));
-	         pnameArray.add(rowObj);  
+	         rowObj.put("pnum", rs.getString("pnum"));
+	         pnumArray.add(rowObj);  
 	       }  
-	       mainObj.put("pname", pnameArray);
+	       mainObj.put("pnum", pnumArray);
 	       
 	       rs = stmt.executeQuery(sql2.toString());
 	       
