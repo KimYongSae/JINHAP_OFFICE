@@ -544,14 +544,14 @@ var fn_logout = function () {
 <div id="wrap">
 
     <div id="header">
-		<jsp:include page="/header-menu.jsp"/>
+		<jsp:include page="header-menu.jsp"/>
 	</div>
 
 	
 	<div id="body2">
 	<div id="floater2" style="margin-top:30px;">
 		
-		<jsp:include page="/body-menu.jsp"/>
+		<jsp:include page="body-menu.jsp"/>
 	</div>
 	<div id="contents">
         
@@ -567,7 +567,7 @@ var fn_logout = function () {
 				                            <!--Begin Datatables-->
 <div class="row">
             <hr class="bread_under">
-  <div style="width: 100%; " class="col-lg-12">
+  <div style="width: 70%; " class="col-lg-12">
         <div class="box">
             <header>
                 <div style="padding:11px 14px;" class="icons"><i style="color:white;" class="fa fa-list-alt"></i></div>
@@ -575,7 +575,15 @@ var fn_logout = function () {
             </header>
             <header style="background:white; height:43px;">
             
-            <!-- 
+            
+                <form class="form-inline" role="form" name="searchform" method="post" autocomplete="off">
+					
+					<div class="form-group">
+						<label class="control-label" 
+						style="font-size: 14pt; font-family:headline; 
+						color:#8C8C8C; width: 70px; text-align: right;">설비명 : </label>
+					</div>
+					<!-- 설비명 -->
 					<div class="form-group">
 						<select class="form-control input-sm datepicker" 
 						id="s_hogi" name="s_hogi" 
@@ -597,7 +605,7 @@ var fn_logout = function () {
 						style="font-size: 14pt; font-family:headline; 
 						color:#8C8C8C; width: 90px; text-align: right;">날짜 : </label>
 					</div>
-
+					<!-- 시작일 -->
 					<div class="form-group">
 						<input type="text" class="form-control input-sm datepicker" 
 						id="s_date" name="s_date" 
@@ -662,22 +670,18 @@ var fn_logout = function () {
 					</tbody>
 				</table>				
             </div>
-            
-            -->
         </div>
-        
     </div>
     
     
-    <!-- 
+    
   <div style="width: 30%;" class="col-lg-12">
         <div class="box">
-        
             <header>
                 <div style="padding:11px 14px;" class="icons"><i style="color:white;" class="fa fa-cog"></i></div>
                 <h5 style="font-size:14pt; font-family:headline;">작업일보 출력</h5>
             </header>
-		    
+		                     
            <div class="body2">
                <form class="form-inline" role="form" name="searchform" method="post" autocomplete="off">
   				<table>
@@ -765,7 +769,6 @@ var fn_logout = function () {
 				</table>               		
               	</form>
            </div> 
-          
         </div>
         
 		<div class="box">
@@ -781,6 +784,7 @@ var fn_logout = function () {
                			id="signImageForm" name="signImageForm" 
                			method="post" autocomplete="off">
   				<table>
+  					<!-- 작성 -->
     				<tr>
       					<td>
       						<label class="control-label col-lg-4" 
@@ -852,6 +856,7 @@ var fn_logout = function () {
      				<tr height="1" bgcolor="#dddddd"><td colspan="7"></td></tr>
  
  
+ 					<!-- 검토1 -->
     				<tr>
       					<td>
       						<label class="control-label col-lg-4" 
@@ -924,6 +929,7 @@ var fn_logout = function () {
      				</tr>
      				<tr height="1" bgcolor="#dddddd"><td colspan="7"></td></tr>
  
+ 					<!-- 검토2 -->
     				<tr>
       					<td>
       						<label class="control-label col-lg-4" 
@@ -996,7 +1002,7 @@ var fn_logout = function () {
      				</tr>
      				<tr height="1" bgcolor="#dddddd"><td colspan="7"></td></tr>
  
-
+ 					<!-- 승인 -->
     				<tr>
       					<td>
       						<label class="control-label col-lg-4" 
@@ -1068,6 +1074,7 @@ var fn_logout = function () {
      				</tr>
      				<tr height="1" bgcolor="#dddddd"><td colspan="7"></td></tr>
  
+ 					<!-- 본부장 -->
     				<tr>
       					<td>
       						<label class="control-label col-lg-4" 
@@ -1143,11 +1150,11 @@ var fn_logout = function () {
               	</form>
            </div> 
 
-           
+                
         </div>
+	        
         
   </div>
-  -->
 <!--END TEXT INPUT FIELD-->
 </div>
 		 </div>
@@ -1216,7 +1223,7 @@ var tdate = "";
 	
 	
 /*페이지 로드*/	
-$(function(){
+/* $(function(){
 	fn_check();
 	
 	$.tablesorter.addParser({
@@ -1257,12 +1264,10 @@ $(function(){
 	
 //	$("#s_sdate").val(tdate);
 //	$("#s_edate").val(tdate);
-/*
 	getLotList();	
 	getImageList();
 	rpImagePopup();
-*/
-});
+}); */
 
 function date_set(v){
 	var result = "";
@@ -2566,7 +2571,7 @@ function init(){
 						alertDialog.dialog("open");
 						getImageList();
 					}
-				});
+				});	
 				
 				
 			},

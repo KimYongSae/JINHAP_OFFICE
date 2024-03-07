@@ -275,7 +275,7 @@
 											<div style="padding: 11px 14px;" class="icons">
 												<i style="color: white;" class="fa fa-list-alt"></i>
 											</div>
-											<h5 style="font-family: headline; font-size: 14pt;">모니터링
+											<h5 style="font-family: headline; font-size: 14pt;">투입 운전관리
 												- LOT 정보확인</h5>
 										</header>
 

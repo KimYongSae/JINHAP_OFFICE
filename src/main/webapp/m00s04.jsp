@@ -295,7 +295,7 @@ var fn_logout = function () {
         <div class="box">
             <header>
                 <div style="padding:11px 14px;" class="icons"><i style="color:white;" class="fa fa-desktop"></i></div>
-                <h5 style="font-size:14pt; font-family:headline;">조건관리 - 온도/CP 상태감시</h5>
+                <h5 style="font-size:14pt; font-family:headline;">모니터링 - 온도/CP 상태감시</h5>
             </header>
             <!-- <header style="background:white; height:43px;">
                 <form class="form-inline" role="form" name="searchform" method="post" autocomplete="off">

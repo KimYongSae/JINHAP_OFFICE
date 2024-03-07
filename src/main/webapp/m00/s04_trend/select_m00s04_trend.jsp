@@ -16,7 +16,9 @@
       
    String result = "";
    StringBuffer sql = new StringBuffer();
+   StringBuffer sql2 = new StringBuffer();
    StringBuffer whereSql = new StringBuffer();
+   StringBuffer whereSql2 = new StringBuffer();
    StringBuffer fromSql = new StringBuffer();
    JSONObject mainObj = new JSONObject();  
    JSONObject outObj = new JSONObject();   
@@ -59,6 +61,7 @@ switch (hogi) {
    if(sdate != null && !"".equals(sdate) && edate != null && !"".equals(edate)
       && stime != null && !"".equals(stime) && etime != null && !"".equals(etime)){
       whereSql.append(" AND A.datetime1 >= '"+sdate+" "+stime+":00' AND A.datetime1 <= '"+edate+" "+etime+":00'");
+      whereSql2.append(" AND regtime >= '"+sdate+" "+stime+":00' AND regtime <= '"+edate+" "+etime+":00'");
    } else {
 	    // 조건이 만족하지 않을 경우 실행할 코드
 	    try {
@@ -86,8 +89,13 @@ switch (hogi) {
       sql.append(" ORDER BY A.datetime1 ");
    
 /*    System.out.println(sql.toString()); */
-
-
+		sql2.append(" SELECT *, UNIX_TIMESTAMP(TIMESTAMP(regtime)) AS UNIX_TIMESTAMP FROM tb_out_log ");
+		sql2.append(" WHERE 1=1 ");
+		sql2.append(" AND hogi = " + hogi);
+		sql2.append(whereSql2.toString());
+		sql2.append(" ORDER BY regtime DESC ");
+		
+		
    JSONArray datetime = new JSONArray();
    /* JSONArray tic1_pvArr = new JSONArray();
    JSONArray tic2_pvArr = new JSONArray();
@@ -681,6 +689,7 @@ switch (hogi) {
          
       }
       
+      
 
       JSONObject q1_pvObj = new JSONObject();
       JSONObject q2_pvObj = new JSONObject();
@@ -1040,7 +1049,46 @@ switch (hogi) {
       
      /*  sp3MvObj.put("dataLabels",dataLabelObj);
       sp3MvObj.put("marker",markerObj); */
+    //----------------------------------
+
+      rs = stmt.executeQuery(sql2.toString());
       
+      JSONArray lot = new JSONArray();
+      while(rs.next()){
+    	   JSONArray lotPoint = new JSONArray();
+    	   lotPoint.add(rs.getInt("UNIX_TIMESTAMP"));
+    	   lotPoint.add(200);
+    	   
+    	   String label = rs.getString("lot");
+    	   lotPoint.add(label);
+    	   
+    	   lot.add(lotPoint);
+    	  
+      }
+      JSONObject lotObj = new JSONObject(); // 새로운 시리즈 객체
+      lotObj.put("name", "LOT"); // 시리즈 이름 설정
+      lotObj.put("data", lot); // 시리즈 데이터 추가
+      lotObj.put("color", "#22d10f"); // 시리즈 색상 설정
+      lotObj.put("showInLegend",false);
+      lotObj.put("lineWidth","0");
+      
+//      JSONArray keysArr = new JSONArray(); // 데이터 포인트의 구성 요소를 지정할 배열
+//      keysArr.add("x");
+//      keysArr.add("y");
+//      keysArr.add("label");
+      lotObj.put("keys", keysArr); // 구성 요소 지정
+
+      // 데이터 레이블과 마커 설정 (선택적)
+//      JSONObject dataLabelObj = new JSONObject();
+//      dataLabelObj.put("enabled", true);
+//      dataLabelObj.put("format", "{point.label}"); // 라벨 포맷 지정
+      lotObj.put("dataLabels", dataLabelObj);
+
+      JSONObject lotMarkerObj = new JSONObject();
+      lotMarkerObj.put("enabled", false);
+      lotObj.put("marker", lotMarkerObj);
+      
+//--------------------------------------------
       
 
 
@@ -1072,7 +1120,7 @@ switch (hogi) {
       mainObj.put("oil_Mv",oilMvObj);
       mainObj.put("a_Mv",aMvObj);
       mainObj.put("cp_Mv",cpMvObj);
-      
+      mainObj.put("lot", lotObj); // 새로운 시리즈 추가
       
 /*       mainObj.put("tic1_pv",tic1_pvObj);
       mainObj.put("tic2_pv",tic2_pvObj);

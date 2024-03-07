@@ -72,75 +72,6 @@
 <!-- 추가한 부분 end-->
 
 <style>
-.scrolltbody {
-	display: block;
-	/* width: 1900px; */
-	border-collapse: collapse;
-	border: 0px solid #000;
-	padding-top: 50px;
-}
-
-.scrolltbody td {
-	border: 1px solid #000;
-	border-top: 0;
-}
-
-.scrolltbody tbody {
-	display: block;
-	height: 500px;
-	overflow-x: hidden;
-}
-
-/*값 보여주는곳에서 코멘트목록 사용*/
-.scrolltbody2 {
-	display: block;
-	width: 400px;
-	border-collapse: collapse;
-	border: 0px solid #000;
-}
-
-.scrolltbody2 td {
-	border: 1px solid #000;
-	border-top: 0;
-}
-
-.scrolltbody2 thead {
-	display: block;
-	width: 400px;
-	overflow-x: hidden;
-}
-
-.scrolltbody2 tbody {
-	display: block;
-	width: 400px;
-	height: 321px;
-	overflow-x: hidden;
-}
-/*태그목록 사용*/
-.scrolltbody3 {
-	display: block;
-	width: 400px;
-	border-collapse: collapse;
-	border: 0px solid #000;
-}
-
-.scrolltbody3 td {
-	border: 1px solid #000;
-	border-top: 0;
-}
-
-.scrolltbody3 thead {
-	display: block;
-	width: 400px;
-	overflow-x: hidden;
-}
-
-.scrolltbody3 tbody {
-	display: block;
-	width: 400px;
-	height: 220px;
-	overflow-x: hidden;
-}
 
 .dropdown-colorselector {
 	display: inline-block;
@@ -160,22 +91,86 @@
 	font-style: normal;
 	font-weight: normal;
 }
-.image-container {
-  position: relative;
-  display: inline-block;
-  width: 100%; 
+
+table{
+	table-layout: fixed;
+}
+th{
+	background-color: #122d64;
+	color:#FFFFFF;
+	font-weight: 700;
+	border-color: #FFFFFF !important;
+}
+th, td{
+	text-align: center;
 }
 
-.image-container .img-responsive {
-  width: 100%; 
-  height: auto;
+/* 1번째 테이블 */
+#realtimeInfo1 tr > :nth-child(1) {
+	width: 10%;
 }
 
-.text-overlay {
-  position: absolute;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
+#realtimeInfo1 tr{
+	height: 90px;
 }
+
+#realtimeInfo1 thead tr:nth-child(1){
+	height: 50px;
+}
+
+/* 2번째 테이블 */
+#realtimeInfo2 tr > :nth-child(1) {
+	width: 10%;
+}
+#realtimeInfo2 tr > :nth-child(2) {
+	width: 68%;
+}
+#realtimeInfo2 tr > :nth-child(3) {
+	width: 15%;
+}
+#realtimeInfo2 tr > :nth-child(4) {
+	width: 7%;
+}
+#realtimeInfo2 thead tr:nth-child(1){
+	height: 50px;
+}
+#realtimeInfo2 tr{
+	height: 90px;
+}
+#realtimeInfo2 td{
+	font-size:25px;
+	font-weight: 700;
+}
+
+/* 공통 */
+.circle{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+.circle-sm{
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+	font-size: 20px;
+	padding: 0;
+}
+.square{
+	width: 60px;
+	height: 30px;
+}
+.square-sm{
+	width: 50px;
+	height: 30px;
+}
+.possible{
+	color: green;
+}
+
+.impossible{
+	color: red;
+}
+
 
 </style>
 
@@ -275,12 +270,331 @@
 											<div style="padding: 11px 14px;" class="icons">
 												<i style="color: white;" class="fa fa-list-alt"></i>
 											</div>
-											<h5 style="font-family: headline; font-size: 14pt;">모니터링
+											<h5 style="font-family: headline; font-size: 14pt;">투입 운전관리
 												- 생산/설비 실시간 정보</h5>
 										</header>
 
 										<div id="collapse4" class="body">
-											<div class="image-container">
+											<div class="row">
+												<div class="col-xs-6">
+													<table id="realtimeInfo1" class="table table-bordered table-hover table-responsive">
+														<thead>
+															<tr>
+																<th></th>
+																<th>1호기</th>
+																<th>2호기</th>
+																<th>3호기</th>
+																<th>4호기</th>
+																<th>5호기</th>
+																<th>6호기</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<th>투입 Flag</th>
+																<td><button class="btn btn-success circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-success circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+															</tr>
+															<tr>
+																<th>대기위치<br>D9610~5<br>-><br>M2010</th>
+																<td>
+																	<div class="row">
+																		<button class="btn btn-success circle-sm"></button>
+																		<i class="glyphicon glyphicon-arrow-right"></i>
+																		<button class="btn btn-success square-sm"></button>
+																	</div>
+																	<div class="row" style="margin-top:10px;">
+																		<button class="btn btn-default square">SET</button>
+																	</div>
+																</td>
+																<td>
+																	<div class="row">
+																		<button class="btn btn-success circle-sm"></button>
+																		<i class="glyphicon glyphicon-arrow-right"></i>
+																		<button class="btn btn-success square-sm"></button>
+																	</div>
+																	<div class="row" style="margin-top:10px;">
+																		<button class="btn btn-default square">SET</button>
+																	</div>
+																</td>
+																<td>
+																	<div class="row">
+																		<button class="btn btn-success circle-sm"></button>
+																		<i class="glyphicon glyphicon-arrow-right"></i>
+																		<button class="btn btn-success square-sm"></button>
+																	</div>
+																	<div class="row" style="margin-top:10px;">
+																		<button class="btn btn-default square">SET</button>
+																	</div>
+																</td>
+																<td>
+																	<div class="row">
+																		<button class="btn btn-success circle-sm"></button>
+																		<i class="glyphicon glyphicon-arrow-right"></i>
+																		<button class="btn btn-success square-sm"></button>
+																	</div>
+																	<div class="row" style="margin-top:10px;">
+																		<button class="btn btn-default square">SET</button>
+																	</div>
+																</td>
+																<td>
+																	<div class="row">
+																		<button class="btn btn-success circle-sm"></button>
+																		<i class="glyphicon glyphicon-arrow-right"></i>
+																		<button class="btn btn-danger square-sm"></button>
+																	</div>
+																	<div class="row" style="margin-top:10px;">
+																		<button class="btn btn-default square">SET</button>
+																	</div>
+																</td>
+																<td>
+																	<div class="row">
+																		<button class="btn btn-danger circle-sm"></button>
+																		<i class="glyphicon glyphicon-arrow-right"></i>
+																		<button class="btn btn-success square-sm"></button>
+																	</div>
+																	<div class="row" style="margin-top:10px;">
+																		<button class="btn btn-default square">SET</button>
+																	</div>
+																</td>
+															</tr>
+															<tr>
+																<th>투입위치<br>D9616~21<br>-><br>M2012</th>
+																<td>
+																	<div class="row">
+																		<button class="btn btn-success circle-sm"></button>
+																		<i class="glyphicon glyphicon-arrow-right"></i>
+																		<button class="btn btn-success square-sm"></button>
+																	</div>
+																	<div class="row" style="margin-top:10px;">
+																		<button class="btn btn-default square">SET</button>
+																	</div>
+																</td>
+																<td>
+																	<div class="row">
+																		<button class="btn btn-success circle-sm"></button>
+																		<i class="glyphicon glyphicon-arrow-right"></i>
+																		<button class="btn btn-success square-sm"></button>
+																	</div>
+																	<div class="row" style="margin-top:10px;">
+																		<button class="btn btn-default square">SET</button>
+																	</div>
+																</td>
+																<td>
+																	<div class="row">
+																		<button class="btn btn-success circle-sm"></button>
+																		<i class="glyphicon glyphicon-arrow-right"></i>
+																		<button class="btn btn-success square-sm"></button>
+																	</div>
+																	<div class="row" style="margin-top:10px;">
+																		<button class="btn btn-default square">SET</button>
+																	</div>
+																</td>
+																<td>
+																	<div class="row">
+																		<button class="btn btn-success circle-sm"></button>
+																		<i class="glyphicon glyphicon-arrow-right"></i>
+																		<button class="btn btn-success square-sm"></button>
+																	</div>
+																	<div class="row" style="margin-top:10px;">
+																		<button class="btn btn-default square">SET</button>
+																	</div>
+																</td>
+																<td>
+																	<div class="row">
+																		<button class="btn btn-success circle-sm"></button>
+																		<i class="glyphicon glyphicon-arrow-right"></i>
+																		<button class="btn btn-danger square-sm"></button>
+																	</div>
+																	<div class="row" style="margin-top:10px;">
+																		<button class="btn btn-default square">SET</button>
+																	</div>
+																</td>
+																<td>
+																	<div class="row">
+																		<button class="btn btn-danger circle-sm"></button>
+																		<i class="glyphicon glyphicon-arrow-right"></i>
+																		<button class="btn btn-success square-sm"></button>
+																	</div>
+																	<div class="row" style="margin-top:10px;">
+																		<button class="btn btn-default square">SET</button>
+																	</div>
+																</td>
+															</tr>
+															<tr>
+																<th>투입버튼</th>
+																<td>
+																	<button class="btn btn-primary square"></button>
+																</td>
+																<td>
+																	<button class="btn btn-primary square"></button>
+																</td>
+																<td>
+																	<button class="btn btn-primary square"></button>
+																</td>
+																<td>
+																	<button class="btn btn-primary square"></button>
+																</td>
+																<td>
+																	<button class="btn btn-primary square"></button>
+																</td>
+																<td>
+																	<button class="btn btn-primary square"></button>
+																</td>
+															</tr>
+															<tr>
+																<th>투입요청<br>가능</th>
+																<td>
+																	<div class="row">
+																		<div class="impossible">
+																			불가능
+																		</div>
+																	</div>
+																	<div class="row" style="margin-top:10px;">
+																		<button class="btn btn-default circle-sm">3</button>
+																		<span>빈박스</span>
+																	</div>
+																</td>
+																<td>
+																	<div class="row">
+																		<div class="impossible">
+																			불가능
+																		</div>
+																	</div>
+																	<div class="row" style="margin-top:10px;">
+																		<button class="btn btn-default circle-sm">3</button>
+																		<span>빈박스</span>
+																	</div>
+																</td>
+																<td>
+																	<div class="row">
+																		<div class="impossible">
+																			불가능
+																		</div>
+																	</div>
+																	<div class="row" style="margin-top:10px;">
+																		<button class="btn btn-default circle-sm">3</button>
+																		<span>빈박스</span>
+																	</div>
+																</td>
+																<td>
+																	<div class="row">
+																		<div class="impossible">
+																			불가능
+																		</div>
+																	</div>
+																	<div class="row" style="margin-top:10px;">
+																		<button class="btn btn-default circle-sm">3</button>
+																		<span>빈박스</span>
+																	</div>
+																</td>
+																<td>
+																	<div class="row">
+																		<div class="possible">
+																			가능
+																		</div>
+																	</div>
+																	<div class="row" style="margin-top:10px;">
+																		<button class="btn btn-default circle-sm">3</button>
+																		<span>빈박스</span>
+																	</div>
+																</td>
+																<td>
+																	<div class="row">
+																		<div class="impossible">
+																			불가능
+																		</div>
+																	</div>
+																	<div class="row" style="margin-top:10px;">
+																		<button class="btn btn-default circle-sm">3</button>
+																		<span>빈박스</span>
+																	</div>
+																</td>
+															</tr>
+															<tr>
+																<th>M2077</th>
+																<td><button class="btn btn-success circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-success circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+															</tr>
+															<tr>
+																<th>M2082</th>
+																<td><button class="btn btn-success circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-success circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+															</tr>
+														</tbody>
+													
+													</table>
+												</div>
+												<div class="col-xs-6">
+													<table id="realtimeInfo2" class="table table-bordered table-hover table-responsive">
+													
+														<thead>
+															<tr>
+																<th>자동투입</th>
+																<th>품번</th>
+																<th>로트</th>
+																<th>위치</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<th>1호기<br>수동</th>
+																<td>BS0BP08024400</td>
+																<td>SF74335</td>
+																<td>166</td>
+															</tr>
+															<tr>
+																<th>2호기<br>자동</th>
+																<td></td>
+																<td></td>
+																<td></td>
+															</tr>
+															<tr>
+																<th>3호기<br>수동</th>
+																<td></td>
+																<td></td>
+																<td></td>
+															</tr>
+															<tr>
+																<th>4호기<br>자동</th>
+																<td></td>
+																<td></td>
+																<td></td>
+															</tr>
+															<tr>
+																<th>5호기<br>자동</th>
+																<td></td>
+																<td></td>
+																<td></td>
+															</tr>
+															<tr>
+																<th>6호기<br>자동</th>
+																<td></td>
+																<td></td>
+																<td></td>
+															</tr>
+															<tr>
+																<th>창고위치</th>
+																<td></td>
+																<td></td>
+																<td></td>
+															</tr>
+														</tbody>
+													
+													</table>
+												</div>
 											</div>
 
 										</div>

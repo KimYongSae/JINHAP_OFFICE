@@ -253,7 +253,7 @@ var fn_logout = function () {
         <div class="box">
             <header>
                 <div style="padding:11px 14px;" class="icons"><i style="color:white;" class="fa fa-list-alt"></i></div>
-                <h5 style="font-size:14pt; font-family:headline;">생산관리 - LOT현황</h5>
+                <h5 style="font-size:14pt; font-family:headline;">모니터링 - LOT현황</h5>
             </header>           
             <header style="background:white; height:43px;">
                 <form class="form-inline" role="form" id="searchform" 

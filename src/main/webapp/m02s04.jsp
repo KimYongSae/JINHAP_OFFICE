@@ -389,28 +389,28 @@ var fn_logout = function () {
 					<thead>
 						<tr>
 							<th colspan="2" class="text-center cell" 
-							style="background-color:#36FFFF; width: 240px; height: 50px; 
+							style="background-color:#36FFFF; width: 280px; height: 60px; 
 							font-size: 16pt; font-family:headline;">
 								구분
 							</th>
 							<th colspan="2" class="text-center cell" 
-							style="background-color:#36FFFF; width: 200px; height: 50px; 
+							style="background-color:#36FFFF; width: 350px; height: 60px; 
 							font-size: 16pt; font-family:headline;">
 								1분기
 							</th>
 							<th colspan="2" class="text-center cell" 
-							style="background-color:#36FFFF; width: 200px; height: 50px; 
+							style="background-color:#36FFFF; width: 350px; height: 60px; 
 							font-size: 16pt; font-family:headline;">
 								2분기
 							</th>							
 
 							<th colspan="2" class="text-center cell" 
-							style="background-color:#36FFFF; width: 200px; height: 50px; 
+							style="background-color:#36FFFF; width: 350px; height: 60px; 
 							font-size: 16pt; font-family:headline;">
 								3분기
 							</th>
 							<th colspan="2" class="text-center cell" 
-							style="background-color:#36FFFF; width: 200px; height: 50px; 
+							style="background-color:#36FFFF; width: 350px; height: 60px; 
 							font-size: 16pt; font-family:headline;">
 								4분기
 							</th>
@@ -418,33 +418,33 @@ var fn_logout = function () {
 						
 						<tr>	
 							<th colspan="2" class="text-center cell" 
-							style="background-color:#36FFFF; width: 240px; height: 50px; 
+							style="background-color:#36FFFF; width: 240px; height: 60px; 
 							font-size: 16pt; font-family:headline;">
 								채취일
 							</th>
 							<td colspan="2" class="text-center cell" 
-							style="background-color:#FFFFFF; width: 140px; height: 50px; 
+							style="background-color:#FFFFFF; width: 140px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="tdate1">
 								
 							</td>
 
 							<td colspan="2" class="text-center cell" 
-							style="background-color:#FFFFFF; width: 140px; height: 50px; 
+							style="background-color:#FFFFFF; width: 140px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="tdate2">
 								
 							</td>
 		
 							<td colspan="2" class="text-center cell" 
-							style="background-color:#FFFFFF; width: 140px; height: 50px; 
+							style="background-color:#FFFFFF; width: 140px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="tdate3">
 								
 							</td>
 						
 							<td colspan="2" class="text-center cell" 
-							style="background-color:#FFFFFF; width: 140px; height: 50px; 
+							style="background-color:#FFFFFF; width: 140px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="tdate4">
 								
@@ -454,40 +454,40 @@ var fn_logout = function () {
 						
 						<tr>
 							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 120px; height: 50px; 
+							style="background-color:#36FFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;">
 								분석보고서
 							</th>						
 
 							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 120px; height: 50px; 
+							style="background-color:#36FFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;">
 								전설비
 							</th>						
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="report1">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="report1d">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="report2">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="report2d">
 								
@@ -495,14 +495,14 @@ var fn_logout = function () {
 
 		
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="report3">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="report3d">
 								
@@ -510,14 +510,14 @@ var fn_logout = function () {
 
 						
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="report4">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="report4d">
 								
@@ -528,40 +528,40 @@ var fn_logout = function () {
 						
 						<tr>
 							<th rowspan="6" class="text-center cell" 
-							style="background-color:#36FFFF; width: 120px; height: 50px; 
+							style="background-color:#36FFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;">
 								냉각시험<br />그래프
 							</th>						
 
 							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 120px; height: 50px; 
+							style="background-color:#36FFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;">
 								1호
 							</th>						
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph1_1">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph1_1d">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph1_2">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph1_2d">
 								
@@ -570,14 +570,14 @@ var fn_logout = function () {
 
 		
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph1_3">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph1_3d">
 								
@@ -585,14 +585,14 @@ var fn_logout = function () {
 
 						
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph1_4">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph1_4d">
 								
@@ -602,34 +602,34 @@ var fn_logout = function () {
 						<tr>
 
 							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 120px; height: 50px; 
+							style="background-color:#36FFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;">
 								2호
 							</th>						
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph2_1">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph2_1d">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph2_2">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph2_2d">
 								
@@ -638,14 +638,14 @@ var fn_logout = function () {
 
 		
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph2_3">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph2_3d">
 								
@@ -653,14 +653,14 @@ var fn_logout = function () {
 
 						
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph2_4">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph2_4d">
 								
@@ -670,34 +670,34 @@ var fn_logout = function () {
 						
 						<tr>
 							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 120px; height: 50px; 
+							style="background-color:#36FFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;">
 								3호
 							</th>						
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph3_1">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph3_1d">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph3_2">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph3_2d">
 								
@@ -706,14 +706,14 @@ var fn_logout = function () {
 
 		
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph3_3">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph3_3d">
 								
@@ -721,14 +721,14 @@ var fn_logout = function () {
 
 						
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph3_4">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph3_4d">
 								
@@ -739,34 +739,34 @@ var fn_logout = function () {
 						<tr>
 
 							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 120px; height: 50px; 
+							style="background-color:#36FFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;">
 								4호
 							</th>						
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph4_1">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph4_1d">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph4_2">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph4_2d">
 								
@@ -775,14 +775,14 @@ var fn_logout = function () {
 
 		
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph4_3">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph4_3d">
 								
@@ -790,14 +790,14 @@ var fn_logout = function () {
 
 						
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph4_4">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph4_4d">
 								
@@ -809,34 +809,34 @@ var fn_logout = function () {
 						<tr>
 
 							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 120px; height: 50px; 
+							style="background-color:#36FFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;">
 								5호
 							</th>						
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph5_1">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph5_1d">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph5_2">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph5_2d">
 								
@@ -845,14 +845,14 @@ var fn_logout = function () {
 
 		
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph5_3">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph5_3d">
 								
@@ -860,14 +860,14 @@ var fn_logout = function () {
 
 						
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph5_4">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph5_4d">
 								
@@ -879,34 +879,34 @@ var fn_logout = function () {
 						<tr>
 
 							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 120px; height: 50px; 
+							style="background-color:#36FFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;">
 								6호
 							</th>						
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph6_1">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph6_1d">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph6_2">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph6_2d">
 								
@@ -915,14 +915,14 @@ var fn_logout = function () {
 
 		
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph6_3">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph6_3d">
 								
@@ -930,14 +930,14 @@ var fn_logout = function () {
 
 						
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 80px; height: 50px; 
+							style="background-color:#FFFFFF; width: 80px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph6_4">
 								
 							</td>
 
 							<td class="text-center cell" 
-							style="background-color:#FFFFFF; width: 120px; height: 50px; 
+							style="background-color:#FFFFFF; width: 120px; height: 60px; 
 							font-size: 16pt; font-family:headline;"
 							id="graph6_4d">
 								

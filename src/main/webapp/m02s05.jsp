@@ -345,28 +345,28 @@ var fn_logout = function () {
 					<thead>
 						<tr>		
 							<th class="text-center cell" 
-								style="background-color:#24FCFF; width: 120px; height: 30px; 
+								style="background-color:#24FCFF; width: 120px; height: 50px; 
 								font-size: 16pt; font-family:headline;">
 								설비명
 							</th>						
 							<th class="text-center cell" 
-								style="background-color:#24FCFF; width: 140px; height: 30px; 
+								style="background-color:#24FCFF; width: 200px; height: 50px; 
 								font-size: 16pt; font-family:headline;">
 								교체일자
 							</th>
 
 							<th class="text-center cell" 
-								style="background-color:#24FCFF; width: 220px; height: 30px; 
+								style="background-color:#24FCFF; width: 350px; height: 50px; 
 								font-size: 16pt; font-family:headline;">
 								성적서 파일명
 							</th>						
 							<th class="text-center cell" 
-								style="background-color:#24FCFF; width: 180px; height: 30px; 
+								style="background-color:#24FCFF; width: 250px; height: 50px; 
 								font-size: 16pt; font-family:headline;">
 								성적서 보기
 							</th>	
 							<th class="text-center cell" 
-								style="background-color:#24FCFF; width: 180px; height: 30px; 
+								style="background-color:#24FCFF; width: 250px; height: 50px; 
 								font-size: 16pt; font-family:headline;">
 								성적서 수정
 							</th>							
@@ -707,37 +707,37 @@ function init(){
 						var fname_b =  rsAr[i].filename.substring(rsAr[i].filename.lastIndexOf('.'),rsAr[i].filename.length);						
 						cntArray[i] = rsAr[i].cnt;
 						listHtml += "<tr>";
-						listHtml += '<td class="nr" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+rsAr[i].cnt+'</td>';
-						listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].hogi+'</td>';						
-						listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].change_date+'</td>';
-						listHtml += '<td class="nr6" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 220px; word-break:break-all; font-size:15pt; font-family:headline;">'+fname_a+fname_b+'</td>';
+						listHtml += '<td class="nr" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+rsAr[i].cnt+'</td>';
+						listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].hogi+'</td>';						
+						listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 200px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].change_date+'</td>';
+						listHtml += '<td class="nr6" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 350px; word-break:break-all; font-size:15pt; font-family:headline;">'+fname_a+fname_b+'</td>';
 						
-						listHtml += '<td class="nr7" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 220px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+rsAr[i].filename+'</td>';
+						listHtml += '<td class="nr7" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 350px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+rsAr[i].filename+'</td>';
 					
 						if(rsAr[i].file_yn == 'Y'){
-							listHtml += '<td class="nr8" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline;">'+
+							listHtml += '<td class="nr8" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 250px; word-break:break-all; font-size:14pt; font-family:headline;">'+
 							'<button type="button" class="btn btn-default" onclick=viewFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true; style="width:160px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-search"></i>성적서보기</button>'
 							+'</td>';
 						}else{
-							listHtml += '<td class="nr8" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';							
+							listHtml += '<td class="nr8" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 250px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';							
 						}
 
 						if(rsAr[i].file_yn == 'Y'){
 							if(sid != "worker"){
-								listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline;">'+
+								listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 250px; word-break:break-all; font-size:14pt; font-family:headline;">'+
 								'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true; style="width:160px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-remove"></i>성적서수정</button>'
 								+'</td>';
 							}else{
-								listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';
+								listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 250px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';
 							}
 						}else{
-							listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';							
+							listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 250px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';							
 						}						
 						
 						
-						listHtml += '<td class="nr10" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].change_bdate+'</td>';
-						listHtml += '<td class="nr11" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].change_ndate+'</td>';
-						listHtml += '<td class="nr12" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].bigo1+'</td>';
+						listHtml += '<td class="nr10" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 60px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].change_bdate+'</td>';
+						listHtml += '<td class="nr11" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 60px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].change_ndate+'</td>';
+						listHtml += '<td class="nr12" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 60px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].bigo1+'</td>';
 						listHtml += "</tr>";						
 					}					
 					

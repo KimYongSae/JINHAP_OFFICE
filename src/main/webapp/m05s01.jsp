@@ -270,30 +270,30 @@ var fn_logout = function () {
 								No.
 							</th>
 							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 120px; height: 30px; 
+							style="background-color:#24FCFF; width: 170px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								작업자명
 							</th>
 							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 120px; height: 30px; 
+							style="background-color:#24FCFF; width: 170px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								아이디
 							</th>
 							
 							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 180px; height: 30px; 
+							style="background-color:#24FCFF; width: 220px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								로그인-비밀번호
 							</th>
 
 							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 180px; height: 30px; 
+							style="background-color:#24FCFF; width: 220px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								싸인-비밀번호
 							</th>
 							
 							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 180px; height: 30px; 
+							style="background-color:#24FCFF; width: 220px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								휴대폰 번호
 							</th>
@@ -639,12 +639,12 @@ function init(){
 						listHtml += "<tr>";
 						listHtml += '<td style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 60px; word-break:break-all;"><input type="checkbox" class="checkSelect form-control text-center" id="chbox"'+i.toString()+'" onclick="event.cancelBubble = true;" style="width:25px; height:25px; margin-left:15px;" /></td>';
 						listHtml += '<td class="nr" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline;">'+(i+1)+'</td>';
-						listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+rsAr[i].cnt+'</td>';
-						listHtml += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].u_name+'</td>';
-						listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].u_id+'</td>';
-						listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 180px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].u_pw_login+'</td>';
-						listHtml += '<td class="nr5" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 180px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].u_pw_sign+'</td>';
-						listHtml += '<td class="nr6" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 180px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].u_phone+'</td>';
+						listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 170px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+rsAr[i].cnt+'</td>';
+						listHtml += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 170px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].u_name+'</td>';
+						listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 170px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].u_id+'</td>';
+						listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 220px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].u_pw_login+'</td>';
+						listHtml += '<td class="nr5" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 220px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].u_pw_sign+'</td>';
+						listHtml += '<td class="nr6" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 220px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].u_phone+'</td>';
 						listHtml += "</tr>";					
 					}
 					

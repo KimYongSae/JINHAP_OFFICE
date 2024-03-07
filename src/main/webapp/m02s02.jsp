@@ -364,7 +364,7 @@ var fn_logout = function () {
 							</th>
 
 							<th class="text-center cell" 
-								style="background-color:#24FCFF; width: 220px; height: 30px; 
+								style="background-color:#24FCFF; width: 300px; height: 30px; 
 								font-size: 16pt; font-family:headline;">
 								성적서 파일명
 							</th>						
@@ -737,9 +737,9 @@ function init(){
 						listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].hogi+'</td>';
 						listHtml += '<td class="nr5" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].seolbi+'</td>';						
 						listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].change_date+'</td>';
-						listHtml += '<td class="nr6" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 220px; word-break:break-all; font-size:15pt; font-family:headline;">'+fname_a+fname_b+'</td>';
+						listHtml += '<td class="nr6" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 300px; word-break:break-all; font-size:15pt; font-family:headline;">'+fname_a+fname_b+'</td>';
 						
-						listHtml += '<td class="nr7" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 220px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+rsAr[i].filename+'</td>';
+						listHtml += '<td class="nr7" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 300px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+rsAr[i].filename+'</td>';
 					
 						if(rsAr[i].file_yn == 'Y'){
 							listHtml += '<td class="nr8" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline;">'+

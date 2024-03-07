@@ -57,6 +57,11 @@
 	background: #353535;
 	} 
 
+.custom-col {
+    float: left;
+    width: 14.28571%; /* 100% / 7 */
+    padding: 0 15px; /* 여백 필요 시 */
+}
 	
 	
 </style>
@@ -118,27 +123,27 @@ $(document).ready(function(){
 			<div id="head-container" class="container head-container" style="height:100%; padding-left:0;padding-right:0;">
 				<div class="col-xs-12 head-container" style="height:100%;">
 					<div id="custom-menubar" class="row body-menu head-container"  data-toggle="collapse" data-target="#demo" style="height:100%; padding-top:6px; height:100%; CURSOR: pointer;">
-						<div class="col-xs-2 text-muted text-center head-container" style="display: inline-block;">
+						<div class="custom-col text-muted text-center head-container" style="display: inline-block;">
 							<span class="big-h3 head-container"><strong>모니터링</strong></span>
 						</div>					
-						<div class="col-xs-2 text-muted text-center head-container" style="display: inline-block;">
+						<div class="custom-col text-muted text-center head-container" style="display: inline-block;">
 							<span class="big-h3 head-container"><strong>생산관리</strong></span>
 						</div>
-						<div class="col-xs-2 text-muted text-center head-container" style="display: inline-block;">
+						<div class="custom-col text-muted text-center head-container" style="display: inline-block;">
 							<span class="big-h3 head-container"><strong>조건관리</strong></span>
 						</div>
-						<div class="col-xs-2 text-muted text-center head-container" style="display: inline-block;">
+						<div class="custom-col text-muted text-center head-container" style="display: inline-block;">
 							<span class="big-h3 head-container"><strong>품질관리</strong></span>
 						</div>
-						<div class="col-xs-2 text-muted text-center head-container" style="display: inline-block;">
+						<div class="custom-col text-muted text-center head-container" style="display: inline-block;">
 							<span class="big-h3 head-container"><strong>설비관리</strong></span>
 						</div>
-						<div class="col-xs-2 text-muted text-center head-container" style="display: inline-block;">
+						<div class="custom-col text-muted text-center head-container" style="display: inline-block;">
 							<span class="big-h3 head-container"><strong>투입 운전관리</strong></span>
 						</div>
-<!-- 						<div class="col-xs-2 text-muted text-center head-container" style="display: inline-block;">
+ 						<div class="custom-col text-muted text-center head-container" style="display: inline-block;">
 							<span class="big-h3 head-container"><strong>인원관리</strong></span>
-						</div> -->
+						</div>
 					</div>
 				</div>								
 			</div>
@@ -147,10 +152,10 @@ $(document).ready(function(){
 			<div id="demo" class="collapse" style="color:red;">
 			    <div class="col-xs-12">
 			    
-			    	<div class="col-xs-2 menuLists">
+			    	<div class="custom-col menuLists">
 			    		<ul style="text-align: center;">
 							<li><a href="sample_7.jsp"><span>통합모니터링(미완)</span></a></li>
-							<li><a href="sample_3.jsp"><span>경보 모니터링(미완)</span></a></li>							
+							<li><a href="m00s03.jsp"><span>경보 모니터링</span></a></li>							
 							<li><a href="m00s01.jsp"><span>경보 이력</span></a></li>
 							<!-- <li><a href="m00s02.jsp"><span>경보 발생빈도(랭킹)</span></a></li> -->
 							<li><a href="sample_1.jsp"><span>경보 발생빈도(랭킹)</span></a></li>
@@ -160,7 +165,7 @@ $(document).ready(function(){
 						</ul>
 			    	</div>			    
 			    
-			    	<div class="col-xs-2 menuLists">
+			    	<div class="custom-col menuLists">
 			    		<ul style="text-align: center;">
 							<li><a href="m01s00.jsp"><span>종합생산현황</span></a></li>
 							<li><a href="m01s01.jsp"><span>설비별 생산실적</span></a></li>
@@ -172,7 +177,7 @@ $(document).ready(function(){
 						</ul>
 			    	</div>
 			    	
-			    	<div class="col-xs-2 menuLists">
+			    	<div class="custom-col menuLists">
 			    		<ul style="text-align: center;">			    		
 							<li><a href="m02s01.jsp"><span>생산조건관리</span></a></li>
 							<li><a href="m02s02.jsp"><span>T/C 교체이력</span></a></li>
@@ -182,7 +187,7 @@ $(document).ready(function(){
 						</ul>
 			    	</div>	
 			    	 	    	
-			    	<div class="col-xs-2 menuLists">
+			    	<div class="custom-col menuLists">
 			    		<ul style="text-align: center;"> 
 			    			<li><a href="m03s01.jsp"><span>Cpk 분석(미완)</span></a></li>
 			    			<li><a href="m03s04.jsp"><span>PPK 관리</span></a></li>
@@ -190,19 +195,24 @@ $(document).ready(function(){
 			    			<li><a href="m03s03.jsp"><span>열전대 비교측정</span></a></li>
 						</ul>
 			    	</div>
-			    	<div class="col-xs-2 menuLists">
+			    	<div class="custom-col menuLists">
 			    		<ul style="text-align: center;">			    			 
 							<li><a href="m04s01.jsp"><span>설비보전관리</span></a></li>
 							<li><a href="m04s02.jsp"><span>OPL 요령서</span></a></li>
 						</ul>
 			    	</div>
 
-			    	<div class="col-xs-2 menuLists">
+			    	<div class="custom-col menuLists">
 			    		<ul style="text-align: center;">
-			    			<li><a href="sample_11.jsp"><span>투입제어 및 모니터링(미완)</span></a></li>			    			 
+			    			<li><a href="http://localhost:8080/JINHAP/s001.jsp" target="_blank"><span>투입제어 및 모니터링</span></a></li>			    			 
 			    			<li><a href="sample_12.jsp"><span>LOT 정보확인(미완)</span></a></li>			    			 
 			    			<li><a href="sample_13.jsp"><span>생산/설비 실시간 정보(미완)</span></a></li>			    			 
 			    			<li><a href="sample_14.jsp"><span>투입FLOW 모니터링(미완)</span></a></li>			    			 
+						</ul>
+			    	</div>
+			    	<div class="custom-col menuLists">
+			    		<ul style="text-align: center;">
+			    			<li><a href="m05s01.jsp"><span>사용자 관리</span></a></li>			    			 
 						</ul>
 			    	</div>
 <!-- 			    	<div class="col-xs-2 menuLists">

@@ -425,11 +425,12 @@ var fn_logout = function () {
 
 	var q1_pvJson, q2_pvJson, q3_pvJson, q5_pvJson, q4_pvJson;
  	var t1_pvJson, t2_pvJson, t3_pvJson, t4_pvJson;
- 	var oil_pvJson, a_pvJson, cp_pvJson;
+ 	var oil_pvJson, a_pvJson, cp_pvJson; 
  	
 	var q1_mvJson, q2_mvJson, q3_mvJson, q5_mvJson, q4_mvJson;
  	var t1_mvJson, t2_mvJson, t3_mvJson, t4_mvJson;
  	var oil_mvJson, a_mvJson, cp_mvJson;
+ 	var lot_Json;
 	
 	function leadingZero(n, digits){
 		var zero = "";
@@ -721,10 +722,15 @@ var fn_logout = function () {
            },
            tooltip: {
                formatter: function() {
-                   // 유닉스 타임스탬프를 변환하여 날짜 형식으로 표시
+            	   
+                   var seriesName = this.series.name;
                    var formattedDate = unix_timestamp_tooltip(this.x);
-                   // 포맷된 날짜와 현재 데이터 포인트의 y값(데이터 값)을 반환
-                   return formattedDate + '<br>' + this.point.series.name +' : ' + this.y;
+                   
+                   if (seriesName === 'LOT') {
+                       return formattedDate + '<br>' + seriesName + ' : ' + this.point.label;
+                   } else {
+                       return formattedDate + '<br>' + seriesName + ' : ' + this.y;
+                   }
                }
            },
            yAxis: [{
@@ -902,7 +908,8 @@ var fn_logout = function () {
         	   q1_mvJson, q2_mvJson, q3_mvJson, q5_mvJson, q4_mvJson,
         	   t1_mvJson, t2_mvJson, t3_mvJson, t4_mvJson,
         	   oil_mvJson, a_mvJson,
-        	   $.extend({}, cp_mvJson, { yAxis: 1 })
+        	   $.extend({}, cp_mvJson, { yAxis: 1 }),
+        	   lot_Json
         	  
         	]
 ,
@@ -998,6 +1005,7 @@ var fn_logout = function () {
 	            oil_mvJson = result.data.oil_Mv;
 	            a_mvJson = result.data.a_Mv;
 	            cp_mvJson = result.data.cp_Mv;
+	            lot_Json = result.data.lot;
 	            
 	            
 	            var chart = $("#container").highcharts();
@@ -1036,6 +1044,7 @@ var fn_logout = function () {
 	            chart.series[21].update(oil_mvJson,false);
 	            chart.series[22].update(a_mvJson,false);
 	            chart.series[23].update(cp_mvJson,false);
+	            chart.series[24].update(lot_Json,false);
 	            
 	            
 	               chart.redraw();
@@ -1109,6 +1118,7 @@ var fn_logout = function () {
 	            oil_mvJson = result.data.oil_Mv;
 	            a_mvJson = result.data.a_Mv;
 	            cp_mvJson = result.data.cp_Mv;
+	            lot_Json = result.data.lot;
 	            
 	            getChart();
 	         }

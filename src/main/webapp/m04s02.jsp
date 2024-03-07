@@ -346,19 +346,19 @@ var fn_logout = function () {
 								파일 저장일
 							</th>
 							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 400px; height: 30px; 
+							style="background-color:#36FFFF; width: 1000px; height: 30px; 
 							font-size: 16pt; font-family: headline; font-weight:700;">
 								파일제목
 							</th>
 							
 							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 130px; height: 30px; 
+							style="background-color:#36FFFF; width: 300px; height: 30px; 
 							font-size: 16pt; font-family: headline; font-weight:700;">
 								첨부파일
 							</th>																																									
 
 							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 130px; height: 30px; 
+							style="background-color:#36FFFF; width: 300px; height: 30px; 
 							font-size: 16pt; font-family: headline; font-weight:700;">
 								파일삭제
 							</th>
@@ -584,25 +584,25 @@ function getFileList(){
 					
 					
 					listHtml += "<tr>";
-					listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline;">'+(i+1)+'</td>';
-					listHtml += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].tdate+'</td>';
-					listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 400px; word-break:break-all; font-size:15pt; font-family:headline;">'+o_fname+rsAr[i].version+'</td>';
+					listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 70px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline;">'+(i+1)+'</td>';
+					listHtml += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 70px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].tdate+'</td>';
+					listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 70px; width: 1000px; word-break:break-all; font-size:15pt; font-family:headline;">'+o_fname+rsAr[i].version+'</td>';
 					//if(rsAr[i].version == ".pdf"){
 					if (rsAr[i].version == ".pdf" || rsAr[i].version == ".png") {
 
-						listHtml += '<td style="text-align: center; height: 20px; width: 130px;"><button type="button" style="font-size:15pt; font-family:headline;" class="btn btn-default" onclick=viewFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true;><i class="fa fa-search"></i>파일보기</button></td>';	
+						listHtml += '<td style="text-align: center; height: 70px; width: 300px;"><button type="button" style="font-size:15pt; font-family:headline;" class="btn btn-default" onclick=viewFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true;><i class="fa fa-search"></i>파일보기</button></td>';	
 					}else{
-						listHtml += '<td style="text-align: center; height: 20px; width: 130px;"><button type="button" style="font-size:15pt; font-family:headline;" class="btn btn-default" onclick=downFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true;><i class="fa fa-save"></i>파일다운</button></td>';
+						listHtml += '<td style="text-align: center; height: 70px; width: 300px;"><button type="button" style="font-size:15pt; font-family:headline;" class="btn btn-default" onclick=downFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true;><i class="fa fa-save"></i>파일다운</button></td>';
 					}
 					
 					if(rsAr[i].file_yn == 'Y'){
 						if(sid != "worker"){
-							listHtml += '<td style="text-align: center; height: 20px; width: 130px;"><button type="button" style="font-size:15pt; font-family:headline;" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true;><i class="fa fa-remove"></i>파일삭제</button></td>';
+							listHtml += '<td style="text-align: center; height: 70px; width: 300px;"><button type="button" style="font-size:15pt; font-family:headline;" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true;><i class="fa fa-remove"></i>파일삭제</button></td>';
 						}else{
-							listHtml += '<td style="text-align: center; height: 20px; width: 130px;"></td>';
+							listHtml += '<td style="text-align: center; height: 70px; width: 300px;"></td>';
 						}
 					}else{
-						listHtml += '<td style="text-align: center; height: 20px; width: 130px;"></td>';
+						listHtml += '<td style="text-align: center; height: 70px; width: 300px;"></td>';
 					}
 					
 					listHtml += "</tr>";						
