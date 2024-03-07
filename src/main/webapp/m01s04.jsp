@@ -153,7 +153,7 @@
 	}	
 	.table th {
     background-color: #122d64;
-    color:#FFFFFF;
+    color:#111;
     border-color: #FFFFFF !important;
 }
 
