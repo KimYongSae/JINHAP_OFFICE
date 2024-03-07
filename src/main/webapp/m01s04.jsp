@@ -151,6 +151,11 @@
 		font-style:normal;
 		font-weight:normal;
 	}	
+	.table th {
+    background-color: #122d64;
+    color:#FFFFFF;
+    border-color: #FFFFFF !important;
+}
 
 
 </style>
@@ -638,25 +643,25 @@ var fn_logout = function () {
 					<thead>
 						<tr>
 							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							style=" width: 140px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								작업일자
 							</th>
 							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							style=" width: 100px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								설비명
 							</th>
 							
 							
 							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 200px; height: 30px; 
+							style=" width: 200px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								작업일보 보기
 							</th>																																														
 
 							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 200px; height: 30px; 
+							style=" width: 200px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								작업일보 삭제
 							</th>
