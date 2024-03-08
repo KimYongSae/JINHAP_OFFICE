@@ -153,7 +153,7 @@
 	}	
 	.table th {
     background-color: #122d64;
-    color:#111;
+    color:#FFFFFF;
     border-color: #FFFFFF !important;
 }
 
@@ -596,12 +596,12 @@ var fn_logout = function () {
 						font-size: 14pt; font-family:headline;
 						padding-top:1px; padding-bottom:1px;">
 							<option value="">전체</option>
-							<option value="QT001">HT-QT3</option>
-							<option value="QT002">HT-QT4</option>
-							<option value="QT003">HT-QT5</option>
-							<option value="QT004">HT-QT6</option>
-							<option value="QT011">HT-QT7</option>
-							<option value="QT012">HT-QT8</option>
+							<option value="1">Q01-HN01</option>
+							<option value="2">Q01-HN02</option>
+							<option value="3">Q01-HN03</option>
+							<option value="4">Q01-HN04</option>
+							<option value="5">Q01-HN05</option>
+							<option value="6">Q01-HN06</option>
 						</select>
 					</div> 					
 					
@@ -625,6 +625,12 @@ var fn_logout = function () {
 					<div class="form-group">
 						&nbsp;&nbsp;
 						<div class="form-group">
+							<button class="btn btn-danger pull-right btn-sm" type="button" 
+							style="margin-top:6px; height: 31px; width: 100px; 
+							font-size:14pt; font-family:headline; font-weight:700;
+							padding-top:1px; padding-bottom:1px;" 
+							id="testExcel" onclick="location.href='m01/s04/export_m01s04_excel.jsp'">
+							test</button>
 							<button class="btn btn-default pull-right btn-sm" type="button" 
 							style="margin-top:6px; height: 31px; width: 100px; 
 							font-size:14pt; font-family:headline; font-weight:700;
@@ -643,25 +649,25 @@ var fn_logout = function () {
 					<thead>
 						<tr>
 							<th class="text-center cell" 
-							style=" width: 140px; height: 30px; 
+							style=" width: 200px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								작업일자
 							</th>
 							<th class="text-center cell" 
-							style=" width: 100px; height: 30px; 
+							style=" width: 250px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								설비명
 							</th>
 							
 							
 							<th class="text-center cell" 
-							style=" width: 200px; height: 30px; 
+							style=" width: 350px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								작업일보 보기
 							</th>																																														
 
 							<th class="text-center cell" 
-							style=" width: 200px; height: 30px; 
+							style=" width: 350px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								작업일보 삭제
 							</th>
@@ -1228,8 +1234,9 @@ var tdate = "";
 	
 	
 /*페이지 로드*/	
-/* $(function(){
-	fn_check();
+ $(function(){
+	
+/*	fn_check();
 	
 	$.tablesorter.addParser({
 		  id: 'NumberSort',
@@ -1241,6 +1248,13 @@ var tdate = "";
 		$("#lot_list").tablesorter({debug:true});
 	
 	
+	
+//	$("#s_sdate").val(tdate);
+//	$("#s_edate").val(tdate);
+	getLotList();	
+	getImageList();
+	rpImagePopup();
+	*/
 		var now = new Date();
 		
 		
@@ -1267,12 +1281,8 @@ var tdate = "";
 		$("#s_sdate").val(tdate);
 		$("#s_ydate").val(ydate);
 	
-//	$("#s_sdate").val(tdate);
-//	$("#s_edate").val(tdate);
-	getLotList();	
-	getImageList();
-	rpImagePopup();
-}); */
+	
+});
 
 function date_set(v){
 	var result = "";
@@ -1605,26 +1615,26 @@ function init(){
 							
 							listHtml += "<tr "+rowColor+" "+rowId+">";
 							listHtml += '<td class="nr0" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].seq+'</td>';
-							listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:16pt; font-family:headline;">'+rsAr[i].wdate+'</td>';
-							listHtml += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 100px; word-break:break-all; font-size:16pt; font-family:headline;">'+rsAr[i].hogi+'</td>';
+							listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 200px; word-break:break-all; font-size:16pt; font-family:headline;">'+rsAr[i].wdate+'</td>';
+							listHtml += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 250px; word-break:break-all; font-size:16pt; font-family:headline;">'+rsAr[i].hogi+'</td>';
 							if(rsAr[i].f != ''){
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 200px; word-break:break-all; font-size:15pt; font-family:headline;">'+
+								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 350px; word-break:break-all; font-size:15pt; font-family:headline;">'+
 								'<button type="button" class="btn btn-default" onclick=viewFile("'+rsAr[i].wdate+'","'+r_hogi+'","'+rsAr[i].f+'"); return false; event.cancelBubble = true; style="width:180px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-search"></i>작업일보 보기</button>'
 								+'</td>';
 							}else{
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 200px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].f+'</td>';	
+								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 350px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].f+'</td>';	
 							}
 							
 							if(rsAr[i].f != ''){
 								if(sid != "worker"){
-									listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 200px; word-break:break-all; font-size:14pt; font-family:headline;">'+
+									listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 350px; word-break:break-all; font-size:14pt; font-family:headline;">'+
 									'<button type="button" class="btn btn-default" onclick=delFile("'+rsAr[i].wdate+'","'+r_hogi+'","'+rsAr[i].f+'"); return false; event.cancelBubble = true; style="width:160px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-remove"></i>작업일보 삭제</button>'
 									+'</td>';
 								}else{
-									listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 200px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';	
+									listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 350px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';	
 								}
 							}else{
-								listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 200px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';							
+								listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 350px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';							
 							}	
 							
 							listHtml += '<td class="nr5" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 100px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].gb+'</td>';
