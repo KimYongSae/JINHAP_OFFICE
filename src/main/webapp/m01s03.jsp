@@ -154,6 +154,12 @@
 		font-weight:normal;
 	}	
 	
+	.table th {
+    background-color: #122d64;
+    color:#FFFFFF;
+    border-color: #FFFFFF !important;
+}
+	
 </style>
 
 	
@@ -312,118 +318,118 @@ var fn_logout = function () {
 					<thead>
 						<tr>						
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 180px; height: 30px; 
+								style=" width: 180px; height: 30px; 
 									font-size: 16pt; font-family:headline; font-weight:700;">
 								열처리LotNo
 							</th>
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 100px; height: 30px; 
+								style=" width: 100px; height: 30px; 
 									font-size: 16pt; font-family:headline; font-weight:700;">
 								작업지시번호
 							</th>
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 170px; height: 30px; 
+								style=" width: 170px; height: 30px; 
 									font-size: 16pt; font-family:headline; font-weight:700;">
 								원재료 LotNo
 							</th>
 
 							
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 140px; height: 30px; 
+								style=" width: 140px; height: 30px; 
 									font-size: 16pt; font-family:headline; font-weight:700;">
 								품번
 							</th>
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 180px; height: 30px; 
+								style=" width: 180px; height: 30px; 
 									font-size: 16pt; font-family:headline; font-weight:700;">
 								품명
 							</th>				
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 140px; height: 30px; 
+								style=" width: 140px; height: 30px; 
 									font-size: 16pt; font-family:headline; font-weight:700;">
 								규격
 							</th>	
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 50px; height: 30px; 
+								style=" width: 50px; height: 30px; 
 									font-size: 16pt; font-family:headline; font-weight:700;">
 								<span>구분</span>
 							</th>
 <!-- 														
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 70px; height: 30px; 
+								style=" width: 70px; height: 30px; 
 									font-size: 14pt; font-family:headline; font-weight:700;">
 								<span>재공<br />철통수</span>
 							</th>
 							
 							
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 70px; height: 30px; 
+								style=" width: 70px; height: 30px; 
 									font-size: 14pt; font-family:headline; font-weight:700;">
 								<span>재공<br />수량</span>
 							</th>	
  -->										
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 80px; height: 30px; 
+								style=" width: 80px; height: 30px; 
 									font-size: 16pt; font-family:headline; font-weight:700;">
 								<span>LOT별<br />수량</span>
 							</th>
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 80px; height: 30px; 
+								style=" width: 80px; height: 30px; 
 									font-size: 16pt; font-family:headline; font-weight:700;">
 								<span>LOT별<br />중량</span>
 							</th>								
 							
 							
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 90px; height: 30px; 
+								style=" width: 90px; height: 30px; 
 									font-size: 16pt; font-family:headline; font-weight:700;">
 								<span>재질<br />경도</span>
 							</th>
 							
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 60px; height: 30px; 
+								style=" width: 60px; height: 30px; 
 									font-size: 16pt; font-family:headline; font-weight:700;">
 								<span>재질<br />SPEC</span>
 							</th>							
 								
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 70px; height: 30px; 
+								style=" width: 70px; height: 30px; 
 									font-size: 16pt; font-family:headline; font-weight:700;">
 								<span>템퍼링<br />온도</span>
 							</th>																				
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 60px; height: 30px; 
+								style=" width: 60px; height: 30px; 
 									font-size: 16pt; font-family:headline; font-weight:700;">
 								CP
 							</th>
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 55px; height: 30px; 
+								style=" width: 55px; height: 30px; 
 									font-size: 14pt; font-family:headline; font-weight:700;">
 								<span>제품<br />투입</span>
 							</th>
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 55px; height: 30px; 
+								style=" width: 55px; height: 30px; 
 									font-size: 14pt; font-family:headline; font-weight:700;">
 								<span>투입<br />완료</span>
 							</th>							
 							
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 55px; height: 30px; 
+								style=" width: 55px; height: 30px; 
 									font-size: 14pt; font-family:headline; font-weight:700;">
 								<span>퀜칭<br />완료</span>
 							</th>							
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 70px; height: 30px; 
+								style=" width: 70px; height: 30px; 
 									font-size: 14pt; font-family:headline; font-weight:700;">
 								<span>템퍼링<br />투입</span>
 							</th>
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 60px; height: 30px; 
+								style=" width: 60px; height: 30px; 
 									font-size: 16pt; font-family:headline; font-weight:700;">
 								<span>작업<br />완료</span>
 							</th>
 							<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 70px; height: 30px; 
+								style=" width: 70px; height: 30px; 
 									font-size: 14pt; font-family:headline; font-weight:700;">
 								<span>시간당<br />장입량</span>
 							</th>							

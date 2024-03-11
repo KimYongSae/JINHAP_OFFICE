@@ -171,9 +171,9 @@ $(document).ready(function(){
 							<li><a href="m01s01.jsp"><span>설비별 생산실적</span></a></li>
 							<li><a href="m01s02.jsp"><span>설비별 효율관리</span></a></li>							
 							<li><a href="sample_8.jsp"><span>생산 모니터링 현황(미완)</span></a></li>							
-							<li><a href="sample_9.jsp"><span>열처리 제공현황(미완)</span></a></li>
+							<li><a href="m01s06.jsp"><span>열처리 제공현황(미완)</span></a></li>
 							<li><a href="m01s04.jsp"><span>열처리 작업일보 현황(미완)</span></a></li>
-							<li><a href="sample_10.jsp"><span>LOT 보고서(미완)</span></a></li>
+							<li><a href="m01s03.jsp"><span>LOT 보고서(미완)</span></a></li>
 						</ul>
 			    	</div>
 			    	
@@ -205,65 +205,16 @@ $(document).ready(function(){
 			    	<div class="custom-col menuLists">
 			    		<ul style="text-align: center;">
 			    			<li><a href="http://localhost:8080/JINHAP/s001.jsp" target="_blank"><span>투입제어 및 모니터링</span></a></li>			    			 
-			    			<li><a href="sample_12.jsp"><span>LOT 정보확인(미완)</span></a></li>			    			 
+			    			<li><a href="m05s02.jsp"><span>LOT 정보확인(미완)</span></a></li>			    			 
 			    			<li><a href="sample_13.jsp"><span>생산/설비 실시간 정보(미완)</span></a></li>			    			 
 			    			<li><a href="sample_14.jsp"><span>투입FLOW 모니터링(미완)</span></a></li>			    			 
 						</ul>
 			    	</div>
 			    	<div class="custom-col menuLists">
 			    		<ul style="text-align: center;">
-			    			<li><a href="m05s01.jsp"><span>사용자 관리</span></a></li>			    			 
+			    			<li><a href="m06s01.jsp"><span>사용자 관리</span></a></li>			    			 
 						</ul>
 			    	</div>
-<!-- 			    	<div class="col-xs-2 menuLists">
-			    		<ul style="text-align: center;">
-							<li><a href="m00s01.jsp"><span>알람화면</span></a></li>
-							<li><a href="m00s02.jsp"><span>알람랭킹</span></a></li>							
-							<li><a href="m00s03.jsp"><span>트렌드</span></a></li>
-							<li><a href="m00s04.jsp"><span>조건 모니터링</span></a></li>
-							<li><a href="m00s05.jsp"><span>RX유량 입력값</span></a></li>				
-						</ul>
-			    	</div>			    
-			    
-			    	<div class="col-xs-2 menuLists">
-			    		<ul style="text-align: center;">
-							<li><a href="m01s01.jsp"><span>설비별 생산실적 현황</span></a></li>
-							<li><a href="m01s02.jsp"><span>설비 효율 현황</span></a></li>							
-							<li><a href="m01s03.jsp"><span>생산 모니터링 현황</span></a></li>
-							<li><a href="m01s04.jsp"><span>열처리 작업일보 현황</span></a></li>
-							<li><a href="m01s05.jsp"><span>LOT 현황</span></a></li>
-						</ul>
-			    	</div>
-			    	
-			    	<div class="col-xs-2 menuLists">
-			    		<ul style="text-align: center;">			    		
-							<li><a href="m02s01.jsp"><span>조건 관리</span></a></li>
-							<li><a href="m02s02.jsp"><span>열전대 교체 이력</span></a></li>
-							<li><a href="m02s03.jsp"><span>온도조절계 보정 현황</span></a></li>
-							<li><a href="m02s04.jsp"><span>열처리유 성상분석</span></a></li>
-							<li><a href="m02s05.jsp"><span>O₂ 센서 교체이력</span></a></li>
-						</ul>
-			    	</div>	
-			    	 	    	
-			    	<div class="col-xs-2 menuLists">
-			    		<ul style="text-align: center;"> 
-			    			<li><a href="m03s01.jsp"><span>Cpk 분석[공정능력평가]</span></a></li>
-			    			<li><a href="m03s02.jsp"><span>온도균일성 조사보고서[TUS]</span></a></li>
-			    			<li><a href="m03s03.jsp"><span>열전대 비교측정</span></a></li>
-						</ul>
-			    	</div>
-			    	<div class="col-xs-2 menuLists">
-			    		<ul style="text-align: center;">			    			 
-							<li><a href="m04s01.jsp"><span>설비이상조치현황 모니터링</span></a></li>
-						</ul>
-			    	</div>
-
-			    	<div class="col-xs-2 menuLists">
-			    		<ul style="text-align: center;">
-			    			<li><a href="m05s01.jsp"><span>사용자 관리</span></a></li>			    			 
-			    			<li><a href="m05s02.jsp"><span>자격증관리</span></a></li>			    			 
-						</ul>
-			    	</div> -->
 			    				    	
 			    </div>
  			 </div>
@@ -272,66 +223,6 @@ $(document).ready(function(){
 			
 			
 </nav>
-
-<!-- <nav id="mobile1" class="navbar navbar-default head-container" style="z-index:5000; position:fixed; width:100%;" >		
-			<div id="head-container1" class="container head-container" style="height:100%;">
-				<div class="col-xs-12 head-container" style="height:100%; padding:0;">
-					<div id="custom-menubar1" class="row body-menu head-container"  data-toggle="collapse" data-target="#demo1" style="height:100%; padding-top:10px; height:100%; padding-top:10px; CURSOR: pointer;">
-						<div class="col-xs-4 text-muted text-center head-container" style="display: inline-block; padding:0;">
-							<h3 class="big-h3"><strong>기준정보</strong></h3>												
-							<span class="big-h4 head-container"><strong>기준정보</strong></span>
-						</div>
-						<div class="col-xs-4 text-muted text-center head-container" style="display: inline-block; padding:0;">
-							<span class="big-h4 head-container"><strong>프로젝트</strong></span>
-						</div>
-						<div class="col-xs-4 text-muted text-center head-container" style="display: inline-block; padding:0;">
-							<span class="big-h4 head-container"><strong>영업/자재관리</strong></span>
-						</div>				
-					</div>
-				</div>								
-			</div>
-		
-		
-		
-		<div id="body-container1" class="row body-container ">	
-			<div id="demo1" class="collapse" style="color:red;">
-			    <div class="col-xs-12" style="padding:0;">
-			    	<div class="col-xs-4 menuLists1 text-center" style="padding:0;">
-			    		<ul>
-							<li><a href="s001001.jsp"><span> &nbsp; 사용자 정보</span></a></li>
-							<li><a href="s001002.jsp"><span> &nbsp; 거래처 정보</span></a></li>							
-							<li><a href="s001004.jsp"><span> &nbsp; 제품 정보</span></a></li>
-							<li><a href="s001005.jsp"><span> &nbsp; 자재 정보</span></a></li>
-							<li><a href="s001006.jsp"><span> &nbsp; 설비코드 정보</span></a></li>
-						</ul>
-			    	</div>
-			    	<div class="col-xs-4 menuLists1" style="padding:0;">
-			    		<ul> 
-							<li> <a href="s002001.jsp"><span> &nbsp; 프로젝트관리</span></a></li>
-							<li> <a href="s002002.jsp"><span> &nbsp; 산출물관리</span></a></li>
-							<li> <a href="s002003.jsp"><span> &nbsp; 활동게시판</span></a></li>
-							<li> <a href="s002004.jsp"><span> &nbsp; 일정관리</span></a></li>
-							<li> <a href="s002005.jsp"><span> &nbsp; 이슈관리</span></a></li>
-							<li> <a href="s002006.jsp"><span> &nbsp; 통합공정표</span></a></li>
-							<li> <a href="s002007.jsp"><span> &nbsp; 공정보고서</span></a></li>
-						</ul>
-			    	</div>			    	
-			    	
-			    	<div class="col-xs-4 menuLists1" style="padding:0;">
-			    		<ul> 
-			    			<li> <a href="s001003.jsp"><span> &nbsp; 영업관리</span></a></li>
-			    			<li> <a href="s003002.jsp"><span> &nbsp; 판매관리</span></a></li>
-							<li> <a href="s003001.jsp"><span> &nbsp; 재고현황</span></a></li>							
-							<li> <a href="s003003.jsp"><span> &nbsp; 출고관리</span></a></li>
-							<li> <a href="s003004.jsp"><span> &nbsp; 구매관리</span></a></li>
-							<li> <a href="s003005.jsp"><span> &nbsp; 매입/매출관리</span></a></li>
-						</ul>
-			    	</div>
-			    </div>
- 			 </div>
-			</div>
-</nav> -->
-
 
 
 <script>

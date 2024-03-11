@@ -6,8 +6,8 @@ Class.forName("com.mysql.jdbc.Driver");
 Connection conn = null;
 // conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jinhap?autoReconnect=true", "root", "jinhap2023");
 //conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jinhap?autoReconnect=true", "root", "ezat6695");
-//conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jinhap?autoReconnect=true&useUnicode=true&characterEncoding=utf8", "root", "ezat6695");
-conn = DriverManager.getConnection("jdbc:mysql://192.168.1.62:3306/jinhap?autoReconnect=true&useUnicode=true&characterEncoding=utf8", "root", "ezat6695");
+conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jinhap?autoReconnect=true&useUnicode=true&characterEncoding=utf8", "root", "ezat6695");
+//conn = DriverManager.getConnection("jdbc:mysql://192.168.1.62:3306/jinhap?autoReconnect=true&useUnicode=true&characterEncoding=utf8", "root", "ezat6695");
 conn.setAutoCommit(false);
 
 

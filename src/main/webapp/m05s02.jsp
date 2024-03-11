@@ -1,6 +1,6 @@
 <%@ page session="true" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +47,6 @@
 <!-- Load D3 -->
 <script src="resources/js/d3.min.js"></script>
  
- 
 <!-- Load billboard.js with base style -->
 <link rel="stylesheet" href="resources/css/billboard3.css">
 <link rel="stylesheet" href="resources/css/insight.css">
@@ -76,9 +75,10 @@
 
 .scrolltbody td { border: 1px solid #000; border-top: 0;}
 
+
 .scrolltbody tbody {
     display: block;
-    height: 561px;
+    height: 610px;
 
     overflow-x: hidden;
 }
@@ -144,17 +144,18 @@
 	 z-index: 100; 
 	}	
 	
-[aria-describedby="image-form"]{
-	z-index:20000 !important;
-}
-	
 	@font-face{
 		font-family:"headline";
 		src:url("fonts/headline.TTF") format("ttf");
 		font-style:normal;
 		font-weight:normal;
-	}
+	}	
 	
+	.table th {
+    background-color: #122d64;
+    color:#FFFFFF;
+    border-color: #FFFFFF !important;
+	}
 </style>
 
 	
@@ -178,6 +179,7 @@ function writeCheck()
   
   form.submit();
   }
+
 var fn_logout = function () {
 	
 	if (!confirm("로그아웃 하시겠습니까?")) {
@@ -208,66 +210,30 @@ var fn_logout = function () {
 	});
 }
 
+
 </script>
 
 
 </head>
 
 <body onload="init();" data-offset="60" data-target=".navbar">
-		<div id="alert-form" style="display:none;" title="확인창">
-			<span id="alertSpan"></span>
-		</div>
-		
-		<div id="confirm-form" style="display:none;" title="확인창">
-			<span id="confirmSpan"></span>
-		</div>
-		
-		<div style="display:none;" id="file-form" title="파일 첨부" >
-			<form class="form-horizontal" id="upload" name="upload" method="post" enctype="multipart/form-data">
-				<table>
-					<tr><td colspan="2"> <b>**파일첨부**</b></td></tr>
-					<tr height="5"><td></td></tr>
-					<tr>
-					<td>
-						<input type="hidden" id="filePath" class="file_input_textbox" readonly="readonly">
-						<input type="hidden" id="import_date" name="import_date" class="file_input_textbox" readonly="readonly">
-						<input type="hidden" id="import_cnt" name="import_cnt" class="file_input_textbox" readonly="readonly">
-						
-						<div class="file_input_div">
-							<input type="file" id="file" name="file" class="file_input_hidden form-control" onchange="javascript:document.getElementById('filePath').value = this.value" />
-						</div>
-					</td>
-					</tr>
-					<tr height="5"><td></td></tr>
-					<tr>
-					<td colspan="2" align="center">
-					<input type="button" class="btn small btn-primary" onclick="file_import();" value="전송">
-					</td>
-					</tr>
-				</table>
-			</form>			
-		</div>
-		<div style="display:none;" id="image-form" title="파일 미리보기" >
-			<iframe id="image_view" style="width:100%; height:100%; display:none;" > 
-			
-			</iframe>			
-		</div>
+
 
 <div id="wrap">
 
     <div id="header">
-		<jsp:include page="header-menu.jsp"/>
+		<jsp:include page="/header-menu.jsp"/>
 	</div>
 
 	
 	<div id="body2">
 	<div id="floater2" style="margin-top:30px;">
 		
-		<jsp:include page="body-menu.jsp"/>
+		<jsp:include page="/body-menu.jsp"/>
 	</div>
 	<div id="contents">
         
-<div class="content" style="height:780px;"> 
+<div class="content" style="height:810px;"> 
 
 	
 	  <div style="position:relative;left:-275px;top:-185px;">
@@ -279,91 +245,387 @@ var fn_logout = function () {
 				                            <!--Begin Datatables-->
 <div class="row">
             <hr class="bread_under">
-            
+  <!-- 월간 -->
   <div style="width: 100%; " class="col-lg-12">
         <div class="box">
             <header>
-                <div style="padding:11px 14px;" class="icons"><i style="color:white;" class="fa fa-list"></i></div>
-                <h5 style="font-size:14pt; font-family: headline;">인원관리 - 자격증관리</h5>
+                <div style="padding:11px 14px;" class="icons"><i style="color:white;" class="fa fa-list-alt"></i></div>
+                <h5 style="font-family: headline; font-size:14pt;">투입 운전관리 - LOT 정보확인</h5>
             </header>
-            
             <header style="background:white; height:43px;">
-                <form class="form-inline" role="form" name="searchform" method="post" autocomplete="off">
-						<!-- 기준선택 -->
+                <form class="form-inline" role="form" name="m_searchform" method="post" autocomplete="off">
+						<!-- 설비 선택 -->
 						<div class="form-group">
-							<label class="control-label" 
-							style="font-size: 14pt;  font-family:headline; font-weight:700; 
-								color:#8C8C8C; width: 70px; text-align: right;">
-							기간 : </label>
+							<label class="control-label" style="font-size: 14pt; font-family:headline; 
+							color:#8C8C8C; width: 50px; text-align: right;
+							font-weight:700;">설비 : </label>
 						</div>
 						
 						<div class="form-group">
-							<select class="form-control input-sm" 
-							id="s_date" name="s_date"
-							style="margin-top:5px; height: 30px; width: 160px; 
-								font-size: 14pt; font-family:headline; font-weight:700;
+							<select class="form-control input-sm datepicker" 
+							id="m_hogi" name="m_hogi" 
+							style="margin-top:5px; height: 30px; width: 120px; 
+								font-size: 14pt; font-family:headline;
 								padding-top:1px; padding-bottom:1px;">
+								<option value="0">전체</option>
+								<option value="1">Q01-HN01</option>
+								<option value="2">Q01-HN02</option>
+								<option value="3">Q01-HN03</option>
+								<option value="4">Q01-HN04</option>
+								<option value="5">Q01-HN05</option>
+								<option value="6">Q01-HN06</option>
 							</select>
-						</div>				
-										
+						</div>						
 						
+						<div class="form-group">
+							<label class="control-label" 
+							style="font-size: 14pt; font-family:headline; 
+							color:#8C8C8C; width: 50px; text-align: right;">기간 : </label>
+						</div>
+						
+						<!-- 발생일 -->
+						<div class="form-group">
+							<input type="text" class="form-control input-sm datepicker" id="s_sdate" name="s_sdate" 
+							style="margin-top:5px; height: 30px; width: 140px; 
+							font-size: 14pt; font-family:headline;"  
+							placeholder="예)2020-01-01"
+							onkeyup="auto_date_format(event, this);"/>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control input-sm timepicker" id="s_stime" name="s_stime" 
+							style="margin-top:5px; height: 30px; width: 120px; 
+							font-size: 14pt; font-family:headline;"  
+							placeholder="00:00:00"
+							onkeyup="auto_time_format(event, this);"/>
+						</div>						
+						~						
+						<!-- 해제일 -->
+						<div class="form-group">
+							<input type="text" class="form-control input-sm datepicker" 
+							id="s_edate" name="s_edate" 
+							style="margin-top:5px; height: 30px; width: 140px; 
+							font-size: 14pt; font-family:headline;"  
+							placeholder="예)2020-01-01"
+							onkeyup="auto_date_format(event, this);"/>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control input-sm timepicker" id="s_etime" name="s_etime" 
+							style="margin-top:5px; height: 30px; width: 120px; 
+							font-size: 14pt; font-family:headline;"  
+							placeholder="23:59:59"
+							onkeyup="auto_time_format(event, this);"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label" 
+							style="font-size: 14pt; font-family:headline; color:#8C8C8C; 
+								width: 50px; text-align: right;font-weight:700;">LOT : </label>
+						</div>											
+						<div class="form-group">
+							<select class="form-control" name="pnum" ID="pnum" style="color:#8C8C8C !important; padding-top: 4px; margin-top:5px; width:200px; height:30px; font-size:14px;"></select>
+						</div>
+						<div class="form-group">
+							<label class="control-label" 
+							style="font-size: 14pt; font-family:headline; color:#8C8C8C; 
+								width: 50px; text-align: right;font-weight:700;">품번 : </label>
+						</div>											
+						<div class="form-group">
+							<select class="form-control" name="pnum" ID="pnum" style="color:#8C8C8C !important; padding-top: 4px; margin-top:5px; width:200px; height:30px; font-size:14px;"></select>
+						</div>
 						<div class="form-group">
 							&nbsp;&nbsp;
 							<div class="form-group">
-								<c:if test="${sessionScope.sid != 'worker' }">
-									<button class="btn btn-default pull-right btn-sm" type="button" 
-									style="margin-top:6px; height: 31px; width: 120px; 
-									font-size:14pt; font-family: headline; font-weight:700;
-									padding-top:1px; padding-bottom:1px;" 
-									id="fileSelect">
-									<span class="glyphicon glyphicon-paperclip"></span>파일첨부</button>
-								</c:if>
+								<button class="btn btn-default pull-right btn-sm" type="button" 
+								style="margin-top:6px; height: 31px; width: 100px; 
+								font-size:14pt; font-weight:700; font-family:headline;
+								padding-top:1px; padding-bottom:1px;" 
+								id="searchbtn">
+								<i class="fa fa-search"></i> 검 색</button>
 							</div>
 						</div>
+															
 				</form>
             </header>
+            
             <div id="collapse4" class="body">
-               <table id="file_list" cellspacing="0" class="table table-bordered table-hover table-responsive scrolltbody">
+               <table id="malarm_list" cellspacing="0" class="table table-bordered table-hover table-responsive scrolltbody">
 					<thead>
+					
 						<tr>
 							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 60px; height: 30px; 
-							font-size: 16pt; font-family: headline; font-weight:700;">
-								No.
+								style="width: 100px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;
+								">
+								LOT No.
 							</th>
 							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 140px; height: 30px; 
-							font-size: 16pt; font-family: headline; font-weight:700;">
-								파일 저장일
-							</th>
+								style="width: 400px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								품번
+							</th>							
 							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 400px; height: 30px; 
-							font-size: 16pt; font-family: headline; font-weight:700;">
-								파일제목
+								style="width: 400px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								바코드
 							</th>
 							
 							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 130px; height: 30px; 
-							font-size: 16pt; font-family: headline; font-weight:700;">
-								첨부파일
-							</th>																																									
-
+								style="width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								열처리<br>투입시간
+							</th>							
 							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 130px; height: 30px; 
-							font-size: 16pt; font-family: headline; font-weight:700;">
-								파일삭제
-							</th>
+								style="width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								겐츄리창고<br>입고
+							</th>							
+							<th class="text-center cell" 
+								style="width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								겐츄리창고<br>출고
+							</th>							
+							<th class="text-center cell" 
+								style="width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								세척 개시
+							</th>							
+							<th class="text-center cell" 
+								style="width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								세척 종료
+							</th>							
 						</tr>
-								
-					</thead>					
-					<tbody id="file_contents">
-						
+					</thead>
+										
+					<tbody id="malarm_contents">
+						<tr>
+							<td class="text-center cell" 
+								style="; width: 100px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;
+								">
+								1
+							</td>
+							<td class="text-center cell" 
+								style="; width: 400px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								TEST1
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 400px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								TEST1
+							</td>
+							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+						</tr>
+						<tr>
+							<td class="text-center cell" 
+								style="; width: 100px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;
+								">
+								2
+							</td>
+							<td class="text-center cell" 
+								style="; width: 400px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								TEST1
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 400px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								TEST1
+							</td>
+							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+						</tr>
+						<tr>
+							<td class="text-center cell" 
+								style="; width: 100px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;
+								">
+								3
+							</td>
+							<td class="text-center cell" 
+								style="; width: 400px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								TEST1
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 400px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								TEST1
+							</td>
+							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+						</tr>
+						<tr>
+							<td class="text-center cell" 
+								style="; width: 100px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;
+								">
+								4
+							</td>
+							<td class="text-center cell" 
+								style="; width: 400px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								TEST1
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 400px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								TEST1
+							</td>
+							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+						</tr>
+						<tr>
+							<td class="text-center cell" 
+								style="; width: 100px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;
+								">
+								5
+							</td>
+							<td class="text-center cell" 
+								style="; width: 400px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								TEST1
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 400px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								TEST1
+							</td>
+							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+							<td class="text-center cell" 
+								style="; width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								2023-12-08<br>00:00:00
+							</td>							
+						</tr>
 					</tbody>
 				</table>				
             </div>
         </div>
     </div>
-
+ 
+ <!-- 연간 -->
+   
+ 
 <!--END TEXT INPUT FIELD-->
 </div>
 		 </div>
@@ -402,28 +664,51 @@ var fn_logout = function () {
     });	
 	
 /*전역변수*/	
-var sid;
+
 /*인터벌*/
 	
 	
 /*페이지 로드*/	
-$(function(){
+ $(function(){
 	fn_check();
 	var now = new Date();
+	for(var i=0; i<12; i++){
+		var m_value = "";
+		if(i <=8){
+			m_value = "0"+(i+1);
+		}else{
+			m_value = (i+1);
+		}
+		$("#m_date").append("<option value='"+now.getFullYear()+"-"+m_value+"'>"+now.getFullYear()+"년 "+m_value+"월 </option>");
+	}
+	
+	$("#m_date").val(now.getFullYear()+"-"+date_set(now.getMonth()+1));
 	
 	for(var j=-3; j<1; j++){
 		var y_value = now.getFullYear() + j;
-		$("#s_date").append("<option value='"+y_value+"'>"+y_value+"년</option>");	
+		$("#y_date").append("<option value='"+y_value+"'>"+y_value+"년</option>");	
 	}
 	
-	sid = '<%=session.getAttribute("sid")%>'
-	$("#s_date").val(now.getFullYear());
 	
+	$("#y_date").val(now.getFullYear());
+	
+	now = new Date();
 //	$("#s_sdate").val(now.toISOString().substring(0, 4)+"-"+now.toISOString().substring(5, 7)+"-"+now.toISOString().substring(8, 10));
-//	$("#s_edate").val(now.toISOString().substring(0, 4)+"-"+now.toISOString().substring(5, 7)+"-"+now.toISOString().substring(8, 10));
-});
+}); 
+	
+	function date_set(v){
+		var result = "";
+		if(v <= 9){
+			result = "0"+v;			
+		}else{
+			result = v;
+		}
+		
+		return result;
+	}	
 	
 /*함수*/	
+
 			var fn_check = function() {
 				
 				
@@ -460,9 +745,9 @@ $(function(){
 				
 			  });
 
-			};
+			};	
 function init(){
-	getFileList();
+//	getMonitoringList();
 }
 
 
@@ -481,335 +766,15 @@ function auto_date_format( e, oThis ){
         if( len == 7 ) oThis.value += "-";
     
     }
-    
-}
-
-function file_import(){
-	var fileform = $("#upload")[0];
-	var fileData = new FormData(fileform);
-
-	fileDialog.dialog("close");
-	
-	 if (fileform.file.value == "") {   
-		  $("#alertSpan").text("파일을 업로드해주세요.");
-		  alertDialog.dialog("open");
-//			alert("업로드해");
-		  return false;   
-	 }
-	 
-
-	 /*
-		if(!checkFileTypePDF(fileform.file.value)) {
-		  $("#alertSpan").text("PDF 파일만 업로드해주세요.");
-		  alertDialog.dialog("open");
-//			alert("엑셀만해");
-			
-			fileform.reset();
-	  return false;   
-	 }	
-	 */
-	
-	var path = $("#filePath").val();
-	if(path != ''){
-	
-		$.ajax({
-			url:"m05/s02/upload_m05s02.jsp",
-			type:"post",
-			enctype:"multipart/form-data",
-			data:fileData,
-			processData:false,
-			contentType:false,
-			cache:false,
-			success:function(data){
-				
-				fileDialog.dialog("close");
-				getFileList();
-				fileform.reset();
-			}
-		});
-	}
-	
-	
-}
-
-var fileDel_cnt = 0;
-
-function delFile(c_val){
-	fileDel_cnt = c_val;
-	$("#confirmSpan").text("파일을 삭제하시겠습니까?");
-	confirmDialog.dialog("open");
-	
-}
-
-/* function checkFileTypePDF(filePath){   
-	  
-	 var fileLen = filePath.length;   
-	 var fileFormat = filePath.substring(filePath.lastIndexOf('.'),filePath.length);   
-	 fileFormatfileFormat = fileFormat.toLowerCase();   
-	 
-	 if (fileFormat == ".pdf"){
-		 return true;    
-	 	}else{ 
-	 		return false;
-	 }   
-	} */
-
-function getFileList(){
-	$.ajax({
-		type : "POST",
-		url : "m05/s02/select_m05s02.jsp",
-		cache : false,
-		dataType : "json",
-		data : {'time':new Date().getTime(),
-			"sdate":$("#s_date").val()},
-		success : function(rsJson) {
-			if (rsJson && rsJson.status == "ok") {
-				var rsAr = rsJson.rows;
-				var listHtml = "";
-				
-				for(var i=0; i<rsAr.length; i++){
-//					console.log(rsAr[i].filename);
-					var temp = rsAr[i].filename;
-					var o_fname = temp.substring(0,temp.lastIndexOf("_"));
-//					console.log(o_fname+rsAr[i].version);
-					
-					
-					listHtml += "<tr>";
-					listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline;">'+(i+1)+'</td>';
-					listHtml += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].tdate+'</td>';
-					listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 400px; word-break:break-all; font-size:15pt; font-family:headline;">'+o_fname+rsAr[i].version+'</td>';
-					//if(rsAr[i].version == ".pdf"){
-					if (rsAr[i].version == ".pdf" || rsAr[i].version == ".png") {
-
-						listHtml += '<td style="text-align: center; height: 20px; width: 130px;"><button type="button" style="font-size:15pt; font-family:headline;" class="btn btn-default" onclick=viewFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true;><i class="fa fa-search"></i>파일보기</button></td>';	
-					}else{
-						listHtml += '<td style="text-align: center; height: 20px; width: 130px;"><button type="button" style="font-size:15pt; font-family:headline;" class="btn btn-default" onclick=downFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true;><i class="fa fa-save"></i>파일다운</button></td>';
-					}
-					
-					if(rsAr[i].file_yn == 'Y'){
-						if(sid != "worker"){
-							listHtml += '<td style="text-align: center; height: 20px; width: 130px;"><button type="button" style="font-size:15pt; font-family:headline;" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true;><i class="fa fa-remove"></i>파일삭제</button></td>';
-						}else{
-							listHtml += '<td style="text-align: center; height: 20px; width: 130px;"></td>';
-						}
-					}else{
-						listHtml += '<td style="text-align: center; height: 20px; width: 130px;"></td>';
-					}
-					
-					listHtml += "</tr>";						
-				}
-	
-				$("#file_list tbody").html(listHtml);
-	
-			} else if (rsJson && rsJson.status == "fail") {
-				alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-			} else {
-				alert("에러발생!");
-			}
-			
-//			timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-			
-		},	// success 끝
-		error: function(req, status) {
-			if (req.status == 0 || status == "timeout") {
-				alert("네트워크 연결 확인 후 다시 시도해주세요.");
-			} else {
-				alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-			}
-		},
-		
-	});	
-			
 }
 
 
+	
+	
 /*이벤트*/	
-$("#fileSelect").on("click",function(){
-	fileDialog.dialog("open");
-});
-		
-/*		
-$("#searchbtn").on("click",function(){
-	getFileList();
-});
-*/
-
-$("#s_date").change(function(){
-	getFileList();
-});
-		
-function viewFile(c_val){
 	
-	$.ajax({
-		type : "POST",
-		url : "m05/s02/view_m05s02.jsp",
-		cache : false,
-		dataType : "json",
-		data : {'time':new Date().getTime(),
-				"cnt":c_val},
-		success : function(rsJson) {
-			if (rsJson && rsJson.status == "ok") {
-				var rsAr = rsJson.rows;
-//				console.log(rsAr[0].filename);
-								
-				var file = "/JINHAP_OFFICE/upload/"+(decodeURIComponent(rsAr[0].filename));
-				//var file = "D:/file/m05s02/"+(decodeURIComponent(rsAr[0].filename));
-				//var file = "/JINHAP_OFFICE/file/m05s02/"+(decodeURIComponent(rsAr[0].filename));
-				
-				console.log((decodeURIComponent(file)));
-				
-				
-				$("#image_view").attr("src",file);
-				$("#image_view").show();
-				imageDialog.dialog("open");
-				
-				
-			} else if (rsJson && rsJson.status == "fail") {
-				alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-			} else {
-				alert("에러발생!");
-			}
-		},	// success 끝
-		error: function(req, status) {
-			if (req.status == 0 || status == "timeout") {
-				alert("네트워크 연결 확인 후 다시 시도해주세요.");
-			} else {
-				alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-			}
-		},
-		
-	});	
-	
-
-}		
-
-
-function downFile(c_val){
-	
-	$.ajax({
-		type : "POST",
-		url : "m05/s02/view_m05s02.jsp",
-		cache : false,
-		dataType : "json",
-		data : {'time':new Date().getTime(),
-				"cnt":c_val},
-		success : function(rsJson) {
-			if (rsJson && rsJson.status == "ok") {
-				var rsAr = rsJson.rows;
-//				console.log(rsAr[0].filename);
-								
-				var file = "/JINHAP_OFFICE/upload/"+(decodeURIComponent(rsAr[0].filename));
-				//var file = "D:/file/m05s02/"+(decodeURIComponent(rsAr[0].filename));
-				//var file = "/JINHAP_OFFICE/file/m05s02/"+(decodeURIComponent(rsAr[0].filename));
-				console.log((decodeURIComponent(file)));
-				
-				
-				$("#image_view").attr("src",file);
-				$("#image_view").show();
-//				imageDialog.dialog("open");
-				
-				
-			} else if (rsJson && rsJson.status == "fail") {
-				alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-			} else {
-				alert("에러발생!");
-			}
-		},	// success 끝
-		error: function(req, status) {
-			if (req.status == 0 || status == "timeout") {
-				alert("네트워크 연결 확인 후 다시 시도해주세요.");
-			} else {
-				alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-			}
-		},
-		
-	});	
-	
-
-}		
-
-
-		
 /*다이얼로그*/
 
-var imageDialog;			
-
-imageDialog = $("#image-form").dialog({
-  autoOpen: false,
-  height: 900,
-  width: 1100,
-  modal: false,
-  stack:false,
-  buttons: {		
-        "닫 기": function() {
-        	setTimeout( function() 
-              {				
-        		imageDialog.dialog("close");
-        		
-        		$("#image_view").empty();
-              });
-        }
-	  }
-});
-
-var fileDialog;
-fileDialog = $("#file-form").dialog({
-	  autoOpen: false,
-	  height: 280,
-	  width: 380,
-	  modal: false,
-	  stack:false,
-	  buttons: {		
-	        "닫 기": function() {
-	        	setTimeout( function() 
-	              {				
-	        		fileDialog.dialog("close");
-	              });
-	        }
-		  }
-	});
-
-var alertDialog;
-alertDialog = $("#alert-form").dialog({
-	autoOpen:false,
-	height:150,
-	width:300,
-	modal:false,
-	stack:false,
-	buttons:{
-		"확 인":function(){
-			alertDialog.dialog("close");
-		}
-	}
-});
-
-var confirmDialog;
-confirmDialog = $("#confirm-form").dialog({
-	autoOpen:false,
-	height:150,
-	width:300,
-	modal:false,
-	stack:false,
-	buttons:{
-		"삭 제":function(){
-			$.post("m05/s02/delete_m05s02.jsp",{
-				"cnt":fileDel_cnt
-			},250);
-			
-			setTimeout(function(){
-				$("#alertSpan").text("파일이 삭제되었습니다.");
-				alertDialog.dialog("open");
-				getFileList();
-				fileDel_cnt = 0;
-			},400);					
-			confirmDialog.dialog("close");
-			
-		},
-		"취 소":function(){
-			confirmDialog.dialog("close");
-		}
-	}
-});
 
 /*차트 불러오는 함수*/
 	

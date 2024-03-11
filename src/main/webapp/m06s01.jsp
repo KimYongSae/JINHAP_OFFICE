@@ -625,7 +625,7 @@ function init(){
 	var getUserList = function(){
 		$.ajax({
 			type : "POST",
-			url : "m05/s01/select_m05s01.jsp",
+			url : "m06/s01/select_m06s01.jsp",
 			cache : false,
 			dataType : "json",
 			data : {'time':new Date().getTime()},
@@ -746,7 +746,7 @@ $("#allCheck").click(function(){ //만약 전체 선택 체크박스가 체크�
 			//아이디, 휴대폰번호 중복체크
 		$.ajax({
 			type : "POST",
-			url : "m05/s01/select_m05s01_dualCheck.jsp",
+			url : "m06/s01/select_m06s01_dualCheck.jsp",
 			cache : false,
 			dataType : "json",
 			data : {'time':new Date().getTime(),
@@ -767,7 +767,7 @@ $("#allCheck").click(function(){ //만약 전체 선택 체크박스가 체크�
 					}else{
 						$("#alertSpan").text("저장되었습니다.");
 						
-						$.post("m05/s01/update_m05s01.jsp",{
+						$.post("m06/s01/update_m06s01.jsp",{
 							"u_cnt":i_cnt,
 							"u_id":i_id,
 							"u_name":i_name,
@@ -836,7 +836,7 @@ $("#allCheck").click(function(){ //만약 전체 선택 체크박스가 체크�
 			//아이디, 휴대폰번호 중복체크
 		$.ajax({
 			type : "POST",
-			url : "m05/s01/select_m05s01_dualCheck.jsp",
+			url : "m06/s01/select_m06s01_dualCheck.jsp",
 			cache : false,
 			dataType : "json",
 			data : {'time':new Date().getTime(),
@@ -857,7 +857,7 @@ $("#allCheck").click(function(){ //만약 전체 선택 체크박스가 체크�
 					}else{
 						$("#alertSpan").text("수정되었습니다.");
 						
-						$.post("m05/s01/update_m05s01.jsp",{
+						$.post("m06/s01/update_m06s01.jsp",{
 							"u_cnt":i_cnt,
 							"u_id":i_id,
 							"u_name":i_name,
@@ -948,7 +948,7 @@ $("#allCheck").click(function(){ //만약 전체 선택 체크박스가 체크�
 		
 		
 		
-		/* $.post("m05/s01/delete_m05s01.jsp",{
+		/* $.post("m06/s01/delete_m06s01.jsp",{
 			"cnt":cid
 		},150);
 		
@@ -963,7 +963,7 @@ $("#allCheck").click(function(){ //만약 전체 선택 체크박스가 체크�
 			
 		},300); */
 		
-		$.post("m05/s01/delete_m05s01.jsp", { "cnt": cid })
+		$.post("m06/s01/delete_m06s01.jsp", { "cnt": cid })
 	    .done(function(responseData) {
 	    	setTimeout(function(){
 				$("#saveBtn").attr("disabled",false);
