@@ -100,7 +100,7 @@
 			<div id="floater">	
 			</div>
 				<div id="contents">
-				    <h1 style="text-align:center" class="brand-text">열처리 등대사업</h1>
+				    <h1 style="text-align:center" class="brand-text">열처리 통합관리시스템</h1>
 					<div class="login" style="border:4px solid #436324;">
 				
 						<div class="col-xs-12">	

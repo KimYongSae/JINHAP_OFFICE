@@ -78,7 +78,7 @@
 
 .scrolltbody tbody {
     display: block;
-    height: 610px;
+    height: 580px;
 
     overflow-x: hidden;
 }
@@ -156,6 +156,41 @@
     color:#FFFFFF;
     border-color: #FFFFFF !important;
 	}
+	
+	#lot_contents tr td{
+		height: 70px; 
+		font-size: 18pt;
+		font-family:headline;
+		font-weight:700;
+	}	
+	.nr1{
+		width: 70px;
+	}
+	.nr2{
+		width: 200px;
+	}
+	.nr3{
+		width: 320px;
+	}
+	.nr4{
+		width: 250px;
+	}
+	.nr5{
+		width: 180px;
+	}
+	.nr6{
+		width: 180px;
+	}
+	.nr7{
+		width: 180px;
+	}
+	.nr8{
+		width: 180px;
+	}
+	.nr9{
+		width: 180px;
+	}
+
 </style>
 
 	
@@ -216,7 +251,7 @@ var fn_logout = function () {
 
 </head>
 
-<body onload="init();" data-offset="60" data-target=".navbar">
+<body data-offset="60" data-target=".navbar">
 
 
 <div id="wrap">
@@ -263,11 +298,10 @@ var fn_logout = function () {
 						
 						<div class="form-group">
 							<select class="form-control input-sm datepicker" 
-							id="m_hogi" name="m_hogi" 
-							style="margin-top:5px; height: 30px; width: 120px; 
+							id="hogi" name="hogi" 
+							style="margin-top:5px; height: 30px; width: 135px; 
 								font-size: 14pt; font-family:headline;
 								padding-top:1px; padding-bottom:1px;">
-								<option value="0">전체</option>
 								<option value="1">Q01-HN01</option>
 								<option value="2">Q01-HN02</option>
 								<option value="3">Q01-HN03</option>
@@ -285,14 +319,14 @@ var fn_logout = function () {
 						
 						<!-- 발생일 -->
 						<div class="form-group">
-							<input type="text" class="form-control input-sm datepicker" id="s_sdate" name="s_sdate" 
+							<input type="text" class="form-control input-sm datepicker" id="s_date" name="s_date" 
 							style="margin-top:5px; height: 30px; width: 140px; 
 							font-size: 14pt; font-family:headline;"  
 							placeholder="예)2020-01-01"
 							onkeyup="auto_date_format(event, this);"/>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control input-sm timepicker" id="s_stime" name="s_stime" 
+							<input type="text" class="form-control input-sm timepicker" id="s_time" name="s_time" 
 							style="margin-top:5px; height: 30px; width: 120px; 
 							font-size: 14pt; font-family:headline;"  
 							placeholder="00:00:00"
@@ -301,15 +335,14 @@ var fn_logout = function () {
 						~						
 						<!-- 해제일 -->
 						<div class="form-group">
-							<input type="text" class="form-control input-sm datepicker" 
-							id="s_edate" name="s_edate" 
+							<input type="text" class="form-control input-sm datepicker" id="e_date" name="e_date" 
 							style="margin-top:5px; height: 30px; width: 140px; 
 							font-size: 14pt; font-family:headline;"  
 							placeholder="예)2020-01-01"
 							onkeyup="auto_date_format(event, this);"/>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control input-sm timepicker" id="s_etime" name="s_etime" 
+							<input type="text" class="form-control input-sm timepicker" id="e_time" name="e_time" 
 							style="margin-top:5px; height: 30px; width: 120px; 
 							font-size: 14pt; font-family:headline;"  
 							placeholder="23:59:59"
@@ -347,23 +380,29 @@ var fn_logout = function () {
             </header>
             
             <div id="collapse4" class="body">
-               <table id="malarm_list" cellspacing="0" class="table table-bordered table-hover table-responsive scrolltbody">
+               <table id="lot_list" cellspacing="0" class="table table-bordered table-hover table-responsive scrolltbody">
 					<thead>
 					
 						<tr>
 							<th class="text-center cell" 
-								style="width: 100px; height: 70px; 
+								style="width: 70px; height: 60px; 
 								font-size: 16pt; font-family:headline; font-weight:700;
 								">
-								LOT No.
+								No.
 							</th>
 							<th class="text-center cell" 
-								style="width: 400px; height: 70px; 
+								style="width: 200px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;
+								">
+								LOT
+							</th>
+							<th class="text-center cell" 
+								style="width: 320px; height: 70px; 
 								font-size: 16pt; font-family:headline; font-weight:700;">
 								품번
 							</th>							
 							<th class="text-center cell" 
-								style="width: 400px; height: 70px; 
+								style="width: 250px; height: 70px; 
 								font-size: 16pt; font-family:headline; font-weight:700;">
 								바코드
 							</th>
@@ -371,7 +410,12 @@ var fn_logout = function () {
 							<th class="text-center cell" 
 								style="width: 180px; height: 70px; 
 								font-size: 16pt; font-family:headline; font-weight:700;">
-								열처리<br>투입시간
+								세척개시
+							</th>							
+							<th class="text-center cell" 
+								style="width: 180px; height: 70px; 
+								font-size: 16pt; font-family:headline; font-weight:700;">
+								세척 종료
 							</th>							
 							<th class="text-center cell" 
 								style="width: 180px; height: 70px; 
@@ -386,237 +430,12 @@ var fn_logout = function () {
 							<th class="text-center cell" 
 								style="width: 180px; height: 70px; 
 								font-size: 16pt; font-family:headline; font-weight:700;">
-								세척 개시
-							</th>							
-							<th class="text-center cell" 
-								style="width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								세척 종료
+								열처리<br>투입시간
 							</th>							
 						</tr>
 					</thead>
 										
-					<tbody id="malarm_contents">
-						<tr>
-							<td class="text-center cell" 
-								style="; width: 100px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;
-								">
-								1
-							</td>
-							<td class="text-center cell" 
-								style="; width: 400px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								TEST1
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 400px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								TEST1
-							</td>
-							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-						</tr>
-						<tr>
-							<td class="text-center cell" 
-								style="; width: 100px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;
-								">
-								2
-							</td>
-							<td class="text-center cell" 
-								style="; width: 400px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								TEST1
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 400px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								TEST1
-							</td>
-							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-						</tr>
-						<tr>
-							<td class="text-center cell" 
-								style="; width: 100px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;
-								">
-								3
-							</td>
-							<td class="text-center cell" 
-								style="; width: 400px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								TEST1
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 400px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								TEST1
-							</td>
-							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-						</tr>
-						<tr>
-							<td class="text-center cell" 
-								style="; width: 100px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;
-								">
-								4
-							</td>
-							<td class="text-center cell" 
-								style="; width: 400px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								TEST1
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 400px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								TEST1
-							</td>
-							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-						</tr>
-						<tr>
-							<td class="text-center cell" 
-								style="; width: 100px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;
-								">
-								5
-							</td>
-							<td class="text-center cell" 
-								style="; width: 400px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								TEST1
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 400px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								TEST1
-							</td>
-							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-							<td class="text-center cell" 
-								style="; width: 180px; height: 70px; 
-								font-size: 16pt; font-family:headline; font-weight:700;">
-								2023-12-08<br>00:00:00
-							</td>							
-						</tr>
+					<tbody id="lot_contents">
 					</tbody>
 				</table>				
             </div>
@@ -671,41 +490,8 @@ var fn_logout = function () {
 /*페이지 로드*/	
  $(function(){
 	fn_check();
-	var now = new Date();
-	for(var i=0; i<12; i++){
-		var m_value = "";
-		if(i <=8){
-			m_value = "0"+(i+1);
-		}else{
-			m_value = (i+1);
-		}
-		$("#m_date").append("<option value='"+now.getFullYear()+"-"+m_value+"'>"+now.getFullYear()+"년 "+m_value+"월 </option>");
-	}
-	
-	$("#m_date").val(now.getFullYear()+"-"+date_set(now.getMonth()+1));
-	
-	for(var j=-3; j<1; j++){
-		var y_value = now.getFullYear() + j;
-		$("#y_date").append("<option value='"+y_value+"'>"+y_value+"년</option>");	
-	}
-	
-	
-	$("#y_date").val(now.getFullYear());
-	
-	now = new Date();
-//	$("#s_sdate").val(now.toISOString().substring(0, 4)+"-"+now.toISOString().substring(5, 7)+"-"+now.toISOString().substring(8, 10));
+	date_search();
 }); 
-	
-	function date_set(v){
-		var result = "";
-		if(v <= 9){
-			result = "0"+v;			
-		}else{
-			result = v;
-		}
-		
-		return result;
-	}	
 	
 /*함수*/	
 
@@ -746,10 +532,6 @@ var fn_logout = function () {
 			  });
 
 			};	
-function init(){
-//	getMonitoringList();
-}
-
 
 function auto_date_format( e, oThis ){
     
@@ -768,11 +550,109 @@ function auto_date_format( e, oThis ){
     }
 }
 
+function date_search(){
+	
+	$.ajax({
+		type : "POST",
+		url : "util/lmonitor_date_search.jsp",
+		cache : false,
+		dataType : "json",
+		data : {'time':new Date().getTime()},
+		success : function(rsJson) {
+			if (rsJson && rsJson.status == "ok") {
+				var rsAr = rsJson.rows;
+				
+				//$("#s_sdate").val(rsAr[0].b_date);
+				$("#s_date").val(rsAr[0].y_date);
+				//$("#s_stime").val(rsAr[0].b_time.substring(0,2)+":00:00");
+				//$("#s_stime").val("00:00:00");
+				$("#s_time").val(rsAr[0].n_time);
+//				console.log("1:"+$("#s_sdate").val()+", "+$("#s_stime").val());
+				
+				$("#e_date").val(rsAr[0].n_date);
+				//$("#s_etime").val(rsAr[0].a_time.substring(0,2)+":00:00");	
+				$("#e_time").val(rsAr[0].n_time);
+				
+			} else if (rsJson && rsJson.status == "fail") {
+				alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
+			} else {
+				alert("에러발생!");
+			}
+			
+		},	// success 끝
+		error: function(req, status) {
+			if (req.status == 0 || status == "timeout") {
+				alert("네트워크 연결 확인 후 다시 시도해주세요.");
+			} else {
+				alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
+			}
+		},
+		
+	});
+}
+
+function getLotData(){
+    
+	$.ajax({
+		url:"m05/s02/select_m05s02.jsp",
+		type:"post",
+       	dataType:"json",
+       	data:{            
+          	"sdate":$("#s_date").val(),
+          	"edate":$("#e_date").val(),
+          	"stime":$("#s_time").val(),
+          	"etime":$("#e_time").val(),
+			"hogi":$("#hogi").val()
+       	},
+       	success : function(rsJson) {
+			if (rsJson && rsJson.status == "ok") {
+				var rsAr = rsJson.rows;
+				
+				var listHtml = "";
+					for(var i=0; i<rsAr.length; i++){
+						listHtml += "<tr>";
+						listHtml += '<td class="nr1 text-center cell">'+(i+1)+'</td>';
+						listHtml += '<td class="nr2 text-center cell" >'+rsAr[i].lot+'</td>';
+						listHtml += '<td class="nr3 text-center cell" >'+rsAr[i].pnum+'</td>';
+						listHtml += '<td class="nr4 text-center cell" >'+rsAr[i].barcode+'</td>';
+						listHtml += '<td class="nr5 text-center cell" ></td>';
+						listHtml += '<td class="nr6 text-center cell" ></td>';
+						listHtml += '<td class="nr7 text-center cell" ></td>';
+						listHtml += '<td class="nr8 text-center cell" ></td>';
+						listHtml += '<td class="nr9 text-center cell" >'+rsAr[i].regtime+'</td>';
+						listHtml += "</tr>";							
+					}
+					
+					$("#lot_contents").html(listHtml);
+					//$("#alarm_list").trigger("update");
+					
+			} else if (rsJson && rsJson.status == "fail") {
+				alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
+			} else {
+				alert("에러발생!");
+			}
+			
+		},	// success 끝
+		error: function(req, status) {
+			if (req.status == 0 || status == "timeout") {
+				alert("네트워크 연결 확인 후 다시 시도해주세요.");
+			} else {
+				alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
+			}
+		},
+		
+	});
+}
+
+
 
 	
 	
 /*이벤트*/	
 	
+$("#searchbtn").on("click",function(){
+	getLotData();
+});
 /*다이얼로그*/
 
 

@@ -291,7 +291,7 @@ th, td{
 														</thead>
 														<tbody>
 															<tr>
-																<th>투입 Flag</th>
+																<th>투입<br>요청신호<br>M2000</th>
 																<td><button class="btn btn-success circle"></button></td>
 																<td><button class="btn btn-danger circle"></button></td>
 																<td><button class="btn btn-danger circle"></button></td>
@@ -300,151 +300,40 @@ th, td{
 																<td><button class="btn btn-danger circle"></button></td>
 															</tr>
 															<tr>
-																<th>대기위치<br>D9610~5<br>-><br>M2010</th>
-																<td>
-																	<div class="row">
-																		<button class="btn btn-success circle-sm"></button>
-																		<i class="glyphicon glyphicon-arrow-right"></i>
-																		<button class="btn btn-success square-sm"></button>
-																	</div>
-																	<div class="row" style="margin-top:10px;">
-																		<button class="btn btn-default square">SET</button>
-																	</div>
-																</td>
-																<td>
-																	<div class="row">
-																		<button class="btn btn-success circle-sm"></button>
-																		<i class="glyphicon glyphicon-arrow-right"></i>
-																		<button class="btn btn-success square-sm"></button>
-																	</div>
-																	<div class="row" style="margin-top:10px;">
-																		<button class="btn btn-default square">SET</button>
-																	</div>
-																</td>
-																<td>
-																	<div class="row">
-																		<button class="btn btn-success circle-sm"></button>
-																		<i class="glyphicon glyphicon-arrow-right"></i>
-																		<button class="btn btn-success square-sm"></button>
-																	</div>
-																	<div class="row" style="margin-top:10px;">
-																		<button class="btn btn-default square">SET</button>
-																	</div>
-																</td>
-																<td>
-																	<div class="row">
-																		<button class="btn btn-success circle-sm"></button>
-																		<i class="glyphicon glyphicon-arrow-right"></i>
-																		<button class="btn btn-success square-sm"></button>
-																	</div>
-																	<div class="row" style="margin-top:10px;">
-																		<button class="btn btn-default square">SET</button>
-																	</div>
-																</td>
-																<td>
-																	<div class="row">
-																		<button class="btn btn-success circle-sm"></button>
-																		<i class="glyphicon glyphicon-arrow-right"></i>
-																		<button class="btn btn-danger square-sm"></button>
-																	</div>
-																	<div class="row" style="margin-top:10px;">
-																		<button class="btn btn-default square">SET</button>
-																	</div>
-																</td>
-																<td>
-																	<div class="row">
-																		<button class="btn btn-danger circle-sm"></button>
-																		<i class="glyphicon glyphicon-arrow-right"></i>
-																		<button class="btn btn-success square-sm"></button>
-																	</div>
-																	<div class="row" style="margin-top:10px;">
-																		<button class="btn btn-default square">SET</button>
-																	</div>
-																</td>
+																<th>투입요청<br>완료<br>M2053</th>
+																<td><button class="btn btn-success circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-success circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
 															</tr>
 															<tr>
-																<th>투입위치<br>D9616~21<br>-><br>M2012</th>
-																<td>
-																	<div class="row">
-																		<button class="btn btn-success circle-sm"></button>
-																		<i class="glyphicon glyphicon-arrow-right"></i>
-																		<button class="btn btn-success square-sm"></button>
-																	</div>
-																	<div class="row" style="margin-top:10px;">
-																		<button class="btn btn-default square">SET</button>
-																	</div>
-																</td>
-																<td>
-																	<div class="row">
-																		<button class="btn btn-success circle-sm"></button>
-																		<i class="glyphicon glyphicon-arrow-right"></i>
-																		<button class="btn btn-success square-sm"></button>
-																	</div>
-																	<div class="row" style="margin-top:10px;">
-																		<button class="btn btn-default square">SET</button>
-																	</div>
-																</td>
-																<td>
-																	<div class="row">
-																		<button class="btn btn-success circle-sm"></button>
-																		<i class="glyphicon glyphicon-arrow-right"></i>
-																		<button class="btn btn-success square-sm"></button>
-																	</div>
-																	<div class="row" style="margin-top:10px;">
-																		<button class="btn btn-default square">SET</button>
-																	</div>
-																</td>
-																<td>
-																	<div class="row">
-																		<button class="btn btn-success circle-sm"></button>
-																		<i class="glyphicon glyphicon-arrow-right"></i>
-																		<button class="btn btn-success square-sm"></button>
-																	</div>
-																	<div class="row" style="margin-top:10px;">
-																		<button class="btn btn-default square">SET</button>
-																	</div>
-																</td>
-																<td>
-																	<div class="row">
-																		<button class="btn btn-success circle-sm"></button>
-																		<i class="glyphicon glyphicon-arrow-right"></i>
-																		<button class="btn btn-danger square-sm"></button>
-																	</div>
-																	<div class="row" style="margin-top:10px;">
-																		<button class="btn btn-default square">SET</button>
-																	</div>
-																</td>
-																<td>
-																	<div class="row">
-																		<button class="btn btn-danger circle-sm"></button>
-																		<i class="glyphicon glyphicon-arrow-right"></i>
-																		<button class="btn btn-success square-sm"></button>
-																	</div>
-																	<div class="row" style="margin-top:10px;">
-																		<button class="btn btn-default square">SET</button>
-																	</div>
-																</td>
+																<th>운전모드<br>M71</th>
+																<td><button class="btn btn-success circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-success circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
 															</tr>
 															<tr>
-																<th>투입버튼</th>
-																<td>
-																	<button class="btn btn-primary square"></button>
-																</td>
-																<td>
-																	<button class="btn btn-primary square"></button>
-																</td>
-																<td>
-																	<button class="btn btn-primary square"></button>
-																</td>
-																<td>
-																	<button class="btn btn-primary square"></button>
-																</td>
-																<td>
-																	<button class="btn btn-primary square"></button>
-																</td>
-																<td>
-																	<button class="btn btn-primary square"></button>
-																</td>
+																<th>대기위치<br>M2010</th>
+																<td><button class="btn btn-success circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-success circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+															</tr>
+															<tr>
+																<th>투입위치<br>M2012</th>
+																<td><button class="btn btn-success circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-success circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
+																<td><button class="btn btn-danger circle"></button></td>
 															</tr>
 															<tr>
 																<th>투입요청<br>가능</th>
@@ -514,24 +403,6 @@ th, td{
 																		<span>빈박스</span>
 																	</div>
 																</td>
-															</tr>
-															<tr>
-																<th>M2077</th>
-																<td><button class="btn btn-success circle"></button></td>
-																<td><button class="btn btn-danger circle"></button></td>
-																<td><button class="btn btn-danger circle"></button></td>
-																<td><button class="btn btn-success circle"></button></td>
-																<td><button class="btn btn-danger circle"></button></td>
-																<td><button class="btn btn-danger circle"></button></td>
-															</tr>
-															<tr>
-																<th>M2082</th>
-																<td><button class="btn btn-success circle"></button></td>
-																<td><button class="btn btn-danger circle"></button></td>
-																<td><button class="btn btn-danger circle"></button></td>
-																<td><button class="btn btn-success circle"></button></td>
-																<td><button class="btn btn-danger circle"></button></td>
-																<td><button class="btn btn-danger circle"></button></td>
 															</tr>
 														</tbody>
 													

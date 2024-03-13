@@ -171,9 +171,9 @@ $(document).ready(function(){
 							<li><a href="m01s01.jsp"><span>설비별 생산실적</span></a></li>
 							<li><a href="m01s02.jsp"><span>설비별 효율관리</span></a></li>							
 							<li><a href="sample_8.jsp"><span>생산 모니터링 현황(미완)</span></a></li>							
-							<li><a href="m01s06.jsp"><span>열처리 제공현황(미완)</span></a></li>
-							<li><a href="m01s04.jsp"><span>열처리 작업일보 현황(미완)</span></a></li>
-							<li><a href="m01s03.jsp"><span>LOT 보고서(미완)</span></a></li>
+							<li><a href="m01s06.jsp"><span>열처리 제공현황(협의예정)</span></a></li>
+							<li><a href="m01s04.jsp"><span>열처리 작업일보 현황(데이터 확인)</span></a></li>
+							<li><a href="m01s03.jsp"><span>LOT 보고서(작업일보 데이터 활용)</span></a></li>
 						</ul>
 			    	</div>
 			    	
@@ -205,9 +205,8 @@ $(document).ready(function(){
 			    	<div class="custom-col menuLists">
 			    		<ul style="text-align: center;">
 			    			<li><a href="http://localhost:8080/JINHAP/s001.jsp" target="_blank"><span>투입제어 및 모니터링</span></a></li>			    			 
-			    			<li><a href="m05s02.jsp"><span>LOT 정보확인(미완)</span></a></li>			    			 
+			    			<li><a href="m05s02.jsp"><span>LOT 정보확인</span></a></li>			    			 
 			    			<li><a href="sample_13.jsp"><span>생산/설비 실시간 정보(미완)</span></a></li>			    			 
-			    			<li><a href="sample_14.jsp"><span>투입FLOW 모니터링(미완)</span></a></li>			    			 
 						</ul>
 			    	</div>
 			    	<div class="custom-col menuLists">

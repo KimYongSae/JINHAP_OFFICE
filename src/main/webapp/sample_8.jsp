@@ -174,7 +174,10 @@
 .text-overlay {
   position: absolute;
   color: white;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: black;
+  border: 3px solid;
+  border-color:gray;
+  
 }
 
 </style>
@@ -278,29 +281,167 @@
 											<h5 style="font-family: headline; font-size: 14pt;">생산관리
 												- 생산 모니터링 현황</h5>
 										</header>
+					
+										<header style="background:white; height:43px;">
+                <form class="form-inline" role="form" id="searchform" 
+                name="searchform" method="post" autocomplete="off" onsubmit="event.preventDefault();">
+                
+						<div class="form-group">
+							<button class="btn btn-info" id="btn1-2" style="margin-left:50px; margin-top:5px;">
+							1호기 - 2호
+							</button>
+							<button class="btn btn-default" id="btn3-4" style="margin-left:50px; margin-top:5px;">
+							3호기 - 4호
+							</button>
+							<button class="btn btn-default" id="btn5-6" style="margin-left:50px; margin-top:5px;">
+							5호기 - 6호
+							</button>
+						</div>				
+															
+				</form>
+            </header>
 
 										<div id="collapse4" class="body">
-											<div class="image-container">
-												<img src="resources/img/temp.png" class="img-responsive" alt="이미지 설명">
-													<div class="text-overlay" style="top: 5%; left: 10%;">텍스트1</div>
-													<div class="text-overlay" style="top: 10%; left: 20%;">텍스트2</div>
-													<div class="text-overlay" style="top: 10%; left: 30%;">텍스트3</div>
-													<div class="text-overlay" style="top: 10%; left: 40%;">텍스트4</div>
-													<div class="text-overlay" style="top: 10%; left: 50%;">텍스트5</div>
-													<div class="text-overlay" style="top: 10%; left: 60%;">텍스트6</div>
-													<div class="text-overlay" style="top: 10%; left: 70%;">텍스트7</div>
-													<div class="text-overlay" style="top: 10%; left: 80%;">텍스트8</div>
-													<div class="text-overlay" style="top: 10%; left: 90%;">텍스트9</div>
+											<div class="image-container" id="hogi1-2">
+												<img src="resources/img/temp_1-2.png" class="img-responsive" style="height:650px" alt="이미지 설명">
+													<div class="btn btn-warning" style="position:absolute;top: 10%; left: 3%;">열처리 1호기</div>
+													<div class="text-overlay hogi1 wait" style="top: 25%; left: 5%;">대기위치000</div>
+													<div class="text-overlay hogi1 hoper" style="top: 5%; left: 10%;">호퍼투입000</div>
+													<div class="text-overlay hogi1 q1" style="top: 2%; left: 17%;">소입00001</div>
+													<div class="text-overlay hogi1 q2" style="top: 8%; left: 19.5%;">소입00002</div>
+													<div class="text-overlay hogi1 q3" style="top: 2%; left: 22%;">소입00003</div>
+													<div class="text-overlay hogi1 q4" style="top: 8%; left: 24.5%;">소입00004</div>
+													<div class="text-overlay hogi1 q5" style="top: 2%; left: 27%;">소입00005</div>
+													<div class="text-overlay hogi1 q6" style="top: 8%; left: 29.5%;">소입00006</div>
+													<div class="text-overlay hogi1 q7" style="top: 2%; left: 32%;">소입00007</div>
+													<div class="text-overlay hogi1 q8" style="top: 8%; left: 34.5%;">소입00008</div>
+													<div class="text-overlay hogi1 oil" style="top: 23%; left: 40%;">소입유조000</div>
+													<div class="text-overlay hogi1 mw" style="top: 13%; left: 46%;">중간세정000</div>
+													<div class="text-overlay hogi1 t1" style="top: 2%; left: 58%;">소려00001</div>
+													<div class="text-overlay hogi1 t2" style="top: 8%; left: 60.5%;">소려00002</div>
+													<div class="text-overlay hogi1 t3" style="top: 2%; left: 63%;">소려00003</div>
+													<div class="text-overlay hogi1 t4" style="top: 8%; left: 65.5%;">소려00004</div>
+													<div class="text-overlay hogi1 t5" style="top: 2%; left: 68%;">소려00005</div>
+													<div class="text-overlay hogi1 t6" style="top: 8%; left: 70.5%;">소려00006</div>
+													<div class="text-overlay hogi1 t7" style="top: 2%; left: 73%;">소려00007</div>
+													<div class="text-overlay hogi1 t8" style="top: 8%; left: 75.5%;">소려00008</div>
 													
-													<div class="text-overlay" style="top: 55%; left: 10%;">텍스트1</div>
-													<div class="text-overlay" style="top: 60%; left: 20%;">텍스트2</div>
-													<div class="text-overlay" style="top: 60%; left: 30%;">텍스트3</div>
-													<div class="text-overlay" style="top: 60%; left: 40%;">텍스트4</div>
-													<div class="text-overlay" style="top: 60%; left: 50%;">텍스트5</div>
-													<div class="text-overlay" style="top: 60%; left: 60%;">텍스트6</div>
-													<div class="text-overlay" style="top: 60%; left: 70%;">텍스트7</div>
-													<div class="text-overlay" style="top: 60%; left: 80%;">텍스트8</div>
-													<div class="text-overlay" style="top: 60%; left: 90%;">텍스트9</div>
+													<div class="btn btn-warning" style="position:absolute;top: 60%; left: 3%;">열처리 2호기</div>
+													<div class="text-overlay hogi1 wait" style="top: 75.0%; left: 5%;">대기위치000</div>
+													<div class="text-overlay hogi1 hoper" style="top: 55.0%; left: 10%;">호퍼투입000</div>
+													<div class="text-overlay hogi1 q1" style="top: 52.0%; left: 17%;">소입00001</div>
+													<div class="text-overlay hogi1 q2" style="top: 58.0%; left: 19.5%;">소입00002</div>
+													<div class="text-overlay hogi1 q3" style="top: 52.0%; left: 22%;">소입00003</div>
+													<div class="text-overlay hogi1 q4" style="top: 58.0%; left: 24.5%;">소입00004</div>
+													<div class="text-overlay hogi1 q5" style="top: 52.0%; left: 27%;">소입00005</div>
+													<div class="text-overlay hogi1 q6" style="top: 58.0%; left: 29.5%;">소입00006</div>
+													<div class="text-overlay hogi1 q7" style="top: 52.0%; left: 32%;">소입00007</div>
+													<div class="text-overlay hogi1 q8" style="top: 58.0%; left: 34.5%;">소입00008</div>
+													<div class="text-overlay hogi1 oil" style="top: 73.0%; left: 40%;">소입유조000</div>
+													<div class="text-overlay hogi1 mw" style="top: 63.0%; left: 46%;">중간세정000</div>
+													<div class="text-overlay hogi1 t1" style="top: 52.0%; left: 58%;">소려00001</div>
+													<div class="text-overlay hogi1 t2" style="top: 58.0%; left: 60.5%;">소려00002</div>
+													<div class="text-overlay hogi1 t3" style="top: 52.0%; left: 63%;">소려00003</div>
+													<div class="text-overlay hogi1 t4" style="top: 58.0%; left: 65.5%;">소려00004</div>
+													<div class="text-overlay hogi1 t5" style="top: 52.0%; left: 68%;">소려00005</div>
+													<div class="text-overlay hogi1 t6" style="top: 58.0%; left: 70.5%;">소려00006</div>
+													<div class="text-overlay hogi1 t7" style="top: 52.0%; left: 73%;">소려00007</div>
+													<div class="text-overlay hogi1 t8" style="top: 58.0%; left: 75.5%;">소려00008</div>
+
+											</div>
+											<div class="image-container" id="hogi3-4" style="display:none;">
+												<img src="resources/img/temp_3-4.png" class="img-responsive" style="height:650px" alt="이미지 설명">
+													<div class="btn btn-warning" style="position:absolute;top: 10%; left: 3%;">열처리 3호기</div>
+													<div class="text-overlay hogi1 wait" style="top: 25%; left: 5%;">대기위치000</div>
+													<div class="text-overlay hogi1 hoper" style="top: 5%; left: 10%;">호퍼투입000</div>
+													<div class="text-overlay hogi1 q1" style="top: 2%; left: 17%;">소입00001</div>
+													<div class="text-overlay hogi1 q2" style="top: 8%; left: 19.5%;">소입00002</div>
+													<div class="text-overlay hogi1 q3" style="top: 2%; left: 22%;">소입00003</div>
+													<div class="text-overlay hogi1 q4" style="top: 8%; left: 24.5%;">소입00004</div>
+													<div class="text-overlay hogi1 q5" style="top: 2%; left: 27%;">소입00005</div>
+													<div class="text-overlay hogi1 q6" style="top: 8%; left: 29.5%;">소입00006</div>
+													<div class="text-overlay hogi1 q7" style="top: 2%; left: 32%;">소입00007</div>
+													<div class="text-overlay hogi1 q8" style="top: 8%; left: 34.5%;">소입00008</div>
+													<div class="text-overlay hogi1 oil" style="top: 23%; left: 40%;">소입유조000</div>
+													<div class="text-overlay hogi1 mw" style="top: 13%; left: 46%;">중간세정000</div>
+													<div class="text-overlay hogi1 t1" style="top: 2%; left: 58%;">소려00001</div>
+													<div class="text-overlay hogi1 t2" style="top: 8%; left: 60.5%;">소려00002</div>
+													<div class="text-overlay hogi1 t3" style="top: 2%; left: 63%;">소려00003</div>
+													<div class="text-overlay hogi1 t4" style="top: 8%; left: 65.5%;">소려00004</div>
+													<div class="text-overlay hogi1 t5" style="top: 2%; left: 68%;">소려00005</div>
+													<div class="text-overlay hogi1 t6" style="top: 8%; left: 70.5%;">소려00006</div>
+													<div class="text-overlay hogi1 t7" style="top: 2%; left: 73%;">소려00007</div>
+													<div class="text-overlay hogi1 t8" style="top: 8%; left: 75.5%;">소려00008</div>
+													
+													<div class="btn btn-warning" style="position:absolute;top: 60%; left: 3%;">열처리 4호기</div>
+													<div class="text-overlay hogi1 wait" style="top: 75.0%; left: 5%;">대기위치000</div>
+													<div class="text-overlay hogi1 hoper" style="top: 55.0%; left: 10%;">호퍼투입000</div>
+													<div class="text-overlay hogi1 q1" style="top: 52.0%; left: 17%;">소입00001</div>
+													<div class="text-overlay hogi1 q2" style="top: 58.0%; left: 19.5%;">소입00002</div>
+													<div class="text-overlay hogi1 q3" style="top: 52.0%; left: 22%;">소입00003</div>
+													<div class="text-overlay hogi1 q4" style="top: 58.0%; left: 24.5%;">소입00004</div>
+													<div class="text-overlay hogi1 q5" style="top: 52.0%; left: 27%;">소입00005</div>
+													<div class="text-overlay hogi1 q6" style="top: 58.0%; left: 29.5%;">소입00006</div>
+													<div class="text-overlay hogi1 q7" style="top: 52.0%; left: 32%;">소입00007</div>
+													<div class="text-overlay hogi1 q8" style="top: 58.0%; left: 34.5%;">소입00008</div>
+													<div class="text-overlay hogi1 oil" style="top: 73.0%; left: 40%;">소입유조000</div>
+													<div class="text-overlay hogi1 mw" style="top: 63.0%; left: 46%;">중간세정000</div>
+													<div class="text-overlay hogi1 t1" style="top: 52.0%; left: 58%;">소려00001</div>
+													<div class="text-overlay hogi1 t2" style="top: 58.0%; left: 60.5%;">소려00002</div>
+													<div class="text-overlay hogi1 t3" style="top: 52.0%; left: 63%;">소려00003</div>
+													<div class="text-overlay hogi1 t4" style="top: 58.0%; left: 65.5%;">소려00004</div>
+													<div class="text-overlay hogi1 t5" style="top: 52.0%; left: 68%;">소려00005</div>
+													<div class="text-overlay hogi1 t6" style="top: 58.0%; left: 70.5%;">소려00006</div>
+													<div class="text-overlay hogi1 t7" style="top: 52.0%; left: 73%;">소려00007</div>
+													<div class="text-overlay hogi1 t8" style="top: 58.0%; left: 75.5%;">소려00008</div>
+
+											</div>
+											<div class="image-container" id="hogi5-6" style="display:none">
+												<img src="resources/img/temp_5-6.png" class="img-responsive" style="height:650px" alt="이미지 설명">
+													<div class="btn btn-warning" style="position:absolute;top: 10%; left: 3%;">열처리 5호기</div>
+													<div class="text-overlay hogi1 wait" style="top: 25%; left: 5%;">대기위치000</div>
+													<div class="text-overlay hogi1 hoper" style="top: 5%; left: 10%;">호퍼투입000</div>
+													<div class="text-overlay hogi1 q1" style="top: 2%; left: 17%;">소입00001</div>
+													<div class="text-overlay hogi1 q2" style="top: 8%; left: 19.5%;">소입00002</div>
+													<div class="text-overlay hogi1 q3" style="top: 2%; left: 22%;">소입00003</div>
+													<div class="text-overlay hogi1 q4" style="top: 8%; left: 24.5%;">소입00004</div>
+													<div class="text-overlay hogi1 q5" style="top: 2%; left: 27%;">소입00005</div>
+													<div class="text-overlay hogi1 q6" style="top: 8%; left: 29.5%;">소입00006</div>
+													<div class="text-overlay hogi1 q7" style="top: 2%; left: 32%;">소입00007</div>
+													<div class="text-overlay hogi1 q8" style="top: 8%; left: 34.5%;">소입00008</div>
+													<div class="text-overlay hogi1 oil" style="top: 23%; left: 40%;">소입유조000</div>
+													<div class="text-overlay hogi1 mw" style="top: 13%; left: 46%;">중간세정000</div>
+													<div class="text-overlay hogi1 t1" style="top: 2%; left: 58%;">소려00001</div>
+													<div class="text-overlay hogi1 t2" style="top: 8%; left: 60.5%;">소려00002</div>
+													<div class="text-overlay hogi1 t3" style="top: 2%; left: 63%;">소려00003</div>
+													<div class="text-overlay hogi1 t4" style="top: 8%; left: 65.5%;">소려00004</div>
+													<div class="text-overlay hogi1 t5" style="top: 2%; left: 68%;">소려00005</div>
+													<div class="text-overlay hogi1 t6" style="top: 8%; left: 70.5%;">소려00006</div>
+													<div class="text-overlay hogi1 t7" style="top: 2%; left: 73%;">소려00007</div>
+													<div class="text-overlay hogi1 t8" style="top: 8%; left: 75.5%;">소려00008</div>
+													
+													<div class="btn btn-warning" style="position:absolute;top: 60%; left: 3%;">열처리 6호기</div>
+													<div class="text-overlay hogi1 wait" style="top: 75.0%; left: 5%;">대기위치000</div>
+													<div class="text-overlay hogi1 hoper" style="top: 55.0%; left: 10%;">호퍼투입000</div>
+													<div class="text-overlay hogi1 q1" style="top: 52.0%; left: 17%;">소입00001</div>
+													<div class="text-overlay hogi1 q2" style="top: 58.0%; left: 19.5%;">소입00002</div>
+													<div class="text-overlay hogi1 q3" style="top: 52.0%; left: 22%;">소입00003</div>
+													<div class="text-overlay hogi1 q4" style="top: 58.0%; left: 24.5%;">소입00004</div>
+													<div class="text-overlay hogi1 q5" style="top: 52.0%; left: 27%;">소입00005</div>
+													<div class="text-overlay hogi1 q6" style="top: 58.0%; left: 29.5%;">소입00006</div>
+													<div class="text-overlay hogi1 q7" style="top: 52.0%; left: 32%;">소입00007</div>
+													<div class="text-overlay hogi1 q8" style="top: 58.0%; left: 34.5%;">소입00008</div>
+													<div class="text-overlay hogi1 oil" style="top: 73.0%; left: 40%;">소입유조000</div>
+													<div class="text-overlay hogi1 mw" style="top: 63.0%; left: 46%;">중간세정000</div>
+													<div class="text-overlay hogi1 t1" style="top: 52.0%; left: 58%;">소려00001</div>
+													<div class="text-overlay hogi1 t2" style="top: 58.0%; left: 60.5%;">소려00002</div>
+													<div class="text-overlay hogi1 t3" style="top: 52.0%; left: 63%;">소려00003</div>
+													<div class="text-overlay hogi1 t4" style="top: 58.0%; left: 65.5%;">소려00004</div>
+													<div class="text-overlay hogi1 t5" style="top: 52.0%; left: 68%;">소려00005</div>
+													<div class="text-overlay hogi1 t6" style="top: 58.0%; left: 70.5%;">소려00006</div>
+													<div class="text-overlay hogi1 t7" style="top: 52.0%; left: 73%;">소려00007</div>
+													<div class="text-overlay hogi1 t8" style="top: 58.0%; left: 75.5%;">소려00008</div>
+
 											</div>
 
 										</div>
@@ -335,7 +476,42 @@
 
 		/*다이얼로그*/
 
-		/*차트 불러오는 함수*/
+		/* 함수 */
+		function toggleVisibility(showId, ...hideIds) {
+		    $(showId).show();
+		    $(hideIds.join(', ')).hide();
+		    
+		    // 모든 버튼을 기본 상태로 설정하고 클릭된 버튼만 특별 상태로 설정
+		    $(".btn").removeClass("btn-info").addClass("btn-default"); // 모든 버튼을 기본 상태로
+		    $(showId.replace('hogi', 'btn')).removeClass("btn-default").addClass("btn-info"); // 클릭된 버튼만 변경
+		}
+		
+		$("#btn1-2").click(function() {
+		    toggleVisibility("#hogi1-2", "#hogi3-4", "#hogi5-6");
+		});
+		$("#btn3-4").click(function() {
+		    toggleVisibility("#hogi3-4", "#hogi1-2", "#hogi5-6");
+		});
+		$("#btn5-6").click(function() {
+		    toggleVisibility("#hogi5-6", "#hogi3-4", "#hogi1-2");
+		});
+
+		
+		/*이벤트*/
+
+		/* $("#btn1-2").click(function{
+		    $("#hogi1-2").show;
+		    $("#hogi3-4").hide;
+		    $("#hogi5-6").hide;
+		    $("#btn1-2").removeClass("btn-primary");
+		    $("#btn1-2").addClass("btn-info");
+		    $("#btn3-4").removeClass("btn-info");
+		    $("#btn3-4").addClass("btn-primary");
+		    $("#btn5-6").removeClass("btn-info");
+		    $("#btn5-6").addClass("btn-primary");
+		}) */
+		
+		
 	</script>
 
 </body>
