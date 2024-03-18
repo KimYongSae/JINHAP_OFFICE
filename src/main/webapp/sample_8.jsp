@@ -288,13 +288,13 @@
                 
 						<div class="form-group">
 							<button class="btn btn-info" id="btn1-2" style="margin-left:50px; margin-top:5px;">
-							1호기 - 2호
+							1호기 - 2호기
 							</button>
 							<button class="btn btn-default" id="btn3-4" style="margin-left:50px; margin-top:5px;">
-							3호기 - 4호
+							3호기 - 4호기
 							</button>
 							<button class="btn btn-default" id="btn5-6" style="margin-left:50px; margin-top:5px;">
-							5호기 - 6호
+							5호기 - 6호기
 							</button>
 						</div>				
 															

@@ -706,7 +706,7 @@ var fn_logout = function () {
       					style="width: 340px; height: 34px; 
       					font-size: 14pt; font-family:headline;" 
       					placeholder="설비명"/>
-						<input type="hidden" id="i_r_gb" name="i_r_gb" value="0" />
+						<input type="hidden" id="i_cnt" name="i_cnt" value="0" />
 						</td> 
       					<td style="padding-bottom:30px;">&nbsp;</td>
       					<td>&nbsp;</td>
@@ -737,7 +737,7 @@ var fn_logout = function () {
      					
      						<c:if test="${sessionScope.sid != 'worker' }">
 	 							<button class="btn btn-default pull-right btn-sm" type="button" 
-								onclick="pdf_print();"
+								onclick="log_print();"
 								style="width: 160px; 
 								font-size: 14pt; font-family:headline; font-weight:700">
 								<i class="fa fa-print"></i>  작업일보 생성</button>    						
@@ -782,7 +782,7 @@ var fn_logout = function () {
            </div> 
         </div>
         
-		<div class="box">
+		<%-- <div class="box">
             <header>
                 <div style="padding:11px 14px;" class="icons">
                 	<i style="color:white;" class="fa fa-cog"></i>
@@ -1162,7 +1162,7 @@ var fn_logout = function () {
            </div> 
 
                 
-        </div>
+        </div> --%>
 	        
         
   </div>
@@ -1493,18 +1493,17 @@ function init(){
 
 
 
-	var pdf_print = function(){
+	var log_print = function(){
 		
 		
 		var i_hogi = $("#i_hogi").val();
 		var i_date = $("#i_date").val();
-		var i_r_gb = $("#i_r_gb").val();	//0이면 오늘 작업이 있는 설비, 1이면 오늘 작업이 없는 설비
-		
-		if(i_r_gb == 1){
-			$("#alertSpan").text("오늘 작업량이 없는 설비입니다.");
-			alertDialog.dialog("open");
-			return;
-		}
+		var i_cnt = $("#i_cnt").val();
+		var date = new Date(i_date);
+
+		date.setDate(date.getDate() + 1);
+
+		var nextDay = date.toISOString().slice(0, 10);
 		
 		if(i_hogi == '' || i_date == ''){
 			$("#alertSpan").text("설비를 선택해주십시오.");
@@ -1517,29 +1516,27 @@ function init(){
 		
 		$.ajax({
 			type : "POST",
-			url : "i001006.jsp",
+			url : "m01/s04/export_m01s04_excel.jsp",
 			cache : false,
 			dataType : "json",
 			data : {'time':new Date().getTime(),
 				"hogi":i_hogi,
-				"date":i_date},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-//					var rsAr = rsJson.rows;		
-					
+				"date":i_date,
+				"cnt":i_cnt,
+				"edate":nextDay
+			},
+			success : function(response) {
+				if (response.status == "ok") {
 					$("#alertSpan").text("작업일보가 생성되었습니다.");
 					alertDialog.dialog("open");
 					
 					getLotList();
 					$("#loading").hide();
-					
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
+			        // 성공 로직 처리
+			    } else {
+			    	alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
+			    }
 				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
 				
 			},	// success 끝
 			error: function(req, status) {
@@ -1554,94 +1551,60 @@ function init(){
 				
 	}
 	
-	
+	var getDayCount = function(){
+		//년도를 기준으로 데이터베이스 검색해서 없으면 년도에 대해서 3~8호기 insert
+		$.post("m01/s04/count_m01s04.jsp",{
+			"tdate":$("#s_date").val()
+		},100);
+		
+		setTimeout(function(){
+			// 로드할거
+		},300);
+	}
 
-	
+	var cntArray = new Array();
 	var getLotList = function(){
-		var sid = '<%=session.getAttribute("sid")%>';
 		$.ajax({
 			type : "POST",
-			url : "l001006.jsp",
+			url : "m01/s04/select_m01s04.jsp",
 			cache : false,
 			dataType : "json",
 			data : {'time':new Date().getTime(),
-					'hogi':$("#s_hogi").val(),
-					"sdate":$("#s_date").val()},
+				"tdate":$("#s_date").val(),
+				"hogi":$("#s_hogi").val()},
 			success : function(rsJson) {
 				if (rsJson && rsJson.status == "ok") {
 					var rsAr = rsJson.rows;
 					var rowColor = "";
 					var rowId = "";
 					
-					//seq변수로 정렬
-					rsAr.sort(function(a,b){
-						return a.seq - b.seq;
-					})					
-					
 					var mainIdx = 0;
 					var listHtml = "";
-						for(var i=0; i<rsAr.length; i++){
-							if(rsAr[i].r_gb == 0){
-								rowColor = "style='background-color:#fff;'";
-								rowId = "id='"+rsAr[i].gb+"'";
-								mainIdxArray[mainIdx] = rsAr[i].gb;
-								mainIdx++;
-							}else{
-								rowColor = "style='background-color:#D2D2D2;'";
-								rowId = "";
-							}
 							
 							
-							
-							var r_hogi = "";
-							if(rsAr[i].hogi == "HT-QT3"){
-								r_hogi = "QT001";
-							}else if(rsAr[i].hogi == "HT-QT4"){
-								r_hogi = "QT002";
-							}else if(rsAr[i].hogi == "HT-QT5"){
-								r_hogi = "QT003";
-							}else if(rsAr[i].hogi == "HT-QT6"){
-								r_hogi = "QT004";
-							}else if(rsAr[i].hogi == "HT-QT7"){
-								r_hogi = "QT011";
-							}else if(rsAr[i].hogi == "HT-QT8"){
-								r_hogi = "QT012";
-							}else if(rsAr[i].hogi == "HT-QT9"){
-								r_hogi = "QT013";
-							}
-							
-							mainIdxArray[i] = rsAr[i].gb;
-//							console.log(rsAr[i].gb);
-							
-							listHtml += "<tr "+rowColor+" "+rowId+">";
-							listHtml += '<td class="nr0" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].seq+'</td>';
-							listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 200px; word-break:break-all; font-size:16pt; font-family:headline;">'+rsAr[i].wdate+'</td>';
-							listHtml += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 250px; word-break:break-all; font-size:16pt; font-family:headline;">'+rsAr[i].hogi+'</td>';
-							if(rsAr[i].f != ''){
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 350px; word-break:break-all; font-size:15pt; font-family:headline;">'+
-								'<button type="button" class="btn btn-default" onclick=viewFile("'+rsAr[i].wdate+'","'+r_hogi+'","'+rsAr[i].f+'"); return false; event.cancelBubble = true; style="width:180px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-search"></i>작업일보 보기</button>'
-								+'</td>';
-							}else{
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 350px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].f+'</td>';	
-							}
-							
-							if(rsAr[i].f != ''){
-								if(sid != "worker"){
-									listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 350px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-									'<button type="button" class="btn btn-default" onclick=delFile("'+rsAr[i].wdate+'","'+r_hogi+'","'+rsAr[i].f+'"); return false; event.cancelBubble = true; style="width:160px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-remove"></i>작업일보 삭제</button>'
-									+'</td>';
-								}else{
-									listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 350px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';	
-								}
-							}else{
-								listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 350px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';							
-							}	
-							
-							listHtml += '<td class="nr5" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 100px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].gb+'</td>';
-							listHtml += '<td class="nr6" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].r_gb+'</td>';
-							listHtml += "</tr>";							
+					for(var i=0; i<rsAr.length; i++){
+						/* var fname_a =  rsAr[i].filename.substring(0,rsAr[i].filename.lastIndexOf('_'));
+						var fname_b =  rsAr[i].filename.substring(rsAr[i].filename.lastIndexOf('.'),rsAr[i].filename.length);			 */			
+						cntArray[i] = rsAr[i].cnt;
+						listHtml += "<tr>";
+						listHtml += '<td class="nr" style="display:none;">'+rsAr[i].cnt+'</td>';
+						listHtml += '<td class="nr3 text-center cell" style=" width: 200px; height: 50px; font-size: 16pt; font-family:headline;" >'+rsAr[i].tdate.split(" ")[0] +'</td>';
+						listHtml += '<td class="nr4 text-center cell" style=" width: 250px; height: 30px; font-size: 16pt; font-family:headline;" >'+rsAr[i].hogi+'</td>';						
+						//listHtml += '<td class="nr7 text-center cell" style=" width: 350px; height: 30px; font-size: 16pt; font-family:headline;">'+rsAr[i].filename+'</td>';
+						if(rsAr[i].filename != null){
+							listHtml += '<td class="nr7 text-center cell" style=" width: 350px; height: 30px; font-size: 16pt; font-family:headline;">'+
+							'<button type="button" class="btn btn-default" onclick="downFile(\''+ encodeURIComponent(rsAr[i].filename) +'\'); return false; event.stopPropagation();" style="width:160px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-save"></i>파일다운</button>'
+
+							+'</td>';
+						}else{
+							listHtml += '<td class="nr7 text-center cell" style=" width: 350px; height: 30px; font-size: 16pt; font-family:headline;"></td>';							
 						}
+						listHtml += '<td class="nr8 text-center cell" style=" width: 350px; height: 30px; font-size: 16pt; font-family:headline;"></td>';
 						
+						
+						listHtml += "</tr>";						
+					}					
+					
 						$("#lot_list tbody").html(listHtml);
 						$("#lot_list").trigger("update");
 						$("#loading").hide();
@@ -2330,10 +2293,23 @@ function init(){
 	        });
 	}
 	
-	
+	function downFile(encodedFilename) {
+	    // URL에서 사용할 수 있도록 인코딩된 파일명을 디코딩합니다.
+	    var filename = decodeURIComponent(encodedFilename);
+
+	    // 파일 다운로드 URL을 생성합니다.
+	    var downloadUrl = '/JINHAP_OFFICE/upload/' + filename;
+
+	    // 생성된 URL로 이동하여 파일 다운로드를 시작합니다.
+	    window.location.href = downloadUrl;
+	}
+
 	
 /*이벤트*/	
 
+$("#s_date").change(function(){
+	getDayCount();
+});
 		$("#searchbtn").on("click",function(){
 			getLotList();
 		});
@@ -2342,36 +2318,28 @@ function init(){
 		$("#lot_contents").delegate('tr','click', function() {
 	
 			
-			var $row = $(this).closest("tr"),
-//				$nr = $row.find(".nr").text();	//No
-				$nr0 = $row.find(".nr0").text();	//seq (설비별 정렬 목적)
-				$nr1 = $row.find(".nr1").text();	//작업일자
-				$nr2 = $row.find(".nr2").text();	//설비명
-				$nr5 = $row.find(".nr5").text();	//년월일+설비번호
-				$nr6 = $row.find(".nr6").text();	//오늘 작업량이 있는 항목과 아닌항목 구분 [0,1]
+			var $row = $(this).closest("tr");
+			$nr = $row.find(".nr").text();		//cnt
+			$nr3 = $row.find(".nr3").text();	//교체일
+			$nr4 = $row.find(".nr4").text();	//호기
+			$nr7 = $row.find(".nr7").text();	//실제 파일명
+			$nr8 = $row.find(".nr8").text();	//파일보기
 			
-				$("#i_r_gb").val($nr6);
-//				$("#i_r_gb").val(0);
-				
+			$("#i_date").val($nr3);
+			$("#i_hogi").val($nr4);
+			$("#i_cnt").val($nr);
+			
+			
 			var index = 0;
-			
-			//오늘 작업한 설비일때만
 			$("#lot_contents > tr").each(function(){
-				if($nr5 == mainIdxArray[index]){
-					if($nr6 == 0){
-						$("#"+mainIdxArray[index]).css("background-color","#B2CCFF");
-					}else{
-						$("#"+mainIdxArray[index]).css("background-color","#D2D2D2");
-					}
+				if($nr == cntArray[index]){
+					$(this).css("background-color","#B2CCFF");						
 				}else{						
-					$("#"+mainIdxArray[index]).css("background-color","#fff");
+					$(this).css("background-color","#fff");
 				}	
 				index++;
 			});
 			
-			
-			$("#i_date").val($nr1);				
-			$("#i_hogi").val($nr2);
 			
 		});
 		

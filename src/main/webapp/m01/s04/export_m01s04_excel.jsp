@@ -34,31 +34,58 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 
-/* 	int hogi = Integer.parseInt(request.getParameter("hogi"));
-	String pnum = request.getParameter("pnum");
-	String gang = request.getParameter("gang");
-	String t_gb = request.getParameter("t_gb"); */
+	String hogi = (request.getParameter("hogi"));
+	String sdate = request.getParameter("date");
+	String edate = request.getParameter("edate") + " 08:00:00";
+	String cnt = request.getParameter("cnt");
+	
+	switch (hogi) {
+    case "Q01-HN01":
+        hogi = "1";
+        break;
+    case "Q01-HN02":
+    	hogi = "2";
+        break;
+    case "Q01-HN03":
+    	hogi = "3";
+        break;
+    case "Q01-HN04":
+    	hogi = "4";
+        break;
+    case "Q01-HN05":
+    	hogi = "5";
+        break;
+    case "Q01-HN06":
+    	hogi = "6";
+        break;
+	}
+	
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+    SimpleDateFormat sdfDisplay = new SimpleDateFormat("HH:mm:ss");
+	
+    Date lastDate = sdf.parse(edate);
+    
 	Date now = new Date();
 
-	//String sFileName = hogi+"호기_작업일보_" +sdf.format(now)+".xlsx";
-	String sFileName = "1호기_작업일보_" +sdf.format(now)+".xlsx";
+	String sFileName = hogi+"호기_작업일보_" +sdf.format(now)+".xlsx";
+	//String sFileName = "1호기_작업일보_" +sdf.format(now)+".xlsx";
 	String fileName = URLEncoder.encode(sFileName, "UTF-8").replaceAll("\\+", "%20");
 	
 	out.clear();
 	out = pageContext.pushBody();
 	response.reset(); 
 
-	response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+	/* response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 	String headerValue = String.format("attachment; filename*=UTF-8''%s", fileName);
-	response.setHeader("Content-Disposition", headerValue);
+	response.setHeader("Content-Disposition", headerValue); */
 
 
 	OutputStream fileOut = null;	
 	
 	
 	StringBuffer sql = new StringBuffer();
+	StringBuffer sql2 = new StringBuffer();
 	
 	Statement stmt = null;
 	ResultSet rs = null;
@@ -71,9 +98,28 @@
 		 
 		// 엑셀에 담을 데이터 db에서 조회
 		
-		/* stmt = conn.createStatement();
-		rs = stmt.executeQuery(sql.toString()); */
+		/* sql.append(" select * from tb_tong_log WHERE ");
+		sql.append(" STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '2024-02-07 08:00:00' AND '2024-02-08 01:00:00' ");
+		//sql.append(" STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '"+sdate+" 08:00:00' AND '"+edate+" 01:00:00' ");
+		sql.append(" and hogi = "+hogi+" "); */
 		
+		sql.append("SELECT tb_tong_log.*, tb_recipe_auto1_filtered.* ");
+		sql.append("FROM tb_tong_log ");
+		sql.append("LEFT JOIN ( ");
+		sql.append("    SELECT *, ROW_NUMBER() OVER(PARTITION BY pnum ORDER BY (SELECT NULL)) AS rn ");
+		sql.append("    FROM tb_recipe_auto"+hogi);
+		sql.append(") AS tb_recipe_auto1_filtered ON tb_tong_log.item_cd = tb_recipe_auto1_filtered.pnum AND tb_recipe_auto1_filtered.rn = 1 ");
+		sql.append("WHERE STR_TO_DATE(tb_tong_log.datetiem1, '%Y%m%d%H%i%s') BETWEEN '"+sdate+" 08:00:00' AND '"+edate+" 12:00:00' ");
+		sql.append("AND tb_tong_log.hogi = "+hogi+" ");
+		sql.append("ORDER BY tb_tong_log.datetiem1 ASC;");
+		
+		System.out.println(sql.toString());
+		
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery(sql.toString());
+		
+		
+		//=======================
 		fis = new FileInputStream(request.getRealPath("/")+"upload/work_log.xlsx");
 	    objWorkBook = new XSSFWorkbook(fis); // XLSX 파일용
 
@@ -90,30 +136,152 @@
 		//font.setBold(true);
 		styleHd.setFont(font);
 		
-			
-		//테스트 코드
-		//while (rs.next()){
-		for(int rsIdx = 7; rsIdx < 11; rsIdx ++){
-			
-			objRow = objSheet.getRow((short)rsIdx);
+	
+		// A1 셀에 hogi 값 설정
+		XSSFRow rowA1 = objSheet.getRow(0); // 0은 첫 번째 행을 의미
+		XSSFCell cellA1 = rowA1.getCell(0); // 0은 첫 번째 열(A열)을 의미
+		cellA1.setCellValue(hogi+"호기 작업일보"); // hogi 값 설정
+
+		// A3 셀에 sdate 값 설정
+		XSSFRow rowA3 = objSheet.getRow(2); // 2는 세 번째 행을 의미
+		XSSFCell cellA3 = rowA3.getCell(0); // 0은 첫 번째 열(A열)을 의미
+		cellA3.setCellValue("작업일자 : "+sdate); // sdate 값 설정
+
 		
-			for(int j = 1; j < 32; j ++){
-				objCell = objRow.getCell((short)j);
-				objCell.setCellValue(rsIdx);
+		
+		int rsIdx = 7;
+		int cIdx = 1;
+		String beforeLot = null;
+        Date startDate = null;
+        Date endDate = null;
+        // db조회 후 엑셀매핑
+		while(rs.next()){
+			String lot = rs.getString("lot");
+			
+			
+			if(beforeLot != null && !lot.equals(beforeLot)){
+				rsIdx++;
+			}
+			objRow = objSheet.getRow((short)rsIdx);
+			
+			
+			
+			
+			if((beforeLot != null && !lot.equals(beforeLot)) || beforeLot == null){
+				// 시작시간
+				objCell = objRow.getCell(1);
+				startDate = sdf.parse(rs.getString("datetiem1"));
+			    if (lastDate.after(startDate)) {
+			        break;
+			    }
+
+	            String formattedDate = sdfDisplay.format(startDate);
+				objCell.setCellValue(formattedDate);
+								
+				// 장입기준량
+				objCell = objRow.getCell(5);
+				objCell.setCellValue(rs.getInt("weight"));
+				
+				// 품명
+				objCell = objRow.getCell(8);
+				objCell.setCellValue(rs.getString("pname"));
+				// 품번
+				objCell = objRow.getCell(9);
+				objCell.setCellValue(rs.getString("pnum"));
+
+				// 강종
+				objCell = objRow.getCell(10);
+				objCell.setCellValue(rs.getString("gang"));
+				
+				// CP
+				objCell = objRow.getCell(11);
+				objCell.setCellValue(rs.getString("cp_jin"));
+				
+				// 소입온도
+				objCell = objRow.getCell(12);
+				objCell.setCellValue(rs.getString("q_temp_jin"));
+				
+				// 소려온도
+				objCell = objRow.getCell(13);
+				objCell.setCellValue(rs.getString("t_temp_jin"));
+				
+				// T급
+				objCell = objRow.getCell(14);
+				objCell.setCellValue(rs.getString("t_gb"));
+				
+				// 경도규격 조인한 데이터 사용
+				
+				
+				
 			}
 			
-		}
+			// 종료시간
+				objCell = objRow.getCell(2);
+				endDate = sdf.parse(rs.getString("datetiem1"));
+	            String formattedDate = sdfDisplay.format(endDate);
+				objCell.setCellValue(formattedDate);
+				
+			// 투입시간(분)
+			
+ 	           if (startDate != null && endDate != null) {
+				    long differenceInMillis = endDate.getTime() - startDate.getTime();
+		            long differenceInMinutes = differenceInMillis / (1000 * 60);
+					objCell = objRow.getCell(3);
+					objCell.setCellValue(differenceInMinutes);
+				} // 투입시간
+			
+			// 투입 통수
+			objCell = objRow.getCell(4);
+			objCell.setCellValue(rs.getInt("tcnt"));
+			
+			// LOT 작업중량
+			objCell = objRow.getCell(6);
+			objCell.setCellValue(rs.getInt("weight_sum"));
+			
+			
+			
+			/* System.out.println(lot);
+			System.out.println(beforeLot);
+			System.out.println(rsIdx); */
+			beforeLot = lot;
+		} // db조회 후 엑셀매핑
+		
+		
+		
 		
 		
 		out.clear();
 
 		out = pageContext.pushBody();
 
-		fileOut = response.getOutputStream(); 
+		/* fileOut = response.getOutputStream(); */
+	    String saveDirectory = request.getRealPath("/") + "upload/";
+	    File outputFile = new File(saveDirectory + sFileName); // 저장할 파일 경로 및 이름
+	    if (!outputFile.getParentFile().exists()) {
+	        outputFile.getParentFile().mkdirs(); // 저장 경로가 없으면 생성
+	    }
+	    fileOut = new FileOutputStream(outputFile);
+	
+		
+		
 		objWorkBook.write(fileOut);
 		objWorkBook.close();
 		fileOut.close();
 		
+		
+		sql2.append(" UPDATE tb_work_log SET filename = '"+sFileName+"' ");
+		sql2.append(" WHERE cnt = "+cnt);
+		
+		stmt = conn.createStatement();
+		stmt.executeUpdate(sql2.toString());
+		
+		conn.commit();	
+		
+		response.setContentType("application/json");
+		PrintWriter printOut = response.getWriter();
+		printOut.print("{\"status\":\"ok\"}");
+		printOut.flush();
+
 	}
 	catch(Exception e)
 	{

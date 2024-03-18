@@ -89,11 +89,30 @@ switch (hogi) {
       sql.append(" ORDER BY A.datetime1 ");
    
 /*    System.out.println(sql.toString()); */
-		sql2.append(" SELECT *, UNIX_TIMESTAMP(TIMESTAMP(regtime)) AS UNIX_TIMESTAMP FROM tb_out_log ");
+		/* sql2.append(" SELECT *, UNIX_TIMESTAMP(TIMESTAMP(regtime)) AS UNIX_TIMESTAMP FROM tb_out_log ");
 		sql2.append(" WHERE 1=1 ");
 		sql2.append(" AND hogi = " + hogi);
 		sql2.append(whereSql2.toString());
-		sql2.append(" ORDER BY regtime DESC ");
+		sql2.append(" ORDER BY regtime DESC "); */
+		
+		sql2.append(" SELECT UNIX_TIMESTAMP(TIMESTAMP(final.regtime)) AS UNIX_TIMESTAMP, final.regtime, final.pname, final.w_sequence ");
+		sql2.append(" FROM "); 
+		sql2.append(" (SELECT subquery.regtime, subquery.pname, ");
+		sql2.append(" ROW_NUMBER() OVER (PARTITION BY subquery.regtime_group ORDER BY subquery.regtime ASC) AS w_sequence");
+		sql2.append(" FROM");
+		sql2.append(" (SELECT *,");		      
+		sql2.append(" CASE WHEN HOUR(regtime) < 8 THEN DATE(regtime - INTERVAL 1 DAY)");
+		sql2.append(" ELSE DATE(regtime) END AS regtime_group");				      
+		sql2.append(" FROM tb_out_log");
+		sql2.append(" WHERE input_gb = 'w' ");
+		sql2.append(" AND hogi = " + hogi);
+		sql2.append(" ) AS subquery ) AS final");				              
+		sql2.append(" WHERE 1=1 ");
+		sql2.append(whereSql2.toString());
+		sql2.append(" ORDER BY final.regtime DESC;");
+				    
+				    
+				  
 		
 		
    JSONArray datetime = new JSONArray();
@@ -1057,9 +1076,9 @@ switch (hogi) {
       while(rs.next()){
     	   JSONArray lotPoint = new JSONArray();
     	   lotPoint.add(rs.getInt("UNIX_TIMESTAMP"));
-    	   lotPoint.add(200);
+    	   lotPoint.add(950);
     	   
-    	   String label = rs.getString("lot");
+    	   String label = rs.getString("w_sequence") + "번";
     	   lotPoint.add(label);
     	   
     	   lot.add(lotPoint);
