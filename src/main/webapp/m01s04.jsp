@@ -625,12 +625,6 @@ var fn_logout = function () {
 					<div class="form-group">
 						&nbsp;&nbsp;
 						<div class="form-group">
-							<button class="btn btn-danger pull-right btn-sm" type="button" 
-							style="margin-top:6px; height: 31px; width: 100px; 
-							font-size:14pt; font-family:headline; font-weight:700;
-							padding-top:1px; padding-bottom:1px;" 
-							id="testExcel" onclick="location.href='m01/s04/export_m01s04_excel.jsp'">
-							test</button>
 							<button class="btn btn-default pull-right btn-sm" type="button" 
 							style="margin-top:6px; height: 31px; width: 100px; 
 							font-size:14pt; font-family:headline; font-weight:700;

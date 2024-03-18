@@ -62,67 +62,70 @@
 			switch(memoC){
 			case "소입1로":
 			case "q1 메모":
-				updateSql.append(" q1_memo = ''");
+				updateSql.append(" q1_memo = '', ");
 				
 				break;
 			case "소입2로":
 			case "q2 메모":
-				updateSql.append(" q2_memo = ''");
+				updateSql.append(" q2_memo = '', ");
 				
 				break;
 			case "소입3로":
 			case "q3 메모":
-				updateSql.append(" q3_memo = ''");
+				updateSql.append(" q3_memo = '', ");
 				
 				break;
 			case "소입4로":
 			case "q4 메모":
-				updateSql.append(" q4_memo = ''");
+				updateSql.append(" q4_memo = '', ");
 				
 				break;
 			case "소입5로":
 			case "q5 메모":
-				updateSql.append(" q5_memo = ''");
+				updateSql.append(" q5_memo = '', ");
 				
 				break;
 			case "소려1로":
 			case "t1 메모":
-				updateSql.append(" t1_memo = ''");
+				updateSql.append(" t1_memo = '', ");
 				
 				break;
 			case "소려2로":
 			case "t2 메모":
-				updateSql.append(" t2_memo = ''");
+				updateSql.append(" t2_memo = '', ");
 				
 				break;
 			case "소려3로":
 			case "t3 메모":
-				updateSql.append(" t3_memo = ''");
+				updateSql.append(" t3_memo = '', ");
 				
 				break;
 			case "소려4로":
 			case "t4 메모":
-				updateSql.append(" t4_memo = ''");
+				updateSql.append(" t4_memo = '', ");
 				
 				break;
 			case "유조":
 			case "oil 메모":
-				updateSql.append(" oil_memo = ''");
+				updateSql.append(" oil_memo = '', ");
 				
 				break;
 			case "세정기":
 			case "a 메모":
-				updateSql.append(" a_memo = ''");
+				updateSql.append(" a_memo = '', ");
 				
 				break;
 			case "CP":
 			case "cp 메모":
-				updateSql.append(" cp_memo = ''");
+				updateSql.append(" cp_memo = '', ");
 				
 				break;
 			
 			}
-			
+			updateSql.append(" quenching = '', ");
+			updateSql.append(" tempering = '', ");
+			updateSql.append(" cp = '', ");
+			updateSql.append(" worker = '' ");
 		    updateSql.append(" WHERE datetime1 = '"+tdatetime+"' ");
 		} else {
 			response.setStatus(500);

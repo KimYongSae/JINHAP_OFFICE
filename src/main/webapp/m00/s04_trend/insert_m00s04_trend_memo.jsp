@@ -141,7 +141,7 @@
 				break;
 			case "소입2로":
 			case "q2 메모":
-				updateSql.append(" q2_memo = '" + memo + "'");
+				updateSql.append(" q2_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
 				updateSql.append(" tempering = '" + tempering + "', ");
 				updateSql.append(" cp = '" + cp + "', ");
@@ -150,7 +150,7 @@
 				break;
 			case "소입3로":
 			case "q3 메모":
-				updateSql.append(" q3_memo = '" + memo + "'");
+				updateSql.append(" q3_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
 				updateSql.append(" tempering = '" + tempering + "', ");
 				updateSql.append(" cp = '" + cp + "', ");
@@ -159,7 +159,7 @@
 				break;
 			case "소입4로":
 			case "q4 메모":
-				updateSql.append(" q4_memo = '" + memo + "'");
+				updateSql.append(" q4_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
 				updateSql.append(" tempering = '" + tempering + "', ");
 				updateSql.append(" cp = '" + cp + "', ");
@@ -168,7 +168,7 @@
 				break;
 			case "소입5로":
 			case "q5 메모":
-				updateSql.append(" q5_memo = '" + memo + "'");
+				updateSql.append(" q5_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
 				updateSql.append(" tempering = '" + tempering + "', ");
 				updateSql.append(" cp = '" + cp + "', ");
@@ -177,7 +177,7 @@
 				break;
 			case "소려1로":
 			case "t1 메모":
-				updateSql.append(" t1_memo = '" + memo + "'");
+				updateSql.append(" t1_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
 				updateSql.append(" tempering = '" + tempering + "', ");
 				updateSql.append(" cp = '" + cp + "', ");
@@ -186,7 +186,7 @@
 				break;
 			case "소려2로":
 			case "t2 메모":
-				updateSql.append(" t2_memo = '" + memo + "'");
+				updateSql.append(" t2_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
 				updateSql.append(" tempering = '" + tempering + "', ");
 				updateSql.append(" cp = '" + cp + "', ");
@@ -195,7 +195,7 @@
 				break;
 			case "소려3로":
 			case "t3 메모":
-				updateSql.append(" t3_memo = '" + memo + "'");
+				updateSql.append(" t3_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
 				updateSql.append(" tempering = '" + tempering + "', ");
 				updateSql.append(" cp = '" + cp + "', ");
@@ -204,7 +204,7 @@
 				break;
 			case "소려4로":
 			case "t4 메모":
-				updateSql.append(" t4_memo = '" + memo + "'");
+				updateSql.append(" t4_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
 				updateSql.append(" tempering = '" + tempering + "', ");
 				updateSql.append(" cp = '" + cp + "', ");
@@ -213,7 +213,7 @@
 				break;
 			case "유조":
 			case "oil 메모":
-				updateSql.append(" oil_memo = '" + memo + "'");
+				updateSql.append(" oil_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
 				updateSql.append(" tempering = '" + tempering + "', ");
 				updateSql.append(" cp = '" + cp + "', ");
@@ -222,7 +222,7 @@
 				break;
 			case "세정기":
 			case "a 메모":
-				updateSql.append(" a_memo = '" + memo + "'");
+				updateSql.append(" a_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
 				updateSql.append(" tempering = '" + tempering + "', ");
 				updateSql.append(" cp = '" + cp + "', ");
@@ -231,7 +231,7 @@
 				break;
 			case "CP":
 			case "cp 메모":
-				updateSql.append(" cp_memo = '" + memo + "'");
+				updateSql.append(" cp_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
 				updateSql.append(" tempering = '" + tempering + "', ");
 				updateSql.append(" cp = '" + cp + "', ");
