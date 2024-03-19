@@ -64,10 +64,10 @@
 <link rel="stylesheet" href="resources/css/bootstrap-colorselector.min.css"> 
 
 <!-- 하이차트 -->
+
 <script type="text/javascript" src="resources/js/highchart/highcharts.js"></script>
 <script type="text/javascript" src="resources/js/highchart/exporting.js"></script>
-<script type="text/javascript" src="resources/js/highchart/export-data.js"></script>
-<script type="text/javascript" src="resources/js/highchart/data.js"></script>
+<script type="text/javascript" src="resources/js/highchart/offline-exporting.js"></script>
 
 <!-- 추가한 부분 end-->
 
