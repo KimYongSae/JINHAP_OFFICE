@@ -86,9 +86,13 @@
 	
 	StringBuffer sql = new StringBuffer();
 	StringBuffer sql2 = new StringBuffer();
+	StringBuffer delaySql = new StringBuffer();
 	
 	Statement stmt = null;
+	Statement stmt2 = null;
+	Statement stmt3 = null;
 	ResultSet rs = null;
+	ResultSet rs2 = null;
 	
 	FileInputStream fis = null;
 	XSSFWorkbook objWorkBook = null;
@@ -157,7 +161,7 @@
         // db조회 후 엑셀매핑
 		while(rs.next()){
 			String lot = rs.getString("lot");
-			
+			int tcnt = rs.getInt("tcnt");
 			
 			if(beforeLot != null && !lot.equals(beforeLot)){
 				rsIdx++;
@@ -243,11 +247,60 @@
 			/* System.out.println(lot);
 			System.out.println(beforeLot);
 			System.out.println(rsIdx); */
-			beforeLot = lot;
+			if(tcnt ==1){
+				beforeLot = lot;
+				
+			}
 		} // db조회 후 엑셀매핑
 		
 		
 		
+		delaySql.append(" SELECT hogi, tdatetime, prev_tdatetime, type, detail, ");
+		delaySql.append(" TIME(tdatetime) AS ttime, ");
+		delaySql.append(" TIME(prev_tdatetime) AS prev_ttime, ");
+		delaySql.append(" TIMESTAMPDIFF(MINUTE, tdatetime, prev_tdatetime) AS time_difference ");
+		delaySql.append(" FROM tb_delay_manual AS manual ");
+		delaySql.append(" LEFT OUTER JOIN tb_delay_type_detail AS detail ");
+		delaySql.append(" ON manual.value_detail = detail.idx ");
+		delaySql.append(" LEFT OUTER JOIN tb_delay_type AS dtype ");
+		delaySql.append(" ON manual.value = dtype.value ");
+		delaySql.append(" WHERE ((tdatetime BETWEEN '"+sdate+" 08:00:00' AND '"+edate+" 08:00:00') ");
+		delaySql.append(" OR ('"+sdate+" 08:00:00' BETWEEN tdatetime AND prev_tdatetime)) ");
+		delaySql.append(" AND  hogi = "+hogi);
+		delaySql.append(" ORDER BY tdatetime asc");
+
+		
+		stmt3 = conn.createStatement();
+		rs2 = stmt3.executeQuery(delaySql.toString());
+		
+		StringBuffer delayBuffer = new StringBuffer();
+		int rsCounter = 0;
+		int delayIndex = 57;
+		
+		while(rs2.next()){
+			if(rsCounter == 4){
+				rsCounter = 1;
+				delayBuffer.setLength(0);
+				delayIndex++;
+			} else{
+				rsCounter++;
+			}
+			XSSFRow rowDelay = objSheet.getRow(delayIndex);
+			XSSFCell cellDelay = rowDelay.getCell(1);
+			
+			String type = rs2.getString("type");
+			String detail = rs2.getString("detail");
+			String tdatetime = rs2.getString("tdatetime");
+			tdatetime = tdatetime.endsWith(".0") ? tdatetime.substring(0, tdatetime.length() - 2) : tdatetime;
+			String ttime = rs2.getString("ttime");
+			String prev_tdatetime = rs2.getString("prev_tdatetime");
+			prev_tdatetime = prev_tdatetime.endsWith(".0") ? prev_tdatetime.substring(0, prev_tdatetime.length() - 2) : prev_tdatetime;
+			String prev_ttime = rs2.getString("prev_ttime");
+			String timeDiff = rs2.getString("time_difference");
+						
+			delayBuffer.append(tdatetime+" ~ "+prev_tdatetime+" "+timeDiff+"분"+" "+type+" "+detail+"        ");
+			cellDelay.setCellValue(delayBuffer.toString()); 
+		}
 		
 		
 		out.clear();
@@ -272,8 +325,8 @@
 		sql2.append(" UPDATE tb_work_log SET filename = '"+sFileName+"' ");
 		sql2.append(" WHERE cnt = "+cnt);
 		
-		stmt = conn.createStatement();
-		stmt.executeUpdate(sql2.toString());
+		stmt2 = conn.createStatement();
+		stmt2.executeUpdate(sql2.toString());
 		
 		conn.commit();	
 		
@@ -290,7 +343,10 @@
 	finally
 	{
 		if(stmt != null) try {stmt.close();}catch(SQLException sqle){}
+		if(stmt2 != null) try {stmt2.close();}catch(SQLException sqle){}
+		if(stmt3 != null) try {stmt3.close();}catch(SQLException sqle){}
 		if(rs != null) try {rs.close();}catch(SQLException sqle){}
+		if(rs2 != null) try {rs2.close();}catch(SQLException sqle){}
 		if(conn != null) try {conn.close();}catch(SQLException sqle){}
 		if (objWorkBook != null) try {objWorkBook.close();} catch (IOException e){}
 	    if (fis != null) try {fis.close();} catch (IOException e) {}

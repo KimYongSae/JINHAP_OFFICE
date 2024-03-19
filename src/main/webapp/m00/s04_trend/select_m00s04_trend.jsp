@@ -59,9 +59,11 @@ switch (hogi) {
 }
    
    if(sdate != null && !"".equals(sdate) && edate != null && !"".equals(edate)
-      && stime != null && !"".equals(stime) && etime != null && !"".equals(etime)){
-      whereSql.append(" AND A.datetime1 >= '"+sdate+" "+stime+":00' AND A.datetime1 <= '"+edate+" "+etime+":00'");
-      whereSql2.append(" AND regtime >= '"+sdate+" "+stime+":00' AND regtime <= '"+edate+" "+etime+":00'");
+      	&& stime != null && !"".equals(stime) && etime != null && !"".equals(etime)){
+      	whereSql.append(" AND A.datetime1 >= '"+sdate+" "+stime+":00' AND A.datetime1 <= '"+edate+" "+etime+":00'");
+      //whereSql2.append(" AND regtime >= '"+sdate+" "+stime+":00' AND regtime <= '"+edate+" "+etime+":00'");
+		whereSql2.append("AND STR_TO_DATE(final.datetiem1, '%Y%m%d%H%i%s') >= '"+sdate+" "+stime+":00' ");
+		whereSql2.append("AND STR_TO_DATE(final.datetiem1, '%Y%m%d%H%i%s') <= '"+edate+" "+etime+":00' ");
    } else {
 	    // 조건이 만족하지 않을 경우 실행할 코드
 	    try {
@@ -95,7 +97,7 @@ switch (hogi) {
 		sql2.append(whereSql2.toString());
 		sql2.append(" ORDER BY regtime DESC "); */
 		
-		sql2.append(" SELECT UNIX_TIMESTAMP(TIMESTAMP(final.regtime)) AS UNIX_TIMESTAMP, final.regtime, final.pname, final.w_sequence ");
+		/* sql2.append(" SELECT UNIX_TIMESTAMP(TIMESTAMP(final.regtime)) AS UNIX_TIMESTAMP, final.regtime, final.pname, final.w_sequence ");
 		sql2.append(" FROM "); 
 		sql2.append(" (SELECT subquery.regtime, subquery.pname, ");
 		sql2.append(" ROW_NUMBER() OVER (PARTITION BY subquery.regtime_group ORDER BY subquery.regtime ASC) AS w_sequence");
@@ -109,8 +111,28 @@ switch (hogi) {
 		sql2.append(" ) AS subquery ) AS final");				              
 		sql2.append(" WHERE 1=1 ");
 		sql2.append(whereSql2.toString());
-		sql2.append(" ORDER BY final.regtime DESC;");
+		sql2.append(" ORDER BY final.regtime DESC;"); */
 				    
+		sql2.append("SELECT UNIX_TIMESTAMP(STR_TO_DATE(final.datetiem1, '%Y%m%d%H%i%s')) AS UNIX_TIMESTAMP, ");
+		sql2.append("       final.datetiem1, ");
+		sql2.append("       final.item_cd, ");
+		sql2.append("       final.w_sequence ");
+		sql2.append("FROM (SELECT subquery.datetiem1, subquery.item_cd, ");
+		sql2.append("             ROW_NUMBER() OVER (PARTITION BY subquery.datetiem1_group ORDER BY subquery.datetiem1 ASC) AS w_sequence ");
+		sql2.append("      FROM (SELECT *, ");
+		sql2.append("                   CASE ");
+		sql2.append("                       WHEN HOUR(STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s')) < 8 THEN DATE(STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') - INTERVAL 1 DAY) ");
+		sql2.append("                       ELSE DATE(STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s')) ");
+		sql2.append("                   END AS datetiem1_group ");
+		sql2.append("            FROM tb_tong_log ");
+		sql2.append("            WHERE tcnt = 1 ");
+		sql2.append("            AND hogi = " + hogi + " ");
+		sql2.append("           ) AS subquery ");
+		sql2.append("     ) AS final ");
+		sql2.append("WHERE 1=1 ");
+		sql2.append(whereSql2.toString());
+		sql2.append("ORDER BY final.datetiem1 ASC;");
+
 				    
 				  
 		
@@ -1076,9 +1098,9 @@ switch (hogi) {
       while(rs.next()){
     	   JSONArray lotPoint = new JSONArray();
     	   lotPoint.add(rs.getInt("UNIX_TIMESTAMP"));
-    	   lotPoint.add(950);
+    	   lotPoint.add(900);
     	   
-    	   String label = rs.getString("w_sequence") + "번";
+    	   String label = "("+rs.getString("w_sequence") + ")";
     	   lotPoint.add(label);
     	   
     	   lot.add(lotPoint);

@@ -929,7 +929,7 @@ var fn_logout = function () {
             }]
         },
         exporting: {
-            enabled: false
+            enabled: true
         },
         legend: {
             itemStyle: {
