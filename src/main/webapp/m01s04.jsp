@@ -663,7 +663,7 @@ var fn_logout = function () {
 							<th class="text-center cell" 
 							style=" width: 350px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
-								작업일보 삭제
+								트렌드 보기
 							</th>
 
 						</tr>
@@ -1290,6 +1290,12 @@ function date_set(v){
 }
 	
 /*함수*/
+// 트렌드 보기
+
+
+
+
+
 
 	function viewFile2(w,h,f){
 		$.ajax({
@@ -1486,7 +1492,6 @@ function init(){
 }
 
 
-
 	var log_print = function(){
 		
 		
@@ -1593,7 +1598,7 @@ function init(){
 						}else{
 							listHtml += '<td class="nr7 text-center cell" style=" width: 350px; height: 30px; font-size: 16pt; font-family:headline;"></td>';							
 						}
-						listHtml += '<td class="nr8 text-center cell" style=" width: 350px; height: 30px; font-size: 16pt; font-family:headline;"></td>';
+						listHtml += '<td class="nr8 text-center cell" style=" width: 350px; height: 30px; font-size: 16pt; font-family:headline;"><button type="button" id="showTrend" class="btn btn-default"; return false; event.cancelBubble = true; style="width:160px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-search"></i>트렌드 보기</button></td>';
 						
 						
 						listHtml += "</tr>";						
@@ -2300,6 +2305,29 @@ function init(){
 
 	
 /*이벤트*/	
+
+$('#lot_contents').on('click', '#showTrend', function() {
+    console.log("abc");
+    var trend_start_date = $("#s_date").val();
+    var trend_date_casting = new Date(trend_start_date);
+    trend_date_casting.setDate(trend_date_casting.getDate() + 1);
+    var trend_next_day = trend_date_casting.toISOString().slice(0, 10);
+
+    var $row = $(this).closest("tr");
+	$nr4 = $row.find(".nr4").text();	//호기
+	
+    var trend_hogi = $nr4;
+    
+    
+    var chartPageUrl = "/JINHAP_OFFICE/m01s04_trend.jsp" + 
+                       '?startDate=' + encodeURIComponent(trend_start_date) + 
+                       '&endDate=' + encodeURIComponent(trend_next_day) + 
+                       '&hogi=' + encodeURIComponent(trend_hogi);
+
+    window.open(chartPageUrl, '_blank');
+});
+
+
 
 $("#s_date").change(function(){
 	getDayCount();

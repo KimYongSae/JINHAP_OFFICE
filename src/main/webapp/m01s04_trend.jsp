@@ -72,351 +72,28 @@
 <!-- 추가한 부분 end-->
 
 <style>
-.scrolltbody {
-    display: block;
-    width: 1900px;
-    border-collapse: collapse;
-    border: 0px solid #000;
-}
-
-.scrolltbody td { border: 1px solid #000; border-top: 0;}
-
-.scrolltbody tbody {
-    display: block;
-    height: 561px;
-
-    overflow-x: hidden;
-}
-
-/*값 보여주는곳에서 코멘트목록 사용*/
-.scrolltbody2 {
-    display: block;
-    width: 400px;
-    border-collapse: collapse;
-    border: 0px solid #000;
-}
-
-.scrolltbody2 td { border: 1px solid #000; border-top: 0;}
-
-.scrolltbody2 thead {
-    display: block;
-	width: 400px;
-    overflow-x: hidden;
-}
-
-
-.scrolltbody2 tbody {
-    display: block;
-    width: 400px;
-    height: 321px;
-
-    overflow-x: hidden;
-}
-/*태그목록 사용*/
-.scrolltbody3 {
-    display: block;
-    width: 400px;
-    border-collapse: collapse;
-    border: 0px solid #000;
-}
-
-.scrolltbody3 td { border: 1px solid #000; border-top: 0;}
-
-.scrolltbody3 thead {
-    display: block;
-	width: 400px;
-    overflow-x: hidden;
-}
-
-.scrolltbody3 tbody {
-    display: block;
-    width: 400px;
-    height: 220px;
-
-    overflow-x: hidden;
-}
-
-
-	
-	#loading-image {  
-	 position: absolute;  
-	 top: 50%;  
-	 left: 50%; 
-	 z-index: 100; 
-	}	
-	
-	@font-face{
-		font-family:"headline";
-		font-style:normal;
-		font-weight:normal;
-		src:url("fonts/headline.TTF") format("ttf");
-	}
 	.highcharts-menu {
 	  font-size: 16px; /* 메뉴의 글꼴 크기를 더 크게 조정 */
 	}
 		
-			
+			    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 </style>
 
 	
-<script>
-
-
-
-
-function checkTime(i) {
-if (i<10) {i = "0" + i};  // add zero in front of numbers < 10 
-	return i;
-}
-
-function checkDate(i) {
- 	i = i+1 ;  // to adjust real month
-   	return i;
-}
-
-// 실시간 날짜 end
-
-
-var fn_logout = function () {
-	
-	if (!confirm("로그아웃 하시겠습니까?")) {
-		return;
-	}
-	
-	$.ajax({
-		 method: "POST",
-		 url: "logout_ok.jsp",
-		 contentType: "application/json; charset=utf-8",
-		 data: {'time':new Date().getTime()},
-		 success : function(data) {
-			var rsJson = JSON.parse(data);
-			var rsBoolean = rsJson.isSuccess;
-			
-			if (rsBoolean) {
-				
-				alert("로그아웃 되었습니다.");
-				location.href="index.jsp";
-				
-			} else {
-				
-				alert("로그아웃 처리중 예외가 발생하였습니다.\n다시 시도하여 주시기바랍니다.");
-				
-			}
-			
-		 }
-	});
-}
-
-</script>
-
 
 </head>
 
 
 
 
-<body onload="init();" data-offset="60" data-target=".navbar">
-	<div id="loading" style="display:none;">
-		<img id="loading-image" src="resources/img/loading2.gif" alt="Loading..." />
-	</div>
-
-<div id="wrap">
-
-    <div id="header">
-		<jsp:include page="/header-menu.jsp"/>
-	</div>
-
-	
-	<div id="body2">
-	<div id="floater2" style="margin-top:30px;">
-		
-		
-		
-		<jsp:include page="/body-menu.jsp"/>
-	</div>
-	<div id="contents">
-        
-<div class="content" style="height:810px;"> 
-	
-	  <div style="position:relative;left:-275px;top:-185px;">
-	  
-	  
-   <div id="room1" style="width:100%; height:20px; position:absolute; left:272px; top:185px; font-size:16px; font-weight:600; color:black;">  
-   
-				
-				                            <!--Begin Datatables-->
-<div class="row">
-            <hr class="bread_under">
-            
-  <div style="width: 100%; " class="col-lg-12">
-        <div class="box">
-            <header>
-                <div style="padding:11px 14px;" class="icons"><i style="color:white;" class="fa fa-list-alt"></i></div>
-                <h5 style="font-size:14pt; font-family:headline;">모니터링 - 온도/CP 경향모니터링</h5>
-            </header>
-            <header style="background:white; height:43px;">
-                <form class="form-inline" role="form" name="searchform" method="post" autocomplete="off">
-						<div class="form-group">
-							<label class="control-label" 
-							style="font-size: 14pt; font-family:headline; 
-							color:#8C8C8C; width: 90px; text-align: right;">시작시간 : </label>
-						</div>
-						
-						<!-- 발생일 -->
-						<div class="form-group">
-							<input type="text" class="form-control input-sm datepicker" id="s_sdate" name="s_sdate" 
-							style="margin-top:5px; height: 30px; width: 140px; 
-							font-size: 14pt; font-family:headline;"  
-							placeholder="예)2020-01-01"
-							onkeyup="auto_date_format(event, this);"/>
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control input-sm timepicker" id="s_stime" name="s_stime" 
-							style="margin-top:5px; height: 30px; width: 120px; 
-							font-size: 14pt; font-family:headline;"  
-							placeholder="00:00:00"
-							onkeyup="auto_time_format(event, this);"/>
-						</div>						
-						
-						<div class="form-group">
-							<label class="control-label" 
-							style="font-size: 14pt; font-family:headline; 
-							color:#8C8C8C; width: 90px; text-align: right;">종료시간 : </label>
-						</div>						
-						
-						
-						<!-- 해제일 -->
-						<div class="form-group">
-							<input type="text" class="form-control input-sm datepicker" 
-							id="s_edate" name="s_edate" 
-							style="margin-top:5px; height: 30px; width: 140px; 
-							font-size: 14pt; font-family:headline;"  
-							placeholder="예)2020-01-01"
-							onkeyup="auto_date_format(event, this);"/>
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control input-sm timepicker" id="s_etime" name="s_etime" 
-							style="margin-top:5px; height: 30px; width: 120px; 
-							font-size: 14pt; font-family:headline;"  
-							placeholder="23:59:59"
-							onkeyup="auto_time_format(event, this);"/>
-						</div>						
-						
-						<!-- 설비 선택 -->
-						<div class="form-group">
-							<label class="control-label" 
-							style="font-size: 14pt; font-family:headline; 
-							color:#8C8C8C; width: 50px; text-align: right;">설비 : </label>
-						</div>
-						<div class="form-group">
-							<select class="form-control input-sm datepicker" 
-							id="s_hogi" name="s_hogi" 
-							style="margin-top:5px; height: 30px; width: 160px; 
-							font-size: 14pt; font-family:headline;
-							padding-top:1px; padding-bottom:1px;"
-							onchange="hogiChange();"
-							>
-								<option value="1">Q01-HN01</option>
-								<option value="2">Q01-HN02</option>
-								<option value="3">Q01-HN03</option>
-								<option value="4">Q01-HN04</option>
-								<option value="5">Q01-HN05</option>
-								<option value="6">Q01-HN06</option>
-							</select>
-						</div>							
-						
-						<div class="form-group">
-							&nbsp;&nbsp;
-							<div class="form-group">
-								<button class="btn btn-default pull-right btn-sm" type="button" 
-								style="margin-top:6px; height: 31px; width: 120px; 
-								font-size:14pt; font-family:headline; font-weight:700;
-								padding-top:1px; padding-bottom:1px;" 
-								id="searchbtn">
-								<i class="fa fa-search"></i> 검 색</button>
-							</div>
-						</div>
-						
-						<!-- <div class="form-group">
-							<label class="control-label" 
-							style="font-size: 14pt; font-family:headline; 
-							color:#8C8C8C; width: 90px; text-align: right;">이력검색 : </label>
-						</div>					
-						
-						<div class="form-group">
-							<input style="width:30px;height:30px;" type="checkbox" 
-							id="list_yn" name="list_yn" value="R">
-							R : 실시간
-							H : 이력검색						
-						</div> -->	
-						
-															
-				</form>
-            </header>
-            
-            <div id="collapse4" class="body">
-            	<div id="container" style="width: 1800px; height: 650px;"></div>
-            	
-            </div>
-            
-        </div>
-    </div>
- 
-<!--END TEXT INPUT FIELD-->
-</div>
-		 </div>
-   </div>
-	<!-- content description -->
-</div>
-
-	</div>
-			</div>
-			<!-- 로그인 끝 -->
-		<div id="footer">
-		
-		<img src="resources/images/jinhap4.gif" style="height:30px;"/>&nbsp;(주)진합&nbsp;&nbsp; <!-- 써니 로고 -->
-		Copyright 2023. All Rights Reserved.
-			
-		</div>
-</div>
-
-<div style="display:none;" id="memo-form" title="메모" >
-			<form class="form-horizontal" id="upload" name="upload" method="post" enctype="multipart/form-data">
-				<table class = "no-style" style="width:100%">
-					<tr><td colspan="2">
-					<input type="text" disabled id="datePicker" class="datepicker form-control" placeholder="날짜"></td></tr>
-					<tr><td colspan="2"><span id="hourInput">시</span><span id="minuteInput">분</span></td></tr>
-					<tr><td colspan="2">
-					<div class="input-group">
-					  <input type="text" style="width:170px"id="quenching" class="form-control" placeholder="소입">
-					  <input type="text" style="width:170px"id="tempering" class="form-control" placeholder="소려">
-					</div>
-					<div class="input-group">
-					  <input type="text" style="width:170px"id="cp" class="form-control" placeholder="CP">
-					  <input type="text" style="width:170px"id="worker" class="form-control" placeholder="작업자">
-					</div>
-
-					</td></tr>
-					<tr height="5"><td></td></tr>
-					<tr>
-					<td>
-						<textarea id="memoText" rows="5" style="resize:none" class="form-control" placeholder="메모를 입력하세요"></textarea>
-                        <input type="hidden" id="MemoC" />
-			
-					</td>
-					</tr>
-					<tr height="5"><td></td></tr>
-					<tr>
-					<td colspan="2" align="center">
-					<input type="button" id="saveMemo" class="btn small btn-primary" value="저장">
-					<input type="button" id="deleteMemoButton" class="btn small btn-danger" value="삭제">
-					<input type="hidden" id="bupumModalDatatimeDisplay" />
-                    <input type="hidden" id="bupumModalDatatimeClick" />
-					</td>
-					</tr>
-				</table>
-			</form>			
-</div>
+<body>
+	<!-- <div id="container" style="width: 2500px; height: 1000px;"></div> -->
+	<div id="container" style="width: 1920px; height: 1000px;"></div>
+</body>
 
 
 	<script>
@@ -435,115 +112,8 @@ var fn_logout = function () {
  	var oil_mvJson, a_mvJson, cp_mvJson;
  	var lot_Json;
 	
-	function leadingZero(n, digits){
-		var zero = "";
-		n = n.toString();
-		
-		if(n.length < digits){
-			for(i=0; i<digits - n.length; i++){
-				zero += "0";
-			}
-		}
-		return zero+n;
-	}
 	
 	
-	function date_search(){
-		
-		$.ajax({
-			type : "POST",
-			url : "util/lmonitor_date_search.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					
-					//$("#s_sdate").val(rsAr[0].b_date);
-					$("#s_sdate").val(rsAr[0].y_date);
-					//$("#s_stime").val(rsAr[0].b_time.substring(0,2)+":00:00");
-					$("#s_stime").val("08:00:00");
-					//$("#s_stime").val(rsAr[0].n_time);
-//					console.log("1:"+$("#s_sdate").val()+", "+$("#s_stime").val());
-					
-					$("#s_edate").val(rsAr[0].n_date);
-					//$("#s_etime").val(rsAr[0].a_time.substring(0,2)+":00:00");	
-					//$("#s_etime").val(rsAr[0].n_time);
-					$("#s_etime").val("08:00:00");
-					
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				getChartDataLoad();
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});	
-		
-		
-		/*
-		
-		
-		//현재시간 Date
-		var now = new Date();
-		
-		var tdate1 = now.toISOString().substring(0, 4)+"-"+now.toISOString().substring(5, 7)+"-"+now.toISOString().substring(8, 10);
-		var tdate2 = now.toUTCString().substring(0, 4)+"-"+now.toUTCString().substring(5, 7)+"-"+now.toUTCString().substring(8, 10);
-		var y = now.getFullYear();
-
-		
-		var m = now.getMonth()+1;
-		var r_m = "";
-		if(now.getMonth()+1 <=9){
-			r_m = "0"+m;
-		}else{
-			r_m = m;
-		}		
-		
-
-		var d = now.getDate();
-		var r_d = "";
-		if(now.getDate() <=9){
-			r_d = "0"+d;
-		}else{
-			r_d = d;
-		}		
-
-//		console.log(tdate2);
-//		console.log(tdate1);
-		var tdate = y+"-"+r_m+"-"+r_d;
-		
-//		console.log(tdate);
-		//시작일
-		$("#s_sdate").val(tdate);
-		
-		//종료일
-		$("#s_edate").val(tdate);
-
-		var after_time = now.getTime() + (1000 * 60 * 60 * 1 );
-		now.setTime(after_time);		
-		
-		//종료시간
-		$("#s_etime").val(leadingZero(now.getHours(),2)+":"+"00:00");
-		
-		var before_time = now.getTime() - (1000 * 60 * 60 * 2 );
-		now.setTime(before_time);
-		
-		//시작시간
-		$("#s_stime").val(leadingZero(now.getHours(),2)+":"+"00:00");		
-		*/
-	}
 	
 	
 	
@@ -551,25 +121,53 @@ var fn_logout = function () {
 	/*로드*/
 	$(function(){
 		fn_check();
-		date_search();
-		
-		//setInterval(getChartData, 10000);
-		/*setTimeout(getChart, 500); */
-					
-		
+		getChartDataLoad();
 	});	
-	/* $(window).on("load", function() {
-		console.log($("#sdate").val());
-		getChartData();
-		getChart();
-	}); */
 	
 	/*함수*/
-	
-	$("#searchbtn").on("click",function(){
-		getChartData();
-		getChart();
-	})
+    function getParameterByName(name) {
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(window.location.href);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    var startDate = getParameterByName('startDate');
+    var endDate = getParameterByName('endDate');
+    var hogi = getParameterByName('hogi');
+    
+    switch (hogi) {
+    case "Q01-HN01":
+        hogi = "1";
+        break;
+    case "Q01-HN02":
+        hogi = "2";
+        break;
+    case "Q01-HN03":
+        hogi = "3";
+        break;
+    case "Q01-HN04":
+        hogi = "4";
+        break;
+    case "Q01-HN05":
+        hogi = "5";
+        break;
+    case "Q01-HN06":
+        hogi = "6";
+        break;
+}
+    console.log(startDate);
+    console.log(endDate);
+    console.log(hogi);
+    
+    /* var startDate = "2024-02-04"; */
+    var startTime = "08:00";
+    /* var endDate = "2024-02-05"; */
+    var endTime = "08:00";
+    /* var hogi = "1"; */
+
 	
 	
 	
@@ -612,62 +210,8 @@ var fn_logout = function () {
 			};	
 	
 		
-		//datepicker 초기화
-		$.datepicker.formatDate("yy-mm-dd");
-		$(".datepicker").datepicker({
-			dateFormat: "yy-mm-dd",
-			dayNamesMin: [ "일", "월", "화", "수", "목", "금", "토" ],
-			monthNames: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ],
-			monthNamesShort: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ]
-		});
-		//timepicker 초기화
-	    $(".timepicker").timepicker({
-	        timeFormat:'HH:mm:ss',
-	        controlType:'select',
-	        currentText: "현재시간",
-	        oneLine:true
-	    });			
-		
-	    function auto_date_format( e, oThis ){
-	        
-	        var num_arr = [ 
-	            97, 98, 99, 100, 101, 102, 103, 104, 105, 96,
-	            48, 49, 50, 51, 52, 53, 54, 55, 56, 57
-	        ]
-	        
-	        var key_code = ( e.which ) ? e.which : e.keyCode;
-	        if( num_arr.indexOf( Number( key_code ) ) != -1 ){
-	        
-	            var len = oThis.value.length;
-	            if( len == 4 ) oThis.value += "-";
-	            if( len == 7 ) oThis.value += "-";
-	        
-	        }
-	    }		
-
-	    
-	    function auto_time_format( e, oThis ){
-	        
-	        var num_arr = [ 
-	            97, 98, 99, 100, 101, 102, 103, 104, 105, 96,
-	            48, 49, 50, 51, 52, 53, 54, 55, 56, 57
-	        ]
-	        
-	        var key_code = ( e.which ) ? e.which : e.keyCode;
-	        if( num_arr.indexOf( Number( key_code ) ) != -1 ){
-	        
-	            var len = oThis.value.length;
-	            if( len == 2 ) oThis.value += ":";
-	            if( len == 5 ) oThis.value += ":";
-	        
-	        }
-	    }	    
-		
 		var date_interval;
 		
-		function start_date(){
-			date_search();
-		}
 		
 		/*이벤트*/
 		
@@ -715,7 +259,7 @@ var fn_logout = function () {
                panning: true,
                panKey: "shift",
                zoomType: "x",
-               styleMode: true
+               styleMode: true,
            },
            time: {
                timezone: "Indonesian",
@@ -958,11 +502,11 @@ var fn_logout = function () {
 	         type:"post",
 	         dataType:"json",
 	         data:{            
-	            "sdate":$("#s_sdate").val(),
-	            "edate":$("#s_edate").val(),
-	            "stime":$("#s_stime").val(),
-	            "etime":$("#s_etime").val(),
-	            "hogi":$("#s_hogi").val()
+	            "sdate" : startDate,
+	            "edate" : endDate,
+	            "stime" : startTime,
+	            "etime" : endTime,
+	            "hogi" : hogi
 	         },
 	         success:function(result){
 	            //console.log(result.data);
@@ -1071,11 +615,11 @@ var fn_logout = function () {
 	         type:"post",
 	         dataType:"json",
 	         data:{            
-	            "sdate":$("#s_sdate").val(),
-	            "edate":$("#s_edate").val(),
-	            "stime":$("#s_stime").val(),
-	            "etime":$("#s_etime").val(),
-	            "hogi":$("#s_hogi").val()
+	        	 "sdate" : startDate,
+		            "edate" : endDate,
+		            "stime" : startTime,
+		            "etime" : endTime,
+		            "hogi" : hogi
 	         },
 	         success:function(result){
 	            //console.log(result.data);
@@ -1131,83 +675,12 @@ var fn_logout = function () {
 	      });
 	   }
 		
-		// 메모 세이브
-		$('#saveMemo').on("click",function(){
-//	       event.preventDefault(); 
-
-	       var tdatetime2 = $("#bupumModalDatatimeClick").val();
-	       var memoC = $("#MemoC").val();
-	       var memoText = $("#memoText").val();
-	       
-	       $.ajax({
-	           type: 'POST',
-	           url: 'm00/s04_trend/insert_m00s04_trend_memo.jsp',
-	           data: {
-	               tdatetime2: tdatetime2,
-	               memoC: memoC,
-	               memoText: memoText,
-	               "hogi":$("#s_hogi").val(),
-	               "quenching":$("#quenching").val(),
-	               "tempering":$("#tempering").val(),
-	               "cp":$("#cp").val(),
-	               "worker":$("#worker").val()
-	           },
-	           success: function (response) {
-	        	   fileDialog.dialog("close");
-	        	   getChartData();
-	           },
-	       });
-	   });
-		
-		
-		$('#deleteMemoButton').on("click",function(){
-//	       event.preventDefault(); 
-
-	       var tdatetime2 = $("#bupumModalDatatimeClick").val();
-	       var memoC = $("#MemoC").val();
-	       var memoText = $("#memoText").val();
-	       
-	       $.ajax({
-	           type: 'POST',
-	           url: 'm00/s04_trend/delete_m00s04_trend_memo.jsp',
-	           data: {
-	               tdatetime2: tdatetime2,
-	               memoC: memoC,
-	               memoText: memoText,
-	               "hogi":$("#s_hogi").val()
-	           },
-	           success: function (response) {
-	        	   fileDialog.dialog("close");
-	        	   getChartData();
-	           },
-	           error: function (xhr, status, error) {
-	               // 서버 요청이 실패한 경우에 실행됩니다.
-	               alert("데이터가 없습니다.");
-	           }
-	       });
-	   });
 
 		
 		
 		
 		
 		
-//////////////////////다이얼로그
-var memoDialog;
-fileDialog = $("#memo-form").dialog({
-	autoOpen: false,
-	height: 500,
-	width: 380,
-	modal: false,
-	stack:false,
-	buttons: {		
-	"닫 기": function() {
-		setTimeout( function(){				
-			fileDialog.dialog("close");
-		});
-	}
-	}
-});
 		
 		
 </script>

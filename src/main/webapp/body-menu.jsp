@@ -171,7 +171,7 @@ $(document).ready(function(){
 							<li><a href="m01s01.jsp"><span>설비별 생산실적</span></a></li>
 							<li><a href="m01s02.jsp"><span>설비별 효율관리</span></a></li>							
 							<li><a href="sample_8.jsp"><span>생산 모니터링 현황(미완)</span></a></li>							
-							<li><a href="m01s06.jsp"><span>열처리 제공현황(협의예정)</span></a></li>
+							<li><a href="m01s06.jsp"><span>열처리 재공현황(협의예정)</span></a></li>
 							<li><a href="m01s04.jsp"><span>열처리 작업일보 현황(데이터 확인)</span></a></li>
 							<li><a href="m01s03.jsp"><span>LOT 보고서(작업일보 데이터 활용)</span></a></li>
 						</ul>
