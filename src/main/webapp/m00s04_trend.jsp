@@ -151,7 +151,10 @@
 		font-weight:normal;
 		src:url("fonts/headline.TTF") format("ttf");
 	}
-	
+	.highcharts-menu {
+	  font-size: 16px; /* 메뉴의 글꼴 크기를 더 크게 조정 */
+	}
+		
 			
 </style>
 
@@ -784,11 +787,11 @@ var fn_logout = function () {
                tickmarkPlacement: 'on',
                startOnTick: false
            },
-           legend: {
+           /* legend: {
                layout: 'vertical',
                align: 'right',
                verticalAlign: 'middle'
-           },
+           }, */
            plotOptions: {
                series: {
                    dataLabels: {
@@ -935,8 +938,10 @@ var fn_logout = function () {
             itemStyle: {
                 fontSize: "11pt"
             },
-        verticalAlign: 'top',
-        align: 'right'
+            layout: 'horizontal',
+	        verticalAlign: 'top',
+	        align: 'right',
+	        x:-50
         }
         
     });
