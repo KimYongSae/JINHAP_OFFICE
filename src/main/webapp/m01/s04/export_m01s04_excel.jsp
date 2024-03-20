@@ -107,7 +107,7 @@
 		//sql.append(" STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '"+sdate+" 08:00:00' AND '"+edate+" 01:00:00' ");
 		sql.append(" and hogi = "+hogi+" "); */
 		
-		sql.append("SELECT tb_tong_log.*, tb_recipe_auto1_filtered.* ");
+		/* sql.append("SELECT tb_tong_log.*, tb_recipe_auto1_filtered.* ");
 		sql.append("FROM tb_tong_log ");
 		sql.append("LEFT JOIN ( ");
 		sql.append("    SELECT *, ROW_NUMBER() OVER(PARTITION BY pnum ORDER BY (SELECT NULL)) AS rn ");
@@ -115,9 +115,14 @@
 		sql.append(") AS tb_recipe_auto1_filtered ON tb_tong_log.item_cd = tb_recipe_auto1_filtered.pnum AND tb_recipe_auto1_filtered.rn = 1 ");
 		sql.append("WHERE STR_TO_DATE(tb_tong_log.datetiem1, '%Y%m%d%H%i%s') BETWEEN '"+sdate+" 08:00:00' AND '"+edate+" 12:00:00' ");
 		sql.append("AND tb_tong_log.hogi = "+hogi+" ");
-		sql.append("ORDER BY tb_tong_log.datetiem1 ASC;");
+		sql.append("ORDER BY tb_tong_log.datetiem1 ASC;"); */
 		
-		System.out.println(sql.toString());
+		sql.append(" SELECT * FROM v_work"+hogi);
+		sql.append(" WHERE 1=1 ");
+		sql.append(" AND stime BETWEEN '"+sdate+" 08:00:00' AND '"+edate+" 08:00:00'");
+		
+		
+		//System.out.println(sql.toString());
 		
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery(sql.toString());
@@ -158,8 +163,55 @@
 		String beforeLot = null;
         Date startDate = null;
         Date endDate = null;
+        String formattedDate = "";
         // db조회 후 엑셀매핑
 		while(rs.next()){
+			objRow = objSheet.getRow((short)rsIdx);
+			
+			objCell = objRow.getCell(1);
+			objCell.setCellValue(rs.getString("stime").substring(rs.getString("stime").length() - 8));
+			
+			objCell = objRow.getCell(2);
+			objCell.setCellValue(rs.getString("etime").substring(rs.getString("etime").length() - 8));
+			
+			objCell = objRow.getCell(3);
+			objCell.setCellValue(rs.getString("in_min"));
+			
+			objCell = objRow.getCell(4);
+			objCell.setCellValue(rs.getString("in_cnt"));
+			
+			objCell = objRow.getCell(5);
+			objCell.setCellValue(rs.getInt("weight") * (rs.getInt("in_min") / 60.0 ));
+			System.out.println(rs.getInt("weight"));
+			System.out.println(rs.getInt("in_min"));
+			System.out.println(rs.getInt("weight") * (rs.getInt("in_min") / 60.0 ));
+			
+			objCell = objRow.getCell(6);
+			objCell.setCellValue(rs.getInt("lot_weight")*0.01);
+			
+			objCell = objRow.getCell(8);
+			objCell.setCellValue(rs.getString("pname"));
+			
+			objCell = objRow.getCell(9);
+			objCell.setCellValue(rs.getString("item_cd"));
+			
+			objCell = objRow.getCell(10);
+			objCell.setCellValue(rs.getString("gang"));
+			
+			objCell = objRow.getCell(11);
+			objCell.setCellValue(rs.getDouble("cp_ez"));
+			
+			objCell = objRow.getCell(12);
+			objCell.setCellValue(rs.getString("q_temp_ez"));
+			
+			objCell = objRow.getCell(13);
+			objCell.setCellValue(rs.getString("t_temp_ez"));
+			
+			objCell = objRow.getCell(14);
+			objCell.setCellValue(rs.getString("t_gb"));
+			
+			rsIdx++;
+			/* 
 			String lot = rs.getString("lot");
 			int tcnt = rs.getInt("tcnt");
 			
@@ -244,13 +296,11 @@
 			
 			
 			
-			/* System.out.println(lot);
-			System.out.println(beforeLot);
-			System.out.println(rsIdx); */
 			if(tcnt ==1){
 				beforeLot = lot;
 				
-			}
+			} */
+			
 		} // db조회 후 엑셀매핑
 		
 		
