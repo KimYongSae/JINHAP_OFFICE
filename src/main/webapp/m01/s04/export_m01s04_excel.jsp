@@ -209,11 +209,15 @@
 				rsIdx++;
 			}
 			objRow = objSheet.getRow((short)rsIdx);
-			
+			String stimeValue = rs.getString("stime");
+			String stimeResult = stimeValue != null && stimeValue.length() >= 8 ? stimeValue.substring(stimeValue.length() - 8) : "0";
+			String etimeValue = rs.getString("etime");
+			String etimeResult = etimeValue != null && etimeValue.length() >= 8 ? etimeValue.substring(etimeValue.length() - 8) : "0";
+
 			objCell = objRow.getCell(1);
-			objCell.setCellValue(rs.getString("stime"));
+			objCell.setCellValue(stimeResult);
 			objCell = objRow.getCell(2);
-			objCell.setCellValue(rs.getString("etime"));
+			objCell.setCellValue(etimeResult);
 			objCell = objRow.getCell(3);
 			objCell.setCellValue(rs.getString("in_min"));
 			objCell = objRow.getCell(4);
