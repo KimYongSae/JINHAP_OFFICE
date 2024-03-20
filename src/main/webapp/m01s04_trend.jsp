@@ -92,7 +92,7 @@
 
 <body>
 	<!-- <div id="container" style="width: 2500px; height: 1000px;"></div> -->
-	<div id="container" style="width: 1920px; height: 1000px;"></div>
+	<div id="container" style="width: 1600px; height: 1000px;"></div>
 </body>
 
 
@@ -449,12 +449,12 @@
            },
            
            series: [
-        	   q1_pvJson, q2_pvJson, q3_pvJson, q5_pvJson, q4_pvJson,
+        	   q1_pvJson, q2_pvJson, q3_pvJson, q4_pvJson, q5_pvJson, 
         	   t1_pvJson, t2_pvJson, t3_pvJson, t4_pvJson,
         	   oil_pvJson, a_pvJson,
         	   $.extend({}, cp_pvJson, { yAxis: 1 }),
         	   
-        	   q1_mvJson, q2_mvJson, q3_mvJson, q5_mvJson, q4_mvJson,
+        	   q1_mvJson, q2_mvJson, q3_mvJson, q4_mvJson, q5_mvJson, 
         	   t1_mvJson, t2_mvJson, t3_mvJson, t4_mvJson,
         	   oil_mvJson, a_mvJson,
         	   $.extend({}, cp_mvJson, { yAxis: 1 }),
@@ -494,122 +494,8 @@
 }
 		
 		
-		function getChartData(){
-		      
-	      console.log("init getChartData");
-	      
-	      $.ajax({
-	         url:"m00/s04_trend/select_m00s04_trend.jsp",
-	         type:"post",
-	         dataType:"json",
-	         data:{            
-	            "sdate" : startDate,
-	            "edate" : endDate,
-	            "stime" : startTime,
-	            "etime" : endTime,
-	            "hogi" : hogi
-	         },
-	         success:function(result){
-	            //console.log(result.data);
-
-	            
-	           datetimeJson = result.data.datetime;
-	          /*  tic1_pvJson = result.data.tic1_pv;
-
-	            tic1_pvJson = result.data.tic1_pv;
-	            tic2_pvJson = result.data.tic2_pv;
-	            tic3_pvJson = result.data.tic3_pv;
-	            tic1_spJson = result.data.tic1_sp;
-	            tic2_spJson = result.data.tic2_sp;
-	            tic3_spJson = result.data.tic3_sp;
-	            
-	            
-	            tic1_pvMv = result.data.tic1_pvMv;
-	            tic2_pvMv = result.data.tic2_pvMv;
-	            tic3_pvMv = result.data.tic3_pvMv;
-	            tic1_spMv = result.data.tic1_spMv;
-	            tic2_spMv = result.data.tic2_spMv;
-	            tic3_spMv = result.data.tic3_spMv;    */     
-	            
-	            q1_pvJson = result.data.q1_pv;
-	            q2_pvJson = result.data.q2_pv;
-	            q3_pvJson = result.data.q3_pv;
-	            q4_pvJson = result.data.q4_pv;
-	            q5_pvJson = result.data.q5_pv;
-	            t1_pvJson = result.data.t1_pv;
-	            t2_pvJson = result.data.t2_pv;
-	            t3_pvJson = result.data.t3_pv;
-	            t4_pvJson = result.data.t4_pv;
-	            oil_pvJson = result.data.oil_pv;
-	            a_pvJson = result.data.a_pv;
-	            cp_pvJson = result.data.cp_pv;
-	            
-	            q1_mvJson = result.data.q1_Mv;
-	            q2_mvJson = result.data.q2_Mv;
-	            q3_mvJson = result.data.q3_Mv;
-	            q4_mvJson = result.data.q4_Mv;
-	            q5_mvJson = result.data.q5_Mv;
-	            t1_mvJson = result.data.t1_Mv;
-	            t2_mvJson = result.data.t2_Mv;
-	            t3_mvJson = result.data.t3_Mv;
-	            t4_mvJson = result.data.t4_Mv;
-	            oil_mvJson = result.data.oil_Mv;
-	            a_mvJson = result.data.a_Mv;
-	            cp_mvJson = result.data.cp_Mv;
-	            lot_Json = result.data.lot;
-	            
-	            
-	            var chart = $("#container").highcharts();
-	            
-	            if(typeof chart != 'undefined'){
-	            
-/* 	               chart.series[0].update(tic1_pvJson,false);
-	               chart.series[1].update(tic2_pvJson,false);
-	               chart.series[2].update(tic1_spJson,false);
-	               chart.series[3].update(tic2_spJson,false);
-	            chart.series[4].update(tic1_pvMv,false);
-	            chart.series[5].update(tic2_pvMv,false);            
-	            chart.series[6].update(tic1_spMv,false);
-	            chart.series[7].update(tic2_spMv,false); */
-	            chart.series[0].update(q1_pvJson,false);
-	            chart.series[1].update(q2_pvJson,false);
-	            chart.series[2].update(q3_pvJson,false);
-	            chart.series[3].update(q4_pvJson,false);
-	            chart.series[4].update(q5_pvJson,false);
-	            chart.series[5].update(t1_pvJson,false);
-	            chart.series[6].update(t2_pvJson,false);
-	            chart.series[7].update(t3_pvJson,false);
-	            chart.series[8].update(t4_pvJson,false);
-	            chart.series[9].update(oil_pvJson,false);
-	            chart.series[10].update(a_pvJson,false);
-	            chart.series[11].update(cp_pvJson,false);
-	            chart.series[12].update(q1_mvJson,false);
-	            chart.series[13].update(q2_mvJson,false);
-	            chart.series[14].update(q3_mvJson,false);
-	            chart.series[15].update(q4_mvJson,false);
-	            chart.series[16].update(q5_mvJson,false);
-	            chart.series[17].update(t1_mvJson,false);
-	            chart.series[18].update(t2_mvJson,false);
-	            chart.series[19].update(t3_mvJson,false);
-	            chart.series[20].update(t4_mvJson,false);
-	            chart.series[21].update(oil_mvJson,false);
-	            chart.series[22].update(a_mvJson,false);
-	            chart.series[23].update(cp_mvJson,false);
-	            chart.series[24].update(lot_Json,false);
-	            
-	            
-	               chart.redraw();
-	              
-	            }else{
-	               console.log("언디파인드");
-	               
-	            }
-	         }
-	      });
-	   }
 		function getChartDataLoad(){
 		      
-//	      console.log("sdate : "+$("#sdate").val());
 	      
 	      $.ajax({
 	         url:"m00/s04_trend/select_m00s04_trend.jsp",
@@ -623,26 +509,9 @@
 		            "hogi" : hogi
 	         },
 	         success:function(result){
-	            //console.log(result.data);
 
 	            
 	           datetimeJson = result.data.datetime;
-	          /*  tic1_pvJson = result.data.tic1_pv;
-
-	            tic1_pvJson = result.data.tic1_pv;
-	            tic2_pvJson = result.data.tic2_pv;
-	            tic3_pvJson = result.data.tic3_pv;
-	            tic1_spJson = result.data.tic1_sp;
-	            tic2_spJson = result.data.tic2_sp;
-	            tic3_spJson = result.data.tic3_sp;
-	            
-	            
-	            tic1_pvMv = result.data.tic1_pvMv;
-	            tic2_pvMv = result.data.tic2_pvMv;
-	            tic3_pvMv = result.data.tic3_pvMv;
-	            tic1_spMv = result.data.tic1_spMv;
-	            tic2_spMv = result.data.tic2_spMv;
-	            tic3_spMv = result.data.tic3_spMv;    */     
 	            
 	            q1_pvJson = result.data.q1_pv;
 	            q2_pvJson = result.data.q2_pv;

@@ -779,39 +779,39 @@ switch (hogi) {
       JSONObject symbolObj = new JSONObject();      
 
       
-      q1_pvObj.put("name","소입1로");
+      q1_pvObj.put("name","소입1");
       q1_pvObj.put("data",q1_pvArr);
       q1_pvObj.put("color","#0000FF");
       
-      q2_pvObj.put("name","소입2로");
+      q2_pvObj.put("name","소입2");
       q2_pvObj.put("data",q2_pvArr);
       q2_pvObj.put("color","#00FF00");
       
-      q3_pvObj.put("name","소입3로");
+      q3_pvObj.put("name","소입3");
       q3_pvObj.put("data",q3_pvArr);
       q3_pvObj.put("color","#FF0000");
       
-      q4_pvObj.put("name","소입4로");
+      q4_pvObj.put("name","소입4");
       q4_pvObj.put("data",q4_pvArr);
       q4_pvObj.put("color","#0000CC");
       
-      q5_pvObj.put("name","소입5로");
+      q5_pvObj.put("name","소입5");
       q5_pvObj.put("data",q5_pvArr);
       q5_pvObj.put("color","#00BB00");
       
-      t1_pvObj.put("name","소려1로");
+      t1_pvObj.put("name","소려1");
       t1_pvObj.put("data",t1_pvArr);
       t1_pvObj.put("color","#CC0000");
       
-      t2_pvObj.put("name","소려2로");
+      t2_pvObj.put("name","소려2");
       t2_pvObj.put("data",t2_pvArr);
       t2_pvObj.put("color","#AA0000");
       
-      t3_pvObj.put("name","소려3로");
+      t3_pvObj.put("name","소려3");
       t3_pvObj.put("data",t3_pvArr);
       t3_pvObj.put("color","#CC00AA");
       
-      t4_pvObj.put("name","소려4로");
+      t4_pvObj.put("name","소려4");
       t4_pvObj.put("data",t4_pvArr);
       t4_pvObj.put("color","#CCBBAA");
 

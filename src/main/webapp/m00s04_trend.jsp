@@ -904,12 +904,12 @@ var fn_logout = function () {
            },
            
            series: [
-        	   q1_pvJson, q2_pvJson, q3_pvJson, q5_pvJson, q4_pvJson,
+        	   q1_pvJson, q2_pvJson, q3_pvJson, q4_pvJson, q5_pvJson, 
         	   t1_pvJson, t2_pvJson, t3_pvJson, t4_pvJson,
         	   oil_pvJson, a_pvJson,
         	   $.extend({}, cp_pvJson, { yAxis: 1 }),
         	   
-        	   q1_mvJson, q2_mvJson, q3_mvJson, q5_mvJson, q4_mvJson,
+        	   q1_mvJson, q2_mvJson, q3_mvJson, q4_mvJson, q5_mvJson, 
         	   t1_mvJson, t2_mvJson, t3_mvJson, t4_mvJson,
         	   oil_mvJson, a_mvJson,
         	   $.extend({}, cp_mvJson, { yAxis: 1 }),
