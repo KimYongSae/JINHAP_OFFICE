@@ -692,7 +692,7 @@ var fn_logout = function () {
 		                     
            <div class="body2">
                <form class="form-inline" role="form" name="searchform" method="post" autocomplete="off">
-  				<table>
+  				<table style="margin:auto;">
     				<tr>
       					<td><label class="control-label col-lg-4" 
       					style="padding-top:3px; width: 130px; text-align: right; 
@@ -719,7 +719,7 @@ var fn_logout = function () {
       					<td style="padding-bottom:30px;">&nbsp;</td>
       					<td>&nbsp;</td>
      				</tr>
-     				<tr height="1" bgcolor="#dddddd"><td colspan="8"></td></tr>
+     				<!-- <tr height="1" bgcolor="#dddddd"><td colspan="8"></td></tr> -->
 
 					<tr>
 					<td colspan="8" class="text-center" style=" padding-top:8px; padding-bottom:8px;">
@@ -754,7 +754,6 @@ var fn_logout = function () {
       					<td style="padding-bottom:30px;">&nbsp;</td>
       					<td>&nbsp;</td>
      				</tr> -->
-     				<tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>
  
 	 			</table>
               	</form>

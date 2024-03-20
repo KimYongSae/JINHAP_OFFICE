@@ -36,7 +36,7 @@
 
 	String hogi = (request.getParameter("hogi"));
 	String sdate = request.getParameter("date");
-	String edate = request.getParameter("edate") + " 08:00:00";
+	String edate = request.getParameter("edate");
 	String cnt = request.getParameter("cnt");
 	
 	switch (hogi) {
@@ -64,7 +64,7 @@
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
     SimpleDateFormat sdfDisplay = new SimpleDateFormat("HH:mm:ss");
 	
-    Date lastDate = sdf.parse(edate);
+    //Date lastDate = sdf.parse(edate);
     
 	Date now = new Date();
 
@@ -117,12 +117,49 @@
 		sql.append("AND tb_tong_log.hogi = "+hogi+" ");
 		sql.append("ORDER BY tb_tong_log.datetiem1 ASC;"); */
 		
-		sql.append(" SELECT * FROM v_work"+hogi);
+/* 		sql.append(" SELECT * FROM v_work"+hogi);
 		sql.append(" WHERE 1=1 ");
-		sql.append(" AND stime BETWEEN '"+sdate+" 08:00:00' AND '"+edate+" 08:00:00'");
+		sql.append(" AND stime BETWEEN '"+sdate+" 08:00:00' AND '"+edate+" 08:00:00'"); */
+		
+		sql.append("SELECT ");
+		sql.append("  sub.*,");
+		sql.append("  first_datetiem1_in_group,");
+		sql.append("  tra_filtered.*,");
+		sql.append("  wrk_filtered.stime, wrk_filtered.etime, wrk_filtered.in_min, wrk_filtered.in_cnt, wrk_filtered.lot_weight  ");
+		sql.append("FROM (");
+		sql.append("  SELECT ");
+		sql.append("    main.*,");
+		sql.append("    MIN(STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s')) OVER (PARTITION BY item_cd_group) AS first_datetiem1_in_group");
+		sql.append("  FROM (");
+		sql.append("    SELECT ");
+		sql.append("      t.*,");
+		sql.append("      SUM(CASE WHEN item_cd != @prev_item_cd THEN 1 ELSE 0 END) OVER (ORDER BY STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') ASC) AS item_cd_group,");
+		sql.append("      @prev_item_cd := item_cd");
+		sql.append("    FROM tb_tong_log t");
+		sql.append("    CROSS JOIN (SELECT @prev_item_cd := NULL) as init");
+		sql.append("    WHERE hogi = '"+hogi+"' ");
+		sql.append("    AND STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '"+sdate+" 07:00:00' AND '"+edate+" 12:00:00'");
+		sql.append("  ) AS main");
+		sql.append(" ) AS sub");
+		sql.append(" LEFT OUTER JOIN (");
+		sql.append("  SELECT *,");
+		sql.append("    ROW_NUMBER() OVER (PARTITION BY pnum ORDER BY pname) AS rn");
+		sql.append("  FROM tb_recipe_auto"+hogi+"");
+		sql.append(" ) AS tra_filtered ON sub.item_cd = tra_filtered.pnum AND tra_filtered.rn = 1");
+		sql.append(" LEFT OUTER JOIN (");
+		sql.append("  SELECT *,");
+		sql.append("    ROW_NUMBER() OVER (PARTITION BY s_bar_time ORDER BY STR_TO_DATE(stime, '%Y%m%d%H%i%s')) AS rn");
+		sql.append("  FROM v_work"+hogi+"");
+		sql.append(" ) AS wrk_filtered ON STR_TO_DATE(sub.first_datetiem1_in_group, '%Y-%m-%d %H:%i:%s') = wrk_filtered.s_bar_time AND wrk_filtered.rn = 1");
+		sql.append(" WHERE STR_TO_DATE(sub.first_datetiem1_in_group, '%Y-%m-%d %H:%i:%s') BETWEEN '"+sdate+" 08:00:00' AND '"+edate+" 08:00:00'");
+		sql.append(" ORDER BY STR_TO_DATE(sub.datetiem1, '%Y%m%d%H%i%s') asc;");
+
+
+
 		
 		
-		//System.out.println(sql.toString());
+		
+		System.out.println(sql.toString());
 		
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery(sql.toString());
@@ -166,7 +203,52 @@
         String formattedDate = "";
         // db조회 후 엑셀매핑
 		while(rs.next()){
+			String lot = rs.getString("lot");
+
+			if(beforeLot != null && !lot.equals(beforeLot)){
+				rsIdx++;
+			}
 			objRow = objSheet.getRow((short)rsIdx);
+			
+			objCell = objRow.getCell(1);
+			objCell.setCellValue(rs.getString("stime"));
+			objCell = objRow.getCell(2);
+			objCell.setCellValue(rs.getString("etime"));
+			objCell = objRow.getCell(3);
+			objCell.setCellValue(rs.getString("in_min"));
+			objCell = objRow.getCell(4);
+			objCell.setCellValue(rs.getString("in_cnt"));
+			objCell = objRow.getCell(5);
+			objCell.setCellValue(rs.getInt("weight") * (rs.getInt("in_min") / 60.0 ));
+			objCell = objRow.getCell(6);
+			objCell.setCellValue(rs.getInt("lot_weight")*0.01);
+			objCell = objRow.getCell(8);
+			objCell.setCellValue(rs.getInt("lot_weight")*0.01);
+			objCell = objRow.getCell(8);
+			objCell.setCellValue(rs.getString("pname"));
+			
+			objCell = objRow.getCell(9);
+			objCell.setCellValue(rs.getString("item_cd"));
+			
+			objCell = objRow.getCell(10);
+			objCell.setCellValue(rs.getString("gang"));
+			
+			objCell = objRow.getCell(11);
+			objCell.setCellValue(rs.getDouble("cp_ez"));
+			
+			objCell = objRow.getCell(12);
+			objCell.setCellValue(rs.getString("q_temp_ez"));
+			
+			objCell = objRow.getCell(13);
+			objCell.setCellValue(rs.getString("t_temp_ez"));
+			
+			objCell = objRow.getCell(14);
+			objCell.setCellValue(rs.getString("t_gb"));
+			
+			beforeLot = lot;
+
+			
+/* 			objRow = objSheet.getRow((short)rsIdx);
 			
 			objCell = objRow.getCell(1);
 			objCell.setCellValue(rs.getString("stime").substring(rs.getString("stime").length() - 8));
@@ -210,7 +292,8 @@
 			objCell = objRow.getCell(14);
 			objCell.setCellValue(rs.getString("t_gb"));
 			
-			rsIdx++;
+			rsIdx++; */
+			
 			/* 
 			String lot = rs.getString("lot");
 			int tcnt = rs.getInt("tcnt");
