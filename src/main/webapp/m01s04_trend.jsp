@@ -315,6 +315,7 @@
            }
            ],
            xAxis: {
+        	   type: 'datetime',
                crosshair: {
                    width: 3,
                    color: '#5D5D5D',
@@ -330,7 +331,7 @@
                    }
                },
                tickmarkPlacement: 'on',
-               startOnTick: false
+               startOnTick: false,
            },
            /* legend: {
                layout: 'vertical',

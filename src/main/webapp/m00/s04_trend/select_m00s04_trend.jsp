@@ -1095,11 +1095,17 @@ switch (hogi) {
       rs = stmt.executeQuery(sql2.toString());
       
       JSONArray lot = new JSONArray();
+      int counter = 0;
       while(rs.next()){
     	   JSONArray lotPoint = new JSONArray();
     	   lotPoint.add(rs.getInt("UNIX_TIMESTAMP"));
-    	   lotPoint.add(900);
     	   
+    	   if(counter % 2 == 0){
+				lotPoint.add(900);
+    	   } else{
+				lotPoint.add(925);
+    	   }
+    	   counter++;
     	   String label = "("+rs.getString("w_sequence") + ")";
     	   lotPoint.add(label);
     	   
