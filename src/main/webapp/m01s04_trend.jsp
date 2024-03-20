@@ -76,11 +76,24 @@
 	  font-size: 16px; /* 메뉴의 글꼴 크기를 더 크게 조정 */
 	}
 		
-			    body {
+	body {
         display: flex;
         justify-content: center;
         align-items: center;
+         flex-direction: column;
     }
+    #printChart {
+        margin-bottom: 20px; /* 버튼과 차트 사이의 간격 */
+        width:300px;
+        height: 100px;
+        font-size : 60px
+    }
+    @media print {
+    #printChart {
+        display: none;
+    }
+}
+    
 </style>
 
 	
@@ -91,8 +104,11 @@
 
 
 <body>
+	<div>
+		<button id="printChart" class="btn btn-info" onclick="window.print();">차트 인쇄</button>
+	</div>
 	<!-- <div id="container" style="width: 2500px; height: 1000px;"></div> -->
-	<div id="container" style="width: 1600px; height: 1000px;"></div>
+	<div id="container" style="width: 1550px; height: 1000px;"></div>
 </body>
 
 
@@ -137,25 +153,25 @@
     var startDate = getParameterByName('startDate');
     var endDate = getParameterByName('endDate');
     var hogi = getParameterByName('hogi');
-    
+    var hogiNum = "";
     switch (hogi) {
     case "Q01-HN01":
-        hogi = "1";
+    	hogiNum = "1";
         break;
     case "Q01-HN02":
-        hogi = "2";
+    	hogiNum = "2";
         break;
     case "Q01-HN03":
-        hogi = "3";
+    	hogiNum = "3";
         break;
     case "Q01-HN04":
-        hogi = "4";
+    	hogiNum = "4";
         break;
     case "Q01-HN05":
-        hogi = "5";
+    	hogiNum = "5";
         break;
     case "Q01-HN06":
-        hogi = "6";
+    	hogiNum = "6";
         break;
 }
     console.log(startDate);
@@ -266,7 +282,13 @@
                useUTC: true
            },
            title: {
-               text: ' '
+               text: startDate+"<br>"+hogi,
+               align: 'left',
+               style: {
+                   fontSize: '40px'
+               },
+               x: 200, 
+               y: 50
            },
            tooltip: {
                formatter: function() {
@@ -275,6 +297,7 @@
                    var formattedDate = unix_timestamp_tooltip(this.x);
                    
                    if (seriesName === 'LOT') {
+				
                        return formattedDate + '<br>' + seriesName + ' : ' + this.point.label;
                    } else {
                        return formattedDate + '<br>' + seriesName + ' : ' + this.y;
@@ -506,7 +529,7 @@
 		            "edate" : endDate,
 		            "stime" : startTime,
 		            "etime" : endTime,
-		            "hogi" : hogi
+		            "hogi" : hogiNum
 	         },
 	         success:function(result){
 
