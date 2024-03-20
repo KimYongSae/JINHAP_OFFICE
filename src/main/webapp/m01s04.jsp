@@ -79,7 +79,8 @@
 
 .scrolltbody tbody {
     display: block;
-    height: 561px;
+/*     height: 561px; */
+    height: 350px;
 
     overflow-x: hidden;
 }
@@ -572,7 +573,8 @@ var fn_logout = function () {
 				                            <!--Begin Datatables-->
 <div class="row">
             <hr class="bread_under">
-  <div style="width: 70%; " class="col-lg-12">
+<!--   <div style="width: 70%; " class="col-lg-12"> -->
+  <div class="col-lg-12">
         <div class="box">
             <header>
                 <div style="padding:11px 14px;" class="icons"><i style="color:white;" class="fa fa-list-alt"></i></div>
@@ -655,13 +657,13 @@ var fn_logout = function () {
 							
 							
 							<th class="text-center cell" 
-							style=" width: 350px; height: 30px; 
+							style=" width: 550px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								작업일보 보기
 							</th>																																														
 
 							<th class="text-center cell" 
-							style=" width: 350px; height: 30px; 
+							style=" width: 550px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								트렌드 보기
 							</th>
@@ -680,11 +682,12 @@ var fn_logout = function () {
     
     
     
-  <div style="width: 30%;" class="col-lg-12">
+  <!-- <div style="width: 30%;" class="col-lg-12"> -->
+  <div  class="col-lg-12">
         <div class="box">
             <header>
                 <div style="padding:11px 14px;" class="icons"><i style="color:white;" class="fa fa-cog"></i></div>
-                <h5 style="font-size:14pt; font-family:headline;">작업일보 출력</h5>
+                <h5 style="font-size:14pt; font-family:headline;">작업일보 생성</h5>
             </header>
 		                     
            <div class="body2">
@@ -704,10 +707,6 @@ var fn_logout = function () {
 						</td> 
       					<td style="padding-bottom:30px;">&nbsp;</td>
       					<td>&nbsp;</td>
-     				</tr>
-     				<tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>
-
-                    <tr>
       					<td><label class="control-label col-lg-4" 
       					style="padding-top:3px; width: 130px; text-align: right; 
       					font-size: 14pt; font-family:headline;">
@@ -720,19 +719,15 @@ var fn_logout = function () {
       					<td style="padding-bottom:30px;">&nbsp;</td>
       					<td>&nbsp;</td>
      				</tr>
-     				<tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>
- 
-	 			</table>
-	 			<table>
-     				<tr>
-     					<td colspan="1" 
-     					style="display: inline-block; padding-left:56px; 
-     					padding-bottom:8px; padding-top:8px;">
+     				<tr height="1" bgcolor="#dddddd"><td colspan="8"></td></tr>
+
+					<tr>
+					<td colspan="8" class="text-center" style=" padding-top:8px; padding-bottom:8px;">
      					
      						<c:if test="${sessionScope.sid != 'worker' }">
-	 							<button class="btn btn-default pull-right btn-sm" type="button" 
+	 							<button class="btn btn-default btn-sm" type="button" 
 								onclick="log_print();"
-								style="width: 160px; 
+								style="width: 160px;
 								font-size: 14pt; font-family:headline; font-weight:700">
 								<i class="fa fa-print"></i>  작업일보 생성</button>    						
 							</c:if>
@@ -745,33 +740,23 @@ var fn_logout = function () {
 							</c:if>    					
 							
         				</td>
-        								
-      					<td colspan="1" 
-      					style="display: inline-block; padding-left:10px;  padding-bottom:8px; 
-      					padding-top:8px; width: 100px; margin-left:180px;">
-      						<c:if test="${sessionScope.sid != 'worker' }">
-								<button class="btn btn-default pull-right btn-sm" type="button" 
-								onclick="getLotAllList();"
-								style="width: 200px; 
-								font-size: 14pt; font-family:headline; font-weight:700">
-								<i class="fa fa-print"></i>  작업일보 일괄생성</button>
-        					</c:if>
-
-      						<c:if test="${sessionScope.sid == 'worker' }">
-								<button class="btn btn-default pull-right btn-sm" type="button"
-								style="width: 200px; 
-								font-size: 14pt; font-family:headline; font-weight:700" disabled="disabled">
-								<i class="fa fa-print"></i>  작업일보 일괄생성</button>
-        					</c:if>
-
-        				</td>
-        								
-        								
-        				<td colspan="1" style="display: inline-block; padding-left:10px;  padding-bottom:8px; padding-top:8px; ">
-        					
-						</td>
-					</tr>
-				</table>               		
+        				</tr>
+                    <!-- <tr>
+      					<td><label class="control-label col-lg-4" 
+      					style="padding-top:3px; width: 130px; text-align: right; 
+      					font-size: 14pt; font-family:headline;">
+      						<span class="asteriskField"></span>작성일자</label></td>    			
+      					<td><input type="text" class="form-control input-sm datepicker" 
+      					id="i_date" name="i_date" 
+      					style="width: 340px; height: 34px; 
+      					font-size: 14pt; font-family:headline;" 
+      					placeholder="작성일자"/></td> 
+      					<td style="padding-bottom:30px;">&nbsp;</td>
+      					<td>&nbsp;</td>
+     				</tr> -->
+     				<tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>
+ 
+	 			</table>
               	</form>
            </div> 
         </div>
@@ -1591,14 +1576,14 @@ function init(){
 						listHtml += '<td class="nr4 text-center cell" style=" width: 250px; height: 30px; font-size: 16pt; font-family:headline;" >'+rsAr[i].hogi+'</td>';						
 						//listHtml += '<td class="nr7 text-center cell" style=" width: 350px; height: 30px; font-size: 16pt; font-family:headline;">'+rsAr[i].filename+'</td>';
 						if(rsAr[i].filename != null){
-							listHtml += '<td class="nr7 text-center cell" style=" width: 350px; height: 30px; font-size: 16pt; font-family:headline;">'+
+							listHtml += '<td class="nr7 text-center cell" style=" width: 550px; height: 30px; font-size: 16pt; font-family:headline;">'+
 							'<button type="button" class="btn btn-default" onclick="downFile(\''+ encodeURIComponent(rsAr[i].filename) +'\'); return false; event.stopPropagation();" style="width:160px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-save"></i>파일다운</button>'
 
 							+'</td>';
 						}else{
-							listHtml += '<td class="nr7 text-center cell" style=" width: 350px; height: 30px; font-size: 16pt; font-family:headline;"></td>';							
+							listHtml += '<td class="nr7 text-center cell" style=" width: 550px; height: 30px; font-size: 16pt; font-family:headline;"></td>';							
 						}
-						listHtml += '<td class="nr8 text-center cell" style=" width: 350px; height: 30px; font-size: 16pt; font-family:headline;"><button type="button" id="showTrend" class="btn btn-default"; return false; event.cancelBubble = true; style="width:160px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-search"></i>트렌드 보기</button></td>';
+						listHtml += '<td class="nr8 text-center cell" style=" width: 550px; height: 30px; font-size: 16pt; font-family:headline;"><button type="button" id="showTrend" class="btn btn-default"; return false; event.cancelBubble = true; style="width:160px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-search"></i>트렌드 보기</button></td>';
 						
 						
 						listHtml += "</tr>";						
