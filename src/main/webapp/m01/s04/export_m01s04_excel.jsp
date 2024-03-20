@@ -201,6 +201,8 @@
         Date startDate = null;
         Date endDate = null;
         String formattedDate = "";
+        Map<String, int[]> barcodeMap = new HashMap<>();
+        
         // db조회 후 엑셀매핑
 		while(rs.next()){
 			String lot = rs.getString("lot");
@@ -251,6 +253,19 @@
 			
 			beforeLot = lot;
 
+			int group = rs.getInt("item_cd_group");
+		    String barcode = rs.getString("up_barcode");
+
+		    if (!barcodeMap.containsKey(barcode)) {
+		        int maxIndex = 0;
+		        for (int[] meta : barcodeMap.values()) {
+		            if (meta[0] == group) {
+		                maxIndex = Math.max(maxIndex, meta[1]);
+		            }
+		        }
+		        barcodeMap.put(barcode, new int[]{group, maxIndex + 1});
+		    }
+			
 			
 /* 			objRow = objSheet.getRow((short)rsIdx);
 			
