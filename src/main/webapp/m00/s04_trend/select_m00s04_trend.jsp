@@ -62,8 +62,8 @@ switch (hogi) {
       	&& stime != null && !"".equals(stime) && etime != null && !"".equals(etime)){
       	whereSql.append(" AND A.datetime1 >= '"+sdate+" "+stime+":00' AND A.datetime1 <= '"+edate+" "+etime+":00'");
       //whereSql2.append(" AND regtime >= '"+sdate+" "+stime+":00' AND regtime <= '"+edate+" "+etime+":00'");
-		whereSql2.append("AND STR_TO_DATE(final.datetiem1, '%Y%m%d%H%i%s') >= '"+sdate+" "+stime+":00' ");
-		whereSql2.append("AND STR_TO_DATE(final.datetiem1, '%Y%m%d%H%i%s') <= '"+edate+" "+etime+":00' ");
+		//whereSql2.append("AND STR_TO_DATE(final.datetiem1, '%Y%m%d%H%i%s') >= '"+sdate+" "+stime+":00' ");
+		//whereSql2.append("AND STR_TO_DATE(final.datetiem1, '%Y%m%d%H%i%s') <= '"+edate+" "+etime+":00' ");
    } else {
 	    // 조건이 만족하지 않을 경우 실행할 코드
 	    try {
@@ -113,7 +113,7 @@ switch (hogi) {
 		sql2.append(whereSql2.toString());
 		sql2.append(" ORDER BY final.regtime DESC;"); */
 				    
-		sql2.append("SELECT UNIX_TIMESTAMP(STR_TO_DATE(final.datetiem1, '%Y%m%d%H%i%s')) AS UNIX_TIMESTAMP, ");
+		/* sql2.append("SELECT UNIX_TIMESTAMP(STR_TO_DATE(final.datetiem1, '%Y%m%d%H%i%s')) AS UNIX_TIMESTAMP, ");
 		sql2.append("       final.datetiem1, ");
 		sql2.append("       final.item_cd, ");
 		sql2.append("       final.w_sequence ");
@@ -131,11 +131,34 @@ switch (hogi) {
 		sql2.append("     ) AS final ");
 		sql2.append("WHERE 1=1 ");
 		sql2.append(whereSql2.toString());
-		sql2.append("ORDER BY final.datetiem1 ASC;");
+		sql2.append("ORDER BY final.datetiem1 ASC;"); */
 
-				    
-				  
-		
+		sql2.append(" SELECT *, UNIX_TIMESTAMP(STR_TO_DATE(day_group.datetiem1, '%Y%m%d%H%i%s')) AS UNIX_TIMESTAMP,");
+		sql2.append("       ROW_NUMBER() OVER (PARTITION BY day_group.datetiem1_group ORDER BY day_group.datetiem1 ASC) AS new_lot_count");
+		sql2.append(" FROM (");
+		sql2.append("    SELECT final_logs.*,");
+		sql2.append("           CASE ");
+		sql2.append("               WHEN HOUR(STR_TO_DATE(final_logs.datetiem1, '%Y%m%d%H%i%s')) < 8 THEN DATE(STR_TO_DATE(final_logs.datetiem1, '%Y%m%d%H%i%s') - INTERVAL 1 DAY)");
+		sql2.append("               ELSE DATE(STR_TO_DATE(final_logs.datetiem1, '%Y%m%d%H%i%s'))");
+		sql2.append("           END AS datetiem1_group");
+		sql2.append("    FROM (");
+		sql2.append("        SELECT sorted_logs.* ");
+		sql2.append("        FROM (");
+		sql2.append("            SELECT *,");
+		sql2.append("                   ROW_NUMBER() OVER (PARTITION BY lot_group ORDER BY datetiem1 ASC) AS lot_count");
+		sql2.append("            FROM (");
+		sql2.append("                SELECT *, ");
+		sql2.append("                       @lot_group := IF(@prev_lot = lot, @lot_group, IF(@prev_lot := lot, @lot_group + 1, @lot_group + 1)) AS lot_group");
+		sql2.append("                FROM tb_tong_log, (SELECT @prev_lot := NULL, @lot_group := 0) AS vars");
+		sql2.append("                WHERE hogi = '"+hogi+"'");
+		sql2.append("                ORDER BY datetiem1, lot");
+		sql2.append("            ) AS derived_logs");
+		sql2.append("        ) AS sorted_logs");
+		sql2.append("        WHERE sorted_logs.lot_count = 1");
+		sql2.append("    ) AS final_logs");
+		sql2.append(" ) AS day_group");
+		sql2.append(" WHERE datetiem1_group = '"+sdate+"'");
+
 		
    JSONArray datetime = new JSONArray();
    /* JSONArray tic1_pvArr = new JSONArray();
@@ -1106,7 +1129,7 @@ switch (hogi) {
 				lotPoint.add(925);
     	   }
     	   counter++;
-    	   String label = "("+rs.getString("w_sequence") + ")";
+    	   String label = "("+rs.getString("new_lot_count") + ")";
     	   lotPoint.add(label);
     	   
     	   lot.add(lotPoint);

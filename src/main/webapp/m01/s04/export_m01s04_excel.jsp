@@ -1,3 +1,4 @@
+<%@page import="org.apache.poi.ss.usermodel.CellType"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="org.apache.poi.ss.usermodel.Font"%>
 <%@page import="org.apache.poi.xssf.usermodel.XSSFFontFormatting"%>
@@ -14,6 +15,8 @@
 <%@page import="org.apache.poi.hssf.usermodel.HSSFRow"%>
 <%@page import="org.apache.poi.hssf.usermodel.HSSFSheet"%>
 <%@page import="org.apache.poi.hssf.usermodel.HSSFWorkbook"%>
+<%@page import="org.apache.poi.ss.usermodel.FormulaEvaluator"%>
+<%@page import="org.apache.commons.math3.linear.RealMatrix"%>
 <%@page import="java.io.OutputStream"%>
 <%@page import="java.io.*"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -22,6 +25,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@include file="../../db/DBConnector.jsp" %>
+<%@include file="../../db/DBConnector_MSSQL.jsp" %>
 <%@ page import="java.util.*"%> 
 <%@page import="java.util.Date"%>
 <!DOCTYPE html >
@@ -36,7 +40,7 @@
 
 	String hogi = (request.getParameter("hogi"));
 	String sdate = request.getParameter("date");
-	String edate = request.getParameter("edate");
+	String edate = request.getParameter("edate")+" 08:00:00";
 	String cnt = request.getParameter("cnt");
 	
 	switch (hogi) {
@@ -63,8 +67,9 @@
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
     SimpleDateFormat sdfDisplay = new SimpleDateFormat("HH:mm:ss");
-	
-    //Date lastDate = sdf.parse(edate);
+    SimpleDateFormat timestampFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    
+    Date lastDate = sdf.parse(edate);
     
 	Date now = new Date();
 
@@ -94,6 +99,10 @@
 	ResultSet rs = null;
 	ResultSet rs2 = null;
 	
+	Statement stmt_ms = null;
+	ResultSet rs_ms = null;
+	StringBuffer sql_ms = new StringBuffer();
+	
 	FileInputStream fis = null;
 	XSSFWorkbook objWorkBook = null;
 	
@@ -122,21 +131,26 @@
 		sql.append(" AND stime BETWEEN '"+sdate+" 08:00:00' AND '"+edate+" 08:00:00'"); */
 		
 		sql.append("SELECT ");
+		sql.append("	SUM(CASE WHEN lot_group != @prev_lot_group THEN 1 ELSE 0 END) OVER (ORDER BY STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') ASC) AS new_lot_group, ");
+		sql.append("   @prev_lot_group := lot_group, ");
 		sql.append("  sub.*,");
 		sql.append("  first_datetiem1_in_group,");
 		sql.append("  tra_filtered.*,");
-		sql.append("  wrk_filtered.stime, wrk_filtered.etime, wrk_filtered.in_min, wrk_filtered.in_cnt, wrk_filtered.lot_weight  ");
+		sql.append("  wrk_filtered.stime, wrk_filtered.etime, wrk_filtered.in_min, wrk_filtered.in_cnt, wrk_filtered.lot_weight AS work_weight,  ");
+		sql.append(" lot_group_count ");
 		sql.append("FROM (");
 		sql.append("  SELECT ");
 		sql.append("    main.*,");
-		sql.append("    MIN(STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s')) OVER (PARTITION BY item_cd_group) AS first_datetiem1_in_group");
+		sql.append("    MIN(STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s')) OVER (PARTITION BY lot_group) AS first_datetiem1_in_group, ");
+		sql.append("    COUNT(*) OVER (PARTITION BY lot_group) AS lot_group_count ");
 		sql.append("  FROM (");
 		sql.append("    SELECT ");
 		sql.append("      t.*,");
-		sql.append("      SUM(CASE WHEN item_cd != @prev_item_cd THEN 1 ELSE 0 END) OVER (ORDER BY STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') ASC) AS item_cd_group,");
+		sql.append("      SUM(CASE WHEN lot != @prev_lot OR item_cd != @prev_item_cd THEN 1 ELSE 0 END) OVER (ORDER BY STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') ASC) AS lot_group,");
+		sql.append("      @prev_lot := lot,");
 		sql.append("      @prev_item_cd := item_cd");
 		sql.append("    FROM tb_tong_log t");
-		sql.append("    CROSS JOIN (SELECT @prev_item_cd := NULL) as init");
+		sql.append("    CROSS JOIN (SELECT @prev_lot := NULL, @prev_item_cd := NULL, @prev_lot_group := NULL) AS init");
 		sql.append("    WHERE hogi = '"+hogi+"' ");
 		sql.append("    AND STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '"+sdate+" 07:00:00' AND '"+edate+" 12:00:00'");
 		sql.append("  ) AS main");
@@ -169,6 +183,8 @@
 		fis = new FileInputStream(request.getRealPath("/")+"upload/work_log.xlsx");
 	    objWorkBook = new XSSFWorkbook(fis); // XLSX 파일용
 
+	    FormulaEvaluator evaluator = objWorkBook.getCreationHelper().createFormulaEvaluator();
+
 	    XSSFSheet objSheet = objWorkBook.getSheetAt(0); // 첫 번째 시트 가져오기
 		
 		XSSFRow objRow = null;
@@ -195,6 +211,7 @@
 
 		
 		
+		//int rsIdx = 7;
 		int rsIdx = 7;
 		int cIdx = 1;
 		String beforeLot = null;
@@ -202,34 +219,96 @@
         Date endDate = null;
         String formattedDate = "";
         Map<String, int[]> barcodeMap = new HashMap<>();
-        
+        StringBuilder barcodeStringBuilder = new StringBuilder();
         // db조회 후 엑셀매핑
 		while(rs.next()){
-			String lot = rs.getString("lot");
+/* 			String lot = rs.getString("lot");
 
 			if(beforeLot != null && !lot.equals(beforeLot)){
 				rsIdx++;
 			}
 			objRow = objSheet.getRow((short)rsIdx);
-			String stimeValue = rs.getString("stime");
+			if((beforeLot != null && !lot.equals(beforeLot)) || beforeLot == null){
+				// 시작시간
+				objCell = objRow.getCell(1);
+				startDate = sdf.parse(rs.getString("datetiem1"));
+			    if (lastDate.after(startDate)) {
+			        break;
+			    }
+
+	            formattedDate = sdfDisplay.format(startDate);
+				objCell.setCellValue(formattedDate);
+			}
+			 */
+			
+			objRow = objSheet.getRow(rsIdx+rs.getInt("new_lot_group"));
+			objCell = objRow.getCell(1);
+			startDate = timestampFormat.parse(rs.getString("first_datetiem1_in_group"));
+			formattedDate = sdfDisplay.format(startDate);
+			objCell.setCellValue(formattedDate);
+			
+			// 종료시간
+			objCell = objRow.getCell(2);
+			if(rs.getString("check_time") != null){
+				endDate = timestampFormat.parse(rs.getString("check_time"));
+				Calendar calendar = Calendar.getInstance();
+	            calendar.setTime(endDate);
+	            calendar.add(Calendar.SECOND, -(rs.getInt("since_counter")/10));
+	            endDate = calendar.getTime();
+	            formattedDate = sdfDisplay.format(endDate);
+	            objCell.setCellValue(formattedDate);
+			} else{
+				endDate = sdf.parse(rs.getString("datetiem1"));
+				Calendar calendar = Calendar.getInstance();
+				calendar.setTime(endDate);
+				calendar.add(Calendar.MINUTE, 15);
+				endDate = calendar.getTime();
+				formattedDate = sdfDisplay.format(endDate);
+				objCell.setCellValue(formattedDate);
+			}
+			
+			/* String stimeValue = rs.getString("stime");
 			String stimeResult = stimeValue != null && stimeValue.length() >= 8 ? stimeValue.substring(stimeValue.length() - 8) : "0";
 			String etimeValue = rs.getString("etime");
 			String etimeResult = etimeValue != null && etimeValue.length() >= 8 ? etimeValue.substring(etimeValue.length() - 8) : "0";
-
-			objCell = objRow.getCell(1);
+ */
+/* 			objCell = objRow.getCell(1);
 			objCell.setCellValue(stimeResult);
 			objCell = objRow.getCell(2);
-			objCell.setCellValue(etimeResult);
-			objCell = objRow.getCell(3);
-			objCell.setCellValue(rs.getString("in_min"));
+			objCell.setCellValue(etimeResult); */
+			/* objCell = objRow.getCell(3);
+			objCell.setCellValue(rs.getString("in_min")); */
+			long differenceInMinutes = 0;
+			if (startDate != null && endDate != null) {
+			    long differenceInMillis = endDate.getTime() - startDate.getTime();
+	            differenceInMinutes = differenceInMillis / (1000 * 60);
+				objCell = objRow.getCell(3);
+				objCell.setCellValue(differenceInMinutes);
+			} // 투입시간
 			objCell = objRow.getCell(4);
-			objCell.setCellValue(rs.getString("in_cnt"));
+			if(rs.getString("lot_group_count") != null){
+				objCell.setCellValue(rs.getString("lot_group_count"));
+			} else{
+				objCell.setCellValue(rs.getString("tcnt"));
+				
+			}
 			objCell = objRow.getCell(5);
-			objCell.setCellValue(rs.getInt("weight") * (rs.getInt("in_min") / 60.0 ));
+			if(rs.getInt("tra_filtered.weight") == 0){
+				if(hogi == "2" || hogi == "3"){
+					objCell.setCellValue(500 * (differenceInMinutes / 60.0 ));
+				} else{
+					objCell.setCellValue(1000 * (differenceInMinutes / 60.0 ));
+				}
+			} else{
+				objCell.setCellValue(rs.getInt("tra_filtered.weight") * (differenceInMinutes / 60.0 ));
+			}
+			
 			objCell = objRow.getCell(6);
-			objCell.setCellValue(rs.getInt("lot_weight")*0.01);
-			objCell = objRow.getCell(8);
-			objCell.setCellValue(rs.getInt("lot_weight")*0.01);
+			if(rs.getString("lot_weight") != null){
+				objCell.setCellValue(rs.getInt("lot_weight")*0.01);
+			} else{
+				objCell.setCellValue(rs.getInt("work_weight")*0.01);
+			}
 			objCell = objRow.getCell(8);
 			objCell.setCellValue(rs.getString("pname"));
 			
@@ -251,9 +330,9 @@
 			objCell = objRow.getCell(14);
 			objCell.setCellValue(rs.getString("t_gb"));
 			
-			beforeLot = lot;
+			//beforeLot = lot;
 
-			int group = rs.getInt("item_cd_group");
+			int group = rs.getInt("new_lot_group");
 		    String barcode = rs.getString("up_barcode");
 
 		    if (!barcodeMap.containsKey(barcode)) {
@@ -265,7 +344,10 @@
 		        }
 		        barcodeMap.put(barcode, new int[]{group, maxIndex + 1});
 		    }
-			
+		    if (barcodeStringBuilder.length() > 0) {
+		        barcodeStringBuilder.append(",");
+		    }
+		    barcodeStringBuilder.append("'").append(barcode).append("'");
 			
 /* 			objRow = objSheet.getRow((short)rsIdx);
 			
@@ -405,8 +487,76 @@
 			
 		} // db조회 후 엑셀매핑
 		
+		for (Map.Entry<String, int[]> entry : barcodeMap.entrySet()) {
+		    String barcode = entry.getKey();
+		    int[] meta = entry.getValue();
+		    if (meta != null) { // meta가 null인 경우 skip
+		        //System.out.println("Barcode: " + barcode + ", Group: " + meta[0] + ", Index: " + meta[1]);
+		    }
+		}
+		//System.out.println(barcodeStringBuilder);
+		String barcodeString = barcodeStringBuilder.length() > 0 ? barcodeStringBuilder.toString() : ""; // barcodeStringBuilder가 비어있는 경우 빈 문자열로 설정
+
+		// 바코드별 강도
+		
+		sql_ms.append("SELECT barcode, inspvalue1, insprange ");
+		sql_ms.append("FROM jqis_if_spc_heat ");
+		sql_ms.append("WHERE 1=1 ");
+		sql_ms.append("AND barcode IN ("+barcodeString+") ");
 		
 		
+		stmt_mssql = conn_mssql.createStatement(
+				ResultSet.TYPE_SCROLL_SENSITIVE,//커서이동방법
+				ResultSet.CONCUR_UPDATABLE //수정가능한 모드
+	    	);
+		rs_mssql = stmt_mssql.executeQuery(sql_ms.toString());
+
+		while(rs_mssql.next()){
+		    
+		    String barcode = rs_mssql.getString("barcode");
+		    if (barcode != null) { // barcode 열이 null인 경우 skip
+		        int[] meta = barcodeMap.get(barcode);
+		        if (meta != null) { // barcode에 대한 값이 없는 경우 skip
+		            objRow = objSheet.getRow(meta[0]+7);
+		            if (objRow != null) { // objRow가 null이 아닌지 체크
+		                objCell = objRow.getCell(15);
+		                if (objCell == null) { // objCell이 null이면 새로 생성
+		                    objCell = objRow.createCell(15);
+		                }
+		                objCell.setCellValue(rs_mssql.getString("insprange"));
+
+		                // meta[1]+15 위치에 셀이 없을 경우 생성합니다.
+		                objCell = objRow.getCell(meta[1]+15);
+		                if (objCell == null) { // objCell이 null이면 새로 생성
+		                    objCell = objRow.createCell(meta[1]+15);
+		                }
+		                objCell.setCellValue(Double.parseDouble(rs_mssql.getString("inspvalue1")));
+		            }
+		        }
+		    }
+		    
+		}
+		
+		for(int i = 7; i < 57; i ++){
+			objRow = objSheet.getRow(i);
+			objCell = objRow.getCell(7);
+		    if (objCell.getCellType() == CellType.FORMULA) {
+		        evaluator.evaluateFormulaCell(objCell);
+		    }
+			objCell = objRow.getCell(31);
+		    if (objCell.getCellType() == CellType.FORMULA) {
+		        evaluator.evaluateFormulaCell(objCell);
+		    }
+			objCell = objRow.getCell(32);
+		    if (objCell.getCellType() == CellType.FORMULA) {
+		        evaluator.evaluateFormulaCell(objCell);
+		    }
+			objCell = objRow.getCell(33);
+		    if (objCell.getCellType() == CellType.FORMULA) {
+		        evaluator.evaluateFormulaCell(objCell);
+		    }
+		}
+		// 비가동
 		delaySql.append(" SELECT hogi, tdatetime, prev_tdatetime, type, detail, ");
 		delaySql.append(" TIME(tdatetime) AS ttime, ");
 		delaySql.append(" TIME(prev_tdatetime) AS prev_ttime, ");
