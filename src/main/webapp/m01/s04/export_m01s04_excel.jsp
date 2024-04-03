@@ -223,7 +223,7 @@
 				
 				Calendar calendar = Calendar.getInstance();
 	            calendar.setTime(endDate);
-	            calendar.add(Calendar.SECOND, +(rs.getInt("since_counter")/10));
+	            calendar.add(Calendar.SECOND, +((rs.getInt("since_counter")/10)+120));
 	            endDate = calendar.getTime();
 	            formattedDate = sdfDisplay.format(endDate);
 	            objCell.setCellValue(formattedDate);
