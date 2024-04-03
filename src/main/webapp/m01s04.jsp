@@ -657,13 +657,13 @@ var fn_logout = function () {
 							
 							
 							<th class="text-center cell" 
-							style=" width: 550px; height: 30px; 
+							style=" width: 700px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								작업일보 보기
 							</th>																																														
 
 							<th class="text-center cell" 
-							style=" width: 550px; height: 30px; 
+							style=" width: 700px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								트렌드 보기
 							</th>
@@ -730,6 +730,11 @@ var fn_logout = function () {
 								style="width: 160px;
 								font-size: 14pt; font-family:headline; font-weight:700">
 								<i class="fa fa-print"></i>  작업일보 생성</button>    						
+	 							<button class="btn btn-default btn-sm" type="button" 
+								onclick="log_print_all();"
+								style="width: 160px;
+								font-size: 14pt; font-family:headline; font-weight:700; margin-left: 100px">
+								<i class="fa fa-print"></i>  일괄 생성</button>    						
 							</c:if>
 
      						<c:if test="${sessionScope.sid == 'worker' }">
@@ -1213,7 +1218,7 @@ var tdate = "";
 	
 /*페이지 로드*/	
  $(function(){
-	
+	 
 /*	fn_check();
 	
 	$.tablesorter.addParser({
@@ -1259,7 +1264,7 @@ var tdate = "";
 		$("#s_sdate").val(tdate);
 		$("#s_ydate").val(ydate);
 	
-	
+		getDayCount();
 });
 
 function date_set(v){
@@ -1534,6 +1539,57 @@ function init(){
 				
 	}
 	
+	
+	var log_print_all = function(){
+		$("#loading").show();
+		//var i_hogi = $("#i_hogi").val();
+		var i_date = $("#s_date").val();
+		//var i_cnt = $("#i_cnt").val();
+		var date = new Date(i_date);
+
+		
+		var i_cnt = $('#lot_contents .nr').map(function() {
+		    return $(this).text();
+		}).get();
+		
+		var i_hogi = ["Q01-HN01", "Q01-HN02", "Q01-HN03", "Q01-HN04", "Q01-HN05", "Q01-HN06"];
+
+		date.setDate(date.getDate() + 1);
+
+		var nextDay = date.toISOString().slice(0, 10);
+		let ajaxCalls = [];
+		
+		
+		for(let i = 0; i < i_hogi.length; i++){
+		    let request = $.ajax({
+		        type: "POST",
+		        url: "m01/s04/export_m01s04_excel.jsp",
+		        cache: false,
+		        dataType: "json",
+		        data: {
+		            'time': new Date().getTime(),
+		            "hogi": i_hogi[i],
+		            "date": i_date,
+		            "cnt": i_cnt[i],
+		            "edate": nextDay
+		        }
+		    });
+
+		    ajaxCalls.push(request);
+		}
+
+		Promise.all(ajaxCalls).then(function(results) {
+		    $("#alertSpan").text("작업일보가 생성되었습니다.");
+		    alertDialog.dialog("open");
+		    $("#loading").hide();
+		    getLotList();
+		}).catch(function(error) {
+		    alert("처리 중 예외가 발생했습니다. 다시 시도해주세요.");
+		});
+		
+	}
+	
+	
 	var getDayCount = function(){
 		//년도를 기준으로 데이터베이스 검색해서 없으면 년도에 대해서 3~8호기 insert
 		$.post("m01/s04/count_m01s04.jsp",{
@@ -1575,14 +1631,14 @@ function init(){
 						listHtml += '<td class="nr4 text-center cell" style=" width: 250px; height: 30px; font-size: 16pt; font-family:headline;" >'+rsAr[i].hogi+'</td>';						
 						//listHtml += '<td class="nr7 text-center cell" style=" width: 350px; height: 30px; font-size: 16pt; font-family:headline;">'+rsAr[i].filename+'</td>';
 						if(rsAr[i].filename != null){
-							listHtml += '<td class="nr7 text-center cell" style=" width: 550px; height: 30px; font-size: 16pt; font-family:headline;">'+
+							listHtml += '<td class="nr7 text-center cell" style=" width: 700px; height: 30px; font-size: 16pt; font-family:headline;">'+
 							'<button type="button" class="btn btn-default" onclick="downFile(\''+ encodeURIComponent(rsAr[i].filename) +'\'); return false; event.stopPropagation();" style="width:160px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-save"></i>파일다운</button>'
 
 							+'</td>';
 						}else{
-							listHtml += '<td class="nr7 text-center cell" style=" width: 550px; height: 30px; font-size: 16pt; font-family:headline;"></td>';							
+							listHtml += '<td class="nr7 text-center cell" style=" width: 700px; height: 30px; font-size: 16pt; font-family:headline;"></td>';							
 						}
-						listHtml += '<td class="nr8 text-center cell" style=" width: 550px; height: 30px; font-size: 16pt; font-family:headline;"><button type="button" id="showTrend" class="btn btn-default"; return false; event.cancelBubble = true; style="width:160px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-search"></i>트렌드 보기</button></td>';
+						listHtml += '<td class="nr8 text-center cell" style=" width: 700px; height: 30px; font-size: 16pt; font-family:headline;"><button type="button" id="showTrend" class="btn btn-default"; return false; event.cancelBubble = true; style="width:160px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-search"></i>트렌드 보기</button></td>';
 						
 						
 						listHtml += "</tr>";						

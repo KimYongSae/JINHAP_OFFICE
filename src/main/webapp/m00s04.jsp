@@ -1797,7 +1797,7 @@ function div_change(value){
 					$("#h3_sp_oil").text(rsAr.oil_sp);	// 유조
 					$("#h3_sp_cp").text(rsAr.cp_sp.toFixed(3)); // cp
 					
-					/* // 퀜칭로 온도범위
+					 // 퀜칭로 온도범위
 					$("#h3_sp_q1_spec").text((rsAr.q1_sp-150)+"~"+(rsAr.q1_sp+50));
 					if((rsAr.q1_pv < rsAr.q1_sp-150) || (rsAr.q1_pv > rsAr.q1_sp+50)){
 						$("#h3_pv_q1_spec").css("background-color", "red");
@@ -1875,7 +1875,7 @@ function div_change(value){
 						$("#h3_sp_cp").css("background-color", "red");
 					} else{
 						$("#h3_sp_cp").css("background-color", "");
-					} */
+					} 
 					
 				} else if (rsJson && rsJson.status == "fail") {
 					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");

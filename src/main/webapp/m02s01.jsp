@@ -241,7 +241,8 @@
 				class="table table-bordered table-hover table-responsive ">
 				<thead>
 					<tr>
-						<th rowspan="2" width="70">설비명</th>
+						<th rowspan="2" width="50">선택</th>
+						<th rowspan="2" width="140">설비명</th>
 						<th rowspan="2" width="200">품번</th>
 						<th rowspan="2" width="300">품명</th>
 						<th rowspan="2" width="100">강종</th>
@@ -266,51 +267,206 @@
 				<!-- <tbody style="display : block; overflow-y: auto;"> -->
 				<tbody id="reg_body" style="font-weight: 600;">
 					<tr>
-						<td><select class="form-control input-sm" id="reg_hogi"
-							name="reg_hogi"
-							style="margin-top: 5px; height: 30px; width: 140px; font-size: 14pt; padding-top: 1px; padding-bottom: 1px; font-family: headline; font-weight: 700;">
-								<!-- <option value="0">전체</option>	 -->
-								<option value="Q01-HN01">Q01-HN01</option>
-								<option value="Q01-HN02">Q01-HN02</option>
-								<option value="Q01-HN03">Q01-HN03</option>
-								<option value="Q01-HN04">Q01-HN04</option>
-								<option value="Q01-HN05">Q01-HN05</option>
-								<option value="Q01-HN06">Q01-HN06</option>
-						</select></td>
+						<td style="text-align: center;">
+						<input type="checkbox" id="insert_chk1" name="insert_chk1" value="1" checked style="transform: scale(2)">
+						</td>
 						<td><input type="text" class="form-control input-sm"
+							id="reg_hogi1" name="reg_hogi1" style="font-family: headline; width:140;"
+							value="Q01-HN01" disabled /></td>
+						<td rowspan="6"><input type="text" class="form-control input-sm"
 							id="reg_pnum" name="reg_pnum" style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
+						<td rowspan="6"><input type="text" class="form-control input-sm"
 							id="reg_pname" name="reg_pname" style="font-family: headline;" />
 						</td>
-						<td><input type="text" class="form-control input-sm"
+						<td rowspan="6"><input type="text" class="form-control input-sm"
 							id="reg_gang" name="reg_gang" style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
+						<td rowspan="6"><input type="text" class="form-control input-sm"
 							id="reg_t_gb" name="reg_t_gb" style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
+						<td rowspan="6"><input type="text" class="form-control input-sm"
 							id="reg_lot" name="reg_lot" style="font-family: headline;" /></td>
 						<td><input type="text" class="form-control input-sm"
-							id="reg_q_temp_jin" name="reg_q_temp_jin"
+							id="reg_q_temp_jin1" name="reg_q_temp_jin1"
 							style="font-family: headline;" /></td>
 						<td><input type="text" class="form-control input-sm"
-							id="reg_t_temp_jin" name="reg_t_temp_jin"
+							id="reg_t_temp_jin1" name="reg_t_temp_jin1"
 							style="font-family: headline;" /></td>
 						<td><input type="text" class="form-control input-sm"
-							id="reg_cp_jin" name="reg_cp_jin" style="font-family: headline;" />
+							id="reg_cp_jin1" name="reg_cp_jin1" style="font-family: headline;" />
 						</td>
 						<td><input type="text" class="form-control input-sm"
-							id="reg_q_temp_ez" name="reg_q_temp_ez"
+							id="reg_q_temp_ez1" name="reg_q_temp_ez1"
 							style="font-family: headline;" /></td>
 						<td><input type="text" class="form-control input-sm"
-							id="reg_t_temp_ez" name="reg_t_temp_ez"
+							id="reg_t_temp_ez1" name="reg_t_temp_ez1"
 							style="font-family: headline;" /></td>
 						<td><input type="text" class="form-control input-sm"
-							id="reg_cp_ez" name="reg_cp_ez" style="font-family: headline;" />
+							id="reg_cp_ez1" name="reg_cp_ez1" style="font-family: headline;" />
 						</td>
 						<td><input type="text" class="form-control input-sm"
-							id="reg_weight" name="reg_weight" style="font-family: headline;" />
+							id="reg_weight1" name="reg_weight1" style="font-family: headline;" />
 						</td>
 						<td><input type="text" class="form-control input-sm"
-							id="reg_hardness" name="reg_hardness"
+							id="reg_hardness1" name="reg_hardness1"
+							style="font-family: headline;" /></td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+						<input type="checkbox" id="insert_chk2" name="insert_chk2" value="1" checked style="transform: scale(2)">
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_hogi2" name="reg_hogi2" style="font-family: headline; width:140;"
+							value="Q01-HN02" disabled /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_q_temp_jin2" name="reg_q_temp_jin2"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_t_temp_jin2" name="reg_t_temp_jin2"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_cp_jin2" name="reg_cp_jin2" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_q_temp_ez2" name="reg_q_temp_ez2"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_t_temp_ez2" name="reg_t_temp_ez2"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_cp_ez2" name="reg_cp_ez2" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_weight2" name="reg_weight2" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_hardness2" name="reg_hardness2"
+							style="font-family: headline;" /></td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+						<input type="checkbox" id="insert_chk3" name="insert_chk3" value="1" checked style="transform: scale(2)">
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_hogi3" name="reg_hogi3" style="font-family: headline; width:140;"
+							value="Q01-HN03" disabled /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_q_temp_jin3" name="reg_q_temp_jin3"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_t_temp_jin3" name="reg_t_temp_jin3"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_cp_jin3" name="reg_cp_jin3" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_q_temp_ez3" name="reg_q_temp_ez3"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_t_temp_ez3" name="reg_t_temp_ez3"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_cp_ez3" name="reg_cp_ez3" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_weight3" name="reg_weight3" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_hardness3" name="reg_hardness3"
+							style="font-family: headline;" /></td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+						<input type="checkbox" id="insert_chk4" name="insert_chk4" value="1" checked style="transform: scale(2)">
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_hogi4" name="reg_hogi4" style="font-family: headline; width:140;"
+							value="Q01-HN04" disabled /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_q_temp_jin4" name="reg_q_temp_jin4"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_t_temp_jin4" name="reg_t_temp_jin4"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_cp_jin4" name="reg_cp_jin4" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_q_temp_ez4" name="reg_q_temp_ez4"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_t_temp_ez4" name="reg_t_temp_ez4"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_cp_ez4" name="reg_cp_ez4" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_weight4" name="reg_weight4" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_hardness4" name="reg_hardness4"
+							style="font-family: headline;" /></td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+						<input type="checkbox" id="insert_chk5" name="insert_chk5" value="1" checked style="transform: scale(2)">
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_hogi5" name="reg_hogi5" style="font-family: headline; width:140;"
+							value="Q01-HN05" disabled /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_q_temp_jin5" name="reg_q_temp_jin5"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_t_temp_jin5" name="reg_t_temp_jin5"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_cp_jin5" name="reg_cp_jin5" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_q_temp_ez5" name="reg_q_temp_ez5"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_t_temp_ez5" name="reg_t_temp_ez5"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_cp_ez5" name="reg_cp_ez5" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_weight5" name="reg_weight5" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_hardness5" name="reg_hardness5"
+							style="font-family: headline;" /></td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+						<input type="checkbox" id="insert_chk6" name="insert_chk6" value="1" checked style="transform: scale(2)">
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_hogi6" name="reg_hogi6" style="font-family: headline; width:140;"
+							value="Q01-HN06" disabled /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_q_temp_jin6" name="reg_q_temp_jin6"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_t_temp_jin6" name="reg_t_temp_jin6"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_cp_jin6" name="reg_cp_jin6" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_q_temp_ez6" name="reg_q_temp_ez6"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_t_temp_ez6" name="reg_t_temp_ez6"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_cp_ez6" name="reg_cp_ez6" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_weight6" name="reg_weight6" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="reg_hardness6" name="reg_hardness6"
 							style="font-family: headline;" /></td>
 					</tr>
 				</tbody>
@@ -332,7 +488,8 @@
 				class="table table-bordered table-hover table-responsive ">
 				<thead>
 					<tr>
-						<th rowspan="2" width="70">설비명</th>
+						<th rowspan="2" width="50">선택</th>
+						<th rowspan="2" width="140">설비명</th>
 						<th rowspan="2" width="200">품번</th>
 						<th rowspan="2" width="300">품명</th>
 						<th rowspan="2" width="100">강종</th>
@@ -356,12 +513,12 @@
 				</thead>
 				<!-- <tbody style="display : block; overflow-y: auto;"> -->
 				<tbody style="font-weight: 600;">
-					<tr>
+					<!-- <tr>
 						<td><select class="form-control input-sm" id="modify_hogi"
 							name="modify_hogi"
 							style="margin-top: 5px; height: 30px; width: 140px; font-size: 14pt; padding-top: 1px; padding-bottom: 1px; font-family: headline; font-weight: 700;"
 							disabled>
-								<!-- <option value="0">전체</option>	 -->
+								<option value="0">전체</option>	
 								<option value="Q01-HN01">Q01-HN01</option>
 								<option value="Q01-HN02">Q01-HN02</option>
 								<option value="Q01-HN03">Q01-HN03</option>
@@ -407,6 +564,209 @@
 							style="font-family: headline;" /></td>
 						<td><input type="text" class="form-control input-sm"
 							id="modify_hardness" name="modify_hardness"
+							style="font-family: headline;" /></td>
+					</tr> -->
+					<tr>
+						<td style="text-align: center;">
+						<input type="checkbox" id="modify_chk1" name="modify_chk1" value="1" style="transform: scale(2)">
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_hogi1" name="modify_hogi1" style="font-family: headline; width:140;"
+							value="Q01-HN01" disabled /></td>
+						<td rowspan="6"><input type="text" class="form-control input-sm"
+							id="modify_pnum" name="modify_pnum" disabled style="font-family: headline;" /></td>
+						<td rowspan="6"><input type="text" class="form-control input-sm"
+							id="modify_pname" name="modify_pname" style="font-family: headline;" />
+						</td>
+						<td rowspan="6"><input type="text" class="form-control input-sm"
+							id="modify_gang" name="modify_gang" disabled style="font-family: headline;" /></td>
+						<td rowspan="6"><input type="text" class="form-control input-sm"
+							id="modify_t_gb" name="modify_t_gb" disabled style="font-family: headline;" /></td>
+						<td rowspan="6"><input type="text" class="form-control input-sm"
+							id="modify_lot" name="modify_lot" style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_q_temp_jin1" name="modify_q_temp_jin1"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_t_temp_jin1" name="modify_t_temp_jin1"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_cp_jin1" name="modify_cp_jin1" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_q_temp_ez1" name="modify_q_temp_ez1"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_t_temp_ez1" name="modify_t_temp_ez1"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_cp_ez1" name="modify_cp_ez1" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_weight1" name="modify_weight1" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_hardness1" name="modify_hardness1"
+							style="font-family: headline;" /></td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+						<input type="checkbox" id="modify_chk2" name="modify_chk2" value="1" style="transform: scale(2)">
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_hogi2" name="modify_hogi2" style="font-family: headline; width:140;"
+							value="Q01-HN02" disabled /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_q_temp_jin2" name="modify_q_temp_jin2"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_t_temp_jin2" name="modify_t_temp_jin2"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_cp_jin2" name="modify_cp_jin2" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_q_temp_ez2" name="modify_q_temp_ez2"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_t_temp_ez2" name="modify_t_temp_ez2"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_cp_ez2" name="modify_cp_ez2" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_weight2" name="modify_weight2" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_hardness2" name="modify_hardness2"
+							style="font-family: headline;" /></td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+						<input type="checkbox" id="modify_chk3" name="modify_chk3" value="1" style="transform: scale(2)">
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_hogi3" name="modify_hogi3" style="font-family: headline; width:140;"
+							value="Q01-HN03" disabled /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_q_temp_jin3" name="modify_q_temp_jin3"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_t_temp_jin3" name="modify_t_temp_jin3"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_cp_jin3" name="modify_cp_jin3" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_q_temp_ez3" name="modify_q_temp_ez3"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_t_temp_ez3" name="modify_t_temp_ez3"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_cp_ez3" name="modify_cp_ez3" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_weight3" name="modify_weight3" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_hardness3" name="modify_hardness3"
+							style="font-family: headline;" /></td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+						<input type="checkbox" id="modify_chk4" name="modify_chk4" value="1" style="transform: scale(2)">
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_hogi4" name="modify_hogi4" style="font-family: headline; width:140;"
+							value="Q01-HN04" disabled /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_q_temp_jin4" name="modify_q_temp_jin4"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_t_temp_jin4" name="modify_t_temp_jin4"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_cp_jin4" name="modify_cp_jin4" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_q_temp_ez4" name="modify_q_temp_ez4"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_t_temp_ez4" name="modify_t_temp_ez4"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_cp_ez4" name="modify_cp_ez4" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_weight4" name="modify_weight4" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_hardness4" name="modify_hardness4"
+							style="font-family: headline;" /></td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+						<input type="checkbox" id="modify_chk5" name="modify_chk5" value="1" style="transform: scale(2)">
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_hogi5" name="modify_hogi5" style="font-family: headline; width:140;"
+							value="Q01-HN05" disabled /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_q_temp_jin5" name="modify_q_temp_jin5"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_t_temp_jin5" name="modify_t_temp_jin5"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_cp_jin5" name="modify_cp_jin5" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_q_temp_ez5" name="modify_q_temp_ez5"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_t_temp_ez5" name="modify_t_temp_ez5"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_cp_ez5" name="modify_cp_ez5" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_weight5" name="modify_weight5" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_hardness5" name="modify_hardness5"
+							style="font-family: headline;" /></td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+						<input type="checkbox" id="modify_chk6" name="modify_chk6" value="1" style="transform: scale(2)">
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_hogi6" name="modify_hogi6" style="font-family: headline; width:140;"
+							value="Q01-HN06" disabled /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_q_temp_jin6" name="modify_q_temp_jin6"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_t_temp_jin6" name="modify_t_temp_jin6"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_cp_jin6" name="modify_cp_jin6" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_q_temp_ez6" name="modify_q_temp_ez6"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_t_temp_ez6" name="modify_t_temp_ez6"
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_cp_ez6" name="modify_cp_ez6" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_weight6" name="modify_weight6" style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="modify_hardness6" name="modify_hardness6"
 							style="font-family: headline;" /></td>
 					</tr>
 				</tbody>
@@ -986,7 +1346,51 @@
 			}
 		}
 
-		function lineRegister() {
+		//var line_register = function(){
+		function lineRegister(){
+
+			
+			let ajaxCalls = [];
+			for(let i = 1; i < 7; i++){
+			    if($("#insert_chk"+i).is(":checked")){
+					let request = $.ajax({
+				    	type : "POST",
+						url : "m02/s01/insert_m02s01.jsp",
+						cache : false,
+						dataType : "text",
+						data : {
+							"hogi" : $("#reg_hogi"+i).val(),
+							"pnum" : $("#reg_pnum").val(),
+							"pname" : $("#reg_pname").val(),
+							"gang" : $("#reg_gang").val(),
+							"t_gb" : $("#reg_t_gb").val(),
+							"lot" : $("#reg_lot").val(),
+							"q_temp_jin" : $("#reg_q_temp_jin"+i).val(),
+							"t_temp_jin" : $("#reg_t_temp_jin"+i).val(),
+							"cp_jin" : $("#reg_cp_jin"+i).val(),
+							"q_temp_ez" : $("#reg_q_temp_ez"+i).val(),
+							"t_temp_ez" : $("#reg_t_temp_ez"+i).val(),
+							"cp_ez" : $("#reg_cp_ez"+i).val(),
+							"weight" : $("#reg_weight"+i).val(),
+							"hardness" : $("#reg_hardness"+i).val()
+				        }
+				    });
+
+			    ajaxCalls.push(request);
+			    }
+			}
+
+			Promise.all(ajaxCalls).then(function(results) {
+				alert("등록 성공");
+				getSelect();
+				getConditionList();
+				registerDialog.dialog("close");
+			}).catch(function(error) {
+				alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
+			});
+			
+		}
+		/* function lineRegister() {
 			$
 					.ajax({
 						type : "POST",
@@ -1028,8 +1432,52 @@
 						},
 
 					});
+		} */
+		function lineModify(){
+
+			
+			let ajaxCalls = [];
+			for(let i = 1; i < 7; i++){
+			    if($("#modify_chk"+i).is(":checked")){
+					let request = $.ajax({
+				    	type : "POST",
+						url : "m02/s01/insert_m02s01.jsp",
+						cache : false,
+						dataType : "text",
+						data : {
+							"hogi" : $("#modify_hogi"+i).val(),
+							"pnum" : $("#modify_pnum").val(),
+							"pname" : $("#modify_pname").val(),
+							"gang" : $("#modify_gang").val(),
+							"t_gb" : $("#modify_t_gb").val(),
+							"lot" : $("#modify_lot").val(),
+							"q_temp_jin" : $("#modify_q_temp_jin"+i).val(),
+							"t_temp_jin" : $("#modify_t_temp_jin"+i).val(),
+							"cp_jin" : $("#modify_cp_jin"+i).val(),
+							"q_temp_ez" : $("#modify_q_temp_ez"+i).val(),
+							"t_temp_ez" : $("#modify_t_temp_ez"+i).val(),
+							"cp_ez" : $("#modify_cp_ez"+i).val(),
+							"weight" : $("#modify_weight"+i).val(),
+							"hardness" : $("#modify_hardness"+i).val()
+				        }
+				    });
+
+			    ajaxCalls.push(request);
+			    }
+			}
+
+			Promise.all(ajaxCalls).then(function(results) {
+				alert("등록 성공");
+				getSelect();
+				getConditionList();
+				modifyDialog.dialog("close");
+			}).catch(function(error) {
+				alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
+			});
+			
 		}
-		function lineModify() {
+		
+		/* function lineModify() {
 			$
 					.ajax({
 						type : "POST",
@@ -1071,7 +1519,7 @@
 						},
 
 					});
-		}
+		} */
 
 		function init() {
 
@@ -1157,20 +1605,24 @@
 			$nr13 = $row.find(".nr13").text();
 			$nr14 = $row.find(".nr14").text();
 
-			$("#modify_hogi").val($nr1);
+			var hogiNum = $nr1.charAt($nr1.length - 1);
+			$('[id^="modify_chk"]').prop('checked', false);
+			$('#modify_chk' + hogiNum).prop('checked', true);
+			
+			// $("#modify_hogi").val($nr1);
 			$("#modify_pnum").val($nr2);
 			$("#modify_pname").val($nr3);
 			$("#modify_gang").val($nr4);
 			$("#modify_t_gb").val($nr5);
 			$("#modify_lot").val($nr6);
-			$("#modify_q_temp_jin").val($nr7);
-			$("#modify_t_temp_jin").val($nr8);
-			$("#modify_cp_jin").val($nr9);
-			$("#modify_q_temp_ez").val($nr10);
-			$("#modify_t_temp_ez").val($nr11);
-			$("#modify_cp_ez").val($nr12);
-			$("#modify_weight").val($nr13);
-			$("#modify_hardness").val($nr14);
+			$("#modify_q_temp_jin"+hogiNum).val($nr7);
+			$("#modify_t_temp_jin"+hogiNum).val($nr8);
+			$("#modify_cp_jin"+hogiNum).val($nr9);
+			$("#modify_q_temp_ez"+hogiNum).val($nr10);
+			$("#modify_t_temp_ez"+hogiNum).val($nr11);
+			$("#modify_cp_ez"+hogiNum).val($nr12);
+			$("#modify_weight"+hogiNum).val($nr13);
+			$("#modify_hardness"+hogiNum).val($nr14);
 
 			//$("#saveBtn").attr("disabled",true);
 
@@ -1208,7 +1660,7 @@
 		registerDialog = $("#regFormDialog").dialog({
 			autoOpen : false,
 			//autoOpen: true,
-			height : 300,
+			height : 550,
 			width : 1600,
 			modal : false,
 			stack : false,
@@ -1229,7 +1681,7 @@
 		modifyDialog = $("#modifyFormDialog").dialog({
 			autoOpen : false,
 			//autoOpen: true,
-			height : 300,
+			height : 550,
 			width : 1600,
 			modal : false,
 			stack : false,

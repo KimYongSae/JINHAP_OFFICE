@@ -40,7 +40,7 @@
 
 	String hogi = (request.getParameter("hogi"));
 	String sdate = request.getParameter("date");
-	String edate = request.getParameter("edate")+" 08:00:00";
+	String edate = request.getParameter("edate");
 	String cnt = request.getParameter("cnt");
 	
 	switch (hogi) {
@@ -69,22 +69,14 @@
     SimpleDateFormat sdfDisplay = new SimpleDateFormat("HH:mm:ss");
     SimpleDateFormat timestampFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     
-    Date lastDate = sdf.parse(edate);
-    
 	Date now = new Date();
 
 	String sFileName = hogi+"호기_작업일보_" +sdf.format(now)+".xlsx";
-	//String sFileName = "1호기_작업일보_" +sdf.format(now)+".xlsx";
 	String fileName = URLEncoder.encode(sFileName, "UTF-8").replaceAll("\\+", "%20");
 	
 	out.clear();
 	out = pageContext.pushBody();
 	response.reset(); 
-
-	/* response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-	String headerValue = String.format("attachment; filename*=UTF-8''%s", fileName);
-	response.setHeader("Content-Disposition", headerValue); */
-
 
 	OutputStream fileOut = null;	
 	
@@ -108,28 +100,6 @@
 	
 	try
 	{	
-		 
-		// 엑셀에 담을 데이터 db에서 조회
-		
-		/* sql.append(" select * from tb_tong_log WHERE ");
-		sql.append(" STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '2024-02-07 08:00:00' AND '2024-02-08 01:00:00' ");
-		//sql.append(" STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '"+sdate+" 08:00:00' AND '"+edate+" 01:00:00' ");
-		sql.append(" and hogi = "+hogi+" "); */
-		
-		/* sql.append("SELECT tb_tong_log.*, tb_recipe_auto1_filtered.* ");
-		sql.append("FROM tb_tong_log ");
-		sql.append("LEFT JOIN ( ");
-		sql.append("    SELECT *, ROW_NUMBER() OVER(PARTITION BY pnum ORDER BY (SELECT NULL)) AS rn ");
-		sql.append("    FROM tb_recipe_auto"+hogi);
-		sql.append(") AS tb_recipe_auto1_filtered ON tb_tong_log.item_cd = tb_recipe_auto1_filtered.pnum AND tb_recipe_auto1_filtered.rn = 1 ");
-		sql.append("WHERE STR_TO_DATE(tb_tong_log.datetiem1, '%Y%m%d%H%i%s') BETWEEN '"+sdate+" 08:00:00' AND '"+edate+" 12:00:00' ");
-		sql.append("AND tb_tong_log.hogi = "+hogi+" ");
-		sql.append("ORDER BY tb_tong_log.datetiem1 ASC;"); */
-		
-/* 		sql.append(" SELECT * FROM v_work"+hogi);
-		sql.append(" WHERE 1=1 ");
-		sql.append(" AND stime BETWEEN '"+sdate+" 08:00:00' AND '"+edate+" 08:00:00'"); */
-		
 		sql.append("SELECT ");
 		sql.append("	SUM(CASE WHEN lot_group != @prev_lot_group THEN 1 ELSE 0 END) OVER (ORDER BY STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') ASC) AS new_lot_group, ");
 		sql.append("   @prev_lot_group := lot_group, ");
@@ -146,11 +116,10 @@
 		sql.append("  FROM (");
 		sql.append("    SELECT ");
 		sql.append("      t.*,");
-		sql.append("      SUM(CASE WHEN lot != @prev_lot OR item_cd != @prev_item_cd THEN 1 ELSE 0 END) OVER (ORDER BY STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') ASC) AS lot_group,");
-		sql.append("      @prev_lot := lot,");
-		sql.append("      @prev_item_cd := item_cd");
+		sql.append("      @group_num := IF(@prev_gubun = '1', @group_num + 1, @group_num) AS lot_group,");
+		sql.append("      @prev_gubun := gubun ");
 		sql.append("    FROM tb_tong_log t");
-		sql.append("    CROSS JOIN (SELECT @prev_lot := NULL, @prev_item_cd := NULL, @prev_lot_group := NULL) AS init");
+		sql.append("    CROSS JOIN (SELECT @group_num := 0,  @prev_gubun := '', @prev_lot_group := NULL) AS init");
 		sql.append("    WHERE hogi = '"+hogi+"' ");
 		sql.append("    AND STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '"+sdate+" 07:00:00' AND '"+edate+" 12:00:00'");
 		sql.append("  ) AS main");
@@ -162,17 +131,12 @@
 		sql.append(" ) AS tra_filtered ON sub.item_cd = tra_filtered.pnum AND tra_filtered.rn = 1");
 		sql.append(" LEFT OUTER JOIN (");
 		sql.append("  SELECT *,");
-		sql.append("    ROW_NUMBER() OVER (PARTITION BY s_bar_time ORDER BY STR_TO_DATE(stime, '%Y%m%d%H%i%s')) AS rn");
+		sql.append("    ROW_NUMBER() OVER (PARTITION BY s_bar_time ORDER BY STR_TO_DATE(stime, '%Y-%m-%d %H:%i:%s')) AS rn");
 		sql.append("  FROM v_work"+hogi+"");
 		sql.append(" ) AS wrk_filtered ON STR_TO_DATE(sub.first_datetiem1_in_group, '%Y-%m-%d %H:%i:%s') = wrk_filtered.s_bar_time AND wrk_filtered.rn = 1");
 		sql.append(" WHERE STR_TO_DATE(sub.first_datetiem1_in_group, '%Y-%m-%d %H:%i:%s') BETWEEN '"+sdate+" 08:00:00' AND '"+edate+" 08:00:00'");
 		sql.append(" ORDER BY STR_TO_DATE(sub.datetiem1, '%Y%m%d%H%i%s') asc;");
 
-
-
-		
-		
-		
 		System.out.println(sql.toString());
 		
 		stmt = conn.createStatement();
@@ -200,19 +164,19 @@
 		
 	
 		// A1 셀에 hogi 값 설정
-		XSSFRow rowA1 = objSheet.getRow(0); // 0은 첫 번째 행을 의미
-		XSSFCell cellA1 = rowA1.getCell(0); // 0은 첫 번째 열(A열)을 의미
-		cellA1.setCellValue(hogi+"호기 작업일보"); // hogi 값 설정
+		XSSFRow rowA1 = objSheet.getRow(0);
+		XSSFCell cellA1 = rowA1.getCell(0);
+		cellA1.setCellValue(hogi+"호기 작업일보");
 
 		// A3 셀에 sdate 값 설정
-		XSSFRow rowA3 = objSheet.getRow(2); // 2는 세 번째 행을 의미
-		XSSFCell cellA3 = rowA3.getCell(0); // 0은 첫 번째 열(A열)을 의미
-		cellA3.setCellValue("작업일자 : "+sdate); // sdate 값 설정
+		XSSFRow rowA3 = objSheet.getRow(2);
+		XSSFCell cellA3 = rowA3.getCell(0);
+		cellA3.setCellValue("작업일자 : "+sdate);
 
 		
 		
-		//int rsIdx = 7;
 		int rsIdx = 7;
+		//int rsIdx = 0;
 		int cIdx = 1;
 		String beforeLot = null;
         Date startDate = null;
@@ -242,6 +206,10 @@
 			 */
 			
 			objRow = objSheet.getRow(rsIdx+rs.getInt("new_lot_group"));
+			 
+			//objRow = objSheet.getRow(rsIdx + 7);
+			 
+			 
 			objCell = objRow.getCell(1);
 			startDate = timestampFormat.parse(rs.getString("first_datetiem1_in_group"));
 			formattedDate = sdfDisplay.format(startDate);
@@ -249,11 +217,13 @@
 			
 			// 종료시간
 			objCell = objRow.getCell(2);
-			if(rs.getString("check_time") != null){
-				endDate = timestampFormat.parse(rs.getString("check_time"));
+			if(rs.getString("since_counter") != null){
+				//endDate = timestampFormat.parse(rs.getString("check_time"));
+				endDate = sdf.parse(rs.getString("datetiem1"));
+				
 				Calendar calendar = Calendar.getInstance();
 	            calendar.setTime(endDate);
-	            calendar.add(Calendar.SECOND, -(rs.getInt("since_counter")/10));
+	            calendar.add(Calendar.SECOND, +(rs.getInt("since_counter")/10));
 	            endDate = calendar.getTime();
 	            formattedDate = sdfDisplay.format(endDate);
 	            objCell.setCellValue(formattedDate);
@@ -348,157 +318,21 @@
 		        barcodeStringBuilder.append(",");
 		    }
 		    barcodeStringBuilder.append("'").append(barcode).append("'");
+		    
 			
-/* 			objRow = objSheet.getRow((short)rsIdx);
-			
-			objCell = objRow.getCell(1);
-			objCell.setCellValue(rs.getString("stime").substring(rs.getString("stime").length() - 8));
-			
-			objCell = objRow.getCell(2);
-			objCell.setCellValue(rs.getString("etime").substring(rs.getString("etime").length() - 8));
-			
-			objCell = objRow.getCell(3);
-			objCell.setCellValue(rs.getString("in_min"));
-			
-			objCell = objRow.getCell(4);
-			objCell.setCellValue(rs.getString("in_cnt"));
-			
-			objCell = objRow.getCell(5);
-			objCell.setCellValue(rs.getInt("weight") * (rs.getInt("in_min") / 60.0 ));
-			System.out.println(rs.getInt("weight"));
-			System.out.println(rs.getInt("in_min"));
-			System.out.println(rs.getInt("weight") * (rs.getInt("in_min") / 60.0 ));
-			
-			objCell = objRow.getCell(6);
-			objCell.setCellValue(rs.getInt("lot_weight")*0.01);
-			
-			objCell = objRow.getCell(8);
-			objCell.setCellValue(rs.getString("pname"));
-			
-			objCell = objRow.getCell(9);
-			objCell.setCellValue(rs.getString("item_cd"));
-			
-			objCell = objRow.getCell(10);
-			objCell.setCellValue(rs.getString("gang"));
-			
-			objCell = objRow.getCell(11);
-			objCell.setCellValue(rs.getDouble("cp_ez"));
-			
-			objCell = objRow.getCell(12);
-			objCell.setCellValue(rs.getString("q_temp_ez"));
-			
-			objCell = objRow.getCell(13);
-			objCell.setCellValue(rs.getString("t_temp_ez"));
-			
-			objCell = objRow.getCell(14);
-			objCell.setCellValue(rs.getString("t_gb"));
-			
-			rsIdx++; */
-			
-			/* 
-			String lot = rs.getString("lot");
-			int tcnt = rs.getInt("tcnt");
-			
-			if(beforeLot != null && !lot.equals(beforeLot)){
-				rsIdx++;
-			}
-			objRow = objSheet.getRow((short)rsIdx);
-			
-			
-			
-			
-			if((beforeLot != null && !lot.equals(beforeLot)) || beforeLot == null){
-				// 시작시간
-				objCell = objRow.getCell(1);
-				startDate = sdf.parse(rs.getString("datetiem1"));
-			    if (lastDate.after(startDate)) {
-			        break;
-			    }
-
-	            String formattedDate = sdfDisplay.format(startDate);
-				objCell.setCellValue(formattedDate);
-								
-				// 장입기준량
-				objCell = objRow.getCell(5);
-				objCell.setCellValue(rs.getInt("weight"));
-				
-				// 품명
-				objCell = objRow.getCell(8);
-				objCell.setCellValue(rs.getString("pname"));
-				// 품번
-				objCell = objRow.getCell(9);
-				objCell.setCellValue(rs.getString("pnum"));
-
-				// 강종
-				objCell = objRow.getCell(10);
-				objCell.setCellValue(rs.getString("gang"));
-				
-				// CP
-				objCell = objRow.getCell(11);
-				objCell.setCellValue(rs.getString("cp_jin"));
-				
-				// 소입온도
-				objCell = objRow.getCell(12);
-				objCell.setCellValue(rs.getString("q_temp_jin"));
-				
-				// 소려온도
-				objCell = objRow.getCell(13);
-				objCell.setCellValue(rs.getString("t_temp_jin"));
-				
-				// T급
-				objCell = objRow.getCell(14);
-				objCell.setCellValue(rs.getString("t_gb"));
-				
-				// 경도규격 조인한 데이터 사용
-				
-				
-				
-			}
-			
-			// 종료시간
-				objCell = objRow.getCell(2);
-				endDate = sdf.parse(rs.getString("datetiem1"));
-	            String formattedDate = sdfDisplay.format(endDate);
-				objCell.setCellValue(formattedDate);
-				
-			// 투입시간(분)
-			
- 	           if (startDate != null && endDate != null) {
-				    long differenceInMillis = endDate.getTime() - startDate.getTime();
-		            long differenceInMinutes = differenceInMillis / (1000 * 60);
-					objCell = objRow.getCell(3);
-					objCell.setCellValue(differenceInMinutes);
-				} // 투입시간
-			
-			// 투입 통수
-			objCell = objRow.getCell(4);
-			objCell.setCellValue(rs.getInt("tcnt"));
-			
-			// LOT 작업중량
-			objCell = objRow.getCell(6);
-			objCell.setCellValue(rs.getInt("weight_sum"));
-			
-			
-			
-			if(tcnt ==1){
-				beforeLot = lot;
-				
-			} */
-			
+		    
 		} // db조회 후 엑셀매핑
 		
 		for (Map.Entry<String, int[]> entry : barcodeMap.entrySet()) {
 		    String barcode = entry.getKey();
 		    int[] meta = entry.getValue();
-		    if (meta != null) { // meta가 null인 경우 skip
-		        //System.out.println("Barcode: " + barcode + ", Group: " + meta[0] + ", Index: " + meta[1]);
+		    if (meta != null) {
 		    }
 		}
-		//System.out.println(barcodeStringBuilder);
-		String barcodeString = barcodeStringBuilder.length() > 0 ? barcodeStringBuilder.toString() : ""; // barcodeStringBuilder가 비어있는 경우 빈 문자열로 설정
+		String barcodeString = barcodeStringBuilder.length() > 0 ? barcodeStringBuilder.toString() : "";
 
 		// 바코드별 강도
-		
+		/*
 		sql_ms.append("SELECT barcode, inspvalue1, insprange ");
 		sql_ms.append("FROM jqis_if_spc_heat ");
 		sql_ms.append("WHERE 1=1 ");
@@ -514,20 +348,20 @@
 		while(rs_mssql.next()){
 		    
 		    String barcode = rs_mssql.getString("barcode");
-		    if (barcode != null) { // barcode 열이 null인 경우 skip
+		    if (barcode != null) {
 		        int[] meta = barcodeMap.get(barcode);
-		        if (meta != null) { // barcode에 대한 값이 없는 경우 skip
+		        if (meta != null) {
 		            objRow = objSheet.getRow(meta[0]+7);
-		            if (objRow != null) { // objRow가 null이 아닌지 체크
+		            if (objRow != null) { 
 		                objCell = objRow.getCell(15);
-		                if (objCell == null) { // objCell이 null이면 새로 생성
+		                if (objCell == null) {
 		                    objCell = objRow.createCell(15);
 		                }
 		                objCell.setCellValue(rs_mssql.getString("insprange"));
 
-		                // meta[1]+15 위치에 셀이 없을 경우 생성합니다.
+		               
 		                objCell = objRow.getCell(meta[1]+15);
-		                if (objCell == null) { // objCell이 null이면 새로 생성
+		                if (objCell == null) {
 		                    objCell = objRow.createCell(meta[1]+15);
 		                }
 		                objCell.setCellValue(Double.parseDouble(rs_mssql.getString("inspvalue1")));
@@ -536,7 +370,7 @@
 		    }
 		    
 		}
-		
+		*/
 		for(int i = 7; i < 57; i ++){
 			objRow = objSheet.getRow(i);
 			objCell = objRow.getCell(7);

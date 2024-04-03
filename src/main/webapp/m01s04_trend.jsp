@@ -179,9 +179,9 @@
     console.log(hogi);
     
     /* var startDate = "2024-02-04"; */
-    var startTime = "08:00";
+    var startTime = "08:00:00";
     /* var endDate = "2024-02-05"; */
-    var endTime = "08:00";
+    var endTime = "08:00:00";
     /* var hogi = "1"; */
 
 	

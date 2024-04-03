@@ -32,7 +32,7 @@
 		while(rs.next()){
 
 			//---------테스트코드
-			rowObj.put("q1_pv", 1000);
+/* 			rowObj.put("q1_pv", 1000);
 			rowObj.put("q2_pv", 1000);
 			rowObj.put("q3_pv", 1000);
 			rowObj.put("q4_pv", 1000);
@@ -46,10 +46,10 @@
 			rowObj.put("t4_pv", 1000);
 			
 			rowObj.put("a_pv", 1000);
-			rowObj.put("cp_pv", 1000);
+			rowObj.put("cp_pv", 1000); */
 			//--------------------
 			
-/* 			rowObj.put("q1_pv", rs.getString("q1_pv"));
+ 			rowObj.put("q1_pv", rs.getString("q1_pv"));
 			rowObj.put("q2_pv", rs.getString("q2_pv"));
 			rowObj.put("q3_pv", rs.getString("q3_pv"));
 			rowObj.put("q4_pv", rs.getString("q4_pv"));
@@ -63,7 +63,7 @@
 			rowObj.put("t4_pv", rs.getString("t4_pv"));
 			
 			rowObj.put("a_pv", rs.getString("a_pv"));
-			rowObj.put("cp_pv", rs.getInt("cp_pv")*0.001); */
+			rowObj.put("cp_pv", rs.getInt("cp_pv")*0.001); 
 
 			rowObj.put("q1_sp", rs.getInt("q1_sp")*0.1);
 			rowObj.put("q2_sp", rs.getInt("q2_sp")*0.1);

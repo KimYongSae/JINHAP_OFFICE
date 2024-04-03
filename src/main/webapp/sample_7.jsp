@@ -282,7 +282,7 @@
 										<div id="collapse4" class="body">
 											<div class="image-container">
 												<img src="resources/img/layout.jpg" class="img-responsive" alt="이미지 설명">
-													<div class="text-overlay" style="top: 10%; left: 10%;">텍스트1</div>
+													<!-- <div class="text-overlay" style="top: 10%; left: 10%;">텍스트1</div>
 													<div class="text-overlay" style="top: 10%; left: 20%;">텍스트2</div>
 													<div class="text-overlay" style="top: 10%; left: 30%;">텍스트3</div>
 													<div class="text-overlay" style="top: 10%; left: 40%;">텍스트4</div>
@@ -290,7 +290,7 @@
 													<div class="text-overlay" style="top: 10%; left: 60%;">텍스트6</div>
 													<div class="text-overlay" style="top: 10%; left: 70%;">텍스트7</div>
 													<div class="text-overlay" style="top: 10%; left: 80%;">텍스트8</div>
-													<div class="text-overlay" style="top: 10%; left: 90%;">텍스트9</div>
+													<div class="text-overlay" style="top: 10%; left: 90%;">텍스트9</div> -->
 											</div>
 
 										</div>
