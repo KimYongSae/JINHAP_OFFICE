@@ -780,6 +780,88 @@
 
 		</form>
 	</div>
+	<div style="display: none;" id="deleteFormDialog" title="삭제">
+		<form class="form-horizontal" id="deleteForm" name="deleteForm"
+			method="post" enctype="multipart/form-data">
+			<table id="temp"
+				class="table table-bordered table-hover table-responsive ">
+				<thead>
+					<tr>
+						<th rowspan="2" width="140">설비명</th>
+						<th rowspan="2" width="200">품번</th>
+						<th rowspan="2" width="300">품명</th>
+						<th rowspan="2" width="100">강종</th>
+						<th rowspan="2" width="70">T급</th>
+						<th rowspan="2" width="130">진합로트</th>
+						<th colspan="3" width="240">참고 기준정보</th>
+						<th colspan="3" width="240">적용 기준정보</th>
+						<th rowspan="2" width="90">기준<br>장입량
+						</th>
+						<th rowspan="2" width="80" style="font-size: 13pt">요구경도</th>
+					</tr>
+					<tr>
+						<th width="80" style="font-size: 13pt">소입온도</th>
+						<th width="80" style="font-size: 13pt">소려온도</th>
+						<th width="80">CP</th>
+						<th width="80" style="font-size: 13pt">소입온도</th>
+						<th width="80" style="font-size: 13pt">소려온도</th>
+						<th width="80">CP</th>
+					</tr>
+
+				</thead>
+				<!-- <tbody style="display : block; overflow-y: auto;"> -->
+				<tbody style="font-weight: 600;">
+					<tr>
+						<td><input type="text" class="form-control input-sm"
+							id="delete_hogi" name="delete_hogi" style="font-family: headline; width:140;"
+							value="Q01-HN01" disabled /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="delete_pnum" name="delete_pnum" disabled style="font-family: headline;" /></td>
+						<td rowspan="6"><input type="text" class="form-control input-sm"
+							id="delete_pname" name="delete_pname" disabled style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="delete_gang" name="delete_gang" disabled style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="delete_t_gb" name="delete_t_gb" disabled style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="delete_lot" name="delete_lot" disabled style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="delete_q_temp_jin" name="delete_q_temp_jin" disabled
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="delete_t_temp_jin" name="delete_t_temp_jin" disabled
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="delete_cp_jin" name="delete_cp_jin" disabled style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="delete_q_temp_ez" name="delete_q_temp_ez" disabled
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="delete_t_temp_ez" name="delete_t_temp_ez" disabled
+							style="font-family: headline;" /></td>
+						<td><input type="text" class="form-control input-sm"
+							id="delete_cp_ez" name="delete_cp_ez" disabled style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="delete_weight" name="delete_weight" disabled style="font-family: headline;" />
+						</td>
+						<td><input type="text" class="form-control input-sm"
+							id="delete_hardness" name="delete_hardness" disabled
+							style="font-family: headline;" /></td>
+					</tr>
+				</tbody>
+
+			</table>
+
+			<div class="text-center">
+				<input type="button" class="btn small btn-primary"
+					onclick="lineDelete();" value="삭제">
+			</div>
+
+		</form>
+	</div>
 
 	<div id="wrap">
 
@@ -896,6 +978,12 @@
 															type="button"
 															style="margin-top: 6px; height: 31px; width: 100px; font-size: 14pt; font-weight: 700; font-family: headline; padding-top: 1px; padding-bottom: 1px;"
 															id="modifyBtn" onclick="modifyDialogOpen();">수정</button>
+													</div>
+													<div class="form-group">
+														<button class="btn btn-default pull-right btn-sm"
+															type="button"
+															style="margin-top: 6px; height: 31px; width: 100px; font-size: 14pt; font-weight: 700; font-family: headline; padding-top: 1px; padding-bottom: 1px;"
+															id="deleteBtn" onclick="deleteDialogOpen();">삭제</button>
 													</div>
 													<div class="form-group">
 														<button class="btn btn-default pull-right btn-sm"
@@ -1083,7 +1171,10 @@
 								var listHtml = "";
 								for (var i = 0; i < rsAr.length; i++) {
 									cntArray[i] = rsAr[i].pnum + rsAr[i].gang
-											+ rsAr[i].t_gb;
+											+ rsAr[i].t_gb + rsAr[i].lot + rsAr[i].q_temp_jin
+											+ rsAr[i].t_temp_jin + rsAr[i].cp_jin + rsAr[i].q_temp_ez
+											+ rsAr[i].t_temp_ez + rsAr[i].cp_ez + rsAr[i].weight
+											+ rsAr[i].hardness;
 									listHtml += "<tr>";
 									listHtml += '<td class="nr1" width = "70px" style = "text-align : center; font-size: 15pt;">'
 											+ rsAr[i].hogi + '</td>';
@@ -1520,6 +1611,46 @@
 
 					});
 		} */
+		function lineDelete() {
+			$
+					.ajax({
+						type : "POST",
+						url : "m02/s01/delete_m02s01.jsp",
+						cache : false,
+						dataType : "text",
+						data : {
+							"hogi" : $("#delete_hogi").val(),
+							"pnum" : $("#delete_pnum").val(),
+							"pname" : $("#delete_pname").val(),
+							"gang" : $("#delete_gang").val(),
+							"t_gb" : $("#delete_t_gb").val(),
+							"lot" : $("#delete_lot").val(),
+							"q_temp_jin" : $("#delete_q_temp_jin").val(),
+							"t_temp_jin" : $("#delete_t_temp_jin").val(),
+							"cp_jin" : $("#delete_cp_jin").val(),
+							"q_temp_ez" : $("#delete_q_temp_ez").val(),
+							"t_temp_ez" : $("#delete_t_temp_ez").val(),
+							"cp_ez" : $("#delete_cp_ez").val(),
+							"weight" : $("#delete_weight").val(),
+							"hardness" : $("#delete_hardness").val()
+						},
+						success : function() {
+							alert("삭제 성공");
+							getSelect();
+							getConditionList();
+							deleteDialog.dialog("close");
+
+						}, // success 끝
+						error : function(req, status) {
+							if (req.status == 0 || status == "timeout") {
+								alert("네트워크 연결 확인 후 다시 시도해주세요.");
+							} else {
+								alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
+							}
+						},
+
+					});
+		}
 
 		function init() {
 
@@ -1587,6 +1718,9 @@
 		function modifyDialogOpen() {
 			modifyDialog.dialog("open");
 		}
+		function deleteDialogOpen() {
+			deleteDialog.dialog("open");
+		}
 
 		$("#conditionList").delegate('tr', 'click', function() {
 
@@ -1623,12 +1757,29 @@
 			$("#modify_cp_ez"+hogiNum).val($nr12);
 			$("#modify_weight"+hogiNum).val($nr13);
 			$("#modify_hardness"+hogiNum).val($nr14);
+			
+			$("#delete_hogi").val($nr1);
+			$("#delete_pnum").val($nr2);
+			$("#delete_pname").val($nr3);
+			$("#delete_gang").val($nr4);
+			$("#delete_t_gb").val($nr5);
+			$("#delete_lot").val($nr6);
+			$("#delete_q_temp_jin").val($nr7);
+			$("#delete_t_temp_jin").val($nr8);
+			$("#delete_cp_jin").val($nr9);
+			$("#delete_q_temp_ez").val($nr10);
+			$("#delete_t_temp_ez").val($nr11);
+			$("#delete_cp_ez").val($nr12);
+			$("#delete_weight").val($nr13);
+			$("#delete_hardness").val($nr14);
 
 			//$("#saveBtn").attr("disabled",true);
 
+			
 			var index = 0;
 			$("#conditionList > tr").each(function() {
-				if ($nr2 + $nr4 + $nr5 == cntArray[index]) {
+				if ($nr2 + $nr4 + $nr5 + $nr6 + $nr7
+						 + $nr8 + $nr9 + $nr10 + $nr11 + $nr12 + $nr13 + $nr14 == cntArray[index]) {
 					$(this).css("background-color", "#B2CCFF");
 				} else {
 					$(this).css("background-color", "#fff");
@@ -1689,6 +1840,23 @@
 				"닫 기" : function() {
 					setTimeout(function() {
 						modifyDialog.dialog("close");
+					});
+				}
+			}
+		});
+		
+		var deleteDialog;
+		deleteDialog = $("#deleteFormDialog").dialog({
+			autoOpen : false,
+			//autoOpen: true,
+			height : 300,
+			width : 1600,
+			modal : false,
+			stack : false,
+			buttons : {
+				"닫 기" : function() {
+					setTimeout(function() {
+						deleteDialog.dialog("close");
 					});
 				}
 			}
