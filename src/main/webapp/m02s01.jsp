@@ -1440,6 +1440,24 @@
 		//var line_register = function(){
 		function lineRegister(){
 
+			let allFieldsFilled = true;
+
+		    for (let i = 1; i <= 6; i++) {
+		    	if ( $("#insert_chk"+i).is(":checked") && 
+		    			(!$("#reg_q_temp_jin" + i).val() || !$("#reg_t_temp_jin" + i).val() ||
+		                !$("#reg_cp_jin" + i).val() || !$("#reg_q_temp_ez" + i).val() ||
+		                !$("#reg_t_temp_ez" + i).val() || !$("#reg_cp_ez" + i).val() ||
+		                !$("#reg_weight" + i).val() || !$("#reg_hardness" + i).val())
+		                ) {
+		            allFieldsFilled = false;
+		            break;
+		        }
+		    }
+
+		    if (!allFieldsFilled) {
+		        alert("모든 기준정보를 입력하세요.");
+		        return;
+		    }
 			
 			let ajaxCalls = [];
 			for(let i = 1; i < 7; i++){
@@ -1526,6 +1544,24 @@
 		} */
 		function lineModify(){
 
+			let allFieldsFilled = true;
+			
+			for (let i = 1; i <= 6; i++) {
+		    	if ( $("#modify_chk"+i).is(":checked") && 
+		    			(!$("#modify_q_temp_jin" + i).val() || !$("#modify_t_temp_jin" + i).val() ||
+		                !$("#modify_cp_jin" + i).val() || !$("#modify_q_temp_ez" + i).val() ||
+		                !$("#modify_t_temp_ez" + i).val() || !$("#modify_cp_ez" + i).val() ||
+		                !$("#modify_weight" + i).val() || !$("#modify_hardness" + i).val())
+		                ) {
+		            allFieldsFilled = false;
+		            break;
+		        }
+		    }
+
+		    if (!allFieldsFilled) {
+		        alert("모든 기준정보를 입력하세요.");
+		        return;
+		    }
 			
 			let ajaxCalls = [];
 			for(let i = 1; i < 7; i++){
@@ -1740,6 +1776,58 @@
 			$nr14 = $row.find(".nr14").text();
 
 			var hogiNum = $nr1.charAt($nr1.length - 1);
+			$.ajax({
+				type : "POST",
+				url : "m02/s01/modify_select_m02s01.jsp",
+				cache : false,
+				dataType : "json",
+				data : {
+					'hogi' : hogiNum,
+					"pnum" : $nr2,
+					"gang" : $nr4,
+					"t_gb" : $nr5
+				},
+				success : function(rsJson) {
+					if (rsJson && rsJson.status == "ok") {
+						var rsAr = rsJson.rows;
+
+						var listHtml = "";
+						for (var i = 0; i < rsAr.length; i++) {
+							
+							$("#modify_q_temp_jin"+rsAr[i].hogi).val(rsAr[i].q_temp_jin);
+							$("#modify_t_temp_jin"+rsAr[i].hogi).val(rsAr[i].t_temp_jin);
+							$("#modify_cp_jin"+rsAr[i].hogi).val(rsAr[i].cp_jin);
+							$("#modify_q_temp_ez"+rsAr[i].hogi).val(rsAr[i].q_temp_ez);
+							$("#modify_t_temp_ez"+rsAr[i].hogi).val(rsAr[i].t_temp_ez);
+							$("#modify_cp_ez"+rsAr[i].hogi).val(rsAr[i].cp_ez);
+							$("#modify_weight"+rsAr[i].hogi).val(rsAr[i].weight);
+							$("#modify_hardness"+rsAr[i].hogi).val(rsAr[i].hardness);
+						
+						}
+
+					} else if (rsJson && rsJson.status == "fail") {
+						alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
+					} else {
+						alert("에러발생!");
+					}
+
+				}, // success 끝
+				error : function(req, status) {
+					if (req.status == 0 || status == "timeout") {
+						alert("네트워크 연결 확인 후 다시 시도해주세요.");
+					} else {
+						alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
+					}
+				},
+
+			});
+			
+			
+			
+			
+			
+			
+			
 			$('[id^="modify_chk"]').prop('checked', false);
 			$('#modify_chk' + hogiNum).prop('checked', true);
 			
