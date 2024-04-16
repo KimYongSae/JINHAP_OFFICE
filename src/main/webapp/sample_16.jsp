@@ -67,2513 +67,882 @@
 	src="resources/js/bootstrap-colorselector.min.js"></script>
 <link rel="stylesheet"
 	href="resources/css/bootstrap-colorselector.min.css">
+	
+<!-- 부트스트랩 토글 -->
+<script type="text/javascript"
+	src="resources/js/bootstrap-toggle.min.js"></script>
+<link rel="stylesheet"
+	href="resources/css/bootstrap-toggle.min.css">
 
 
 <!-- 추가한 부분 end-->
 
 <style>
-
-#loading-image {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	z-index: 100;
-}
-
-@font-face {
-	font-family: "headline";
-	src: url("fonts/headline.TTF") format("ttf");
-	font-style: normal;
-	font-weight: normal;
-}
-
-	.tmp {
-		overflow-x: auto;
-		height: 670px;
+    .flex-center {
+        display: flex;
+        align-items: center;
+        height: 100%;  /* 부모 요소의 높이에 따라 조정 필요 */
+        justify-content: center;
+        padding:0px;
+    }
+    
+    .flex-header{
+	    height:40px; 
+	    background-color: #7f7f7f; 
+	    color: white;
+	    font-weight:bold;
+	    position: sticky;
+	    top: 0;
+	    z-index: 1000;
+    }
+    .form-group{
+    	display: inline-block;
+    	margin:0;
+    }
+    #saveBtn {
+	    position: fixed;
+	    bottom: 10px;
+	    left: 0;
+	    right: 0;
+	    width:100px;
+	    height:50px;
+	    margin: 0 auto;
+	    z-index: 1000;
+	    font-size: 20px;
 	}
-
-	.table {
-		width: auto;
-		table-layout: fixed;
-		
+	input[type="number"] {
+	    text-align: center;
 	}
 	
-	th{
-		text-align: center;
-	}
 	
-	.col1{width:100px}		
-	.col2{width:150px}		
-	.col3{width:100px}		
-	.col_day{width:50px}
-			
-	.col2-1{width:50px}		
-	.col2-2{width:50px}		
-	.col2-3{width:100px}
-	.col2-4{width:100px}
-	.col2-5{width:50px}
-	
-	
-
 </style>
-
-
-<script>
-	function checkTime(i) {
-		if (i < 10) {
-			i = "0" + i
-		}
-		; // add zero in front of numbers < 10 
-		return i;
-	}
-
-	function checkDate(i) {
-		i = i + 1; // to adjust real month
-		return i;
-	}
-
-	// 실시간 날짜 end
-
-	function writeCheck() {
-		var form = document.writeform;
-
-		form.submit();
-	}
-
-	var fn_logout = function() {
-
-		if (!confirm("로그아웃 하시겠습니까?")) {
-			return;
-		}
-
-		$.ajax({
-			method : "POST",
-			url : "logout_ok.jsp",
-			contentType : "application/json; charset=utf-8",
-			data : {
-				'time' : new Date().getTime()
-			},
-			success : function(data) {
-				var rsJson = JSON.parse(data);
-				var rsBoolean = rsJson.isSuccess;
-
-				if (rsBoolean) {
-
-					alert("로그아웃 되었습니다.");
-					location.href = "index.jsp";
-
-				} else {
-
-					alert("로그아웃 처리중 예외가 발생하였습니다.\n다시 시도하여 주시기바랍니다.");
-
-				}
-
-			}
-		});
-	}
-</script>
-
 
 </head>
 
 <body>
-
-
-	<div id="wrap">
-
-		<div id="header">
-			<jsp:include page="/header-menu.jsp" />
-		</div>
-
-
-		<div id="body2">
-			<div id="floater2" style="margin-top: 30px;">
-
-				<jsp:include page="/body-menu.jsp" />
+	<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #5E5F67; padding-top: 10px; padding-bottom: 10px;">		
+		<div class="container">
+			<div class="row">
+				<div class="navbar-header">
+					<img style="padding-top:2px; padding-left:12px;height: 30px;" src="resources/images/jinhap4.gif"/>
+					<h2 style="display: inline-block;">E/PROOF</h2>
+				</div>
+				
 			</div>
-			<div id="contents">
-
-				<div class="content" style="height: 810px;">
-
-
-					<div style="position: relative; left: -275px; top: -185px;">
-
-
-						<div id="room1"
-							style="width: 100%; height: 20px; position: absolute; left: 272px; top: 185px; font-size: 16px; font-weight: 600; color: black;">
-
-
-							<!--Begin Datatables-->
-							<div class="row">
-								<hr class="bread_under">
-								<!-- 월간 -->
-								<div style="width: 100%;" class="col-lg-12">
-									<div class="box">
-										<header>
-											<div style="padding: 11px 14px;" class="icons">
-												<i style="color: white;" class="fa fa-list-alt"></i>
-											</div>
-											<h5 style="font-family: headline; font-size: 14pt;">품질관리
-												- E/PROOF, 열전대 비교검증, CP, CO2 점검 일지</h5>
-										</header>
-										<header style="background:white; height:43px;">
-                <form class="form-inline" role="form" name="searchform" method="post" autocomplete="off">
-						<div class="form-group">
-							<label class="control-label" 
-							style="font-size: 14pt;  font-family:headline;font-weight:700; 
-								color:#8C8C8C; width: 70px; text-align: right;">
-							연도 : </label>
+		</div>
+	</nav>
+	
+	<div style="width: 100%; " class="col-lg-12">
+		<div class="box">
+			<header>
+		        <div style="padding:11px 10px;" class="icons"><i style="color:white;" class="fa fa-list"></i></div>
+	        	<div class="form-group">
+					<label class="control-label" 
+					style="font-size: 14pt;  font-family:headline;font-weight:700; 
+					color:#fff; width: 50px; text-align: right;">
+					호기 : 
+					</label>
+				</div>
+				<div class="form-group">
+					<select class="form-control input-sm" 
+					id="s_hogi" name="s_hogi"
+					style="margin-top:5px; height: 30px; width: 140px; 
+						font-size: 14pt; font-family:headline;font-weight:700;
+						padding-top:1px; padding-bottom:1px;">
+						<option value="1">Q01-HN01</option>
+						<option value="2">Q01-HN02</option>
+						<option value="3">Q01-HN03</option>
+						<option value="4">Q01-HN04</option>
+						<option value="5">Q01-HN05</option>
+						<option value="6">Q01-HN06</option>
+					</select>
+					
+				</div>
+				<div class="form-group">
+					<label class="control-label pdate" id="pdate" 
+					style="font-size: 14pt;  font-family:headline;font-weight:700; 
+					color:#fff;  text-align: right;">
+					
+					</label>
+				</div>
+				
+		    </header>
+    
+			<form>
+				<div class="container body">
+				    <div class="row flex-header">
+				        <div class="col-xs-3 flex-center">
+				            <div>설비</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>점검항목</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <div>F/PROOF</div>
+						        </div>
+					        </div>
 						</div>
-						
-						<div class="form-group">
-							<select class="form-control input-sm" 
-							id="s_year" name="s_year"
-							style="margin-top:5px; height: 30px; width: 160px; 
-								font-size: 14pt; font-family:headline;font-weight:700;
-								padding-top:1px; padding-bottom:1px;">
-							</select>
-						</div>						
-						<div class="form-group">
-							<label class="control-label" 
-							style="font-size: 14pt;  font-family:headline;font-weight:700; 
-								color:#8C8C8C; width: 50px; text-align: right;">
-							월 : </label>
+				    </div>
+				    <div class="row" style="height:82px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소입 1존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과승</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="q1_sh" name="q1_sh">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과냉</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="q1_sc" name="q1_sc">
+						        </div>
+					        </div>
 						</div>
-						
-						<div class="form-group">
-							<select class="form-control input-sm" 
-							id="s_month" name="s_month"
-							style="margin-top:5px; height: 30px; width: 100px;  
-								font-size: 14pt; font-family:headline;font-weight:700;
-								padding-top:1px; padding-bottom:1px;">
-								<option value="1">1월</option>
-								<option value="2">2월</option>
-								<option value="3">3월</option>
-								<option value="4">4월</option>
-								<option value="5">5월</option>
-								<option value="6">6월</option>
-								<option value="7">7월</option>
-								<option value="8">8월</option>
-								<option value="9">9월</option>
-								<option value="10">10월</option>
-								<option value="11">11월</option>
-								<option value="12">12월</option>
-							</select>
-						</div>						
-
-						<div class="form-group">
-							<label class="control-label" 
-							style="font-size: 14pt;  font-family:headline;font-weight:700; 
-								color:#8C8C8C; width: 50px; text-align: right;">
-							구분 : </label>
+				    </div>
+				    <div class="row" style="height:82px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소입 2존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과승</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="q2_sh" name="q2_sh">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과냉</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="q2_sc" name="q2_sc">
+						        </div>
+					        </div>
 						</div>
-						
-						
-						<div class="form-group">
-							<select class="form-control input-sm" 
-							id="s_gubun" name="s_gubun"
-							style="margin-top:5px; height: 30px; width: 160px; 
-								font-size: 14pt; font-family:headline;font-weight:700;
-								padding-top:1px; padding-bottom:1px;">
-								<option value="1">1</option>
-								<option value="2">2</option>
-							</select>
-							
+				    </div>
+				    <div class="row" style="height:82px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소입 3존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과승</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="q3_sh" name="q3_sh">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과냉</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="q3_sc" name="q3_sc">
+						        </div>
+					        </div>
 						</div>
-						
-				</form>
-            </header>
-
-										<div id="collapse4" class="body">
-											
-											<div id="table1" class="tmp">
-												<table class="table table-bordered table-hover">
-													<tr>
-														<th class="col1"></th>
-														<th class="col2">규격<br>(설정값)</th>
-														<th class="col3">점검<br>항목</th>
-														<th class="col_day">1</th>
-														<th class="col_day">2</th>
-														<th class="col_day">3</th>
-														<th class="col_day">4</th>
-														<th class="col_day">5</th>
-														<th class="col_day">6</th>
-														<th class="col_day">7</th>
-														<th class="col_day">8</th>
-														<th class="col_day">9</th>
-														<th class="col_day">10</th>
-														<th class="col_day">11</th>
-														<th class="col_day">12</th>
-														<th class="col_day">13</th>
-														<th class="col_day">14</th>
-														<th class="col_day">15</th>
-														<th class="col_day">16</th>
-														<th class="col_day">17</th>
-														<th class="col_day">18</th>
-														<th class="col_day">19</th>
-														<th class="col_day">20</th>
-														<th class="col_day">21</th>
-														<th class="col_day">22</th>
-														<th class="col_day">23</th>
-														<th class="col_day">24</th>
-														<th class="col_day">25</th>
-														<th class="col_day">26</th>
-														<th class="col_day">27</th>
-														<th class="col_day">28</th>
-														<th class="col_day">29</th>
-														<th class="col_day">30</th>
-														<th class="col_day">31</th>
-													</tr>
-													<tr>
-														<th rowspan="2">소입<br>1존</th>
-														<th rowspan="2">+50 ~ -150℃</th>
-														<th>과승</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>과냉</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="2">소입<br>2존</th>
-														<th rowspan="2">+30 ~ -100℃</th>
-														<th>과승</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>과냉</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="2">소입<br>3존</th>
-														<th rowspan="2">+-10℃</th>
-														<th>과승</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>과냉</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="2">소입<br>4존</th>
-														<th rowspan="2">+-10℃</th>
-														<th>과승</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>과냉</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="2">소입<br>5존</th>
-														<th rowspan="2">+-10℃</th>
-														<th>과승</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>과냉</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="3">유조</th>
-														<th rowspan="2">+10 ~ -30℃</th>
-														<th>과승</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-										
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>과냉</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>유면높이</th>
-														<th>하한</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="3">중간<br>세정기</th>
-														<th rowspan="2">+-10℃</th>
-														<th>과승</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>과냉</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>수면높이</th>
-														<th>하한</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="2">소려<br>1존</th>
-														<th rowspan="2">+20 ~ -150℃</th>
-														<th>과승</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>과냉</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="2">소려<br>2존</th>
-														<th rowspan="2">+20 ~ -30℃</th>
-														<th>과승</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>과냉</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="2">소려<br>3존</th>
-														<th rowspan="2">+-10℃</th>
-														<th>과승</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>과냉</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="2">소려<br>4존</th>
-														<th rowspan="2">설정온도 +-10℃</th>
-														<th>과승</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>과냉</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="2">CP</th>
-														<th rowspan="2">+0.05℃</th>
-														<th>상한</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>하한</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>특이사항</th>
-														<td colspan="34"></td>
-													</tr>
-													<tr>
-														<th>측정결과</th>
-														<td colspan="34"></td>
-													</tr>
-												</table>
-											</div>
-										
-											<div id="table2" class="tmp" style="display:none">
-												<table class="table table-bordered table-hover">
-													<tr>
-														<th class="col2-1">구분</th>
-														<th class="col2-2">위치</th>
-														<th class="col2-3">관리기준</th>
-														<th class="col2-4">규격</th>
-														<th class="col2-5">온도</th>
-														<th class="col_day">1</th>
-														<th class="col_day">2</th>
-														<th class="col_day">3</th>
-														<th class="col_day">4</th>
-														<th class="col_day">5</th>
-														<th class="col_day">6</th>
-														<th class="col_day">7</th>
-														<th class="col_day">8</th>
-														<th class="col_day">9</th>
-														<th class="col_day">10</th>
-														<th class="col_day">11</th>
-														<th class="col_day">12</th>
-														<th class="col_day">13</th>
-														<th class="col_day">14</th>
-														<th class="col_day">15</th>
-														<th class="col_day">16</th>
-														<th class="col_day">17</th>
-														<th class="col_day">18</th>
-														<th class="col_day">19</th>
-														<th class="col_day">20</th>
-														<th class="col_day">21</th>
-														<th class="col_day">22</th>
-														<th class="col_day">23</th>
-														<th class="col_day">24</th>
-														<th class="col_day">25</th>
-														<th class="col_day">26</th>
-														<th class="col_day">27</th>
-														<th class="col_day">28</th>
-														<th class="col_day">29</th>
-														<th class="col_day">30</th>
-														<th class="col_day">31</th>
-													</tr>
-													<tr>
-														<th rowspan="17">소<br>입<br>로</th>
-														<th rowspan="3">1존</th>
-														<th rowspan="3" colspan="2"></th>
-														<th>설정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>지시</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>측정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="3">2존</th>
-														<th rowspan="3" colspan="2"></th>
-														<th>설정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>지시</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>측정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="3">3존</th>
-														<th colspan="2">+- 7.5℃</th>
-														<th>설정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>상한치</th>
-														<th>하한치</th>
-														<th>지시</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th></th>
-														<th></th>
-														<th>측정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="3">4존</th>
-														<th colspan="2">+- 7.5℃</th>
-														<th>설정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>상한치</th>
-														<th>하한치</th>
-														<th>지시</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th></th>
-														<th></th>
-														<th>측정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="3">5존</th>
-														<th colspan="2">+- 7.5℃</th>
-														<th>설정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>상한치</th>
-														<th>하한치</th>
-														<th>지시</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th></th>
-														<th></th>
-														<th>측정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="2">CP</th>
-														<th rowspan="2">+-0.05</th>
-														<th rowspan="2"></th>
-														<th>지시</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>측정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="2">변<br>성<br>로</th>
-														<th>CO2</th>
-														<th>+-0.05</th>
-														<th></th>
-														<th>지시</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>DEW<br>POINT</th>
-														<th>10+-7</th>
-														<th></th>
-														<th>측정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="3" colspan="2">소입유조</th>
-														<th colspan="2">+-7.5℃</th>
-														<th>설정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>상한치</th>
-														<th>하한치</th>
-														<th>지시</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th></th>
-														<th></th>
-														<th>측정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="12">소<br>려<br>로</th>
-														<th rowspan="3">1존</th>
-														<th rowspan="3"></th>
-														<th rowspan="3"></th>
-														<th>설정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>지시</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>측정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="3">2존</th>
-														<th colspan="2">+-7.5℃</th>
-														<th>설정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>상한치</th>
-														<th>하한치</th>
-														<th>지시</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th></th>
-														<th></th>
-														<th>측정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="3">3존</th>
-														<th colspan="2">+-7.5℃</th>
-														<th>설정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>상한치</th>
-														<th>하한치</th>
-														<th>지시</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th></th>
-														<th></th>
-														<th>측정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th rowspan="3">4존</th>
-														<th colspan="2">+-7.5℃</th>
-														<th>설정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th>상한치</th>
-														<th>하한치</th>
-														<th>지시</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th></th>
-														<th></th>
-														<th>측정</th>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-														<td class="col_day"></td>
-													</tr>
-													<tr>
-														<th colspan="2">특이사항</th>
-														<td colspan="34"></th>
-													</tr>
-													<tr>
-														<th colspan="2">측정결과</th>
-														<td colspan="34"></th>
-													</tr>
-												</table>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-
-								<!-- 연간 -->
-
-
-								<!--END TEXT INPUT FIELD-->
-							</div>
+				    </div>
+				    <div class="row" style="height:82px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소입 4존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과승</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="q4_sh" name="q4_sh">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과냉</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="q4_sc" name="q4_sc">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:82px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소입 5존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과승</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="q5_sh" name="q5_sh">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과냉</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="q5_sc" name="q5_sc">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:122px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">유조</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과승</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="oil_sh" name="oil_sh">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과냉</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="oil_sc" name="oil_sc">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>하한</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="oil_min"class="form-control">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:122px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">중간세정기</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과승</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="a_sh" name="a_sh">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과냉</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="a_sc" name="a_sc">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>하한</div>
+						        </div>
+						        <div class="col-xs-7">
+						            <input type="number" id="a_min"class="form-control">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:82px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소려 1존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과승</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="t1_sh" name="t1_sh">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과냉</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="t1_sc" name="t1_sc">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:82px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소려 2존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과승</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="t2_sh" name="t2_sh">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과냉</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="t2_sc" name="t2_sc">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:82px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소려 3존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과승</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="t3_sh" name="t3_sh">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과냉</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="t3_sc" name="t3_sc">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:82px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소려 4존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과승</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="t4_sh" name="t4_sh">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과냉</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="t4_sc" name="t4_sc">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:82px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소려 5존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과승</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="t5_sh" name="t5_sh">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>과냉</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
+						             data-onstyle="success" data-offstyle="danger" id="t5_sc" name="t5_sc">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				</div>
+				<div class="container body">
+				    <div class="row flex-header">
+				        <div class="col-xs-3 flex-center">
+				            <div>설비</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>온도</div>
+						        </div>
+						        <div class="col-xs-7 flex-center">
+						            <div>SAT</div>
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:122px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소입 1존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>설정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="q1_set" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>지시</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="q1_instructions" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>측정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="q1_measurements" class="form-control">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:122px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소입 2존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>설정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="q2_set" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>지시</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="q2_instructions" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>측정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="q2_measurements" class="form-control">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:122px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소입 3존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>설정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="q3_set" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>지시</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="q3_instructions" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>측정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="q3_measurements" class="form-control">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:122px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소입 4존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>설정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="q4_set" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>지시</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="q4_instructions" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>측정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="q4_measurements" class="form-control">
+						        </div>
+					        </div>
 						</div>
 					</div>
-					<!-- content description -->
+				    <div class="row" style="height:122px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소입 5존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>설정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="q5_set" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>지시</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="q5_instructions" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>측정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="q5_measurements" class="form-control">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:82px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">CP</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>지시</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="cp_instructions" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>측정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="cp_measurements" class="form-control">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:42px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">CO2</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>측정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="co2_measurements" class="form-control">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:42px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold; text-align: center;">DEW<br>POINT</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>측정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="dew_measurements" class="form-control">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:122px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소입 유조</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>설정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="oil_set" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>지시</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="oil_instructions" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>측정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="oil_measurements" class="form-control">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:122px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소려 1존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>설정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="t1_set" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>지시</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="t1_instructions" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>측정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="t1_measurements" class="form-control">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:122px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소려 2존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>설정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="t2_set" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>지시</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="t2_instructions" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>측정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="t2_measurements" class="form-control">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:122px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소려 3존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>설정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="t3_set" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>지시</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="t3_instructions" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>측정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="t3_measurements" class="form-control">
+						        </div>
+					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:122px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">소려 4존</div>
+				        </div>
+				        <div class="col-xs-9">
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>설정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="t4_set" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>지시</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="t4_instructions" class="form-control">
+						        </div>
+					        </div>
+					        <div class="row" style="height:40px">
+						        <div class="col-xs-5 flex-center">
+						            <div>측정</div>
+						        </div>
+						        <div class="col-xs-7 ">
+						            <input type="number" id="t4_measurements" class="form-control">
+						        </div>
+					        </div>
+						</div>
+				    </div>
 				</div>
-
-			</div>
-		</div>
-		<!-- 로그인 끝 -->
-		<div id="footer">
-
-			<img src="resources/images/jinhap4.gif" style="height: 30px;" />&nbsp;(주)진합&nbsp;&nbsp;
-			<!-- 써니 로고 -->
-			Copyright 2023. All Rights Reserved.
-
-		</div>
+			</form>
+			
+	   	</div>
+	    <div style="padding:30px">
+	    	<button class="btn btn-primary" type="button" id="saveBtn">저장</button>
+	    </div>
 	</div>
 
-	<script>
-		$(function(){
-			var now = new Date();
-			
-			
-			for(var j=-3; j<1; j++){
-				var y_value = now.getFullYear() + j;
-				$("#s_year").append("<option value='"+y_value+"'>"+y_value+"년</option>");	
-			}
-			
-			$("#s_year").val(now.getFullYear());
-			$("#s_month").val(now.getMonth()+1);
-			
-			
-			
-			
-			
-		});
+<script>
+	function date_search(){
 	
-		$("#s_gubun").change(function(){
-			var selectedTable = $(this).val();
-			
-			$("#table1").hide();
-			$("#table2").hide();
-			
-			$("#table" + selectedTable).show();
-			
-		})		
+		$.ajax({
+			type : "POST",
+			url : "util/lmonitor_date_search.jsp",
+			cache : false,
+			dataType : "json",
+			data : {'time':new Date().getTime()},
+			success : function(rsJson) {
+				if (rsJson && rsJson.status == "ok") {
+					var rsAr = rsJson.rows;
+					
+					$("#pdate").val(rsAr[0].y_date);
+					$("#pdate").text(rsAr[0].y_date);
+					//$("#s_stime").val(rsAr[0].n_time);
+	//				console.log("1:"+$("#s_sdate").val()+", "+$("#s_stime").val());
+					
+					$("#s_edate").val(rsAr[0].n_date);
+					//$("#s_etime").val(rsAr[0].a_time.substring(0,2)+":00:00");	
+					//$("#s_etime").val(rsAr[0].n_time);
+					$("#s_etime").val("08:00:00");
+					
+				} else if (rsJson && rsJson.status == "fail") {
+					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
+				} else {
+					alert("에러발생!");
+				}
+				
+	//			timer = setTimeout(function(){ o.run(); }, o.pollInterval);
+				getChartDataLoad();
+			},	// success 끝
+			error: function(req, status) {
+				if (req.status == 0 || status == "timeout") {
+					alert("네트워크 연결 확인 후 다시 시도해주세요.");
+				} else {
+					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
+				}
+			},
 		
+		});	
+	}
+	
+	$(function(){
+		date_search();
+		
+	})
+	
+	
+	
+</script>
 
-		/*다이얼로그*/
 
-		/*차트 불러오는 함수*/
-	</script>
 
 </body>
 </html>

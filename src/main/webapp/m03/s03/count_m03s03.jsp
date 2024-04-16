@@ -8,16 +8,25 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 
-	String tdate = request.getParameter("tdate");
+	String year = request.getParameter("year");
+	String month = request.getParameter("month");
+	String hogi = request.getParameter("hogi");
+	int gb = Integer.parseInt(request.getParameter("gb"));
 	
 	StringBuffer s_sql = new StringBuffer();
-
+	
 	CallableStatement cstmt = null;
 	
 	try
 	{
-		cstmt = conn.prepareCall("{call sp_sat_file_set(?) }");
-		cstmt.setString(1,tdate);
+		if(gb == 1){
+			cstmt = conn.prepareCall("{call sp_fproof_set(?,?,?) }");
+		} else{
+			cstmt = conn.prepareCall("{call sp_sat_set(?,?,?) }");
+		}
+		cstmt.setInt(1,Integer.parseInt(year));
+		cstmt.setInt(2,Integer.parseInt(month));
+		cstmt.setInt(3,Integer.parseInt(hogi));
 		
 		cstmt.executeUpdate();
 		

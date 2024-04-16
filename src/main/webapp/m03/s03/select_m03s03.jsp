@@ -7,33 +7,23 @@
 <%@include file="../../db/DBConnector.jsp" %>
 
 <%
-	String year1 = request.getParameter("year1");
-	String zone = request.getParameter("zone");
+	String year = request.getParameter("year");
+	String month = request.getParameter("month");
+	String hogi = request.getParameter("hogi");
 	
 	String result = "";
 	StringBuffer sql = new StringBuffer();	 
 	 
 	StringBuffer whereSql = new StringBuffer();
 	 
-	if(!"".equals(year1) && year1 != null){
-		whereSql.append(" AND year1 = '"+year1+"' ");
-	}
-	
-	if(!"".equals(zone) && zone != null){
-		whereSql.append(" AND zone = '"+zone+"' ");
-	}
+	whereSql.append(" WHERE year1 = "+year+" AND month1 = "+month+" AND hogi = "+hogi);
 	
 	JSONObject mainObj = new JSONObject();  
 	 
-	sql.append("SELECT cnt, hogi, zone ");
-		for(int i=1; i<=12; i++){
-			sql.append(",tdate_"+i+", chk_"+i+", filename_"+i+", file_yn_"+i+", memo_"+i+" ");			
-		}
-	
-	sql.append("FROM tb_sat_file ");
-	sql.append("WHERE 1=1 ");
+	sql.append(" SELECT * ");
+	sql.append(" FROM tb_fproof ");
 	sql.append(whereSql.toString());
-	sql.append("ORDER BY hogi, zone ");
+	sql.append(" ORDER BY cnt ");
 
 	Statement stmt = null;
 	ResultSet rs = null;
@@ -53,30 +43,16 @@
 		    		 
 		 			JSONObject rowObj = new JSONObject();
 					rowObj.put("cnt",rs.getInt("cnt"));
+					rowObj.put("year",rs.getString("year1"));
+					rowObj.put("month",rs.getString("month1"));
 					rowObj.put("hogi",rs.getString("hogi"));
-					rowObj.put("zone",rs.getString("zone").replace("/","</br>"));
-//					rowObj.put("y_t",rs.getString("y_top"));
-//					rowObj.put("y_b",rs.getString("y_bottom"));
+					rowObj.put("zone",rs.getString("zone"));
+					rowObj.put("category",rs.getString("category"));
+					rowObj.put("memo",rs.getString("memo"));
 	
-					for(int i=1; i<=12; i++){
-						rowObj.put("tdate_"+i,rs.getString("tdate_"+i));
-						rowObj.put("chk_"+i,rs.getString("chk_"+i));
-						rowObj.put("filename_"+i,rs.getString("filename_"+i));
-						rowObj.put("file_yn_"+i,rs.getString("file_yn_"+i));
-						rowObj.put("memo_"+i,rs.getString("memo_"+i));
-						if("Y".equals(rs.getString("file_yn_"+i))){
-							rowObj.put("color_"+i,"#D9E5FF;");
-						}else{
-							rowObj.put("color_"+i,"#FFFF;");
-						}
-						if("Y".equals(rs.getString("file_yn_"+i))){
-							rowObj.put("color_"+i,"#D9E5FF;");
-						}else{
-							rowObj.put("color_"+i,"#FFFF;");
-						}
+					for(int i=1; i<=31; i++){
+						rowObj.put("day"+i,rs.getString("day"+i));
 					}
-		 			
-					
 					
 					mainArray.add(rowObj);
 		    	 }

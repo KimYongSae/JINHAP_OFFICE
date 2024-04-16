@@ -1,15 +1,16 @@
 <%@ page session="true" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>진합 등대사업</title>
-<link rel="shortcut icon" href="resources/images/jinhap4.gif" type="image/x-icon" />
+<link rel="shortcut icon" href="resources/images/jinhap4.gif"
+	type="image/x-icon" />
 <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-<link rel="stylesheet" href="resources/css/style2.css"/>
+<link rel="stylesheet" href="resources/css/style2.css" />
 <script src="assets/js/jquery-2.1.4.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/jquery-latest.js"></script>
@@ -17,15 +18,16 @@
 <!-- 추가한 부분 start-->
 
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
-<script type="text/javascript" src="resources/js/script.js"></script> 
-<script type="text/javascript" src="resources/js/jquery.color-2.1.2.min.js"></script>
+<script type="text/javascript" src="resources/js/script.js"></script>
+<script type="text/javascript"
+	src="resources/js/jquery.color-2.1.2.min.js"></script>
 <script type="text/javascript" src="resources/js/menu_min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="resources/css/menu-css.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/style.css" />
 
 <!-- 데이트피커 사용 -->
-<script src="resources/js/moment.min.js"></script> 
+<script src="resources/js/moment.min.js"></script>
 <script src="resources/js/bootstrap-datetimepicker.min.js"></script>
 <script src="resources/js/menu.js"></script>
 <script src="resources/js/jquery-ui.js" /></script>
@@ -39,15 +41,15 @@
 <link rel="stylesheet" href="resources/css/font-awesome.css">
 
 
-<link rel="stylesheet" href="resources/css/table_font_size.css"/>
+<link rel="stylesheet" href="resources/css/table_font_size.css" />
 
 <!-- 풀캘린더 사용 -->
-<link rel="stylesheet" type="text/css" href="resources/css/fullcalendar.css"/>
+<link rel="stylesheet" type="text/css"
+	href="resources/css/fullcalendar.css" />
 
 <!-- Load D3 -->
 <script src="resources/js/d3.min.js"></script>
- 
- 
+
 <!-- Load billboard.js with base style -->
 <link rel="stylesheet" href="resources/css/billboard3.css">
 <link rel="stylesheet" href="resources/css/insight.css">
@@ -55,437 +57,186 @@
 
 
 <!-- datepicker에 있는 timepicker 추가기능 -->
-<link rel="stylesheet" href="resources/css/jquery-ui-timepicker-addon.css">
+<link rel="stylesheet"
+	href="resources/css/jquery-ui-timepicker-addon.css">
 <script src="resources/js/jquery-ui-timepicker-addon.js"></script>
 
 
 <!-- 컬러셀렉터 -->
-<script type="text/javascript" src="resources/js/bootstrap-colorselector.min.js"></script>
-<link rel="stylesheet" href="resources/css/bootstrap-colorselector.min.css"> 
+<script type="text/javascript"
+	src="resources/js/bootstrap-colorselector.min.js"></script>
+<link rel="stylesheet"
+	href="resources/css/bootstrap-colorselector.min.css">
 
 
 <!-- 추가한 부분 end-->
 
 <style>
-.scrolltbody {
-    display: block;
-    width: 1900px;
-    border-collapse: collapse;
-    border: 0px solid #000;
+
+#loading-image {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 100;
 }
 
-.scrolltbody td { border: 1px solid #000; border-top: 0;}
-
-
-.scrolltbody tbody {
-    display: block;
-    height: 610px;
-
-    overflow-x: hidden;
+@font-face {
+	font-family: "headline";
+	src: url("fonts/headline.TTF") format("ttf");
+	font-style: normal;
+	font-weight: normal;
 }
 
-/*값 보여주는곳에서 코멘트목록 사용*/
-.scrolltbody2 {
-    display: block;
-    width: 400px;
-    border-collapse: collapse;
-    border: 0px solid #000;
-}
+	.tmp {
+		overflow: auto;
+		height: 670px;
+	}
 
-.scrolltbody2 td { border: 1px solid #000; border-top: 0;}
-
-.scrolltbody2 thead {
-    display: block;
-	width: 400px;
-    overflow-x: hidden;
-}
-
-
-.scrolltbody2 tbody {
-    display: block;
-    width: 400px;
-    height: 321px;
-
-    overflow-x: hidden;
-}
-/*태그목록 사용*/
-.scrolltbody3 {
-    display: block;
-    width: 400px;
-    border-collapse: collapse;
-    border: 0px solid #000;
-}
-
-.scrolltbody3 td { border: 1px solid #000; border-top: 0;}
-
-.scrolltbody3 thead {
-    display: block;
-	width: 400px;
-    overflow-x: hidden;
-}
-
-.scrolltbody3 tbody {
-    display: block;
-    width: 400px;
-    height: 220px;
-
-    overflow-x: hidden;
-}
-
-
-	.dropdown-colorselector {
-		display:inline-block;
-		padding-left:10px;
-	} 
-	
-	#loading-image {  
-	 position: absolute;  
-	 top: 50%;  
-	 left: 50%; 
-	 z-index: 100; 
-	}	
-	
-[aria-describedby="image-form"]{
-	z-index:20000 !important;
-}
-	
-	@font-face{
-		font-family:"headline";
-		src:url("fonts/headline.TTF") format("ttf");
-		font-style:normal;
-		font-weight:normal;
-	}		
-	table th{
-	background-color: #122d64 !important;
-	color:#FFFFFF;
-	border-color: #FFFFFF !important;
-	text-align: center;
-	font-size: 16pt;
-	font-family: headline;
-	font-weight: 700;
+	.table {
+		display: block; /* 테이블을 블록 레벨 요소로 변경 */
+		width: 100%; /* 테이블 너비 */
+	  	table-layout: fixed; /* 열 너비 고정 */
+	 	border-collapse: collapse;
+		
+	}
+	thead {
+	  display: block; /* 헤더를 블록 요소로 변경 */
+	}
+	tbody {
+	  display: block; /* 본문을 블록 요소로 변경 */
+	  height: 600px; /* 본문 영역의 높이 (670px에서 헤더 높이만큼 뺌) */
+	  overflow: auto; /* 본문 영역에 스크롤바 표시 */
+	}
+	th, td {
+	  padding: 5px; /* 셀 안쪽 여백 */
+	  text-align: center; /* 셀 내용 가운데 정렬 */
 	}
 	
+	.col1{width:70px}		
+	.col2{width:150px}		
+	.col3{width:100px}		
+	.col_day{width:46px}
+			
+	.col2-1{width:50px}		
+	.col2-2{width:70px}		
+	.col2-3{width:80px}
+	.col2-4{width:80px}
+	.col2-5{width:50px}
+	
+	table thead th {
+		background-color: #122d64 !important;
+		color:#FFFFFF;
+		border-color: #FFFFFF !important;
+	}
+
 </style>
 
-	
+
 <script>
-
-function checkTime(i) {
-if (i<10) {i = "0" + i};  // add zero in front of numbers < 10 
-	return i;
-}
-
-function checkDate(i) {
- 	i = i+1 ;  // to adjust real month
-   	return i;
-}
-
-// 실시간 날짜 end
-
-function writeCheck()
-  {
-   var form = document.writeform;
-  
-  form.submit();
-  }
-var fn_logout = function () {
-	
-	if (!confirm("로그아웃 하시겠습니까?")) {
-		return;
+	function checkTime(i) {
+		if (i < 10) {
+			i = "0" + i
+		}
+		; // add zero in front of numbers < 10 
+		return i;
 	}
-	
-	$.ajax({
-		 method: "POST",
-		 url: "logout_ok.jsp",
-		 contentType: "application/json; charset=utf-8",
-		 data: {'time':new Date().getTime()},
-		 success : function(data) {
-			var rsJson = JSON.parse(data);
-			var rsBoolean = rsJson.isSuccess;
-			
-			if (rsBoolean) {
-				
-				alert("로그아웃 되었습니다.");
-				location.href="index.jsp";
-				
-			} else {
-				
-				alert("로그아웃 처리중 예외가 발생하였습니다.\n다시 시도하여 주시기바랍니다.");
-				
-			}
-			
-		 }
-	});
-}
 
+	function checkDate(i) {
+		i = i + 1; // to adjust real month
+		return i;
+	}
+
+	// 실시간 날짜 end
+
+	function writeCheck() {
+		var form = document.writeform;
+
+		form.submit();
+	}
+
+	var fn_logout = function() {
+
+		if (!confirm("로그아웃 하시겠습니까?")) {
+			return;
+		}
+
+		$.ajax({
+			method : "POST",
+			url : "logout_ok.jsp",
+			contentType : "application/json; charset=utf-8",
+			data : {
+				'time' : new Date().getTime()
+			},
+			success : function(data) {
+				var rsJson = JSON.parse(data);
+				var rsBoolean = rsJson.isSuccess;
+
+				if (rsBoolean) {
+
+					alert("로그아웃 되었습니다.");
+					location.href = "index.jsp";
+
+				} else {
+
+					alert("로그아웃 처리중 예외가 발생하였습니다.\n다시 시도하여 주시기바랍니다.");
+
+				}
+
+			}
+		});
+	}
 </script>
 
 
 </head>
 
-<body onload="init();" data-offset="60" data-target=".navbar">
-		<div id="alert-form" style="display:none;" title="확인창">
-			<span id="alertSpan"></span>
-		</div>
+<body>
 
-		<div id="confirm-form" style="display:none;" title="확인창">
-			<span id="confirmSpan"></span>
-		</div>	
 
-		<div id="chk-form" style="display:none;" title="합격/불합격 판정">
-			<form class="form-inline" role="form" id="chkform" name="chkform" method="post" autocomplete="off">
-					<div class="form-group">
-						<label class="control-label" 
-						style="font-size: 14pt; color:#8C8C8C; width: 30px; text-align: right;
-						margin-left:80px;">
-            				<input style="width:30px;height:30px;" type="checkbox" checked="checked" 
-            				id="c_chk_y" name="c_chk" value="합격">
-          				</label>					
-					
-						<label class="control-label" 
-						style="font-size: 14pt; font-family:headline; font-weight:700; 
-						width: 70px; ">합격</label>
-						
-						<label class="control-label" 
-						style="font-size: 14pt; color:#8C8C8C; width: 30px; text-align: right;">
-            				<input style="width:30px;height:30px;" type="checkbox" 
-            				id="c_chk_n" name="c_chk" value="불합격">
-          				</label>
-          				
-						<label class="control-label" 
-						style="font-size: 14pt; font-family:headline; font-weight:700; 
-						width: 70px; ">불합격</label> 
-					</div>			
-				</form>
-					<input type="hidden" id="c_cnt" name="c_cnt" />
-					<input type="hidden" id="c_gb" name="c_gb" />
+	<div id="wrap">
+
+		<div id="header">
+			<jsp:include page="/header-menu.jsp" />
 		</div>
 
 
-		<div id="tdate-form" style="display:none;" title="측정일 등록">
-			<form class="form-inline" role="form" id="dateform" name="dateform" method="post" autocomplete="off">
-					<div class="form-group">
-						<label class="control-label" 
-						style="font-size: 14pt;  font-family:headline; font-weight:700; 
-							color:#8C8C8C; width: 80px; text-align: right;">
-						측정일: </label>
-					</div>
-					
-					
-					<div class="form-group">
-						<input type="text" class="form-control input-sm datepicker" 
-						id="t_date" name="t_date" 
-	     					style="width: 140px; height: 34px; 
-	     					font-size: 14pt; font-family :headline; font-weight:700;" 
-	     					placeholder="측정일"/>
-					</div>			
-				</form>
-					<input type="hidden" id="t_cnt" name="t_cnt" />
-					<input type="hidden" id="t_gb" name="t_gb" />
-		</div>
+		<div id="body2">
+			<div id="floater2" style="margin-top: 30px;">
 
-		<div style="display:none;" id="file-form" title="파일 첨부" >
-			<form class="form-horizontal" id="upload" name="upload" method="post" enctype="multipart/form-data">
-				<table>
-					<tr><td colspan="2"> <b>**주의사항**</b></td></tr>
-					<tr><td colspan="2">*PDF, 엑셀파일만 업로드 가능합니다.</td></tr>
-					<tr height="5"><td></td></tr>
-					<tr>
-					<td>
-						<input type="hidden" id="filePath" class="file_input_textbox" readonly="readonly">
-						<input type="hidden" id="import_cnt" name="import_cnt" class="file_input_textbox" readonly="readonly">
-						<input type="hidden" id="import_gb" name="import_gb" class="file_input_textbox" readonly="readonly">
-						
-						<div class="file_input_div">
-							<input type="file" id="file" name="file" class="file_input_hidden form-control" onchange="javascript:document.getElementById('filePath').value = this.value" />
-						</div>
-					</td>
-					</tr>
-					<tr height="5"><td></td></tr>
-					<tr>
-					<td colspan="2" align="center">
-					<input type="button" class="btn small btn-primary" onclick="file_import();" value="전송">
-					</td>
-					</tr>
-				</table>
-			</form>			
-		</div>
-		
-		<div style="display:none;" id="file-form_bungi" title="파일 첨부" >
-			<form class="form-horizontal" id="upload_bungi" name="upload_bungi" method="post" enctype="multipart/form-data">
-				<table>
-					<tr><td colspan="2"> <b>**주의사항**</b></td></tr>
-					<tr><td colspan="2">*PDF, 엑셀파일만 업로드 가능합니다.</td></tr>
-					<tr height="5"><td></td></tr>
-					<tr>
-					<td>
-						<input type="hidden" id="filePath_bungi" class="file_input_textbox" readonly="readonly">
-						<input type="hidden" id="import_cnt_bungi" name="import_cnt_bungi" class="file_input_textbox" readonly="readonly">
-						<input type="hidden" id="import_gb_bungi" name="import_gb_bungi" class="file_input_textbox" readonly="readonly">
-						
-						<div class="file_input_div">
-							<input type="file" id="file_bungi" name="file_bungi" class="file_input_hidden form-control" onchange="javascript:document.getElementById('filePath_bungi').value = this.value" />
-						</div>
-					</td>
-					</tr>
-					<tr height="5"><td></td></tr>
-					<tr>
-					<td colspan="2" align="center">
-					<input type="button" class="btn small btn-primary" onclick="file_import_bungi();" value="전송">
-					</td>
-					</tr>
-				</table>
-			</form>			
-		</div>
-		
-		
-		<div style="display:none;" id="image-form" title="파일 미리보기" >
-			<iframe id="image_view" style="width:100%; height:100%; display:none;" > 
-			
-			</iframe>			
-		</div>
+				<jsp:include page="/body-menu.jsp" />
+			</div>
+			<div id="contents">
 
-		<div id="memo-form" style="display:none;" title="메모등록">
-			<form class="form-inline" role="form" id="memoform" name="memoform" 
-			method="post" autocomplete="off">
-					<div class="form-group">
-						<label class="control-label" 
-						style="font-size: 14pt;  font-family:headline; font-weight:700; 
-							color:#8C8C8C; width: 60px; text-align: right;">
-						메모: </label>
-					</div>
-					
-					<div class="form-group">
-						<input type="text" class="form-control input-sm" 
-						id="m_memo" name="m_memo" 
-	     					style="width: 280px; height: 34px; 
-	     					font-size: 14pt; font-family :headline; font-weight:700;" 
-	     					placeholder="메모"/>
-					</div>			
-				</form>
-					<input type="hidden" id="m_cnt" name="m_cnt" />
-					<input type="hidden" id="m_gb" name="m_gb" />
-		</div>
-
-		<div id="chk-form_bungi" style="display:none;" title="합격/불합격 판정">
-			<form class="form-inline" role="form" id="chkform_bungi" name="chkform_bungi" method="post" autocomplete="off">
-					<div class="form-group">
-						<label class="control-label" 
-						style="font-size: 14pt; color:#8C8C8C; width: 30px; text-align: right;
-						margin-left:80px;">
-            				<input style="width:30px;height:30px;" type="checkbox" checked="checked" 
-            				id="c_chk_y_bungi" name="c_chk_bungi" value="합격">
-          				</label>					
-					
-						<label class="control-label" 
-						style="font-size: 14pt; font-family:headline; font-weight:700; 
-						width: 70px; ">합격</label>
-						
-						<label class="control-label" 
-						style="font-size: 14pt; color:#8C8C8C; width: 30px; text-align: right;">
-            				<input style="width:30px;height:30px;" type="checkbox" 
-            				id="c_chk_n_bungi" name="c_chk_bungi" value="불합격">
-          				</label>
-          				
-						<label class="control-label" 
-						style="font-size: 14pt; font-family:headline; font-weight:700; 
-						width: 70px; ">불합격</label> 
-					</div>			
-				</form>
-					<input type="hidden" id="c_cnt_bungi" name="c_cnt_bungi" />
-					<input type="hidden" id="c_gb_bungi" name="c_gb_bungi" />
-		</div>
+				<div class="content" style="height: 810px;">
 
 
-		<div id="tdate-form_bungi" style="display:none;" title="측정일 등록">
-			<form class="form-inline" role="form" id="dateform_bungi" name="dateform_bungi" method="post" autocomplete="off">
-					<div class="form-group">
-						<label class="control-label" 
-						style="font-size: 14pt;  font-family:headline; font-weight:700; 
-							color:#8C8C8C; width: 80px; text-align: right;">
-						측정일: </label>
-					</div>
-					
-					
-					<div class="form-group">
-						<input type="text" class="form-control input-sm datepicker" 
-						id="t_date_bungi" name="t_date_bungi" 
-	     					style="width: 140px; height: 34px; 
-	     					font-size: 14pt; font-family :headline; font-weight:700;" 
-	     					placeholder="측정일"/>
-					</div>			
-				</form>
-					<input type="hidden" id="t_cnt_bungi" name="t_cnt_bungi" />
-					<input type="hidden" id="t_gb_bungi" name="t_gb_bungi" />
-		</div>
+					<div style="position: relative; left: -275px; top: -185px;">
 
 
-		<div id="memo-form_bungi" style="display:none;" title="메모등록">
-			<form class="form-inline" role="form" id="memoform_bungi" name="memoform_bungi" 
-			method="post" autocomplete="off">
-					<div class="form-group">
-						<label class="control-label" 
-						style="font-size: 14pt;  font-family:headline; font-weight:700; 
-							color:#8C8C8C; width: 60px; text-align: right;">
-						메모: </label>
-					</div>
-					
-					<div class="form-group">
-						<input type="text" class="form-control input-sm" 
-						id="m_memo_bungi" name="m_memo_bungi" 
-	     					style="width: 280px; height: 34px; 
-	     					font-size: 14pt; font-family :headline; font-weight:700;" 
-	     					placeholder="메모"/>
-					</div>			
-				</form>
-					<input type="hidden" id="m_cnt_bungi" name="m_cnt_bungi" />
-					<input type="hidden" id="m_gb_bungi" name="m_gb_bungi" />
-		</div>
+						<div id="room1"
+							style="width: 100%; height: 20px; position: absolute; left: 272px; top: 185px; font-size: 16px; font-weight: 600; color: black;">
 
-		
-		<div id="confirm-form_bungi" style="display:none;" title="확인창">
-			<span id="confirmSpan_bungi"></span>
-		</div>	
 
-<div id="wrap">
-
-    <div id="header">
-		<jsp:include page="header-menu.jsp"/>
-	</div>
-
-	
-	<div id="body2">
-	<div id="floater2" style="margin-top:30px;">
-		
-		<jsp:include page="body-menu.jsp"/>
-	</div>
-	<div id="contents">
-        
-<div class="content" style="height:800px;"> 
-
-	
-	  <div style="position:relative;left:-275px;top:-185px;">
-	  
-	  
-   <div id="room1" style="width:100%; height:20px; position:absolute; left:272px; top:185px; font-size:16px; font-weight:600; color:black;">  
-   
-				
-				                            <!--Begin Datatables-->
-<div class="row">
-            <hr class="bread_under">
-  <div style="width: 100%; " class="col-lg-12">
-        <div class="box">
-            <header>
-                <div style="padding:11px 14px;" class="icons"><i style="color:white;" class="fa fa-list"></i></div>
-                <h5 style="font-size:14pt; font-family:headline;">품질관리 - 열전대 비교측정</h5>
-            </header>
-            <header style="background:white; height:43px;">
+							<!--Begin Datatables-->
+							<div class="row">
+								<hr class="bread_under">
+								<!-- 월간 -->
+								<div style="width: 100%;" class="col-lg-12">
+									<div class="box">
+										<header>
+											<div style="padding: 11px 14px;" class="icons">
+												<i style="color: white;" class="fa fa-list-alt"></i>
+											</div>
+											<h5 style="font-family: headline; font-size: 14pt;">품질관리
+												- E/PROOF, 열전대 비교검증, CP, CO2 점검 일지</h5>
+										</header>
+										<header style="background:white; height:43px;">
                 <form class="form-inline" role="form" name="searchform" method="post" autocomplete="off">
 						<div class="form-group">
 							<label class="control-label" 
 							style="font-size: 14pt;  font-family:headline;font-weight:700; 
 								color:#8C8C8C; width: 70px; text-align: right;">
-							기간 : </label>
+							연도 : </label>
 						</div>
 						
 						<div class="form-group">
@@ -496,1725 +247,2809 @@ var fn_logout = function () {
 								padding-top:1px; padding-bottom:1px;">
 							</select>
 						</div>						
-						 			
+						<div class="form-group">
+							<label class="control-label" 
+							style="font-size: 14pt;  font-family:headline;font-weight:700; 
+								color:#8C8C8C; width: 50px; text-align: right;">
+							월 : </label>
+						</div>
+						
+						<div class="form-group">
+							<select class="form-control input-sm" 
+							id="s_month" name="s_month"
+							style="margin-top:5px; height: 30px; width: 100px;  
+								font-size: 14pt; font-family:headline;font-weight:700;
+								padding-top:1px; padding-bottom:1px;">
+								<option value="1">1월</option>
+								<option value="2">2월</option>
+								<option value="3">3월</option>
+								<option value="4">4월</option>
+								<option value="5">5월</option>
+								<option value="6">6월</option>
+								<option value="7">7월</option>
+								<option value="8">8월</option>
+								<option value="9">9월</option>
+								<option value="10">10월</option>
+								<option value="11">11월</option>
+								<option value="12">12월</option>
+							</select>
+						</div>						
+
+						<div class="form-group">
+							<label class="control-label" 
+							style="font-size: 14pt;  font-family:headline;font-weight:700; 
+								color:#8C8C8C; width: 50px; text-align: right;">
+							구분 : </label>
+						</div>
+						
+						
+						<div class="form-group">
+							<select class="form-control input-sm" 
+							id="s_gubun" name="s_gubun"
+							style="margin-top:5px; height: 30px; width: 160px; 
+								font-size: 14pt; font-family:headline;font-weight:700;
+								padding-top:1px; padding-bottom:1px;">
+								<option value="1">F/PROOF</option>
+								<option value="2">SAT</option>
+							</select>
+							
+						</div>
+						<div class="form-group">
+							<label class="control-label" 
+							style="font-size: 14pt;  font-family:headline;font-weight:700; 
+								color:#8C8C8C; width: 50px; text-align: right;">
+							설비 : </label>
+						</div>
+						
+						
+						<div class="form-group">
+							<select class="form-control input-sm" 
+							id="s_hogi" name="s_hogi"
+							style="margin-top:5px; height: 30px; width: 160px; 
+								font-size: 14pt; font-family:headline;font-weight:700;
+								padding-top:1px; padding-bottom:1px;">
+								<option value="1">Q01-HN01</option>
+								<option value="2">Q01-HN02</option>
+								<option value="3">Q01-HN03</option>
+								<option value="4">Q01-HN04</option>
+								<option value="5">Q01-HN05</option>
+								<option value="6">Q01-HN06</option>
+							</select>
+							
+						</div>
+						
 				</form>
             </header>
-            <div id="collapse4" class="body">
-            	<div id="tus_before">
-	               <table id="tus_list" cellspacing="0" 
-	               class="table table-bordered table-responsive scrolltbody">
-						<thead>
-							<tr>
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 80px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									설비명
-								</th>
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 100px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									로
-								</th>
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 120px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									1월
-								</th>
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 120px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									2월
-								</th>
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 120px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									3월
-								</th>
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 120px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									4월
-								</th>
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 120px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									5월
-								</th>
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 120px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									6월
-								</th>
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 120px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									7월
-								</th>																																			
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 120px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									8월
-								</th>						
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 120px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									9월
-								</th>						
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 120px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									10월
-								</th>						
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 120px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									11월
-								</th>						
-								<th class="text-center cell" 
-								style="background-color:#36FFFF; width: 120px; height: 30px; 
-								font-size: 16pt; font-family:headline;">
-									12월
-								</th>						
-							
-							</tr>
-							
-						</thead>
-						<tbody id="tus_contents">
-						
-						</tbody>
-					</table>
+
+										<div id="collapse4" class="body">
+											
+											<div id="table1" class="tmp">
+												<table class="table table-bordered table-hover">
+													<thead>
+													<tr>
+														<th class="col1"></th>
+														<th class="col2">규격<br>(설정값)</th>
+														<th class="col3">점검<br>항목</th>
+														<th class="col_day">1</th>
+														<th class="col_day">2</th>
+														<th class="col_day">3</th>
+														<th class="col_day">4</th>
+														<th class="col_day">5</th>
+														<th class="col_day">6</th>
+														<th class="col_day">7</th>
+														<th class="col_day">8</th>
+														<th class="col_day">9</th>
+														<th class="col_day">10</th>
+														<th class="col_day">11</th>
+														<th class="col_day">12</th>
+														<th class="col_day">13</th>
+														<th class="col_day">14</th>
+														<th class="col_day">15</th>
+														<th class="col_day">16</th>
+														<th class="col_day">17</th>
+														<th class="col_day">18</th>
+														<th class="col_day">19</th>
+														<th class="col_day">20</th>
+														<th class="col_day">21</th>
+														<th class="col_day">22</th>
+														<th class="col_day">23</th>
+														<th class="col_day">24</th>
+														<th class="col_day">25</th>
+														<th class="col_day">26</th>
+														<th class="col_day">27</th>
+														<th class="col_day">28</th>
+														<th class="col_day">29</th>
+														<th class="col_day">30</th>
+														<th class="col_day">31</th>
+													</tr>
+													</thead>
+													<tbody>
+													<tr>
+														<th class="col1" rowspan="2">소입<br>1존</th>
+														<th class="col2" rowspan="2">+50 ~ -150℃</th>
+														<th class="col3" >과승</th>
+														<td class="col_day" id="q1_sh1"></td>
+														<td class="col_day" id="q1_sh2"></td>
+														<td class="col_day" id="q1_sh3"></td>
+														<td class="col_day" id="q1_sh4"></td>
+														<td class="col_day" id="q1_sh5"></td>
+														<td class="col_day" id="q1_sh6"></td>
+														<td class="col_day" id="q1_sh7"></td>
+														<td class="col_day" id="q1_sh8"></td>
+														<td class="col_day" id="q1_sh9"></td>
+														<td class="col_day" id="q1_sh10"></td>
+														<td class="col_day" id="q1_sh11"></td>
+														<td class="col_day" id="q1_sh12"></td>
+														<td class="col_day" id="q1_sh13"></td>
+														<td class="col_day" id="q1_sh14"></td>
+														<td class="col_day" id="q1_sh15"></td>
+														<td class="col_day" id="q1_sh16"></td>
+														<td class="col_day" id="q1_sh17"></td>
+														<td class="col_day" id="q1_sh18"></td>
+														<td class="col_day" id="q1_sh19"></td>
+														<td class="col_day" id="q1_sh20"></td>
+														<td class="col_day" id="q1_sh21"></td>
+														<td class="col_day" id="q1_sh22"></td>
+														<td class="col_day" id="q1_sh23"></td>
+														<td class="col_day" id="q1_sh24"></td>
+														<td class="col_day" id="q1_sh25"></td>
+														<td class="col_day" id="q1_sh26"></td>
+														<td class="col_day" id="q1_sh27"></td>
+														<td class="col_day" id="q1_sh28"></td>
+														<td class="col_day" id="q1_sh29"></td>
+														<td class="col_day" id="q1_sh30"></td>
+														<td class="col_day" id="q1_sh31"></td>
+													</tr>
+													<tr>
+														<th>과냉</th>
+														<td class="col_day" id="q1_sc1"></td>
+														<td class="col_day" id="q1_sc2"></td>
+														<td class="col_day" id="q1_sc3"></td>
+														<td class="col_day" id="q1_sc4"></td>
+														<td class="col_day" id="q1_sc5"></td>
+														<td class="col_day" id="q1_sc6"></td>
+														<td class="col_day" id="q1_sc7"></td>
+														<td class="col_day" id="q1_sc8"></td>
+														<td class="col_day" id="q1_sc9"></td>
+														<td class="col_day" id="q1_sc10"></td>
+														<td class="col_day" id="q1_sc11"></td>
+														<td class="col_day" id="q1_sc12"></td>
+														<td class="col_day" id="q1_sc13"></td>
+														<td class="col_day" id="q1_sc14"></td>
+														<td class="col_day" id="q1_sc15"></td>
+														<td class="col_day" id="q1_sc16"></td>
+														<td class="col_day" id="q1_sc17"></td>
+														<td class="col_day" id="q1_sc18"></td>
+														<td class="col_day" id="q1_sc19"></td>
+														<td class="col_day" id="q1_sc20"></td>
+														<td class="col_day" id="q1_sc21"></td>
+														<td class="col_day" id="q1_sc22"></td>
+														<td class="col_day" id="q1_sc23"></td>
+														<td class="col_day" id="q1_sc24"></td>
+														<td class="col_day" id="q1_sc25"></td>
+														<td class="col_day" id="q1_sc26"></td>
+														<td class="col_day" id="q1_sc27"></td>
+														<td class="col_day" id="q1_sc28"></td>
+														<td class="col_day" id="q1_sc29"></td>
+														<td class="col_day" id="q1_sc30"></td>
+														<td class="col_day" id="q1_sc31"></td>
+													</tr>
+													<tr>
+														<th rowspan="2">소입<br>2존</th>
+														<th rowspan="2">+30 ~ -100℃</th>
+														<th>과승</th>
+														<td class="col_day" id="q2_sh1"></td>
+														<td class="col_day" id="q2_sh2"></td>
+														<td class="col_day" id="q2_sh3"></td>
+														<td class="col_day" id="q2_sh4"></td>
+														<td class="col_day" id="q2_sh5"></td>
+														<td class="col_day" id="q2_sh6"></td>
+														<td class="col_day" id="q2_sh7"></td>
+														<td class="col_day" id="q2_sh8"></td>
+														<td class="col_day" id="q2_sh9"></td>
+														<td class="col_day" id="q2_sh10"></td>
+														<td class="col_day" id="q2_sh11"></td>
+														<td class="col_day" id="q2_sh12"></td>
+														<td class="col_day" id="q2_sh13"></td>
+														<td class="col_day" id="q2_sh14"></td>
+														<td class="col_day" id="q2_sh15"></td>
+														<td class="col_day" id="q2_sh16"></td>
+														<td class="col_day" id="q2_sh17"></td>
+														<td class="col_day" id="q2_sh18"></td>
+														<td class="col_day" id="q2_sh19"></td>
+														<td class="col_day" id="q2_sh20"></td>
+														<td class="col_day" id="q2_sh21"></td>
+														<td class="col_day" id="q2_sh22"></td>
+														<td class="col_day" id="q2_sh23"></td>
+														<td class="col_day" id="q2_sh24"></td>
+														<td class="col_day" id="q2_sh25"></td>
+														<td class="col_day" id="q2_sh26"></td>
+														<td class="col_day" id="q2_sh27"></td>
+														<td class="col_day" id="q2_sh28"></td>
+														<td class="col_day" id="q2_sh29"></td>
+														<td class="col_day" id="q2_sh30"></td>
+														<td class="col_day" id="q2_sh31"></td>
+													</tr>
+													<tr>
+														<th>과냉</th>
+														<td class="col_day" id="q2_sc1"></td>
+														<td class="col_day" id="q2_sc2"></td>
+														<td class="col_day" id="q2_sc3"></td>
+														<td class="col_day" id="q2_sc4"></td>
+														<td class="col_day" id="q2_sc5"></td>
+														<td class="col_day" id="q2_sc6"></td>
+														<td class="col_day" id="q2_sc7"></td>
+														<td class="col_day" id="q2_sc8"></td>
+														<td class="col_day" id="q2_sc9"></td>
+														<td class="col_day" id="q2_sc10"></td>
+														<td class="col_day" id="q2_sc11"></td>
+														<td class="col_day" id="q2_sc12"></td>
+														<td class="col_day" id="q2_sc13"></td>
+														<td class="col_day" id="q2_sc14"></td>
+														<td class="col_day" id="q2_sc15"></td>
+														<td class="col_day" id="q2_sc16"></td>
+														<td class="col_day" id="q2_sc17"></td>
+														<td class="col_day" id="q2_sc18"></td>
+														<td class="col_day" id="q2_sc19"></td>
+														<td class="col_day" id="q2_sc20"></td>
+														<td class="col_day" id="q2_sc21"></td>
+														<td class="col_day" id="q2_sc22"></td>
+														<td class="col_day" id="q2_sc23"></td>
+														<td class="col_day" id="q2_sc24"></td>
+														<td class="col_day" id="q2_sc25"></td>
+														<td class="col_day" id="q2_sc26"></td>
+														<td class="col_day" id="q2_sc27"></td>
+														<td class="col_day" id="q2_sc28"></td>
+														<td class="col_day" id="q2_sc29"></td>
+														<td class="col_day" id="q2_sc30"></td>
+														<td class="col_day" id="q2_sc31"></td>
+													</tr>
+													<tr>
+														<th rowspan="2">소입<br>3존</th>
+														<th rowspan="2">+-10℃</th>
+														<th>과승</th>
+														<td class="col_day" id="q3_sh1"></td>
+														<td class="col_day" id="q3_sh2"></td>
+														<td class="col_day" id="q3_sh3"></td>
+														<td class="col_day" id="q3_sh4"></td>
+														<td class="col_day" id="q3_sh5"></td>
+														<td class="col_day" id="q3_sh6"></td>
+														<td class="col_day" id="q3_sh7"></td>
+														<td class="col_day" id="q3_sh8"></td>
+														<td class="col_day" id="q3_sh9"></td>
+														<td class="col_day" id="q3_sh10"></td>
+														<td class="col_day" id="q3_sh11"></td>
+														<td class="col_day" id="q3_sh12"></td>
+														<td class="col_day" id="q3_sh13"></td>
+														<td class="col_day" id="q3_sh14"></td>
+														<td class="col_day" id="q3_sh15"></td>
+														<td class="col_day" id="q3_sh16"></td>
+														<td class="col_day" id="q3_sh17"></td>
+														<td class="col_day" id="q3_sh18"></td>
+														<td class="col_day" id="q3_sh19"></td>
+														<td class="col_day" id="q3_sh20"></td>
+														<td class="col_day" id="q3_sh21"></td>
+														<td class="col_day" id="q3_sh22"></td>
+														<td class="col_day" id="q3_sh23"></td>
+														<td class="col_day" id="q3_sh24"></td>
+														<td class="col_day" id="q3_sh25"></td>
+														<td class="col_day" id="q3_sh26"></td>
+														<td class="col_day" id="q3_sh27"></td>
+														<td class="col_day" id="q3_sh28"></td>
+														<td class="col_day" id="q3_sh29"></td>
+														<td class="col_day" id="q3_sh30"></td>
+														<td class="col_day" id="q3_sh31"></td>
+													</tr>
+													<tr>
+														<th>과냉</th>
+														<td class="col_day" id="q3_sc1"></td>
+														<td class="col_day" id="q3_sc2"></td>
+														<td class="col_day" id="q3_sc3"></td>
+														<td class="col_day" id="q3_sc4"></td>
+														<td class="col_day" id="q3_sc5"></td>
+														<td class="col_day" id="q3_sc6"></td>
+														<td class="col_day" id="q3_sc7"></td>
+														<td class="col_day" id="q3_sc8"></td>
+														<td class="col_day" id="q3_sc9"></td>
+														<td class="col_day" id="q3_sc10"></td>
+														<td class="col_day" id="q3_sc11"></td>
+														<td class="col_day" id="q3_sc12"></td>
+														<td class="col_day" id="q3_sc13"></td>
+														<td class="col_day" id="q3_sc14"></td>
+														<td class="col_day" id="q3_sc15"></td>
+														<td class="col_day" id="q3_sc16"></td>
+														<td class="col_day" id="q3_sc17"></td>
+														<td class="col_day" id="q3_sc18"></td>
+														<td class="col_day" id="q3_sc19"></td>
+														<td class="col_day" id="q3_sc20"></td>
+														<td class="col_day" id="q3_sc21"></td>
+														<td class="col_day" id="q3_sc22"></td>
+														<td class="col_day" id="q3_sc23"></td>
+														<td class="col_day" id="q3_sc24"></td>
+														<td class="col_day" id="q3_sc25"></td>
+														<td class="col_day" id="q3_sc26"></td>
+														<td class="col_day" id="q3_sc27"></td>
+														<td class="col_day" id="q3_sc28"></td>
+														<td class="col_day" id="q3_sc29"></td>
+														<td class="col_day" id="q3_sc30"></td>
+														<td class="col_day" id="q3_sc31"></td>
+													</tr>
+													<tr>
+														<th rowspan="2">소입<br>4존</th>
+														<th rowspan="2">+-10℃</th>
+														<th>과승</th>
+														<td class="col_day" id="q4_sh1"></td>
+														<td class="col_day" id="q4_sh2"></td>
+														<td class="col_day" id="q4_sh3"></td>
+														<td class="col_day" id="q4_sh4"></td>
+														<td class="col_day" id="q4_sh5"></td>
+														<td class="col_day" id="q4_sh6"></td>
+														<td class="col_day" id="q4_sh7"></td>
+														<td class="col_day" id="q4_sh8"></td>
+														<td class="col_day" id="q4_sh9"></td>
+														<td class="col_day" id="q4_sh10"></td>
+														<td class="col_day" id="q4_sh11"></td>
+														<td class="col_day" id="q4_sh12"></td>
+														<td class="col_day" id="q4_sh13"></td>
+														<td class="col_day" id="q4_sh14"></td>
+														<td class="col_day" id="q4_sh15"></td>
+														<td class="col_day" id="q4_sh16"></td>
+														<td class="col_day" id="q4_sh17"></td>
+														<td class="col_day" id="q4_sh18"></td>
+														<td class="col_day" id="q4_sh19"></td>
+														<td class="col_day" id="q4_sh20"></td>
+														<td class="col_day" id="q4_sh21"></td>
+														<td class="col_day" id="q4_sh22"></td>
+														<td class="col_day" id="q4_sh23"></td>
+														<td class="col_day" id="q4_sh24"></td>
+														<td class="col_day" id="q4_sh25"></td>
+														<td class="col_day" id="q4_sh26"></td>
+														<td class="col_day" id="q4_sh27"></td>
+														<td class="col_day" id="q4_sh28"></td>
+														<td class="col_day" id="q4_sh29"></td>
+														<td class="col_day" id="q4_sh30"></td>
+														<td class="col_day" id="q4_sh31"></td>
+													</tr>
+													<tr>
+														<th>과냉</th>
+														<td class="col_day" id="q4_sc1"></td>
+														<td class="col_day" id="q4_sc2"></td>
+														<td class="col_day" id="q4_sc3"></td>
+														<td class="col_day" id="q4_sc4"></td>
+														<td class="col_day" id="q4_sc5"></td>
+														<td class="col_day" id="q4_sc6"></td>
+														<td class="col_day" id="q4_sc7"></td>
+														<td class="col_day" id="q4_sc8"></td>
+														<td class="col_day" id="q4_sc9"></td>
+														<td class="col_day" id="q4_sc10"></td>
+														<td class="col_day" id="q4_sc11"></td>
+														<td class="col_day" id="q4_sc12"></td>
+														<td class="col_day" id="q4_sc13"></td>
+														<td class="col_day" id="q4_sc14"></td>
+														<td class="col_day" id="q4_sc15"></td>
+														<td class="col_day" id="q4_sc16"></td>
+														<td class="col_day" id="q4_sc17"></td>
+														<td class="col_day" id="q4_sc18"></td>
+														<td class="col_day" id="q4_sc19"></td>
+														<td class="col_day" id="q4_sc20"></td>
+														<td class="col_day" id="q4_sc21"></td>
+														<td class="col_day" id="q4_sc22"></td>
+														<td class="col_day" id="q4_sc23"></td>
+														<td class="col_day" id="q4_sc24"></td>
+														<td class="col_day" id="q4_sc25"></td>
+														<td class="col_day" id="q4_sc26"></td>
+														<td class="col_day" id="q4_sc27"></td>
+														<td class="col_day" id="q4_sc28"></td>
+														<td class="col_day" id="q4_sc29"></td>
+														<td class="col_day" id="q4_sc30"></td>
+														<td class="col_day" id="q4_sc31"></td>
+													</tr>
+													<tr>
+														<th rowspan="2">소입<br>5존</th>
+														<th rowspan="2">+-10℃</th>
+														<th>과승</th>
+														<td class="col_day" id="q5_sh1"></td>
+														<td class="col_day" id="q5_sh2"></td>
+														<td class="col_day" id="q5_sh3"></td>
+														<td class="col_day" id="q5_sh4"></td>
+														<td class="col_day" id="q5_sh5"></td>
+														<td class="col_day" id="q5_sh6"></td>
+														<td class="col_day" id="q5_sh7"></td>
+														<td class="col_day" id="q5_sh8"></td>
+														<td class="col_day" id="q5_sh9"></td>
+														<td class="col_day" id="q5_sh10"></td>
+														<td class="col_day" id="q5_sh11"></td>
+														<td class="col_day" id="q5_sh12"></td>
+														<td class="col_day" id="q5_sh13"></td>
+														<td class="col_day" id="q5_sh14"></td>
+														<td class="col_day" id="q5_sh15"></td>
+														<td class="col_day" id="q5_sh16"></td>
+														<td class="col_day" id="q5_sh17"></td>
+														<td class="col_day" id="q5_sh18"></td>
+														<td class="col_day" id="q5_sh19"></td>
+														<td class="col_day" id="q5_sh20"></td>
+														<td class="col_day" id="q5_sh21"></td>
+														<td class="col_day" id="q5_sh22"></td>
+														<td class="col_day" id="q5_sh23"></td>
+														<td class="col_day" id="q5_sh24"></td>
+														<td class="col_day" id="q5_sh25"></td>
+														<td class="col_day" id="q5_sh26"></td>
+														<td class="col_day" id="q5_sh27"></td>
+														<td class="col_day" id="q5_sh28"></td>
+														<td class="col_day" id="q5_sh29"></td>
+														<td class="col_day" id="q5_sh30"></td>
+														<td class="col_day" id="q5_sh31"></td>
+													</tr>
+													<tr>
+														<th>과냉</th>
+														<td class="col_day" id="q5_sc1"></td>
+														<td class="col_day" id="q5_sc2"></td>
+														<td class="col_day" id="q5_sc3"></td>
+														<td class="col_day" id="q5_sc4"></td>
+														<td class="col_day" id="q5_sc5"></td>
+														<td class="col_day" id="q5_sc6"></td>
+														<td class="col_day" id="q5_sc7"></td>
+														<td class="col_day" id="q5_sc8"></td>
+														<td class="col_day" id="q5_sc9"></td>
+														<td class="col_day" id="q5_sc10"></td>
+														<td class="col_day" id="q5_sc11"></td>
+														<td class="col_day" id="q5_sc12"></td>
+														<td class="col_day" id="q5_sc13"></td>
+														<td class="col_day" id="q5_sc14"></td>
+														<td class="col_day" id="q5_sc15"></td>
+														<td class="col_day" id="q5_sc16"></td>
+														<td class="col_day" id="q5_sc17"></td>
+														<td class="col_day" id="q5_sc18"></td>
+														<td class="col_day" id="q5_sc19"></td>
+														<td class="col_day" id="q5_sc20"></td>
+														<td class="col_day" id="q5_sc21"></td>
+														<td class="col_day" id="q5_sc22"></td>
+														<td class="col_day" id="q5_sc23"></td>
+														<td class="col_day" id="q5_sc24"></td>
+														<td class="col_day" id="q5_sc25"></td>
+														<td class="col_day" id="q5_sc26"></td>
+														<td class="col_day" id="q5_sc27"></td>
+														<td class="col_day" id="q5_sc28"></td>
+														<td class="col_day" id="q5_sc29"></td>
+														<td class="col_day" id="q5_sc30"></td>
+														<td class="col_day" id="q5_sc31"></td>
+													</tr>
+													<tr>
+														<th rowspan="3">유조</th>
+														<th rowspan="2">+10 ~ -30℃</th>
+														<th>과승</th>
+														<td class="col_day" id="oil_sh1"></td>
+														<td class="col_day" id="oil_sh2"></td>
+														<td class="col_day" id="oil_sh3"></td>
+														<td class="col_day" id="oil_sh4"></td>
+														<td class="col_day" id="oil_sh5"></td>
+														<td class="col_day" id="oil_sh6"></td>
+														<td class="col_day" id="oil_sh7"></td>
+														<td class="col_day" id="oil_sh8"></td>
+														<td class="col_day" id="oil_sh9"></td>
+														<td class="col_day" id="oil_sh10"></td>
+														<td class="col_day" id="oil_sh11"></td>
+														<td class="col_day" id="oil_sh12"></td>
+														<td class="col_day" id="oil_sh13"></td>
+														<td class="col_day" id="oil_sh14"></td>
+														<td class="col_day" id="oil_sh15"></td>
+														<td class="col_day" id="oil_sh16"></td>
+														<td class="col_day" id="oil_sh17"></td>
+														<td class="col_day" id="oil_sh18"></td>
+														<td class="col_day" id="oil_sh19"></td>
+														<td class="col_day" id="oil_sh20"></td>
+														<td class="col_day" id="oil_sh21"></td>
+														<td class="col_day" id="oil_sh22"></td>
+														<td class="col_day" id="oil_sh23"></td>
+														<td class="col_day" id="oil_sh24"></td>
+														<td class="col_day" id="oil_sh25"></td>
+														<td class="col_day" id="oil_sh26"></td>
+														<td class="col_day" id="oil_sh27"></td>
+														<td class="col_day" id="oil_sh28"></td>
+														<td class="col_day" id="oil_sh29"></td>
+														<td class="col_day" id="oil_sh30"></td>
+														<td class="col_day" id="oil_sh31"></td>
+													</tr>
+													<tr>
+														<th>과냉</th>
+														<td class="col_day" id="oil_sc1"></td>
+														<td class="col_day" id="oil_sc2"></td>
+														<td class="col_day" id="oil_sc3"></td>
+														<td class="col_day" id="oil_sc4"></td>
+														<td class="col_day" id="oil_sc5"></td>
+														<td class="col_day" id="oil_sc6"></td>
+														<td class="col_day" id="oil_sc7"></td>
+														<td class="col_day" id="oil_sc8"></td>
+														<td class="col_day" id="oil_sc9"></td>
+														<td class="col_day" id="oil_sc10"></td>
+														<td class="col_day" id="oil_sc11"></td>
+														<td class="col_day" id="oil_sc12"></td>
+														<td class="col_day" id="oil_sc13"></td>
+														<td class="col_day" id="oil_sc14"></td>
+														<td class="col_day" id="oil_sc15"></td>
+														<td class="col_day" id="oil_sc16"></td>
+														<td class="col_day" id="oil_sc17"></td>
+														<td class="col_day" id="oil_sc18"></td>
+														<td class="col_day" id="oil_sc19"></td>
+														<td class="col_day" id="oil_sc20"></td>
+														<td class="col_day" id="oil_sc21"></td>
+														<td class="col_day" id="oil_sc22"></td>
+														<td class="col_day" id="oil_sc23"></td>
+														<td class="col_day" id="oil_sc24"></td>
+														<td class="col_day" id="oil_sc25"></td>
+														<td class="col_day" id="oil_sc26"></td>
+														<td class="col_day" id="oil_sc27"></td>
+														<td class="col_day" id="oil_sc28"></td>
+														<td class="col_day" id="oil_sc29"></td>
+														<td class="col_day" id="oil_sc30"></td>
+														<td class="col_day" id="oil_sc31"></td>
+													</tr>
+													<tr>
+														<th>유면높이</th>
+														<th>하한</th>
+														<td class="col_day" id="oil_min1"></td>
+														<td class="col_day" id="oil_min2"></td>
+														<td class="col_day" id="oil_min3"></td>
+														<td class="col_day" id="oil_min4"></td>
+														<td class="col_day" id="oil_min5"></td>
+														<td class="col_day" id="oil_min6"></td>
+														<td class="col_day" id="oil_min7"></td>
+														<td class="col_day" id="oil_min8"></td>
+														<td class="col_day" id="oil_min9"></td>
+														<td class="col_day" id="oil_min10"></td>
+														<td class="col_day" id="oil_min11"></td>
+														<td class="col_day" id="oil_min12"></td>
+														<td class="col_day" id="oil_min13"></td>
+														<td class="col_day" id="oil_min14"></td>
+														<td class="col_day" id="oil_min15"></td>
+														<td class="col_day" id="oil_min16"></td>
+														<td class="col_day" id="oil_min17"></td>
+														<td class="col_day" id="oil_min18"></td>
+														<td class="col_day" id="oil_min19"></td>
+														<td class="col_day" id="oil_min20"></td>
+														<td class="col_day" id="oil_min21"></td>
+														<td class="col_day" id="oil_min22"></td>
+														<td class="col_day" id="oil_min23"></td>
+														<td class="col_day" id="oil_min24"></td>
+														<td class="col_day" id="oil_min25"></td>
+														<td class="col_day" id="oil_min26"></td>
+														<td class="col_day" id="oil_min27"></td>
+														<td class="col_day" id="oil_min28"></td>
+														<td class="col_day" id="oil_min29"></td>
+														<td class="col_day" id="oil_min30"></td>
+														<td class="col_day" id="oil_min31"></td>
+													</tr>
+													<tr>
+														<th rowspan="3">중간<br>세정기</th>
+														<th rowspan="2">+-10℃</th>
+														<th>과승</th>
+														<td class="col_day" id="a_sh1"></td>
+														<td class="col_day" id="a_sh2"></td>
+														<td class="col_day" id="a_sh3"></td>
+														<td class="col_day" id="a_sh4"></td>
+														<td class="col_day" id="a_sh5"></td>
+														<td class="col_day" id="a_sh6"></td>
+														<td class="col_day" id="a_sh7"></td>
+														<td class="col_day" id="a_sh8"></td>
+														<td class="col_day" id="a_sh9"></td>
+														<td class="col_day" id="a_sh10"></td>
+														<td class="col_day" id="a_sh11"></td>
+														<td class="col_day" id="a_sh12"></td>
+														<td class="col_day" id="a_sh13"></td>
+														<td class="col_day" id="a_sh14"></td>
+														<td class="col_day" id="a_sh15"></td>
+														<td class="col_day" id="a_sh16"></td>
+														<td class="col_day" id="a_sh17"></td>
+														<td class="col_day" id="a_sh18"></td>
+														<td class="col_day" id="a_sh19"></td>
+														<td class="col_day" id="a_sh20"></td>
+														<td class="col_day" id="a_sh21"></td>
+														<td class="col_day" id="a_sh22"></td>
+														<td class="col_day" id="a_sh23"></td>
+														<td class="col_day" id="a_sh24"></td>
+														<td class="col_day" id="a_sh25"></td>
+														<td class="col_day" id="a_sh26"></td>
+														<td class="col_day" id="a_sh27"></td>
+														<td class="col_day" id="a_sh28"></td>
+														<td class="col_day" id="a_sh29"></td>
+														<td class="col_day" id="a_sh30"></td>
+														<td class="col_day" id="a_sh31"></td>
+													</tr>
+													<tr>
+														<th>과냉</th>
+														<td class="col_day" id="a_sc1"></td>
+														<td class="col_day" id="a_sc2"></td>
+														<td class="col_day" id="a_sc3"></td>
+														<td class="col_day" id="a_sc4"></td>
+														<td class="col_day" id="a_sc5"></td>
+														<td class="col_day" id="a_sc6"></td>
+														<td class="col_day" id="a_sc7"></td>
+														<td class="col_day" id="a_sc8"></td>
+														<td class="col_day" id="a_sc9"></td>
+														<td class="col_day" id="a_sc10"></td>
+														<td class="col_day" id="a_sc11"></td>
+														<td class="col_day" id="a_sc12"></td>
+														<td class="col_day" id="a_sc13"></td>
+														<td class="col_day" id="a_sc14"></td>
+														<td class="col_day" id="a_sc15"></td>
+														<td class="col_day" id="a_sc16"></td>
+														<td class="col_day" id="a_sc17"></td>
+														<td class="col_day" id="a_sc18"></td>
+														<td class="col_day" id="a_sc19"></td>
+														<td class="col_day" id="a_sc20"></td>
+														<td class="col_day" id="a_sc21"></td>
+														<td class="col_day" id="a_sc22"></td>
+														<td class="col_day" id="a_sc23"></td>
+														<td class="col_day" id="a_sc24"></td>
+														<td class="col_day" id="a_sc25"></td>
+														<td class="col_day" id="a_sc26"></td>
+														<td class="col_day" id="a_sc27"></td>
+														<td class="col_day" id="a_sc28"></td>
+														<td class="col_day" id="a_sc29"></td>
+														<td class="col_day" id="a_sc30"></td>
+														<td class="col_day" id="a_sc31"></td>
+													</tr>
+													<tr>
+														<th>수면높이</th>
+														<th>하한</th>
+														<td class="col_day" id="a_min1"></td>
+														<td class="col_day" id="a_min2"></td>
+														<td class="col_day" id="a_min3"></td>
+														<td class="col_day" id="a_min4"></td>
+														<td class="col_day" id="a_min5"></td>
+														<td class="col_day" id="a_min6"></td>
+														<td class="col_day" id="a_min7"></td>
+														<td class="col_day" id="a_min8"></td>
+														<td class="col_day" id="a_min9"></td>
+														<td class="col_day" id="a_min10"></td>
+														<td class="col_day" id="a_min11"></td>
+														<td class="col_day" id="a_min12"></td>
+														<td class="col_day" id="a_min13"></td>
+														<td class="col_day" id="a_min14"></td>
+														<td class="col_day" id="a_min15"></td>
+														<td class="col_day" id="a_min16"></td>
+														<td class="col_day" id="a_min17"></td>
+														<td class="col_day" id="a_min18"></td>
+														<td class="col_day" id="a_min19"></td>
+														<td class="col_day" id="a_min20"></td>
+														<td class="col_day" id="a_min21"></td>
+														<td class="col_day" id="a_min22"></td>
+														<td class="col_day" id="a_min23"></td>
+														<td class="col_day" id="a_min24"></td>
+														<td class="col_day" id="a_min25"></td>
+														<td class="col_day" id="a_min26"></td>
+														<td class="col_day" id="a_min27"></td>
+														<td class="col_day" id="a_min28"></td>
+														<td class="col_day" id="a_min29"></td>
+														<td class="col_day" id="a_min30"></td>
+														<td class="col_day" id="a_min31"></td>
+													</tr>
+													<tr>
+														<th rowspan="2">소려<br>1존</th>
+														<th rowspan="2">+20 ~ -150℃</th>
+														<th>과승</th>
+														<td class="col_day" id="t1_sh1"></td>
+														<td class="col_day" id="t1_sh2"></td>
+														<td class="col_day" id="t1_sh3"></td>
+														<td class="col_day" id="t1_sh4"></td>
+														<td class="col_day" id="t1_sh5"></td>
+														<td class="col_day" id="t1_sh6"></td>
+														<td class="col_day" id="t1_sh7"></td>
+														<td class="col_day" id="t1_sh8"></td>
+														<td class="col_day" id="t1_sh9"></td>
+														<td class="col_day" id="t1_sh10"></td>
+														<td class="col_day" id="t1_sh11"></td>
+														<td class="col_day" id="t1_sh12"></td>
+														<td class="col_day" id="t1_sh13"></td>
+														<td class="col_day" id="t1_sh14"></td>
+														<td class="col_day" id="t1_sh15"></td>
+														<td class="col_day" id="t1_sh16"></td>
+														<td class="col_day" id="t1_sh17"></td>
+														<td class="col_day" id="t1_sh18"></td>
+														<td class="col_day" id="t1_sh19"></td>
+														<td class="col_day" id="t1_sh20"></td>
+														<td class="col_day" id="t1_sh21"></td>
+														<td class="col_day" id="t1_sh22"></td>
+														<td class="col_day" id="t1_sh23"></td>
+														<td class="col_day" id="t1_sh24"></td>
+														<td class="col_day" id="t1_sh25"></td>
+														<td class="col_day" id="t1_sh26"></td>
+														<td class="col_day" id="t1_sh27"></td>
+														<td class="col_day" id="t1_sh28"></td>
+														<td class="col_day" id="t1_sh29"></td>
+														<td class="col_day" id="t1_sh30"></td>
+														<td class="col_day" id="t1_sh31"></td>
+													</tr>
+													<tr>
+														<th>과냉</th>
+														<td class="col_day" id="t1_sc1"></td>
+														<td class="col_day" id="t1_sc2"></td>
+														<td class="col_day" id="t1_sc3"></td>
+														<td class="col_day" id="t1_sc4"></td>
+														<td class="col_day" id="t1_sc5"></td>
+														<td class="col_day" id="t1_sc6"></td>
+														<td class="col_day" id="t1_sc7"></td>
+														<td class="col_day" id="t1_sc8"></td>
+														<td class="col_day" id="t1_sc9"></td>
+														<td class="col_day" id="t1_sc10"></td>
+														<td class="col_day" id="t1_sc11"></td>
+														<td class="col_day" id="t1_sc12"></td>
+														<td class="col_day" id="t1_sc13"></td>
+														<td class="col_day" id="t1_sc14"></td>
+														<td class="col_day" id="t1_sc15"></td>
+														<td class="col_day" id="t1_sc16"></td>
+														<td class="col_day" id="t1_sc17"></td>
+														<td class="col_day" id="t1_sc18"></td>
+														<td class="col_day" id="t1_sc19"></td>
+														<td class="col_day" id="t1_sc20"></td>
+														<td class="col_day" id="t1_sc21"></td>
+														<td class="col_day" id="t1_sc22"></td>
+														<td class="col_day" id="t1_sc23"></td>
+														<td class="col_day" id="t1_sc24"></td>
+														<td class="col_day" id="t1_sc25"></td>
+														<td class="col_day" id="t1_sc26"></td>
+														<td class="col_day" id="t1_sc27"></td>
+														<td class="col_day" id="t1_sc28"></td>
+														<td class="col_day" id="t1_sc29"></td>
+														<td class="col_day" id="t1_sc30"></td>
+														<td class="col_day" id="t1_sc31"></td>
+													</tr>
+													<tr>
+														<th rowspan="2">소려<br>2존</th>
+														<th rowspan="2">+20 ~ -30℃</th>
+														<th>과승</th>
+														<td class="col_day" id="t2_sh1"></td>
+														<td class="col_day" id="t2_sh2"></td>
+														<td class="col_day" id="t2_sh3"></td>
+														<td class="col_day" id="t2_sh4"></td>
+														<td class="col_day" id="t2_sh5"></td>
+														<td class="col_day" id="t2_sh6"></td>
+														<td class="col_day" id="t2_sh7"></td>
+														<td class="col_day" id="t2_sh8"></td>
+														<td class="col_day" id="t2_sh9"></td>
+														<td class="col_day" id="t2_sh10"></td>
+														<td class="col_day" id="t2_sh11"></td>
+														<td class="col_day" id="t2_sh12"></td>
+														<td class="col_day" id="t2_sh13"></td>
+														<td class="col_day" id="t2_sh14"></td>
+														<td class="col_day" id="t2_sh15"></td>
+														<td class="col_day" id="t2_sh16"></td>
+														<td class="col_day" id="t2_sh17"></td>
+														<td class="col_day" id="t2_sh18"></td>
+														<td class="col_day" id="t2_sh19"></td>
+														<td class="col_day" id="t2_sh20"></td>
+														<td class="col_day" id="t2_sh21"></td>
+														<td class="col_day" id="t2_sh22"></td>
+														<td class="col_day" id="t2_sh23"></td>
+														<td class="col_day" id="t2_sh24"></td>
+														<td class="col_day" id="t2_sh25"></td>
+														<td class="col_day" id="t2_sh26"></td>
+														<td class="col_day" id="t2_sh27"></td>
+														<td class="col_day" id="t2_sh28"></td>
+														<td class="col_day" id="t2_sh29"></td>
+														<td class="col_day" id="t2_sh30"></td>
+														<td class="col_day" id="t2_sh31"></td>
+													</tr>
+													<tr>
+														<th>과냉</th>
+														<td class="col_day" id="t2_sc1"></td>
+														<td class="col_day" id="t2_sc2"></td>
+														<td class="col_day" id="t2_sc3"></td>
+														<td class="col_day" id="t2_sc4"></td>
+														<td class="col_day" id="t2_sc5"></td>
+														<td class="col_day" id="t2_sc6"></td>
+														<td class="col_day" id="t2_sc7"></td>
+														<td class="col_day" id="t2_sc8"></td>
+														<td class="col_day" id="t2_sc9"></td>
+														<td class="col_day" id="t2_sc10"></td>
+														<td class="col_day" id="t2_sc11"></td>
+														<td class="col_day" id="t2_sc12"></td>
+														<td class="col_day" id="t2_sc13"></td>
+														<td class="col_day" id="t2_sc14"></td>
+														<td class="col_day" id="t2_sc15"></td>
+														<td class="col_day" id="t2_sc16"></td>
+														<td class="col_day" id="t2_sc17"></td>
+														<td class="col_day" id="t2_sc18"></td>
+														<td class="col_day" id="t2_sc19"></td>
+														<td class="col_day" id="t2_sc20"></td>
+														<td class="col_day" id="t2_sc21"></td>
+														<td class="col_day" id="t2_sc22"></td>
+														<td class="col_day" id="t2_sc23"></td>
+														<td class="col_day" id="t2_sc24"></td>
+														<td class="col_day" id="t2_sc25"></td>
+														<td class="col_day" id="t2_sc26"></td>
+														<td class="col_day" id="t2_sc27"></td>
+														<td class="col_day" id="t2_sc28"></td>
+														<td class="col_day" id="t2_sc29"></td>
+														<td class="col_day" id="t2_sc30"></td>
+														<td class="col_day" id="t2_sc31"></td>
+													</tr>
+													<tr>
+														<th rowspan="2">소려<br>3존</th>
+														<th rowspan="2">+-10℃</th>
+														<th>과승</th>
+														<td class="col_day" id="t3_sh1"></td>
+														<td class="col_day" id="t3_sh2"></td>
+														<td class="col_day" id="t3_sh3"></td>
+														<td class="col_day" id="t3_sh4"></td>
+														<td class="col_day" id="t3_sh5"></td>
+														<td class="col_day" id="t3_sh6"></td>
+														<td class="col_day" id="t3_sh7"></td>
+														<td class="col_day" id="t3_sh8"></td>
+														<td class="col_day" id="t3_sh9"></td>
+														<td class="col_day" id="t3_sh10"></td>
+														<td class="col_day" id="t3_sh11"></td>
+														<td class="col_day" id="t3_sh12"></td>
+														<td class="col_day" id="t3_sh13"></td>
+														<td class="col_day" id="t3_sh14"></td>
+														<td class="col_day" id="t3_sh15"></td>
+														<td class="col_day" id="t3_sh16"></td>
+														<td class="col_day" id="t3_sh17"></td>
+														<td class="col_day" id="t3_sh18"></td>
+														<td class="col_day" id="t3_sh19"></td>
+														<td class="col_day" id="t3_sh20"></td>
+														<td class="col_day" id="t3_sh21"></td>
+														<td class="col_day" id="t3_sh22"></td>
+														<td class="col_day" id="t3_sh23"></td>
+														<td class="col_day" id="t3_sh24"></td>
+														<td class="col_day" id="t3_sh25"></td>
+														<td class="col_day" id="t3_sh26"></td>
+														<td class="col_day" id="t3_sh27"></td>
+														<td class="col_day" id="t3_sh28"></td>
+														<td class="col_day" id="t3_sh29"></td>
+														<td class="col_day" id="t3_sh30"></td>
+														<td class="col_day" id="t3_sh31"></td>
+													</tr>
+													<tr>
+														<th>과냉</th>
+														<td class="col_day" id="t3_sc1"></td>
+														<td class="col_day" id="t3_sc2"></td>
+														<td class="col_day" id="t3_sc3"></td>
+														<td class="col_day" id="t3_sc4"></td>
+														<td class="col_day" id="t3_sc5"></td>
+														<td class="col_day" id="t3_sc6"></td>
+														<td class="col_day" id="t3_sc7"></td>
+														<td class="col_day" id="t3_sc8"></td>
+														<td class="col_day" id="t3_sc9"></td>
+														<td class="col_day" id="t3_sc10"></td>
+														<td class="col_day" id="t3_sc11"></td>
+														<td class="col_day" id="t3_sc12"></td>
+														<td class="col_day" id="t3_sc13"></td>
+														<td class="col_day" id="t3_sc14"></td>
+														<td class="col_day" id="t3_sc15"></td>
+														<td class="col_day" id="t3_sc16"></td>
+														<td class="col_day" id="t3_sc17"></td>
+														<td class="col_day" id="t3_sc18"></td>
+														<td class="col_day" id="t3_sc19"></td>
+														<td class="col_day" id="t3_sc20"></td>
+														<td class="col_day" id="t3_sc21"></td>
+														<td class="col_day" id="t3_sc22"></td>
+														<td class="col_day" id="t3_sc23"></td>
+														<td class="col_day" id="t3_sc24"></td>
+														<td class="col_day" id="t3_sc25"></td>
+														<td class="col_day" id="t3_sc26"></td>
+														<td class="col_day" id="t3_sc27"></td>
+														<td class="col_day" id="t3_sc28"></td>
+														<td class="col_day" id="t3_sc29"></td>
+														<td class="col_day" id="t3_sc30"></td>
+														<td class="col_day" id="t3_sc31"></td>
+													</tr>
+													<tr>
+														<th rowspan="2">소려<br>4존</th>
+														<th rowspan="2">설정온도 +-10℃</th>
+														<th>과승</th>
+														<td class="col_day" id="t4_sh1"></td>
+														<td class="col_day" id="t4_sh2"></td>
+														<td class="col_day" id="t4_sh3"></td>
+														<td class="col_day" id="t4_sh4"></td>
+														<td class="col_day" id="t4_sh5"></td>
+														<td class="col_day" id="t4_sh6"></td>
+														<td class="col_day" id="t4_sh7"></td>
+														<td class="col_day" id="t4_sh8"></td>
+														<td class="col_day" id="t4_sh9"></td>
+														<td class="col_day" id="t4_sh10"></td>
+														<td class="col_day" id="t4_sh11"></td>
+														<td class="col_day" id="t4_sh12"></td>
+														<td class="col_day" id="t4_sh13"></td>
+														<td class="col_day" id="t4_sh14"></td>
+														<td class="col_day" id="t4_sh15"></td>
+														<td class="col_day" id="t4_sh16"></td>
+														<td class="col_day" id="t4_sh17"></td>
+														<td class="col_day" id="t4_sh18"></td>
+														<td class="col_day" id="t4_sh19"></td>
+														<td class="col_day" id="t4_sh20"></td>
+														<td class="col_day" id="t4_sh21"></td>
+														<td class="col_day" id="t4_sh22"></td>
+														<td class="col_day" id="t4_sh23"></td>
+														<td class="col_day" id="t4_sh24"></td>
+														<td class="col_day" id="t4_sh25"></td>
+														<td class="col_day" id="t4_sh26"></td>
+														<td class="col_day" id="t4_sh27"></td>
+														<td class="col_day" id="t4_sh28"></td>
+														<td class="col_day" id="t4_sh29"></td>
+														<td class="col_day" id="t4_sh30"></td>
+														<td class="col_day" id="t4_sh31"></td>
+													</tr>
+													<tr>
+														<th>과냉</th>
+														<td class="col_day" id="t4_sc1"></td>
+														<td class="col_day" id="t4_sc2"></td>
+														<td class="col_day" id="t4_sc3"></td>
+														<td class="col_day" id="t4_sc4"></td>
+														<td class="col_day" id="t4_sc5"></td>
+														<td class="col_day" id="t4_sc6"></td>
+														<td class="col_day" id="t4_sc7"></td>
+														<td class="col_day" id="t4_sc8"></td>
+														<td class="col_day" id="t4_sc9"></td>
+														<td class="col_day" id="t4_sc10"></td>
+														<td class="col_day" id="t4_sc11"></td>
+														<td class="col_day" id="t4_sc12"></td>
+														<td class="col_day" id="t4_sc13"></td>
+														<td class="col_day" id="t4_sc14"></td>
+														<td class="col_day" id="t4_sc15"></td>
+														<td class="col_day" id="t4_sc16"></td>
+														<td class="col_day" id="t4_sc17"></td>
+														<td class="col_day" id="t4_sc18"></td>
+														<td class="col_day" id="t4_sc19"></td>
+														<td class="col_day" id="t4_sc20"></td>
+														<td class="col_day" id="t4_sc21"></td>
+														<td class="col_day" id="t4_sc22"></td>
+														<td class="col_day" id="t4_sc23"></td>
+														<td class="col_day" id="t4_sc24"></td>
+														<td class="col_day" id="t4_sc25"></td>
+														<td class="col_day" id="t4_sc26"></td>
+														<td class="col_day" id="t4_sc27"></td>
+														<td class="col_day" id="t4_sc28"></td>
+														<td class="col_day" id="t4_sc29"></td>
+														<td class="col_day" id="t4_sc30"></td>
+														<td class="col_day" id="t4_sc31"></td>
+													</tr>
+													<tr>
+														<th rowspan="2">CP</th>
+														<th rowspan="2">+0.05℃</th>
+														<th>상한</th>
+														<td class="col_day" id="cp_max1"></td>
+														<td class="col_day" id="cp_max2"></td>
+														<td class="col_day" id="cp_max3"></td>
+														<td class="col_day" id="cp_max4"></td>
+														<td class="col_day" id="cp_max5"></td>
+														<td class="col_day" id="cp_max6"></td>
+														<td class="col_day" id="cp_max7"></td>
+														<td class="col_day" id="cp_max8"></td>
+														<td class="col_day" id="cp_max9"></td>
+														<td class="col_day" id="cp_max10"></td>
+														<td class="col_day" id="cp_max11"></td>
+														<td class="col_day" id="cp_max12"></td>
+														<td class="col_day" id="cp_max13"></td>
+														<td class="col_day" id="cp_max14"></td>
+														<td class="col_day" id="cp_max15"></td>
+														<td class="col_day" id="cp_max16"></td>
+														<td class="col_day" id="cp_max17"></td>
+														<td class="col_day" id="cp_max18"></td>
+														<td class="col_day" id="cp_max19"></td>
+														<td class="col_day" id="cp_max20"></td>
+														<td class="col_day" id="cp_max21"></td>
+														<td class="col_day" id="cp_max22"></td>
+														<td class="col_day" id="cp_max23"></td>
+														<td class="col_day" id="cp_max24"></td>
+														<td class="col_day" id="cp_max25"></td>
+														<td class="col_day" id="cp_max26"></td>
+														<td class="col_day" id="cp_max27"></td>
+														<td class="col_day" id="cp_max28"></td>
+														<td class="col_day" id="cp_max29"></td>
+														<td class="col_day" id="cp_max30"></td>
+														<td class="col_day" id="cp_max31"></td>
+													</tr>
+													<tr>
+														<th>하한</th>
+														<td class="col_day" id="cp_min1"></td>
+														<td class="col_day" id="cp_min2"></td>
+														<td class="col_day" id="cp_min3"></td>
+														<td class="col_day" id="cp_min4"></td>
+														<td class="col_day" id="cp_min5"></td>
+														<td class="col_day" id="cp_min6"></td>
+														<td class="col_day" id="cp_min7"></td>
+														<td class="col_day" id="cp_min8"></td>
+														<td class="col_day" id="cp_min9"></td>
+														<td class="col_day" id="cp_min10"></td>
+														<td class="col_day" id="cp_min11"></td>
+														<td class="col_day" id="cp_min12"></td>
+														<td class="col_day" id="cp_min13"></td>
+														<td class="col_day" id="cp_min14"></td>
+														<td class="col_day" id="cp_min15"></td>
+														<td class="col_day" id="cp_min16"></td>
+														<td class="col_day" id="cp_min17"></td>
+														<td class="col_day" id="cp_min18"></td>
+														<td class="col_day" id="cp_min19"></td>
+														<td class="col_day" id="cp_min20"></td>
+														<td class="col_day" id="cp_min21"></td>
+														<td class="col_day" id="cp_min22"></td>
+														<td class="col_day" id="cp_min23"></td>
+														<td class="col_day" id="cp_min24"></td>
+														<td class="col_day" id="cp_min25"></td>
+														<td class="col_day" id="cp_min26"></td>
+														<td class="col_day" id="cp_min27"></td>
+														<td class="col_day" id="cp_min28"></td>
+														<td class="col_day" id="cp_min29"></td>
+														<td class="col_day" id="cp_min30"></td>
+														<td class="col_day" id="cp_min31"></td>
+													</tr>
+													<tr>
+														<th>특이사항</th>
+														<td colspan="34" id="special1"></td>
+													</tr>
+													<tr>
+														<th>측정결과</th>
+														<td colspan="34" id="testresult1"></td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+										
+											<div id="table2" class="tmp" style="display:none">
+												<table class="table table-bordered table-hover">
+													<thead>
+													<tr>
+														<th class="col2-1">구분</th>
+														<th class="col2-2">위치</th>
+														<th class="col2-3">관리기준</th>
+														<th class="col2-4">규격</th>
+														<th class="col2-5">온도</th>
+														<th class="col_day">1</th>
+														<th class="col_day">2</th>
+														<th class="col_day">3</th>
+														<th class="col_day">4</th>
+														<th class="col_day">5</th>
+														<th class="col_day">6</th>
+														<th class="col_day">7</th>
+														<th class="col_day">8</th>
+														<th class="col_day">9</th>
+														<th class="col_day">10</th>
+														<th class="col_day">11</th>
+														<th class="col_day">12</th>
+														<th class="col_day">13</th>
+														<th class="col_day">14</th>
+														<th class="col_day">15</th>
+														<th class="col_day">16</th>
+														<th class="col_day">17</th>
+														<th class="col_day">18</th>
+														<th class="col_day">19</th>
+														<th class="col_day">20</th>
+														<th class="col_day">21</th>
+														<th class="col_day">22</th>
+														<th class="col_day">23</th>
+														<th class="col_day">24</th>
+														<th class="col_day">25</th>
+														<th class="col_day">26</th>
+														<th class="col_day">27</th>
+														<th class="col_day">28</th>
+														<th class="col_day">29</th>
+														<th class="col_day">30</th>
+														<th class="col_day">31</th>
+													</tr>
+													</thead>
+													<tbody>
+													<tr>
+														<th class="col2-1" rowspan="17">소<br>입<br>로</th>
+														<th class="col2-2" rowspan="3">1존</th>
+														<th class="col2-3" rowspan="3" colspan="2"></th>
+														<th class="col2-5">설정</th>
+														<td class="col_day" id="q1_set1"></td>
+														<td class="col_day" id="q1_set2"></td>
+														<td class="col_day" id="q1_set3"></td>
+														<td class="col_day" id="q1_set4"></td>
+														<td class="col_day" id="q1_set5"></td>
+														<td class="col_day" id="q1_set6"></td>
+														<td class="col_day" id="q1_set7"></td>
+														<td class="col_day" id="q1_set8"></td>
+														<td class="col_day" id="q1_set9"></td>
+														<td class="col_day" id="q1_set10"></td>
+														<td class="col_day" id="q1_set11"></td>
+														<td class="col_day" id="q1_set12"></td>
+														<td class="col_day" id="q1_set13"></td>
+														<td class="col_day" id="q1_set14"></td>
+														<td class="col_day" id="q1_set15"></td>
+														<td class="col_day" id="q1_set16"></td>
+														<td class="col_day" id="q1_set17"></td>
+														<td class="col_day" id="q1_set18"></td>
+														<td class="col_day" id="q1_set19"></td>
+														<td class="col_day" id="q1_set20"></td>
+														<td class="col_day" id="q1_set21"></td>
+														<td class="col_day" id="q1_set22"></td>
+														<td class="col_day" id="q1_set23"></td>
+														<td class="col_day" id="q1_set24"></td>
+														<td class="col_day" id="q1_set25"></td>
+														<td class="col_day" id="q1_set26"></td>
+														<td class="col_day" id="q1_set27"></td>
+														<td class="col_day" id="q1_set28"></td>
+														<td class="col_day" id="q1_set29"></td>
+														<td class="col_day" id="q1_set30"></td>
+														<td class="col_day" id="q1_set31"></td>
+													</tr>
+													<tr>
+														<th>지시</th>
+														<td class="col_day" id="q1_instructions1"></td>
+														<td class="col_day" id="q1_instructions2"></td>
+														<td class="col_day" id="q1_instructions3"></td>
+														<td class="col_day" id="q1_instructions4"></td>
+														<td class="col_day" id="q1_instructions5"></td>
+														<td class="col_day" id="q1_instructions6"></td>
+														<td class="col_day" id="q1_instructions7"></td>
+														<td class="col_day" id="q1_instructions8"></td>
+														<td class="col_day" id="q1_instructions9"></td>
+														<td class="col_day" id="q1_instructions10"></td>
+														<td class="col_day" id="q1_instructions11"></td>
+														<td class="col_day" id="q1_instructions12"></td>
+														<td class="col_day" id="q1_instructions13"></td>
+														<td class="col_day" id="q1_instructions14"></td>
+														<td class="col_day" id="q1_instructions15"></td>
+														<td class="col_day" id="q1_instructions16"></td>
+														<td class="col_day" id="q1_instructions17"></td>
+														<td class="col_day" id="q1_instructions18"></td>
+														<td class="col_day" id="q1_instructions19"></td>
+														<td class="col_day" id="q1_instructions20"></td>
+														<td class="col_day" id="q1_instructions21"></td>
+														<td class="col_day" id="q1_instructions22"></td>
+														<td class="col_day" id="q1_instructions23"></td>
+														<td class="col_day" id="q1_instructions24"></td>
+														<td class="col_day" id="q1_instructions25"></td>
+														<td class="col_day" id="q1_instructions26"></td>
+														<td class="col_day" id="q1_instructions27"></td>
+														<td class="col_day" id="q1_instructions28"></td>
+														<td class="col_day" id="q1_instructions29"></td>
+														<td class="col_day" id="q1_instructions30"></td>
+														<td class="col_day" id="q1_instructions31"></td>
+													</tr>
+													<tr>
+														<th>측정</th>
+														<td class="col_day" id="q1_measurements1"></td>
+														<td class="col_day" id="q1_measurements2"></td>
+														<td class="col_day" id="q1_measurements3"></td>
+														<td class="col_day" id="q1_measurements4"></td>
+														<td class="col_day" id="q1_measurements5"></td>
+														<td class="col_day" id="q1_measurements6"></td>
+														<td class="col_day" id="q1_measurements7"></td>
+														<td class="col_day" id="q1_measurements8"></td>
+														<td class="col_day" id="q1_measurements9"></td>
+														<td class="col_day" id="q1_measurements10"></td>
+														<td class="col_day" id="q1_measurements11"></td>
+														<td class="col_day" id="q1_measurements12"></td>
+														<td class="col_day" id="q1_measurements13"></td>
+														<td class="col_day" id="q1_measurements14"></td>
+														<td class="col_day" id="q1_measurements15"></td>
+														<td class="col_day" id="q1_measurements16"></td>
+														<td class="col_day" id="q1_measurements17"></td>
+														<td class="col_day" id="q1_measurements18"></td>
+														<td class="col_day" id="q1_measurements19"></td>
+														<td class="col_day" id="q1_measurements20"></td>
+														<td class="col_day" id="q1_measurements21"></td>
+														<td class="col_day" id="q1_measurements22"></td>
+														<td class="col_day" id="q1_measurements23"></td>
+														<td class="col_day" id="q1_measurements24"></td>
+														<td class="col_day" id="q1_measurements25"></td>
+														<td class="col_day" id="q1_measurements26"></td>
+														<td class="col_day" id="q1_measurements27"></td>
+														<td class="col_day" id="q1_measurements28"></td>
+														<td class="col_day" id="q1_measurements29"></td>
+														<td class="col_day" id="q1_measurements30"></td>
+														<td class="col_day" id="q1_measurements31"></td>
+													</tr>
+													<tr>
+														<th rowspan="3">2존</th>
+														<th rowspan="3" colspan="2"></th>
+														<th>설정</th>
+														<td class="col_day" id="q2_set1"></td>
+														<td class="col_day" id="q2_set2"></td>
+														<td class="col_day" id="q2_set3"></td>
+														<td class="col_day" id="q2_set4"></td>
+														<td class="col_day" id="q2_set5"></td>
+														<td class="col_day" id="q2_set6"></td>
+														<td class="col_day" id="q2_set7"></td>
+														<td class="col_day" id="q2_set8"></td>
+														<td class="col_day" id="q2_set9"></td>
+														<td class="col_day" id="q2_set10"></td>
+														<td class="col_day" id="q2_set11"></td>
+														<td class="col_day" id="q2_set12"></td>
+														<td class="col_day" id="q2_set13"></td>
+														<td class="col_day" id="q2_set14"></td>
+														<td class="col_day" id="q2_set15"></td>
+														<td class="col_day" id="q2_set16"></td>
+														<td class="col_day" id="q2_set17"></td>
+														<td class="col_day" id="q2_set18"></td>
+														<td class="col_day" id="q2_set19"></td>
+														<td class="col_day" id="q2_set20"></td>
+														<td class="col_day" id="q2_set21"></td>
+														<td class="col_day" id="q2_set22"></td>
+														<td class="col_day" id="q2_set23"></td>
+														<td class="col_day" id="q2_set24"></td>
+														<td class="col_day" id="q2_set25"></td>
+														<td class="col_day" id="q2_set26"></td>
+														<td class="col_day" id="q2_set27"></td>
+														<td class="col_day" id="q2_set28"></td>
+														<td class="col_day" id="q2_set29"></td>
+														<td class="col_day" id="q2_set30"></td>
+														<td class="col_day" id="q2_set31"></td>
+													</tr>
+													<tr>
+														<th>지시</th>
+														<td class="col_day" id="q2_instructions1"></td>
+														<td class="col_day" id="q2_instructions2"></td>
+														<td class="col_day" id="q2_instructions3"></td>
+														<td class="col_day" id="q2_instructions4"></td>
+														<td class="col_day" id="q2_instructions5"></td>
+														<td class="col_day" id="q2_instructions6"></td>
+														<td class="col_day" id="q2_instructions7"></td>
+														<td class="col_day" id="q2_instructions8"></td>
+														<td class="col_day" id="q2_instructions9"></td>
+														<td class="col_day" id="q2_instructions10"></td>
+														<td class="col_day" id="q2_instructions11"></td>
+														<td class="col_day" id="q2_instructions12"></td>
+														<td class="col_day" id="q2_instructions13"></td>
+														<td class="col_day" id="q2_instructions14"></td>
+														<td class="col_day" id="q2_instructions15"></td>
+														<td class="col_day" id="q2_instructions16"></td>
+														<td class="col_day" id="q2_instructions17"></td>
+														<td class="col_day" id="q2_instructions18"></td>
+														<td class="col_day" id="q2_instructions19"></td>
+														<td class="col_day" id="q2_instructions20"></td>
+														<td class="col_day" id="q2_instructions21"></td>
+														<td class="col_day" id="q2_instructions22"></td>
+														<td class="col_day" id="q2_instructions23"></td>
+														<td class="col_day" id="q2_instructions24"></td>
+														<td class="col_day" id="q2_instructions25"></td>
+														<td class="col_day" id="q2_instructions26"></td>
+														<td class="col_day" id="q2_instructions27"></td>
+														<td class="col_day" id="q2_instructions28"></td>
+														<td class="col_day" id="q2_instructions29"></td>
+														<td class="col_day" id="q2_instructions30"></td>
+														<td class="col_day" id="q2_instructions31"></td>
+													</tr>
+													<tr>
+														<th>측정</th>
+														<td class="col_day" id="q2_measurements1"></td>
+														<td class="col_day" id="q2_measurements2"></td>
+														<td class="col_day" id="q2_measurements3"></td>
+														<td class="col_day" id="q2_measurements4"></td>
+														<td class="col_day" id="q2_measurements5"></td>
+														<td class="col_day" id="q2_measurements6"></td>
+														<td class="col_day" id="q2_measurements7"></td>
+														<td class="col_day" id="q2_measurements8"></td>
+														<td class="col_day" id="q2_measurements9"></td>
+														<td class="col_day" id="q2_measurements10"></td>
+														<td class="col_day" id="q2_measurements11"></td>
+														<td class="col_day" id="q2_measurements12"></td>
+														<td class="col_day" id="q2_measurements13"></td>
+														<td class="col_day" id="q2_measurements14"></td>
+														<td class="col_day" id="q2_measurements15"></td>
+														<td class="col_day" id="q2_measurements16"></td>
+														<td class="col_day" id="q2_measurements17"></td>
+														<td class="col_day" id="q2_measurements18"></td>
+														<td class="col_day" id="q2_measurements19"></td>
+														<td class="col_day" id="q2_measurements20"></td>
+														<td class="col_day" id="q2_measurements21"></td>
+														<td class="col_day" id="q2_measurements22"></td>
+														<td class="col_day" id="q2_measurements23"></td>
+														<td class="col_day" id="q2_measurements24"></td>
+														<td class="col_day" id="q2_measurements25"></td>
+														<td class="col_day" id="q2_measurements26"></td>
+														<td class="col_day" id="q2_measurements27"></td>
+														<td class="col_day" id="q2_measurements28"></td>
+														<td class="col_day" id="q2_measurements29"></td>
+														<td class="col_day" id="q2_measurements30"></td>
+														<td class="col_day" id="q2_measurements31"></td>
+													</tr>
+													<tr>
+														<th rowspan="3">3존</th>
+														<th colspan="2">+- 7.5℃</th>
+														<th>설정</th>
+														<td class="col_day" id="q3_set1"></td>
+														<td class="col_day" id="q3_set2"></td>
+														<td class="col_day" id="q3_set3"></td>
+														<td class="col_day" id="q3_set4"></td>
+														<td class="col_day" id="q3_set5"></td>
+														<td class="col_day" id="q3_set6"></td>
+														<td class="col_day" id="q3_set7"></td>
+														<td class="col_day" id="q3_set8"></td>
+														<td class="col_day" id="q3_set9"></td>
+														<td class="col_day" id="q3_set10"></td>
+														<td class="col_day" id="q3_set11"></td>
+														<td class="col_day" id="q3_set12"></td>
+														<td class="col_day" id="q3_set13"></td>
+														<td class="col_day" id="q3_set14"></td>
+														<td class="col_day" id="q3_set15"></td>
+														<td class="col_day" id="q3_set16"></td>
+														<td class="col_day" id="q3_set17"></td>
+														<td class="col_day" id="q3_set18"></td>
+														<td class="col_day" id="q3_set19"></td>
+														<td class="col_day" id="q3_set20"></td>
+														<td class="col_day" id="q3_set21"></td>
+														<td class="col_day" id="q3_set22"></td>
+														<td class="col_day" id="q3_set23"></td>
+														<td class="col_day" id="q3_set24"></td>
+														<td class="col_day" id="q3_set25"></td>
+														<td class="col_day" id="q3_set26"></td>
+														<td class="col_day" id="q3_set27"></td>
+														<td class="col_day" id="q3_set28"></td>
+														<td class="col_day" id="q3_set29"></td>
+														<td class="col_day" id="q3_set30"></td>
+														<td class="col_day" id="q3_set31"></td>
+													</tr>
+													<tr>
+														<th class="col2-3">상한치</th>
+														<th class="col2-4">하한치</th>
+														<th>지시</th>
+														<td class="col_day" id="q3_instructions1"></td>
+														<td class="col_day" id="q3_instructions2"></td>
+														<td class="col_day" id="q3_instructions3"></td>
+														<td class="col_day" id="q3_instructions4"></td>
+														<td class="col_day" id="q3_instructions5"></td>
+														<td class="col_day" id="q3_instructions6"></td>
+														<td class="col_day" id="q3_instructions7"></td>
+														<td class="col_day" id="q3_instructions8"></td>
+														<td class="col_day" id="q3_instructions9"></td>
+														<td class="col_day" id="q3_instructions10"></td>
+														<td class="col_day" id="q3_instructions11"></td>
+														<td class="col_day" id="q3_instructions12"></td>
+														<td class="col_day" id="q3_instructions13"></td>
+														<td class="col_day" id="q3_instructions14"></td>
+														<td class="col_day" id="q3_instructions15"></td>
+														<td class="col_day" id="q3_instructions16"></td>
+														<td class="col_day" id="q3_instructions17"></td>
+														<td class="col_day" id="q3_instructions18"></td>
+														<td class="col_day" id="q3_instructions19"></td>
+														<td class="col_day" id="q3_instructions20"></td>
+														<td class="col_day" id="q3_instructions21"></td>
+														<td class="col_day" id="q3_instructions22"></td>
+														<td class="col_day" id="q3_instructions23"></td>
+														<td class="col_day" id="q3_instructions24"></td>
+														<td class="col_day" id="q3_instructions25"></td>
+														<td class="col_day" id="q3_instructions26"></td>
+														<td class="col_day" id="q3_instructions27"></td>
+														<td class="col_day" id="q3_instructions28"></td>
+														<td class="col_day" id="q3_instructions29"></td>
+														<td class="col_day" id="q3_instructions30"></td>
+														<td class="col_day" id="q3_instructions31"></td>
+													</tr>
+													<tr>
+														<th></th>
+														<th></th>
+														<th>측정</th>
+														<td class="col_day" id="q3_measurements1"></td>
+														<td class="col_day" id="q3_measurements2"></td>
+														<td class="col_day" id="q3_measurements3"></td>
+														<td class="col_day" id="q3_measurements4"></td>
+														<td class="col_day" id="q3_measurements5"></td>
+														<td class="col_day" id="q3_measurements6"></td>
+														<td class="col_day" id="q3_measurements7"></td>
+														<td class="col_day" id="q3_measurements8"></td>
+														<td class="col_day" id="q3_measurements9"></td>
+														<td class="col_day" id="q3_measurements10"></td>
+														<td class="col_day" id="q3_measurements11"></td>
+														<td class="col_day" id="q3_measurements12"></td>
+														<td class="col_day" id="q3_measurements13"></td>
+														<td class="col_day" id="q3_measurements14"></td>
+														<td class="col_day" id="q3_measurements15"></td>
+														<td class="col_day" id="q3_measurements16"></td>
+														<td class="col_day" id="q3_measurements17"></td>
+														<td class="col_day" id="q3_measurements18"></td>
+														<td class="col_day" id="q3_measurements19"></td>
+														<td class="col_day" id="q3_measurements20"></td>
+														<td class="col_day" id="q3_measurements21"></td>
+														<td class="col_day" id="q3_measurements22"></td>
+														<td class="col_day" id="q3_measurements23"></td>
+														<td class="col_day" id="q3_measurements24"></td>
+														<td class="col_day" id="q3_measurements25"></td>
+														<td class="col_day" id="q3_measurements26"></td>
+														<td class="col_day" id="q3_measurements27"></td>
+														<td class="col_day" id="q3_measurements28"></td>
+														<td class="col_day" id="q3_measurements29"></td>
+														<td class="col_day" id="q3_measurements30"></td>
+														<td class="col_day" id="q3_measurements31"></td>
+													</tr>
+													<tr>
+														<th rowspan="3">4존</th>
+														<th colspan="2">+- 7.5℃</th>
+														<th>설정</th>
+														<td class="col_day" id="q4_set1"></td>
+														<td class="col_day" id="q4_set2"></td>
+														<td class="col_day" id="q4_set3"></td>
+														<td class="col_day" id="q4_set4"></td>
+														<td class="col_day" id="q4_set5"></td>
+														<td class="col_day" id="q4_set6"></td>
+														<td class="col_day" id="q4_set7"></td>
+														<td class="col_day" id="q4_set8"></td>
+														<td class="col_day" id="q4_set9"></td>
+														<td class="col_day" id="q4_set10"></td>
+														<td class="col_day" id="q4_set11"></td>
+														<td class="col_day" id="q4_set12"></td>
+														<td class="col_day" id="q4_set13"></td>
+														<td class="col_day" id="q4_set14"></td>
+														<td class="col_day" id="q4_set15"></td>
+														<td class="col_day" id="q4_set16"></td>
+														<td class="col_day" id="q4_set17"></td>
+														<td class="col_day" id="q4_set18"></td>
+														<td class="col_day" id="q4_set19"></td>
+														<td class="col_day" id="q4_set20"></td>
+														<td class="col_day" id="q4_set21"></td>
+														<td class="col_day" id="q4_set22"></td>
+														<td class="col_day" id="q4_set23"></td>
+														<td class="col_day" id="q4_set24"></td>
+														<td class="col_day" id="q4_set25"></td>
+														<td class="col_day" id="q4_set26"></td>
+														<td class="col_day" id="q4_set27"></td>
+														<td class="col_day" id="q4_set28"></td>
+														<td class="col_day" id="q4_set29"></td>
+														<td class="col_day" id="q4_set30"></td>
+														<td class="col_day" id="q4_set31"></td>
+													</tr>
+													<tr>
+														<th>상한치</th>
+														<th>하한치</th>
+														<th>지시</th>
+														<td class="col_day" id="q4_instructions1"></td>
+														<td class="col_day" id="q4_instructions2"></td>
+														<td class="col_day" id="q4_instructions3"></td>
+														<td class="col_day" id="q4_instructions4"></td>
+														<td class="col_day" id="q4_instructions5"></td>
+														<td class="col_day" id="q4_instructions6"></td>
+														<td class="col_day" id="q4_instructions7"></td>
+														<td class="col_day" id="q4_instructions8"></td>
+														<td class="col_day" id="q4_instructions9"></td>
+														<td class="col_day" id="q4_instructions10"></td>
+														<td class="col_day" id="q4_instructions11"></td>
+														<td class="col_day" id="q4_instructions12"></td>
+														<td class="col_day" id="q4_instructions13"></td>
+														<td class="col_day" id="q4_instructions14"></td>
+														<td class="col_day" id="q4_instructions15"></td>
+														<td class="col_day" id="q4_instructions16"></td>
+														<td class="col_day" id="q4_instructions17"></td>
+														<td class="col_day" id="q4_instructions18"></td>
+														<td class="col_day" id="q4_instructions19"></td>
+														<td class="col_day" id="q4_instructions20"></td>
+														<td class="col_day" id="q4_instructions21"></td>
+														<td class="col_day" id="q4_instructions22"></td>
+														<td class="col_day" id="q4_instructions23"></td>
+														<td class="col_day" id="q4_instructions24"></td>
+														<td class="col_day" id="q4_instructions25"></td>
+														<td class="col_day" id="q4_instructions26"></td>
+														<td class="col_day" id="q4_instructions27"></td>
+														<td class="col_day" id="q4_instructions28"></td>
+														<td class="col_day" id="q4_instructions29"></td>
+														<td class="col_day" id="q4_instructions30"></td>
+														<td class="col_day" id="q4_instructions31"></td>
+													</tr>
+													<tr>
+														<th></th>
+														<th></th>
+														<th>측정</th>
+														<td class="col_day" id="q4_measurements1"></td>
+														<td class="col_day" id="q4_measurements2"></td>
+														<td class="col_day" id="q4_measurements3"></td>
+														<td class="col_day" id="q4_measurements4"></td>
+														<td class="col_day" id="q4_measurements5"></td>
+														<td class="col_day" id="q4_measurements6"></td>
+														<td class="col_day" id="q4_measurements7"></td>
+														<td class="col_day" id="q4_measurements8"></td>
+														<td class="col_day" id="q4_measurements9"></td>
+														<td class="col_day" id="q4_measurements10"></td>
+														<td class="col_day" id="q4_measurements11"></td>
+														<td class="col_day" id="q4_measurements12"></td>
+														<td class="col_day" id="q4_measurements13"></td>
+														<td class="col_day" id="q4_measurements14"></td>
+														<td class="col_day" id="q4_measurements15"></td>
+														<td class="col_day" id="q4_measurements16"></td>
+														<td class="col_day" id="q4_measurements17"></td>
+														<td class="col_day" id="q4_measurements18"></td>
+														<td class="col_day" id="q4_measurements19"></td>
+														<td class="col_day" id="q4_measurements20"></td>
+														<td class="col_day" id="q4_measurements21"></td>
+														<td class="col_day" id="q4_measurements22"></td>
+														<td class="col_day" id="q4_measurements23"></td>
+														<td class="col_day" id="q4_measurements24"></td>
+														<td class="col_day" id="q4_measurements25"></td>
+														<td class="col_day" id="q4_measurements26"></td>
+														<td class="col_day" id="q4_measurements27"></td>
+														<td class="col_day" id="q4_measurements28"></td>
+														<td class="col_day" id="q4_measurements29"></td>
+														<td class="col_day" id="q4_measurements30"></td>
+														<td class="col_day" id="q4_measurements31"></td>
+													</tr>
+													<tr>
+														<th rowspan="3">5존</th>
+														<th colspan="2">+- 7.5℃</th>
+														<th>설정</th>
+														<td class="col_day" id="q5_set1"></td>
+														<td class="col_day" id="q5_set2"></td>
+														<td class="col_day" id="q5_set3"></td>
+														<td class="col_day" id="q5_set4"></td>
+														<td class="col_day" id="q5_set5"></td>
+														<td class="col_day" id="q5_set6"></td>
+														<td class="col_day" id="q5_set7"></td>
+														<td class="col_day" id="q5_set8"></td>
+														<td class="col_day" id="q5_set9"></td>
+														<td class="col_day" id="q5_set10"></td>
+														<td class="col_day" id="q5_set11"></td>
+														<td class="col_day" id="q5_set12"></td>
+														<td class="col_day" id="q5_set13"></td>
+														<td class="col_day" id="q5_set14"></td>
+														<td class="col_day" id="q5_set15"></td>
+														<td class="col_day" id="q5_set16"></td>
+														<td class="col_day" id="q5_set17"></td>
+														<td class="col_day" id="q5_set18"></td>
+														<td class="col_day" id="q5_set19"></td>
+														<td class="col_day" id="q5_set20"></td>
+														<td class="col_day" id="q5_set21"></td>
+														<td class="col_day" id="q5_set22"></td>
+														<td class="col_day" id="q5_set23"></td>
+														<td class="col_day" id="q5_set24"></td>
+														<td class="col_day" id="q5_set25"></td>
+														<td class="col_day" id="q5_set26"></td>
+														<td class="col_day" id="q5_set27"></td>
+														<td class="col_day" id="q5_set28"></td>
+														<td class="col_day" id="q5_set29"></td>
+														<td class="col_day" id="q5_set30"></td>
+														<td class="col_day" id="q5_set31"></td>
+													</tr>
+													<tr>
+														<th>상한치</th>
+														<th>하한치</th>
+														<th>지시</th>
+														<td class="col_day" id="q5_instructions1"></td>
+														<td class="col_day" id="q5_instructions2"></td>
+														<td class="col_day" id="q5_instructions3"></td>
+														<td class="col_day" id="q5_instructions4"></td>
+														<td class="col_day" id="q5_instructions5"></td>
+														<td class="col_day" id="q5_instructions6"></td>
+														<td class="col_day" id="q5_instructions7"></td>
+														<td class="col_day" id="q5_instructions8"></td>
+														<td class="col_day" id="q5_instructions9"></td>
+														<td class="col_day" id="q5_instructions10"></td>
+														<td class="col_day" id="q5_instructions11"></td>
+														<td class="col_day" id="q5_instructions12"></td>
+														<td class="col_day" id="q5_instructions13"></td>
+														<td class="col_day" id="q5_instructions14"></td>
+														<td class="col_day" id="q5_instructions15"></td>
+														<td class="col_day" id="q5_instructions16"></td>
+														<td class="col_day" id="q5_instructions17"></td>
+														<td class="col_day" id="q5_instructions18"></td>
+														<td class="col_day" id="q5_instructions19"></td>
+														<td class="col_day" id="q5_instructions20"></td>
+														<td class="col_day" id="q5_instructions21"></td>
+														<td class="col_day" id="q5_instructions22"></td>
+														<td class="col_day" id="q5_instructions23"></td>
+														<td class="col_day" id="q5_instructions24"></td>
+														<td class="col_day" id="q5_instructions25"></td>
+														<td class="col_day" id="q5_instructions26"></td>
+														<td class="col_day" id="q5_instructions27"></td>
+														<td class="col_day" id="q5_instructions28"></td>
+														<td class="col_day" id="q5_instructions29"></td>
+														<td class="col_day" id="q5_instructions30"></td>
+														<td class="col_day" id="q5_instructions31"></td>
+													</tr>
+													<tr>
+														<th></th>
+														<th></th>
+														<th>측정</th>
+														<td class="col_day" id="q5_measurements1"></td>
+														<td class="col_day" id="q5_measurements2"></td>
+														<td class="col_day" id="q5_measurements3"></td>
+														<td class="col_day" id="q5_measurements4"></td>
+														<td class="col_day" id="q5_measurements5"></td>
+														<td class="col_day" id="q5_measurements6"></td>
+														<td class="col_day" id="q5_measurements7"></td>
+														<td class="col_day" id="q5_measurements8"></td>
+														<td class="col_day" id="q5_measurements9"></td>
+														<td class="col_day" id="q5_measurements10"></td>
+														<td class="col_day" id="q5_measurements11"></td>
+														<td class="col_day" id="q5_measurements12"></td>
+														<td class="col_day" id="q5_measurements13"></td>
+														<td class="col_day" id="q5_measurements14"></td>
+														<td class="col_day" id="q5_measurements15"></td>
+														<td class="col_day" id="q5_measurements16"></td>
+														<td class="col_day" id="q5_measurements17"></td>
+														<td class="col_day" id="q5_measurements18"></td>
+														<td class="col_day" id="q5_measurements19"></td>
+														<td class="col_day" id="q5_measurements20"></td>
+														<td class="col_day" id="q5_measurements21"></td>
+														<td class="col_day" id="q5_measurements22"></td>
+														<td class="col_day" id="q5_measurements23"></td>
+														<td class="col_day" id="q5_measurements24"></td>
+														<td class="col_day" id="q5_measurements25"></td>
+														<td class="col_day" id="q5_measurements26"></td>
+														<td class="col_day" id="q5_measurements27"></td>
+														<td class="col_day" id="q5_measurements28"></td>
+														<td class="col_day" id="q5_measurements29"></td>
+														<td class="col_day" id="q5_measurements30"></td>
+														<td class="col_day" id="q5_measurements31"></td>
+													</tr>
+													<tr>
+														<th rowspan="2">CP</th>
+														<th rowspan="2">+-0.05</th>
+														<th rowspan="2"></th>
+														<th>지시</th>
+														<td class="col_day" id="cp_instructions1"></td>
+														<td class="col_day" id="cp_instructions2"></td>
+														<td class="col_day" id="cp_instructions3"></td>
+														<td class="col_day" id="cp_instructions4"></td>
+														<td class="col_day" id="cp_instructions5"></td>
+														<td class="col_day" id="cp_instructions6"></td>
+														<td class="col_day" id="cp_instructions7"></td>
+														<td class="col_day" id="cp_instructions8"></td>
+														<td class="col_day" id="cp_instructions9"></td>
+														<td class="col_day" id="cp_instructions10"></td>
+														<td class="col_day" id="cp_instructions11"></td>
+														<td class="col_day" id="cp_instructions12"></td>
+														<td class="col_day" id="cp_instructions13"></td>
+														<td class="col_day" id="cp_instructions14"></td>
+														<td class="col_day" id="cp_instructions15"></td>
+														<td class="col_day" id="cp_instructions16"></td>
+														<td class="col_day" id="cp_instructions17"></td>
+														<td class="col_day" id="cp_instructions18"></td>
+														<td class="col_day" id="cp_instructions19"></td>
+														<td class="col_day" id="cp_instructions20"></td>
+														<td class="col_day" id="cp_instructions21"></td>
+														<td class="col_day" id="cp_instructions22"></td>
+														<td class="col_day" id="cp_instructions23"></td>
+														<td class="col_day" id="cp_instructions24"></td>
+														<td class="col_day" id="cp_instructions25"></td>
+														<td class="col_day" id="cp_instructions26"></td>
+														<td class="col_day" id="cp_instructions27"></td>
+														<td class="col_day" id="cp_instructions28"></td>
+														<td class="col_day" id="cp_instructions29"></td>
+														<td class="col_day" id="cp_instructions30"></td>
+														<td class="col_day" id="cp_instructions31"></td>
+													</tr>
+													<tr>
+														<th>측정</th>
+														<td class="col_day" id="cp_measurements1"></td>
+														<td class="col_day" id="cp_measurements2"></td>
+														<td class="col_day" id="cp_measurements3"></td>
+														<td class="col_day" id="cp_measurements4"></td>
+														<td class="col_day" id="cp_measurements5"></td>
+														<td class="col_day" id="cp_measurements6"></td>
+														<td class="col_day" id="cp_measurements7"></td>
+														<td class="col_day" id="cp_measurements8"></td>
+														<td class="col_day" id="cp_measurements9"></td>
+														<td class="col_day" id="cp_measurements10"></td>
+														<td class="col_day" id="cp_measurements11"></td>
+														<td class="col_day" id="cp_measurements12"></td>
+														<td class="col_day" id="cp_measurements13"></td>
+														<td class="col_day" id="cp_measurements14"></td>
+														<td class="col_day" id="cp_measurements15"></td>
+														<td class="col_day" id="cp_measurements16"></td>
+														<td class="col_day" id="cp_measurements17"></td>
+														<td class="col_day" id="cp_measurements18"></td>
+														<td class="col_day" id="cp_measurements19"></td>
+														<td class="col_day" id="cp_measurements20"></td>
+														<td class="col_day" id="cp_measurements21"></td>
+														<td class="col_day" id="cp_measurements22"></td>
+														<td class="col_day" id="cp_measurements23"></td>
+														<td class="col_day" id="cp_measurements24"></td>
+														<td class="col_day" id="cp_measurements25"></td>
+														<td class="col_day" id="cp_measurements26"></td>
+														<td class="col_day" id="cp_measurements27"></td>
+														<td class="col_day" id="cp_measurements28"></td>
+														<td class="col_day" id="cp_measurements29"></td>
+														<td class="col_day" id="cp_measurements30"></td>
+														<td class="col_day" id="cp_measurements31"></td>
+													</tr>
+													<tr>
+														<th rowspan="2">변<br>성<br>로</th>
+														<th>CO2</th>
+														<th>+-0.05</th>
+														<th></th>
+														<th>지시</th>
+														<td class="col_day" id="co2_instructions1"></td>
+														<td class="col_day" id="co2_instructions2"></td>
+														<td class="col_day" id="co2_instructions3"></td>
+														<td class="col_day" id="co2_instructions4"></td>
+														<td class="col_day" id="co2_instructions5"></td>
+														<td class="col_day" id="co2_instructions6"></td>
+														<td class="col_day" id="co2_instructions7"></td>
+														<td class="col_day" id="co2_instructions8"></td>
+														<td class="col_day" id="co2_instructions9"></td>
+														<td class="col_day" id="co2_instructions10"></td>
+														<td class="col_day" id="co2_instructions11"></td>
+														<td class="col_day" id="co2_instructions12"></td>
+														<td class="col_day" id="co2_instructions13"></td>
+														<td class="col_day" id="co2_instructions14"></td>
+														<td class="col_day" id="co2_instructions15"></td>
+														<td class="col_day" id="co2_instructions16"></td>
+														<td class="col_day" id="co2_instructions17"></td>
+														<td class="col_day" id="co2_instructions18"></td>
+														<td class="col_day" id="co2_instructions19"></td>
+														<td class="col_day" id="co2_instructions20"></td>
+														<td class="col_day" id="co2_instructions21"></td>
+														<td class="col_day" id="co2_instructions22"></td>
+														<td class="col_day" id="co2_instructions23"></td>
+														<td class="col_day" id="co2_instructions24"></td>
+														<td class="col_day" id="co2_instructions25"></td>
+														<td class="col_day" id="co2_instructions26"></td>
+														<td class="col_day" id="co2_instructions27"></td>
+														<td class="col_day" id="co2_instructions28"></td>
+														<td class="col_day" id="co2_instructions29"></td>
+														<td class="col_day" id="co2_instructions30"></td>
+														<td class="col_day" id="co2_instructions31"></td>
+													</tr>
+													<tr>
+														<th>DEW<br>POINT</th>
+														<th>10+-7</th>
+														<th></th>
+														<th>측정</th>
+														<td class="col_day" id="dew_measurements1"></td>
+														<td class="col_day" id="dew_measurements2"></td>
+														<td class="col_day" id="dew_measurements3"></td>
+														<td class="col_day" id="dew_measurements4"></td>
+														<td class="col_day" id="dew_measurements5"></td>
+														<td class="col_day" id="dew_measurements6"></td>
+														<td class="col_day" id="dew_measurements7"></td>
+														<td class="col_day" id="dew_measurements8"></td>
+														<td class="col_day" id="dew_measurements9"></td>
+														<td class="col_day" id="dew_measurements10"></td>
+														<td class="col_day" id="dew_measurements11"></td>
+														<td class="col_day" id="dew_measurements12"></td>
+														<td class="col_day" id="dew_measurements13"></td>
+														<td class="col_day" id="dew_measurements14"></td>
+														<td class="col_day" id="dew_measurements15"></td>
+														<td class="col_day" id="dew_measurements16"></td>
+														<td class="col_day" id="dew_measurements17"></td>
+														<td class="col_day" id="dew_measurements18"></td>
+														<td class="col_day" id="dew_measurements19"></td>
+														<td class="col_day" id="dew_measurements20"></td>
+														<td class="col_day" id="dew_measurements21"></td>
+														<td class="col_day" id="dew_measurements22"></td>
+														<td class="col_day" id="dew_measurements23"></td>
+														<td class="col_day" id="dew_measurements24"></td>
+														<td class="col_day" id="dew_measurements25"></td>
+														<td class="col_day" id="dew_measurements26"></td>
+														<td class="col_day" id="dew_measurements27"></td>
+														<td class="col_day" id="dew_measurements28"></td>
+														<td class="col_day" id="dew_measurements29"></td>
+														<td class="col_day" id="dew_measurements30"></td>
+														<td class="col_day" id="dew_measurements31"></td>
+													</tr>
+													<tr>
+														<th rowspan="3" colspan="2">소입유조</th>
+														<th colspan="2">+-7.5℃</th>
+														<th>설정</th>
+														<td class="col_day" id="oil_set1"></td>
+														<td class="col_day" id="oil_set2"></td>
+														<td class="col_day" id="oil_set3"></td>
+														<td class="col_day" id="oil_set4"></td>
+														<td class="col_day" id="oil_set5"></td>
+														<td class="col_day" id="oil_set6"></td>
+														<td class="col_day" id="oil_set7"></td>
+														<td class="col_day" id="oil_set8"></td>
+														<td class="col_day" id="oil_set9"></td>
+														<td class="col_day" id="oil_set10"></td>
+														<td class="col_day" id="oil_set11"></td>
+														<td class="col_day" id="oil_set12"></td>
+														<td class="col_day" id="oil_set13"></td>
+														<td class="col_day" id="oil_set14"></td>
+														<td class="col_day" id="oil_set15"></td>
+														<td class="col_day" id="oil_set16"></td>
+														<td class="col_day" id="oil_set17"></td>
+														<td class="col_day" id="oil_set18"></td>
+														<td class="col_day" id="oil_set19"></td>
+														<td class="col_day" id="oil_set20"></td>
+														<td class="col_day" id="oil_set21"></td>
+														<td class="col_day" id="oil_set22"></td>
+														<td class="col_day" id="oil_set23"></td>
+														<td class="col_day" id="oil_set24"></td>
+														<td class="col_day" id="oil_set25"></td>
+														<td class="col_day" id="oil_set26"></td>
+														<td class="col_day" id="oil_set27"></td>
+														<td class="col_day" id="oil_set28"></td>
+														<td class="col_day" id="oil_set29"></td>
+														<td class="col_day" id="oil_set30"></td>
+														<td class="col_day" id="oil_set31"></td>
+													</tr>
+													<tr>
+														<th>상한치</th>
+														<th>하한치</th>
+														<th>지시</th>
+														<td class="col_day" id="oil_instructions1"></td>
+														<td class="col_day" id="oil_instructions2"></td>
+														<td class="col_day" id="oil_instructions3"></td>
+														<td class="col_day" id="oil_instructions4"></td>
+														<td class="col_day" id="oil_instructions5"></td>
+														<td class="col_day" id="oil_instructions6"></td>
+														<td class="col_day" id="oil_instructions7"></td>
+														<td class="col_day" id="oil_instructions8"></td>
+														<td class="col_day" id="oil_instructions9"></td>
+														<td class="col_day" id="oil_instructions10"></td>
+														<td class="col_day" id="oil_instructions11"></td>
+														<td class="col_day" id="oil_instructions12"></td>
+														<td class="col_day" id="oil_instructions13"></td>
+														<td class="col_day" id="oil_instructions14"></td>
+														<td class="col_day" id="oil_instructions15"></td>
+														<td class="col_day" id="oil_instructions16"></td>
+														<td class="col_day" id="oil_instructions17"></td>
+														<td class="col_day" id="oil_instructions18"></td>
+														<td class="col_day" id="oil_instructions19"></td>
+														<td class="col_day" id="oil_instructions20"></td>
+														<td class="col_day" id="oil_instructions21"></td>
+														<td class="col_day" id="oil_instructions22"></td>
+														<td class="col_day" id="oil_instructions23"></td>
+														<td class="col_day" id="oil_instructions24"></td>
+														<td class="col_day" id="oil_instructions25"></td>
+														<td class="col_day" id="oil_instructions26"></td>
+														<td class="col_day" id="oil_instructions27"></td>
+														<td class="col_day" id="oil_instructions28"></td>
+														<td class="col_day" id="oil_instructions29"></td>
+														<td class="col_day" id="oil_instructions30"></td>
+														<td class="col_day" id="oil_instructions31"></td>
+													</tr>
+													<tr>
+														<th></th>
+														<th></th>
+														<th>측정</th>
+														<td class="col_day" id="oil_measurements1"></td>
+														<td class="col_day" id="oil_measurements2"></td>
+														<td class="col_day" id="oil_measurements3"></td>
+														<td class="col_day" id="oil_measurements4"></td>
+														<td class="col_day" id="oil_measurements5"></td>
+														<td class="col_day" id="oil_measurements6"></td>
+														<td class="col_day" id="oil_measurements7"></td>
+														<td class="col_day" id="oil_measurements8"></td>
+														<td class="col_day" id="oil_measurements9"></td>
+														<td class="col_day" id="oil_measurements10"></td>
+														<td class="col_day" id="oil_measurements11"></td>
+														<td class="col_day" id="oil_measurements12"></td>
+														<td class="col_day" id="oil_measurements13"></td>
+														<td class="col_day" id="oil_measurements14"></td>
+														<td class="col_day" id="oil_measurements15"></td>
+														<td class="col_day" id="oil_measurements16"></td>
+														<td class="col_day" id="oil_measurements17"></td>
+														<td class="col_day" id="oil_measurements18"></td>
+														<td class="col_day" id="oil_measurements19"></td>
+														<td class="col_day" id="oil_measurements20"></td>
+														<td class="col_day" id="oil_measurements21"></td>
+														<td class="col_day" id="oil_measurements22"></td>
+														<td class="col_day" id="oil_measurements23"></td>
+														<td class="col_day" id="oil_measurements24"></td>
+														<td class="col_day" id="oil_measurements25"></td>
+														<td class="col_day" id="oil_measurements26"></td>
+														<td class="col_day" id="oil_measurements27"></td>
+														<td class="col_day" id="oil_measurements28"></td>
+														<td class="col_day" id="oil_measurements29"></td>
+														<td class="col_day" id="oil_measurements30"></td>
+														<td class="col_day" id="oil_measurements31"></td>
+													</tr>
+													<tr>
+														<th rowspan="12">소<br>려<br>로</th>
+														<th rowspan="3">1존</th>
+														<th rowspan="3"></th>
+														<th rowspan="3"></th>
+														<th>설정</th>
+														<td class="col_day" id="t1_set1"></td>
+														<td class="col_day" id="t1_set2"></td>
+														<td class="col_day" id="t1_set3"></td>
+														<td class="col_day" id="t1_set4"></td>
+														<td class="col_day" id="t1_set5"></td>
+														<td class="col_day" id="t1_set6"></td>
+														<td class="col_day" id="t1_set7"></td>
+														<td class="col_day" id="t1_set8"></td>
+														<td class="col_day" id="t1_set9"></td>
+														<td class="col_day" id="t1_set10"></td>
+														<td class="col_day" id="t1_set11"></td>
+														<td class="col_day" id="t1_set12"></td>
+														<td class="col_day" id="t1_set13"></td>
+														<td class="col_day" id="t1_set14"></td>
+														<td class="col_day" id="t1_set15"></td>
+														<td class="col_day" id="t1_set16"></td>
+														<td class="col_day" id="t1_set17"></td>
+														<td class="col_day" id="t1_set18"></td>
+														<td class="col_day" id="t1_set19"></td>
+														<td class="col_day" id="t1_set20"></td>
+														<td class="col_day" id="t1_set21"></td>
+														<td class="col_day" id="t1_set22"></td>
+														<td class="col_day" id="t1_set23"></td>
+														<td class="col_day" id="t1_set24"></td>
+														<td class="col_day" id="t1_set25"></td>
+														<td class="col_day" id="t1_set26"></td>
+														<td class="col_day" id="t1_set27"></td>
+														<td class="col_day" id="t1_set28"></td>
+														<td class="col_day" id="t1_set29"></td>
+														<td class="col_day" id="t1_set30"></td>
+														<td class="col_day" id="t1_set31"></td>
+													</tr>
+													<tr>
+														<th>지시</th>
+														<td class="col_day" id="t1_instructions1"></td>
+														<td class="col_day" id="t1_instructions2"></td>
+														<td class="col_day" id="t1_instructions3"></td>
+														<td class="col_day" id="t1_instructions4"></td>
+														<td class="col_day" id="t1_instructions5"></td>
+														<td class="col_day" id="t1_instructions6"></td>
+														<td class="col_day" id="t1_instructions7"></td>
+														<td class="col_day" id="t1_instructions8"></td>
+														<td class="col_day" id="t1_instructions9"></td>
+														<td class="col_day" id="t1_instructions10"></td>
+														<td class="col_day" id="t1_instructions11"></td>
+														<td class="col_day" id="t1_instructions12"></td>
+														<td class="col_day" id="t1_instructions13"></td>
+														<td class="col_day" id="t1_instructions14"></td>
+														<td class="col_day" id="t1_instructions15"></td>
+														<td class="col_day" id="t1_instructions16"></td>
+														<td class="col_day" id="t1_instructions17"></td>
+														<td class="col_day" id="t1_instructions18"></td>
+														<td class="col_day" id="t1_instructions19"></td>
+														<td class="col_day" id="t1_instructions20"></td>
+														<td class="col_day" id="t1_instructions21"></td>
+														<td class="col_day" id="t1_instructions22"></td>
+														<td class="col_day" id="t1_instructions23"></td>
+														<td class="col_day" id="t1_instructions24"></td>
+														<td class="col_day" id="t1_instructions25"></td>
+														<td class="col_day" id="t1_instructions26"></td>
+														<td class="col_day" id="t1_instructions27"></td>
+														<td class="col_day" id="t1_instructions28"></td>
+														<td class="col_day" id="t1_instructions29"></td>
+														<td class="col_day" id="t1_instructions30"></td>
+														<td class="col_day" id="t1_instructions31"></td>
+													</tr>
+													<tr>
+														<th>측정</th>
+														<td class="col_day" id="t1_measurements1"></td>
+														<td class="col_day" id="t1_measurements2"></td>
+														<td class="col_day" id="t1_measurements3"></td>
+														<td class="col_day" id="t1_measurements4"></td>
+														<td class="col_day" id="t1_measurements5"></td>
+														<td class="col_day" id="t1_measurements6"></td>
+														<td class="col_day" id="t1_measurements7"></td>
+														<td class="col_day" id="t1_measurements8"></td>
+														<td class="col_day" id="t1_measurements9"></td>
+														<td class="col_day" id="t1_measurements10"></td>
+														<td class="col_day" id="t1_measurements11"></td>
+														<td class="col_day" id="t1_measurements12"></td>
+														<td class="col_day" id="t1_measurements13"></td>
+														<td class="col_day" id="t1_measurements14"></td>
+														<td class="col_day" id="t1_measurements15"></td>
+														<td class="col_day" id="t1_measurements16"></td>
+														<td class="col_day" id="t1_measurements17"></td>
+														<td class="col_day" id="t1_measurements18"></td>
+														<td class="col_day" id="t1_measurements19"></td>
+														<td class="col_day" id="t1_measurements20"></td>
+														<td class="col_day" id="t1_measurements21"></td>
+														<td class="col_day" id="t1_measurements22"></td>
+														<td class="col_day" id="t1_measurements23"></td>
+														<td class="col_day" id="t1_measurements24"></td>
+														<td class="col_day" id="t1_measurements25"></td>
+														<td class="col_day" id="t1_measurements26"></td>
+														<td class="col_day" id="t1_measurements27"></td>
+														<td class="col_day" id="t1_measurements28"></td>
+														<td class="col_day" id="t1_measurements29"></td>
+														<td class="col_day" id="t1_measurements30"></td>
+														<td class="col_day" id="t1_measurements31"></td>
+													</tr>
+													<tr>
+														<th rowspan="3">2존</th>
+														<th colspan="2">+-7.5℃</th>
+														<th>설정</th>
+														<td class="col_day" id="t2_set1"></td>
+														<td class="col_day" id="t2_set2"></td>
+														<td class="col_day" id="t2_set3"></td>
+														<td class="col_day" id="t2_set4"></td>
+														<td class="col_day" id="t2_set5"></td>
+														<td class="col_day" id="t2_set6"></td>
+														<td class="col_day" id="t2_set7"></td>
+														<td class="col_day" id="t2_set8"></td>
+														<td class="col_day" id="t2_set9"></td>
+														<td class="col_day" id="t2_set10"></td>
+														<td class="col_day" id="t2_set11"></td>
+														<td class="col_day" id="t2_set12"></td>
+														<td class="col_day" id="t2_set13"></td>
+														<td class="col_day" id="t2_set14"></td>
+														<td class="col_day" id="t2_set15"></td>
+														<td class="col_day" id="t2_set16"></td>
+														<td class="col_day" id="t2_set17"></td>
+														<td class="col_day" id="t2_set18"></td>
+														<td class="col_day" id="t2_set19"></td>
+														<td class="col_day" id="t2_set20"></td>
+														<td class="col_day" id="t2_set21"></td>
+														<td class="col_day" id="t2_set22"></td>
+														<td class="col_day" id="t2_set23"></td>
+														<td class="col_day" id="t2_set24"></td>
+														<td class="col_day" id="t2_set25"></td>
+														<td class="col_day" id="t2_set26"></td>
+														<td class="col_day" id="t2_set27"></td>
+														<td class="col_day" id="t2_set28"></td>
+														<td class="col_day" id="t2_set29"></td>
+														<td class="col_day" id="t2_set30"></td>
+														<td class="col_day" id="t2_set31"></td>
+													</tr>
+													<tr>
+														<th>상한치</th>
+														<th>하한치</th>
+														<th>지시</th>
+														<td class="col_day" id="t2_instructions1"></td>
+														<td class="col_day" id="t2_instructions2"></td>
+														<td class="col_day" id="t2_instructions3"></td>
+														<td class="col_day" id="t2_instructions4"></td>
+														<td class="col_day" id="t2_instructions5"></td>
+														<td class="col_day" id="t2_instructions6"></td>
+														<td class="col_day" id="t2_instructions7"></td>
+														<td class="col_day" id="t2_instructions8"></td>
+														<td class="col_day" id="t2_instructions9"></td>
+														<td class="col_day" id="t2_instructions10"></td>
+														<td class="col_day" id="t2_instructions11"></td>
+														<td class="col_day" id="t2_instructions12"></td>
+														<td class="col_day" id="t2_instructions13"></td>
+														<td class="col_day" id="t2_instructions14"></td>
+														<td class="col_day" id="t2_instructions15"></td>
+														<td class="col_day" id="t2_instructions16"></td>
+														<td class="col_day" id="t2_instructions17"></td>
+														<td class="col_day" id="t2_instructions18"></td>
+														<td class="col_day" id="t2_instructions19"></td>
+														<td class="col_day" id="t2_instructions20"></td>
+														<td class="col_day" id="t2_instructions21"></td>
+														<td class="col_day" id="t2_instructions22"></td>
+														<td class="col_day" id="t2_instructions23"></td>
+														<td class="col_day" id="t2_instructions24"></td>
+														<td class="col_day" id="t2_instructions25"></td>
+														<td class="col_day" id="t2_instructions26"></td>
+														<td class="col_day" id="t2_instructions27"></td>
+														<td class="col_day" id="t2_instructions28"></td>
+														<td class="col_day" id="t2_instructions29"></td>
+														<td class="col_day" id="t2_instructions30"></td>
+														<td class="col_day" id="t2_instructions31"></td>
+													</tr>
+													<tr>
+														<th></th>
+														<th></th>
+														<th>측정</th>
+														<td class="col_day" id="t2_measurements1"></td>
+														<td class="col_day" id="t2_measurements2"></td>
+														<td class="col_day" id="t2_measurements3"></td>
+														<td class="col_day" id="t2_measurements4"></td>
+														<td class="col_day" id="t2_measurements5"></td>
+														<td class="col_day" id="t2_measurements6"></td>
+														<td class="col_day" id="t2_measurements7"></td>
+														<td class="col_day" id="t2_measurements8"></td>
+														<td class="col_day" id="t2_measurements9"></td>
+														<td class="col_day" id="t2_measurements10"></td>
+														<td class="col_day" id="t2_measurements11"></td>
+														<td class="col_day" id="t2_measurements12"></td>
+														<td class="col_day" id="t2_measurements13"></td>
+														<td class="col_day" id="t2_measurements14"></td>
+														<td class="col_day" id="t2_measurements15"></td>
+														<td class="col_day" id="t2_measurements16"></td>
+														<td class="col_day" id="t2_measurements17"></td>
+														<td class="col_day" id="t2_measurements18"></td>
+														<td class="col_day" id="t2_measurements19"></td>
+														<td class="col_day" id="t2_measurements20"></td>
+														<td class="col_day" id="t2_measurements21"></td>
+														<td class="col_day" id="t2_measurements22"></td>
+														<td class="col_day" id="t2_measurements23"></td>
+														<td class="col_day" id="t2_measurements24"></td>
+														<td class="col_day" id="t2_measurements25"></td>
+														<td class="col_day" id="t2_measurements26"></td>
+														<td class="col_day" id="t2_measurements27"></td>
+														<td class="col_day" id="t2_measurements28"></td>
+														<td class="col_day" id="t2_measurements29"></td>
+														<td class="col_day" id="t2_measurements30"></td>
+														<td class="col_day" id="t2_measurements31"></td>
+													</tr>
+													<tr>
+														<th rowspan="3">3존</th>
+														<th colspan="2">+-7.5℃</th>
+														<th>설정</th>
+														<td class="col_day" id="t3_set1"></td>
+														<td class="col_day" id="t3_set2"></td>
+														<td class="col_day" id="t3_set3"></td>
+														<td class="col_day" id="t3_set4"></td>
+														<td class="col_day" id="t3_set5"></td>
+														<td class="col_day" id="t3_set6"></td>
+														<td class="col_day" id="t3_set7"></td>
+														<td class="col_day" id="t3_set8"></td>
+														<td class="col_day" id="t3_set9"></td>
+														<td class="col_day" id="t3_set10"></td>
+														<td class="col_day" id="t3_set11"></td>
+														<td class="col_day" id="t3_set12"></td>
+														<td class="col_day" id="t3_set13"></td>
+														<td class="col_day" id="t3_set14"></td>
+														<td class="col_day" id="t3_set15"></td>
+														<td class="col_day" id="t3_set16"></td>
+														<td class="col_day" id="t3_set17"></td>
+														<td class="col_day" id="t3_set18"></td>
+														<td class="col_day" id="t3_set19"></td>
+														<td class="col_day" id="t3_set20"></td>
+														<td class="col_day" id="t3_set21"></td>
+														<td class="col_day" id="t3_set22"></td>
+														<td class="col_day" id="t3_set23"></td>
+														<td class="col_day" id="t3_set24"></td>
+														<td class="col_day" id="t3_set25"></td>
+														<td class="col_day" id="t3_set26"></td>
+														<td class="col_day" id="t3_set27"></td>
+														<td class="col_day" id="t3_set28"></td>
+														<td class="col_day" id="t3_set29"></td>
+														<td class="col_day" id="t3_set30"></td>
+														<td class="col_day" id="t3_set31"></td>
+													</tr>
+													<tr>
+														<th>상한치</th>
+														<th>하한치</th>
+														<th>지시</th>
+														<td class="col_day" id="t3_instructions1"></td>
+														<td class="col_day" id="t3_instructions2"></td>
+														<td class="col_day" id="t3_instructions3"></td>
+														<td class="col_day" id="t3_instructions4"></td>
+														<td class="col_day" id="t3_instructions5"></td>
+														<td class="col_day" id="t3_instructions6"></td>
+														<td class="col_day" id="t3_instructions7"></td>
+														<td class="col_day" id="t3_instructions8"></td>
+														<td class="col_day" id="t3_instructions9"></td>
+														<td class="col_day" id="t3_instructions10"></td>
+														<td class="col_day" id="t3_instructions11"></td>
+														<td class="col_day" id="t3_instructions12"></td>
+														<td class="col_day" id="t3_instructions13"></td>
+														<td class="col_day" id="t3_instructions14"></td>
+														<td class="col_day" id="t3_instructions15"></td>
+														<td class="col_day" id="t3_instructions16"></td>
+														<td class="col_day" id="t3_instructions17"></td>
+														<td class="col_day" id="t3_instructions18"></td>
+														<td class="col_day" id="t3_instructions19"></td>
+														<td class="col_day" id="t3_instructions20"></td>
+														<td class="col_day" id="t3_instructions21"></td>
+														<td class="col_day" id="t3_instructions22"></td>
+														<td class="col_day" id="t3_instructions23"></td>
+														<td class="col_day" id="t3_instructions24"></td>
+														<td class="col_day" id="t3_instructions25"></td>
+														<td class="col_day" id="t3_instructions26"></td>
+														<td class="col_day" id="t3_instructions27"></td>
+														<td class="col_day" id="t3_instructions28"></td>
+														<td class="col_day" id="t3_instructions29"></td>
+														<td class="col_day" id="t3_instructions30"></td>
+														<td class="col_day" id="t3_instructions31"></td>
+													</tr>
+													<tr>
+														<th></th>
+														<th></th>
+														<th>측정</th>
+														<td class="col_day" id="t3_measurements1"></td>
+														<td class="col_day" id="t3_measurements2"></td>
+														<td class="col_day" id="t3_measurements3"></td>
+														<td class="col_day" id="t3_measurements4"></td>
+														<td class="col_day" id="t3_measurements5"></td>
+														<td class="col_day" id="t3_measurements6"></td>
+														<td class="col_day" id="t3_measurements7"></td>
+														<td class="col_day" id="t3_measurements8"></td>
+														<td class="col_day" id="t3_measurements9"></td>
+														<td class="col_day" id="t3_measurements10"></td>
+														<td class="col_day" id="t3_measurements11"></td>
+														<td class="col_day" id="t3_measurements12"></td>
+														<td class="col_day" id="t3_measurements13"></td>
+														<td class="col_day" id="t3_measurements14"></td>
+														<td class="col_day" id="t3_measurements15"></td>
+														<td class="col_day" id="t3_measurements16"></td>
+														<td class="col_day" id="t3_measurements17"></td>
+														<td class="col_day" id="t3_measurements18"></td>
+														<td class="col_day" id="t3_measurements19"></td>
+														<td class="col_day" id="t3_measurements20"></td>
+														<td class="col_day" id="t3_measurements21"></td>
+														<td class="col_day" id="t3_measurements22"></td>
+														<td class="col_day" id="t3_measurements23"></td>
+														<td class="col_day" id="t3_measurements24"></td>
+														<td class="col_day" id="t3_measurements25"></td>
+														<td class="col_day" id="t3_measurements26"></td>
+														<td class="col_day" id="t3_measurements27"></td>
+														<td class="col_day" id="t3_measurements28"></td>
+														<td class="col_day" id="t3_measurements29"></td>
+														<td class="col_day" id="t3_measurements30"></td>
+														<td class="col_day" id="t3_measurements31"></td>
+													</tr>
+													<tr>
+														<th rowspan="3">4존</th>
+														<th colspan="2">+-7.5℃</th>
+														<th>설정</th>
+														<td class="col_day" id="t4_set1"></td>
+														<td class="col_day" id="t4_set2"></td>
+														<td class="col_day" id="t4_set3"></td>
+														<td class="col_day" id="t4_set4"></td>
+														<td class="col_day" id="t4_set5"></td>
+														<td class="col_day" id="t4_set6"></td>
+														<td class="col_day" id="t4_set7"></td>
+														<td class="col_day" id="t4_set8"></td>
+														<td class="col_day" id="t4_set9"></td>
+														<td class="col_day" id="t4_set10"></td>
+														<td class="col_day" id="t4_set11"></td>
+														<td class="col_day" id="t4_set12"></td>
+														<td class="col_day" id="t4_set13"></td>
+														<td class="col_day" id="t4_set14"></td>
+														<td class="col_day" id="t4_set15"></td>
+														<td class="col_day" id="t4_set16"></td>
+														<td class="col_day" id="t4_set17"></td>
+														<td class="col_day" id="t4_set18"></td>
+														<td class="col_day" id="t4_set19"></td>
+														<td class="col_day" id="t4_set20"></td>
+														<td class="col_day" id="t4_set21"></td>
+														<td class="col_day" id="t4_set22"></td>
+														<td class="col_day" id="t4_set23"></td>
+														<td class="col_day" id="t4_set24"></td>
+														<td class="col_day" id="t4_set25"></td>
+														<td class="col_day" id="t4_set26"></td>
+														<td class="col_day" id="t4_set27"></td>
+														<td class="col_day" id="t4_set28"></td>
+														<td class="col_day" id="t4_set29"></td>
+														<td class="col_day" id="t4_set30"></td>
+														<td class="col_day" id="t4_set31"></td>
+													</tr>
+													<tr>
+														<th>상한치</th>
+														<th>하한치</th>
+														<th>지시</th>
+														<td class="col_day" id="t4_instructions1"></td>
+														<td class="col_day" id="t4_instructions2"></td>
+														<td class="col_day" id="t4_instructions3"></td>
+														<td class="col_day" id="t4_instructions4"></td>
+														<td class="col_day" id="t4_instructions5"></td>
+														<td class="col_day" id="t4_instructions6"></td>
+														<td class="col_day" id="t4_instructions7"></td>
+														<td class="col_day" id="t4_instructions8"></td>
+														<td class="col_day" id="t4_instructions9"></td>
+														<td class="col_day" id="t4_instructions10"></td>
+														<td class="col_day" id="t4_instructions11"></td>
+														<td class="col_day" id="t4_instructions12"></td>
+														<td class="col_day" id="t4_instructions13"></td>
+														<td class="col_day" id="t4_instructions14"></td>
+														<td class="col_day" id="t4_instructions15"></td>
+														<td class="col_day" id="t4_instructions16"></td>
+														<td class="col_day" id="t4_instructions17"></td>
+														<td class="col_day" id="t4_instructions18"></td>
+														<td class="col_day" id="t4_instructions19"></td>
+														<td class="col_day" id="t4_instructions20"></td>
+														<td class="col_day" id="t4_instructions21"></td>
+														<td class="col_day" id="t4_instructions22"></td>
+														<td class="col_day" id="t4_instructions23"></td>
+														<td class="col_day" id="t4_instructions24"></td>
+														<td class="col_day" id="t4_instructions25"></td>
+														<td class="col_day" id="t4_instructions26"></td>
+														<td class="col_day" id="t4_instructions27"></td>
+														<td class="col_day" id="t4_instructions28"></td>
+														<td class="col_day" id="t4_instructions29"></td>
+														<td class="col_day" id="t4_instructions30"></td>
+														<td class="col_day" id="t4_instructions31"></td>
+													</tr>
+													<tr>
+														<th></th>
+														<th></th>
+														<th>측정</th>
+														<td class="col_day" id="t4_measurements1"></td>
+														<td class="col_day" id="t4_measurements2"></td>
+														<td class="col_day" id="t4_measurements3"></td>
+														<td class="col_day" id="t4_measurements4"></td>
+														<td class="col_day" id="t4_measurements5"></td>
+														<td class="col_day" id="t4_measurements6"></td>
+														<td class="col_day" id="t4_measurements7"></td>
+														<td class="col_day" id="t4_measurements8"></td>
+														<td class="col_day" id="t4_measurements9"></td>
+														<td class="col_day" id="t4_measurements10"></td>
+														<td class="col_day" id="t4_measurements11"></td>
+														<td class="col_day" id="t4_measurements12"></td>
+														<td class="col_day" id="t4_measurements13"></td>
+														<td class="col_day" id="t4_measurements14"></td>
+														<td class="col_day" id="t4_measurements15"></td>
+														<td class="col_day" id="t4_measurements16"></td>
+														<td class="col_day" id="t4_measurements17"></td>
+														<td class="col_day" id="t4_measurements18"></td>
+														<td class="col_day" id="t4_measurements19"></td>
+														<td class="col_day" id="t4_measurements20"></td>
+														<td class="col_day" id="t4_measurements21"></td>
+														<td class="col_day" id="t4_measurements22"></td>
+														<td class="col_day" id="t4_measurements23"></td>
+														<td class="col_day" id="t4_measurements24"></td>
+														<td class="col_day" id="t4_measurements25"></td>
+														<td class="col_day" id="t4_measurements26"></td>
+														<td class="col_day" id="t4_measurements27"></td>
+														<td class="col_day" id="t4_measurements28"></td>
+														<td class="col_day" id="t4_measurements29"></td>
+														<td class="col_day" id="t4_measurements30"></td>
+														<td class="col_day" id="t4_measurements31"></td>
+													</tr>
+													<tr>
+														<th colspan="2">특이사항</th>
+														<td colspan="34" id="special2"></td>
+													</tr>
+													<tr>
+														<th colspan="2">측정결과</th>
+														<td colspan="34" id="testresult2"></td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+
+								<!-- 연간 -->
+
+
+								<!--END TEXT INPUT FIELD-->
+							</div>
+						</div>
+					</div>
+					<!-- content description -->
 				</div>
-								
-            </div>
-        </div>
-    </div>
 
-<!--END TEXT INPUT FIELD-->
-</div>
-		 </div>
-   </div>
-	<!-- content description -->
-</div>
-
-	</div>
 			</div>
-			<!-- 로그인 끝 -->
-		<div id="footer">
-		
-		<img src="resources/images/jinhap4.gif" style="height:30px;"/>&nbsp;(주)진합&nbsp;&nbsp; <!-- 써니 로고 -->
-		Copyright 2023. All Rights Reserved.
-			
 		</div>
-</div>
+		<!-- 로그인 끝 -->
+		<div id="footer">
+
+			<img src="resources/images/jinhap4.gif" style="height: 30px;" />&nbsp;(주)진합&nbsp;&nbsp;
+			<!-- 써니 로고 -->
+			Copyright 2023. All Rights Reserved.
+
+		</div>
+	</div>
+	
+	<div id="chk-form" style="display:none;" title="판정">
+		<form class="form-inline" role="form" id="chkform" name="chkform" method="post" autocomplete="off">
+		    <div class="form-group">
+		        <input style="width:30px; height:30px; margin-left:80px;" type="radio" checked="checked" 
+		        id="c_chk_o" name="c_chk" value="O">
+		        <label for="c_chk_o" class="control-label" 
+		        style="font-size: 30pt; font-family:headline; font-weight:700; margin-bottom:20px; 
+		        width: 70px; ">O</label>
+		        
+		        <input style="width:30px; height:30px;" type="radio" 
+		        id="c_chk_x" name="c_chk" value="X">
+		        <label for="c_chk_x" class="control-label" 
+		        style="font-size: 30pt; font-family:headline; font-weight:700; margin-bottom:20px;
+		        width: 70px; ">X</label>
+		    </div>          
+		</form>
+
+			<input type="hidden" id="c_day" name="c_day" />
+			<input type="hidden" id="c_zone" name="c_zone" />
+			<input type="hidden" id="c_category" name="c_category" />
+	</div>
+	<div id="minmax-form" style="display:none;" title="상한/하한 등록">
+		<form class="form-inline" role="form" id="minmaxform" name="minmaxform" 
+		method="post" autocomplete="off">
+			<div class="form-group">
+				<label class="control-label" 
+				style="font-size: 14pt;  font-family:headline; font-weight:700; 
+					color:#8C8C8C; width: 60px; text-align: right;">
+				온도: </label>
+			</div>
+			
+			<div class="form-group">
+				<input type="text" class="form-control input-sm" 
+				id="minmax" name="minmax" 
+    					style="width: 280px; height: 34px; 
+    					font-size: 14pt; font-family :headline; font-weight:700;"/>
+			</div>			
+			</form>
+				<input type="hidden" id="m_day" name="m_day" />
+				<input type="hidden" id="m_zone" name="m_zone" />
+				<input type="hidden" id="m_category" name="m_category" />
+		</div>
+		
+	<div id="special-form" style="display:none;" title="특이사항/측정결과 등록">
+		<form class="form-inline" role="form" id="specialform" name="specialform" 
+		method="post" autocomplete="off">
+			<div class="form-group">
+				<label class="control-label" 
+				style="font-size: 14pt;  font-family:headline; font-weight:700; 
+					color:#8C8C8C; width: 60px; text-align: right;">
+				메모: </label>
+			</div>
+			
+			<div class="form-group">
+				<input type="text" class="form-control input-sm" 
+				id="special" name="special" 
+    					style="width: 280px; height: 34px; 
+    					font-size: 14pt; font-family :headline; font-weight:700;"/>
+			</div>			
+		</form>
+			<input type="hidden" id="sp_zone" name="sp_zone" />
+	</div>
+
+	<div id="temp-form" style="display:none;" title="온도 등록">
+		<form class="form-inline" role="form" id="tempform" name="tempform" 
+		method="post" autocomplete="off">
+			<div class="form-group">
+				<label class="control-label" 
+				style="font-size: 14pt;  font-family:headline; font-weight:700; 
+					color:#8C8C8C; width: 60px; text-align: right;">
+				온도: </label>
+			</div>
+			
+			<div class="form-group">
+				<input type="text" class="form-control input-sm" 
+				id="temp" name="temp" 
+    					style="width: 280px; height: 34px; 
+    					font-size: 14pt; font-family :headline; font-weight:700;"/>
+			</div>			
+		</form>
+			<input type="hidden" id="temp_day" name="temp_day" />
+			<input type="hidden" id="temp_zone" name="temp_zone" />
+			<input type="hidden" id="temp_category" name="temp_category" />
+	</div>
+
 
 	<script>
-
-	//datepicker 초기화
-	$.datepicker.formatDate("yy-mm-dd");
-	$(".datepicker").datepicker({
-		dateFormat: "yy-mm-dd",
-		dayNamesMin: [ "일", "월", "화", "수", "목", "금", "토" ],
-		monthNames: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ],
-		monthNamesShort: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ]
-	});
-
-	//timepicker 초기화
-    $(".timepicker").timepicker({
-        timeFormat:'HH:mm:ss',
-        controlType:'select',
-        currentText: "현재시간",
-        oneLine:true
-    });	
+		$(function(){
+			var now = new Date();
+			
+			
+			for(var j=-3; j<1; j++){
+				var y_value = now.getFullYear() + j;
+				$("#s_year").append("<option value='"+y_value+"'>"+y_value+"년</option>");	
+			}
+			
+			$("#s_year").val(now.getFullYear());
+			$("#s_month").val(now.getMonth()+1);
+			
+			getYearCount();
+			getList();			
+			getListSat();			
+			
+			
+		});
 	
-/*전역변수*/
-var sid;
-
-/*인터벌*/
-	
-	
-/*페이지 로드*/	
-$(function(){
-	fn_check();
-	var now = new Date();
-	
-	tdate = now.getFullYear()+"-"+date_set(now.getMonth()+1)+"-"+date_set(now.getDate());
-	
-	
-	for(var j=-3; j<2; j++){
-		var y_value = now.getFullYear() + j;
-		$("#s_year").append("<option value='"+y_value+"'>"+y_value+"년</option>");	
-	}
-	
-	$("#s_year").val(now.getFullYear());
-	
-	
-	sid = '<%=session.getAttribute("sid")%>';
-	getYearCount();	
-	/* if(eval($("#s_year").val()) <= 2020){
-	}else{
-		getYearCount_bungi();
-	} */
-	
-});
-	
-/*함수*/	
- 			var fn_check = function() {
-				
-				
-				$.ajax({
-					 method: "POST",
-					 url: "set_chk.jsp",
-					 contentType: "application/json; charset=utf-8",
-					 data: {'time':new Date().getTime()},
-					 
-					 success : function(data) {
+		$("#s_gubun").change(function(){
+			var selectedTable = $(this).val();
+			
+			$("#table1").hide();
+			$("#table2").hide();
+			
+			$("#table" + selectedTable).show();
+			
+		})		
+		
+		$("#s_year, #s_month, #s_hogi, #s_gubun").change(function(){
+			getYearCount();
+		})
+		
+		
+		function getYearCount(){
+			$.post("m03/s03/count_m03s03.jsp", {
+			    "year": $("#s_year").val(),
+			    "month": $("#s_month").val(),
+			    "hogi": $("#s_hogi").val(),
+			    "gb": $("#s_gubun").val()
+			}).done(function(response) {
+				getList();
+				getListSat();
+			}).fail(function(xhr, status, error) {
+				console.log("실패:", xhr.status);
+			});
+		}
+		// fproof
+		function getList(){
+			$.ajax({
+				type : "POST",
+				url : "m03/s03/select_m03s03.jsp",
+				cache : false,
+				dataType : "json",
+				data : {
+					"year":$("#s_year").val(),
+					"month":$("#s_month").val(),
+					"hogi":$("#s_hogi").val()
+					},
+				success : function(rsJson) {
+					
+					if (rsJson && rsJson.status == "ok") {
+						var rsAr = rsJson.rows;
 						
-						var rsJson = JSON.parse(data);
-						var rsAr = rsJson.data;
+						var listHtml = "";
+						
+						for(var i=0; i<rsAr.length; i++){
 							
-						if ($.isArray(rsAr)){
-
-							if (rsAr[0].sec == "")
-							{
-								alert("로그인 정보가 없습니다.");
-							    location.href="index.jsp";
+							var zone = rsAr[i].zone;
+							var category = rsAr[i].category;
+							
+							switch(category){
+								case '과승' :
+									category = 'sh';
+									break;
+								case '과냉' :
+									category = 'sc';
+									break;
+								case '하한' :
+									category = 'min';
+									break;
+								case '상한' :
+									category = 'max';
+									break;
 							}
 							
-							$("#user_span").html("<font color='#428bca'><strong><a href = 'javascript:popupOpen();'>" + rsAr[0].sec + "</a></strong></font> 님이 로그인중입니다. ");
-
-							if (rsAr[0].lev == "관리자")
-							{
-								//alert("확인");
-								$("#pwd").attr("disabled",false).attr("readonly",false);
+							var tdId = zone + "_" + category;
+							if(zone != 'special' && zone != 'testresult'){
+								for(var j = 1; j <= 31; j ++){
+									var dayNum = "day" + j;
+									var chk;
+									if(rsAr[i][dayNum]!= null){
+										chk = rsAr[i][dayNum]
+									} else{
+										chk = "";
+									}
+									$("#"+tdId+j).text(chk);
+									if(category == 'sh' || category == 'sc'){
+										$("#"+tdId+j).attr("onclick", "chkReg("+ j +", '"+ rsAr[i].zone +"', '"+rsAr[i].category+"' )");
+									} else{
+										$("#"+tdId+j).attr("onclick", "minMaxReg("+ j +", '"+ rsAr[i].zone +"', '"+rsAr[i].category+"' )");
+									}
+								}
+							} else{
+								$("#"+rsAr[i].zone+"1").text(rsAr[i].memo);
+								$("#"+rsAr[i].zone+"1").attr("onclick", "specialReg('"+ rsAr[i].zone +"')");
+								console.log("#"+rsAr[i].zone+"1");
 							}
 						}
-						
-					 }
-				}).done(function( msg ) {
-				
-			  });
-
-			};	
-	function date_set(v){
-		var result = "";
-		if(v <= 9){
-			result = "0"+v;			
-		}else{
-			result = v;
+					}
+					
+				},
+				error: function(req, status) {
+					if (req.status == 0 || status == "timeout") {
+						alert("네트워크 연결 확인 후 다시 시도해주세요.");
+					} else {
+						alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
+					}
+					
+				}
+			});
 		}
 		
-		return result;
-	}
- 
 
-function init(){
-
-}
-
-
- 	function getYearCount(){
-		//년도를 기준으로 데이터베이스 검색해서 없으면 년도에 대해서 3~8호기 insert
-		$.post("m03/s03/count_m03s03.jsp",{
-			"tdate":$("#s_year").val()
-		},100);
-	
-		setTimeout(function(){
-			//여기서 년도가 2020년 이전인지 이후인지 비교
-			//테이블 show, hide 추가필요
-			
-				//2020년 까지
-				/* $("#tus_before").show();
-				$("#tus_after").hide(); */
-				getFileList();
-		},300);
-	}
-
- 	function getYearCount_bungi(){
-		//년도를 기준으로 데이터베이스 검색해서 없으면 년도에 대해서 3~8호기 insert
-		$.post("m03/s03/count_m03s03_bungi.jsp",{
-			"tdate":$("#s_year").val()
-		},100);
-	
-		setTimeout(function(){
-			
-			//2020년 이후
-			/* $("#tus_before").hide();
-			$("#tus_after").show(); */
-			getFileList_bungi();
-		},300);
-	}
-
- 	
-	function auto_date_format( e, oThis ){
-	    
-	    var num_arr = [ 
-	        97, 98, 99, 100, 101, 102, 103, 104, 105, 96,
-	        48, 49, 50, 51, 52, 53, 54, 55, 56, 57
-	    ]
-	    
-	    var key_code = ( e.which ) ? e.which : e.keyCode;
-	    if( num_arr.indexOf( Number( key_code ) ) != -1 ){
-	    
-	        var len = oThis.value.length;
-	        if( len == 4 ) oThis.value += "-";
-	        if( len == 7 ) oThis.value += "-";
-	    
-	    }
-	    
-	}
-
-
-function file_import(){
-	var fileform = $("#upload")[0];
-	var fileData = new FormData(fileform);
-
-	fileDialog.dialog("close");
-	
-	 if (fileform.file.value == "") {   
-		  $("#alertSpan").text("파일을 업로드해주세요.");
-		  alertDialog.dialog("open");
-//			alert("업로드해");
-		  return false;   
-	 }
-	 
-
-		if(!checkFileTypePDF(fileform.file.value)) {
-		  $("#alertSpan").text("PDF,엑셀 파일만 업로드해주세요.");
-		  alertDialog.dialog("open");
-//			alert("엑셀만해");
-			
-			fileform.reset();
-	  return false;   
-	 }	
-	
-	var path = $("#filePath").val();
-	if(path != ''){
-	
-		$.ajax({
-			url:"m03/s03/insert_m03s03_file.jsp",
-			type:"post",
-			enctype:"multipart/form-data",
-			data:fileData,
-			processData:false,
-			contentType:false,
-			cache:false,
-			success:function(data){
-				var zone = $("#s_zone").val();
-				
-				fileDialog.dialog("close");
-				getFileList();
-				
-				fileform.reset();
-			}
-		});
-	}
-	
-}
-
-function file_import_bungi(){
-	var fileform = $("#upload_bungi")[0];
-	var fileData = new FormData(fileform);
-
-	fileDialog_bungi.dialog("close");
-	
-	 if (fileform.file_bungi.value == "") {   
-		  $("#alertSpan").text("파일을 업로드해주세요.");
-		  alertDialog.dialog("open");
-//			alert("업로드해");
-		  return false;   
-	 }
-	 
-
-		if(!checkFileTypePDF(fileform.file_bungi.value)) {
-		  $("#alertSpan").text("PDF,엑셀 파일만 업로드해주세요.");
-		  alertDialog.dialog("open");
-//			alert("엑셀만해");
-			
-			fileform.reset();
-	  return false;   
-	 }	
-	
-	var path = $("#filePath_bungi").val();
-	if(path != ''){
-	
-		$.ajax({
-			url:"m03/s03/insert_m03s03_file_bungi.jsp",
-			type:"post",
-			enctype:"multipart/form-data",
-			data:fileData,
-			processData:false,
-			contentType:false,
-			cache:false,
-			success:function(data){
-				var zone = $("#s_zone").val();
-				
-				fileDialog_bungi.dialog("close");
-				getFileList_bungi();
-				
-				fileform.reset();
-			}
-		});
-	}
-	
-}
-
-
-
-function checkFileTypePDF(filePath){   
-	  
-	 var fileLen = filePath.length;   
-	 var fileFormat = filePath.substring(filePath.lastIndexOf('.'),filePath.length);   
-	 fileFormatfileFormat = fileFormat.toLowerCase();   
-	 
-	 if (fileFormat == ".pdf"){
-		 return true;    
-	 	}else if(fileFormat = ".xlsx"){
-	 		return true;	 
-	 	}else if(fileFormat = ".xls"){
-	 		return true;
-	 	}else{
-	 		return false;
-	 }   
-	}
-
-function getFileList(){
-	$.ajax({
-		type : "POST",
-		url : "m03/s03/select_m03s03.jsp",
-		cache : false,
-		dataType : "json",
-		data : {'time':new Date().getTime(),
-			"year1":$("#s_year").val(),
-			"zone":$("#s_zone").val()},
-		success : function(rsJson) {
-			if (rsJson && rsJson.status == "ok") {
-				var rsAr = rsJson.rows;
-				
-				var listHtml = "";
-				var fname_a = "";
-				var fname_b = "";
-					//퀜칭
-					for(var i=0; i<rsAr.length; i++){
-						listHtml += "<tr>";
-						listHtml += '<td rowspan="4" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 100px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].hogi+'</td>';
-						listHtml += '<td rowspan="4" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 100px; width: 100px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].zone+'</td>';
-						
-						//1월 
-							if(rsAr[i].file_yn_1 == 'Y'){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file1.png">'
-								+'</td>';
-								if(sid != "worker"){
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',1); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-									+'</td>';
-								}else{
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';	
-								}
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}
-						//2
-							if(rsAr[i].file_yn_2 == 'Y'){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file1.png">'
-								+'</td>';
-								if(sid != "worker"){
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',2); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-									+'</td>';
-								}else{
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-								}
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}						
-							
-						//3
-							if(rsAr[i].file_yn_3 == 'Y'){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file1.png">'
-								+'</td>';
-								if(sid != "worker"){
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',3); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-									+'</td>';
-								}else{
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-								}
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}							
-						//4
-							if(rsAr[i].file_yn_4 == 'Y'){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file1.png">'
-								+'</td>';
-								if(sid != "worker"){
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',4); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-									+'</td>';
-								}else{
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-								}
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}							
-						//5
-							if(rsAr[i].file_yn_5 == 'Y'){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',5); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file1.png">'
-								+'</td>';
-								if(sid != "worker"){
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',5); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-									+'</td>';
-								}else{
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-								}
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',5); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}							
-						//6
-							if(rsAr[i].file_yn_6 == 'Y'){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',6); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file1.png">'
-								+'</td>';
-								if(sid != "worker"){
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',6); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-									+'</td>';
-								}else{
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-								}
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',6); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}							
-						//7
-							if(rsAr[i].file_yn_7 == 'Y'){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',7); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file1.png">'
-								+'</td>';
-								if(sid != "worker"){
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',7); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-									+'</td>';
-								}else{
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';									
-								}
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',7); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}							
-						//8
-							if(rsAr[i].file_yn_8 == 'Y'){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',8); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file1.png">'
-								+'</td>';
-								if(sid != "worker"){
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',8); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-									+'</td>';
-								}else{
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';									
-								}
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',8); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}							
-						//9
-							if(rsAr[i].file_yn_9 == 'Y'){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',9); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file1.png">'
-								+'</td>';
-								if(sid != "worker"){
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',9); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-									+'</td>';
-								}else{
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';									
-								}
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',9); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}	
-						//10
-							if(rsAr[i].file_yn_10 == 'Y'){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',10); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file1.png">'
-								+'</td>';
-								if(sid != "worker"){
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',10); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-									+'</td>';
-								}else{
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';									
-								}
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',10); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}							
-						//11
-							if(rsAr[i].file_yn_11 == 'Y'){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',11); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file1.png">'
-								+'</td>';
-								if(sid != "worker"){
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',11); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-									+'</td>';
-								}else{
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';									
-								}
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',11); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}	
-						//12
-							if(rsAr[i].file_yn_12 == 'Y'){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',12); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file1.png">'
-								+'</td>';
-								if(sid != "worker"){
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',12); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-									+'</td>';
-								}else{
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';									
-								}
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',12); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}	
-						
-						listHtml += "</tr>";
-
-						
-						
-						listHtml += "<tr>";
-						//1
-						if(rsAr[i].tdate_1 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].tdate_1+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>측정일</td>';
-						}
-						//2
-						if(rsAr[i].tdate_2 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].tdate_2+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>측정일</td>';
-						}						
-						//3
-						if(rsAr[i].tdate_3 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>'+rsAr[i].tdate_3+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>측정일</td>';
-						}						
-						//4
-						if(rsAr[i].tdate_4 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>'+rsAr[i].tdate_4+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>측정일</td>';
-						}						
-						//5
-						if(rsAr[i].tdate_5 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',5); return false; event.cancelBubble = true;>'+rsAr[i].tdate_5+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',5); return false; event.cancelBubble = true;>측정일</td>';
-						}						
-						//6
-						if(rsAr[i].tdate_6 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',6); return false; event.cancelBubble = true;>'+rsAr[i].tdate_6+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',6); return false; event.cancelBubble = true;>측정일</td>';
-						}						
-						//7
-						if(rsAr[i].tdate_7 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',7); return false; event.cancelBubble = true;>'+rsAr[i].tdate_7+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',7); return false; event.cancelBubble = true;>측정일</td>';
-						}						
-						//8
-						if(rsAr[i].tdate_8 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',8); return false; event.cancelBubble = true;>'+rsAr[i].tdate_8+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',8); return false; event.cancelBubble = true;>측정일</td>';
-						}						
-						//9
-						if(rsAr[i].tdate_9 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',9); return false; event.cancelBubble = true;>'+rsAr[i].tdate_9+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',9); return false; event.cancelBubble = true;>측정일</td>';
-						}						
-						//10
-						if(rsAr[i].tdate_10 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',10); return false; event.cancelBubble = true;>'+rsAr[i].tdate_10+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',10); return false; event.cancelBubble = true;>측정일</td>';
-						}						
-						//11
-						if(rsAr[i].tdate_11 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',11); return false; event.cancelBubble = true;>'+rsAr[i].tdate_11+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',11); return false; event.cancelBubble = true;>측정일</td>';
-						}						
-						//12
-						if(rsAr[i].tdate_12 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',12); return false; event.cancelBubble = true;>'+rsAr[i].tdate_12+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',12); return false; event.cancelBubble = true;>측정일</td>';
-						}						
-						
-						listHtml += "</tr>";
-						
-						listHtml += "<tr>";
-						//1
-//						console.log(rsAr[i].chk_1);
-						if(rsAr[i].chk_1 == '합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].chk_1+'</td>';	
-						}else if(rsAr[i].chk_1 == '불합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].chk_1+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>불/합 판정</td>';
-						}
-						
-						//2
-						if(rsAr[i].chk_2 == '합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].chk_2+'</td>';	
-						}else if(rsAr[i].chk_2 == '불합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].chk_2+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>불/합 판정</td>';
-						}						
-						//3
-						if(rsAr[i].chk_3 == '합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>'+rsAr[i].chk_3+'</td>';	
-						}else if(rsAr[i].chk_3 == '불합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>'+rsAr[i].chk_3+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>불/합 판정</td>';
-						}						
-						//4
-						if(rsAr[i].chk_4 == '합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>'+rsAr[i].chk_4+'</td>';	
-						}else if(rsAr[i].chk_4 == '불합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>'+rsAr[i].chk_4+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>불/합 판정</td>';
-						}						
-						//5
-						if(rsAr[i].chk_5 == '합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',5); return false; event.cancelBubble = true;>'+rsAr[i].chk_5+'</td>';	
-						}else if(rsAr[i].chk_5 == '불합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',5); return false; event.cancelBubble = true;>'+rsAr[i].chk_5+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',5); return false; event.cancelBubble = true;>불/합 판정</td>';
-						}						
-						//6
-						if(rsAr[i].chk_6 == '합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',6); return false; event.cancelBubble = true;>'+rsAr[i].chk_6+'</td>';	
-						}else if(rsAr[i].chk_6 == '불합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',6); return false; event.cancelBubble = true;>'+rsAr[i].chk_6+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',6); return false; event.cancelBubble = true;>불/합 판정</td>';
-						}						
-						//7
-						if(rsAr[i].chk_7 == '합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',7); return false; event.cancelBubble = true;>'+rsAr[i].chk_7+'</td>';	
-						}else if(rsAr[i].chk_7 == '불합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',7); return false; event.cancelBubble = true;>'+rsAr[i].chk_7+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',7); return false; event.cancelBubble = true;>불/합 판정</td>';
-						}						
-						//8
-						if(rsAr[i].chk_8 == '합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',8); return false; event.cancelBubble = true;>'+rsAr[i].chk_8+'</td>';	
-						}else if(rsAr[i].chk_8 == '불합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',8); return false; event.cancelBubble = true;>'+rsAr[i].chk_8+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',8); return false; event.cancelBubble = true;>불/합 판정</td>';
-						}						
-						//9
-						if(rsAr[i].chk_9 == '합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',9); return false; event.cancelBubble = true;>'+rsAr[i].chk_9+'</td>';	
-						}else if(rsAr[i].chk_9 == '불합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',9); return false; event.cancelBubble = true;>'+rsAr[i].chk_9+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',9); return false; event.cancelBubble = true;>불/합 판정</td>';
-						}						
-						//10
-						if(rsAr[i].chk_10 == '합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',10); return false; event.cancelBubble = true;>'+rsAr[i].chk_10+'</td>';	
-						}else if(rsAr[i].chk_10 == '불합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',10); return false; event.cancelBubble = true;>'+rsAr[i].chk_10+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',10); return false; event.cancelBubble = true;>불/합 판정</td>';
-						}						
-						//11
-						if(rsAr[i].chk_11 == '합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',11); return false; event.cancelBubble = true;>'+rsAr[i].chk_11+'</td>';	
-						}else if(rsAr[i].chk_11 == '불합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',11); return false; event.cancelBubble = true;>'+rsAr[i].chk_11+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',11); return false; event.cancelBubble = true;>불/합 판정</td>';
-						}						
-						//12
-						if(rsAr[i].chk_12 == '합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',12); return false; event.cancelBubble = true;>'+rsAr[i].chk_12+'</td>';	
-						}else if(rsAr[i].chk_12 == '불합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',12); return false; event.cancelBubble = true;>'+rsAr[i].chk_12+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',12); return false; event.cancelBubble = true;>불/합 판정</td>';
-						}						
-						
-						
-						listHtml += "</tr>";
-						
-						//메모
-						listHtml += "<tr>";
-						
-						//1
-						if(rsAr[i].memo_1 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].memo_1+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>메모입력</td>';
-						}
-						//2
-						if(rsAr[i].memo_2 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].memo_2+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>메모입력</td>';
-						}						
-						//3
-						if(rsAr[i].memo_3 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>'+rsAr[i].memo_3+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>메모입력</td>';
-						}						
-						//4
-						if(rsAr[i].memo_4 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>'+rsAr[i].memo_4+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>메모입력</td>';
-						}						
-						//5
-						if(rsAr[i].memo_5 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',5); return false; event.cancelBubble = true;>'+rsAr[i].memo_5+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',5); return false; event.cancelBubble = true;>메모입력</td>';
-						}						
-						//6
-						if(rsAr[i].memo_6 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',6); return false; event.cancelBubble = true;>'+rsAr[i].memo_6+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',6); return false; event.cancelBubble = true;>메모입력</td>';
-						}						
-						//7
-						if(rsAr[i].memo_7 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',7); return false; event.cancelBubble = true;>'+rsAr[i].memo_7+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',7); return false; event.cancelBubble = true;>메모입력</td>';
-						}						
-						//8
-						if(rsAr[i].memo_8 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',8); return false; event.cancelBubble = true;>'+rsAr[i].memo_8+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',8); return false; event.cancelBubble = true;>메모입력</td>';
-						}						
-						//9
-						if(rsAr[i].memo_9 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',9); return false; event.cancelBubble = true;>'+rsAr[i].memo_9+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',9); return false; event.cancelBubble = true;>메모입력</td>';
-						}						
-						//10
-						if(rsAr[i].memo_10 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',10); return false; event.cancelBubble = true;>'+rsAr[i].memo_10+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',10); return false; event.cancelBubble = true;>메모입력</td>';
-						}						
-						//11
-						if(rsAr[i].memo_11 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',11); return false; event.cancelBubble = true;>'+rsAr[i].memo_11+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',11); return false; event.cancelBubble = true;>메모입력</td>';
-						}						
-						//12
-						if(rsAr[i].memo_12 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',12); return false; event.cancelBubble = true;>'+rsAr[i].memo_12+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',12); return false; event.cancelBubble = true;>메모입력</td>';
-						}						
-						
-						
-						listHtml += "</tr>";
-						
-						
-					}
-					
-					$("#tus_list tbody").html(listHtml);
-					
-	
-			} else if (rsJson && rsJson.status == "fail") {
-				alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-			} else {
-				alert("에러발생!");
-			}
-			
-//			timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-			
-		},	// success 끝
-		error: function(req, status) {
-			if (req.status == 0 || status == "timeout") {
-				alert("네트워크 연결 확인 후 다시 시도해주세요.");
-			} else {
-				alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-			}
-		},
-		
-	});	
-			
-}
-
-
-function getFileList_bungi(){
-	$.ajax({
-		type : "POST",
-		url : "m03/s03/select_m03s03_bungi.jsp",
-		cache : false,
-		dataType : "json",
-		data : {'time':new Date().getTime(),
-			"year1":$("#s_year").val(),
-			"zone":$("#s_zone").val()},
-		success : function(rsJson) {
-			if (rsJson && rsJson.status == "ok") {
-				var rsAr = rsJson.rows;
-				
-				var listHtml = "";
-				var fname_a = "";
-				var fname_b = "";
-					//퀜칭
-					for(var i=0; i<rsAr.length; i++){
-						listHtml += "<tr>";
-						listHtml += '<td rowspan="4" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 100px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].hogi+'</td>';
-						listHtml += '<td rowspan="4" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 100px; width: 100px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].zone+'</td>';
-						
-						//1분기
-							if(rsAr[i].file_yn_1 == 'Y'){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen_bungi('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file1.png">'
-								+'</td>';
-								if(sid != "worker"){
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-									'<button type="button" class="btn btn-default" onclick=delFile_bungi('+rsAr[i].cnt+',1); return false; event.cancelBubble = true; style="width: 175px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-									+'</td>';
-								}else{
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-								}
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd_bungi('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}
-						//2분기
-							if(rsAr[i].file_yn_2 == 'Y'){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen_bungi('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file1.png">'
-								+'</td>';
-								if(sid != "worker"){
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-									'<button type="button" class="btn btn-default" onclick=delFile_bungi('+rsAr[i].cnt+',2); return false; event.cancelBubble = true; style="width: 175px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-									+'</td>';
-								}else{
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';									
-								}
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd_bungi('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}						
-							
-						//3분기
-							if(rsAr[i].file_yn_3 == 'Y'){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen_bungi('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file1.png">'
-								+'</td>';
-								if(sid != "worker"){
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-									'<button type="button" class="btn btn-default" onclick=delFile_bungi('+rsAr[i].cnt+',3); return false; event.cancelBubble = true; style="width: 175px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-									+'</td>';
-								}else{
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';									
-								}
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd_bungi('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}							
-						//4분기
-							if(rsAr[i].file_yn_4 == 'Y'){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen_bungi('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file1.png">'
-								+'</td>';
-								if(sid != "worker"){
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-									'<button type="button" class="btn btn-default" onclick=delFile_bungi('+rsAr[i].cnt+',4); return false; event.cancelBubble = true; style="width: 175px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-									+'</td>';
-								}else{
-									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';									
-								}
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd_bungi('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}							
-						
-						listHtml += "</tr>";
-
-						
-						
-						
-						listHtml += "<tr>";
-						//1분기
-						if(rsAr[i].tdate_1 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_bungi('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].tdate_1+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_bungi('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>측정일</td>';
-						}
-						//2분기
-						if(rsAr[i].tdate_2 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_bungi('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].tdate_2+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_bungi('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>측정일</td>';
-						}						
-						//3분기
-						if(rsAr[i].tdate_3 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_bungi('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>'+rsAr[i].tdate_3+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_bungi('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>측정일</td>';
-						}						
-						//4분기
-						if(rsAr[i].tdate_4 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_bungi('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>'+rsAr[i].tdate_4+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_bungi('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>측정일</td>';
-						}						
-						
-						listHtml += "</tr>";
-						
-						listHtml += "<tr>";
-						//1분기
-//						console.log(rsAr[i].chk_1);
-						if(rsAr[i].chk_1 == '합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg_bungi('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].chk_1+'</td>';	
-						}else if(rsAr[i].chk_1 == '불합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg_bungi('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].chk_1+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg_bungi('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>불/합 판정</td>';
-						}
-						
-						//2분기
-						if(rsAr[i].chk_2 == '합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg_bungi('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].chk_2+'</td>';	
-						}else if(rsAr[i].chk_2 == '불합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg_bungi('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].chk_2+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg_bungi('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>불/합 판정</td>';
-						}						
-						//3분기
-						if(rsAr[i].chk_3 == '합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg_bungi('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>'+rsAr[i].chk_3+'</td>';	
-						}else if(rsAr[i].chk_3 == '불합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg_bungi('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>'+rsAr[i].chk_3+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg_bungi('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>불/합 판정</td>';
-						}						
-						//4분기
-						if(rsAr[i].chk_4 == '합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg_bungi('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>'+rsAr[i].chk_4+'</td>';	
-						}else if(rsAr[i].chk_4 == '불합격'){
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg_bungi('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>'+rsAr[i].chk_4+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg_bungi('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>불/합 판정</td>';
-						}						
-						
-						
-						listHtml += "</tr>";
-						
-						//메모
-						listHtml += "<tr>";
-						
-						//1분기
-						if(rsAr[i].memo_1 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg_bungi('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].memo_1+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg_bungi('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>메모입력</td>';
-						}
-						//2분기
-						if(rsAr[i].memo_2 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg_bungi('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].memo_2+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg_bungi('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>메모입력</td>';
-						}						
-						//3분기
-						if(rsAr[i].memo_3 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg_bungi('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>'+rsAr[i].memo_3+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg_bungi('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>메모입력</td>';
-						}						
-						//4분기
-						if(rsAr[i].memo_4 != ''){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg_bungi('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>'+rsAr[i].memo_4+'</td>';
-						}else{
-							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 360px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg_bungi('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>메모입력</td>';
-						}						
-						
-						listHtml += "</tr>";
-						
-						
-					}
-					
-					$("#tus_list_bungi tbody").html(listHtml);
-					
-	
-			} else if (rsJson && rsJson.status == "fail") {
-				alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-			} else {
-				alert("에러발생!");
-			}
-			
-//			timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-			
-		},	// success 끝
-		error: function(req, status) {
-			if (req.status == 0 || status == "timeout") {
-				alert("네트워크 연결 확인 후 다시 시도해주세요.");
-			} else {
-				alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-			}
-		},
-		
-	});	
-			
-}
-
-
-
-
-function fileAdd(c_val, gb){
-	if(sid != "worker"){
-		$("#import_cnt").val(c_val);
-		$("#import_gb").val(gb);
-		
-		fileDialog.dialog("open");
-	}
-}
-
-
-
-function fileAdd_bungi(c_val, gb){
-	if(sid != "worker"){
-		$("#import_cnt_bungi").val(c_val);
-		$("#import_gb_bungi").val(gb);
-		
-		fileDialog_bungi.dialog("open");
-	}
-}
-
-
-var fileDel_cnt = 0;
-var fileDel_gb = 0;
-
-var fileDel_cnt_bungi = 0;
-var fileDel_gb_bungi = 0;
-
-
-function delFile(c_val,gb){
-	fileDel_cnt = c_val;
-	fileDel_gb = gb;
-	$("#confirmSpan").text("파일을 삭제하시겠습니까?");
-	confirmDialog.dialog("open");
-	
-}
-
-function delFile_bungi(c_val,gb){
-	fileDel_cnt_bungi = c_val;
-	fileDel_gb_bungi = gb;
-	$("#confirmSpan_bungi").text("파일을 삭제하시겠습니까?");
-	confirmDialog_bungi.dialog("open");
-	
-}
-
-
-
-/*이벤트*/	
-		
-//사용안함
-$("#fileSelect").on("click",function(){
-	fileDialog.dialog("open");
-});
-//사용안함	
-$("#searchbtn").on("click",function(){
-	getFileList();
-});
-
-$("#c_chk_y").on("click",function(){
-	$("#c_chk_n").prop("checked",false);
-});
-
-$("#c_chk_n").on("click",function(){
-	$("#c_chk_y").prop("checked",false);
-});	
-
-$("#s_zone").change(function(){
-	
-	if(eval($("#s_year").val()) <= 2020){
-		$("#tus_before").show();
-		$("#tus_after").hide();
-
-		getFileList();	
-	}else{
-		$("#tus_before").hide();
-		$("#tus_after").show();
-		
-		getFileList_bungi();
-	}
-	
-});
-
-
-$("#s_year").change(function(){
-	getYearCount();
-	
-});
-
-function tableChange_gb(gb_year){
-	if(gb_year <= 2020){
-		
-	}else{
-		
-	}
-}
-
-function fileOpen(c_val, gb){
-	$.ajax({
-		type : "POST",
-		url : "m03/s03/select_m03s03_fileCheck.jsp",
-		cache : false,
-		dataType : "json",
-		data : {'time':new Date().getTime(),
-				"cnt":c_val,
-				"gb":gb},
-		success : function(rsJson) {
-			if (rsJson && rsJson.status == "ok") {
-				var rsAr = rsJson.rows;
-//				console.log(rsAr[0].filename);
-								
-				var file = "/JINHAP_OFFICE/upload/"+encodeURIComponent(rsAr[0].filename);
-				//var file = "/JINHAP_OFFICE/file/m03s03/"+encodeURIComponent(rsAr[0].filename);
-				$("#image_view").attr("src",(decodeURIComponent(file)));
-				$("#image_view").show();
-				
-				
-				imageDialog.dialog("open");
-				
-				
-				
-			} else if (rsJson && rsJson.status == "fail") {
-				alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-			} else {
-				alert("에러발생!");
-			}
-		},	// success 끝
-		error: function(req, status) {
-			if (req.status == 0 || status == "timeout") {
-				alert("네트워크 연결 확인 후 다시 시도해주세요.");
-			} else {
-				alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-			}
-		},
-		
-	});
-}
-
-
-function fileOpen_bungi(c_val, gb){
-	$.ajax({
-		type : "POST",
-		url : "m03/s03/select_m03s03_fileCheck_bungi.jsp",
-		cache : false,
-		dataType : "json",
-		data : {'time':new Date().getTime(),
-				"cnt":c_val,
-				"gb":gb},
-		success : function(rsJson) {
-			if (rsJson && rsJson.status == "ok") {
-				var rsAr = rsJson.rows;
-//				console.log(rsAr[0].filename);
-								
-				var file = "/JINHAP_OFFICE/upload/"+encodeURIComponent(rsAr[0].filename);
-				//var file = "/JINHAP_OFFICE/file/m03s03/"+encodeURIComponent(rsAr[0].filename);
-				$("#image_view").attr("src",(decodeURIComponent(file)));
-				$("#image_view").show();
-//				$("#image_view").attr("name","열전대비교측정결과표(SAT)");
-				
-				imageDialog.dialog("open");
-				
-				
-				
-			} else if (rsJson && rsJson.status == "fail") {
-				alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-			} else {
-				alert("에러발생!");
-			}
-		},	// success 끝
-		error: function(req, status) {
-			if (req.status == 0 || status == "timeout") {
-				alert("네트워크 연결 확인 후 다시 시도해주세요.");
-			} else {
-				alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-			}
-		},
-		
-	});
-}
-
-	
-	function tdateReg(c_val, gb){
-		if(sid != "worker"){
-			$("#t_cnt").val(c_val);
-			$("#t_gb").val(gb);
-			
-			tdateDialog.dialog("open");
-		}		
-	}
-
-	function chkReg(c_val, gb){
-		if(sid != "worker"){
-			$("#c_cnt").val(c_val);
-			$("#c_gb").val(gb);
+		function chkReg(day, zone, category){
+			$("#c_day").val(day);
+			$("#c_zone").val(zone);
+			$("#c_category").val(category);
 			
 			chkDialog.dialog("open");
 		}
-	}
-	
-	function memoReg(c_val, gb){
-		if(sid != "worker"){
-			$("#m_cnt").val(c_val);
-			$("#m_gb").val(gb);
+		function minMaxReg(day, zone, category){
+			$("#m_day").val(day);
+			$("#m_zone").val(zone);
+			$("#m_category").val(category);
 			
-			memoDialog.dialog("open");
-		}		
-	}	
-	
-	function tdateReg_bungi(c_val, gb){
-		if(sid != "worker"){
-			$("#t_cnt_bungi").val(c_val);
-			$("#t_gb_bungi").val(gb);
+			minmaxDialog.dialog("open");
+		}
+		function specialReg(zone){
+			$("#sp_zone").val(zone);
 			
-			tdateDialog_bungi.dialog("open");
+			specialDialog.dialog("open");
 		}
-	}
-
-	function chkReg_bungi(c_val, gb){
-		if(sid != "worker"){
-			$("#c_cnt_bungi").val(c_val);
-			$("#c_gb_bungi").val(gb);
+		function tempReg(day, zone, category){
+			$("#temp_day").val(day);
+			$("#temp_zone").val(zone);
+			$("#temp_category").val(category);
 			
-			chkDialog_bungi.dialog("open");
+			tempDialog.dialog("open");
 		}
-	}
-	
-	function memoReg_bungi(c_val, gb){
-		if(sid != "worker"){
-			$("#m_cnt_bungi").val(c_val);
-			$("#m_gb_bungi").val(gb);
-			
-			memoDialog_bungi.dialog("open");
-		}
-	}	
-	
-	
-/*다이얼로그*/
-//파일선택 다이얼로그
-
-var imageDialog;			
-
-imageDialog = $("#image-form").dialog({
-  autoOpen: false,
-  height: 900,
-  width: 1100,
-  modal: false,
-  stack:false,
-  buttons: {		
-        "닫 기": function() {
-        	setTimeout( function() 
-              {				
-        		imageDialog.dialog("close");
-              });
-        }
-	  }
-});
-
-var fileDialog;
-fileDialog = $("#file-form").dialog({
-	  autoOpen: false,
-	  height: 280,
-	  width: 380,
-	  modal: false,
-	  stack:false,
-	  buttons: {		
-	        "닫 기": function() {
-	        	setTimeout( function() 
-	              {				
-	        		fileDialog.dialog("close");
-	              });
-	        }
-		  }
-	});
-
-
-	var tdateDialog;
-	tdateDialog = $("#tdate-form").dialog({
-		autoOpen:false,
-		height:180,
-		width:300,
-		modal:false,
-		stack:false,
-		buttons:{
-			"등 록":function(){
-				tdateDialog.dialog("close");
-				var zone = $("#s_zone").val();
-				
-				$.post("m03/s03/insert_m03s03_tdate.jsp",{
-					"cnt":$("#t_cnt").val(),
-					"gb":$("#t_gb").val(),
-					"tdate":$("#t_date").val()
-				},150);
-				
-				setTimeout(function(){
-					getFileList();
-					var dForm = $("#dateform")[0];
-					dForm.reset();
+		
+		// sat
+		function getListSat(){
+			$.ajax({
+				type : "POST",
+				url : "m03/s03/select_m03s03_sat.jsp",
+				cache : false,
+				dataType : "json",
+				data : {
+					"year":$("#s_year").val(),
+					"month":$("#s_month").val(),
+					"hogi":$("#s_hogi").val()
+					},
+				success : function(rsJson) {
 					
-				},500);
-				
-			},
-			"닫 기":function(){
-				var dForm = $("#dateform")[0];
-				dForm.reset();
-				tdateDialog.dialog("close");
-			}
-		}
-	});
-
-	
-	var chkDialog;
-	chkDialog = $("#chk-form").dialog({
-		autoOpen:false,
-		height:180,
-		width:340,
-		modal:false,
-		stack:false,
-		buttons:{
-			"등 록":function(){
-				chkDialog.dialog("close");
-				
-				$.post("m03/s03/insert_m03s03_chk.jsp",{
-					"cnt":$("#c_cnt").val(),
-					"gb":$("#c_gb").val(),
-					"chk":$("input:checkbox[name='c_chk']:checked").val()
-				},150);
-				
-				setTimeout(function(){
-					getFileList();
-					var cForm = $("#chkform")[0];
-					cForm.reset();
+					if (rsJson && rsJson.status == "ok") {
+						var rsAr = rsJson.rows;
+						
+						var listHtml = "";
+						
+						for(var i=0; i<rsAr.length; i++){
+							
+							var zone = rsAr[i].zone;
+							var category = rsAr[i].category;
+							
+							switch(category){
+								case '설정' :
+									category = 'set';
+									break;
+								case '지시' :
+									category = 'instructions';
+									break;
+								case '측정' :
+									category = 'measurements';
+									break;
+							}
+							
+							var tdId = zone + "_" + category;
+							if(zone != 'special' && zone != 'testresult'){
+								for(var j = 1; j <= 31; j ++){
+									var dayNum = "day" + j;
+									var chk;
+									if(rsAr[i][dayNum]!= null){
+										chk = rsAr[i][dayNum]
+									} else{
+										chk = "";
+									}
+									$("#"+tdId+j).text(chk);
+									$("#"+tdId+j).attr("onclick", "tempReg("+ j +", '"+ rsAr[i].zone +"', '"+rsAr[i].category+"' )");
+								}
+							} else{
+								$("#"+rsAr[i].zone+"2").text(rsAr[i].memo);
+								$("#"+rsAr[i].zone+"2").attr("onclick", "specialReg('"+ rsAr[i].zone +"')");
+								console.log("#"+rsAr[i].zone+"2");
+							}
+						}
+					}
 					
-				},500);
-				
-			},
-			"닫 기":function(){
-				var cForm = $("#chkform")[0];
-				cForm.reset();
-				chkDialog.dialog("close");
-			}
-		}
-	});	
-	
-	var confirmDialog;
-	confirmDialog = $("#confirm-form").dialog({
-		autoOpen:false,
-		height:150,
-		width:300,
-		modal:false,
-		stack:false,
-		buttons:{
-			"삭 제":function(){
-				$.post("m03/s03/delete_m03s03_file.jsp",{
-					"cnt":fileDel_cnt,
-					"gb":fileDel_gb
-				},250);
-				
-				setTimeout(function(){
-					$("#alertSpan").text("파일이 삭제되었습니다.");
-					alertDialog.dialog("open");
-					getFileList();
-					fileDel_cnt = 0;
-					fileDel_gb = 0;
-				},400);					
-				confirmDialog.dialog("close");
-				
-			},
-			"취 소":function(){
-				confirmDialog.dialog("close");
-			}
-		}
-	});
-	
-	var alertDialog;
-	alertDialog = $("#alert-form").dialog({
-		autoOpen:false,
-		height:150,
-		width:300,
-		modal:false,
-		stack:false,
-		buttons:{
-			"확 인":function(){
-				alertDialog.dialog("close");
-			}
-		}
-	});	
-
-	
-	
-
-	var memoDialog;
-	memoDialog = $("#memo-form").dialog({
-		autoOpen:false,
-		height:180,
-		width:400,
-		modal:false,
-		stack:false,
-		buttons:{
-			"등 록":function(){
-				memoDialog.dialog("close");
-				var zone = $("#s_zone").val();
-				
-				
-				$.post("m03/s03/insert_m03s03_memo.jsp",{
-					"cnt":$("#m_cnt").val(),
-					"gb":$("#m_gb").val(),
-					"memo":$("#m_memo").val()
-				},150);
-				
-				setTimeout(function(){
-					getFileList();
-					var mForm = $("#memoform")[0];
-					mForm.reset();
+				},
+				error: function(req, status) {
+					if (req.status == 0 || status == "timeout") {
+						alert("네트워크 연결 확인 후 다시 시도해주세요.");
+					} else {
+						alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
+					}
 					
-				},500);
-				
-			},
-			"닫 기":function(){
-				var mForm = $("#memoform")[0];
-				mForm.reset();
-				memoDialog.dialog("close");
-			}
+				}
+			});
 		}
-	});
-	
-//2020-12-15 분기
+		
+		
+		
+		
+		
+		
+		
+		/*다이얼로그*/
 
-	var tdateDialog_bungi;
-	tdateDialog_bungi = $("#tdate-form_bungi").dialog({
-		autoOpen:false,
-		height:180,
-		width:300,
-		modal:false,
-		stack:false,
-		buttons:{
-			"등 록":function(){
-				tdateDialog_bungi.dialog("close");
-				var zone = $("#s_zone").val();
-				
-				$.post("m03/s03/insert_m03s03_tdate_bungi.jsp",{
-					"cnt":$("#t_cnt_bungi").val(),
-					"gb":$("#t_gb_bungi").val(),
-					"tdate":$("#t_date_bungi").val()
-				},150);
-				
-				setTimeout(function(){
-					getFileList_bungi();
-					var dForm = $("#dateform_bungi")[0];
-					dForm.reset();
+		var chkDialog;
+		chkDialog = $("#chk-form").dialog({
+			autoOpen:false,
+			//autoOpen:true,
+			height:200,
+			width:370,
+			modal:false,
+			stack:false,
+			buttons:{
+				"등 록":function(){
+					$.post("m03/s03/update_m03s03.jsp",{
+						"year":$("#s_year").val(),
+						"month":$("#s_month").val(),
+						"hogi":$("#s_hogi").val(),
+						"gubun":$("#s_gubun").val(),
+						"day":$("#c_day").val(),
+						"zone":$("#c_zone").val(),
+						"category":$("#c_category").val(),
+						"value":$("input[name='c_chk']:checked").val()
+					}).done(function(response) {
+						getList();
+						$("#chkform")[0].reset();
+					}).fail(function(xhr, status, error) {
+						console.log("실패:", xhr.status);
+						alert("실패");
+					});
 					
-				},500);
-				
-			},
-			"닫 기":function(){
-				var dForm = $("#dateform_bungi")[0];
-				dForm.reset();
-				tdateDialog_bungi.dialog("close");
+					chkDialog.dialog("close");
+				},
+				"닫 기":function(){
+					$("#chkform")[0].reset();
+					chkDialog.dialog("close");
+				}
 			}
-		}
-	});
-
-	
-	var chkDialog_bungi;
-	chkDialog_bungi = $("#chk-form_bungi").dialog({
-		autoOpen:false,
-		height:180,
-		width:340,
-		modal:false,
-		stack:false,
-		buttons:{
-			"등 록":function(){
-				chkDialog_bungi.dialog("close");
-				
-				$.post("m03/s03/insert_m03s03_chk_bungi.jsp",{
-					"cnt":$("#c_cnt_bungi").val(),
-					"gb":$("#c_gb_bungi").val(),
-					"chk":$("input:checkbox[name='c_chk_bungi']:checked").val()
-				},150);
-				
-				setTimeout(function(){
-					getFileList_bungi();
-					var cForm = $("#chkform_bungi")[0];
-					cForm.reset();
-					
-				},500);
-				
-			},
-			"닫 기":function(){
-				var cForm = $("#chkform_bungi")[0];
-				cForm.reset();
-				chkDialog_bungi.dialog("close");
-			}
-		}
-	});	
-
-	var memoDialog_bungi;
-	memoDialog_bungi = $("#memo-form_bungi").dialog({
-		autoOpen:false,
-		height:180,
-		width:400,
-		modal:false,
-		stack:false,
-		buttons:{
-			"등 록":function(){
-				memoDialog_bungi.dialog("close");
-				var zone = $("#s_zone").val();
-				
-				$.post("m03/s03/insert_m03s03_memo_bungi.jsp",{
-					"cnt":$("#m_cnt_bungi").val(),
-					"gb":$("#m_gb_bungi").val(),
-					"memo":$("#m_memo_bungi").val()
-				},150);
-				
-				
-				setTimeout(function(){
-					getFileList_bungi();
-					var mForm = $("#memoform_bungi")[0];
-					mForm.reset();
-					
-				},500);
-				
-			},
-			"닫 기":function(){
-				var mForm = $("#memoform_bungi")[0];
-				mForm.reset();
-				memoDialog_bungi.dialog("close");
-			}
-		}
-	});
-
-	var confirmDialog_bungi;
-	confirmDialog_bungi = $("#confirm-form_bungi").dialog({
-		autoOpen:false,
-		height:150,
-		width:300,
-		modal:false,
-		stack:false,
-		buttons:{
-			"삭 제":function(){
-				$.post("m03/s03/delete_m03s03_file_bungi.jsp",{
-					"cnt":fileDel_cnt_bungi,
-					"gb":fileDel_gb_bungi
-				},250);
-				
-				setTimeout(function(){
-					$("#alertSpan").text("파일이 삭제되었습니다.");
-					alertDialog.dialog("open");
-					getFileList_bungi();
-					fileDel_cnt_bungi = 0;
-					fileDel_gb_bungi = 0;
-				},400);					
-				confirmDialog_bungi.dialog("close");
-				
-			},
-			"취 소":function(){
-				confirmDialog_bungi.dialog("close");
-			}
-		}
-	});
-	
-
-	var fileDialog_bungi;
-	fileDialog_bungi = $("#file-form_bungi").dialog({
-		  autoOpen: false,
-		  height: 280,
-		  width: 380,
-		  modal: false,
-		  stack:false,
-		  buttons: {		
-		        "닫 기": function() {
-		        	setTimeout( function() 
-		              {				
-		        		fileDialog_bungi.dialog("close");
-		              });
-		        }
-			  }
 		});
-	
-	
-/*차트 불러오는 함수*/
-			
-</script>
+		
+		var minmaxDialog;
+		minmaxDialog = $("#minmax-form").dialog({
+			autoOpen:false,
+			//autoOpen:true,
+			height:180,
+			width:400,
+			modal:false,
+			stack:false,
+			buttons:{
+				"등 록":function(){
+					$.post("m03/s03/update_m03s03.jsp",{
+						"year":$("#s_year").val(),
+						"month":$("#s_month").val(),
+						"hogi":$("#s_hogi").val(),
+						"gubun":$("#s_gubun").val(),
+						"day":$("#m_day").val(),
+						"zone":$("#m_zone").val(),
+						"category":$("#m_category").val(),
+						"value":$("#minmax").val()
+					}).done(function(response) {
+						getList();
+						$("#minmaxform")[0].reset();
+					}).fail(function(xhr, status, error) {
+						console.log("실패:", xhr.status);
+						alert("실패");
+					});
+					
+					minmaxDialog.dialog("close");
+					
+				},
+				"닫 기":function(){
+					$("#minmaxform")[0].reset();
+					minmaxDialog.dialog("close");
+				}
+			}
+		});
+
+		
+		var specialDialog;
+		specialDialog = $("#special-form").dialog({
+			autoOpen:false,
+			//autoOpen:true,
+			height:180,
+			width:400,
+			modal:false,
+			stack:false,
+			buttons:{
+				"등 록":function(){
+					$.post("m03/s03/update_m03s03.jsp",{
+						"year":$("#s_year").val(),
+						"month":$("#s_month").val(),
+						"hogi":$("#s_hogi").val(),
+						"gubun":$("#s_gubun").val(),
+						"zone":$("#sp_zone").val(),
+						"value":$("#special").val()
+					}).done(function(response) {
+						getList();
+						getListSat();
+						$("#specialform")[0].reset();
+					}).fail(function(xhr, status, error) {
+						console.log("실패:", xhr.status);
+						alert("실패");
+					});
+					
+					specialDialog.dialog("close");
+					
+				},
+				"닫 기":function(){
+					$("#specialform")[0].reset();
+					specialDialog.dialog("close");
+				}
+			}
+		});
+		
+		var tempDialog;
+		tempDialog = $("#temp-form").dialog({
+			autoOpen:false,
+			//autoOpen:true,
+			height:180,
+			width:400,
+			modal:false,
+			stack:false,
+			buttons:{
+				"등 록":function(){
+					$.post("m03/s03/update_m03s03.jsp",{
+						"year":$("#s_year").val(),
+						"month":$("#s_month").val(),
+						"hogi":$("#s_hogi").val(),
+						"gubun":$("#s_gubun").val(),
+						"day":$("#temp_day").val(),
+						"zone":$("#temp_zone").val(),
+						"category":$("#temp_category").val(),
+						"value":$("#temp").val()
+					}).done(function(response) {
+						getList();
+						getListSat();
+						$("#tempform")[0].reset();
+					}).fail(function(xhr, status, error) {
+						console.log("실패:", xhr.status);
+						alert("실패");
+					});
+					
+					tempDialog.dialog("close");
+					
+				},
+				"닫 기":function(){
+					$("#tempform")[0].reset();
+					tempDialog.dialog("close");
+				}
+			}
+		});
+		
+		
+		/*차트 불러오는 함수*/
+	</script>
 
 </body>
 </html>
