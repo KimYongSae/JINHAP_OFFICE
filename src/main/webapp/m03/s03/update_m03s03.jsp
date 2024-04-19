@@ -36,25 +36,15 @@
 	try
 	{
 	
-		if(!zone.equals("special") && !zone.equals("testresult")){
-			u_sql.append("UPDATE "+whereSql+" SET "+day+" = ? WHERE year1 = ? AND month1 = ? AND hogi = ? AND zone = ? AND category = ?");
-			System.out.println(u_sql.toString());
-			pstmt = conn.prepareStatement(u_sql.toString());
-			pstmt.setString(1, value);
-			pstmt.setInt(2, year);
-			pstmt.setInt(3, month);
-			pstmt.setInt(4, hogi);
-			pstmt.setString(5, zone);
-			pstmt.setString(6, category);
-		} else{
-			u_sql.append("UPDATE "+whereSql+" SET memo = ? WHERE year1 = ? AND month1 = ? AND hogi = ? AND zone = ?");
-			pstmt = conn.prepareStatement(u_sql.toString());
-			pstmt.setString(1, value);
-			pstmt.setInt(2, year);
-			pstmt.setInt(3, month);
-			pstmt.setInt(4, hogi);
-			pstmt.setString(5, zone);
-		}
+		u_sql.append("UPDATE "+whereSql+" SET "+day+" = ? WHERE year1 = ? AND month1 = ? AND hogi = ? AND zone = ? AND category = ?");
+		System.out.println(u_sql.toString());
+		pstmt = conn.prepareStatement(u_sql.toString());
+		pstmt.setString(1, value);
+		pstmt.setInt(2, year);
+		pstmt.setInt(3, month);
+		pstmt.setInt(4, hogi);
+		pstmt.setString(5, zone);
+		pstmt.setString(6, category);
 		
 		pstmt.executeUpdate();
 		

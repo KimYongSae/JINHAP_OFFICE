@@ -113,6 +113,9 @@
 	input[type="number"] {
 	    text-align: center;
 	}
+	input[type="text"] {
+	    text-align: center;
+	}
 	
 	
 </style>
@@ -168,7 +171,7 @@
 				
 		    </header>
     
-			<form>
+			<form id="eproofForm">
 				<div class="container body">
 				    <div class="row flex-header">
 				        <div class="col-xs-3 flex-center">
@@ -338,7 +341,7 @@
 						            <div>하한</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="oil_min"class="form-control">
+						            <input type="number" id="oil_min" name="oil_min" class="form-control">
 						        </div>
 					        </div>
 						</div>
@@ -371,7 +374,7 @@
 						            <div>하한</div>
 						        </div>
 						        <div class="col-xs-7">
-						            <input type="number" id="a_min"class="form-control">
+						            <input type="number" id="a_min" name="a_min" class="form-control">
 						        </div>
 					        </div>
 						</div>
@@ -478,27 +481,33 @@
 				    </div>
 				    <div class="row" style="height:82px; border: 1px solid #d4d4d4;">
 				        <div class="col-xs-3 flex-center">
-				            <div style="font-weight:bold;">소려 5존</div>
+				            <div style="font-weight:bold;">CP</div>
 				        </div>
 				        <div class="col-xs-9">
 					        <div class="row" style="height:40px">
 						        <div class="col-xs-5 flex-center">
-						            <div>과승</div>
+						            <div>상한</div>
 						        </div>
-						        <div class="col-xs-7 flex-center">
-						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
-						             data-onstyle="success" data-offstyle="danger" id="t5_sh" name="t5_sh">
+						        <div class="col-xs-7">
+						        	<input type="number" id="cp_max" name="cp_max" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
 						        <div class="col-xs-5 flex-center">
-						            <div>과냉</div>
+						            <div>하한</div>
 						        </div>
-						        <div class="col-xs-7 flex-center">
-						            <input type="checkbox" checked data-toggle="toggle" data-on="O" data-off="X"
-						             data-onstyle="success" data-offstyle="danger" id="t5_sc" name="t5_sc">
+						        <div class="col-xs-7">
+						            <input type="number" id="cp_min" name="cp_min" class="form-control">
 						        </div>
 					        </div>
+						</div>
+				    </div>
+				    <div class="row" style="height:42px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">특이사항</div>
+				        </div>
+				        <div class="col-xs-9">
+				        	<input type="text" id="special" name="special" class="form-control">
 						</div>
 				    </div>
 				</div>
@@ -528,7 +537,7 @@
 						            <div>설정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="q1_set" class="form-control">
+						            <input type="number" id="q1_set" name="q1_set" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -536,7 +545,7 @@
 						            <div>지시</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="q1_instructions" class="form-control">
+						            <input type="number" id="q1_instructions" name="q1_instructions" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -544,7 +553,7 @@
 						            <div>측정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="q1_measurements" class="form-control">
+						            <input type="number" id="q1_measurements" name="q1_measurements" class="form-control">
 						        </div>
 					        </div>
 						</div>
@@ -559,7 +568,7 @@
 						            <div>설정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="q2_set" class="form-control">
+						            <input type="number" id="q2_set" name="q2_set" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -567,7 +576,7 @@
 						            <div>지시</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="q2_instructions" class="form-control">
+						            <input type="number" id="q2_instructions" name="q2_instructions" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -575,7 +584,7 @@
 						            <div>측정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="q2_measurements" class="form-control">
+						            <input type="number" id="q2_measurements" name="q2_measurements" class="form-control">
 						        </div>
 					        </div>
 						</div>
@@ -590,7 +599,7 @@
 						            <div>설정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="q3_set" class="form-control">
+						            <input type="number" id="q3_set" name="q3_set" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -598,7 +607,7 @@
 						            <div>지시</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="q3_instructions" class="form-control">
+						            <input type="number" id="q3_instructions" name="q3_instructions" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -606,7 +615,7 @@
 						            <div>측정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="q3_measurements" class="form-control">
+						            <input type="number" id="q3_measurements" name="q3_measurements" class="form-control">
 						        </div>
 					        </div>
 						</div>
@@ -621,7 +630,7 @@
 						            <div>설정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="q4_set" class="form-control">
+						            <input type="number" id="q4_set" name="q4_set" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -629,7 +638,7 @@
 						            <div>지시</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="q4_instructions" class="form-control">
+						            <input type="number" id="q4_instructions" name="q4_instructions" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -637,7 +646,7 @@
 						            <div>측정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="q4_measurements" class="form-control">
+						            <input type="number" id="q4_measurements" name="q4_measurements" class="form-control">
 						        </div>
 					        </div>
 						</div>
@@ -652,7 +661,7 @@
 						            <div>설정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="q5_set" class="form-control">
+						            <input type="number" id="q5_set" name="q5_set" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -660,7 +669,7 @@
 						            <div>지시</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="q5_instructions" class="form-control">
+						            <input type="number" id="q5_instructions" name="q5_instructions" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -668,7 +677,7 @@
 						            <div>측정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="q5_measurements" class="form-control">
+						            <input type="number" id="q5_measurements" name="q5_measurements" class="form-control">
 						        </div>
 					        </div>
 						</div>
@@ -683,7 +692,7 @@
 						            <div>지시</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="cp_instructions" class="form-control">
+						            <input type="number" id="cp_instructions" name="cp_instructions" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -691,7 +700,7 @@
 						            <div>측정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="cp_measurements" class="form-control">
+						            <input type="number" id="cp_measurements" name="cp_measurements" class="form-control">
 						        </div>
 					        </div>
 						</div>
@@ -706,7 +715,7 @@
 						            <div>측정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="co2_measurements" class="form-control">
+						            <input type="number" id="co2_measurements" name="co2_measurements" class="form-control">
 						        </div>
 					        </div>
 						</div>
@@ -721,7 +730,7 @@
 						            <div>측정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="dew_measurements" class="form-control">
+						            <input type="number" id="dew_measurements" name="dew_measurements" class="form-control">
 						        </div>
 					        </div>
 						</div>
@@ -736,7 +745,7 @@
 						            <div>설정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="oil_set" class="form-control">
+						            <input type="number" id="oil_set" name="oil_set" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -744,7 +753,7 @@
 						            <div>지시</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="oil_instructions" class="form-control">
+						            <input type="number" id="oil_instructions" name="oil_instructions" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -752,7 +761,7 @@
 						            <div>측정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="oil_measurements" class="form-control">
+						            <input type="number" id="oil_measurements" name="oil_measurements" class="form-control">
 						        </div>
 					        </div>
 						</div>
@@ -767,7 +776,7 @@
 						            <div>설정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="t1_set" class="form-control">
+						            <input type="number" id="t1_set" name="t1_set" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -775,7 +784,7 @@
 						            <div>지시</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="t1_instructions" class="form-control">
+						            <input type="number" id="t1_instructions" name="t1_instructions" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -783,7 +792,7 @@
 						            <div>측정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="t1_measurements" class="form-control">
+						            <input type="number" id="t1_measurements" name="t1_measurements" class="form-control">
 						        </div>
 					        </div>
 						</div>
@@ -798,7 +807,7 @@
 						            <div>설정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="t2_set" class="form-control">
+						            <input type="number" id="t2_set" name="t2_set" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -806,7 +815,7 @@
 						            <div>지시</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="t2_instructions" class="form-control">
+						            <input type="number" id="t2_instructions" name="t2_instructions" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -814,7 +823,7 @@
 						            <div>측정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="t2_measurements" class="form-control">
+						            <input type="number" id="t2_measurements" name="t2_measurements" class="form-control">
 						        </div>
 					        </div>
 						</div>
@@ -829,7 +838,7 @@
 						            <div>설정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="t3_set" class="form-control">
+						            <input type="number" id="t3_set" name="t3_set" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -837,7 +846,7 @@
 						            <div>지시</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="t3_instructions" class="form-control">
+						            <input type="number" id="t3_instructions" name="t3_instructions" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -845,7 +854,7 @@
 						            <div>측정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="t3_measurements" class="form-control">
+						            <input type="number" id="t3_measurements" name="t3_measurements" class="form-control">
 						        </div>
 					        </div>
 						</div>
@@ -860,7 +869,7 @@
 						            <div>설정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="t4_set" class="form-control">
+						            <input type="number" id="t4_set" name="t4_set" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -868,7 +877,7 @@
 						            <div>지시</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="t4_instructions" class="form-control">
+						            <input type="number" id="t4_instructions" name="t4_instructions" class="form-control">
 						        </div>
 					        </div>
 					        <div class="row" style="height:40px">
@@ -876,9 +885,17 @@
 						            <div>측정</div>
 						        </div>
 						        <div class="col-xs-7 ">
-						            <input type="number" id="t4_measurements" class="form-control">
+						            <input type="number" id="t4_measurements" name="t4_measurements" class="form-control">
 						        </div>
 					        </div>
+						</div>
+				    </div>
+   				    <div class="row" style="height:42px; border: 1px solid #d4d4d4;">
+				        <div class="col-xs-3 flex-center">
+				            <div style="font-weight:bold;">특이사항</div>
+				        </div>
+				        <div class="col-xs-9">
+				        	<input type="text" id="sat_special" name="sat_special" class="form-control">
 						</div>
 				    </div>
 				</div>
@@ -903,24 +920,21 @@
 				if (rsJson && rsJson.status == "ok") {
 					var rsAr = rsJson.rows;
 					
-					$("#pdate").val(rsAr[0].y_date);
-					$("#pdate").text(rsAr[0].y_date);
-					//$("#s_stime").val(rsAr[0].n_time);
-	//				console.log("1:"+$("#s_sdate").val()+", "+$("#s_stime").val());
-					
-					$("#s_edate").val(rsAr[0].n_date);
-					//$("#s_etime").val(rsAr[0].a_time.substring(0,2)+":00:00");	
-					//$("#s_etime").val(rsAr[0].n_time);
-					$("#s_etime").val("08:00:00");
-					
+					/* $("#pdate").val(rsAr[0].y_date); */
+					$("#pdate").text(rsAr[0].n_date);
+					fullDate = $('#pdate').text().trim();
+					dateParts = fullDate.split('-');
+					year = dateParts[0];
+					month = dateParts[1];
+					day = dateParts[2];
+					getList();
+					getListSat();
 				} else if (rsJson && rsJson.status == "fail") {
 					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
 				} else {
 					alert("에러발생!");
 				}
 				
-	//			timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				getChartDataLoad();
 			},	// success 끝
 			error: function(req, status) {
 				if (req.status == 0 || status == "timeout") {
@@ -935,11 +949,222 @@
 	
 	$(function(){
 		date_search();
-		
 	})
 	
 	
+	var fullDate;
+	var dateParts;
+	var year;
+	var month;
+	var day;	
+
+	function getList(){
+        
+			$.ajax({
+				type : "POST",
+				url : "m03/mobile_s03/select_mobile_m03s03.jsp",
+				cache : false,
+				dataType : "json",
+				data : {
+					"year": year,
+					"month": month,
+					"day": day,
+					"hogi":$("#s_hogi").val()
+					},
+				success : function(rsJson) {
+					
+					if (rsJson && rsJson.status == "ok") {
+						var rsAr = rsJson.rows;
+						
+						var listHtml = "";
+						
+						for(var i=0; i<rsAr.length; i++){
+							
+							var zone = rsAr[i].zone;
+							var category = rsAr[i].category;
+							
+							switch(category){
+								case '과승' :
+									category = 'sh';
+									break;
+								case '과냉' :
+									category = 'sc';
+									break;
+								case '하한' :
+									category = 'min';
+									break;
+								case '상한' :
+									category = 'max';
+									break;
+							}
+							
+							var tdId = zone + "_" + category;
+							var dayNum = "day" + day;
+							var chk;
+							if(rsAr[i][dayNum]!= null){
+								chk = rsAr[i][dayNum].toLowerCase();
+							} else{
+								chk = "";
+							}
+							if(zone != 'special' && zone != 'testresult'){
+								if(category == 'sc' || category == 'sh'){
+									if(chk=="o"){
+										$("#" + tdId).bootstrapToggle('on');
+									} else{
+										$("#" + tdId).bootstrapToggle('off');
+									}
+								} else{
+									$("#" + tdId).val(rsAr[i][dayNum]);
+								}
+							} else if(zone == 'special'){
+								$("#special").val(rsAr[i][dayNum]);
+							}
+						}
+					}
+					
+				},
+				error: function(req, status) {
+					if (req.status == 0 || status == "timeout") {
+						alert("네트워크 연결 확인 후 다시 시도해주세요.");
+					} else {
+						alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
+					}
+					
+				}
+			});
+		}
 	
+	function getListSat(){
+		$.ajax({
+			type : "POST",
+			url : "m03/mobile_s03/select_mobile_m03s03_sat.jsp",
+			cache : false,
+			dataType : "json",
+			data : {
+				"year": year,
+				"month": month,
+				"day": day,
+				"hogi":$("#s_hogi").val()
+				},
+			success : function(rsJson) {
+				
+				if (rsJson && rsJson.status == "ok") {
+					var rsAr = rsJson.rows;
+					
+					var listHtml = "";
+					
+					for(var i=0; i<rsAr.length; i++){
+						
+						var zone = rsAr[i].zone;
+						var category = rsAr[i].category;
+						
+						switch(category){
+							case '설정' :
+								category = 'set';
+								break;
+							case '지시' :
+								category = 'instructions';
+								break;
+							case '측정' :
+								category = 'measurements';
+								break;
+						}
+						
+						var tdId = zone + "_" + category;
+						var dayNum = "day" + day;
+						var chk;
+						if(rsAr[i][dayNum]!= null){
+							chk = rsAr[i][dayNum]
+						} else{
+							chk = "";
+						}
+						if(zone != 'special' && zone != 'testresult'){
+							$("#"+tdId).val(chk);
+							
+						} else if(zone == 'special'){
+							$("#sat_special").val(rsAr[i][dayNum]);
+						}
+					}
+				}
+				
+			},
+			error: function(req, status) {
+				if (req.status == 0 || status == "timeout") {
+					alert("네트워크 연결 확인 후 다시 시도해주세요.");
+				} else {
+					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
+				}
+				
+			}
+		});
+	}
+	function getFproofCount(){
+		$.post("m03/s03/count_m03s03.jsp", {
+		    "year": year,
+		    "month": month,
+		    "hogi": $("#s_hogi").val(),
+		    "gb": "1"
+		}).done(function(response) {
+			getList();
+		}).fail(function(xhr, status, error) {
+			console.log("실패:", xhr.status);
+		});
+	}
+	function getSatCount(){
+		$.post("m03/s03/count_m03s03.jsp", {
+		    "year": year,
+		    "month": month,
+		    "hogi": $("#s_hogi").val(),
+		    "gb": "2"
+		}).done(function(response) {
+			getListSat();
+		}).fail(function(xhr, status, error) {
+			console.log("실패:", xhr.status);
+		});
+	}
+	
+	function updateFrom(){
+        var formDataArray = $('#eproofForm').serializeArray();
+        $('#eproofForm input[type="checkbox"]').each(function() {
+            var checkbox = $(this);
+            if (!checkbox.is(':checked')) {
+                formDataArray.push({
+                    name: checkbox.attr('name'),
+                    value: 'off' 
+                });
+            }
+        });
+        
+        formDataArray.push({name: "year", value: year});
+        formDataArray.push({name: "month", value: month});
+        formDataArray.push({name: "day", value: day});
+        formDataArray.push({name: "hogi", value: $("#s_hogi").val()});
+        $.ajax({
+            type: 'POST',
+            url: 'm03/mobile_s03/update_mobile_m03s03.jsp',
+            data: formDataArray,
+            success: function(response) {
+            	getList();
+            	getListSat();
+            	alert("저장되었습니다.")
+            },
+            error: function() {
+            	alert("오류발생")
+            }
+        });
+    };
+	
+	
+	
+	
+	$("#s_hogi").change(function(){
+		getFproofCount();
+		getSatCount();
+	})
+	
+	$("#saveBtn").click(function(){
+		updateFrom();
+	})
 </script>
 
 

@@ -289,7 +289,6 @@ var fn_logout = function () {
 				
 				                            <!--Begin Datatables-->
 <div class="row">
-            <hr class="bread_under">
             
   <div style="width: 100%; " class="col-lg-12">
         <div class="box">
@@ -351,35 +350,35 @@ var fn_logout = function () {
 						<tr>
 							<th rowspan="2" class="text-center cell tableHeader" 
 							style=" width: 170px; height: 40px; 
-							font-size: 20pt; font-weight:700; font-family: headline;">
+							font-size: 15pt; font-weight:700; font-family: headline;">
 								구 분
 							</th>
 							
 							<th colspan="5" class="text-center cell tableHeader" 
 							style="  height: 35px; 
-							font-size: 20pt; font-weight:700; font-family: headline;">
+							font-size: 15pt; font-weight:700; font-family: headline;">
 								퀜칭로
 							</th>
 							
 							<th colspan="4" class="text-center cell tableHeader" 
 							style="  height: 35px; 
-							font-size: 20pt; font-weight:700; font-family: headline;">
+							font-size: 15pt; font-weight:700; font-family: headline;">
 								템퍼링로
 							</th>
 							<th rowspan="2" class="text-center cell tableHeader" 
 							style=" width: 130px; height: 60px; 
-							font-size: 20pt; font-weight:700; font-family: headline;">
+							font-size: 15pt; font-weight:700; font-family: headline;">
 								중간<br />세정기
 							</th>
 							<th rowspan="2" class="text-center cell tableHeader" 
 							style=" width: 130px; height: 60px; 
-							font-size: 20pt; font-weight:700; font-family: headline;">
+							font-size: 15pt; font-weight:700; font-family: headline;">
 								유조온도
 							</th>
 											
 							<th rowspan="2" class="text-center cell tableHeader" 
 							style=" width: 150px; height: 60px; 
-							font-size: 20pt; font-weight:700; font-family: headline;">
+							font-size: 15pt; font-weight:700; font-family: headline;">
 								CP
 							</th>
 						</tr>
@@ -387,50 +386,50 @@ var fn_logout = function () {
 						<tr>
 							<th class="text-center cell tableHeader" 
 							style=" width: 130px; height: 35px; 
-							font-size: 20pt; font-weight:700; font-family: headline;">
+							font-size: 15pt; font-weight:700; font-family: headline;">
 								#1
 							</th>
 							<th class="text-center cell tableHeader" 
 							style=" width: 130px; height: 35px; 
-							font-size: 20pt; font-weight:700; font-family: headline;">
+							font-size: 15pt; font-weight:700; font-family: headline;">
 								#2
 							</th>														
 							<th class="text-center cell tableHeader" 
 							style=" width: 130px; height: 35px; 
-							font-size: 20pt; font-weight:700; font-family: headline;">
+							font-size: 15pt; font-weight:700; font-family: headline;">
 								#3
 							</th>
 							<th class="text-center cell tableHeader" 
 							style=" width: 130px; height: 35px; 
-							font-size: 20pt; font-weight:700; font-family: headline;">
+							font-size: 15pt; font-weight:700; font-family: headline;">
 								#4
 							</th>														
 							<th class="text-center cell tableHeader" 
 							style=" width: 130px; height: 35px; 
-							font-size: 20pt; font-weight:700; font-family: headline;">
+							font-size: 15pt; font-weight:700; font-family: headline;">
 								#5
 							</th>
 							
 
 							<th class="text-center cell tableHeader" 
 							style=" width: 130px; height: 35px; 
-							font-size: 20pt; font-weight:700; font-family: headline;">
+							font-size: 15pt; font-weight:700; font-family: headline;">
 								#1
 							</th>
 							<th class="text-center cell tableHeader" 
 							style=" width: 130px; height: 35px; 
-							font-size: 20pt; font-weight:700; font-family: headline;">
+							font-size: 15pt; font-weight:700; font-family: headline;">
 								#2
 							</th>														
 							<th class="text-center cell tableHeader" 
 							style=" width: 130px; height: 35px; 
-							font-size: 20pt; font-weight:700; font-family: headline;">
+							font-size: 15pt; font-weight:700; font-family: headline;">
 								#3
 							</th>
 							
 							<th class="text-center cell tableHeader" 
 							style=" width: 130px; height: 35px; 
-							font-size: 20pt; font-weight:700; font-family: headline;">
+							font-size: 15pt; font-weight:700; font-family: headline;">
 								#4
 							</th>																
 						</tr>		
@@ -440,709 +439,1051 @@ var fn_logout = function () {
 					<tbody id="monitoring_contents">
 					<!-- 1호기 -->
 						<tr>							
-							<th rowspan="2" class="text-center cell" 
+							<th rowspan="3" class="text-center cell" 
 							style="background-color:#FFFFFF; width: 110px; height: 90px; 
 							font-size: 17pt; font-family:headline; font-weight:700;"
 							id="h1_pv_hogi">열처리<br>1호기</th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 13pt; font-family:headline; font-weight:700;"
 							>현재값</th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_pv_q1_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_pv_q2_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_pv_q3_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_pv_q4_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_pv_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_pv_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_pv_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_pv_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_pv_t4_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_pv_mw"></th>							
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_pv_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 150px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 150px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_pv_cp"></th>
 
 						</tr>
 						<tr>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							>설정값</th>						
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h1_spv_q1_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h1_spv_q2_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h1_spv_q3_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h1_spv_q4_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h1_spv_q5_spec"></th>
+							
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h1_spv_t1_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h1_spv_t2_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h1_spv_t3_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h1_spv_t4_spec"></th>
+					
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h1_spv_mw"></th>							
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h1_spv_oil"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h1_spv_cp"></th>														
+						
+						</tr>
+						<tr>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700;"
 							>기준범위</th>						
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_sp_q1_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_sp_q2_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_sp_q3_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_sp_q4_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_sp_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_sp_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_sp_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_sp_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_sp_t4_spec"></th>
 					
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_sp_mw"></th>							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_sp_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h1_sp_cp"></th>														
 						
 						</tr>
 					<!-- 2호기 -->
 						<tr>							
-							<th rowspan="2" class="text-center cell" 
+							<th rowspan="3" class="text-center cell" 
 							style="background-color:#FFFFFF; width: 100px; height: 90px; 
 							font-size: 17pt; font-family:headline; font-weight:700;"
 							id="h2_pv_hogi">열처리<br>2호기</th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 13pt; font-family:headline; font-weight:700;"
 							>현재값</th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_pv_q1_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_pv_q2_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_pv_q3_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_pv_q4_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_pv_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_pv_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_pv_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_pv_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_pv_t4_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_pv_mw"></th>							
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_pv_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 100px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_pv_cp"></th>
 
 						</tr>
 						<tr>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							>설정값</th>						
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h2_spv_q1_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h2_spv_q2_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h2_spv_q3_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h2_spv_q4_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h2_spv_q5_spec"></th>
+							
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h2_spv_t1_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h2_spv_t2_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h2_spv_t3_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h2_spv_t4_spec"></th>
+					
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h2_spv_mw"></th>							
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h2_spv_oil"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h2_spv_cp"></th>														
+						
+						</tr>
+						<tr>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700;"
 							>기준범위</th>						
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_sp_q1_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_sp_q2_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_sp_q3_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_sp_q4_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_sp_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_sp_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_sp_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_sp_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_sp_t4_spec"></th>
 					
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_sp_mw"></th>							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_sp_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 100px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h2_sp_cp"></th>														
 						
 						</tr>
 					<!-- 3호기 -->
 						<tr>							
-							<th rowspan="2" class="text-center cell" 
+							<th rowspan="3" class="text-center cell" 
 							style="background-color:#FFFFFF; width: 100px; height: 90px; 
 							font-size: 17pt; font-family:headline; font-weight:700;"
 							id="h3_pv_hogi">열처리<br>3호기</th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 13pt; font-family:headline; font-weight:700;"
 							>현재값</th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_pv_q1_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_pv_q2_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_pv_q3_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_pv_q4_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_pv_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_pv_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_pv_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_pv_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_pv_t4_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_pv_mw"></th>							
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_pv_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 100px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_pv_cp"></th>
 
 						</tr>
 						<tr>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							>설정값</th>						
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h3_spv_q1_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h3_spv_q2_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h3_spv_q3_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h3_spv_q4_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h3_spv_q5_spec"></th>
+							
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h3_spv_t1_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h3_spv_t2_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h3_spv_t3_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h3_spv_t4_spec"></th>
+					
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h3_spv_mw"></th>							
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h3_spv_oil"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h3_spv_cp"></th>														
+						
+						</tr>
+						<tr>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700;"
 							>기준범위</th>						
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_sp_q1_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_sp_q2_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_sp_q3_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_sp_q4_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_sp_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_sp_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_sp_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_sp_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_sp_t4_spec"></th>
 					
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_sp_mw"></th>							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_sp_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 100px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h3_sp_cp"></th>														
 						
 						</tr>
 					<!-- 4호기 -->
 						<tr>							
-							<th rowspan="2" class="text-center cell" 
+							<th rowspan="3" class="text-center cell" 
 							style="background-color:#FFFFFF; width: 100px; height: 90px; 
 							font-size: 17pt; font-family:headline; font-weight:700;"
 							id="h4_pv_hogi">열처리<br>4호기</th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 13pt; font-family:headline; font-weight:700;"
 							>현재값</th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_pv_q1_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_pv_q2_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_pv_q3_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_pv_q4_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_pv_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_pv_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_pv_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_pv_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_pv_t4_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_pv_mw"></th>							
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_pv_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 100px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_pv_cp"></th>
 
 						</tr>
 						<tr>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							>설정값</th>						
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h4_spv_q1_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h4_spv_q2_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h4_spv_q3_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h4_spv_q4_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h4_spv_q5_spec"></th>
+							
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h4_spv_t1_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h4_spv_t2_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h4_spv_t3_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h4_spv_t4_spec"></th>
+					
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h4_spv_mw"></th>							
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h4_spv_oil"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h4_spv_cp"></th>														
+						
+						</tr>
+						<tr>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700;"
 							>기준범위</th>						
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_sp_q1_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_sp_q2_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_sp_q3_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_sp_q4_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_sp_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_sp_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_sp_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_sp_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_sp_t4_spec"></th>
 					
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_sp_mw"></th>							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_sp_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 100px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h4_sp_cp"></th>														
 						
 						</tr>
 					<!-- 5호기 -->
 						<tr>							
-							<th rowspan="2" class="text-center cell" 
+							<th rowspan="3" class="text-center cell" 
 							style="background-color:#FFFFFF; width: 100px; height: 90px; 
 							font-size: 17pt; font-family:headline; font-weight:700;"
 							id="h5_pv_hogi">열처리<br>5호기</th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 13pt; font-family:headline; font-weight:700;"
 							>현재값</th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_pv_q1_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_pv_q2_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_pv_q3_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_pv_q4_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_pv_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_pv_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_pv_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_pv_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_pv_t4_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_pv_mw"></th>							
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_pv_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 100px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_pv_cp"></th>
 
 						</tr>
 						<tr>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							>설정값</th>						
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h5_spv_q1_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h5_spv_q2_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h5_spv_q3_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h5_spv_q4_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h5_spv_q5_spec"></th>
+							
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h5_spv_t1_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h5_spv_t2_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h5_spv_t3_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h5_spv_t4_spec"></th>
+					
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h5_spv_mw"></th>							
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h5_spv_oil"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h5_spv_cp"></th>														
+						
+						</tr>
+						<tr>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700;"
 							>기준범위</th>						
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_sp_q1_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_sp_q2_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_sp_q3_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_sp_q4_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_sp_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_sp_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_sp_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_sp_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_sp_t4_spec"></th>
 					
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_sp_mw"></th>							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_sp_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 100px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h5_sp_cp"></th>														
 						
 						</tr>
 					<!-- 6호기 -->
 						<tr>							
-							<th rowspan="2" class="text-center cell" 
+							<th rowspan="3" class="text-center cell" 
 							style="background-color:#FFFFFF; width: 100px; height: 90px; 
 							font-size: 17pt; font-family:headline; font-weight:700;"
 							id="h6_pv_hogi">열처리<br>6호기</th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 13pt; font-family:headline; font-weight:700;"
 							>현재값</th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_pv_q1_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_pv_q2_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_pv_q3_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_pv_q4_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_pv_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_pv_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_pv_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_pv_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_pv_t4_spec"></th>
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_pv_mw"></th>							
 							<th class="text-center cell q3_zero" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_pv_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 100px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_pv_cp"></th>
 
 						</tr>
 						<tr>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 60px; height: 45px; 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							>설정값</th>						
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h6_spv_q1_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h6_spv_q2_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h6_spv_q3_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h6_spv_q4_spec"></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h6_spv_q5_spec"></th>
+							
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h6_spv_t1_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h6_spv_t2_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h6_spv_t3_spec"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h6_spv_t4_spec"></th>
+					
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h6_spv_mw"></th>							
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h6_spv_oil"></th>
+							<th class="text-center cell" 
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
+							id="h6_spv_cp"></th>														
+						
+						</tr>
+						<tr>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700;"
 							>기준범위</th>						
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_sp_q1_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_sp_q2_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_sp_q3_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_sp_q4_spec"></th>
 							<th  class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_sp_q5_spec"></th>
 							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_sp_t1_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_sp_t2_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_sp_t3_spec"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_sp_t4_spec"></th>
 					
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_sp_mw"></th>							
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 130px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 130px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_sp_oil"></th>
 							<th class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 45px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							style="background-color:#FFFFFF; width: 100px; height: 30px; 
+							font-size: 13pt; font-family:headline; font-weight:700;"
 							id="h6_sp_cp"></th>														
 						
 						</tr>
@@ -1534,6 +1875,19 @@ function div_change(value){
 					$("#h1_pv_oil").text(rsAr.oil_pv);	// 유조
 					$("#h1_pv_cp").text(rsAr.cp_pv.toFixed(3));
 					
+					$("#h1_spv_q1_spec").text(rsAr.q1_sp);
+					$("#h1_spv_q2_spec").text(rsAr.q2_sp);
+					$("#h1_spv_q3_spec").text(rsAr.q3_sp);
+					$("#h1_spv_q4_spec").text(rsAr.q4_sp);
+					$("#h1_spv_q5_spec").text(rsAr.q5_sp);
+					$("#h1_spv_t1_spec").text(rsAr.t1_sp);
+					$("#h1_spv_t2_spec").text(rsAr.t2_sp);
+					$("#h1_spv_t3_spec").text(rsAr.t3_sp);
+					$("#h1_spv_t4_spec").text(rsAr.t4_sp);
+					$("#h1_spv_mw").text(rsAr.a_sp); 
+					$("#h1_spv_oil").text(rsAr.oil_sp);
+					$("#h1_spv_cp").text(rsAr.cp_sp.toFixed(3));
+					
 					// 퀜칭로 온도범위
 					$("#h1_sp_q1_spec").text((rsAr.q1_sp-150)+"~"+(rsAr.q1_sp+50));
 					if((rsAr.q1_pv < rsAr.q1_sp-150) || (rsAr.q1_pv > rsAr.q1_sp+50)){
@@ -1658,6 +2012,19 @@ function div_change(value){
 					$("#h2_pv_mw").text(rsAr.a_pv); // 중간세정기
 					$("#h2_pv_oil").text(rsAr.oil_pv);	// 유조
 					$("#h2_pv_cp").text(rsAr.cp_pv.toFixed(3)); // cp
+					
+					$("#h2_spv_q1_spec").text(rsAr.q1_sp);
+					$("#h2_spv_q2_spec").text(rsAr.q2_sp);
+					$("#h2_spv_q3_spec").text(rsAr.q3_sp);
+					$("#h2_spv_q4_spec").text(rsAr.q4_sp);
+					$("#h2_spv_q5_spec").text(rsAr.q5_sp);
+					$("#h2_spv_t1_spec").text(rsAr.t1_sp);
+					$("#h2_spv_t2_spec").text(rsAr.t2_sp);
+					$("#h2_spv_t3_spec").text(rsAr.t3_sp);
+					$("#h2_spv_t4_spec").text(rsAr.t4_sp);
+					$("#h2_spv_mw").text(rsAr.a_sp); 
+					$("#h2_spv_oil").text(rsAr.oil_sp);
+					$("#h2_spv_cp").text(rsAr.cp_sp.toFixed(3));
 					
 					// 퀜칭로 온도범위
 					$("#h2_sp_q1_spec").text((rsAr.q1_sp-150)+"~"+(rsAr.q1_sp+50));
@@ -1784,7 +2151,20 @@ function div_change(value){
 					$("#h3_pv_oil").text(rsAr.oil_pv);	// 유조
 					$("#h3_pv_cp").text(rsAr.cp_pv.toFixed(3)); // cp
 					
-					$("#h3_sp_q1_spec").text(rsAr.q1_sp);
+					$("#h3_spv_q1_spec").text(rsAr.q1_sp);
+					$("#h3_spv_q2_spec").text(rsAr.q2_sp);
+					$("#h3_spv_q3_spec").text(rsAr.q3_sp);
+					$("#h3_spv_q4_spec").text(rsAr.q4_sp);
+					$("#h3_spv_q5_spec").text(rsAr.q5_sp);
+					$("#h3_spv_t1_spec").text(rsAr.t1_sp);
+					$("#h3_spv_t2_spec").text(rsAr.t2_sp);
+					$("#h3_spv_t3_spec").text(rsAr.t3_sp);
+					$("#h3_spv_t4_spec").text(rsAr.t4_sp);
+					$("#h3_spv_mw").text(rsAr.a_sp); 
+					$("#h3_spv_oil").text(rsAr.oil_sp);
+					$("#h3_spv_cp").text(rsAr.cp_sp.toFixed(3));
+					
+					/* $("#h3_sp_q1_spec").text(rsAr.q1_sp);
 					$("#h3_sp_q2_spec").text(rsAr.q2_sp);
 					$("#h3_sp_q3_spec").text(rsAr.q3_sp);
 					$("#h3_sp_q4_spec").text(rsAr.q4_sp);
@@ -1795,7 +2175,7 @@ function div_change(value){
 					$("#h3_sp_t4_spec").text(rsAr.t4_sp);
 					$("#h3_sp_mw").text(rsAr.a_sp); // 중간세정기
 					$("#h3_sp_oil").text(rsAr.oil_sp);	// 유조
-					$("#h3_sp_cp").text(rsAr.cp_sp.toFixed(3)); // cp
+					$("#h3_sp_cp").text(rsAr.cp_sp.toFixed(3)); // cp */
 					
 					 // 퀜칭로 온도범위
 					$("#h3_sp_q1_spec").text((rsAr.q1_sp-150)+"~"+(rsAr.q1_sp+50));
@@ -1922,6 +2302,19 @@ function div_change(value){
 					$("#h4_pv_oil").text(rsAr.oil_pv);	// 유조
 					$("#h4_pv_cp").text(rsAr.cp_pv.toFixed(3)); // cp
 					
+					$("#h4_spv_q1_spec").text(rsAr.q1_sp);
+					$("#h4_spv_q2_spec").text(rsAr.q2_sp);
+					$("#h4_spv_q3_spec").text(rsAr.q3_sp);
+					$("#h4_spv_q4_spec").text(rsAr.q4_sp);
+					$("#h4_spv_q5_spec").text(rsAr.q5_sp);
+					$("#h4_spv_t1_spec").text(rsAr.t1_sp);
+					$("#h4_spv_t2_spec").text(rsAr.t2_sp);
+					$("#h4_spv_t3_spec").text(rsAr.t3_sp);
+					$("#h4_spv_t4_spec").text(rsAr.t4_sp);
+					$("#h4_spv_mw").text(rsAr.a_sp); 
+					$("#h4_spv_oil").text(rsAr.oil_sp);
+					$("#h4_spv_cp").text(rsAr.cp_sp.toFixed(3));
+					
 					// 퀜칭로 온도범위
 					$("#h4_sp_q1_spec").text((rsAr.q1_sp-150)+"~"+(rsAr.q1_sp+50));
 					if((rsAr.q1_pv < rsAr.q1_sp-150) || (rsAr.q1_pv > rsAr.q1_sp+50)){
@@ -2047,6 +2440,19 @@ function div_change(value){
 					$("#h5_pv_oil").text(rsAr.oil_pv);	// 유조
 					$("#h5_pv_cp").text(rsAr.cp_pv.toFixed(3)); // cp
 					
+					$("#h5_spv_q1_spec").text(rsAr.q1_sp);
+					$("#h5_spv_q2_spec").text(rsAr.q2_sp);
+					$("#h5_spv_q3_spec").text(rsAr.q3_sp);
+					$("#h5_spv_q4_spec").text(rsAr.q4_sp);
+					$("#h5_spv_q5_spec").text(rsAr.q5_sp);
+					$("#h5_spv_t1_spec").text(rsAr.t1_sp);
+					$("#h5_spv_t2_spec").text(rsAr.t2_sp);
+					$("#h5_spv_t3_spec").text(rsAr.t3_sp);
+					$("#h5_spv_t4_spec").text(rsAr.t4_sp);
+					$("#h5_spv_mw").text(rsAr.a_sp); 
+					$("#h5_spv_oil").text(rsAr.oil_sp);
+					$("#h5_spv_cp").text(rsAr.cp_sp.toFixed(3));
+					
 					// 퀜칭로 온도범위
 					$("#h5_sp_q1_spec").text((rsAr.q1_sp-150)+"~"+(rsAr.q1_sp+50));
 					if((rsAr.q1_pv < rsAr.q1_sp-150) || (rsAr.q1_pv > rsAr.q1_sp+50)){
@@ -2171,6 +2577,19 @@ function div_change(value){
 					$("#h6_pv_mw").text(rsAr.a_pv); // 중간세정기
 					$("#h6_pv_oil").text(rsAr.oil_pv);	// 유조
 					$("#h6_pv_cp").text(rsAr.cp_pv.toFixed(3)); // cp
+					
+					$("#h6_spv_q1_spec").text(rsAr.q1_sp);
+					$("#h6_spv_q2_spec").text(rsAr.q2_sp);
+					$("#h6_spv_q3_spec").text(rsAr.q3_sp);
+					$("#h6_spv_q4_spec").text(rsAr.q4_sp);
+					$("#h6_spv_q5_spec").text(rsAr.q5_sp);
+					$("#h6_spv_t1_spec").text(rsAr.t1_sp);
+					$("#h6_spv_t2_spec").text(rsAr.t2_sp);
+					$("#h6_spv_t3_spec").text(rsAr.t3_sp);
+					$("#h6_spv_t4_spec").text(rsAr.t4_sp);
+					$("#h6_spv_mw").text(rsAr.a_sp); 
+					$("#h6_spv_oil").text(rsAr.oil_sp);
+					$("#h6_spv_cp").text(rsAr.cp_sp.toFixed(3));
 					
 					// 퀜칭로 온도범위
 					$("#h6_sp_q1_spec").text((rsAr.q1_sp-150)+"~"+(rsAr.q1_sp+50));

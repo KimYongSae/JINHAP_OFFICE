@@ -103,13 +103,13 @@
 	  display: block; /* 헤더를 블록 요소로 변경 */
 	}
 	tbody {
-	  display: block; /* 본문을 블록 요소로 변경 */
-	  height: 600px; /* 본문 영역의 높이 (670px에서 헤더 높이만큼 뺌) */
-	  overflow: auto; /* 본문 영역에 스크롤바 표시 */
+	  display: block;
+	  height: 600px;
+	  overflow: auto;
 	}
 	th, td {
-	  padding: 5px; /* 셀 안쪽 여백 */
-	  text-align: center; /* 셀 내용 가운데 정렬 */
+	  padding: 5px;
+	  text-align: center;
 	}
 	
 	.col1{width:70px}		
@@ -128,6 +128,39 @@
 		color:#FFFFFF;
 		border-color: #FFFFFF !important;
 	}
+	
+	@media print{
+		html {
+			height: auto;
+		}
+		body * {
+        	visibility: hidden;
+	    }
+	    #printArea, #printArea * {
+	        visibility: visible;
+	    }
+	    #printArea {
+	        position: absolute;
+	        left: 0;
+	    /*     top: -100px; */
+	        /* width: 100%; */
+	    }
+	    tbody{
+	    	height: auto;
+	    	
+	    }
+		.tmp {
+			height: auto;
+		}
+		#floater2{
+			margin-top: 0 !important;
+		}
+		.col_day{width:42px}
+		#whyRelative{
+			top:0px !important;
+		}
+	}
+		
 
 </style>
 
@@ -210,7 +243,7 @@
 				<div class="content" style="height: 810px;">
 
 
-					<div style="position: relative; left: -275px; top: -185px;">
+					<div style="position: relative; left: -275px; top: -185px;" id="whyRelative">
 
 
 						<div id="room1"
@@ -219,10 +252,10 @@
 
 							<!--Begin Datatables-->
 							<div class="row">
-								<hr class="bread_under">
+								<!-- <hr class="bread_under"> -->
 								<!-- 월간 -->
 								<div style="width: 100%;" class="col-lg-12">
-									<div class="box">
+									<div class="box" id="printArea">
 										<header>
 											<div style="padding: 11px 14px;" class="icons">
 												<i style="color: white;" class="fa fa-list-alt"></i>
@@ -231,95 +264,103 @@
 												- E/PROOF, 열전대 비교검증, CP, CO2 점검 일지</h5>
 										</header>
 										<header style="background:white; height:43px;">
-                <form class="form-inline" role="form" name="searchform" method="post" autocomplete="off">
-						<div class="form-group">
-							<label class="control-label" 
-							style="font-size: 14pt;  font-family:headline;font-weight:700; 
-								color:#8C8C8C; width: 70px; text-align: right;">
-							연도 : </label>
-						</div>
-						
-						<div class="form-group">
-							<select class="form-control input-sm" 
-							id="s_year" name="s_year"
-							style="margin-top:5px; height: 30px; width: 160px; 
-								font-size: 14pt; font-family:headline;font-weight:700;
-								padding-top:1px; padding-bottom:1px;">
-							</select>
-						</div>						
-						<div class="form-group">
-							<label class="control-label" 
-							style="font-size: 14pt;  font-family:headline;font-weight:700; 
-								color:#8C8C8C; width: 50px; text-align: right;">
-							월 : </label>
-						</div>
-						
-						<div class="form-group">
-							<select class="form-control input-sm" 
-							id="s_month" name="s_month"
-							style="margin-top:5px; height: 30px; width: 100px;  
-								font-size: 14pt; font-family:headline;font-weight:700;
-								padding-top:1px; padding-bottom:1px;">
-								<option value="1">1월</option>
-								<option value="2">2월</option>
-								<option value="3">3월</option>
-								<option value="4">4월</option>
-								<option value="5">5월</option>
-								<option value="6">6월</option>
-								<option value="7">7월</option>
-								<option value="8">8월</option>
-								<option value="9">9월</option>
-								<option value="10">10월</option>
-								<option value="11">11월</option>
-								<option value="12">12월</option>
-							</select>
-						</div>						
-
-						<div class="form-group">
-							<label class="control-label" 
-							style="font-size: 14pt;  font-family:headline;font-weight:700; 
-								color:#8C8C8C; width: 50px; text-align: right;">
-							구분 : </label>
-						</div>
-						
-						
-						<div class="form-group">
-							<select class="form-control input-sm" 
-							id="s_gubun" name="s_gubun"
-							style="margin-top:5px; height: 30px; width: 160px; 
-								font-size: 14pt; font-family:headline;font-weight:700;
-								padding-top:1px; padding-bottom:1px;">
-								<option value="1">F/PROOF</option>
-								<option value="2">SAT</option>
-							</select>
+							                <form class="form-inline" role="form" name="searchform" method="post" autocomplete="off">
+													<div class="form-group">
+														<label class="control-label" 
+														style="font-size: 14pt;  font-family:headline;font-weight:700; 
+															color:#8C8C8C; width: 70px; text-align: right;">
+														연도 : </label>
+													</div>
+													
+													<div class="form-group">
+														<select class="form-control input-sm" 
+														id="s_year" name="s_year"
+														style="margin-top:5px; height: 30px; width: 160px; 
+															font-size: 14pt; font-family:headline;font-weight:700;
+															padding-top:1px; padding-bottom:1px;">
+														</select>
+													</div>						
+													<div class="form-group">
+														<label class="control-label" 
+														style="font-size: 14pt;  font-family:headline;font-weight:700; 
+															color:#8C8C8C; width: 50px; text-align: right;">
+														월 : </label>
+													</div>
+													
+													<div class="form-group">
+														<select class="form-control input-sm" 
+														id="s_month" name="s_month"
+														style="margin-top:5px; height: 30px; width: 100px;  
+															font-size: 14pt; font-family:headline;font-weight:700;
+															padding-top:1px; padding-bottom:1px;">
+															<option value="1">1월</option>
+															<option value="2">2월</option>
+															<option value="3">3월</option>
+															<option value="4">4월</option>
+															<option value="5">5월</option>
+															<option value="6">6월</option>
+															<option value="7">7월</option>
+															<option value="8">8월</option>
+															<option value="9">9월</option>
+															<option value="10">10월</option>
+															<option value="11">11월</option>
+															<option value="12">12월</option>
+														</select>
+													</div>						
 							
-						</div>
-						<div class="form-group">
-							<label class="control-label" 
-							style="font-size: 14pt;  font-family:headline;font-weight:700; 
-								color:#8C8C8C; width: 50px; text-align: right;">
-							설비 : </label>
-						</div>
-						
-						
-						<div class="form-group">
-							<select class="form-control input-sm" 
-							id="s_hogi" name="s_hogi"
-							style="margin-top:5px; height: 30px; width: 160px; 
-								font-size: 14pt; font-family:headline;font-weight:700;
-								padding-top:1px; padding-bottom:1px;">
-								<option value="1">Q01-HN01</option>
-								<option value="2">Q01-HN02</option>
-								<option value="3">Q01-HN03</option>
-								<option value="4">Q01-HN04</option>
-								<option value="5">Q01-HN05</option>
-								<option value="6">Q01-HN06</option>
-							</select>
-							
-						</div>
-						
-				</form>
-            </header>
+													<div class="form-group">
+														<label class="control-label" 
+														style="font-size: 14pt;  font-family:headline;font-weight:700; 
+															color:#8C8C8C; width: 50px; text-align: right;">
+														구분 : </label>
+													</div>
+													
+													
+													<div class="form-group">
+														<select class="form-control input-sm" 
+														id="s_gubun" name="s_gubun"
+														style="margin-top:5px; height: 30px; width: 160px; 
+															font-size: 14pt; font-family:headline;font-weight:700;
+															padding-top:1px; padding-bottom:1px;">
+															<option value="1">F/PROOF</option>
+															<option value="2">SAT</option>
+														</select>
+														
+													</div>
+													<div class="form-group">
+														<label class="control-label" 
+														style="font-size: 14pt;  font-family:headline;font-weight:700; 
+															color:#8C8C8C; width: 50px; text-align: right;">
+														설비 : </label>
+													</div>
+													
+													
+													<div class="form-group">
+														<select class="form-control input-sm" 
+														id="s_hogi" name="s_hogi"
+														style="margin-top:5px; height: 30px; width: 160px; 
+															font-size: 14pt; font-family:headline;font-weight:700;
+															padding-top:1px; padding-bottom:1px;">
+															<option value="1">Q01-HN01</option>
+															<option value="2">Q01-HN02</option>
+															<option value="3">Q01-HN03</option>
+															<option value="4">Q01-HN04</option>
+															<option value="5">Q01-HN05</option>
+															<option value="6">Q01-HN06</option>
+														</select>
+														
+													</div>
+													<div class="form-group">
+														<button class="btn btn-default pull-right btn-sm"
+															type="button"
+															style="margin-top: 6px; height: 31px; width: 100px; font-size: 14pt; font-weight: 700; font-family: headline; padding-top: 1px; padding-bottom: 1px;"
+															id="printBtn">
+															<i class="fa fa-print"></i> 인쇄
+														</button>
+													</div>
+													
+											</form>
+							            </header>
 
 										<div id="collapse4" class="body">
 											
@@ -1276,12 +1317,43 @@
 													</tr>
 													<tr>
 														<th>특이사항</th>
-														<td colspan="34" id="special1"></td>
+														<th colspan="2"></th>
+														<td class="col_day" id="special1"></td>
+														<td class="col_day" id="special2"></td>
+														<td class="col_day" id="special3"></td>
+														<td class="col_day" id="special4"></td>
+														<td class="col_day" id="special5"></td>
+														<td class="col_day" id="special6"></td>
+														<td class="col_day" id="special7"></td>
+														<td class="col_day" id="special8"></td>
+														<td class="col_day" id="special9"></td>
+														<td class="col_day" id="special10"></td>
+														<td class="col_day" id="special11"></td>
+														<td class="col_day" id="special12"></td>
+														<td class="col_day" id="special13"></td>
+														<td class="col_day" id="special14"></td>
+														<td class="col_day" id="special15"></td>
+														<td class="col_day" id="special16"></td>
+														<td class="col_day" id="special17"></td>
+														<td class="col_day" id="special18"></td>
+														<td class="col_day" id="special19"></td>
+														<td class="col_day" id="special20"></td>
+														<td class="col_day" id="special21"></td>
+														<td class="col_day" id="special22"></td>
+														<td class="col_day" id="special23"></td>
+														<td class="col_day" id="special24"></td>
+														<td class="col_day" id="special25"></td>
+														<td class="col_day" id="special26"></td>
+														<td class="col_day" id="special27"></td>
+														<td class="col_day" id="special28"></td>
+														<td class="col_day" id="special29"></td>
+														<td class="col_day" id="special30"></td>
+														<td class="col_day" id="special31"></td>
 													</tr>
-													<tr>
+													<!-- <tr>
 														<th>측정결과</th>
 														<td colspan="34" id="testresult1"></td>
-													</tr>
+													</tr> -->
 													</tbody>
 												</table>
 											</div>
@@ -2548,12 +2620,43 @@
 													</tr>
 													<tr>
 														<th colspan="2">특이사항</th>
-														<td colspan="34" id="special2"></td>
+														<th colspan="3"></th>
+														<td class="col_day" id="sat_special1"></td>
+														<td class="col_day" id="sat_special2"></td>
+														<td class="col_day" id="sat_special3"></td>
+														<td class="col_day" id="sat_special4"></td>
+														<td class="col_day" id="sat_special5"></td>
+														<td class="col_day" id="sat_special6"></td>
+														<td class="col_day" id="sat_special7"></td>
+														<td class="col_day" id="sat_special8"></td>
+														<td class="col_day" id="sat_special9"></td>
+														<td class="col_day" id="sat_special10"></td>
+														<td class="col_day" id="sat_special11"></td>
+														<td class="col_day" id="sat_special12"></td>
+														<td class="col_day" id="sat_special13"></td>
+														<td class="col_day" id="sat_special14"></td>
+														<td class="col_day" id="sat_special15"></td>
+														<td class="col_day" id="sat_special16"></td>
+														<td class="col_day" id="sat_special17"></td>
+														<td class="col_day" id="sat_special18"></td>
+														<td class="col_day" id="sat_special19"></td>
+														<td class="col_day" id="sat_special20"></td>
+														<td class="col_day" id="sat_special21"></td>
+														<td class="col_day" id="sat_special22"></td>
+														<td class="col_day" id="sat_special23"></td>
+														<td class="col_day" id="sat_special24"></td>
+														<td class="col_day" id="sat_special25"></td>
+														<td class="col_day" id="sat_special26"></td>
+														<td class="col_day" id="sat_special27"></td>
+														<td class="col_day" id="sat_special28"></td>
+														<td class="col_day" id="sat_special29"></td>
+														<td class="col_day" id="sat_special30"></td>
+														<td class="col_day" id="sat_special31"></td>
 													</tr>
-													<tr>
+													<!-- <tr>
 														<th colspan="2">측정결과</th>
 														<td colspan="34" id="testresult2"></td>
-													</tr>
+													</tr> -->
 													</tbody>
 												</table>
 											</div>
@@ -2644,7 +2747,9 @@
     					font-size: 14pt; font-family :headline; font-weight:700;"/>
 			</div>			
 		</form>
+			<input type="hidden" id="sp_day" name="sp_day" />
 			<input type="hidden" id="sp_zone" name="sp_zone" />
+			<input type="hidden" id="sp_category" name="sp_category" />
 	</div>
 
 	<div id="temp-form" style="display:none;" title="온도 등록">
@@ -2671,6 +2776,9 @@
 
 
 	<script>
+	var specialArray = new Array(32);
+	var specialSatArray = new Array(32);
+	
 		$(function(){
 			var now = new Date();
 			
@@ -2758,26 +2866,29 @@
 							}
 							
 							var tdId = zone + "_" + category;
-							if(zone != 'special' && zone != 'testresult'){
-								for(var j = 1; j <= 31; j ++){
-									var dayNum = "day" + j;
-									var chk;
-									if(rsAr[i][dayNum]!= null){
-										chk = rsAr[i][dayNum]
-									} else{
-										chk = "";
-									}
+							for(var j = 1; j <= 31; j ++){
+								var dayNum = "day" + j;
+								var chk;
+								if(rsAr[i][dayNum]!= null){
+									chk = rsAr[i][dayNum]
+								} else{
+									chk = "";
+								}
+								if(zone != 'special'){
 									$("#"+tdId+j).text(chk);
 									if(category == 'sh' || category == 'sc'){
 										$("#"+tdId+j).attr("onclick", "chkReg("+ j +", '"+ rsAr[i].zone +"', '"+rsAr[i].category+"' )");
 									} else{
 										$("#"+tdId+j).attr("onclick", "minMaxReg("+ j +", '"+ rsAr[i].zone +"', '"+rsAr[i].category+"' )");
 									}
+								} else{
+									specialArray[j] = chk;
+									//$("#special"+j).text(chk);
+									if(chk != ""){
+										$("#special"+j).html('<i class="fa fa-search"></i>');
+									}
+									$("#special"+j).attr("onclick", "specialReg("+ j +", '"+ rsAr[i].zone +"', '"+rsAr[i].category+"' )");
 								}
-							} else{
-								$("#"+rsAr[i].zone+"1").text(rsAr[i].memo);
-								$("#"+rsAr[i].zone+"1").attr("onclick", "specialReg('"+ rsAr[i].zone +"')");
-								console.log("#"+rsAr[i].zone+"1");
 							}
 						}
 					}
@@ -2809,8 +2920,11 @@
 			
 			minmaxDialog.dialog("open");
 		}
-		function specialReg(zone){
+		function specialReg(day, zone, category){
+			$("#sp_day").val(day);
 			$("#sp_zone").val(zone);
+			$("#sp_category").val(category);
+			$("#special").val(specialArray[day]);
 			
 			specialDialog.dialog("open");
 		}
@@ -2859,7 +2973,7 @@
 							}
 							
 							var tdId = zone + "_" + category;
-							if(zone != 'special' && zone != 'testresult'){
+							/* if(zone != 'special' && zone != 'testresult'){ */
 								for(var j = 1; j <= 31; j ++){
 									var dayNum = "day" + j;
 									var chk;
@@ -2868,14 +2982,24 @@
 									} else{
 										chk = "";
 									}
-									$("#"+tdId+j).text(chk);
-									$("#"+tdId+j).attr("onclick", "tempReg("+ j +", '"+ rsAr[i].zone +"', '"+rsAr[i].category+"' )");
+									if(zone != 'special'){
+										$("#"+tdId+j).text(chk);
+										$("#"+tdId+j).attr("onclick", "tempReg("+ j +", '"+ rsAr[i].zone +"', '"+rsAr[i].category+"' )");
+									} else{
+										specialSatArray[j] = chk;
+										if(chk != ""){
+											$("#sat_special"+j).html('<i class="fa fa-search"></i>');
+										}
+										$("#sat_special"+j).attr("onclick", "specialReg("+ j +", '"+ rsAr[i].zone +"', '"+rsAr[i].category+"' )");
+										
+									}
+									
 								}
-							} else{
+							/* } else{
 								$("#"+rsAr[i].zone+"2").text(rsAr[i].memo);
 								$("#"+rsAr[i].zone+"2").attr("onclick", "specialReg('"+ rsAr[i].zone +"')");
 								console.log("#"+rsAr[i].zone+"2");
-							}
+							} */
 						}
 					}
 					
@@ -2988,7 +3112,9 @@
 						"month":$("#s_month").val(),
 						"hogi":$("#s_hogi").val(),
 						"gubun":$("#s_gubun").val(),
+						"day":$("#sp_day").val(),
 						"zone":$("#sp_zone").val(),
+						"category":$("#sp_category").val(),
 						"value":$("#special").val()
 					}).done(function(response) {
 						getList();
@@ -3047,6 +3173,9 @@
 			}
 		});
 		
+		$("#printBtn").click(function(){
+			 window.print();
+		})
 		
 		/*차트 불러오는 함수*/
 	</script>

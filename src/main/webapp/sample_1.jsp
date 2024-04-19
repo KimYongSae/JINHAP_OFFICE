@@ -222,7 +222,6 @@ var fn_logout = function () {
 				
 				                            <!--Begin Datatables-->
 <div class="row">
-            <hr class="bread_under">
   <!-- 월간 -->
   <div style="width: 100%; " class="col-lg-12">
         <div class="box">

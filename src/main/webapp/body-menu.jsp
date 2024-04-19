@@ -155,7 +155,7 @@ $(document).ready(function(){
 			    	<div class="custom-col menuLists">
 			    		<ul style="text-align: center;">
 							<li><a href="sample_7.jsp"><span>통합모니터링(미완)</span></a></li>
-							<li><a href="m00s03.jsp"><span>경보 모니터링</span></a></li>							
+							<!-- <li><a href="m00s03.jsp"><span>경보 모니터링</span></a></li> -->							
 							<li><a href="m00s01.jsp"><span>경보 이력</span></a></li>
 							<!-- <li><a href="m00s02.jsp"><span>경보 발생빈도(랭킹)</span></a></li> -->
 							<li><a href="sample_1.jsp"><span>경보 발생빈도(랭킹)</span></a></li>
@@ -206,7 +206,7 @@ $(document).ready(function(){
 			    		<ul style="text-align: center;">
 			    			<li><a href="http://localhost:8080/JINHAP/s001.jsp" target="_blank"><span>투입제어 및 모니터링</span></a></li>			    			 
 			    			<li><a href="m05s02.jsp"><span>LOT 정보확인</span></a></li>			    			 
-			    			<li><a href="sample_13.jsp"><span>생산/설비 실시간 정보(미완)</span></a></li>			    			 
+			    			<!-- <li><a href="sample_13.jsp"><span>생산/설비 실시간 정보(미완)</span></a></li> -->			    			 
 						</ul>
 			    	</div>
 			    	<div class="custom-col menuLists">

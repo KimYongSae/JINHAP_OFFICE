@@ -7,7 +7,8 @@ br {line-height:8px; margin:0px;}
 
 
 /* ustawienia globalne */
-html, body {font-size: 0.625em/1.5em; background:#EAEAEA; }
+/* html, body {font-size: 0.625em/1.5em; background:#EAEAEA; } */
+html, body {font-size: 0.625em/1.5em;}
 a {color:#1c769a; text-decoration:none; font-size:1.1em;}
 a:hover {text-decoration:none;}
 a:active {text-decoration:none;}
@@ -30,8 +31,8 @@ h3 a {
 	width:1875px;  
 	height:840px;
 	background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid #CCCCCC;
-    border-color: #CECECE;
+    /* border: 1px solid #CCCCCC;
+    border-color: #CECECE; */
 	margin:0 auto;
 	padding-left: 15px;
 	padding-right: 15px;

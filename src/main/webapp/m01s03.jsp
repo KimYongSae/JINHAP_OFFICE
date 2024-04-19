@@ -256,7 +256,6 @@ var fn_logout = function () {
 				                            <!--Begin Datatables-->
 				                            
 <div class="row">
-            <hr class="bread_under">
   <div style="width: 75%; " class="col-lg-12">
         <div class="box">
             <header>

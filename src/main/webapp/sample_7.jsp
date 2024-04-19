@@ -173,8 +173,27 @@
 
 .text-overlay {
   position: absolute;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+th{
+	width: 65px;
+	border: 1px solid black;
+	text-align: center;
+	color: black;
+	background-color: white;
+}
+
+td{
+	border: 1px solid black;
+	text-align: center;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 2px 4px;
+}
+.label{
+	font-size: 25px;
+	width: 150px;
 }
 
 </style>
@@ -267,7 +286,7 @@
 
 							<!--Begin Datatables-->
 							<div class="row">
-								<hr class="bread_under">
+							
 								<!-- 월간 -->
 								<div style="width: 100%;" class="col-lg-12">
 									<div class="box">
@@ -281,16 +300,283 @@
 
 										<div id="collapse4" class="body">
 											<div class="image-container">
-												<img src="resources/img/layout.jpg" class="img-responsive" alt="이미지 설명">
-													<!-- <div class="text-overlay" style="top: 10%; left: 10%;">텍스트1</div>
-													<div class="text-overlay" style="top: 10%; left: 20%;">텍스트2</div>
-													<div class="text-overlay" style="top: 10%; left: 30%;">텍스트3</div>
-													<div class="text-overlay" style="top: 10%; left: 40%;">텍스트4</div>
-													<div class="text-overlay" style="top: 10%; left: 50%;">텍스트5</div>
-													<div class="text-overlay" style="top: 10%; left: 60%;">텍스트6</div>
-													<div class="text-overlay" style="top: 10%; left: 70%;">텍스트7</div>
-													<div class="text-overlay" style="top: 10%; left: 80%;">텍스트8</div>
-													<div class="text-overlay" style="top: 10%; left: 90%;">텍스트9</div> -->
+												<img src="resources/img/layout3.jpg" class="img-responsive" alt="이미지 설명">
+													<div class="label label-default text-overlay" 
+													style="top: 3%; left: 3%; width:100px;">6호기</div>
+													<div class="label label-success text-overlay" 
+													id="autoChk6" style="top: 3%; left: 9%;">자동운전중</div>
+													<table class="text-overlay" style="top:9%; left: 25%;">
+														<tr>
+															<th>소입1존</th>
+															<th>소입2존</th>
+															<th>소입3존</th>
+															<th>소입4존</th>
+															<th>소입5존</th>
+															<th>CP</th>
+														</tr>
+														<tr>
+															<td id="q1_6"></td>
+															<td id="q2_6"></td>
+															<td id="q3_6"></td>
+															<td id="q4_6"></td>
+															<td id="q5_6"></td>
+															<td id="cp_6"></td>
+														</tr>
+													</table>
+													<table class="text-overlay" style="top:9%; left: 48%;">
+														<tr>
+															<th>유조</th>
+															<th>세정기</th>
+														</tr>
+														<tr>
+															<td id="oil_6"></td>
+															<td id="a_6"></td>
+														</tr>
+													</table>
+													<table class="text-overlay" style="top:9%; left: 63%;">
+														<tr>
+															<th>소려1존</th>
+															<th>소려2존</th>
+															<th>소려3존</th>
+															<th>소려4존</th>
+														</tr>
+														<tr>
+															<td id="t1_6"></td>
+															<td id="t2_6"></td>
+															<td id="t3_6"></td>
+															<td id="t4_6"></td>
+														</tr>
+													</table>
+													<div class="label label-default text-overlay" 
+													style="top: 17%; left: 3%; width:100px;">5호기</div>
+													<div class="label label-success text-overlay" 
+													id="autoChk5" style="top: 17%; left: 9%;">자동운전중</div>
+													<table class="text-overlay" style="top:24%; left: 25%;">
+														<tr>
+															<th>소입1존</th>
+															<th>소입2존</th>
+															<th>소입3존</th>
+															<th>소입4존</th>
+															<th>소입5존</th>
+															<th>CP</th>
+														</tr>
+														<tr>
+															<td id="q1_5"></td>
+															<td id="q2_5"></td>
+															<td id="q3_5"></td>
+															<td id="q4_5"></td>
+															<td id="q5_5"></td>
+															<td id="cp_5"></td>
+														</tr>
+													</table>
+													<table class="text-overlay" style="top:24%; left: 48%;">
+														<tr>
+															<th>유조</th>
+															<th>세정기</th>
+														</tr>
+														<tr>
+															<td id="oil_5"></td>
+															<td id="a_5"></td>
+														</tr>
+													</table>
+													<table class="text-overlay" style="top:24%; left: 63%;">
+														<tr>
+															<th>소려1존</th>
+															<th>소려2존</th>
+															<th>소려3존</th>
+															<th>소려4존</th>
+														</tr>
+														<tr>
+															<td id="t1_5"></td>
+															<td id="t2_5"></td>
+															<td id="t3_5"></td>
+															<td id="t4_5"></td>
+														</tr>
+													</table>
+													<div class="label label-default text-overlay" 
+													style="top: 34%; left: 3%; width:100px;">4호기</div>
+													<div class="label label-success text-overlay" 
+													id="autoChk4" style="top: 34%; left: 9%;">자동운전중</div>
+													<table class="text-overlay" style="top:41%; left: 25%;">
+														<tr>
+															<th>소입1존</th>
+															<th>소입2존</th>
+															<th>소입3존</th>
+															<th>소입4존</th>
+															<th>소입5존</th>
+															<th>CP</th>
+														</tr>
+														<tr>
+															<td id="q1_4"></td>
+															<td id="q2_4"></td>
+															<td id="q3_4"></td>
+															<td id="q4_4"></td>
+															<td id="q5_4"></td>
+															<td id="cp_4"></td>
+														</tr>
+													</table>
+													<table class="text-overlay" style="top:41%; left: 48%;">
+														<tr>
+															<th>유조</th>
+															<th>세정기</th>
+														</tr>
+														<tr>
+															<td id="oil_4"></td>
+															<td id="a_4"></td>
+														</tr>
+													</table>
+													<table class="text-overlay" style="top:41%; left: 63%;">
+														<tr>
+															<th>소려1존</th>
+															<th>소려2존</th>
+															<th>소려3존</th>
+															<th>소려4존</th>
+														</tr>
+														<tr>
+															<td id="t1_4"></td>
+															<td id="t2_4"></td>
+															<td id="t3_4"></td>
+															<td id="t4_4"></td>
+														</tr>
+													</table>
+													<div class="label label-default text-overlay" 
+													style="top: 50%; left: 3%; width:100px;">3호기</div>
+													<div class="label label-success text-overlay" 
+													id="autoChk3" style="top: 50%; left: 9%;">자동운전중</div>
+													<table class="text-overlay" style="top:57%; left: 25%;">
+														<tr>
+															<th>소입1존</th>
+															<th>소입2존</th>
+															<th>소입3존</th>
+															<th>소입4존</th>
+															<th>소입5존</th>
+															<th>CP</th>
+														</tr>
+														<tr>
+															<td id="q1_3"></td>
+															<td id="q2_3"></td>
+															<td id="q3_3"></td>
+															<td id="q4_3"></td>
+															<td id="q5_3"></td>
+															<td id="cp_3"></td>
+														</tr>
+													</table>
+													<table class="text-overlay" style="top:57%; left: 48%;">
+														<tr>
+															<th>유조</th>
+															<th>세정기</th>
+														</tr>
+														<tr>
+															<td id="oil_3"></td>
+															<td id="a_3"></td>
+														</tr>
+													</table>
+													<table class="text-overlay" style="top:57%; left: 63%;">
+														<tr>
+															<th>소려1존</th>
+															<th>소려2존</th>
+															<th>소려3존</th>
+															<th>소려4존</th>
+														</tr>
+														<tr>
+															<td id="t1_3"></td>
+															<td id="t2_3"></td>
+															<td id="t3_3"></td>
+															<td id="t4_3"></td>
+														</tr>
+													</table>
+													<div class="label label-default text-overlay" 
+													style="top: 67%; left: 3%; width:100px;">2호기</div>
+													<div class="label label-success text-overlay" 
+													id="autoChk2" style="top: 67%; left: 9%;">자동운전중</div>
+													<table class="text-overlay" style="top:74%; left: 25%;">
+														<tr>
+															<th>소입1존</th>
+															<th>소입2존</th>
+															<th>소입3존</th>
+															<th>소입4존</th>
+															<th>소입5존</th>
+															<th>CP</th>
+														</tr>
+														<tr>
+															<td id="q1_2"></td>
+															<td id="q2_2"></td>
+															<td id="q3_2"></td>
+															<td id="q4_2"></td>
+															<td id="q5_2"></td>
+															<td id="cp_2"></td>
+														</tr>
+													</table>
+													<table class="text-overlay" style="top:74%; left: 48%;">
+														<tr>
+															<th>유조</th>
+															<th>세정기</th>
+														</tr>
+														<tr>
+															<td id="oil_2"></td>
+															<td id="a_2"></td>
+														</tr>
+													</table>
+													<table class="text-overlay" style="top:74%; left: 63%;">
+														<tr>
+															<th>소려1존</th>
+															<th>소려2존</th>
+															<th>소려3존</th>
+															<th>소려4존</th>
+														</tr>
+														<tr>
+															<td id="t1_2"></td>
+															<td id="t2_2"></td>
+															<td id="t3_2"></td>
+															<td id="t4_2"></td>
+														</tr>
+													</table>
+													<div class="label label-default text-overlay" 
+													style="top: 83%; left: 3%; width:100px;">1호기</div>
+													<div class="label label-success text-overlay" 
+													id="autoChk1" style="top: 83%; left: 9%;">자동운전중</div>
+													<table class="text-overlay" style="top:90%; left: 25%;">
+														<tr>
+															<th>소입1존</th>
+															<th>소입2존</th>
+															<th>소입3존</th>
+															<th>소입4존</th>
+															<th>소입5존</th>
+															<th>CP</th>
+														</tr>
+														<tr>
+															<td id="q1_1"></td>
+															<td id="q2_1"></td>
+															<td id="q3_1"></td>
+															<td id="q4_1"></td>
+															<td id="q5_1"></td>
+															<td id="cp_1"></td>
+														</tr>
+													</table>
+													<table class="text-overlay" style="top:90%; left: 48%;">
+														<tr>
+															<th>유조</th>
+															<th>세정기</th>
+														</tr>
+														<tr>
+															<td id="oil_1"></td>
+															<td id="a_1"></td>
+														</tr>
+													</table>
+													<table class="text-overlay" style="top:90%; left: 63%;">
+														<tr>
+															<th>소려1존</th>
+															<th>소려2존</th>
+															<th>소려3존</th>
+															<th>소려4존</th>
+														</tr>
+														<tr>
+															<td id="t1_1"></td>
+															<td id="t2_1"></td>
+															<td id="t3_1"></td>
+															<td id="t4_1"></td>
+														</tr>
+													</table>
 											</div>
 
 										</div>
@@ -320,12 +606,55 @@
 	</div>
 
 	<script>
-		// for ESM environment, need to import modules as:
-		// import bb, {gauge} from "billboard.js";
+	
+	$(function(){
+		getTemp();
+		setInterval(getTemp, 1000 * 60);
+	})
+	
+	function getTemp(){
+		$.ajax({
+			type : "POST",
+			url : "sample/sample_7/select_sample_7.jsp", 
+			cache : false,
+			dataType : "json",
+			success : function(rsJson) {
+				var rsAr = rsJson.rows;
+				
+				for(var i=0; i<rsAr.length; i++){
+					var hogi = rsAr[i].hogi;
+					
+					$("#autoChk"+hogi).toggleClass("label-success", rsAr[i].autoChk == 1);
+					$("#autoChk"+hogi).toggleClass("label-danger", rsAr[i].autoChk == 0);
+					
 
-		/*다이얼로그*/
-
-		/*차트 불러오는 함수*/
+					if (rsAr[i].autoChk == 1) {
+					    $("#autoChk" + hogi).text("자동운전중");
+					} else if (rsAr[i].autoChk == 0) {
+					    $("#autoChk" + hogi).text("수동운전중");
+					}
+						
+						
+					$("#q1_"+hogi).text(rsAr[i].q1);
+					$("#q2_"+hogi).text(rsAr[i].q2);
+					$("#q3_"+hogi).text(rsAr[i].q3);
+					$("#q4_"+hogi).text(rsAr[i].q4);
+					$("#q5_"+hogi).text(rsAr[i].q5);
+					$("#t1_"+hogi).text(rsAr[i].t1);
+					$("#t2_"+hogi).text(rsAr[i].t2);
+					$("#t3_"+hogi).text(rsAr[i].t3);
+					$("#t4_"+hogi).text(rsAr[i].t4);
+					$("#cp_"+hogi).text(rsAr[i].cp);
+					$("#oil_"+hogi).text(rsAr[i].oil);
+					$("#a_"+hogi).text(rsAr[i].a);
+					
+				}
+			}
+		})
+	}
+	
+	
+	
 	</script>
 
 </body>

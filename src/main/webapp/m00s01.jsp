@@ -230,7 +230,6 @@ var fn_logout = function () {
 				
 				                            <!--Begin Datatables-->
 <div class="row">
-            <hr class="bread_under">
             
             
             
