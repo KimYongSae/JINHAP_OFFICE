@@ -12,30 +12,65 @@
 	int cnt = Integer.parseInt(request.getParameter("cnt"));
 	int gb = Integer.parseInt(request.getParameter("gb"));
 	
-	String r_chk = "";
-	if(!"합격".equals(chk) && !"불합격".equals(chk)){
-		r_chk = "";
-	}else{
-		r_chk = chk;
-	}
 	
 	StringBuffer u_sql = new StringBuffer();
 
 	PreparedStatement pstmt = null;
-	
 	Statement stmt = null;
 	ResultSet rs = null;
-	
 	try
 	{
 		
-		if(gb == 1){
-			u_sql.append("UPDATE tb_tus_file SET chk_t = '"+r_chk+"' ");	
-		}else{
-			u_sql.append("UPDATE tb_tus_file SET chk_b = '"+r_chk+"' ");
+		switch(gb){
+			case 1:
+				u_sql.append("UPDATE tb_tus SET chk_"+gb+" = '"+chk+"' ");
+				u_sql.append("WHERE cnt = "+cnt+" ");
+			break;
+			case 2:
+				u_sql.append("UPDATE tb_tus SET chk_"+gb+" = '"+chk+"' ");
+				u_sql.append("WHERE cnt = "+cnt+" ");
+			break;
+			case 3:
+				u_sql.append("UPDATE tb_tus SET chk_"+gb+" = '"+chk+"' ");
+				u_sql.append("WHERE cnt = "+cnt+" ");
+			break;
+			case 4:
+				u_sql.append("UPDATE tb_tus SET chk_"+gb+" = '"+chk+"' ");
+				u_sql.append("WHERE cnt = "+cnt+" ");
+			break;
+			case 5:
+				u_sql.append("UPDATE tb_tus SET chk_"+gb+" = '"+chk+"' ");
+				u_sql.append("WHERE cnt = "+cnt+" ");
+			break;
+			case 6:
+				u_sql.append("UPDATE tb_tus SET chk_"+gb+" = '"+chk+"' ");
+				u_sql.append("WHERE cnt = "+cnt+" ");
+			break;
+			case 7:
+				u_sql.append("UPDATE tb_tus SET chk_"+gb+" = '"+chk+"' ");
+				u_sql.append("WHERE cnt = "+cnt+" ");
+			break;
+			case 8:
+				u_sql.append("UPDATE tb_tus SET chk_"+gb+" = '"+chk+"' ");
+				u_sql.append("WHERE cnt = "+cnt+" ");
+			break;
+			case 9:
+				u_sql.append("UPDATE tb_tus SET chk_"+gb+" = '"+chk+"' ");
+				u_sql.append("WHERE cnt = "+cnt+" ");
+			break;
+			case 10:
+				u_sql.append("UPDATE tb_tus SET chk_"+gb+" = '"+chk+"' ");
+				u_sql.append("WHERE cnt = "+cnt+" ");
+			break;
+			case 11:
+				u_sql.append("UPDATE tb_tus SET chk_"+gb+" = '"+chk+"' ");
+				u_sql.append("WHERE cnt = "+cnt+" ");
+			break;
+			case 12:
+				u_sql.append("UPDATE tb_tus SET chk_"+gb+" = '"+chk+"' ");
+				u_sql.append("WHERE cnt = "+cnt+" ");
+			break;			
 		}
-		
-		u_sql.append("WHERE cnt = "+cnt+" ");
 		
 		
 

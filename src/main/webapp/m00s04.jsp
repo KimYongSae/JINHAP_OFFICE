@@ -439,9 +439,9 @@ var fn_logout = function () {
 					<tbody id="monitoring_contents">
 					<!-- 1호기 -->
 						<tr>							
-							<th rowspan="3" class="text-center cell" 
-							style="background-color:#FFFFFF; width: 110px; height: 90px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							<th rowspan="2" class="text-center cell" 
+							style="background-color:#FFFFFF; width: 110px; height: 60px; 
+							font-size: 14pt; font-family:headline; font-weight:700; border-bottom: 0;"
 							id="h1_pv_hogi">열처리<br>1호기</th>
 							<th class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
@@ -558,6 +558,11 @@ var fn_logout = function () {
 						<tr>
 							<th  class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
+							font-size: 10pt; font-family:headline; font-weight:700; border-top: 0;"
+							id="h1_change_temp"
+							>온도변경중</th>						
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700;"
 							>기준범위</th>						
 							<th  class="text-center cell" 
@@ -614,9 +619,9 @@ var fn_logout = function () {
 						</tr>
 					<!-- 2호기 -->
 						<tr>							
-							<th rowspan="3" class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 90px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							<th rowspan="2" class="text-center cell" 
+							style="background-color:#FFFFFF; width: 100px; height: 60px; 
+							font-size: 14pt; font-family:headline; font-weight:700; border-bottom: 0;"
 							id="h2_pv_hogi">열처리<br>2호기</th>
 							<th class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
@@ -733,6 +738,11 @@ var fn_logout = function () {
 						<tr>
 							<th  class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
+							font-size: 10pt; font-family:headline; font-weight:700; border-top:0;"
+							id="h2_temp_change"
+							>온도변경중</th>						
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700;"
 							>기준범위</th>						
 							<th  class="text-center cell" 
@@ -789,9 +799,9 @@ var fn_logout = function () {
 						</tr>
 					<!-- 3호기 -->
 						<tr>							
-							<th rowspan="3" class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 90px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							<th rowspan="2" class="text-center cell" 
+							style="background-color:#FFFFFF; width: 100px; height: 60px; 
+							font-size: 14pt; font-family:headline; font-weight:700; border-bottom: 0;"
 							id="h3_pv_hogi">열처리<br>3호기</th>
 							<th class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
@@ -908,6 +918,11 @@ var fn_logout = function () {
 						<tr>
 							<th  class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
+							font-size: 10pt; font-family:headline; font-weight:700; border-top:0;"
+							id="h3_temp_change"
+							></th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700;"
 							>기준범위</th>						
 							<th  class="text-center cell" 
@@ -964,9 +979,9 @@ var fn_logout = function () {
 						</tr>
 					<!-- 4호기 -->
 						<tr>							
-							<th rowspan="3" class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 90px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							<th rowspan="2" class="text-center cell" 
+							style="background-color:#FFFFFF; width: 100px; height: 60px; 
+							font-size: 14pt; font-family:headline; font-weight:700; border-bottom: 0;"
 							id="h4_pv_hogi">열처리<br>4호기</th>
 							<th class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
@@ -1083,6 +1098,11 @@ var fn_logout = function () {
 						<tr>
 							<th  class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
+							font-size: 10pt; font-family:headline; font-weight:700; border-top:0;"
+							id="h4_temp_change"
+							>온도변경중</th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700;"
 							>기준범위</th>						
 							<th  class="text-center cell" 
@@ -1139,9 +1159,9 @@ var fn_logout = function () {
 						</tr>
 					<!-- 5호기 -->
 						<tr>							
-							<th rowspan="3" class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 90px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							<th rowspan="2" class="text-center cell" 
+							style="background-color:#FFFFFF; width: 100px; height: 60px; 
+							font-size: 14pt; font-family:headline; font-weight:700; border-bottom: 0;"
 							id="h5_pv_hogi">열처리<br>5호기</th>
 							<th class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
@@ -1258,6 +1278,11 @@ var fn_logout = function () {
 						<tr>
 							<th  class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
+							font-size: 10pt; font-family:headline; font-weight:700; border-top:0;"
+							id="h5_temp_change"
+							>온도변경중</th>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700;"
 							>기준범위</th>						
 							<th  class="text-center cell" 
@@ -1314,9 +1339,9 @@ var fn_logout = function () {
 						</tr>
 					<!-- 6호기 -->
 						<tr>							
-							<th rowspan="3" class="text-center cell" 
-							style="background-color:#FFFFFF; width: 100px; height: 90px; 
-							font-size: 17pt; font-family:headline; font-weight:700;"
+							<th rowspan="2" class="text-center cell" 
+							style="background-color:#FFFFFF; width: 100px; height: 60px; 
+							font-size: 14pt; font-family:headline; font-weight:700; border-bottom: 0;"
 							id="h6_pv_hogi">열처리<br>6호기</th>
 							<th class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
@@ -1431,6 +1456,11 @@ var fn_logout = function () {
 						
 						</tr>
 						<tr>
+							<th  class="text-center cell" 
+							style="background-color:#FFFFFF; width: 60px; height: 30px; 
+							font-size: 10pt; font-family:headline; font-weight:700; border-top:0;"
+							id="h6_temp_change"
+							>온도변경중</th>
 							<th  class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700;"

@@ -759,7 +759,7 @@ function calculateTimeDifference() {
 					//$("#ht"+(i+1)+"_v3").text(data[i].v3+" %");
 					//$("#ht"+(i+1)+"_v4").text(data[i].v4+" %");
 					$("#ht"+(i+1)+"_v5").css("font-size", "25px");
-					$("#ht"+(i+1)+"_v5").text((fillingComplianceRate * 100).toFixed(2)+" %");
+					$("#ht"+(i+1)+"_v5").text((fillingComplianceRate * 100).toFixed(1)+" %");
 					//$("#ht"+(i+1)+"_v5").text(data[i].v5+" %");
 					//$("#ht"+(i+1)+"_v6").text(data[i].v6+" LOT");
 					$("#ht"+(i+1)+"_v7").css("font-size", "25px");

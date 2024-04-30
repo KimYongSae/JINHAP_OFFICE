@@ -16,7 +16,7 @@
 	request.setCharacterEncoding("UTF-8");
 
 	int cnt = Integer.parseInt(request.getParameter("cnt"));
-	String bdate = request.getParameter("bdate");
+	String serial = request.getParameter("serial");
 	String ndate = request.getParameter("ndate");
 	String date1 = request.getParameter("date1");
 	String bigo = request.getParameter("bigo");
@@ -27,7 +27,7 @@
 	
 	try
 	{
-		u_sql.append("update tb_theomor set change_bdate = '"+bdate+"', ");
+		u_sql.append("update tb_theomor set serial_no = '"+serial+"', ");
 		u_sql.append("change_ndate = '"+ndate+"', change_date = '"+date1+"', ");
 		u_sql.append("bigo1 = '"+bigo+"' ");
 		u_sql.append("where cnt = "+cnt+" ");

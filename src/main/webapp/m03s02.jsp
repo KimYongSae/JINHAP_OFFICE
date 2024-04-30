@@ -1,7 +1,6 @@
 <%@ page session="true" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -165,6 +164,7 @@
 	font-family: headline;
 	font-weight: 700;
 	}
+	
 </style>
 
 	
@@ -262,8 +262,8 @@ var fn_logout = function () {
 		</div>
 
 
-		<div id="tdate_p-form" style="display:none;" title="측정일 등록">
-			<form class="form-inline" role="form" id="date_pform" name="date_pform" method="post" autocomplete="off">
+		<div id="tdate-form" style="display:none;" title="측정일 등록">
+			<form class="form-inline" role="form" id="dateform" name="dateform" method="post" autocomplete="off">
 					<div class="form-group">
 						<label class="control-label" 
 						style="font-size: 14pt;  font-family:headline; font-weight:700; 
@@ -274,44 +274,21 @@ var fn_logout = function () {
 					
 					<div class="form-group">
 						<input type="text" class="form-control input-sm datepicker" 
-						id="t_date_p" name="t_date_p" 
+						id="t_date" name="t_date" 
 	     					style="width: 140px; height: 34px; 
 	     					font-size: 14pt; font-family :headline; font-weight:700;" 
 	     					placeholder="측정일"/>
 					</div>			
 				</form>
-					<input type="hidden" id="t_cnt_p" name="t_cnt_p" />
-					<input type="hidden" id="t_gb_p" name="t_gb_p" />
+					<input type="hidden" id="t_cnt" name="t_cnt" />
+					<input type="hidden" id="t_gb" name="t_gb" />
 		</div>
-
-		<div id="tdate_a-form" style="display:none;" title="측정일 등록">
-			<form class="form-inline" role="form" id="date_aform" name="date_aform" method="post" autocomplete="off">
-					<div class="form-group">
-						<label class="control-label" 
-						style="font-size: 14pt;  font-family:headline; font-weight:700; 
-							color:#8C8C8C; width: 80px; text-align: right;">
-						측정일: </label>
-					</div>
-					
-					
-					<div class="form-group">
-						<input type="text" class="form-control input-sm datepicker" 
-						id="t_date_a" name="t_date_a" 
-	     					style="width: 140px; height: 34px; 
-	     					font-size: 14pt; font-family :headline; font-weight:700;" 
-	     					placeholder="측정일"/>
-					</div>			
-				</form>
-					<input type="hidden" id="t_cnt_a" name="t_cnt_a" />
-					<input type="hidden" id="t_gb_a" name="t_gb_a" />
-		</div>
-
-
 
 		<div style="display:none;" id="file-form" title="파일 첨부" >
 			<form class="form-horizontal" id="upload" name="upload" method="post" enctype="multipart/form-data">
 				<table>
-					<tr><td colspan="2"> <b>**파일첨부**</b></td></tr>
+					<tr><td colspan="2"> <b>**주의사항**</b></td></tr>
+					<tr><td colspan="2">*PDF, 엑셀파일만 업로드 가능합니다.</td></tr>
 					<tr height="5"><td></td></tr>
 					<tr>
 					<td>
@@ -333,23 +310,51 @@ var fn_logout = function () {
 				</table>
 			</form>			
 		</div>
+		
+		
+		
 		<div style="display:none;" id="image-form" title="파일 미리보기" >
 			<iframe id="image_view" style="width:100%; height:100%; display:none;" > 
 			
 			</iframe>			
 		</div>
 
+		<div id="memo-form" style="display:none;" title="메모등록">
+			<form class="form-inline" role="form" id="memoform" name="memoform" 
+			method="post" autocomplete="off">
+					<div class="form-group">
+						<label class="control-label" 
+						style="font-size: 14pt;  font-family:headline; font-weight:700; 
+							color:#8C8C8C; width: 60px; text-align: right;">
+						메모: </label>
+					</div>
+					
+					<div class="form-group">
+						<input type="text" class="form-control input-sm" 
+						id="m_memo" name="m_memo" 
+	     					style="width: 280px; height: 34px; 
+	     					font-size: 14pt; font-family :headline; font-weight:700;" 
+	     					placeholder="메모"/>
+					</div>			
+				</form>
+					<input type="hidden" id="m_cnt" name="m_cnt" />
+					<input type="hidden" id="m_gb" name="m_gb" />
+		</div>
+
+
+
+
 <div id="wrap">
 
     <div id="header">
-		<jsp:include page="/header-menu.jsp"/>
+		<jsp:include page="header-menu.jsp"/>
 	</div>
 
 	
 	<div id="body2">
 	<div id="floater2" style="margin-top:30px;">
 		
-		<jsp:include page="/body-menu.jsp"/>
+		<jsp:include page="body-menu.jsp"/>
 	</div>
 	<div id="contents">
         
@@ -368,7 +373,7 @@ var fn_logout = function () {
         <div class="box">
             <header>
                 <div style="padding:11px 14px;" class="icons"><i style="color:white;" class="fa fa-list"></i></div>
-                <h5 style="font-size:14pt; font-family:headline;">품질관리 - 온도균일성 조사</h5>
+                <h5 style="font-size:14pt; font-family:headline;">품질관리 - 온도균일성 조사보고서</h5>
             </header>
             <header style="background:white; height:43px;">
                 <form class="form-inline" role="form" name="searchform" method="post" autocomplete="off">
@@ -387,207 +392,95 @@ var fn_logout = function () {
 								padding-top:1px; padding-bottom:1px;">
 							</select>
 						</div>						
-
-						<div class="form-group">
-							<label class="control-label" 
-							style="font-size: 14pt;  font-family:headline;font-weight:700; 
-								color:#8C8C8C; width: 50px; text-align: right;">
-							로 : </label>
-						</div>
-						
-						
-						<div class="form-group">
-							<select class="form-control input-sm" 
-							id="s_zone" name="s_zone"
-							style="margin-top:5px; height: 30px; width: 160px; 
-								font-size: 14pt; font-family:headline;font-weight:700;
-								padding-top:1px; padding-bottom:1px;">
-								<option value="소입로">소입</option>
-								<option value="소려로">소려</option>
-							</select>
-							
-						</div>
-						
+						 			
 				</form>
             </header>
             <div id="collapse4" class="body">
-            
-            <div id="qun" class="row">
-            	<div class="col-xs-6">
-               <table id="tus_list" cellspacing="0" 
-               class="table table-bordered table-responsive scrolltbody">
-					<thead>
-						<tr>
-							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 120px; height: 30px; 
-							font-size: 16pt; font-family:headline;">
-								설비명
-							</th>
-							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 100px; height: 30px; 
-							font-size: 16pt; font-family:headline;">
-								로 구분
-							</th>
+            	<div id="tus_before">
+	               <table id="tus_list" cellspacing="0" 
+	               class="table table-bordered table-responsive scrolltbody">
+						<thead>
+							<tr>
+								<th class="text-center cell" 
+								style="background-color:#36FFFF; width: 80px; height: 30px; 
+								font-size: 16pt; font-family:headline;">
+									설비명
+								</th>
+								<th class="text-center cell" 
+								style="background-color:#36FFFF; width: 100px; height: 30px; 
+								font-size: 16pt; font-family:headline;">
+									로
+								</th>
+								<th class="text-center cell" 
+								style="background-color:#36FFFF; width: 130px; height: 30px; 
+								font-size: 16pt; font-family:headline;">
+									1월
+								</th>
+								<th class="text-center cell" 
+								style="background-color:#36FFFF; width: 130px; height: 30px; 
+								font-size: 16pt; font-family:headline;">
+									2월
+								</th>
+								<th class="text-center cell" 
+								style="background-color:#36FFFF; width: 130px; height: 30px; 
+								font-size: 16pt; font-family:headline;">
+									3월
+								</th>
+								<th class="text-center cell" 
+								style="background-color:#36FFFF; width: 130px; height: 30px; 
+								font-size: 16pt; font-family:headline;">
+									4월
+								</th>
+								<th class="text-center cell" 
+								style="background-color:#36FFFF; width: 130px; height: 30px; 
+								font-size: 16pt; font-family:headline;">
+									5월
+								</th>
+								<th class="text-center cell" 
+								style="background-color:#36FFFF; width: 130px; height: 30px; 
+								font-size: 16pt; font-family:headline;">
+									6월
+								</th>
+								<th class="text-center cell" 
+								style="background-color:#36FFFF; width: 130px; height: 30px; 
+								font-size: 16pt; font-family:headline;">
+									7월
+								</th>																																			
+								<th class="text-center cell" 
+								style="background-color:#36FFFF; width: 130px; height: 30px; 
+								font-size: 16pt; font-family:headline;">
+									8월
+								</th>						
+								<th class="text-center cell" 
+								style="background-color:#36FFFF; width: 130px; height: 30px; 
+								font-size: 16pt; font-family:headline;">
+									9월
+								</th>						
+								<th class="text-center cell" 
+								style="background-color:#36FFFF; width: 130px; height: 30px; 
+								font-size: 16pt; font-family:headline;">
+									10월
+								</th>						
+								<th class="text-center cell" 
+								style="background-color:#36FFFF; width: 130px; height: 30px; 
+								font-size: 16pt; font-family:headline;">
+									11월
+								</th>						
+								<th class="text-center cell" 
+								style="background-color:#36FFFF; width: 130px; height: 30px; 
+								font-size: 16pt; font-family:headline;">
+									12월
+								</th>						
 							
+							</tr>
 							
-							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 140px; height: 30px; 
-							font-size: 16pt; font-family:headline;">
-								
-							</th>
-
-							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 240px; height: 30px; 
-							font-size: 16pt; font-family:headline;">
-								상반기
-							</th>
-							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 240px; height: 30px; 
-							font-size: 16pt; font-family:headline;">
-								하반기
-							</th>
-
+						</thead>
+						<tbody id="tus_contents">
 						
-						</tr>
-						
-					</thead>
-					<tbody id="tus_contents">
-					
-					</tbody>
-				</table>	           	
-            	</div>
-            
-            
-            	<div class="col-xs-6">
-		           	<table id="tus_list2" cellspacing="0" 
-		               class="table table-bordered table-responsive scrolltbody">
-							<thead>
-								<tr>
-									<th class="text-center cell" 
-									style="background-color:#36FFFF; width: 120px; height: 30px; 
-									font-size: 16pt; font-family:headline;">
-										설비명
-									</th>
-									<th class="text-center cell" 
-									style="background-color:#36FFFF; width: 100px; height: 30px; 
-									font-size: 16pt; font-family:headline;">
-										로 구분
-									</th>
-									
-									
-									<th class="text-center cell" 
-									style="background-color:#36FFFF; width: 140px; height: 30px; 
-									font-size: 16pt; font-family:headline;">
-										
-									</th>
-		
-									<th class="text-center cell" 
-									style="background-color:#36FFFF; width: 240px; height: 30px; 
-									font-size: 16pt; font-family:headline;">
-										상반기
-									</th>
-									<th class="text-center cell" 
-									style="background-color:#36FFFF; width: 240px; height: 30px; 
-									font-size: 16pt; font-family:headline;">
-										하반기
-									</th>
+						</tbody>
+					</table>
+				</div>
 								
-								</tr>
-								
-							</thead>
-							<tbody id="tus_contents2">
-							
-							</tbody>
-						</table>
-            		
-            	</div>
-            </div>
- 			
- 			<!-- 템퍼링 -->
-			<div id="temper" class="row" style="display:none;">
-            	<div class="col-xs-6">
-               <table id="tus_list_t" cellspacing="0" 
-               class="table table-bordered table-responsive scrolltbody">
-					<thead>
-						<tr>
-							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 120px; height: 30px; 
-							font-size: 16pt; font-family:headline;">
-								설비명
-							</th>
-							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 100px; height: 30px; 
-							font-size: 16pt; font-family:headline;">
-								로 구분
-							</th>
-							
-							
-							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 140px; height: 30px; 
-							font-size: 16pt; font-family:headline;">
-								
-							</th>
-
-							<th class="text-center cell" 
-							style="background-color:#36FFFF; width: 240px; height: 30px; 
-							font-size: 16pt; font-family:headline;">
-								1회/연
-							</th>
-
-						
-						</tr>
-						
-					</thead>
-					<tbody id="tus_contents_t">
-					
-					</tbody>
-				</table>	           	
-            	</div>
-            
-            
-            
-            	<div class="col-xs-6">
-		           	<table id="tus_list2_t" cellspacing="0" 
-		               class="table table-bordered table-responsive scrolltbody">
-							<thead>
-								<tr>
-									<th class="text-center cell" 
-									style="background-color:#36FFFF; width: 120px; height: 30px; 
-									font-size: 16pt; font-family:headline;">
-										설비명
-									</th>
-									<th class="text-center cell" 
-									style="background-color:#36FFFF; width: 100px; height: 30px; 
-									font-size: 16pt; font-family:headline;">
-										로 구분
-									</th>
-									
-									
-									<th class="text-center cell" 
-									style="background-color:#36FFFF; width: 140px; height: 30px; 
-									font-size: 16pt; font-family:headline;">
-										
-									</th>
-		
-									<th class="text-center cell" 
-									style="background-color:#36FFFF; width: 240px; height: 30px; 
-									font-size: 16pt; font-family:headline;">
-										1회/연
-									</th>
-								
-								</tr>
-								
-							</thead>
-							<tbody id="tus_contents2_t">
-							
-							</tbody>
-						</table>
-            		
-            	</div>
-            </div> 			
- 			
- 			
- 			
             </div>
         </div>
     </div>
@@ -629,9 +522,9 @@ var fn_logout = function () {
         oneLine:true
     });	
 	
-/*전역변수*/	
-var tdate;
+/*전역변수*/
 var sid;
+
 /*인터벌*/
 	
 	
@@ -643,16 +536,21 @@ $(function(){
 	tdate = now.getFullYear()+"-"+date_set(now.getMonth()+1)+"-"+date_set(now.getDate());
 	
 	
-	
-	for(var j=-3; j<1; j++){
+	for(var j=-3; j<2; j++){
 		var y_value = now.getFullYear() + j;
 		$("#s_year").append("<option value='"+y_value+"'>"+y_value+"년</option>");	
 	}
 	
-	sid = '<%=session.getAttribute("sid")%>';
-	
 	$("#s_year").val(now.getFullYear());
-	getYearCount();
+	
+	
+	sid = '<%=session.getAttribute("sid")%>';
+	getYearCount();	
+	/* if(eval($("#s_year").val()) <= 2020){
+	}else{
+		getYearCount_bungi();
+	} */
+	
 });
 	
 /*함수*/	
@@ -701,7 +599,6 @@ $(function(){
 			result = v;
 		}
 		
-		
 		return result;
 	}
  
@@ -718,12 +615,18 @@ function init(){
 		},100);
 	
 		setTimeout(function(){
-			getFileList();
+			//여기서 년도가 2020년 이전인지 이후인지 비교
+			//테이블 show, hide 추가필요
 			
-	//		getPpkList();
+				//2020년 까지
+				/* $("#tus_before").show();
+				$("#tus_after").hide(); */
+				getFileList();
 		},300);
 	}
 
+
+ 	
 	function auto_date_format( e, oThis ){
 	    
 	    var num_arr = [ 
@@ -756,16 +659,15 @@ function file_import(){
 		  return false;   
 	 }
 	 
-	/*
+
 		if(!checkFileTypePDF(fileform.file.value)) {
-		  $("#alertSpan").text("PDF 파일만 업로드해주세요.");
+		  $("#alertSpan").text("PDF,엑셀 파일만 업로드해주세요.");
 		  alertDialog.dialog("open");
 //			alert("엑셀만해");
 			
 			fileform.reset();
 	  return false;   
 	 }	
-	*/
 	
 	var path = $("#filePath").val();
 	if(path != ''){
@@ -791,6 +693,9 @@ function file_import(){
 	
 }
 
+
+
+
 function checkFileTypePDF(filePath){   
 	  
 	 var fileLen = filePath.length;   
@@ -799,7 +704,11 @@ function checkFileTypePDF(filePath){
 	 
 	 if (fileFormat == ".pdf"){
 		 return true;    
-	 	}else{ 
+	 	}else if(fileFormat = ".xlsx"){
+	 		return true;	 
+	 	}else if(fileFormat = ".xls"){
+	 		return true;
+	 	}else{
 	 		return false;
 	 }   
 	}
@@ -818,362 +727,498 @@ function getFileList(){
 				var rsAr = rsJson.rows;
 				
 				var listHtml = "";
-				var listHtml2 = "";
-
-				
 				var fname_a = "";
 				var fname_b = "";
-				
-				var zone = $("#s_zone").val();
-				
-				if("소입로" == zone){
-					$("#qun").show();
-					$("#temper").hide();
-					for(var i=0; i<3; i++){
+					//퀜칭
+					for(var i=0; i<rsAr.length; i++){
 						listHtml += "<tr>";
-						listHtml += '<td rowspan="3" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 100px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].hogi+'</td>';
+						listHtml += '<td rowspan="3" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 100px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].hogi+'</td>';
 						listHtml += '<td rowspan="3" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 100px; width: 100px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].zone+'</td>';
-						listHtml += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 70px; word-break:break-all; font-size:15pt; font-family:headline;">계획월</td>';
-						listHtml += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 70px; word-break:break-all; font-size:15pt; font-family:headline;">실적일</td>';
 						
-						
-						//상반기
-						listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_p('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].tdate_t_plan+'</td>';
-						listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_a('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].tdate_t_act+'</td>';								
-						
-						//하반기
-						listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_p('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].tdate_b_plan+'</td>';
-						listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_a('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].tdate_b_act+'</td>';
+						//1월 
+							if(rsAr[i].file_yn_1 == 'Y'){
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file1.png">'
+								+'</td>';
+								if(sid != "worker"){
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;">'+
+									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',1); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
+									+'</td>';
+								}else{
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';	
+								}
+							}else{
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file0.png">'
+								+'</td>';
+								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
+							}
+						//2
+							if(rsAr[i].file_yn_2 == 'Y'){
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file1.png">'
+								+'</td>';
+								if(sid != "worker"){
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;">'+
+									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',2); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
+									+'</td>';
+								}else{
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
+								}
+							}else{
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file0.png">'
+								+'</td>';
+								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
+							}						
+							
+						//3
+							if(rsAr[i].file_yn_3 == 'Y'){
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file1.png">'
+								+'</td>';
+								if(sid != "worker"){
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;">'+
+									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',3); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
+									+'</td>';
+								}else{
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
+								}
+							}else{
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file0.png">'
+								+'</td>';
+								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
+							}							
+						//4
+							if(rsAr[i].file_yn_4 == 'Y'){
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file1.png">'
+								+'</td>';
+								if(sid != "worker"){
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;">'+
+									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',4); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
+									+'</td>';
+								}else{
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
+								}
+							}else{
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file0.png">'
+								+'</td>';
+								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
+							}							
+						//5
+							if(rsAr[i].file_yn_5 == 'Y'){
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',5); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file1.png">'
+								+'</td>';
+								if(sid != "worker"){
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;">'+
+									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',5); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
+									+'</td>';
+								}else{
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
+								}
+							}else{
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',5); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file0.png">'
+								+'</td>';
+								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
+							}							
+						//6
+							if(rsAr[i].file_yn_6 == 'Y'){
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',6); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file1.png">'
+								+'</td>';
+								if(sid != "worker"){
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;">'+
+									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',6); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
+									+'</td>';
+								}else{
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
+								}
+							}else{
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',6); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file0.png">'
+								+'</td>';
+								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
+							}							
+						//7
+							if(rsAr[i].file_yn_7 == 'Y'){
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',7); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file1.png">'
+								+'</td>';
+								if(sid != "worker"){
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;">'+
+									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',7); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
+									+'</td>';
+								}else{
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';									
+								}
+							}else{
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',7); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file0.png">'
+								+'</td>';
+								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
+							}							
+						//8
+							if(rsAr[i].file_yn_8 == 'Y'){
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',8); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file1.png">'
+								+'</td>';
+								if(sid != "worker"){
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;">'+
+									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',8); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
+									+'</td>';
+								}else{
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';									
+								}
+							}else{
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',8); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file0.png">'
+								+'</td>';
+								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
+							}							
+						//9
+							if(rsAr[i].file_yn_9 == 'Y'){
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',9); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file1.png">'
+								+'</td>';
+								if(sid != "worker"){
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;">'+
+									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',9); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
+									+'</td>';
+								}else{
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';									
+								}
+							}else{
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',9); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file0.png">'
+								+'</td>';
+								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
+							}	
+						//10
+							if(rsAr[i].file_yn_10 == 'Y'){
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',10); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file1.png">'
+								+'</td>';
+								if(sid != "worker"){
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;">'+
+									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',10); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
+									+'</td>';
+								}else{
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';									
+								}
+							}else{
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',10); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file0.png">'
+								+'</td>';
+								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
+							}							
+						//11
+							if(rsAr[i].file_yn_11 == 'Y'){
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',11); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file1.png">'
+								+'</td>';
+								if(sid != "worker"){
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;">'+
+									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',11); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
+									+'</td>';
+								}else{
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';									
+								}
+							}else{
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',11); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file0.png">'
+								+'</td>';
+								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
+							}	
+						//12
+							if(rsAr[i].file_yn_12 == 'Y'){
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',12); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file1.png">'
+								+'</td>';
+								if(sid != "worker"){
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;">'+
+									'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',12); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
+									+'</td>';
+								}else{
+									listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';									
+								}
+							}else{
+								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',12); return false; event.cancelBubble = true;>'+
+								'<img src="resources/img/file0.png">'
+								+'</td>';
+								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 65px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
+							}	
 						
 						listHtml += "</tr>";
 
 						
 						
 						listHtml += "<tr>";
-						listHtml += '<td colspan="2" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">합/불 판정</td>';
-						//상반기
-						if("합격" == rsAr[i].chk_t){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 240px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:#0000FF;" onclick=chkReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].chk_t+'</td>';	
-						}else if("불합격" == rsAr[i].chk_t){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 240px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:#FF0000;" onclick=chkReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].chk_t+'</td>';
+						//1
+						if(rsAr[i].tdate_1 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].tdate_1+'</td>';
 						}else{
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 240px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].chk_t+'</td>';
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>측정일</td>';
 						}
-						
-						//하반기
-						if("합격" == rsAr[i].chk_b){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 240px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:#0000FF;" onclick=chkReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].chk_b+'</td>';
-						}else if("불합격" == rsAr[i].chk_b){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 240px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:#FF0000;" onclick=chkReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].chk_b+'</td>';
+						//2
+						if(rsAr[i].tdate_2 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].tdate_2+'</td>';
 						}else{
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 240px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].chk_b+'</td>';	
-						}
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>측정일</td>';
+						}						
+						//3
+						if(rsAr[i].tdate_3 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>'+rsAr[i].tdate_3+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>측정일</td>';
+						}						
+						//4
+						if(rsAr[i].tdate_4 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>'+rsAr[i].tdate_4+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>측정일</td>';
+						}						
+						//5
+						if(rsAr[i].tdate_5 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',5); return false; event.cancelBubble = true;>'+rsAr[i].tdate_5+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',5); return false; event.cancelBubble = true;>측정일</td>';
+						}						
+						//6
+						if(rsAr[i].tdate_6 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',6); return false; event.cancelBubble = true;>'+rsAr[i].tdate_6+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',6); return false; event.cancelBubble = true;>측정일</td>';
+						}						
+						//7
+						if(rsAr[i].tdate_7 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',7); return false; event.cancelBubble = true;>'+rsAr[i].tdate_7+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',7); return false; event.cancelBubble = true;>측정일</td>';
+						}						
+						//8
+						if(rsAr[i].tdate_8 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',8); return false; event.cancelBubble = true;>'+rsAr[i].tdate_8+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',8); return false; event.cancelBubble = true;>측정일</td>';
+						}						
+						//9
+						if(rsAr[i].tdate_9 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',9); return false; event.cancelBubble = true;>'+rsAr[i].tdate_9+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',9); return false; event.cancelBubble = true;>측정일</td>';
+						}						
+						//10
+						if(rsAr[i].tdate_10 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',10); return false; event.cancelBubble = true;>'+rsAr[i].tdate_10+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',10); return false; event.cancelBubble = true;>측정일</td>';
+						}						
+						//11
+						if(rsAr[i].tdate_11 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',11); return false; event.cancelBubble = true;>'+rsAr[i].tdate_11+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',11); return false; event.cancelBubble = true;>측정일</td>';
+						}						
+						//12
+						if(rsAr[i].tdate_12 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',12); return false; event.cancelBubble = true;>'+rsAr[i].tdate_12+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg('+rsAr[i].cnt+',12); return false; event.cancelBubble = true;>측정일</td>';
+						}						
 						
 						listHtml += "</tr>";
 						
 						listHtml += "<tr>";
-						listHtml += '<td colspan="2" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">보고서 등록</td>';
-						
-						
-						//상반기
-						if(rsAr[i].file_yn_t == 'Y'){
-							listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+
-//							+rsAr[i]+
-							'<img src="resources/img/file1.png">'
-							+'</td>';
-							if(sid != "worker"){						
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-								'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',1); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-								+'</td>';
-							}else{
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}
+						//1
+//						console.log(rsAr[i].chk_1);
+						if(rsAr[i].chk_1 == '합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].chk_1+'</td>';	
+						}else if(rsAr[i].chk_1 == '불합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].chk_1+'</td>';
 						}else{
-							if(sid != "worker"){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;">'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';									
-							}
-							listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-						}	
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>불/합 판정</td>';
+						}
 						
-						//하반기
-						if(rsAr[i].file_yn_b == 'Y'){
-							listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+
-							'<img src="resources/img/file1.png">'
-							+'</td>';
-							if(sid != "worker"){
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-								'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',2); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-								+'</td>';
-							}else{
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}
+						//2
+						if(rsAr[i].chk_2 == '합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].chk_2+'</td>';	
+						}else if(rsAr[i].chk_2 == '불합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].chk_2+'</td>';
 						}else{
-							if(sid != "worker"){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;">'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';								
-							}
-							listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-						}	
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>불/합 판정</td>';
+						}						
+						//3
+						if(rsAr[i].chk_3 == '합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>'+rsAr[i].chk_3+'</td>';	
+						}else if(rsAr[i].chk_3 == '불합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>'+rsAr[i].chk_3+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>불/합 판정</td>';
+						}						
+						//4
+						if(rsAr[i].chk_4 == '합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>'+rsAr[i].chk_4+'</td>';	
+						}else if(rsAr[i].chk_4 == '불합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>'+rsAr[i].chk_4+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>불/합 판정</td>';
+						}						
+						//5
+						if(rsAr[i].chk_5 == '합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',5); return false; event.cancelBubble = true;>'+rsAr[i].chk_5+'</td>';	
+						}else if(rsAr[i].chk_5 == '불합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',5); return false; event.cancelBubble = true;>'+rsAr[i].chk_5+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',5); return false; event.cancelBubble = true;>불/합 판정</td>';
+						}						
+						//6
+						if(rsAr[i].chk_6 == '합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',6); return false; event.cancelBubble = true;>'+rsAr[i].chk_6+'</td>';	
+						}else if(rsAr[i].chk_6 == '불합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',6); return false; event.cancelBubble = true;>'+rsAr[i].chk_6+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',6); return false; event.cancelBubble = true;>불/합 판정</td>';
+						}						
+						//7
+						if(rsAr[i].chk_7 == '합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',7); return false; event.cancelBubble = true;>'+rsAr[i].chk_7+'</td>';	
+						}else if(rsAr[i].chk_7 == '불합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',7); return false; event.cancelBubble = true;>'+rsAr[i].chk_7+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',7); return false; event.cancelBubble = true;>불/합 판정</td>';
+						}						
+						//8
+						if(rsAr[i].chk_8 == '합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',8); return false; event.cancelBubble = true;>'+rsAr[i].chk_8+'</td>';	
+						}else if(rsAr[i].chk_8 == '불합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',8); return false; event.cancelBubble = true;>'+rsAr[i].chk_8+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',8); return false; event.cancelBubble = true;>불/합 판정</td>';
+						}						
+						//9
+						if(rsAr[i].chk_9 == '합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',9); return false; event.cancelBubble = true;>'+rsAr[i].chk_9+'</td>';	
+						}else if(rsAr[i].chk_9 == '불합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',9); return false; event.cancelBubble = true;>'+rsAr[i].chk_9+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',9); return false; event.cancelBubble = true;>불/합 판정</td>';
+						}						
+						//10
+						if(rsAr[i].chk_10 == '합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',10); return false; event.cancelBubble = true;>'+rsAr[i].chk_10+'</td>';	
+						}else if(rsAr[i].chk_10 == '불합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',10); return false; event.cancelBubble = true;>'+rsAr[i].chk_10+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',10); return false; event.cancelBubble = true;>불/합 판정</td>';
+						}						
+						//11
+						if(rsAr[i].chk_11 == '합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',11); return false; event.cancelBubble = true;>'+rsAr[i].chk_11+'</td>';	
+						}else if(rsAr[i].chk_11 == '불합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',11); return false; event.cancelBubble = true;>'+rsAr[i].chk_11+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',11); return false; event.cancelBubble = true;>불/합 판정</td>';
+						}						
+						//12
+						if(rsAr[i].chk_12 == '합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:blue;" onclick=chkReg('+rsAr[i].cnt+',12); return false; event.cancelBubble = true;>'+rsAr[i].chk_12+'</td>';	
+						}else if(rsAr[i].chk_12 == '불합격'){
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:red;" onclick=chkReg('+rsAr[i].cnt+',12); return false; event.cancelBubble = true;>'+rsAr[i].chk_12+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',12); return false; event.cancelBubble = true;>불/합 판정</td>';
+						}						
+						
 						
 						listHtml += "</tr>";
+						
+						//메모
+						/* listHtml += "<tr>";
+						
+						//1
+						if(rsAr[i].memo_1 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].memo_1+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>메모입력</td>';
+						}
+						//2
+						if(rsAr[i].memo_2 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].memo_2+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>메모입력</td>';
+						}						
+						//3
+						if(rsAr[i].memo_3 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>'+rsAr[i].memo_3+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',3); return false; event.cancelBubble = true;>메모입력</td>';
+						}						
+						//4
+						if(rsAr[i].memo_4 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>'+rsAr[i].memo_4+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',4); return false; event.cancelBubble = true;>메모입력</td>';
+						}						
+						//5
+						if(rsAr[i].memo_5 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',5); return false; event.cancelBubble = true;>'+rsAr[i].memo_5+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',5); return false; event.cancelBubble = true;>메모입력</td>';
+						}						
+						//6
+						if(rsAr[i].memo_6 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',6); return false; event.cancelBubble = true;>'+rsAr[i].memo_6+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',6); return false; event.cancelBubble = true;>메모입력</td>';
+						}						
+						//7
+						if(rsAr[i].memo_7 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',7); return false; event.cancelBubble = true;>'+rsAr[i].memo_7+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',7); return false; event.cancelBubble = true;>메모입력</td>';
+						}						
+						//8
+						if(rsAr[i].memo_8 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',8); return false; event.cancelBubble = true;>'+rsAr[i].memo_8+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',8); return false; event.cancelBubble = true;>메모입력</td>';
+						}						
+						//9
+						if(rsAr[i].memo_9 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',9); return false; event.cancelBubble = true;>'+rsAr[i].memo_9+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',9); return false; event.cancelBubble = true;>메모입력</td>';
+						}						
+						//10
+						if(rsAr[i].memo_10 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',10); return false; event.cancelBubble = true;>'+rsAr[i].memo_10+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',10); return false; event.cancelBubble = true;>메모입력</td>';
+						}						
+						//11
+						if(rsAr[i].memo_11 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',11); return false; event.cancelBubble = true;>'+rsAr[i].memo_11+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',11); return false; event.cancelBubble = true;>메모입력</td>';
+						}						
+						//12
+						if(rsAr[i].memo_12 != ''){
+							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',12); return false; event.cancelBubble = true;>'+rsAr[i].memo_12+'</td>';
+						}else{
+							listHtml += '<td colspan="2"class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 80px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=memoReg('+rsAr[i].cnt+',12); return false; event.cancelBubble = true;>메모입력</td>';
+						}						
+						
+						
+						listHtml += "</tr>"; */
+						
+						
 					}
-					
 					
 					$("#tus_list tbody").html(listHtml);
-					
-					
-					
-					for(var i=3; i<6; i++){
-						listHtml2 += "<tr>";
-						listHtml2 += '<td rowspan="3" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 100px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].hogi+'</td>';
-						listHtml2 += '<td rowspan="3" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 100px; width: 100px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].zone+'</td>';
-						listHtml2 += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 70px; word-break:break-all; font-size:15pt; font-family:headline;">계획월</td>';
-						listHtml2 += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 70px; word-break:break-all; font-size:15pt; font-family:headline;">실적일</td>';
-						
-						
-						//상반기
-						listHtml2 += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_p('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].tdate_t_plan+'</td>';
-						listHtml2 += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_a('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].tdate_t_act+'</td>';								
-						
-						//하반기
-						listHtml2 += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_p('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].tdate_b_plan+'</td>';
-						listHtml2 += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_a('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].tdate_b_act+'</td>';
-						
-						listHtml2 += "</tr>";
-
-						
-						
-						listHtml2 += "<tr>";
-						listHtml2 += '<td colspan="2" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">합/불 판정</td>';
-						//상반기
-						if("합격" == rsAr[i].chk_t){
-							listHtml2 += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 240px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:#0000FF;" onclick=chkReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].chk_t+'</td>';	
-						}else if("불합격" == rsAr[i].chk_t){
-							listHtml2 += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 240px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:#FF0000;" onclick=chkReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].chk_t+'</td>';
-						}else{
-							listHtml2 += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 240px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].chk_t+'</td>';
-						}
-						
-						//하반기
-						if("합격" == rsAr[i].chk_b){
-							listHtml2 += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 240px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:#0000FF;" onclick=chkReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].chk_b+'</td>';
-						}else if("불합격" == rsAr[i].chk_b){
-							listHtml2 += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 240px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:#FF0000;" onclick=chkReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].chk_b+'</td>';
-						}else{
-							listHtml2 += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 240px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+rsAr[i].chk_b+'</td>';	
-						}
-						listHtml2 += "</tr>";
-						
-						listHtml2 += "<tr>";
-						listHtml2 += '<td colspan="2" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">보고서 등록</td>';
-						
-						
-						
-						//상반기
-						if(rsAr[i].file_yn_t == 'Y'){
-							listHtml2 += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+
-							'<img src="resources/img/file1.png">'
-							+'</td>';
-
-							if(sid != "worker"){
-								listHtml2 += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-								'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',1); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-								+'</td>';
-							}else{
-								listHtml2 += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';	
-							}
-						}else{
-							if(sid != "worker"){
-								listHtml2 += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-							}else{
-								listHtml2 += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;">'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';								
-							}
-							listHtml2 += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-						}	
-						
-						//하반기
-						if(rsAr[i].file_yn_b == 'Y'){
-							listHtml2 += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+
-							'<img src="resources/img/file1.png">'
-							+'</td>';
-							if(sid != "worker"){
-								listHtml2 += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-								'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',2); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-								+'</td>';
-							}else{
-								listHtml2 += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';								
-							}
-						}else{							
-							if(sid != "worker"){
-								listHtml2 += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',2); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-							}else{
-								listHtml2 += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;">'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';								
-							}
-							listHtml2 += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-						}	
-						
-						listHtml2 += "</tr>";
-					}
-					
-					
-					$("#tus_list2 tbody").html(listHtml2);						
-				}else{
-					$("#qun").hide();
-					$("#temper").show();					
-					
-					for(var i=0; i<3; i++){
-						listHtml += "<tr>";
-						listHtml += '<td rowspan="3" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 100px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].hogi+'</td>';
-						listHtml += '<td rowspan="3" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 100px; width: 100px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].zone+'</td>';
-						listHtml += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 70px; word-break:break-all; font-size:15pt; font-family:headline;">계획월</td>';
-						listHtml += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 70px; word-break:break-all; font-size:15pt; font-family:headline;">실적일</td>';
-						
-						
-						//상반기
-						listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_p('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].tdate_t_plan+'</td>';
-						listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_a('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].tdate_t_act+'</td>';								
-						
-						listHtml += "</tr>";
-
-						
-						
-						listHtml += "<tr>";
-						listHtml += '<td colspan="2" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">합/불 판정</td>';
-						//상반기
-						
-						if("합격" == rsAr[i].chk_t){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 240px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:#0000FF;" onclick=chkReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].chk_t+'</td>';
-						}else if("불합격" == rsAr[i].chk_t){
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 240px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:#FF0000;" onclick=chkReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].chk_t+'</td>';
-						}else{
-							listHtml += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 240px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].chk_t+'</td>';	
-						}
-						
-						
-						listHtml += "</tr>";
-						
-						listHtml += "<tr>";
-						listHtml += '<td colspan="2" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">보고서 등록</td>';
-						
-						
-						
-						//상반기
-						if(rsAr[i].file_yn_t == 'Y'){
-							listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+
-							'<img src="resources/img/file1.png">'
-							+'</td>';
-							if(sid != "worker"){
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-								'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',1); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-								+'</td>';
-							}else{
-								listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';	
-							}
-						}else{
-							if(sid != "worker"){
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-							}else{
-								listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;">'+
-								'<img src="resources/img/file0.png">'
-								+'</td>';
-							}
-							listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-						}	
-						
-						
-						listHtml += "</tr>";
-					}
-					
-					
-					$("#tus_list_t tbody").html(listHtml);
-					
-					
-					
-					for(var i=3; i<6; i++){
-						listHtml2 += "<tr>";
-						listHtml2 += '<td rowspan="3" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 100px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].hogi+'</td>';
-						listHtml2 += '<td rowspan="3" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 100px; width: 100px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].zone+'</td>';
-						listHtml2 += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 70px; word-break:break-all; font-size:15pt; font-family:headline;">계획월</td>';
-						listHtml2 += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 70px; word-break:break-all; font-size:15pt; font-family:headline;">실적일</td>';
-						
-						
-						//상반기
-						listHtml2 += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_p('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].tdate_t_plan+'</td>';
-						listHtml2 += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 120px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=tdateReg_a('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].tdate_t_act+'</td>';								
-						
-						listHtml2 += "</tr>";
-
-						
-						
-						listHtml2 += "<tr>";
-						listHtml2 += '<td colspan="2" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">합/불 판정</td>';
-						if("합격" == rsAr[i].chk_t){
-							listHtml2 += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 240px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:#0000FF;" onclick=chkReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].chk_t+'</td>';
-						}else if("불합격" == rsAr[i].chk_t){
-							listHtml2 += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 240px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer; color:#FF0000;" onclick=chkReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].chk_t+'</td>';
-						}else{
-							listHtml2 += '<td colspan="2" class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 240px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=chkReg('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+rsAr[i].chk_t+'</td>';	
-						}
-						listHtml2 += "</tr>";
-						
-						listHtml2 += "<tr>";
-						listHtml2 += '<td colspan="2" class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">보고서 등록</td>';
-						
-						
-						//상반기
-						if(rsAr[i].file_yn_t == 'Y'){
-							listHtml2 += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileOpen('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'+
-							'<img src="resources/img/file1.png">'
-							+'</td>';
-							if(sid != "worker"){
-								listHtml2 += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;">'+
-								'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+',1); return false; event.cancelBubble = true; style="width: 55px; font-size:14pt; font-family:headline; font-weight:700; padding-right:0; padding-left:0;"><i class="fa fa-remove"></i>삭제</button>'
-								+'</td>';
-							}else{
-								listHtml2 += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-							}
-						}else{
-							if(sid != "worker"){
-								listHtml2 += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;" onclick=fileAdd('+rsAr[i].cnt+',1); return false; event.cancelBubble = true;>'
-								+'<img src="resources/img/file0.png">'+
-								'</td>';
-							}else{
-								listHtml2 += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline; cursor: pointer;">'
-								+'<img src="resources/img/file0.png">'+
-								'</td>';
-							}
-							listHtml2 += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:14pt; font-family:headline;"></td>';
-						}	
-						
-						listHtml2 += "</tr>";
-					}
-					
-					
-					$("#tus_list2_t tbody").html(listHtml2);						
-				}
-				
-				
 					
 	
 			} else if (rsJson && rsJson.status == "fail") {
@@ -1197,17 +1242,30 @@ function getFileList(){
 			
 }
 
+
+
+
+
+
 function fileAdd(c_val, gb){
-	
-	$("#import_cnt").val(c_val);
-	$("#import_gb").val(gb);
-	
-	fileDialog.dialog("open");
-	
+	if(sid != "worker"){
+		$("#import_cnt").val(c_val);
+		$("#import_gb").val(gb);
+		
+		fileDialog.dialog("open");
+	}
 }
+
+
+
+
 
 var fileDel_cnt = 0;
 var fileDel_gb = 0;
+
+var fileDel_cnt_bungi = 0;
+var fileDel_gb_bungi = 0;
+
 
 function delFile(c_val,gb){
 	fileDel_cnt = c_val;
@@ -1218,12 +1276,14 @@ function delFile(c_val,gb){
 }
 
 
+
 /*이벤트*/	
 		
+//사용안함
 $("#fileSelect").on("click",function(){
 	fileDialog.dialog("open");
 });
-		
+//사용안함	
 $("#searchbtn").on("click",function(){
 	getFileList();
 });
@@ -1237,21 +1297,34 @@ $("#c_chk_n").on("click",function(){
 });	
 
 $("#s_zone").change(function(){
-	getFileList();
+	
+	if(eval($("#s_year").val()) <= 2020){
+		$("#tus_before").show();
+		$("#tus_after").hide();
+
+		getFileList();	
+	}else{
+		$("#tus_before").hide();
+		$("#tus_after").show();
+		
+		getFileList_bungi();
+	}
+	
 });
 
 
 $("#s_year").change(function(){
 	getYearCount();
+	
 });
 
-$("#t_date_p").change(function(){
-	var d_p = $("#t_date_p").val();
-	
-	if(d_p != ''){
-		$("#t_date_p").val(d_p.substring(0,7));
+function tableChange_gb(gb_year){
+	if(gb_year <= 2020){
+		
+	}else{
+		
 	}
-});
+}
 
 function fileOpen(c_val, gb){
 	$.ajax({
@@ -1293,26 +1366,19 @@ function fileOpen(c_val, gb){
 		
 	});
 }
+
+
+
 	
-	
-	function tdateReg_p(c_val, gb){
+	function tdateReg(c_val, gb){
 		if(sid != "worker"){
-			$("#t_cnt_p").val(c_val);
-			$("#t_gb_p").val(gb);
+			$("#t_cnt").val(c_val);
+			$("#t_gb").val(gb);
 			
-			tdate_pDialog.dialog("open");
-		}
+			tdateDialog.dialog("open");
+		}		
 	}
 
-	function tdateReg_a(c_val, gb){
-		if(sid != "worker"){
-			$("#t_cnt_a").val(c_val);
-			$("#t_gb_a").val(gb);
-			
-			tdate_aDialog.dialog("open");
-		}
-	}	
-	
 	function chkReg(c_val, gb){
 		if(sid != "worker"){
 			$("#c_cnt").val(c_val);
@@ -1321,6 +1387,17 @@ function fileOpen(c_val, gb){
 			chkDialog.dialog("open");
 		}
 	}
+	
+	function memoReg(c_val, gb){
+		if(sid != "worker"){
+			$("#m_cnt").val(c_val);
+			$("#m_gb").val(gb);
+			
+			memoDialog.dialog("open");
+		}		
+	}	
+	
+	
 	
 /*다이얼로그*/
 //파일선택 다이얼로그
@@ -1361,8 +1438,8 @@ fileDialog = $("#file-form").dialog({
 	});
 
 
-	var tdate_pDialog;
-	tdate_pDialog = $("#tdate_p-form").dialog({
+	var tdateDialog;
+	tdateDialog = $("#tdate-form").dialog({
 		autoOpen:false,
 		height:180,
 		width:300,
@@ -1370,64 +1447,31 @@ fileDialog = $("#file-form").dialog({
 		stack:false,
 		buttons:{
 			"등 록":function(){
-				tdate_pDialog.dialog("close");
+				tdateDialog.dialog("close");
+				var zone = $("#s_zone").val();
 				
-				$.post("m03/s02/insert_m03s02_tdate_p.jsp",{
-					"cnt":$("#t_cnt_p").val(),
-					"gb":$("#t_gb_p").val(),
-					"tdate":$("#t_date_p").val()
+				$.post("m03/s02/insert_m03s02_tdate.jsp",{
+					"cnt":$("#t_cnt").val(),
+					"gb":$("#t_gb").val(),
+					"tdate":$("#t_date").val()
 				},150);
 				
 				setTimeout(function(){
 					getFileList();
-					var d_pForm = $("#date_pform")[0];
-					d_pForm.reset();
+					var dForm = $("#dateform")[0];
+					dForm.reset();
 					
 				},500);
 				
 			},
 			"닫 기":function(){
-				var d_pForm = $("#date_pform")[0];
-				d_pForm.reset();
-				tdate_pDialog.dialog("close");
+				var dForm = $("#dateform")[0];
+				dForm.reset();
+				tdateDialog.dialog("close");
 			}
 		}
 	});
 
-	
-	var tdate_aDialog;
-	tdate_aDialog = $("#tdate_a-form").dialog({
-		autoOpen:false,
-		height:180,
-		width:300,
-		modal:false,
-		stack:false,
-		buttons:{
-			"등 록":function(){
-				tdate_aDialog.dialog("close");
-				
-				$.post("m03/s02/insert_m03s02_tdate_a.jsp",{
-					"cnt":$("#t_cnt_a").val(),
-					"gb":$("#t_gb_a").val(),
-					"tdate":$("#t_date_a").val()
-				},150);
-				
-				setTimeout(function(){
-					getFileList();
-					var d_aForm = $("#date_aform")[0];
-					d_aForm.reset();
-					
-				},500);
-				
-			},
-			"닫 기":function(){
-				var d_aForm = $("#date_aform")[0];
-				d_aForm.reset();
-				tdate_aDialog.dialog("close");
-			}
-		}
-	});	
-	
 	
 	var chkDialog;
 	chkDialog = $("#chk-form").dialog({
@@ -1471,7 +1515,7 @@ fileDialog = $("#file-form").dialog({
 		stack:false,
 		buttons:{
 			"삭 제":function(){
-				$.post("m03/s02/delete_m03s02.jsp",{
+				$.post("m03/s02/delete_m03s02_file.jsp",{
 					"cnt":fileDel_cnt,
 					"gb":fileDel_gb
 				},250);
@@ -1505,6 +1549,46 @@ fileDialog = $("#file-form").dialog({
 			}
 		}
 	});	
+
+	
+	
+
+	var memoDialog;
+	memoDialog = $("#memo-form").dialog({
+		autoOpen:false,
+		height:180,
+		width:400,
+		modal:false,
+		stack:false,
+		buttons:{
+			"등 록":function(){
+				memoDialog.dialog("close");
+				var zone = $("#s_zone").val();
+				
+				
+				$.post("m03/s02/insert_m03s02_memo.jsp",{
+					"cnt":$("#m_cnt").val(),
+					"gb":$("#m_gb").val(),
+					"memo":$("#m_memo").val()
+				},150);
+				
+				setTimeout(function(){
+					getFileList();
+					var mForm = $("#memoform")[0];
+					mForm.reset();
+					
+				},500);
+				
+			},
+			"닫 기":function(){
+				var mForm = $("#memoform")[0];
+				mForm.reset();
+				memoDialog.dialog("close");
+			}
+		}
+	});
+	
+
 	
 /*차트 불러오는 함수*/
 			

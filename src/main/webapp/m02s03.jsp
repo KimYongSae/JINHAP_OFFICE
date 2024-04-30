@@ -447,7 +447,7 @@ var fn_logout = function () {
         <div class="box">
             <header>
                 <div style="padding:11px 14px;" class="icons"><i style="color:white;" class="fa fa-line-chart"></i></div>
-                <h5 style="font-size:14pt; font-family: headline;">조건관리 - 각종 조절계 보정 현황</h5>
+                <h5 style="font-size:14pt; font-family: headline;">조건관리 - 온도 조절계 보정 현황</h5>
             </header>
             <header style="background:white; height:43px;">
                 <form class="form-inline" role="form" name="searchform" method="post" autocomplete="off">
@@ -528,65 +528,65 @@ var fn_logout = function () {
 							<th class="text-center cell" 
 							style="background-color:#24FCFF; width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline;">
-								보정전
+								현재값
 							</th>
 							<th class="text-center cell" 
 							style="background-color:#24FCFF; width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline;">
-								상반기 보정
+								측정값
 							</th>
 							<th class="text-center cell" 
 							style="background-color:#24FCFF; width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline;">
-								하반기 보정
-							</th>
-
-							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline;">
-								보정전
-							</th>
-							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline;">
-								상반기 보정
-							</th>
-							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline;">
-								하반기 보정
+								보정값
 							</th>
 
 							<th class="text-center cell" 
 							style="background-color:#24FCFF; width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline;">
-								보정전
+								현재값
 							</th>
 							<th class="text-center cell" 
 							style="background-color:#24FCFF; width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline;">
-								상반기 보정
+								측정값
 							</th>
 							<th class="text-center cell" 
 							style="background-color:#24FCFF; width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline;">
-								하반기 보정
+								보정값
 							</th>
 
 							<th class="text-center cell" 
 							style="background-color:#24FCFF; width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline;">
-								보정전
+								현재값
 							</th>
 							<th class="text-center cell" 
 							style="background-color:#24FCFF; width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline;">
-								상반기 보정
+								측정값
 							</th>
 							<th class="text-center cell" 
 							style="background-color:#24FCFF; width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline;">
-								하반기 보정
+								보정값
+							</th>
+
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								현재값
+							</th>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								측정값
+							</th>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								보정값
 							</th>
 
 						</tr>
@@ -594,100 +594,7 @@ var fn_logout = function () {
 					
 									
 					<tbody id="qun_contents">
-						<tr>
-							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 100px; height: 30px; 
-							font-size: 15pt; font-family:headline;">
-								보정일
-							</th>
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q1_b_date');"
-							id="q1_b_date">
-								
-							</td>
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q1_a_tdate');"
-							id="q1_a_tdate">
-								
-							</td>
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q1_a_bdate');"
-							id="q1_a_bdate">
-								
-							</td>												
-
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q2_b_date');"
-							id="q2_b_date">
-								
-							</td>
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q2_a_tdate');"
-							id="q2_a_tdate">
-								
-							</td>
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q2_a_bdate');"
-							id="q2_a_bdate">
-								
-							</td>
-
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q3_b_date');"
-							id="q3_b_date">
-								
-							</td>
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q3_a_tdate');"
-							id="q3_a_tdate">
-								
-							</td>
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q3_a_bdate');"
-							id="q3_a_bdate">
-								
-							</td>						
 						
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q6_b_date');"
-							id="q6_b_date">
-								
-							</td>
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q6_a_tdate');"
-							id="q6_a_tdate">
-								
-							</td>
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q6_a_bdate');"
-							id="q6_a_bdate">
-								
-							</td>						
-						</tr>
 						
 						<tr>
 							<th class="text-center cell" 
@@ -1170,6 +1077,100 @@ var fn_logout = function () {
 							<th class="text-center cell" 
 							style="background-color:#24FCFF; width: 100px; height: 30px; 
 							font-size: 15pt; font-family:headline;">
+								보정일
+							</th>
+							<td class="text-center cell" colspan="3" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('q1_b_date');"
+							id="q1_b_date">
+								
+							</td>
+							<!-- <td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('q1_a_tdate');"
+							id="q1_a_tdate">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('q1_a_bdate');"
+							id="q1_a_bdate">
+								
+							</td>	 -->											
+
+							<td class="text-center cell" colspan="3" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('q2_b_date');"
+							id="q2_b_date">
+								
+							</td>
+							<!-- <td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('q2_a_tdate');"
+							id="q2_a_tdate">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('q2_a_bdate');"
+							id="q2_a_bdate">
+								
+							</td> -->
+
+							<td class="text-center cell" colspan="3" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('q3_b_date');"
+							id="q3_b_date">
+								
+							</td>
+							<!-- <td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('q3_a_tdate');"
+							id="q3_a_tdate">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('q3_a_bdate');"
+							id="q3_a_bdate">
+								
+							</td>	 -->					
+						
+							<td class="text-center cell" colspan="3"
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('q6_b_date');"
+							id="q6_b_date">
+								
+							</td>
+							<!-- <td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('q6_a_tdate');"
+							id="q6_a_tdate">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('q6_a_bdate');"
+							id="q6_a_bdate">
+								
+							</td> -->						
+						</tr>
+						<!-- <tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
 								cp
 							</th>
 							<td class="text-center cell" 
@@ -1259,7 +1260,7 @@ var fn_logout = function () {
 							id="q6_acp_bval">
 								
 							</td>
-						</tr>
+						</tr> -->
 						
 						<tr>
 							<th class="text-center cell" 
@@ -1342,33 +1343,33 @@ var fn_logout = function () {
 							<th class="text-center cell" 
 							style="background-color:#24FCFF; width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline;">
-								보정전
+								현재값
 							</th>
 							<th class="text-center cell" 
 							style="background-color:#24FCFF; width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline;">
-								상반기 보정
+								측정값
 							</th>
 							<th class="text-center cell" 
 							style="background-color:#24FCFF; width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline;">
-								하반기 보정
+								보정값
 							</th>
 
 							<th class="text-center cell" 
 							style="background-color:#24FCFF; width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline;">
-								보정전
+								현재값
 							</th>
 							<th class="text-center cell" 
 							style="background-color:#24FCFF; width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline;">
-								상반기 보정
+								측정값
 							</th>
 							<th class="text-center cell" 
 							style="background-color:#24FCFF; width: 140px; height: 30px; 
 							font-size: 15pt; font-family:headline;">
-								하반기 보정
+								보정값
 							</th>
 
 							<th class="text-center cell" 
@@ -1414,109 +1415,7 @@ var fn_logout = function () {
 					</thead>	
 									
 					<tbody id="qun_contents2" style= "height: 285px;">
-						<tr>
-							<th class="text-center cell" 
-							style="background-color:#24FCFF; width: 100px; height: 30px; 
-							font-size: 15pt; font-family:headline;">
-								보정일
-							</th>
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q4_b_date');"
-							id="q4_b_date">
-								
-							</td>
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q4_a_tdate');"
-							id="q4_a_tdate">
-								
-							</td>
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q4_a_bdate');"
-							id="q4_a_bdate">
-								
-							</td>												
-
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q5_b_date');"
-							id="q5_b_date">
-								
-							</td>
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q5_a_tdate');"
-							id="q5_a_tdate">
-								
-							</td>
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q5_a_bdate');"
-							id="q5_a_bdate">
-								
-							</td>
-
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q9_b_date');"
-							id="q9_b_date">
-								
-							</td>
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q9_a_tdate');"
-							id="q9_a_tdate">
-								
-							</td>
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('q9_a_bdate');"
-							id="q9_a_bdate">
-								
-							</td>
-
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('qc_b_date');"
-							id="qc_b_date">
-								
-							</td>
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('qc_a_tdate');"
-							id="qc_a_tdate">
-								
-							</td>
-							<td class="text-center cell" 
-							style="width: 140px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="date_reg('qc_a_bdate');"
-							id="qc_a_bdate">
-								
-							</td>	
-							
-							<!-- <th colspan="3" rowspan="5" class="text-center cell" 
-							style="width: 420px; height: 30px; 
-							font-size: 15pt; font-family:headline; cursor: pointer;"
-							onclick="bigo_reg('qbigo');"
-							id="qbigo">
-								
-							</th> -->							
-													
-						</tr>
+						
 						
 						<tr>
 							<th class="text-center cell" 
@@ -2020,7 +1919,106 @@ var fn_logout = function () {
 								
 							</td>
 						</tr>		
-										
+						<tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								보정일
+							</th>
+							<td class="text-center cell" colspan="3"
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('q4_b_date');"
+							id="q4_b_date">
+								
+							</td>
+							<!-- <td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('q4_a_tdate');"
+							id="q4_a_tdate">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('q4_a_bdate');"
+							id="q4_a_bdate">
+								
+							</td> -->												
+
+							<td class="text-center cell" colspan="3"
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('q5_b_date');"
+							id="q5_b_date">
+								
+							</td>
+							<!-- <td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('q5_a_tdate');"
+							id="q5_a_tdate">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('q5_a_bdate');"
+							id="q5_a_bdate">
+								
+							</td> -->
+
+							<td class="text-center cell" colspan="3"
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>
+							<!-- <td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td> -->
+
+							<!-- <td class="text-center cell"
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('qc_b_date');"
+							id="qc_b_date">
+								
+							</td> -->
+							<!-- <td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('qc_a_tdate');"
+							id="qc_a_tdate">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg('qc_a_bdate');"
+							id="qc_a_bdate">
+								
+							</td> -->	
+							
+							<!-- <th colspan="3" rowspan="5" class="text-center cell" 
+							style="width: 420px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="bigo_reg('qbigo');"
+							id="qbigo">
+								
+							</th> -->							
+													
+						</tr>				
 						
 						<tr>
 							<th class="text-center cell" 
@@ -2063,6 +2061,1462 @@ var fn_logout = function () {
             
             <!-- 템퍼링 -->
             <div class="row" id="tem" style="display:none;">
+               <table id="tem_list" cellspacing="0" class="table table-bordered table-responsive scrolltbody">
+					<thead>
+						<tr>					
+							<th rowspan="2" class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								구분
+							</th>
+							<th colspan="3" class="text-center cell" 
+							style="background-color:#24FCFF; width: 420px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								열처리 1호기
+							</th>
+							<th colspan="3" class="text-center cell" 
+							style="background-color:#24FCFF; width: 420px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								열처리 2호기
+							</th>
+							<th colspan="3" class="text-center cell" 
+							style="background-color:#24FCFF; width: 420px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								열처리 3호기
+							</th>
+							<th colspan="3" class="text-center cell" 
+							style="background-color:#24FCFF; width: 420px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								
+							</th>																											
+						</tr>
+						
+						
+						<tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								현재값
+							</th>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								측정값
+							</th>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								보정값
+							</th>
+
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								현재값
+							</th>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								측정값
+							</th>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								보정값
+							</th>
+
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								현재값
+							</th>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								측정값
+							</th>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								보정값
+							</th>
+
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								
+							</th>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								
+							</th>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								
+							</th>
+
+						</tr>
+					</thead>	
+					
+									
+					<tbody id="tem_contents" style="height: 250px">
+						
+						
+						<tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								#1
+							</th>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t1_b1_val');"
+							id="t1_b1_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t1_a1_tval');"
+							id="t1_a1_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t1_a1_bval');"
+							id="t1_a1_bval">
+								
+							</td>	
+							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t2_b1_val');"
+							id="t2_b1_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t2_a1_tval');"
+							id="t2_a1_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t2_a1_bval');"
+							id="t2_a1_bval">
+								
+							</td>														
+
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t3_b1_val');"
+							id="t3_b1_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t3_a1_tval');"
+							id="t3_a1_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t3_a1_bval');"
+							id="t3_a1_bval">
+								
+							</td>
+
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>
+
+						</tr>
+						
+						<tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								#2
+							</th>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t1_b2_val');"
+							id="t1_b2_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t1_a2_tval');"
+							id="t1_a2_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t1_a2_bval');"
+							id="t1_a2_bval">
+								
+							</td>	
+							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t2_b2_val');"
+							id="t2_b2_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t2_a2_tval');"
+							id="t2_a2_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t2_a2_bval');"
+							id="t2_a2_bval">
+								
+							</td>														
+
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t3_b2_val');"
+							id="t3_b2_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t3_a2_tval');"
+							id="t3_a2_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t3_a2_bval');"
+							id="t3_a2_bval">
+								
+							</td>
+
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>
+
+						</tr>						
+						
+						<tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								#3
+							</th>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t1_b3_val');"
+							id="t1_b3_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t1_a3_tval');"
+							id="t1_a3_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t1_a3_bval');"
+							id="t1_a3_bval">
+								
+							</td>	
+							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t2_b3_val');"
+							id="t2_b3_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t2_a3_tval');"
+							id="t2_a3_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t2_a3_bval');"
+							id="t2_a3_bval">
+								
+							</td>														
+
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t3_b3_val');"
+							id="t3_b3_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t3_a3_tval');"
+							id="t3_a3_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t3_a3_bval');"
+							id="t3_a3_bval">
+								
+							</td>
+
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>
+
+						</tr>						
+						
+						<tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								#4
+							</th>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t1_b4_val');"
+							id="t1_b4_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t1_a4_tval');"
+							id="t1_a4_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t1_a4_bval');"
+							id="t1_a4_bval">
+								
+							</td>	
+							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t2_b4_val');"
+							id="t2_b4_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t2_a4_tval');"
+							id="t2_a4_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t2_a4_bval');"
+							id="t2_a4_bval">
+								
+							</td>														
+
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t3_b4_val');"
+							id="t3_b4_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t3_a4_tval');"
+							id="t3_a4_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t3_a4_bval');"
+							id="t3_a4_bval">
+								
+							</td>
+
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>
+						</tr>						
+						
+						<!-- <tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								#5
+							</th>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t1_b5_val');"
+							id="t1_b5_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t1_a5_tval');"
+							id="t1_a5_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t1_a5_bval');"
+							id="t1_a5_bval">
+								
+							</td>	
+							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t2_b5_val');"
+							id="t2_b5_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t2_a5_tval');"
+							id="t2_a5_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t2_a5_bval');"
+							id="t2_a5_bval">
+								
+							</td>														
+
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t3_b5_val');"
+							id="t3_b5_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t3_a5_tval');"
+							id="t3_a5_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t3_a5_bval');"
+							id="t3_a5_bval">
+								
+							</td>
+
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>
+						</tr> -->
+						<tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								보정일
+							</th>
+							<td class="text-center cell" colspan="3"
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('t1_b_date');"
+							id="t1_b_date">
+								
+							</td>
+							<!-- <td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('t1_a_tdate');"
+							id="t1_a_tdate">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('t1_a_bdate');"
+							id="t1_a_bdate">
+								
+							</td> -->												
+
+							<td class="text-center cell" colspan="3" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('t2_b_date');"
+							id="t2_b_date">
+								
+							</td>
+							<!-- <td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('t2_a_tdate');"
+							id="t2_a_tdate">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('t2_a_bdate');"
+							id="t2_a_bdate">
+								
+							</td> -->
+
+							<td class="text-center cell" colspan="3" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('t3_b_date');"
+							id="t3_b_date">
+								
+							</td>
+							<!-- <td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('t3_a_tdate');"
+							id="t3_a_tdate">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('t3_a_bdate');"
+							id="t3_a_bdate">
+								
+							</td> -->						
+						
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>						
+						</tr>
+						
+						<tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 45px; 
+							font-size: 15pt; font-family:headline;">
+								특기사항
+							</th>
+							<td colspan="3" class="text-center cell" 
+							style="width: 140px; height: 45px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="special_reg('t1_special');"
+							id="t1_special">
+								
+							</td>
+							<td colspan="3" class="text-center cell" 
+							style="width: 140px; height: 45px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="special_reg('t2_special');"
+							id="t2_special">
+								
+							</td>
+							<td colspan="3" class="text-center cell" 
+							style="width: 140px; height: 45px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="special_reg('t3_special');"
+							id="t3_special">
+							</td>														
+						
+							<td colspan="3" class="text-center cell" 
+							style="width: 140px; height: 45px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							>
+								
+							</td>						
+											
+						</tr>
+						
+					</tbody>					
+				</table>     
+				
+               <table id="tem_list2" cellspacing="0" 
+               class="table table-bordered table-responsive scrolltbody">
+					<thead>
+						<tr>					
+							<th rowspan="2" class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								구분
+							</th>
+							<th colspan="3" class="text-center cell" 
+							style="background-color:#24FCFF; width: 420px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								열처리 4호기
+							</th>
+							<th colspan="3" class="text-center cell" 
+							style="background-color:#24FCFF; width: 420px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								열처리 5호기
+							</th>
+							<th colspan="3" class="text-center cell" 
+							style="background-color:#24FCFF; width: 420px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								열처리 6호기
+							</th>
+							<th colspan="3" class="text-center cell" 
+							style="background-color:#24FCFF; width: 420px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								
+							</th>
+							<!-- <th colspan="3" class="text-center cell" 
+							style="background-color:#24FCFF; width: 420px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								비고
+							</th>	 -->																										
+						</tr>
+						
+						
+						<tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								현재값
+							</th>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								측정값
+							</th>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								보정값
+							</th>
+
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								현재값
+							</th>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								측정값
+							</th>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								보정값
+							</th>
+
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								현재값
+							</th>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								측정값
+							</th>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								보정값
+							</th>
+							
+							<!-- 침탄로 -->
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								
+							</th>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								
+							</th>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								
+							</th>
+
+							<!-- <th colspan="3" class="text-center cell" 
+							style="background-color:#FFFFFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								비고입력
+							</th> -->
+
+						</tr>
+					</thead>	
+									
+					<tbody id="tem_contents2" style= "height: 285px;">
+						
+						
+						<tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								#1
+							</th>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t4_b1_val');"
+							id="t4_b1_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t4_a1_tval');"
+							id="t4_a1_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t4_a1_bval');"
+							id="t4_a1_bval">
+								
+							</td>	
+							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t5_b1_val');"
+							id="t5_b1_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t5_a1_tval');"
+							id="t5_a1_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t5_a1_bval');"
+							id="t5_a1_bval">
+								
+							</td>														
+							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t6_b1_val');"
+							id="t6_b1_val">
+							
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t6_a1_tval');"
+							id="t6_a1_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t6_a1_bval');"
+							id="t6_a1_bval">
+								
+							</td>														
+
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('qc_b1_val');"
+							id="qc_b1_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('qc_a1_tval');"
+							id="qc_a1_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('qc_a1_bval');"
+							id="qc_a1_bval">
+								
+							</td>
+
+
+						</tr>
+						
+<!-- 						<tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								#1-2
+							</th>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t4_b1-2_val');"
+							id="t4_b1-2_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t4_a1-2_tval');"
+							id="t4_a1-2_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t4_a1-2_bval');"
+							id="t4_a1-2_bval">
+								
+							</td>	
+							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t5_b1-2_val');"
+							id="t5_b1-2_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t5_a1-2_tval');"
+							id="t5_a1-2_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t5_a1-2_bval');"
+							id="t5_a1-2_bval">
+								
+							</td>														
+							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t6_b1-2_val');"
+							id="t6_b1-2_val">
+							
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t6_a1-2_tval');"
+							id="t6_a1-2_tval">
+								
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t6_a1-2_bval');"
+							id="t6_a1-2_bval">
+								
+							</td>														
+
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('qc_b1-2_val');"
+							id="qc_b1-2_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('qc_a1-2_tval');"
+							id="qc_a1-2_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('qc_a1-2_bval');"
+							id="qc_a1-2_bval">
+								
+							</td>
+
+
+						</tr> -->
+						
+						<tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								#2
+							</th>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t4_b2_val');"
+							id="t4_b2_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t4_a2_tval');"
+							id="t4_a2_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t4_a2_bval');"
+							id="t4_a2_bval">
+								
+							</td>	
+							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t5_b2_val');"
+							id="t5_b2_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t5_a2_tval');"
+							id="t5_a2_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t5_a2_bval');"
+							id="t5_a2_bval">
+								
+							</td>														
+							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t6_b2_val');"
+							id="t6_b2_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t6_a2_tval');"
+							id="t6_a2_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t6_a2_bval');"
+							id="t6_a2_bval">
+								
+							</td>
+							<th colspan="3" class="text-center cell" 
+							style="background-color:#24FCFF; width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								비고
+							</th>
+																		
+
+
+						</tr>						
+						
+						<tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								#3
+							</th>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t4_b3_val');"
+							id="t4_b3_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t4_a3_tval');"
+							id="t4_a3_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t4_a3_bval');"
+							id="t4_a3_bval">
+								
+							</td>	
+							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t5_b3_val');"
+							id="t5_b3_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t5_a3_tval');"
+							id="t5_a3_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t5_a3_bval');"
+							id="t5_a3_bval">
+								
+							</td>														
+							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t6_b3_val');"
+							id="t6_b3_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t6_a3_tval');"
+							id="t6_a3_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t6_a3_bval');"
+							id="t6_a3_bval">
+								
+							</td>
+																					
+							<td colspan="3" rowspan="5" class="text-center cell" 
+							style="width: 420px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="bigo_reg('tbigo');"
+							id="tbigo">
+								
+							</td>
+						</tr>						
+						
+						<tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								#4
+							</th>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t4_b4_val');"
+							id="t4_b4_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t4_a4_tval');"
+							id="t4_a4_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t4_a4_bval');"
+							id="t4_a4_bval">
+								
+							</td>	
+							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t5_b4_val');"
+							id="t5_b4_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t5_a4_tval');"
+							id="t5_a4_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t5_a4_bval');"
+							id="t5_a4_bval">
+								
+							</td>
+							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t6_b4_val');"
+							id="t6_b4_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t6_a4_tval');"
+							id="t6_a4_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t6_a4_bval');"
+							id="t6_a4_bval">
+								
+							</td>
+						</tr>
+						
+						<!-- <tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								#5
+							</th>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t4_b5_val');"
+							id="t4_b5_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t4_a5_tval');"
+							id="t4_a5_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t4_a5_bval');"
+							id="t4_a5_bval">
+								
+							</td>	
+							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t5_b5_val');"
+							id="t5_b5_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t5_a5_tval');"
+							id="t5_a5_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t5_a5_bval');"
+							id="t5_a5_bval">
+								
+							</td>
+							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t6_b5_val');"
+							id="t6_b5_val">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t6_a5_tval');"
+							id="t6_a5_tval">
+								
+							</td>							
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="val_reg_t('t6_a5_bval');"
+							id="t6_a5_bval">
+								
+							</td>
+						</tr> -->		
+						<tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 30px; 
+							font-size: 15pt; font-family:headline;">
+								보정일
+							</th>
+							<td class="text-center cell" colspan="3"
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('t4_b_date');"
+							id="t4_b_date">
+								
+							</td>
+							<!-- <td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('t4_a_tdate');"
+							id="t4_a_tdate">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('t4_a_bdate');"
+							id="t4_a_bdate">
+								
+							</td> -->												
+
+							<td class="text-center cell" colspan="3" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('t5_b_date');"
+							id="t5_b_date">
+								
+							</td>
+							<!-- <td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('t5_a_tdate');"
+							id="t5_a_tdate">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('t5_a_bdate');"
+							id="t5_a_bdate">
+								
+							</td> -->
+
+							<td class="text-center cell" colspan="3" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('t6_b_date');"
+							id="t6_b_date">
+								
+							</td>
+							<!-- <td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('t6_a_tdate');"
+							id="t6_a_tdate">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('t6_a_bdate');"
+							id="t6_a_bdate">
+								
+							</td> -->
+
+							<!-- <td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('qc_b_date');"
+							id="qc_b_date">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('qc_a_tdate');"
+							id="qc_a_tdate">
+								
+							</td>
+							<td class="text-center cell" 
+							style="width: 140px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="date_reg_t('qc_a_bdate');"
+							id="qc_a_bdate">
+								
+							</td>	 -->
+							
+							<!-- <th colspan="3" rowspan="5" class="text-center cell" 
+							style="width: 420px; height: 30px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="bigo_reg('qbigo');"
+							id="qbigo">
+								
+							</th> -->							
+													
+						</tr>				
+						
+						<tr>
+							<th class="text-center cell" 
+							style="background-color:#24FCFF; width: 100px; height: 45px; 
+							font-size: 15pt; font-family:headline;">
+								특기사항
+							</th>
+							<td colspan="3" class="text-center cell" 
+							style="width: 140px; height: 45px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="special_reg('t4_special');"
+							id="t4_special">
+								
+							</td>
+							<td colspan="3" class="text-center cell" 
+							style="width: 140px; height: 45px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="special_reg('t5_special');"
+							id="t5_special">
+							</td>
+							
+							<td colspan="3" class="text-center cell" 
+							style="width: 140px; height: 45px; 
+							font-size: 15pt; font-family:headline; cursor: pointer;"
+							onclick="special_reg('t6_special');"
+							id="t6_special">
+								
+							</td>														
+						
+							<!-- <th colspan="3" class="text-center cell" 
+							style="width: 140px; height: 45px; 
+							font-size: 15pt; font-family:headline;">
+							</th>	 -->					
+						</tr>
+						
+					</tbody>					
+				</table>				
+				       
+            </div>
+            <!-- <div class="row" id="tem" style="display:none;">
                <table id="tem_list" cellspacing="0" 
                class="table table-bordered table-responsive scrolltbody2">
 					<thead>
@@ -3046,7 +4500,7 @@ var fn_logout = function () {
 					
 				</table>            
             
-            </div>
+            </div> -->
 
             </div>
         </div>
@@ -3420,86 +4874,116 @@ function getTemperList(){
 				//3
 				$("#t1_b_date").text(rsAr[0].t1_b_date);
 				$("#t1_a_tdate").text(rsAr[0].t1_a_tdate);
+				$("#t1_a_bdate").text(rsAr[0].t1_a_bdate);
 				$("#t1_special").text(rsAr[0].t1_special);
 
 				$("#t1_b1_val").text(rsAr[1].t1_b1_val);
 				$("#t1_a1_tval").text(rsAr[1].t1_a1_tval);
+				$("#t1_a1_bval").text(rsAr[1].t1_a1_bval);
 				$("#t1_b2_val").text(rsAr[2].t1_b2_val);
 				$("#t1_a2_tval").text(rsAr[2].t1_a2_tval);
+				$("#t1_a2_bval").text(rsAr[2].t1_a2_bval);
 				$("#t1_b3_val").text(rsAr[3].t1_b3_val);
 				$("#t1_a3_tval").text(rsAr[3].t1_a3_tval);
+				$("#t1_a3_bval").text(rsAr[3].t1_a3_bval);
 				$("#t1_b4_val").text(rsAr[4].t1_b4_val);
 				$("#t1_a4_tval").text(rsAr[4].t1_a4_tval);			
+				$("#t1_a4_bval").text(rsAr[4].t1_a4_bval);			
 
 				//4
 				$("#t2_b_date").text(rsAr[5].t2_b_date);
 				$("#t2_a_tdate").text(rsAr[5].t2_a_tdate);
+				$("#t2_a_bdate").text(rsAr[5].t2_a_bdate);
 				$("#t2_special").text(rsAr[5].t2_special);
 
 				$("#t2_b1_val").text(rsAr[6].t2_b1_val);
 				$("#t2_a1_tval").text(rsAr[6].t2_a1_tval);
+				$("#t2_a1_bval").text(rsAr[6].t2_a1_bval);
 				$("#t2_b2_val").text(rsAr[7].t2_b2_val);
 				$("#t2_a2_tval").text(rsAr[7].t2_a2_tval);
+				$("#t2_a2_bval").text(rsAr[7].t2_a2_bval);
 				$("#t2_b3_val").text(rsAr[8].t2_b3_val);
 				$("#t2_a3_tval").text(rsAr[8].t2_a3_tval);
+				$("#t2_a3_bval").text(rsAr[8].t2_a3_bval);
 				$("#t2_b4_val").text(rsAr[9].t2_b4_val);
 				$("#t2_a4_tval").text(rsAr[9].t2_a4_tval);			
+				$("#t2_a4_bval").text(rsAr[9].t2_a4_bval);			
 				
 				//5
 				$("#t3_b_date").text(rsAr[10].t3_b_date);
 				$("#t3_a_tdate").text(rsAr[10].t3_a_tdate);
+				$("#t3_a_bdate").text(rsAr[10].t3_a_bdate);
 				$("#t3_special").text(rsAr[10].t3_special);
 
 				$("#t3_b1_val").text(rsAr[11].t3_b1_val);
 				$("#t3_a1_tval").text(rsAr[11].t3_a1_tval);
+				$("#t3_a1_bval").text(rsAr[11].t3_a1_bval);
 				$("#t3_b2_val").text(rsAr[12].t3_b2_val);
 				$("#t3_a2_tval").text(rsAr[12].t3_a2_tval);
+				$("#t3_a2_bval").text(rsAr[12].t3_a2_bval);
 				$("#t3_b3_val").text(rsAr[13].t3_b3_val);
 				$("#t3_a3_tval").text(rsAr[13].t3_a3_tval);
+				$("#t3_a3_bval").text(rsAr[13].t3_a3_bval);
 				$("#t3_b4_val").text(rsAr[14].t3_b4_val);
 				$("#t3_a4_tval").text(rsAr[14].t3_a4_tval);			
+				$("#t3_a4_bval").text(rsAr[14].t3_a4_bval);			
 
 				//6
 				$("#t4_b_date").text(rsAr[15].t4_b_date);
 				$("#t4_a_tdate").text(rsAr[15].t4_a_tdate);
+				$("#t4_a_bdate").text(rsAr[15].t4_a_bdate);
 				$("#t4_special").text(rsAr[15].t4_special);
 
 				$("#t4_b1_val").text(rsAr[16].t4_b1_val);
 				$("#t4_a1_tval").text(rsAr[16].t4_a1_tval);
+				$("#t4_a1_bval").text(rsAr[16].t4_a1_bval);
 				$("#t4_b2_val").text(rsAr[17].t4_b2_val);
 				$("#t4_a2_tval").text(rsAr[17].t4_a2_tval);
+				$("#t4_a2_bval").text(rsAr[17].t4_a2_bval);
 				$("#t4_b3_val").text(rsAr[18].t4_b3_val);
 				$("#t4_a3_tval").text(rsAr[18].t4_a3_tval);
+				$("#t4_a3_bval").text(rsAr[18].t4_a3_bval);
 				$("#t4_b4_val").text(rsAr[19].t4_b4_val);
 				$("#t4_a4_tval").text(rsAr[19].t4_a4_tval);			
+				$("#t4_a4_bval").text(rsAr[19].t4_a4_bval);			
 
 				//7
 				$("#t5_b_date").text(rsAr[20].t5_b_date);
 				$("#t5_a_tdate").text(rsAr[20].t5_a_tdate);
+				$("#t5_a_bdate").text(rsAr[20].t5_a_bdate);
 				$("#t5_special").text(rsAr[20].t5_special);
 
 				$("#t5_b1_val").text(rsAr[21].t5_b1_val);
 				$("#t5_a1_tval").text(rsAr[21].t5_a1_tval);
+				$("#t5_a1_bval").text(rsAr[21].t5_a1_bval);
 				$("#t5_b2_val").text(rsAr[22].t5_b2_val);
 				$("#t5_a2_tval").text(rsAr[22].t5_a2_tval);
+				$("#t5_a2_bval").text(rsAr[22].t5_a2_bval);
 				$("#t5_b3_val").text(rsAr[23].t5_b3_val);
 				$("#t5_a3_tval").text(rsAr[23].t5_a3_tval);
+				$("#t5_a3_bval").text(rsAr[23].t5_a3_bval);
 				$("#t5_b4_val").text(rsAr[24].t5_b4_val);
 				$("#t5_a4_tval").text(rsAr[24].t5_a4_tval);			
+				$("#t5_a4_bval").text(rsAr[24].t5_a4_bval);			
 				
 				//8
 				$("#t6_b_date").text(rsAr[25].t6_b_date);
 				$("#t6_a_tdate").text(rsAr[25].t6_a_tdate);
+				$("#t6_a_bdate").text(rsAr[25].t6_a_bdate);
 				$("#t6_special").text(rsAr[25].t6_special);
 
 				$("#t6_b1_val").text(rsAr[26].t6_b1_val);
 				$("#t6_a1_tval").text(rsAr[26].t6_a1_tval);
+				$("#t6_a1_bval").text(rsAr[26].t6_a1_bval);
 				$("#t6_b2_val").text(rsAr[27].t6_b2_val);
 				$("#t6_a2_tval").text(rsAr[27].t6_a2_tval);
+				$("#t6_a2_bval").text(rsAr[27].t6_a2_bval);
 				$("#t6_b3_val").text(rsAr[28].t6_b3_val);
 				$("#t6_a3_tval").text(rsAr[28].t6_a3_tval);
+				$("#t6_a3_bval").text(rsAr[28].t6_a3_bval);
 				$("#t6_b4_val").text(rsAr[29].t6_b4_val);
 				$("#t6_a4_tval").text(rsAr[29].t6_a4_tval);
+				$("#t6_a4_bval").text(rsAr[29].t6_a4_bval);
 				
 				//9
 				

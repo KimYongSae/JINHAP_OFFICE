@@ -25,17 +25,19 @@
 	
 	JSONObject mainObj = new JSONObject();  
 	 
-	sql.append("SELECT cnt, hogi, zone, tdate_t_plan, tdate_t_act, ");
-	sql.append("tdate_b_plan, tdate_b_act, IFNULL(chk_t,'') chk_t, IFNULL(chk_b,'') chk_b, ");
-	sql.append("filename_t, filename_b, file_yn_t, file_yn_b ");
-	sql.append("FROM tb_tus_file ");
+	sql.append("SELECT cnt, hogi, zone ");
+		for(int i=1; i<=12; i++){
+			sql.append(",tdate_"+i+", chk_"+i+", filename_"+i+", file_yn_"+i+", memo_"+i+" ");			
+		}
+	
+	sql.append("FROM tb_tus ");
 	sql.append("WHERE 1=1 ");
 	sql.append(whereSql.toString());
 	sql.append("ORDER BY hogi, zone ");
 
 	Statement stmt = null;
 	ResultSet rs = null;
-	
+
 		     try {
 		    	 
 		    	stmt = conn.createStatement();
@@ -52,37 +54,29 @@
 		 			JSONObject rowObj = new JSONObject();
 					rowObj.put("cnt",rs.getInt("cnt"));
 					rowObj.put("hogi",rs.getString("hogi"));
-					rowObj.put("zone",rs.getString("zone"));
+					rowObj.put("zone",rs.getString("zone").replace("/","</br>"));
 //					rowObj.put("y_t",rs.getString("y_top"));
 //					rowObj.put("y_b",rs.getString("y_bottom"));
-					rowObj.put("tdate_t_plan",rs.getString("tdate_t_plan"));
-					rowObj.put("tdate_t_act",rs.getString("tdate_t_act"));
-
-					
-					rowObj.put("tdate_b_plan",rs.getString("tdate_b_plan"));
-					rowObj.put("tdate_b_act",rs.getString("tdate_b_act"));
-					
-					rowObj.put("chk_t",rs.getString("chk_t"));
-					rowObj.put("chk_b",rs.getString("chk_b"));
-					
-					rowObj.put("filename_t",rs.getString("filename_t"));
-					rowObj.put("filename_b",rs.getString("filename_b"));
-					
-					rowObj.put("file_yn_t",rs.getString("file_yn_t"));
-					rowObj.put("file_yn_b",rs.getString("file_yn_b"));
+	
+					for(int i=1; i<=12; i++){
+						rowObj.put("tdate_"+i,rs.getString("tdate_"+i));
+						rowObj.put("chk_"+i,rs.getString("chk_"+i));
+						rowObj.put("filename_"+i,rs.getString("filename_"+i));
+						rowObj.put("file_yn_"+i,rs.getString("file_yn_"+i));
+						rowObj.put("memo_"+i,rs.getString("memo_"+i));
+						if("Y".equals(rs.getString("file_yn_"+i))){
+							rowObj.put("color_"+i,"#D9E5FF;");
+						}else{
+							rowObj.put("color_"+i,"#FFFF;");
+						}
+						if("Y".equals(rs.getString("file_yn_"+i))){
+							rowObj.put("color_"+i,"#D9E5FF;");
+						}else{
+							rowObj.put("color_"+i,"#FFFF;");
+						}
+					}
 		 			
-					if("Y".equals(rs.getString("file_yn_t"))){
-						rowObj.put("color_t","#D9E5FF;");
-					}else{
-						rowObj.put("color_t","#FFFFFF;");
-					}
 					
-					if("Y".equals(rs.getString("file_yn_b"))){
-						rowObj.put("color_b","#D9E5FF;");
-					}else{
-						rowObj.put("color_b","#FFFFFF;");
-					}
-
 					
 					mainArray.add(rowObj);
 		    	 }

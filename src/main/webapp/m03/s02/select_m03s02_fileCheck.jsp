@@ -24,16 +24,67 @@
 		
 		switch(gb){
 			case 1:
-				s_sql.append("select filename_t AS filename ");
-				s_sql.append("from tb_tus_file ");
+				s_sql.append("select filename_"+gb+" AS filename ");
+				s_sql.append("from tb_tus ");
 				s_sql.append("where cnt = "+cnt+" ");
 			break;
 			case 2:
-				s_sql.append("select filename_b AS filename ");
-				s_sql.append("from tb_tus_file ");
+				s_sql.append("select filename_"+gb+" AS filename ");
+				s_sql.append("from tb_tus ");
 				s_sql.append("where cnt = "+cnt+" ");
-			break;	
+			break;
+			case 3:
+				s_sql.append("select filename_"+gb+" AS filename ");
+				s_sql.append("from tb_tus ");
+				s_sql.append("where cnt = "+cnt+" ");
+			break;
+			case 4:
+				s_sql.append("select filename_"+gb+" AS filename ");
+				s_sql.append("from tb_tus ");
+				s_sql.append("where cnt = "+cnt+" ");
+			break;
+			case 5:
+				s_sql.append("select filename_"+gb+" AS filename ");
+				s_sql.append("from tb_tus ");
+				s_sql.append("where cnt = "+cnt+" ");
+			break;
+			case 6:
+				s_sql.append("select filename_"+gb+" AS filename ");
+				s_sql.append("from tb_tus ");
+				s_sql.append("where cnt = "+cnt+" ");
+			break;
+			case 7:
+				s_sql.append("select filename_"+gb+" AS filename ");
+				s_sql.append("from tb_tus ");
+				s_sql.append("where cnt = "+cnt+" ");
+			break;
+			case 8:
+				s_sql.append("select filename_"+gb+" AS filename ");
+				s_sql.append("from tb_tus ");
+				s_sql.append("where cnt = "+cnt+" ");
+			break;
+			case 9:
+				s_sql.append("select filename_"+gb+" AS filename ");
+				s_sql.append("from tb_tus ");
+				s_sql.append("where cnt = "+cnt+" ");
+			break;
+			case 10:
+				s_sql.append("select filename_"+gb+" AS filename ");
+				s_sql.append("from tb_tus ");
+				s_sql.append("where cnt = "+cnt+" ");
+			break;
+			case 11:
+				s_sql.append("select filename_"+gb+" AS filename ");
+				s_sql.append("from tb_tus ");
+				s_sql.append("where cnt = "+cnt+" ");
+			break;
+			case 12:
+				s_sql.append("select filename_"+gb+" AS filename ");
+				s_sql.append("from tb_tus ");
+				s_sql.append("where cnt = "+cnt+" ");
+			break;			
 		}
+		
 
 
 		JSONArray mainArray = new JSONArray();

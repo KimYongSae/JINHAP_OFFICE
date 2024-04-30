@@ -150,7 +150,8 @@
 		font-style:normal;
 		font-weight:normal;
 	}	
-	#o2sensor_list th {
+	
+	#thermo_list th {
 	background-color: #122d64 !important;
 	color:#FFFFFF;
 	border-color: #FFFFFF !important;
@@ -158,7 +159,7 @@
 	font-size: 16pt;
 	font-family: headline;
 	font-weight: 700;
-	}
+}
 	
 </style>
 
@@ -313,15 +314,37 @@ var fn_logout = function () {
 						style="margin-top:5px; height: 30px; width: 140px; 
 							font-size: 14pt; font-family:headline;
 							padding-top:1px; padding-bottom:1px;">
-							<option value="">전체</option>
+							<option value="0">ALL</option>
 							<option value="1">Q01-HN01</option>
 							<option value="2">Q01-HN02</option>
 							<option value="3">Q01-HN03</option>
 							<option value="4">Q01-HN04</option>
 							<option value="5">Q01-HN05</option>
 							<option value="6">Q01-HN06</option>
+							
 						</select>
 					</div>
+					<!-- <div class="form-group">
+						<label class="control-label" style="font-size: 14pt; font-family:headline; 
+						color:#8C8C8C; width: 80px; text-align: right;">존 구분 : </label>
+					</div>
+					설비명
+					<div class="form-group">
+						<select class="form-control input-sm datepicker" id="s_zone" name="s_zone" 
+						style="margin-top:5px; height: 30px; width: 140px; 
+							font-size: 14pt; font-family:headline;
+							padding-top:1px; padding-bottom:1px;">
+							<option value="q1">소입1존</option>
+							<option value="q2">소입2존</option>
+							<option value="q3">소입3존</option>
+							<option value="q4">소입4존</option>
+							<option value="q5">소입5존</option>
+							<option value="t1">소려1존</option>
+							<option value="t2">소려2존</option>
+							<option value="t3">소려3존</option>
+							<option value="t4">소려4존</option>
+						</select>
+					</div> -->
 					
 					
 					<div class="form-group">
@@ -340,40 +363,50 @@ var fn_logout = function () {
             
             
             <div id="collapse4" class="body">
-               <table id="o2sensor_list" cellspacing="0" class="table table-bordered table-hover table-responsive scrolltbody">
+               <table id="thermo_list" cellspacing="0" class="table table-bordered table-hover table-responsive scrolltbody">
 					<thead>
-						<tr>		
+						<tr>					
 							<th class="text-center cell" 
-								style="background-color:#24FCFF; width: 120px; height: 50px; 
+								style="background-color:#24FCFF; width: 60px; height: 30px; 
+									font-size: 16pt; font-family:headline;">
+								No.
+							</th>
+							<th class="text-center cell" 
+								style="background-color:#24FCFF; width: 120px; height: 30px; 
 								font-size: 16pt; font-family:headline;">
 								설비명
-							</th>						
+							</th>
 							<th class="text-center cell" 
-								style="background-color:#24FCFF; width: 200px; height: 50px; 
+								style="background-color:#24FCFF; width: 140px; height: 30px; 
 								font-size: 16pt; font-family:headline;">
-								교체일자
+								존 구분
+							</th>							
+							<th class="text-center cell" 
+								style="background-color:#24FCFF; width: 200px; height: 30px; 
+								font-size: 16pt; font-family:headline;">
+								시리얼 번호
 							</th>
 
 							<th class="text-center cell" 
-								style="background-color:#24FCFF; width: 350px; height: 50px; 
+								style="background-color:#24FCFF; width: 160px; height: 30px; 
 								font-size: 16pt; font-family:headline;">
-								성적서 파일명
+								교체일자
 							</th>						
 							<th class="text-center cell" 
-								style="background-color:#24FCFF; width: 250px; height: 50px; 
+								style="background-color:#24FCFF; width: 160px; height: 30px; 
 								font-size: 16pt; font-family:headline;">
-								성적서 보기
+								차기 교체일자
 							</th>	
 							<th class="text-center cell" 
-								style="background-color:#24FCFF; width: 250px; height: 50px; 
+								style="background-color:#24FCFF; width: 330px; height: 30px; 
 								font-size: 16pt; font-family:headline;">
-								성적서 수정
+								비고
 							</th>							
 																																																																											
 						</tr>
 					</thead>	
 									
-					<tbody id="o2sensor_contents">
+					<tbody id="thermo_contents">
 						
 					</tbody>
 				</table>
@@ -408,19 +441,37 @@ var fn_logout = function () {
       					<td style="padding-bottom:30px;">&nbsp;</td>
       					<td>&nbsp;</td>
      				</tr>
+     				<tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>  				
+  				
+    				<tr>
+      					<td><label class="control-label col-lg-4" 
+      						style="padding-top:3px; width: 160px; text-align: right; 
+      						font-size:14pt; font-family: headline;">
+      						<span class="asteriskField"></span>존 구분</label></td>   
+      					<td>
+						<input type="text" class="form-control input-sm" 
+						id="i_zone" name="i_zone" 
+      					style="width: 340px; height: 34px; 
+      					font-size: 14pt; font-family: headline;
+      					background-color:white;" 
+      					placeholder="존 구분" readonly="readonly"/></td> 
+      					<td style="padding-bottom:30px;">&nbsp;</td>
+      					<td>&nbsp;</td>
+     				</tr>
+     				
      				<tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>
 
                     <tr>
       					<td><label class="control-label col-lg-4" 
       						style="padding-top:3px; width: 160px; text-align: right; 
       						font-size:14pt; font-family: headline;">
-      						<span class="asteriskField"></span>이전 교체일자</label></td>    			
-      					<td><input type="text" class="form-control input-sm datepicker" 
-      					id="i_bdate" name="i_bdate" 
+      						<span class="asteriskField"></span>시리얼 번호</label></td>    			
+      					<td><input type="text" class="form-control input-sm" 
+      					id="i_serial" name="i_serial" 
       					style="width: 340px; height: 34px; 
       					font-size: 14pt; font-family: headline;" 
-      					placeholder="이전교체일자"
-      					onkeyup="auto_date_format(event, this);"/></td> 
+      					placeholder="시리얼 번호"
+      					/></td> 
       					<td style="padding-bottom:30px;">&nbsp;</td>
       					<td>&nbsp;</td>
      				</tr>
@@ -449,12 +500,12 @@ var fn_logout = function () {
       					style="padding-top:3px; width: 160px; text-align: right; 
       					font-size:14pt; font-family: headline;">
       						<span class="asteriskField"></span>차기 교체일자</label></td>    			
-      					<td><input type="text" class="form-control input-sm" 
+      					<td><input type="text" class="form-control input-sm datepicker" 
       					id="i_ndate" name="i_ndate" 
       					style="width: 340px; height: 34px; 
       					font-size: 14pt; font-family: headline; 
       					background-color:white;" 
-      					placeholder="차기 교체일자" readonly="readonly"
+      					placeholder="차기 교체일자" 
       					onkeyup="auto_date_format(event, this);"/></td> 
       					<td style="padding-bottom:30px;">&nbsp;</td>
       					<td>&nbsp;</td>
@@ -462,7 +513,7 @@ var fn_logout = function () {
 
      				<tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>
      				
-                    <tr>
+                    <%-- <tr>
       					<td><label class="control-label col-lg-4" 
       						style="padding-top:3px; width: 160px; text-align: right; 
       						font-size:14pt;">
@@ -478,18 +529,19 @@ var fn_logout = function () {
 		      						style="width: 280px; height: 34px; margin-left:15px; font-size: 14pt;
 		      						padding-top:1px; padding-bottom:1px;">성적서 첨부</button>
 		      				</c:if>
+
       					</td> 
       					
       					<td style="padding-bottom:30px;">&nbsp;</td>
       					<td>&nbsp;</td>
      				</tr>
-     				<tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>     			     				
+     				<tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>      --%>			     				
     				
                     <tr>
       					<td><label class="control-label col-lg-4" 
-      						style="padding-top:3px; width: 150px; text-align: right; 
-      						font-size:14pt; font-family: headline; padding-right:0;">
-      						<span class="asteriskField"></span>비고(특기사항)</label></td>    			
+      						style="padding-top:3px; width: 130px; text-align: right; 
+      						font-size:14pt; font-family: headline;">
+      						<span class="asteriskField"></span>비고</label></td>    			
       					<td><textarea class="form-control input-sm" id="i_bigo" name="i_bigo" 
       					style="width: 340px; height: 110px; font-size: 14pt; 
       					 font-family: headline;resize:none;"  
@@ -501,40 +553,37 @@ var fn_logout = function () {
      				
 	 			</table>
 	 			<table>
-     				<tr>   		
-     					<c:if test="${sessionScope.sid != 'worker' }">	
-	     					<td colspan="2" style="display: inline-block; padding-left:10px; padding-bottom:8px; padding-top:8px;">
+     				<tr>   				
+     					<td colspan="2" style="display: inline-block; padding-left:10px; padding-bottom:8px; padding-top:8px;">
+     						<c:if test="${sessionScope.sid != 'worker' }">
 								<button id="saveBtn" class="btn btn-default btn-sm" type="button" 
 									style="width: 100px; height:40px; padding-top:1px; padding-bottom:1px; 
 									font-size: 14pt; font-family: headline; font-weight:700; margin-left:60px;">
 								<i class="fa fa-floppy-o"></i>  저 장</button>
-	        				</td>
-	
-	     					<td colspan="2" style="display: inline-block; padding-left:10px; padding-bottom:8px; padding-top:8px;">
+							</c:if>
+     						<c:if test="${sessionScope.sid == 'worker' }">
+								<button class="btn btn-default btn-sm" type="button" disabled="disabled"
+									style="width: 100px; height:40px; padding-top:1px; padding-bottom:1px; 
+									font-size: 14pt; font-family: headline; font-weight:700; margin-left:60px;">
+								<i class="fa fa-floppy-o"></i>  저 장</button>
+							</c:if>
+        				</td>
+
+     					<td colspan="2" style="display: inline-block; padding-left:10px; padding-bottom:8px; padding-top:8px;">
+     						<c:if test="${sessionScope.sid != 'worker' }">
 								<button id="editBtn" class="btn btn-default btn-sm" type="button" 
 									style="width: 100px; height:40px; padding-top:1px; padding-bottom:1px; 
 									font-size: 14pt; font-family: headline; font-weight:700; margin-left:40px;">
 								<i class="fa fa-pencil-square-o"></i>  수 정</button>
-	        				</td>
-        				</c:if>
-
-     					<c:if test="${sessionScope.sid == 'worker' }">
-	     					<td colspan="2" style="display: inline-block; padding-left:10px; padding-bottom:8px; padding-top:8px;">
-								<button class="btn btn-default btn-sm" type="button" disabled="disabled" 
-									style="width: 100px; height:40px; padding-top:1px; padding-bottom:1px; 
-									font-size: 14pt; font-family: headline; font-weight:700; margin-left:60px;">
-								<i class="fa fa-floppy-o"></i>  저 장</button>
-	        				</td>
-	
-	     					<td colspan="2" style="display: inline-block; padding-left:10px; padding-bottom:8px; padding-top:8px;">
+							</c:if>
+							<c:if test="${sessionScope.sid == 'worker' }">
 								<button class="btn btn-default btn-sm" type="button" disabled="disabled"
 									style="width: 100px; height:40px; padding-top:1px; padding-bottom:1px; 
 									font-size: 14pt; font-family: headline; font-weight:700; margin-left:40px;">
-								<i class="fa fa-pencil-square-o"></i>  수 정</button>
-	        				</td>
-        				</c:if>
-
-
+								<i class="fa fa-pencil-square-o"></i>  수 정</button>							
+							</c:if>
+        				</td>
+        								
       					<td colspan="2" style="display: inline-block; padding-left:10px;  padding-bottom:8px; padding-top:8px;">
         					<button class="btn btn-default btn-sm" type="button" 
         					style="width: 120px; height:40px; padding-top:1px; padding-bottom:1px;
@@ -587,7 +636,7 @@ var fn_logout = function () {
     });	
 	
 /*전역변수*/	
-var sid;
+
 /*인터벌*/
 	
 	
@@ -603,7 +652,7 @@ $(function(){
 		$("#s_date").append("<option value='"+y_value+"'>"+y_value+"년</option>");	
 	}
 	
-	sid = '<%=session.getAttribute("sid")%>';
+	
 	$("#s_date").val(now.toISOString().substring(0, 4));
 	getYearCount();
 	
@@ -688,6 +737,7 @@ function init(){
 	
 	var cntArray = new Array();
 	function getDetailList(){
+		var sid = '<%=session.getAttribute("sid")%>';
 		$.ajax({
 			type : "POST",
 			url : "m02/s05/select_m02s05.jsp",
@@ -706,41 +756,45 @@ function init(){
 						var fname_b =  rsAr[i].filename.substring(rsAr[i].filename.lastIndexOf('.'),rsAr[i].filename.length);						
 						cntArray[i] = rsAr[i].cnt;
 						listHtml += "<tr>";
-						listHtml += '<td class="nr" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+rsAr[i].cnt+'</td>';
-						listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].hogi+'</td>';						
-						listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 200px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].change_date+'</td>';
-						listHtml += '<td class="nr6" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 350px; word-break:break-all; font-size:15pt; font-family:headline;">'+fname_a+fname_b+'</td>';
+						listHtml += '<td class="nr" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+rsAr[i].cnt+'</td>';
+						listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline;">'+(i+1)+'</td>';
+						listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].hogi+'</td>';
+						listHtml += '<td class="nr5" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].seolbi+'</td>';						
+						listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 200px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].serial_no+'</td>';
+						listHtml += '<td class="nr6" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 160px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].change_date+'</td>';
 						
-						listHtml += '<td class="nr7" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 350px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+rsAr[i].filename+'</td>';
+						listHtml += '<td class="nr7" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 300px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+rsAr[i].filename+'</td>';
+						listHtml += '<td class="nr8" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 160px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].change_ndate+'</td>';
+						listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 330px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].bigo1+'</td>';
 					
-						if(rsAr[i].file_yn == 'Y'){
-							listHtml += '<td class="nr8" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 250px; word-break:break-all; font-size:14pt; font-family:headline;">'+
+						/* if(rsAr[i].file_yn == 'Y'){
+							listHtml += '<td class="nr8" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline;">'+
 							'<button type="button" class="btn btn-default" onclick=viewFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true; style="width:160px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-search"></i>성적서보기</button>'
-							+'</td>';
+							+'</td>';								
 						}else{
-							listHtml += '<td class="nr8" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 250px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';							
+							listHtml += '<td class="nr8" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';							
 						}
 
 						if(rsAr[i].file_yn == 'Y'){
 							if(sid != "worker"){
-								listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 250px; word-break:break-all; font-size:14pt; font-family:headline;">'+
+								listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline;">'+
 								'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true; style="width:160px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-remove"></i>성적서수정</button>'
 								+'</td>';
 							}else{
-								listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 250px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';
+								listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';
 							}
 						}else{
-							listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 250px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';							
-						}						
+							listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';							
+						} */						
 						
 						
-						listHtml += '<td class="nr10" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 60px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].change_bdate+'</td>';
-						listHtml += '<td class="nr11" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 60px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].change_ndate+'</td>';
-						listHtml += '<td class="nr12" style="text-align: center; vertical-align: middle; padding: 1px; height: 90px; width: 60px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].bigo1+'</td>';
+						listHtml += '<td class="nr10" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].serial_no+'</td>';
+						listHtml += '<td class="nr11" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].change_ndate+'</td>';
+						listHtml += '<td class="nr12" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+rsAr[i].bigo1+'</td>';
 						listHtml += "</tr>";						
 					}					
 					
-					$("#o2sensor_list tbody").html(listHtml);
+					$("#thermo_list tbody").html(listHtml);
 				} else if (rsJson && rsJson.status == "fail") {
 					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
 				} else {
@@ -838,7 +892,7 @@ function init(){
 		stack:false,
 		buttons:{
 			"삭 제":function(){
-				$.post("m02/s05/delete_m02s05_file.jsp",{
+				$.post("m02/s05/delete_m02s05.jsp",{
 					"cnt":fileDel_cnt
 				},250);
 				
@@ -892,6 +946,7 @@ function init(){
 					var rsAr = rsJson.rows;		
 					
 					
+					// var _iframe = "<iframe src='/JINHAP_OFFICE/upload/"+rsAr[0].filename+"' style='width:100%; height:780px;'></iframe>";
 					var _iframe = "<iframe src='/JINHAP_OFFICE/file/m02s05/"+rsAr[0].filename+"' style='width:100%; height:780px;'></iframe>";
 					
 					
@@ -904,6 +959,7 @@ function init(){
 				} else {
 					alert("에러발생!");
 				}
+				
 //				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
 				
 			},	// success 끝
@@ -939,7 +995,7 @@ $("#s_hogi").change(function(){
 });
 
 
-$("#o2sensor_contents").delegate('tr','click', function() {
+$("#thermo_contents").delegate('tr','click', function() {
 	
 	
 	var $row = $(this).closest("tr"),
@@ -961,12 +1017,11 @@ $("#o2sensor_contents").delegate('tr','click', function() {
 		
 		
 		
-		$("#i_date").val($nr3);
-		$("#i_bdate").val($nr10);
+		$("#i_date").val($nr6);
+		$("#i_serial").val($nr10);
 		$("#i_ndate").val($nr11);
 		$("#i_hogi").val($nr4);
 		$("#i_zone").val($nr5);
-		
 		$("#i_bigo").val($nr12);
 		
 		if($nr7 == ''){
@@ -982,7 +1037,7 @@ $("#o2sensor_contents").delegate('tr','click', function() {
 		}
 		
 	var index = 0;
-	$("#o2sensor_contents > tr").each(function(){
+	$("#thermo_contents > tr").each(function(){
 		if($nr == cntArray[index]){
 			$(this).css("background-color","#B2CCFF");						
 		}else{						
@@ -1000,8 +1055,9 @@ $("#o2sensor_contents").delegate('tr','click', function() {
 	$("#saveBtn").on("click",function(){
 		$("#alertSpan").text("저장되었습니다.");
 		var ihogi = $("#i_hogi").val();
+		var izone = $("#i_zone").val();
 		
-		if(ihogi == ''){
+		if(ihogi == '' && izone == ''){
 			
 			return;
 		}
@@ -1029,7 +1085,7 @@ $("#o2sensor_contents").delegate('tr','click', function() {
 		
 		$.post("m02/s05/insert_m02s05.jsp",{
 			"cnt":$("#i_cnt").val(),
-			"bdate":$("#i_bdate").val(),
+			"serial":$("#i_serial").val(),
 			"ndate":$("#i_ndate").val(),
 			"date1":$("#i_date").val(),
 			"bigo":$("#i_bigo").val()
@@ -1048,8 +1104,9 @@ $("#o2sensor_contents").delegate('tr','click', function() {
 	$("#editBtn").on("click",function(){
 		$("#alertSpan").text("수정되었습니다.");
 		var ihogi = $("#i_hogi").val();
+		var izone = $("#i_zone").val();
 		
-		if(ihogi == ''){
+		if(ihogi == '' && izone == ''){
 			
 			return;
 		}
@@ -1105,12 +1162,7 @@ $("#o2sensor_contents").delegate('tr','click', function() {
 		if(i_date != ''){
 //now.toISOString().substring(0, 4)+"-"+now.toISOString().substring(5, 7)+"-"+now.toISOString().substring(8, 10)			
 			var nDate = new Date(i_date);
-			var nYear;
-			if($("#i_hogi").val() == "침탄로"){
-				nYear = nDate.getFullYear()+1;
-			}else{
-				nYear = nDate.getFullYear()+2;	
-			}
+			var nYear = nDate.getFullYear()+1;
 			var nMonth = (nDate.getMonth()+1);
 			var rMonth = "";
 			if(nMonth <=9){
@@ -1127,7 +1179,7 @@ $("#o2sensor_contents").delegate('tr','click', function() {
 				rDay = nDay;
 			}
 			
-			$("#i_ndate").val(nYear+"-"+rMonth);
+			$("#i_ndate").val(nYear+"-"+rMonth+"-"+rDay);
 			
 		}else{
 			$("#i_ndate").val("");

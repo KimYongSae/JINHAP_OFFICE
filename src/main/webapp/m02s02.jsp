@@ -314,12 +314,37 @@ var fn_logout = function () {
 						style="margin-top:5px; height: 30px; width: 140px; 
 							font-size: 14pt; font-family:headline;
 							padding-top:1px; padding-bottom:1px;">
-							<option value="">설비 선택</option>
-							<option value="q">소입로</option>
-							<option value="t">소려로</option>
+							<option value="0">ALL</option>
+							<option value="1">Q01-HN01</option>
+							<option value="2">Q01-HN02</option>
+							<option value="3">Q01-HN03</option>
+							<option value="4">Q01-HN04</option>
+							<option value="5">Q01-HN05</option>
+							<option value="6">Q01-HN06</option>
 							
 						</select>
 					</div>
+					<!-- <div class="form-group">
+						<label class="control-label" style="font-size: 14pt; font-family:headline; 
+						color:#8C8C8C; width: 80px; text-align: right;">존 구분 : </label>
+					</div>
+					설비명
+					<div class="form-group">
+						<select class="form-control input-sm datepicker" id="s_zone" name="s_zone" 
+						style="margin-top:5px; height: 30px; width: 140px; 
+							font-size: 14pt; font-family:headline;
+							padding-top:1px; padding-bottom:1px;">
+							<option value="q1">소입1존</option>
+							<option value="q2">소입2존</option>
+							<option value="q3">소입3존</option>
+							<option value="q4">소입4존</option>
+							<option value="q5">소입5존</option>
+							<option value="t1">소려1존</option>
+							<option value="t2">소려2존</option>
+							<option value="t3">소려3존</option>
+							<option value="t4">소려4존</option>
+						</select>
+					</div> -->
 					
 					
 					<div class="form-group">
@@ -357,25 +382,25 @@ var fn_logout = function () {
 								존 구분
 							</th>							
 							<th class="text-center cell" 
-								style="background-color:#24FCFF; width: 140px; height: 30px; 
+								style="background-color:#24FCFF; width: 200px; height: 30px; 
 								font-size: 16pt; font-family:headline;">
-								교체일자
+								시리얼 번호
 							</th>
 
 							<th class="text-center cell" 
-								style="background-color:#24FCFF; width: 300px; height: 30px; 
+								style="background-color:#24FCFF; width: 160px; height: 30px; 
 								font-size: 16pt; font-family:headline;">
-								성적서 파일명
+								교체일자
 							</th>						
 							<th class="text-center cell" 
-								style="background-color:#24FCFF; width: 180px; height: 30px; 
+								style="background-color:#24FCFF; width: 160px; height: 30px; 
 								font-size: 16pt; font-family:headline;">
-								성적서 보기
+								차기 교체일자
 							</th>	
 							<th class="text-center cell" 
-								style="background-color:#24FCFF; width: 180px; height: 30px; 
+								style="background-color:#24FCFF; width: 330px; height: 30px; 
 								font-size: 16pt; font-family:headline;">
-								성적서 수정
+								비고
 							</th>							
 																																																																											
 						</tr>
@@ -440,13 +465,13 @@ var fn_logout = function () {
       					<td><label class="control-label col-lg-4" 
       						style="padding-top:3px; width: 160px; text-align: right; 
       						font-size:14pt; font-family: headline;">
-      						<span class="asteriskField"></span>이전 교체일자</label></td>    			
-      					<td><input type="text" class="form-control input-sm datepicker" 
-      					id="i_bdate" name="i_bdate" 
+      						<span class="asteriskField"></span>시리얼 번호</label></td>    			
+      					<td><input type="text" class="form-control input-sm" 
+      					id="i_serial" name="i_serial" 
       					style="width: 340px; height: 34px; 
       					font-size: 14pt; font-family: headline;" 
-      					placeholder="이전교체일자"
-      					onkeyup="auto_date_format(event, this);"/></td> 
+      					placeholder="시리얼 번호"
+      					/></td> 
       					<td style="padding-bottom:30px;">&nbsp;</td>
       					<td>&nbsp;</td>
      				</tr>
@@ -475,12 +500,12 @@ var fn_logout = function () {
       					style="padding-top:3px; width: 160px; text-align: right; 
       					font-size:14pt; font-family: headline;">
       						<span class="asteriskField"></span>차기 교체일자</label></td>    			
-      					<td><input type="text" class="form-control input-sm" 
+      					<td><input type="text" class="form-control input-sm datepicker" 
       					id="i_ndate" name="i_ndate" 
       					style="width: 340px; height: 34px; 
       					font-size: 14pt; font-family: headline; 
       					background-color:white;" 
-      					placeholder="차기 교체일자" readonly="readonly"
+      					placeholder="차기 교체일자" 
       					onkeyup="auto_date_format(event, this);"/></td> 
       					<td style="padding-bottom:30px;">&nbsp;</td>
       					<td>&nbsp;</td>
@@ -488,7 +513,7 @@ var fn_logout = function () {
 
      				<tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>
      				
-                    <tr>
+                    <%-- <tr>
       					<td><label class="control-label col-lg-4" 
       						style="padding-top:3px; width: 160px; text-align: right; 
       						font-size:14pt;">
@@ -510,7 +535,7 @@ var fn_logout = function () {
       					<td style="padding-bottom:30px;">&nbsp;</td>
       					<td>&nbsp;</td>
      				</tr>
-     				<tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>     			     				
+     				<tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>      --%>			     				
     				
                     <tr>
       					<td><label class="control-label col-lg-4" 
@@ -735,12 +760,14 @@ function init(){
 						listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline;">'+(i+1)+'</td>';
 						listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].hogi+'</td>';
 						listHtml += '<td class="nr5" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].seolbi+'</td>';						
-						listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].change_date+'</td>';
-						listHtml += '<td class="nr6" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 300px; word-break:break-all; font-size:15pt; font-family:headline;">'+fname_a+fname_b+'</td>';
+						listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 200px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].serial_no+'</td>';
+						listHtml += '<td class="nr6" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 160px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].change_date+'</td>';
 						
 						listHtml += '<td class="nr7" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 300px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+rsAr[i].filename+'</td>';
+						listHtml += '<td class="nr8" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 160px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].change_ndate+'</td>';
+						listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 330px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].bigo1+'</td>';
 					
-						if(rsAr[i].file_yn == 'Y'){
+						/* if(rsAr[i].file_yn == 'Y'){
 							listHtml += '<td class="nr8" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:14pt; font-family:headline;">'+
 							'<button type="button" class="btn btn-default" onclick=viewFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true; style="width:160px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-search"></i>성적서보기</button>'
 							+'</td>';								
@@ -758,10 +785,10 @@ function init(){
 							}
 						}else{
 							listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 180px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';							
-						}						
+						} */						
 						
 						
-						listHtml += '<td class="nr10" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].change_bdate+'</td>';
+						listHtml += '<td class="nr10" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].serial_no+'</td>';
 						listHtml += '<td class="nr11" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:16pt; font-family:headline; display:none;">'+rsAr[i].change_ndate+'</td>';
 						listHtml += '<td class="nr12" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+rsAr[i].bigo1+'</td>';
 						listHtml += "</tr>";						
@@ -990,8 +1017,8 @@ $("#thermo_contents").delegate('tr','click', function() {
 		
 		
 		
-		$("#i_date").val($nr3);
-		$("#i_bdate").val($nr10);
+		$("#i_date").val($nr6);
+		$("#i_serial").val($nr10);
 		$("#i_ndate").val($nr11);
 		$("#i_hogi").val($nr4);
 		$("#i_zone").val($nr5);
@@ -1058,7 +1085,7 @@ $("#thermo_contents").delegate('tr','click', function() {
 		
 		$.post("m02/s02/insert_m02s02.jsp",{
 			"cnt":$("#i_cnt").val(),
-			"bdate":$("#i_bdate").val(),
+			"serial":$("#i_serial").val(),
 			"ndate":$("#i_ndate").val(),
 			"date1":$("#i_date").val(),
 			"bigo":$("#i_bigo").val()
@@ -1152,7 +1179,7 @@ $("#thermo_contents").delegate('tr','click', function() {
 				rDay = nDay;
 			}
 			
-			$("#i_ndate").val(nYear+"-"+rMonth);
+			$("#i_ndate").val(nYear+"-"+rMonth+"-"+rDay);
 			
 		}else{
 			$("#i_ndate").val("");

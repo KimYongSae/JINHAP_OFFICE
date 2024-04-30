@@ -16,7 +16,7 @@
 	request.setCharacterEncoding("UTF-8");
 
 	int cnt = Integer.parseInt(request.getParameter("cnt"));
-	String bdate = request.getParameter("bdate");
+	String serial = request.getParameter("serial");
 	String ndate = request.getParameter("ndate");
 	String date1 = request.getParameter("date1");
 	String bigo = request.getParameter("bigo");
@@ -24,14 +24,13 @@
 	StringBuffer u_sql = new StringBuffer();
 
 	PreparedStatement pstmt = null;
-	Statement stmt = null;
-	ResultSet rs = null;
+	
 	try
 	{
-		u_sql.append("UPDATE tb_o2sensor SET change_bdate = '"+bdate+"', ");
+		u_sql.append("update tb_o2sensor set serial_no = '"+serial+"', ");
 		u_sql.append("change_ndate = '"+ndate+"', change_date = '"+date1+"', ");
 		u_sql.append("bigo1 = '"+bigo+"' ");
-		u_sql.append("WHERE cnt = "+cnt+" ");
+		u_sql.append("where cnt = "+cnt+" ");
 		
 		pstmt = conn.prepareStatement(u_sql.toString());
 		pstmt.executeUpdate();
@@ -45,8 +44,6 @@
 	}
 	finally
 	{
-		if(stmt != null) try {stmt.close();}catch(SQLException sqle){}
-		if(rs != null) try {rs.close();}catch(SQLException sqle){}
 		if(pstmt != null) try {pstmt.close();}catch(SQLException sqle){}
 		if(conn != null) try {conn.close();}catch(SQLException sqle){}
 	}

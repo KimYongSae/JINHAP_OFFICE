@@ -24,8 +24,8 @@
 	JSONObject mainObj = new JSONObject();  
 	 //ARG_ROSLT : 0100, ARG_FDATE : 20200422 
 	 
-	sql.append("SELECT hogi, azone, bzone, odate AS date, tdate, ");
-	sql.append("oval AS val, tval, special, ");
+	sql.append("SELECT hogi, azone, bzone, odate AS date, tdate, bdate, ");
+	sql.append("oval AS val, tval, bval, special, ");
 	sql.append("bigo, year1 ");
 	sql.append("FROM tb_temperature_temper ");
 	sql.append("WHERE 1=1 ");
@@ -53,16 +53,20 @@
 		    		 
 		    		 rowObj.put(b_val+"_date",rs.getString("date"));
 		    		 rowObj.put(b_val+"_tdate",rs.getString("tdate"));
+		    		 rowObj.put(b_val+"_bdate",rs.getString("bdate"));
 		    		 rowObj.put(rs.getString("hogi")+"_special",rs.getString("special"));
 		    		 
 		    		 rowObj.put(a_val+"_date",rs.getString("date"));
 		    		 rowObj.put(a_val+"_tdate",rs.getString("tdate"));
+		    		 rowObj.put(a_val+"_bdate",rs.getString("bdate"));
 
 		    		 rowObj.put(b_val+"_val",rs.getString("val"));
 		    		 rowObj.put(b_val+"_tval",rs.getString("tval"));
+		    		 rowObj.put(b_val+"_bval",rs.getString("bval"));
 		    		 
 		    		 rowObj.put(a_val+"_val",rs.getString("val"));
 		    		 rowObj.put(a_val+"_tval",rs.getString("tval"));
+		    		 rowObj.put(a_val+"_bval",rs.getString("bval"));
 		    		 
 
 					

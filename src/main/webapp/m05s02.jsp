@@ -38,6 +38,8 @@
 <link rel="stylesheet" href="resources/css/font-awesome.min.css">
 <link rel="stylesheet" href="resources/css/font-awesome.css">
 
+<script src="resources/js/select2.min.js"></script>
+<link rel="stylesheet" href="resources/css/select2.min.css" />
 
 <link rel="stylesheet" href="resources/css/table_font_size.css"/>
 
@@ -167,7 +169,7 @@
 		width: 70px;
 	}
 	.nr2{
-		width: 200px;
+		width: 210px;
 	}
 	.nr3{
 		width: 320px;
@@ -353,15 +355,15 @@ var fn_logout = function () {
 								width: 50px; text-align: right;font-weight:700;">LOT : </label>
 						</div>											
 						<div class="form-group">
-							<select class="form-control" name="pnum" ID="pnum" style="color:#8C8C8C !important; padding-top: 4px; margin-top:5px; width:200px; height:30px; font-size:14px;"></select>
+							<select class="form-control" name="lot" ID="lot" style="color:#8C8C8C !important; padding-top: 4px; margin-top:5px; width:200px; height:30px; font-size:14px;"></select>
 						</div>
 						<div class="form-group">
 							<label class="control-label" 
 							style="font-size: 14pt; font-family:headline; color:#8C8C8C; 
-								width: 50px; text-align: right;font-weight:700;">품번 : </label>
+								width: 50px; text-align: right;font-weight:700;">품명 : </label>
 						</div>											
 						<div class="form-group">
-							<select class="form-control" name="pnum" ID="pnum" style="color:#8C8C8C !important; padding-top: 4px; margin-top:5px; width:200px; height:30px; font-size:14px;"></select>
+							<select class="form-control" name="pname" ID="pname" style="color:#8C8C8C !important; padding-top: 4px; margin-top:5px; width:200px; height:30px; font-size:14px;"></select>
 						</div>
 						<div class="form-group">
 							&nbsp;&nbsp;
@@ -390,7 +392,7 @@ var fn_logout = function () {
 								No.
 							</th>
 							<th class="text-center cell" 
-								style="width: 200px; height: 70px; 
+								style="width: 210px; height: 70px; 
 								font-size: 16pt; font-family:headline; font-weight:700;
 								">
 								LOT
@@ -398,7 +400,7 @@ var fn_logout = function () {
 							<th class="text-center cell" 
 								style="width: 320px; height: 70px; 
 								font-size: 16pt; font-family:headline; font-weight:700;">
-								품번
+								품명
 							</th>							
 							<th class="text-center cell" 
 								style="width: 250px; height: 70px; 
@@ -490,6 +492,7 @@ var fn_logout = function () {
  $(function(){
 	fn_check();
 	date_search();
+	getSelect();
 }); 
 	
 /*함수*/	
@@ -601,7 +604,9 @@ function getLotData(){
           	"edate":$("#e_date").val(),
           	"stime":$("#s_time").val(),
           	"etime":$("#e_time").val(),
-			"hogi":$("#hogi").val()
+			"hogi":$("#hogi").val(),
+			"lot":$("#lot").val(),
+			"pname":$("#pname").val()
        	},
        	success : function(rsJson) {
 			if (rsJson && rsJson.status == "ok") {
@@ -612,7 +617,8 @@ function getLotData(){
 						listHtml += "<tr>";
 						listHtml += '<td class="nr1 text-center cell">'+(i+1)+'</td>';
 						listHtml += '<td class="nr2 text-center cell" >'+rsAr[i].lot+'</td>';
-						listHtml += '<td class="nr3 text-center cell" >'+rsAr[i].pnum+'</td>';
+						//listHtml += '<td class="nr3 text-center cell" >'+rsAr[i].pnum+'</td>';
+						listHtml += '<td class="nr3 text-center cell" >'+rsAr[i].pname+'</td>';
 						listHtml += '<td class="nr4 text-center cell" >'+rsAr[i].barcode+'</td>';
 						listHtml += '<td class="nr5 text-center cell" ></td>';
 						listHtml += '<td class="nr6 text-center cell" ></td>';
@@ -643,6 +649,86 @@ function getLotData(){
 	});
 }
 
+var getSelect = function() {
+	console.log(boxId);
+	$
+			.ajax({
+				type : "POST",
+				url : "m05/s02/list_m05s02.jsp",
+				cache : false,
+				dataType : "json",
+				data : {
+					'time' : new Date().getTime(),
+					'hogi' : $('#hogi').val(),
+					'lot' : $('#lot').val(),
+					'pname' : $('#pname').val()
+				},
+				success : function(rsJson) {
+					if (rsJson && rsJson.status == "ok") {
+						var rsLot = rsJson.lot;
+						var rsPname = rsJson.pname;
+
+
+						// 로트를 업데이트하는 함수
+						function updateLot(rsLot) {
+							var lotHtml = "";
+							if ($.isArray(rsLot)) {
+								lotHtml += "<option value='0'>All</option>";
+								for (var i = 0; i < rsLot.length; i++) {
+									lotHtml += "<option value='" + rsLot[i].lot + "'>"
+											+ rsLot[i].lot
+											+ "</option>";
+								}
+							} else {
+								lotHtml += "<option value='0'>로트가 없습니다.</option>";
+							}
+							$("#lot").empty().append(lotHtml);
+							$("#lot").select2();
+						}
+
+						// 품명을 업데이트하는 함수
+						function updatePname(rsPname) {
+							var pnameHtml = "";
+							if ($.isArray(rsPname)) {
+								pnameHtml += "<option value='0'>All</option>";
+								for (var i = 0; i < rsPname.length; i++) {
+									pnameHtml += "<option value='" + rsPname[i].pname + "'>"
+											+ rsPname[i].pname
+											+ "</option>";
+								}
+							} else {
+								pnameHtml += "<option value='0'>품명이 없습니다.</option>";
+							}
+							$("#pname").empty().append(pnameHtml);
+							$("#pname").select2();
+						}
+
+
+						if (boxId == "lot") {
+							updatePname(rsPname);
+						} else if(boxId == "pname") {
+							;;
+						} else{
+							console.log("dd");
+							updatePname(rsPname);
+							updateLot(rsLot);
+						}
+
+					} else if (rsJson && rsJson.status == "fail") {
+						alert("데이터 불러오는 중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
+					} else {
+						alert("에러 발생!");
+					}
+				},
+				error : function(req, status) {
+					if (req.status == 0 || status == "timeout") {
+						alert("네트워크 연결 확인 후 다시 시도해주세요.");
+					} else {
+						alert("처리 중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
+					}
+				},
+			});
+};
 
 
 	
@@ -652,6 +738,22 @@ function getLotData(){
 $("#searchbtn").on("click",function(){
 	getLotData();
 });
+
+
+var boxId = "";
+$('#hogi').change(function() {
+	boxId = "hogi";
+	getSelect();
+});
+$('#lot').change(function() {
+	boxId = "lot";
+	getSelect();
+});
+$('#pname').change(function() {
+	boxId = "pname";
+	getSelect();
+});
+
 /*다이얼로그*/
 
 

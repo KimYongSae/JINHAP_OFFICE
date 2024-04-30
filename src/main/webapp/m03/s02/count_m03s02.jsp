@@ -13,10 +13,10 @@
 	StringBuffer s_sql = new StringBuffer();
 
 	CallableStatement cstmt = null;
-
+	
 	try
 	{
-		cstmt = conn.prepareCall("{call sp_tus_file_set(?) }");
+		cstmt = conn.prepareCall("{call sp_tus_set(?) }");
 		cstmt.setString(1,tdate);
 		
 		cstmt.executeUpdate();

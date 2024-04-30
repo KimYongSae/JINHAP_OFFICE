@@ -20,7 +20,7 @@
 <%   
     // 설정값
     String uploadPath = request.getRealPath("/") + "upload";
-    //String uploadPath = "D:/file/m03s02";
+    //String uploadPath = "D:/file/m03s03";
     int maxSize = 30 * 1024 * 1024 ;
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
     Date currentDate = new Date();
@@ -51,7 +51,7 @@
 %> 
 
 <%
- PreparedStatement pstmt = null;
+	 PreparedStatement pstmt = null;
 	StringBuffer u_sql = new StringBuffer();
 try{
 
@@ -64,15 +64,56 @@ try{
 	String tdate = sdf_date1.format(currentDate);
 	String filename = renamedFileName;
 
-	
-	if(gb == 1){
-		u_sql.append("UPDATE tb_tus_file SET filename_t = '"+filename+"', file_yn_t = 'Y' ");
-	}else{
-		u_sql.append("UPDATE tb_tus_file SET filename_b = '"+filename+"', file_yn_b = 'Y' ");
-	}
-			
+	switch(gb){
+		case 1: 
+			u_sql.append("UPDATE tb_tus SET filename_"+gb+" = '"+filename+"', file_yn_"+gb+"='Y' ");
 			u_sql.append("WHERE cnt = "+import_cnt+" ");
-
+		break;
+		case 2: 
+			u_sql.append("UPDATE tb_tus SET filename_"+gb+" = '"+filename+"', file_yn_"+gb+"='Y' ");
+			u_sql.append("WHERE cnt = "+import_cnt+" ");
+		break;
+		case 3: 
+			u_sql.append("UPDATE tb_tus SET filename_"+gb+" = '"+filename+"', file_yn_"+gb+"='Y' ");
+			u_sql.append("WHERE cnt = "+import_cnt+" ");
+		break;
+		case 4: 
+			u_sql.append("UPDATE tb_tus SET filename_"+gb+" = '"+filename+"', file_yn_"+gb+"='Y' ");
+			u_sql.append("WHERE cnt = "+import_cnt+" ");
+		break;
+		case 5: 
+			u_sql.append("UPDATE tb_tus SET filename_"+gb+" = '"+filename+"', file_yn_"+gb+"='Y' ");
+			u_sql.append("WHERE cnt = "+import_cnt+" ");
+		break;
+		case 6: 
+			u_sql.append("UPDATE tb_tus SET filename_"+gb+" = '"+filename+"', file_yn_"+gb+"='Y' ");
+			u_sql.append("WHERE cnt = "+import_cnt+" ");
+		break;
+		case 7: 
+			u_sql.append("UPDATE tb_tus SET filename_"+gb+" = '"+filename+"', file_yn_"+gb+"='Y' ");
+			u_sql.append("WHERE cnt = "+import_cnt+" ");
+		break;
+		case 8: 
+			u_sql.append("UPDATE tb_tus SET filename_"+gb+" = '"+filename+"', file_yn_"+gb+"='Y' ");
+			u_sql.append("WHERE cnt = "+import_cnt+" ");
+		break;
+		case 9: 
+			u_sql.append("UPDATE tb_tus SET filename_"+gb+" = '"+filename+"', file_yn_"+gb+"='Y' ");
+			u_sql.append("WHERE cnt = "+import_cnt+" ");
+		break;
+		case 10: 
+			u_sql.append("UPDATE tb_tus SET filename_"+gb+" = '"+filename+"', file_yn_"+gb+"='Y' ");
+			u_sql.append("WHERE cnt = "+import_cnt+" ");
+		break;
+		case 11: 
+			u_sql.append("UPDATE tb_tus SET filename_"+gb+" = '"+filename+"', file_yn_"+gb+"='Y' ");
+			u_sql.append("WHERE cnt = "+import_cnt+" ");
+		break;
+		case 12: 
+			u_sql.append("UPDATE tb_tus SET filename_"+gb+" = '"+filename+"', file_yn_"+gb+"='Y' ");
+			u_sql.append("WHERE cnt = "+import_cnt+" ");
+		break;		
+	}
 	
 	
 	pstmt = conn.prepareStatement(u_sql.toString());

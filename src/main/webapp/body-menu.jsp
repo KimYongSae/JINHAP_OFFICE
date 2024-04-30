@@ -154,8 +154,8 @@ $(document).ready(function(){
 			    
 			    	<div class="custom-col menuLists">
 			    		<ul style="text-align: center;">
-							<li><a href="sample_7.jsp"><span>통합모니터링(미완)</span></a></li>
-							<!-- <li><a href="m00s03.jsp"><span>경보 모니터링</span></a></li> -->							
+							<li><a href="sample_7.jsp"><span>통합모니터링</span></a></li>
+							<li><a href="m00s03.jsp"><span>경보 모니터링</span></a></li>							
 							<li><a href="m00s01.jsp"><span>경보 이력</span></a></li>
 							<!-- <li><a href="m00s02.jsp"><span>경보 발생빈도(랭킹)</span></a></li> -->
 							<li><a href="sample_1.jsp"><span>경보 발생빈도(랭킹)</span></a></li>
@@ -169,11 +169,12 @@ $(document).ready(function(){
 			    		<ul style="text-align: center;">
 							<li><a href="m01s00.jsp"><span>종합생산현황</span></a></li>
 							<li><a href="m01s01.jsp"><span>설비별 생산실적</span></a></li>
+							<li><a href="sample_16.jsp"><span>설비별 생산실적(일자별)</span></a></li>
 							<li><a href="m01s02.jsp"><span>설비별 효율관리</span></a></li>							
 							<li><a href="sample_8.jsp"><span>생산 모니터링 현황(미완)</span></a></li>							
 							<li><a href="m01s06.jsp"><span>열처리 재공현황(협의예정)</span></a></li>
-							<li><a href="m01s04.jsp"><span>열처리 작업일보 현황(데이터 확인)</span></a></li>
-							<li><a href="m01s03.jsp"><span>LOT 보고서(작업일보 데이터 활용)</span></a></li>
+							<li><a href="m01s04.jsp"><span>열처리 작업일보 현황</span></a></li>
+							<li><a href="m01s03.jsp"><span>LOT 보고서</span></a></li>
 						</ul>
 			    	</div>
 			    	
@@ -181,7 +182,7 @@ $(document).ready(function(){
 			    		<ul style="text-align: center;">			    		
 							<li><a href="m02s01.jsp"><span>생산조건관리</span></a></li>
 							<li><a href="m02s02.jsp"><span>T/C 교체이력</span></a></li>
-							<li><a href="m02s03.jsp"><span>각종 조절계 교정이력</span></a></li>
+							<li><a href="m02s03.jsp"><span>온도 조절계 교정이력</span></a></li>
 							<li><a href="m02s04.jsp"><span>열처리유 성상분석</span></a></li>
 							<li><a href="m02s05.jsp"><span>O₂ 센서 교체이력</span></a></li>
 						</ul>
@@ -192,19 +193,24 @@ $(document).ready(function(){
 			    			<li><a href="m03s01.jsp"><span>Cpk 분석(미완)</span></a></li>
 			    			<li><a href="m03s04.jsp"><span>PPK 관리</span></a></li>
 			    			<li><a href="m03s02.jsp"><span>온도균일성 조사보고서</span></a></li>
-			    			<li><a href="m03s03.jsp"><span>열전대 비교측정</span></a></li>
+			    			<li><a href="m03s03_fproof.jsp"><span>F/PROOF</span></a></li>
+			    			<li><a href="m03s03_sat.jsp"><span>SAT</span></a></li>
 						</ul>
 			    	</div>
 			    	<div class="custom-col menuLists">
 			    		<ul style="text-align: center;">			    			 
 							<li><a href="m04s01.jsp"><span>설비보전관리</span></a></li>
 							<li><a href="m04s02.jsp"><span>OPL 요령서</span></a></li>
+							<li><a href="m04s03.jsp"><span>SPARE 부품관리</span></a></li>
+							<li><a href="//"><span>예방보전</span></a></li>
 						</ul>
 			    	</div>
 
 			    	<div class="custom-col menuLists">
 			    		<ul style="text-align: center;">
-			    			<li><a href="http://localhost:8080/JINHAP/s001.jsp" target="_blank"><span>투입제어 및 모니터링</span></a></li>			    			 
+			    			<li><a href="http://192.168.1.62:8080/JINHAP/s001.jsp" target="_blank"><span>출고관리</span></a></li>			    			 
+			    			<li><a href="http://192.168.1.62:8080/JINHAP/s006.jsp" target="_blank"><span>창고현황</span></a></li>			    			 
+			    			<li><a href="http://192.168.1.62:8080/JINHAP/s009.jsp" target="_blank"><span>비가동현황</span></a></li>			    			 
 			    			<li><a href="m05s02.jsp"><span>LOT 정보확인</span></a></li>			    			 
 			    			<!-- <li><a href="sample_13.jsp"><span>생산/설비 실시간 정보(미완)</span></a></li> -->			    			 
 						</ul>

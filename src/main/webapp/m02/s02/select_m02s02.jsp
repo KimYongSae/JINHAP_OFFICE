@@ -20,36 +20,23 @@
 		whereSql.append(" and year1 = '"+tdate+"' ");
 	}
 	
-	if(!"".equals(hogi) && hogi != null){
-/*		
-		if("c".equals(hogi)){
-			whereSql.append(" AND hogi = '침탄로' ");
-		}else if("p".equals(hogi)){
-			whereSql.append(" AND hogi = '풀림로' ");
-		}else{
-			whereSql.append(" AND hogi = '"+hogi+"호기' ");	
-		}
-*/
-		if("q".equals(hogi)){
-			//whereSql.append(" AND seolbi IN ('퀜칭로','침탄로','풀림로') ");	
-			whereSql.append(" AND seolbi = '소입로' ");	
-		}else if("t".equals(hogi)){
-			whereSql.append(" AND seolbi = '소려로' ");	
-		}
+	if(!"0".equals(hogi) && hogi != null){
 		
+		whereSql.append(" AND hogi = '"+hogi+"호기' ");	
+
 	}
 	
 	JSONObject mainObj = new JSONObject();  
 	 
 	 
-	sql.append("SELECT hogi, seolbi, IFNULL(change_bdate,'') AS change_bdate, ");
+	sql.append("SELECT hogi, seolbi, serial_no, ");
 	sql.append("change_ndate, change_date, ");
 	sql.append("filename, file_yn, bigo1, ");
 	sql.append("year1, cnt ");
 	sql.append("FROM tb_theomor ");
 	sql.append("WHERE 1=1 ");
 	sql.append(whereSql.toString());
-	sql.append("ORDER BY hogi, seolbi ");
+	sql.append("ORDER BY hogi ");
 
 	
 	Statement stmt = null;
@@ -109,7 +96,7 @@
 		    		 
 					
 					rowObj.put("seolbi",rs.getString("seolbi"));				//설비[퀜칭 1...]
-					rowObj.put("change_bdate",rs.getString("change_bdate"));	//이전 교체일
+					rowObj.put("serial_no",rs.getString("serial_no"));	//이전 교체일
 					rowObj.put("change_ndate",rs.getString("change_ndate"));	//차기 교체일
 					rowObj.put("change_date",rs.getString("change_date"));		//교체일
 					rowObj.put("filename",rs.getString("filename"));			//파일명
