@@ -260,233 +260,57 @@
 				class="table table-bordered table-hover table-responsive ">
 				<thead>
 					<tr>
-						<th rowspan="2" width="50">선택</th>
-						<th rowspan="2" width="140">설비명</th>
-						<th rowspan="2" width="200">품번</th>
-						<th rowspan="2" width="300">품명</th>
-						<th rowspan="2" width="100">강종</th>
-						<th rowspan="2" width="70">T급</th>
-						<th rowspan="2" width="130">진합로트</th>
-						<th colspan="3" width="240">참고 기준정보</th>
-						<th colspan="3" width="240">적용 기준정보</th>
-						<th rowspan="2" width="90">기준<br>장입량
-						</th>
-						<th rowspan="2" width="80" style="font-size: 13pt">요구경도</th>
-					</tr>
-					<tr>
-						<th width="80" style="font-size: 13pt">소입온도</th>
-						<th width="80" style="font-size: 13pt">소려온도</th>
-						<th width="80">CP</th>
-						<th width="80" style="font-size: 13pt">소입온도</th>
-						<th width="80" style="font-size: 13pt">소려온도</th>
-						<th width="80">CP</th>
+						<th class="nr2">설비</th>
+						<th class="nr3">부품명</th>
+						<th class="nr4">사용처</th>
+						<th class="nr5">규격</th>
+						<th class="nr6">제작업체</th>
+						<th class="nr7">교체</th>
+						<th class="nr8">구매주기</th>
+						<th class="nr9">현재고</th>
+						<th class="nr10">안전재고</th>
+						<th class="nr11">부족재고</th>
+						<th class="nr12">단위</th>
+						<th class="nr13">보관위치</th>
+						<th class="nr14">랙번호</th>
+						<th class="nr15">구매신청</th>
+						<th class="nr16">비고</th>
 					</tr>
 
 				</thead>
 				<!-- <tbody style="display : block; overflow-y: auto;"> -->
 				<tbody id="reg_body" style="font-weight: 600;">
 					<tr>
-						<td style="text-align: center;">
-						<input type="checkbox" id="insert_chk1" name="insert_chk1" value="1" checked style="transform: scale(2)">
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_hogi1" name="reg_hogi1" style="font-family: headline; width:140;"
-							value="Q01-HN01" disabled /></td>
-						<td rowspan="6"><input type="text" class="form-control input-sm"
-							id="reg_pnum" name="reg_pnum" style="font-family: headline;" /></td>
-						<td rowspan="6"><input type="text" class="form-control input-sm"
-							id="reg_pname" name="reg_pname" style="font-family: headline;" />
-						</td>
-						<td rowspan="6"><input type="text" class="form-control input-sm"
-							id="reg_gang" name="reg_gang" style="font-family: headline;" /></td>
-						<td rowspan="6"><input type="text" class="form-control input-sm"
-							id="reg_t_gb" name="reg_t_gb" style="font-family: headline;" /></td>
-						<td rowspan="6"><input type="text" class="form-control input-sm"
-							id="reg_lot" name="reg_lot" style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_q_temp_jin1" name="reg_q_temp_jin1"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_t_temp_jin1" name="reg_t_temp_jin1"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_cp_jin1" name="reg_cp_jin1" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_q_temp_ez1" name="reg_q_temp_ez1"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_t_temp_ez1" name="reg_t_temp_ez1"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_cp_ez1" name="reg_cp_ez1" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_weight1" name="reg_weight1" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_hardness1" name="reg_hardness1"
-							style="font-family: headline;" /></td>
-					</tr>
-					<tr>
-						<td style="text-align: center;">
-						<input type="checkbox" id="insert_chk2" name="insert_chk2" value="1" checked style="transform: scale(2)">
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_hogi2" name="reg_hogi2" style="font-family: headline; width:140;"
-							value="Q01-HN02" disabled /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_q_temp_jin2" name="reg_q_temp_jin2"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_t_temp_jin2" name="reg_t_temp_jin2"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_cp_jin2" name="reg_cp_jin2" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_q_temp_ez2" name="reg_q_temp_ez2"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_t_temp_ez2" name="reg_t_temp_ez2"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_cp_ez2" name="reg_cp_ez2" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_weight2" name="reg_weight2" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_hardness2" name="reg_hardness2"
-							style="font-family: headline;" /></td>
-					</tr>
-					<tr>
-						<td style="text-align: center;">
-						<input type="checkbox" id="insert_chk3" name="insert_chk3" value="1" checked style="transform: scale(2)">
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_hogi3" name="reg_hogi3" style="font-family: headline; width:140;"
-							value="Q01-HN03" disabled /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_q_temp_jin3" name="reg_q_temp_jin3"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_t_temp_jin3" name="reg_t_temp_jin3"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_cp_jin3" name="reg_cp_jin3" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_q_temp_ez3" name="reg_q_temp_ez3"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_t_temp_ez3" name="reg_t_temp_ez3"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_cp_ez3" name="reg_cp_ez3" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_weight3" name="reg_weight3" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_hardness3" name="reg_hardness3"
-							style="font-family: headline;" /></td>
-					</tr>
-					<tr>
-						<td style="text-align: center;">
-						<input type="checkbox" id="insert_chk4" name="insert_chk4" value="1" checked style="transform: scale(2)">
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_hogi4" name="reg_hogi4" style="font-family: headline; width:140;"
-							value="Q01-HN04" disabled /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_q_temp_jin4" name="reg_q_temp_jin4"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_t_temp_jin4" name="reg_t_temp_jin4"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_cp_jin4" name="reg_cp_jin4" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_q_temp_ez4" name="reg_q_temp_ez4"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_t_temp_ez4" name="reg_t_temp_ez4"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_cp_ez4" name="reg_cp_ez4" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_weight4" name="reg_weight4" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_hardness4" name="reg_hardness4"
-							style="font-family: headline;" /></td>
-					</tr>
-					<tr>
-						<td style="text-align: center;">
-						<input type="checkbox" id="insert_chk5" name="insert_chk5" value="1" checked style="transform: scale(2)">
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_hogi5" name="reg_hogi5" style="font-family: headline; width:140;"
-							value="Q01-HN05" disabled /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_q_temp_jin5" name="reg_q_temp_jin5"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_t_temp_jin5" name="reg_t_temp_jin5"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_cp_jin5" name="reg_cp_jin5" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_q_temp_ez5" name="reg_q_temp_ez5"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_t_temp_ez5" name="reg_t_temp_ez5"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_cp_ez5" name="reg_cp_ez5" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_weight5" name="reg_weight5" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_hardness5" name="reg_hardness5"
-							style="font-family: headline;" /></td>
-					</tr>
-					<tr>
-						<td style="text-align: center;">
-						<input type="checkbox" id="insert_chk6" name="insert_chk6" value="1" checked style="transform: scale(2)">
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_hogi6" name="reg_hogi6" style="font-family: headline; width:140;"
-							value="Q01-HN06" disabled /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_q_temp_jin6" name="reg_q_temp_jin6"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_t_temp_jin6" name="reg_t_temp_jin6"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_cp_jin6" name="reg_cp_jin6" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_q_temp_ez6" name="reg_q_temp_ez6"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_t_temp_ez6" name="reg_t_temp_ez6"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_cp_ez6" name="reg_cp_ez6" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_weight6" name="reg_weight6" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="reg_hardness6" name="reg_hardness6"
-							style="font-family: headline;" /></td>
+						<td class="nr2"><input type="text" class="form-control input-sm"
+							id="reg_seolbi" name="reg_seolbi" style="font-family: headline;" /></td>
+						<td class="nr3"><input type="text" class="form-control input-sm"
+							id="reg_component_name" name="reg_component_name" style="font-family: headline;" /></td>
+						<td class="nr4"><input type="text" class="form-control input-sm"
+							id="reg_usage_location" name="reg_usage_location" style="font-family: headline;" /></td>
+						<td class="nr5"><input type="text" class="form-control input-sm"
+							id="reg_specifications" name="reg_specifications" style="font-family: headline;" /></td>
+						<td class="nr6"><input type="text" class="form-control input-sm"
+							id="reg_manufacturer" name="reg_manufacturer" style="font-family: headline;" /></td>
+						<td class="nr7"><input type="text" class="form-control input-sm"
+							id="reg_replacement_frequency" name="reg_replacement_frequency" style="font-family: headline;" /></td>
+						<td class="nr8"><input type="text" class="form-control input-sm"
+							id="reg_purchase_cycle" name="reg_purchase_cycle" style="font-family: headline;" /></td>
+						<td class="nr9"><input type="text" class="form-control input-sm"
+							id="reg_current_stock" name="reg_current_stock" style="font-family: headline;" /></td>
+						<td class="nr10"><input type="text" class="form-control input-sm"
+							id="reg_safety_stock" name="reg_safety_stock" style="font-family: headline;" /></td>
+						<td class="nr11"><input type="text" class="form-control input-sm"
+							id="reg_shortage_stock" name="reg_shortage_stock" style="font-family: headline;" /></td>
+						<td class="nr12"><input type="text" class="form-control input-sm"
+							id="reg_unit" name="reg_unit" style="font-family: headline;" /></td>
+						<td class="nr13"><input type="text" class="form-control input-sm"
+							id="reg_storage_location" name="reg_storage_location" style="font-family: headline;" /></td>
+						<td class="nr14"><input type="text" class="form-control input-sm"
+							id="reg_rack_number" name="reg_rack_number" style="font-family: headline;" /></td>
+						<td class="nr15"><input type="text" class="form-control input-sm"
+							id="reg_purchase_request" name="reg_purchase_request" style="font-family: headline;" /></td>
+						<td class="nr16"><input type="text" class="form-control input-sm"
+							id="reg_remarks" name="reg_remarks" style="font-family: headline;" /></td>
 					</tr>
 				</tbody>
 
@@ -507,232 +331,58 @@
 				class="table table-bordered table-hover table-responsive ">
 				<thead>
 					<tr>
-						<th rowspan="2" width="50">선택</th>
-						<th rowspan="2" width="140">설비명</th>
-						<th rowspan="2" width="200">품번</th>
-						<th rowspan="2" width="300">품명</th>
-						<th rowspan="2" width="100">강종</th>
-						<th rowspan="2" width="70">T급</th>
-						<th rowspan="2" width="130">진합로트</th>
-						<th colspan="3" width="240">참고 기준정보</th>
-						<th colspan="3" width="240">적용 기준정보</th>
-						<th rowspan="2" width="90">기준<br>장입량
-						</th>
-						<th rowspan="2" width="80" style="font-size: 13pt">요구경도</th>
-					</tr>
-					<tr>
-						<th width="80" style="font-size: 13pt">소입온도</th>
-						<th width="80" style="font-size: 13pt">소려온도</th>
-						<th width="80">CP</th>
-						<th width="80" style="font-size: 13pt">소입온도</th>
-						<th width="80" style="font-size: 13pt">소려온도</th>
-						<th width="80">CP</th>
+						<th class="nr2">설비</th>
+						<th class="nr3">부품명</th>
+						<th class="nr4">사용처</th>
+						<th class="nr5">규격</th>
+						<th class="nr6">제작업체</th>
+						<th class="nr7">교체</th>
+						<th class="nr8">구매주기</th>
+						<th class="nr9">현재고</th>
+						<th class="nr10">안전재고</th>
+						<th class="nr11">부족재고</th>
+						<th class="nr12">단위</th>
+						<th class="nr13">보관위치</th>
+						<th class="nr14">랙번호</th>
+						<th class="nr15">구매신청</th>
+						<th class="nr16">비고</th>
 					</tr>
 
 				</thead>
 				<tbody style="font-weight: 600;">
 					<tr>
-						<td style="text-align: center;">
-						<input type="checkbox" id="modify_chk1" name="modify_chk1" value="1" style="transform: scale(2)">
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_hogi1" name="modify_hogi1" style="font-family: headline; width:140;"
-							value="Q01-HN01" disabled /></td>
-						<td rowspan="6"><input type="text" class="form-control input-sm"
-							id="modify_pnum" name="modify_pnum" disabled style="font-family: headline;" /></td>
-						<td rowspan="6"><input type="text" class="form-control input-sm"
-							id="modify_pname" name="modify_pname" style="font-family: headline;" />
-						</td>
-						<td rowspan="6"><input type="text" class="form-control input-sm"
-							id="modify_gang" name="modify_gang" disabled style="font-family: headline;" /></td>
-						<td rowspan="6"><input type="text" class="form-control input-sm"
-							id="modify_t_gb" name="modify_t_gb" disabled style="font-family: headline;" /></td>
-						<td rowspan="6"><input type="text" class="form-control input-sm"
-							id="modify_lot" name="modify_lot" style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_q_temp_jin1" name="modify_q_temp_jin1"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_t_temp_jin1" name="modify_t_temp_jin1"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_cp_jin1" name="modify_cp_jin1" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_q_temp_ez1" name="modify_q_temp_ez1"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_t_temp_ez1" name="modify_t_temp_ez1"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_cp_ez1" name="modify_cp_ez1" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_weight1" name="modify_weight1" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_hardness1" name="modify_hardness1"
-							style="font-family: headline;" /></td>
-					</tr>
-					<tr>
-						<td style="text-align: center;">
-						<input type="checkbox" id="modify_chk2" name="modify_chk2" value="1" style="transform: scale(2)">
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_hogi2" name="modify_hogi2" style="font-family: headline; width:140;"
-							value="Q01-HN02" disabled /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_q_temp_jin2" name="modify_q_temp_jin2"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_t_temp_jin2" name="modify_t_temp_jin2"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_cp_jin2" name="modify_cp_jin2" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_q_temp_ez2" name="modify_q_temp_ez2"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_t_temp_ez2" name="modify_t_temp_ez2"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_cp_ez2" name="modify_cp_ez2" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_weight2" name="modify_weight2" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_hardness2" name="modify_hardness2"
-							style="font-family: headline;" /></td>
-					</tr>
-					<tr>
-						<td style="text-align: center;">
-						<input type="checkbox" id="modify_chk3" name="modify_chk3" value="1" style="transform: scale(2)">
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_hogi3" name="modify_hogi3" style="font-family: headline; width:140;"
-							value="Q01-HN03" disabled /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_q_temp_jin3" name="modify_q_temp_jin3"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_t_temp_jin3" name="modify_t_temp_jin3"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_cp_jin3" name="modify_cp_jin3" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_q_temp_ez3" name="modify_q_temp_ez3"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_t_temp_ez3" name="modify_t_temp_ez3"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_cp_ez3" name="modify_cp_ez3" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_weight3" name="modify_weight3" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_hardness3" name="modify_hardness3"
-							style="font-family: headline;" /></td>
-					</tr>
-					<tr>
-						<td style="text-align: center;">
-						<input type="checkbox" id="modify_chk4" name="modify_chk4" value="1" style="transform: scale(2)">
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_hogi4" name="modify_hogi4" style="font-family: headline; width:140;"
-							value="Q01-HN04" disabled /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_q_temp_jin4" name="modify_q_temp_jin4"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_t_temp_jin4" name="modify_t_temp_jin4"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_cp_jin4" name="modify_cp_jin4" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_q_temp_ez4" name="modify_q_temp_ez4"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_t_temp_ez4" name="modify_t_temp_ez4"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_cp_ez4" name="modify_cp_ez4" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_weight4" name="modify_weight4" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_hardness4" name="modify_hardness4"
-							style="font-family: headline;" /></td>
-					</tr>
-					<tr>
-						<td style="text-align: center;">
-						<input type="checkbox" id="modify_chk5" name="modify_chk5" value="1" style="transform: scale(2)">
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_hogi5" name="modify_hogi5" style="font-family: headline; width:140;"
-							value="Q01-HN05" disabled /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_q_temp_jin5" name="modify_q_temp_jin5"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_t_temp_jin5" name="modify_t_temp_jin5"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_cp_jin5" name="modify_cp_jin5" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_q_temp_ez5" name="modify_q_temp_ez5"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_t_temp_ez5" name="modify_t_temp_ez5"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_cp_ez5" name="modify_cp_ez5" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_weight5" name="modify_weight5" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_hardness5" name="modify_hardness5"
-							style="font-family: headline;" /></td>
-					</tr>
-					<tr>
-						<td style="text-align: center;">
-						<input type="checkbox" id="modify_chk6" name="modify_chk6" value="1" style="transform: scale(2)">
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_hogi6" name="modify_hogi6" style="font-family: headline; width:140;"
-							value="Q01-HN06" disabled /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_q_temp_jin6" name="modify_q_temp_jin6"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_t_temp_jin6" name="modify_t_temp_jin6"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_cp_jin6" name="modify_cp_jin6" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_q_temp_ez6" name="modify_q_temp_ez6"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_t_temp_ez6" name="modify_t_temp_ez6"
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_cp_ez6" name="modify_cp_ez6" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_weight6" name="modify_weight6" style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="modify_hardness6" name="modify_hardness6"
-							style="font-family: headline;" /></td>
+						<td class="nr1" style="display:none"><input type="text" class="form-control input-sm"
+							id="modify_cnt" name="modify_cnt" style="font-family: headline;" /></td>
+						<td class="nr2"><input type="text" class="form-control input-sm"
+							id="modify_seolbi" name="modify_seolbi" style="font-family: headline;" /></td>
+						<td class="nr3"><input type="text" class="form-control input-sm"
+							id="modify_component_name" name="modify_component_name" style="font-family: headline;" /></td>
+						<td class="nr4"><input type="text" class="form-control input-sm"
+							id="modify_usage_location" name="modify_usage_location" style="font-family: headline;" /></td>
+						<td class="nr5"><input type="text" class="form-control input-sm"
+							id="modify_specifications" name="modify_specifications" style="font-family: headline;" /></td>
+						<td class="nr6"><input type="text" class="form-control input-sm"
+							id="modify_manufacturer" name="modify_manufacturer" style="font-family: headline;" /></td>
+						<td class="nr7"><input type="text" class="form-control input-sm"
+							id="modify_replacement_frequency" name="modify_replacement_frequency" style="font-family: headline;" /></td>
+						<td class="nr8"><input type="text" class="form-control input-sm"
+							id="modify_purchase_cycle" name="modify_purchase_cycle" style="font-family: headline;" /></td>
+						<td class="nr9"><input type="text" class="form-control input-sm"
+							id="modify_current_stock" name="modify_current_stock" style="font-family: headline;" /></td>
+						<td class="nr10"><input type="text" class="form-control input-sm"
+							id="modify_safety_stock" name="modify_safety_stock" style="font-family: headline;" /></td>
+						<td class="nr11"><input type="text" class="form-control input-sm"
+							id="modify_shortage_stock" name="modify_shortage_stock" style="font-family: headline;" /></td>
+						<td class="nr12"><input type="text" class="form-control input-sm"
+							id="modify_unit" name="modify_unit" style="font-family: headline;" /></td>
+						<td class="nr13"><input type="text" class="form-control input-sm"
+							id="modify_storage_location" name="modify_storage_location" style="font-family: headline;" /></td>
+						<td class="nr14"><input type="text" class="form-control input-sm"
+							id="modify_rack_number" name="modify_rack_number" style="font-family: headline;" /></td>
+						<td class="nr15"><input type="text" class="form-control input-sm"
+							id="modify_purchase_request" name="modify_purchase_request" style="font-family: headline;" /></td>
+						<td class="nr16"><input type="text" class="form-control input-sm"
+							id="modify_remarks" name="modify_remarks" style="font-family: headline;" /></td>
 					</tr>
 				</tbody>
 
@@ -752,69 +402,59 @@
 				class="table table-bordered table-hover table-responsive ">
 				<thead>
 					<tr>
-						<th rowspan="2" width="140">설비명</th>
-						<th rowspan="2" width="200">품번</th>
-						<th rowspan="2" width="300">품명</th>
-						<th rowspan="2" width="100">강종</th>
-						<th rowspan="2" width="70">T급</th>
-						<th rowspan="2" width="130">진합로트</th>
-						<th colspan="3" width="240">참고 기준정보</th>
-						<th colspan="3" width="240">적용 기준정보</th>
-						<th rowspan="2" width="90">기준<br>장입량
-						</th>
-						<th rowspan="2" width="80" style="font-size: 13pt">요구경도</th>
-					</tr>
-					<tr>
-						<th width="80" style="font-size: 13pt">소입온도</th>
-						<th width="80" style="font-size: 13pt">소려온도</th>
-						<th width="80">CP</th>
-						<th width="80" style="font-size: 13pt">소입온도</th>
-						<th width="80" style="font-size: 13pt">소려온도</th>
-						<th width="80">CP</th>
+						<th class="nr2">설비</th>
+						<th class="nr3">부품명</th>
+						<th class="nr4">사용처</th>
+						<th class="nr5">규격</th>
+						<th class="nr6">제작업체</th>
+						<th class="nr7">교체</th>
+						<th class="nr8">구매주기</th>
+						<th class="nr9">현재고</th>
+						<th class="nr10">안전재고</th>
+						<th class="nr11">부족재고</th>
+						<th class="nr12">단위</th>
+						<th class="nr13">보관위치</th>
+						<th class="nr14">랙번호</th>
+						<th class="nr15">구매신청</th>
+						<th class="nr16">비고</th>
 					</tr>
 
 				</thead>
 				<!-- <tbody style="display : block; overflow-y: auto;"> -->
 				<tbody style="font-weight: 600;">
 					<tr>
-						<td><input type="text" class="form-control input-sm"
-							id="delete_hogi" name="delete_hogi" style="font-family: headline; width:140;"
-							value="Q01-HN01" disabled /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="delete_pnum" name="delete_pnum" disabled style="font-family: headline;" /></td>
-						<td rowspan="6"><input type="text" class="form-control input-sm"
-							id="delete_pname" name="delete_pname" disabled style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="delete_gang" name="delete_gang" disabled style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="delete_t_gb" name="delete_t_gb" disabled style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="delete_lot" name="delete_lot" disabled style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="delete_q_temp_jin" name="delete_q_temp_jin" disabled
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="delete_t_temp_jin" name="delete_t_temp_jin" disabled
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="delete_cp_jin" name="delete_cp_jin" disabled style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="delete_q_temp_ez" name="delete_q_temp_ez" disabled
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="delete_t_temp_ez" name="delete_t_temp_ez" disabled
-							style="font-family: headline;" /></td>
-						<td><input type="text" class="form-control input-sm"
-							id="delete_cp_ez" name="delete_cp_ez" disabled style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="delete_weight" name="delete_weight" disabled style="font-family: headline;" />
-						</td>
-						<td><input type="text" class="form-control input-sm"
-							id="delete_hardness" name="delete_hardness" disabled
-							style="font-family: headline;" /></td>
+						<td class="nr1" style="display:none"><input type="text" class="form-control input-sm"
+							id="delete_cnt" name="delete_cnt" style="font-family: headline;" /></td>
+						<td class="nr2"><input type="text" class="form-control input-sm"
+							id="delete_seolbi" name="delete_seolbi" style="font-family: headline;" disabled/></td>
+						<td class="nr3"><input type="text" class="form-control input-sm"
+							id="delete_component_name" name="delete_component_name" style="font-family: headline;" disabled/></td>
+						<td class="nr4"><input type="text" class="form-control input-sm"
+							id="delete_usage_location" name="delete_usage_location" style="font-family: headline;" disabled/></td>
+						<td class="nr5"><input type="text" class="form-control input-sm"
+							id="delete_specifications" name="delete_specifications" style="font-family: headline;" disabled/></td>
+						<td class="nr6"><input type="text" class="form-control input-sm"
+							id="delete_manufacturer" name="delete_manufacturer" style="font-family: headline;" disabled/></td>
+						<td class="nr7"><input type="text" class="form-control input-sm"
+							id="delete_replacement_frequency" name="delete_replacement_frequency" style="font-family: headline;" disabled/></td>
+						<td class="nr8"><input type="text" class="form-control input-sm"
+							id="delete_purchase_cycle" name="delete_purchase_cycle" style="font-family: headline;" disabled/></td>
+						<td class="nr9"><input type="text" class="form-control input-sm"
+							id="delete_current_stock" name="delete_current_stock" style="font-family: headline;" disabled/></td>
+						<td class="nr10"><input type="text" class="form-control input-sm"
+							id="delete_safety_stock" name="delete_safety_stock" style="font-family: headline;" disabled/></td>
+						<td class="nr11"><input type="text" class="form-control input-sm"
+							id="delete_shortage_stock" name="delete_shortage_stock" style="font-family: headline;" disabled/></td>
+						<td class="nr12"><input type="text" class="form-control input-sm"
+							id="delete_unit" name="delete_unit" style="font-family: headline;" disabled/></td>
+						<td class="nr13"><input type="text" class="form-control input-sm"
+							id="delete_storage_location" name="delete_storage_location" style="font-family: headline;" disabled/></td>
+						<td class="nr14"><input type="text" class="form-control input-sm"
+							id="delete_rack_number" name="delete_rack_number" style="font-family: headline;" disabled/></td>
+						<td class="nr15"><input type="text" class="form-control input-sm"
+							id="delete_purchase_request" name="delete_purchase_request" style="font-family: headline;" disabled/></td>
+						<td class="nr16"><input type="text" class="form-control input-sm"
+							id="delete_remarks" name="delete_remarks" style="font-family: headline;" disabled/></td>
 					</tr>
 				</tbody>
 
@@ -920,425 +560,11 @@
 													</tr>
 
 												</thead>
-												<!-- <tbody id="conditionList"
+												<!-- <tbody id="spareList"
 													style="display: block; overflow-y: auto;">
 												</tbody> -->
 												
-												<tbody id="conditionList">
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
-													<tr>
-														<td class="nr1"></td>
-														<td class="nr2"></td>
-														<td class="nr3"></td>
-														<td class="nr4"></td>
-														<td class="nr5"></td>
-														<td class="nr6"></td>
-														<td class="nr7"></td>
-														<td class="nr8"></td>
-														<td class="nr9"></td>
-														<td class="nr10"></td>
-														<td class="nr11"></td>
-														<td class="nr12"></td>
-														<td class="nr13"></td>
-														<td class="nr14"></td>
-														<td class="nr15"></td>
-														<td class="nr16"></td>
-													</tr>
+												<tbody id="spareList">
 												</tbody>
 
 											</table>
@@ -1398,8 +624,8 @@
 
 		$(function() {
 			fn_check();
-			/* getSelect();
-			getConditionList(); */
+			/* getSelect(); */
+			getSpareList();
 		});
 
 		/*함수*/
@@ -1448,11 +674,11 @@
 		};
 
 		var cntArray = new Array();
-		function getConditionList() {
+		function getSpareList() {
 			$
 					.ajax({
 						type : "POST",
-						url : "m02/s01/select_m02s01.jsp",
+						url : "m04/s03/select_m04s03.jsp",
 						cache : false,
 						dataType : "json",
 						data : {
@@ -1468,49 +694,44 @@
 
 								var listHtml = "";
 								for (var i = 0; i < rsAr.length; i++) {
-									cntArray[i] = rsAr[i].pnum + rsAr[i].gang
-											+ rsAr[i].t_gb + rsAr[i].lot + rsAr[i].q_temp_jin
-											+ rsAr[i].t_temp_jin + rsAr[i].cp_jin + rsAr[i].q_temp_ez
-											+ rsAr[i].t_temp_ez + rsAr[i].cp_ez + rsAr[i].weight
-											+ rsAr[i].hardness;
+									cntArray[i] = rsAr[i].cnt;
 									listHtml += "<tr>";
-									listHtml += '<td class="nr1" width = "70px" style = "text-align : center; font-size: 15pt;">'
-											+ rsAr[i].hogi + '</td>';
-									listHtml += '<td class="nr2" width = "200px">'
-											+ rsAr[i].pnum + '</td>';
-									listHtml += '<td class="nr3" width = "300px">'
-											+ rsAr[i].pname + '</td>';
-									listHtml += '<td class="nr4" width = "100px">'
-											+ rsAr[i].gang + '</td>';
-									listHtml += '<td class="nr5" width = "70px">'
-											+ rsAr[i].t_gb + '</td>';
-									listHtml += '<td class="nr6" width = "130px">'
-											+ rsAr[i].lot + '</td>';
-									listHtml += '<td class="nr7" width = "80px">'
-											+ rsAr[i].q_temp_jin + '</td>';
-									listHtml += '<td class="nr8" width = "80px">'
-											+ rsAr[i].t_temp_jin + '</td>';
-									listHtml += '<td class="nr9" width = "80px">'
-											+ rsAr[i].cp_jin + '</td>';
-									listHtml += '<td class="nr10" width = "80px">'
-											+ rsAr[i].q_temp_ez + '</td>';
-									listHtml += '<td class="nr11" width = "80px">'
-											+ rsAr[i].t_temp_ez + '</td>';
-									listHtml += '<td class="nr12" width = "80px">'
-											+ rsAr[i].cp_ez + '</td>';
-									listHtml += '<td width = "80px"></td>';
-									listHtml += '<td width = "80px"></td>';
-									listHtml += '<td width = "80px"></td>';
-									listHtml += '<td class="nr13" width = "90px">'
-											+ rsAr[i].weight + '</td>';
-									listHtml += '<td class="nr14" width = "80px">'
-											+ rsAr[i].hardness + '</td>';
+									listHtml += '<td class="nr1">'
+											+ rsAr[i].cnt + '</td>';
+									listHtml += '<td class="nr2">'
+											+ rsAr[i].seolbi + '</td>';
+									listHtml += '<td class="nr3">'
+											+ rsAr[i].component_name + '</td>';
+									listHtml += '<td class="nr4">'
+											+ rsAr[i].usage_location + '</td>';
+									listHtml += '<td class="nr5">'
+											+ rsAr[i].specifications + '</td>';
+									listHtml += '<td class="nr6">'
+											+ rsAr[i].manufacturer + '</td>';
+									listHtml += '<td class="nr7">'
+											+ rsAr[i].replacement_frequency + '</td>';
+									listHtml += '<td class="nr8">'
+											+ rsAr[i].purchase_cycle + '</td>';
+									listHtml += '<td class="nr9">'
+											+ rsAr[i].current_stock + '</td>';
+									listHtml += '<td class="nr10">'
+											+ rsAr[i].safety_stock + '</td>';
+									listHtml += '<td class="nr11">'
+											+ rsAr[i].shortage_stock + '</td>';
+									listHtml += '<td class="nr12">'
+											+ rsAr[i].unit + '</td>';
+									listHtml += '<td class="nr13">'
+											+ rsAr[i].storage_location + '</td>';
+									listHtml += '<td class="nr14">'
+											+ rsAr[i].rack_number + '</td>';
+									listHtml += '<td class="nr15">'
+											+ rsAr[i].purchase_request + '</td>';
+									listHtml += '<td class="nr16">'
+											+ rsAr[i].remarks + '</td>';
 									listHtml += "</tr>";
 								}
 
-								$("#conditionList").html(listHtml);
-								$("#temp").trigger("update");
-								//$("#temp").tablesorter();
+								$("#spareList").html(listHtml);
 
 							} else if (rsJson && rsJson.status == "fail") {
 								alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
@@ -1534,7 +755,7 @@
 			$
 					.ajax({
 						type : "POST",
-						url : "m02/s01/list_m02s01.jsp",
+						url : "m04/s03/list_m04s03.jsp",
 						cache : false,
 						dataType : "json",
 						data : {
@@ -1703,7 +924,7 @@
 			//					  opener.getCodeDetail();
 			//				 	  opener.getMachineCode();
 			$.ajax({
-				url : "m02/s01/import_m02s01_excel.jsp",
+				url : "m04/s03/import_m04s03_excel.jsp",
 				type : "post",
 				enctype : "multipart/form-data",
 				data : fileData,
@@ -1714,7 +935,7 @@
 
 					fileDialog.dialog("close");
 					getSelect();
-					getConditionList();
+					getSpareList();
 					fileform.reset();
 				}
 			});
@@ -1737,71 +958,53 @@
 
 		//var line_register = function(){
 		function lineRegister(){
-
-			let allFieldsFilled = true;
-
-		    for (let i = 1; i <= 6; i++) {
-		    	if ( $("#insert_chk"+i).is(":checked") && 
-		    			(!$("#reg_q_temp_jin" + i).val() || !$("#reg_t_temp_jin" + i).val() ||
-		                !$("#reg_cp_jin" + i).val() || !$("#reg_q_temp_ez" + i).val() ||
-		                !$("#reg_t_temp_ez" + i).val() || !$("#reg_cp_ez" + i).val() ||
-		                !$("#reg_weight" + i).val() || !$("#reg_hardness" + i).val())
-		                ) {
-		            allFieldsFilled = false;
-		            break;
-		        }
-		    }
-
-		    if (!allFieldsFilled) {
-		        alert("모든 기준정보를 입력하세요.");
-		        return;
-		    }
 			
-			let ajaxCalls = [];
-			for(let i = 1; i < 7; i++){
-			    if($("#insert_chk"+i).is(":checked")){
 					let request = $.ajax({
 				    	type : "POST",
-						url : "m02/s01/insert_m02s01.jsp",
+						url : "m04/s03/insert_m04s03.jsp",
 						cache : false,
 						dataType : "text",
 						data : {
-							"hogi" : $("#reg_hogi"+i).val(),
-							"pnum" : $("#reg_pnum").val(),
-							"pname" : $("#reg_pname").val(),
-							"gang" : $("#reg_gang").val(),
-							"t_gb" : $("#reg_t_gb").val(),
-							"lot" : $("#reg_lot").val(),
-							"q_temp_jin" : $("#reg_q_temp_jin"+i).val(),
-							"t_temp_jin" : $("#reg_t_temp_jin"+i).val(),
-							"cp_jin" : $("#reg_cp_jin"+i).val(),
-							"q_temp_ez" : $("#reg_q_temp_ez"+i).val(),
-							"t_temp_ez" : $("#reg_t_temp_ez"+i).val(),
-							"cp_ez" : $("#reg_cp_ez"+i).val(),
-							"weight" : $("#reg_weight"+i).val(),
-							"hardness" : $("#reg_hardness"+i).val()
-				        }
+							"seolbi": $("#reg_seolbi").val(),
+					        "component_name": $("#reg_component_name").val(),
+					        "usage_location": $("#reg_usage_location").val(),
+					        "specifications": $("#reg_specifications").val(),
+					        "manufacturer": $("#reg_manufacturer").val(),
+					        "replacement_frequency": $("#reg_replacement_frequency").val(),
+					        "purchase_cycle": $("#reg_purchase_cycle").val(),
+					        "current_stock": $("#reg_current_stock").val(),
+					        "safety_stock": $("#reg_safety_stock").val(),
+					        "shortage_stock": $("#reg_shortage_stock").val(),
+					        "unit": $("#reg_unit").val(),
+					        "storage_location": $("#reg_storage_location").val(),
+					        "rack_number": $("#reg_rack_number").val(),
+					        "purchase_request": $("#reg_purchase_request").val(),
+					        "remarks": $("#reg_remarks").val()
+				        },
+				        success : function() {
+							alert("등록 성공");
+							getSpareList();
+							registerDialog.dialog("close");
+
+						}, // success 끝
+						error : function(req, status) {
+							if (req.status == 0 || status == "timeout") {
+								alert("네트워크 연결 확인 후 다시 시도해주세요.");
+							} else {
+								console.log("Error status: " + status);
+								console.log("Error detail: " + error);
+								console.log("Full response: ", req);
+								alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
+							}
+						},
 				    });
-
-			    ajaxCalls.push(request);
-			    }
-			}
-
-			Promise.all(ajaxCalls).then(function(results) {
-				alert("등록 성공");
-				getSelect();
-				getConditionList();
-				registerDialog.dialog("close");
-			}).catch(function(error) {
-				alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-			});
 			
 		}
 		/* function lineRegister() {
 			$
 					.ajax({
 						type : "POST",
-						url : "m02/s01/insert_m02s01.jsp",
+						url : "m04/s03/insert_m04s03.jsp",
 						cache : false,
 						dataType : "text",
 						data : {
@@ -1823,7 +1026,7 @@
 						success : function() {
 							alert("등록 성공");
 							getSelect();
-							getConditionList();
+							getSpareList();
 							registerDialog.dialog("close");
 
 						}, // success 끝
@@ -1841,72 +1044,55 @@
 					});
 		} */
 		function lineModify(){
-
-			let allFieldsFilled = true;
 			
-			for (let i = 1; i <= 6; i++) {
-		    	if ( $("#modify_chk"+i).is(":checked") && 
-		    			(!$("#modify_q_temp_jin" + i).val() || !$("#modify_t_temp_jin" + i).val() ||
-		                !$("#modify_cp_jin" + i).val() || !$("#modify_q_temp_ez" + i).val() ||
-		                !$("#modify_t_temp_ez" + i).val() || !$("#modify_cp_ez" + i).val() ||
-		                !$("#modify_weight" + i).val() || !$("#modify_hardness" + i).val())
-		                ) {
-		            allFieldsFilled = false;
-		            break;
-		        }
-		    }
+				let request = $.ajax({
+			    	type : "POST",
+					url : "m04/s03/modify_m04s03.jsp",
+					cache : false,
+					dataType : "text",
+					data : {
+						"cnt": $("#modify_cnt").val(),
+						"seolbi": $("#modify_seolbi").val(),
+						"component_name": $("#modify_component_name").val(),
+						"usage_location": $("#modify_usage_location").val(),
+						"specifications": $("#modify_specifications").val(),
+						"manufacturer": $("#modify_manufacturer").val(),
+						"replacement_frequency": $("#modify_replacement_frequency").val(),
+						"purchase_cycle": $("#modify_purchase_cycle").val(),
+						"current_stock": $("#modify_current_stock").val(),
+						"safety_stock": $("#modify_safety_stock").val(),
+						"shortage_stock": $("#modify_shortage_stock").val(),
+						"unit": $("#modify_unit").val(),
+						"storage_location": $("#modify_storage_location").val(),
+						"rack_number": $("#modify_rack_number").val(),
+						"purchase_request": $("#modify_purchase_request").val(),
+						"remarks": $("#modify_remarks").val()
+			        },
+			        success : function() {
+						alert("등록 성공");
+						getSpareList();
+						modifyDialog.dialog("close");
 
-		    if (!allFieldsFilled) {
-		        alert("모든 기준정보를 입력하세요.");
-		        return;
-		    }
-			
-			let ajaxCalls = [];
-			for(let i = 1; i < 7; i++){
-			    if($("#modify_chk"+i).is(":checked")){
-					let request = $.ajax({
-				    	type : "POST",
-						url : "m02/s01/insert_m02s01.jsp",
-						cache : false,
-						dataType : "text",
-						data : {
-							"hogi" : $("#modify_hogi"+i).val(),
-							"pnum" : $("#modify_pnum").val(),
-							"pname" : $("#modify_pname").val(),
-							"gang" : $("#modify_gang").val(),
-							"t_gb" : $("#modify_t_gb").val(),
-							"lot" : $("#modify_lot").val(),
-							"q_temp_jin" : $("#modify_q_temp_jin"+i).val(),
-							"t_temp_jin" : $("#modify_t_temp_jin"+i).val(),
-							"cp_jin" : $("#modify_cp_jin"+i).val(),
-							"q_temp_ez" : $("#modify_q_temp_ez"+i).val(),
-							"t_temp_ez" : $("#modify_t_temp_ez"+i).val(),
-							"cp_ez" : $("#modify_cp_ez"+i).val(),
-							"weight" : $("#modify_weight"+i).val(),
-							"hardness" : $("#modify_hardness"+i).val()
-				        }
-				    });
+					}, // success 끝
+					error : function(req, status) {
+						if (req.status == 0 || status == "timeout") {
+							alert("네트워크 연결 확인 후 다시 시도해주세요.");
+						} else {
+							console.log("Error status: " + status);
+							console.log("Error detail: " + error);
+							console.log("Full response: ", req);
+							alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
+						}
+					},
+			    });
 
-			    ajaxCalls.push(request);
-			    }
-			}
-
-			Promise.all(ajaxCalls).then(function(results) {
-				alert("등록 성공");
-				getSelect();
-				getConditionList();
-				modifyDialog.dialog("close");
-			}).catch(function(error) {
-				alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-			});
-			
 		}
 		
 		/* function lineModify() {
 			$
 					.ajax({
 						type : "POST",
-						url : "m02/s01/insert_m02s01.jsp",
+						url : "m04/s03/insert_m04s03.jsp",
 						cache : false,
 						dataType : "text",
 						data : {
@@ -1928,7 +1114,7 @@
 						success : function() {
 							alert("등록 성공");
 							getSelect();
-							getConditionList();
+							getSpareList();
 							modifyDialog.dialog("close");
 
 						}, // success 끝
@@ -1949,29 +1135,16 @@
 			$
 					.ajax({
 						type : "POST",
-						url : "m02/s01/delete_m02s01.jsp",
+						url : "m04/s03/delete_m04s03.jsp",
 						cache : false,
 						dataType : "text",
 						data : {
-							"hogi" : $("#delete_hogi").val(),
-							"pnum" : $("#delete_pnum").val(),
-							"pname" : $("#delete_pname").val(),
-							"gang" : $("#delete_gang").val(),
-							"t_gb" : $("#delete_t_gb").val(),
-							"lot" : $("#delete_lot").val(),
-							"q_temp_jin" : $("#delete_q_temp_jin").val(),
-							"t_temp_jin" : $("#delete_t_temp_jin").val(),
-							"cp_jin" : $("#delete_cp_jin").val(),
-							"q_temp_ez" : $("#delete_q_temp_ez").val(),
-							"t_temp_ez" : $("#delete_t_temp_ez").val(),
-							"cp_ez" : $("#delete_cp_ez").val(),
-							"weight" : $("#delete_weight").val(),
-							"hardness" : $("#delete_hardness").val()
+							"cnt": $("#delete_cnt").val(),
+							
 						},
 						success : function() {
 							alert("삭제 성공");
-							getSelect();
-							getConditionList();
+							getSpareList();
 							deleteDialog.dialog("close");
 
 						}, // success 끝
@@ -2026,7 +1199,7 @@
 		});
 
 		$("#searchbtn").on("click", function() {
-			getConditionList();
+			getSpareList();
 			$("#modifyForm")[0].reset();
 		});
 
@@ -2034,7 +1207,7 @@
 
 			var form = document.forms["searchform"];
 			console.log(form);
-			form.action = "m02/s01/export_m02s01_excel.jsp";
+			form.action = "m04/s03/export_m04s03_excel.jsp";
 
 			form.submit();
 
@@ -2043,7 +1216,7 @@
 		function excel_import_open() {
 			/* var popupx = (window.screen.width/2)-(346/2);
 			var popupy = (window.screen.height/2)-(300/2);
-			var openWin = window.open('m02s01_importView.jsp','', 'status=no, width=450, height=260,menubar=1,left='+popupx+',top='+ popupy+', screenX='+popupx+', screenY='+popupy); */
+			var openWin = window.open('m04s03_importView.jsp','', 'status=no, width=450, height=260,menubar=1,left='+popupx+',top='+ popupy+', screenX='+popupx+', screenY='+popupy); */
 			fileDialog.dialog("open");
 		}
 		function registerDialogOpen() {
@@ -2056,9 +1229,10 @@
 			deleteDialog.dialog("open");
 		}
 
-		$("#conditionList").delegate('tr', 'click', function() {
+		$("#spareList").delegate('tr', 'click', function() {
 
-			var $row = $(this).closest("tr"), $nr1 = $row.find(".nr1").text(); //cnt
+			var $row = $(this).closest("tr");
+			$nr1 = $row.find(".nr1").text(); //cnt
 			$nr2 = $row.find(".nr2").text(); //작업자명
 			$nr3 = $row.find(".nr3").text();
 			$nr4 = $row.find(".nr4").text();
@@ -2072,16 +1246,44 @@
 			$nr12 = $row.find(".nr12").text();
 			$nr13 = $row.find(".nr13").text();
 			$nr14 = $row.find(".nr14").text();
+			$nr15 = $row.find(".nr15").text();
+			$nr16 = $row.find(".nr16").text();
 
-			var hogiNum = $nr1.charAt($nr1.length - 1);
+			$("#modify_cnt").val($nr1);
+			$("#modify_seolbi").val($nr2);
+			$("#modify_component_name").val($nr3);
+			$("#modify_usage_location").val($nr4);
+			$("#modify_specifications").val($nr5);
+			$("#modify_manufacturer").val($nr6);
+			$("#modify_replacement_frequency").val($nr7);
+			$("#modify_purchase_cycle").val($nr8);
+			$("#modify_current_stock").val($nr9);
+			$("#modify_safety_stock").val($nr10);
+			$("#modify_shortage_stock").val($nr11);
+			$("#modify_unit").val($nr12);
+			$("#modify_storage_location").val($nr13);
+			$("#modify_rack_number").val($nr14);
+			$("#modify_purchase_request").val($nr15);
+			$("#modify_remarks").val($nr16);
 			
+			$("#delete_cnt").val($nr1);
+			$("#delete_seolbi").val($nr2);
+			$("#delete_component_name").val($nr3);
+			$("#delete_usage_location").val($nr4);
+			$("#delete_specifications").val($nr5);
+			$("#delete_manufacturer").val($nr6);
+			$("#delete_replacement_frequency").val($nr7);
+			$("#delete_purchase_cycle").val($nr8);
+			$("#delete_current_stock").val($nr9);
+			$("#delete_safety_stock").val($nr10);
+			$("#delete_shortage_stock").val($nr11);
+			$("#delete_unit").val($nr12);
+			$("#delete_storage_location").val($nr13);
+			$("#delete_rack_number").val($nr14);
+			$("#delete_purchase_request").val($nr15);
+			$("#delete_remarks").val($nr16);
 			
-			
-			
-			
-			
-			
-			$('[id^="modify_chk"]').prop('checked', false);
+			/* $('[id^="modify_chk"]').prop('checked', false);
 			$('#modify_chk' + hogiNum).prop('checked', true);
 			
 			// $("#modify_hogi").val($nr1);
@@ -2112,15 +1314,14 @@
 			$("#delete_t_temp_ez").val($nr11);
 			$("#delete_cp_ez").val($nr12);
 			$("#delete_weight").val($nr13);
-			$("#delete_hardness").val($nr14);
+			$("#delete_hardness").val($nr14); */
 
 			//$("#saveBtn").attr("disabled",true);
 
 			
 			var index = 0;
-			$("#conditionList > tr").each(function() {
-				if ($nr2 + $nr4 + $nr5 + $nr6 + $nr7
-						 + $nr8 + $nr9 + $nr10 + $nr11 + $nr12 + $nr13 + $nr14 == cntArray[index]) {
+			$("#spareList > tr").each(function() {
+				if ($nr1 == cntArray[index]) {
 					$(this).css("background-color", "#B2CCFF");
 				} else {
 					$(this).css("background-color", "#fff");
@@ -2152,7 +1353,7 @@
 		registerDialog = $("#regFormDialog").dialog({
 			autoOpen : false,
 			//autoOpen: true,
-			height : 550,
+			height : 300,
 			width : 1600,
 			modal : false,
 			stack : false,
@@ -2173,7 +1374,7 @@
 		modifyDialog = $("#modifyFormDialog").dialog({
 			autoOpen : false,
 			//autoOpen: true,
-			height : 550,
+			height : 300,
 			width : 1600,
 			modal : false,
 			stack : false,
