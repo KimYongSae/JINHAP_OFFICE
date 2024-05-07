@@ -376,11 +376,11 @@ var fn_logout = function () {
 								font-size: 16pt; font-family:headline;">
 								설비명
 							</th>
-							<th class="text-center cell" 
+							<!-- <th class="text-center cell" 
 								style="background-color:#24FCFF; width: 140px; height: 30px; 
 								font-size: 16pt; font-family:headline;">
 								존 구분
-							</th>							
+							</th> -->							
 							<th class="text-center cell" 
 								style="background-color:#24FCFF; width: 200px; height: 30px; 
 								font-size: 16pt; font-family:headline;">
@@ -443,7 +443,7 @@ var fn_logout = function () {
      				</tr>
      				<tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>  				
   				
-    				<tr>
+    				<!-- <tr>
       					<td><label class="control-label col-lg-4" 
       						style="padding-top:3px; width: 160px; text-align: right; 
       						font-size:14pt; font-family: headline;">
@@ -457,7 +457,7 @@ var fn_logout = function () {
       					placeholder="존 구분" readonly="readonly"/></td> 
       					<td style="padding-bottom:30px;">&nbsp;</td>
       					<td>&nbsp;</td>
-     				</tr>
+     				</tr> -->
      				
      				<tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>
 
@@ -759,7 +759,7 @@ function init(){
 						listHtml += '<td class="nr" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+rsAr[i].cnt+'</td>';
 						listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline;">'+(i+1)+'</td>';
 						listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].hogi+'</td>';
-						listHtml += '<td class="nr5" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].seolbi+'</td>';						
+						//listHtml += '<td class="nr5" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].seolbi+'</td>';						
 						listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 200px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].serial_no+'</td>';
 						listHtml += '<td class="nr6" style="text-align: center; vertical-align: middle; padding: 1px; height: 50px; width: 160px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].change_date+'</td>';
 						
@@ -1003,7 +1003,7 @@ $("#thermo_contents").delegate('tr','click', function() {
 		$nr2 = $row.find(".nr2").text();	//년도
 		$nr3 = $row.find(".nr3").text();	//교체일
 		$nr4 = $row.find(".nr4").text();	//호기
-		$nr5 = $row.find(".nr5").text();	//설비+존위치
+		//$nr5 = $row.find(".nr5").text();	//설비+존위치
 		$nr6 = $row.find(".nr6").text();	//변환 파일명
 		$nr7 = $row.find(".nr7").text();	//실제 파일명
 		$nr8 = $row.find(".nr8").text();	//파일보기
@@ -1021,7 +1021,7 @@ $("#thermo_contents").delegate('tr','click', function() {
 		$("#i_serial").val($nr10);
 		$("#i_ndate").val($nr11);
 		$("#i_hogi").val($nr4);
-		$("#i_zone").val($nr5);
+		//$("#i_zone").val($nr5);
 		$("#i_bigo").val($nr12);
 		
 		if($nr7 == ''){

@@ -273,7 +273,7 @@ var fn_logout = function () {
                 <div style="padding:11px 14px;" class="icons"><i style="color:white;" class="fa fa-list-alt"></i></div>
                 <h5 style="font-size:14pt; font-family:headline;">생산관리 - 열처리 재공현황 조회</h5>
             </header>
-            <header style="background:white; height:43px;">
+            <!-- <header style="background:white; height:43px;">
                 <form class="form-inline" role="form" name="searchform" method="post" autocomplete="off">
 					<div class="form-group">
 						<label class="control-label" 
@@ -294,47 +294,11 @@ var fn_logout = function () {
 						</select>
 					</div>        								
 				</form>
-            </header>            
+            </header>   -->          
             
             
             
             <div id="collapse4" class="body">				
-                <table id="cp_list" class="table table-bordered table-hover table-responsive scrolltbody2">
-					<thead>
-						<tr>
-							<th class="text-center cell" style=" width: 50px; height: 30px; font-size:16pt; font-family: headline;">NO</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family: headline;">CP MID</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family: headline;">수량</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family: headline;">중량</th>
-							<th class="text-center cell" style=" width: 120px; height: 30px; font-size:16pt; font-family: headline;">철통수</th>
-						</tr>
-					</thead>
-					<tbody id="cp_contents">
-						<tr>
-							
-						</tr>
-					</tbody>
-				</table>
-				
-				
-				
-				
-                <table id="jijil_list" class="table table-bordered table-hover table-responsive scrolltbody2">
-					<thead>
-						<tr>
-							<th class="text-center cell" style=" width: 50px; height: 30px; font-size:16pt; font-family: headline;">NO</th>
-							<th class="text-center cell" style=" width: 240px; height: 30px; font-size:16pt; font-family: headline;">재질경도</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family: headline;">수량</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family: headline;">중량</th>
-							<th class="text-center cell" style=" width: 120px; height: 30px; font-size:16pt; font-family: headline;">철통수</th>
-						</tr>
-					</thead>
-					<tbody id="jijil_contents">
-						<tr>
-							
-						</tr>
-					</tbody>
-				</table>
 				
                 <table id="factory_list" class="table table-bordered table-hover table-responsive scrolltbody2">
 					<thead>
@@ -347,29 +311,8 @@ var fn_logout = function () {
 						</tr>
 					</thead>
 					<tbody id="factory_contents">
-						<tr>
-							
-						</tr>
 					</tbody>
 				</table>
-				
-                <table id="temper_list" class="table table-bordered table-hover table-responsive scrolltbody2">
-					<thead>
-						<tr>
-							<th class="text-center cell" style=" width: 50px; height: 30px; font-size:16pt; font-family: headline;">NO</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family: headline;">템퍼링 온도</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family: headline;">수량</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family: headline;">중량</th>
-							<th class="text-center cell" style=" width: 120px; height: 30px; font-size:16pt; font-family: headline;">철통수</th>
-						</tr>
-					</thead>
-					<tbody id="temper_contents">
-						<tr>
-							
-						</tr>
-					</tbody>
-				</table>								
-				
             </div>
         </div>
     </div>

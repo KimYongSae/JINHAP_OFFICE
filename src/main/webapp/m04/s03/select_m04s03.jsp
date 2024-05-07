@@ -12,12 +12,31 @@
 		String pnum = request.getParameter("pnum");
 		String gang = request.getParameter("gang");
 		String t_gb = request.getParameter("t_gb"); */
+		StringBuffer sql = new StringBuffer();
+		String whereSql = "";
 
-		 
-		 StringBuffer sql = new StringBuffer();
-
-		sql.append(" SELECT * FROM tb_spare ");
+		int seolbi = Integer.parseInt(request.getParameter("seolbi"));
 		
+		switch(seolbi){
+			case 1:
+				whereSql = "AND seolbi = '연속로'";
+				break;
+			case 2:
+				whereSql = "AND seolbi = '소입로'";
+				break;
+			case 3:
+				whereSql = "AND seolbi = '배치로'";
+				break;
+			case 4:
+				whereSql = "AND seolbi = '변성로'";
+				break;
+		}
+		
+		
+		 
+
+		sql.append(" SELECT * FROM tb_spare WHERE 1=1 ");
+		sql.append(whereSql);
 		 
 		 
 		 JSONObject mainObj = new JSONObject();

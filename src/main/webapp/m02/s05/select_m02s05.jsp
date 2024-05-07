@@ -29,7 +29,7 @@
 	JSONObject mainObj = new JSONObject();  
 	 
 	 
-	sql.append("SELECT hogi, seolbi, serial_no, ");
+	sql.append("SELECT hogi, serial_no, ");
 	sql.append("change_ndate, change_date, ");
 	sql.append("filename, file_yn, bigo1, ");
 	sql.append("year1, cnt ");
@@ -95,7 +95,6 @@
 					}
 		    		 
 					
-					rowObj.put("seolbi",rs.getString("seolbi"));				//설비[퀜칭 1...]
 					rowObj.put("serial_no",rs.getString("serial_no"));	//이전 교체일
 					rowObj.put("change_ndate",rs.getString("change_ndate"));	//차기 교체일
 					rowObj.put("change_date",rs.getString("change_date"));		//교체일

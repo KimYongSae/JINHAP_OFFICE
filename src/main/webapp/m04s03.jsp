@@ -281,8 +281,15 @@
 				<!-- <tbody style="display : block; overflow-y: auto;"> -->
 				<tbody id="reg_body" style="font-weight: 600;">
 					<tr>
-						<td class="nr2"><input type="text" class="form-control input-sm"
-							id="reg_seolbi" name="reg_seolbi" style="font-family: headline;" /></td>
+						<td class="nr2">
+							<select class="form-control input-sm" id="reg_seolbi" name="reg_seolbi"
+								style="margin-top: 5px; height: 30px; font-size: 14pt; padding-top: 1px; padding-bottom: 1px; font-family: headline; font-weight: 700;">
+								<option value="연속로">연속로</option>
+								<option value="소입로">소입로</option>
+								<option value="배치로">배치로</option>
+								<option value="변성로">변성로</option>
+							</select>
+						</td>
 						<td class="nr3"><input type="text" class="form-control input-sm"
 							id="reg_component_name" name="reg_component_name" style="font-family: headline;" /></td>
 						<td class="nr4"><input type="text" class="form-control input-sm"
@@ -291,18 +298,35 @@
 							id="reg_specifications" name="reg_specifications" style="font-family: headline;" /></td>
 						<td class="nr6"><input type="text" class="form-control input-sm"
 							id="reg_manufacturer" name="reg_manufacturer" style="font-family: headline;" /></td>
-						<td class="nr7"><input type="text" class="form-control input-sm"
-							id="reg_replacement_frequency" name="reg_replacement_frequency" style="font-family: headline;" /></td>
-						<td class="nr8"><input type="text" class="form-control input-sm"
-							id="reg_purchase_cycle" name="reg_purchase_cycle" style="font-family: headline;" /></td>
+						<td class="nr7">
+							<select class="form-control input-sm" id="reg_replacement_frequency" name="reg_replacement_frequency"
+								style="margin-top: 5px; height: 30px; font-size: 14pt; padding-top: 1px; padding-bottom: 1px; font-family: headline; font-weight: 700;">
+								<option value="상시">상시</option>
+								<option value="정기">정기</option>
+							</select>
+						</td>
+						<td class="nr8">
+							<select class="form-control input-sm" id="reg_purchase_cycle" name="reg_purchase_cycle"
+								style="margin-top: 5px; height: 30px; font-size: 14pt; padding-top: 1px; padding-bottom: 1px; font-family: headline; font-weight: 700;">
+								<option value="월">월</option>
+								<option value="반기">반기</option>
+								<option value="년">년</option>
+								<option value="수시">수시</option>
+							</select>
+						</td>
 						<td class="nr9"><input type="text" class="form-control input-sm"
 							id="reg_current_stock" name="reg_current_stock" style="font-family: headline;" /></td>
 						<td class="nr10"><input type="text" class="form-control input-sm"
 							id="reg_safety_stock" name="reg_safety_stock" style="font-family: headline;" /></td>
 						<td class="nr11"><input type="text" class="form-control input-sm"
-							id="reg_shortage_stock" name="reg_shortage_stock" style="font-family: headline;" /></td>
-						<td class="nr12"><input type="text" class="form-control input-sm"
-							id="reg_unit" name="reg_unit" style="font-family: headline;" /></td>
+							id="reg_shortage_stock" name="reg_shortage_stock" readonly style="font-family: headline;" /></td>
+						<td class="nr12">
+							<select class="form-control input-sm" id="reg_unit" name="reg_unit"
+								style="margin-top: 5px; height: 30px; font-size: 14pt; padding-top: 1px; padding-bottom: 1px; font-family: headline; font-weight: 700;">
+								<option value="EA">EA</option>
+								<option value="SET">SET</option>
+							</select>
+						</td>
 						<td class="nr13"><input type="text" class="form-control input-sm"
 							id="reg_storage_location" name="reg_storage_location" style="font-family: headline;" /></td>
 						<td class="nr14"><input type="text" class="form-control input-sm"
@@ -353,8 +377,15 @@
 					<tr>
 						<td class="nr1" style="display:none"><input type="text" class="form-control input-sm"
 							id="modify_cnt" name="modify_cnt" style="font-family: headline;" /></td>
-						<td class="nr2"><input type="text" class="form-control input-sm"
-							id="modify_seolbi" name="modify_seolbi" style="font-family: headline;" /></td>
+						<td class="nr2">
+							<select class="form-control input-sm" id="modify_seolbi" name="modify_seolbi"
+								style="margin-top: 5px; height: 30px; font-size: 14pt; padding-top: 1px; padding-bottom: 1px; font-family: headline; font-weight: 700;">
+								<option value="연속로">연속로</option>
+								<option value="소입로">소입로</option>
+								<option value="배치로">배치로</option>
+								<option value="변성로">변성로</option>
+							</select>	
+						</td>
 						<td class="nr3"><input type="text" class="form-control input-sm"
 							id="modify_component_name" name="modify_component_name" style="font-family: headline;" /></td>
 						<td class="nr4"><input type="text" class="form-control input-sm"
@@ -363,18 +394,35 @@
 							id="modify_specifications" name="modify_specifications" style="font-family: headline;" /></td>
 						<td class="nr6"><input type="text" class="form-control input-sm"
 							id="modify_manufacturer" name="modify_manufacturer" style="font-family: headline;" /></td>
-						<td class="nr7"><input type="text" class="form-control input-sm"
-							id="modify_replacement_frequency" name="modify_replacement_frequency" style="font-family: headline;" /></td>
-						<td class="nr8"><input type="text" class="form-control input-sm"
-							id="modify_purchase_cycle" name="modify_purchase_cycle" style="font-family: headline;" /></td>
+						<td class="nr7">
+							<select class="form-control input-sm" id="modify_replacement_frequency" name="modify_replacement_frequency"
+								style="margin-top: 5px; height: 30px; font-size: 14pt; padding-top: 1px; padding-bottom: 1px; font-family: headline; font-weight: 700;">
+								<option value="상시">상시</option>
+								<option value="정기">정기</option>
+							</select>	
+						</td>
+						<td class="nr8">
+							<select class="form-control input-sm" id="modify_purchase_cycle" name="modify_purchase_cycle"
+								style="margin-top: 5px; height: 30px; font-size: 14pt; padding-top: 1px; padding-bottom: 1px; font-family: headline; font-weight: 700;">
+								<option value="월">월</option>
+								<option value="반기">반기</option>
+								<option value="년">년</option>
+								<option value="수시">수시</option>
+							</select>
+						</td>
 						<td class="nr9"><input type="text" class="form-control input-sm"
 							id="modify_current_stock" name="modify_current_stock" style="font-family: headline;" /></td>
 						<td class="nr10"><input type="text" class="form-control input-sm"
 							id="modify_safety_stock" name="modify_safety_stock" style="font-family: headline;" /></td>
 						<td class="nr11"><input type="text" class="form-control input-sm"
-							id="modify_shortage_stock" name="modify_shortage_stock" style="font-family: headline;" /></td>
-						<td class="nr12"><input type="text" class="form-control input-sm"
-							id="modify_unit" name="modify_unit" style="font-family: headline;" /></td>
+							id="modify_shortage_stock" name="modify_shortage_stock" readonly style="font-family: headline;" /></td>
+						<td class="nr12">
+							<select class="form-control input-sm" id="modify_unit" name="modify_unit"
+								style="margin-top: 5px; height: 30px; font-size: 14pt; padding-top: 1px; padding-bottom: 1px; font-family: headline; font-weight: 700;">
+								<option value="EA">EA</option>
+								<option value="SET">SET</option>
+							</select>
+						</td>
 						<td class="nr13"><input type="text" class="form-control input-sm"
 							id="modify_storage_location" name="modify_storage_location" style="font-family: headline;" /></td>
 						<td class="nr14"><input type="text" class="form-control input-sm"
@@ -467,6 +515,45 @@
 
 		</form>
 	</div>
+	<div style="display: none;" id="file-form" title="파일 첨부">
+		<form class="form-horizontal" id="upload" name="upload" method="post"
+			enctype="multipart/form-data">
+			<table class="no-style">
+				<tr>
+					<td colspan="2"><b>**파일첨부**</b></td>
+				</tr>
+				<tr>
+					<td colspan="2">*엑셀파일만 업로드 가능합니다.</td>
+				</tr>
+				<tr>
+					<td colspan="2">*기존에 저장된 자료는 삭제됩니다.</td>
+				</tr>
+				<tr height="5">
+					<td></td>
+				</tr>
+				<tr>
+					<td><input type="hidden" id="filePath"
+						class="file_input_textbox" readonly="readonly">
+
+						<div class="file_input_div">
+							<input type="file" id="file" name="file1"
+								class="file_input_hidden form-control"
+								onchange="javascript:document.getElementById('filePath').value = this.value" />
+						</div></td>
+				</tr>
+				<tr height="5">
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="button"
+						class="btn small btn-primary" onclick="condition_excel_import();"
+						value="전송"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	
+	
 
 	<div id="wrap">
 
@@ -507,9 +594,25 @@
 										</header>
 										<header style="background: white; height: 43px;">
 											<form class="form-inline" role="form" id="searchform"
-												name="searchform" method="post" autocomplete="off">
-												<div class="form-group">
-													&nbsp;&nbsp;
+												name="searchform" method="post" autocomplete="off"
+												style="padding: 0 10px;"
+												>
+												
+													<div class="form-group">
+														<label class="control-label"
+															style="font-size: 14pt; font-family: headline; color: #8C8C8C; width: 50px; text-align: right; font-weight: 700;">
+															설비 : </label>
+													</div>
+													<div class="form-group">
+														<select class="form-control input-sm" id="s_seolbi" name="s_seolbi"
+															style="margin-top: 5px; height: 30px; width: 140px; font-size: 14pt; padding-top: 1px; padding-bottom: 1px; font-family: headline; font-weight: 700;">
+															<option value="0">전체</option>
+															<option value="1">연속로</option>
+															<option value="2">소입로</option>
+															<option value="3">배치로</option>
+															<option value="4">변성로</option>
+														</select>
+													</div>
 													<div class="form-group">
 														<button class="btn btn-default pull-right btn-sm"
 														 	type="button"
@@ -529,7 +632,24 @@
 															style="margin-top: 6px; height: 31px; width: 100px; font-size: 14pt; font-weight: 700; font-family: headline; padding-top: 1px; padding-bottom: 1px;"
 															id="deleteBtn" onclick="deleteDialogOpen();">삭제</button>
 													</div>
-												</div>
+													<div class="form-group pull-right">
+														<div class="form-group">
+															<button class="btn btn-default pull-right btn-sm"
+																type="button"
+																style="margin-top: 6px; height: 31px; width: 160px; font-size: 14pt; font-weight: 700; font-family: headline; padding-top: 1px; padding-bottom: 1px;"
+																id="excelBtn">
+																<i class="glyphicon glyphicon-save"></i> 엑셀다운로드
+															</button>
+														</div>
+														<div class="form-group">
+															<button class="btn btn-default pull-right btn-sm"
+																type="button"
+																style="margin-top: 6px; height: 31px; width: 160px; font-size: 14pt; font-weight: 700; font-family: headline; padding-top: 1px; padding-bottom: 1px;"
+																id="in_excel" onclick="excel_import_open();">
+																<span class="glyphicon glyphicon-open"></span>엑셀업로드
+															</button>
+														</div>
+													</div>
 
 
 											</form>
@@ -683,10 +803,7 @@
 						dataType : "json",
 						data : {
 							'time' : new Date().getTime(),
-							'hogi' : $("#hogi").val(),
-							"pnum" : $("#pnum").val(),
-							"gang" : $("#gang").val(),
-							"t_gb" : $("#t_gb").val()
+							'seolbi' : $("#s_seolbi").val()
 						},
 						success : function(rsJson) {
 							if (rsJson && rsJson.status == "ok") {
@@ -750,146 +867,6 @@
 
 					});
 		}
-		var getSelect = function() {
-			console.log(boxId);
-			$
-					.ajax({
-						type : "POST",
-						url : "m04/s03/list_m04s03.jsp",
-						cache : false,
-						dataType : "json",
-						data : {
-							'time' : new Date().getTime(),
-							'hogi' : $('#hogi').val(),
-							'pnum' : $('#pnum').val(),
-							'gang' : $('#gang').val(),
-							't_gb' : $('#t_gb').val()
-						},
-						success : function(rsJson) {
-							if (rsJson && rsJson.status == "ok") {
-								var rsPnum = rsJson.pnum;
-								var rsGang = rsJson.gang;
-								var rsT_gb = rsJson.t_gb;
-
-								/* // 품목명
-								var pnameHtml = "";
-								if ($.isArray(rsPname)) {
-								  pnameHtml += "<option value='0'>All</option>";
-								  for (var i = 0; i < rsPname.length; i++) {
-								    pnameHtml += "<option value='" + rsPname[i].pname + "'>" + rsPname[i].pname + "</option>";
-								  }
-								} else {
-								  pnameHtml += "<option value='0'>품명이 없습니다.</option>";
-								}
-								$("#pname").empty().append(pnameHtml);
-								$("#pname").select2(); // 이 위치에서 select2()를 호출합니다.
-
-								// 강종
-								var gangHtml = "";
-								if ($.isArray(rsGang)) {
-								  gangHtml += "<option value='0'>All</option>";
-								  for (var i = 0; i < rsGang.length; i++) {
-								    gangHtml += "<option value='" + rsGang[i].gang + "'>" + rsGang[i].gang + "</option>";
-								  }
-								} else {
-								  gangHtml += "<option value='0'>품명이 없습니다.</option>";
-								}
-								$("#gang").empty().append(gangHtml);
-								$("#gang").select2(); // 이 위치에서 select2()를 호출합니다.
-
-								// t급
-								var t_gbHtml = "";
-								if ($.isArray(rsT_gb)) {
-								  t_gbHtml += "<option value='0'>All</option>";
-								  for (var i = 0; i < rsT_gb.length; i++) {
-								    t_gbHtml += "<option value='" + rsT_gb[i].t_gb + "'>" + rsT_gb[i].t_gb + "</option>";
-								  }
-								} else {
-								  t_gbHtml += "<option value='0'>품명이 없습니다.</option>";
-								}
-								$("#t_gb").empty().append(t_gbHtml);
-								$("#t_gb").select2(); // 이 위치에서 select2()를 호출합니다. */
-
-								// 품목명을 업데이트하는 함수
-								function updatePnum(rsPnum) {
-									var pnumHtml = "";
-									if ($.isArray(rsPnum)) {
-										pnumHtml += "<option value='0'>All</option>";
-										for (var i = 0; i < rsPnum.length; i++) {
-											pnumHtml += "<option value='" + rsPnum[i].pnum + "'>"
-													+ rsPnum[i].pnum
-													+ "</option>";
-										}
-									} else {
-										pnumHtml += "<option value='0'>품명이 없습니다.</option>";
-									}
-									$("#pnum").empty().append(pnumHtml);
-									$("#pnum").select2();
-								}
-
-								// 강종을 업데이트하는 함수
-								function updateGang(rsGang) {
-									var gangHtml = "";
-									if ($.isArray(rsGang)) {
-										gangHtml += "<option value='0'>All</option>";
-										for (var i = 0; i < rsGang.length; i++) {
-											gangHtml += "<option value='" + rsGang[i].gang + "'>"
-													+ rsGang[i].gang
-													+ "</option>";
-										}
-									} else {
-										gangHtml += "<option value='0'>품명이 없습니다.</option>";
-									}
-									$("#gang").empty().append(gangHtml);
-									$("#gang").select2();
-								}
-
-								// t급을 업데이트하는 함수
-								function updateT_gb(rsT_gb) {
-									var t_gbHtml = "";
-									if ($.isArray(rsT_gb)) {
-										t_gbHtml += "<option value='0'>All</option>";
-										for (var i = 0; i < rsT_gb.length; i++) {
-											t_gbHtml += "<option value='" + rsT_gb[i].t_gb + "'>"
-													+ rsT_gb[i].t_gb
-													+ "</option>";
-										}
-									} else {
-										t_gbHtml += "<option value='0'>품명이 없습니다.</option>";
-									}
-									$("#t_gb").empty().append(t_gbHtml);
-									$("#t_gb").select2();
-								}
-
-								if (boxId == "pnum") {
-									updateGang(rsGang);
-									updateT_gb(rsT_gb);
-								} else if (boxId == "gang") {
-									updateT_gb(rsT_gb);
-								} else if (boxId == "t_gb") {
-									;
-									;
-								} else {
-									updateGang(rsGang);
-									updatePnum(rsPnum);
-									updateT_gb(rsT_gb);
-								}
-
-							} else if (rsJson && rsJson.status == "fail") {
-								alert("데이터 불러오는 중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-							} else {
-								alert("에러 발생!");
-							}
-						},
-						error : function(req, status) {
-							if (req.status == 0 || status == "timeout") {
-								alert("네트워크 연결 확인 후 다시 시도해주세요.");
-							} else {
-								alert("처리 중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-							}
-						},
-					});
-		};
 
 		function condition_excel_import() {
 
@@ -905,12 +882,6 @@
 				return false;
 			}
 
-			/* if(upload.file1.value.indexOf("기준정보") == -1){
-			 console.log(upload.file1.value);
-			 $("#alertSpan").text("선택하신 파일이 부품표의 파일이 맞는지 확인해주세요.");
-			  alertDialog.dialog("open");
-			  return false;
-			} */
 			console.log(upload.file1.value);
 			console.log(upload.file1.value.indexOf("기준정보"));
 
@@ -934,7 +905,6 @@
 				success : function(data) {
 
 					fileDialog.dialog("close");
-					getSelect();
 					getSpareList();
 					fileform.reset();
 				}
@@ -1180,22 +1150,9 @@
 
 		/*이벤트*/
 
-		var boxId = "";
-		$('#hogi').change(function() {
-			boxId = "hogi";
-			getSelect();
-		});
-		$('#pnum').change(function() {
-			boxId = "pnum";
-			getSelect();
-		});
-		$('#gang').change(function() {
-			boxId = "gang";
-			getSelect();
-		});
-		$('#t_gb').change(function() {
-			boxId = "t_gb";
-			getSelect();
+		
+		$('#s_seolbi').change(function() {
+			getSpareList();
 		});
 
 		$("#searchbtn").on("click", function() {
@@ -1213,10 +1170,27 @@
 
 		});
 
+		$('#reg_safety_stock, #reg_current_stock').on('input', function() {
+	        var safetyStock = parseInt($('#reg_safety_stock').val()) || 0;
+	        var currentStock = parseInt($('#reg_current_stock').val()) || 0;
+
+	        var shortageStock = safetyStock - currentStock;
+
+	        $('#reg_shortage_stock').val(shortageStock);
+	    });
+		
+		$('#modify_safety_stock, #modify_current_stock').on('input', function() {
+	        var safetyStock = parseInt($('#modify_safety_stock').val()) || 0;
+	        var currentStock = parseInt($('#modify_current_stock').val()) || 0;
+
+	        var shortageStock = safetyStock - currentStock;
+
+	        $('#modify_shortage_stock').val(shortageStock);
+	    });
+		
+		
+		
 		function excel_import_open() {
-			/* var popupx = (window.screen.width/2)-(346/2);
-			var popupy = (window.screen.height/2)-(300/2);
-			var openWin = window.open('m04s03_importView.jsp','', 'status=no, width=450, height=260,menubar=1,left='+popupx+',top='+ popupy+', screenX='+popupx+', screenY='+popupy); */
 			fileDialog.dialog("open");
 		}
 		function registerDialogOpen() {
@@ -1282,41 +1256,6 @@
 			$("#delete_rack_number").val($nr14);
 			$("#delete_purchase_request").val($nr15);
 			$("#delete_remarks").val($nr16);
-			
-			/* $('[id^="modify_chk"]').prop('checked', false);
-			$('#modify_chk' + hogiNum).prop('checked', true);
-			
-			// $("#modify_hogi").val($nr1);
-			$("#modify_pnum").val($nr2);
-			$("#modify_pname").val($nr3);
-			$("#modify_gang").val($nr4);
-			$("#modify_t_gb").val($nr5);
-			$("#modify_lot").val($nr6);
-			$("#modify_q_temp_jin"+hogiNum).val($nr7);
-			$("#modify_t_temp_jin"+hogiNum).val($nr8);
-			$("#modify_cp_jin"+hogiNum).val($nr9);
-			$("#modify_q_temp_ez"+hogiNum).val($nr10);
-			$("#modify_t_temp_ez"+hogiNum).val($nr11);
-			$("#modify_cp_ez"+hogiNum).val($nr12);
-			$("#modify_weight"+hogiNum).val($nr13);
-			$("#modify_hardness"+hogiNum).val($nr14);
-			
-			$("#delete_hogi").val($nr1);
-			$("#delete_pnum").val($nr2);
-			$("#delete_pname").val($nr3);
-			$("#delete_gang").val($nr4);
-			$("#delete_t_gb").val($nr5);
-			$("#delete_lot").val($nr6);
-			$("#delete_q_temp_jin").val($nr7);
-			$("#delete_t_temp_jin").val($nr8);
-			$("#delete_cp_jin").val($nr9);
-			$("#delete_q_temp_ez").val($nr10);
-			$("#delete_t_temp_ez").val($nr11);
-			$("#delete_cp_ez").val($nr12);
-			$("#delete_weight").val($nr13);
-			$("#delete_hardness").val($nr14); */
-
-			//$("#saveBtn").attr("disabled",true);
 
 			
 			var index = 0;
@@ -1354,7 +1293,7 @@
 			autoOpen : false,
 			//autoOpen: true,
 			height : 300,
-			width : 1600,
+			width : 1950,
 			modal : false,
 			stack : false,
 			close : function(event, ui) {
@@ -1375,7 +1314,7 @@
 			autoOpen : false,
 			//autoOpen: true,
 			height : 300,
-			width : 1600,
+			width : 1950,
 			modal : false,
 			stack : false,
 			buttons : {
@@ -1392,7 +1331,7 @@
 			autoOpen : false,
 			//autoOpen: true,
 			height : 300,
-			width : 1600,
+			width : 1950,
 			modal : false,
 			stack : false,
 			buttons : {
