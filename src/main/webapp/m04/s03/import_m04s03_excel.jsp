@@ -39,15 +39,25 @@ try {
     pstmt = conn.prepareStatement(insertSql);
 	
     
-    System.out.println(sheet.getLastRowNum());
     
     for (int rowIndex = 1; rowIndex <= sheet.getLastRowNum(); rowIndex++) {
         XSSFRow row = sheet.getRow(rowIndex);
-            for (int colIndex = 1; colIndex < 16; colIndex++) {
-                XSSFCell cell = row.getCell(colIndex, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
-                pstmt.setString(colIndex, cell.toString());
+        for (int colIndex = 1; colIndex < 16; colIndex++) {
+            XSSFCell cell = row.getCell(colIndex, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
+            String cellValue;
+            
+            if (cell.getCellType() == CellType.NUMERIC) {
+                // 숫자 형식인 경우, 항상 정수로 변환
+                int intValue = (int)cell.getNumericCellValue();
+                cellValue = String.valueOf(intValue);  // 정수를 문자열로 변환
+            } else {
+                // 그 외의 경우(문자열 등), 셀의 문자열 값을 직접 사용
+                cellValue = cell.toString();
             }
-            pstmt.addBatch();
+            
+            pstmt.setString(colIndex, cellValue);
+        }
+        pstmt.addBatch();
     }
 
     pstmt.executeBatch();

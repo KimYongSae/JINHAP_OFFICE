@@ -1984,8 +1984,8 @@ function div_change(value){
 						$("#h1_pv_mw").css("background-color", "");
 					}
 					
-					$("#h1_sp_oil").text((rsAr.oil_sp-10)+"~"+(rsAr.oil_sp+10));
-					if((rsAr.oil_pv < rsAr.oil_sp-10) || (rsAr.oil_pv > rsAr.oil_sp+10)){
+					$("#h1_sp_oil").text((rsAr.oil_sp-30)+"~"+(rsAr.oil_sp+10));
+					if((rsAr.oil_pv < rsAr.oil_sp-30) || (rsAr.oil_pv > rsAr.oil_sp+10)){
 						$("#h1_pv_oil").css("background-color", "red");
 					} else{
 						$("#h1_pv_oil").css("background-color", "");
@@ -2122,8 +2122,8 @@ function div_change(value){
 						$("#h2_pv_mw").css("background-color", "");
 					}
 					
-					$("#h2_sp_oil").text((rsAr.oil_sp-10)+"~"+(rsAr.oil_sp+10));
-					if((rsAr.oil_pv < rsAr.oil_sp-10) || (rsAr.oil_pv > rsAr.oil_sp+10)){
+					$("#h2_sp_oil").text((rsAr.oil_sp-30)+"~"+(rsAr.oil_sp+10));
+					if((rsAr.oil_pv < rsAr.oil_sp-30) || (rsAr.oil_pv > rsAr.oil_sp+10)){
 						$("#h2_pv_oil").css("background-color", "red");
 					} else{
 						$("#h2_pv_oil").css("background-color", "");
@@ -2273,8 +2273,8 @@ function div_change(value){
 						$("#h3_sp_mw").css("background-color", "");
 					}
 					
-					$("#h3_sp_oil").text((rsAr.oil_sp-10)+"~"+(rsAr.oil_sp+10));
-					if((rsAr.oil_pv < rsAr.oil_sp-10) || (rsAr.oil_pv > rsAr.oil_sp+10)){
+					$("#h3_sp_oil").text((rsAr.oil_sp-30)+"~"+(rsAr.oil_sp+10));
+					if((rsAr.oil_pv < rsAr.oil_sp-30) || (rsAr.oil_pv > rsAr.oil_sp+10)){
 						$("#h3_sp_oil").css("background-color", "red");
 					} else{
 						$("#h3_sp_oil").css("background-color", "");
@@ -2411,8 +2411,8 @@ function div_change(value){
 						$("#h4_pv_mw").css("background-color", "");
 					}
 					
-					$("#h4_sp_oil").text((rsAr.oil_sp-10)+"~"+(rsAr.oil_sp+10));
-					if((rsAr.oil_pv < rsAr.oil_sp-10) || (rsAr.oil_pv > rsAr.oil_sp+10)){
+					$("#h4_sp_oil").text((rsAr.oil_sp-30)+"~"+(rsAr.oil_sp+10));
+					if((rsAr.oil_pv < rsAr.oil_sp-30) || (rsAr.oil_pv > rsAr.oil_sp+10)){
 						$("#h4_pv_oil").css("background-color", "red");
 					} else{
 						$("#h4_pv_oil").css("background-color", "");
@@ -2549,8 +2549,8 @@ function div_change(value){
 						$("#h5_pv_mw").css("background-color", "");
 					}
 					
-					$("#h5_sp_oil").text((rsAr.oil_sp-10)+"~"+(rsAr.oil_sp+10));
-					if((rsAr.oil_pv < rsAr.oil_sp-10) || (rsAr.oil_pv > rsAr.oil_sp+10)){
+					$("#h5_sp_oil").text((rsAr.oil_sp-30)+"~"+(rsAr.oil_sp+10));
+					if((rsAr.oil_pv < rsAr.oil_sp-30) || (rsAr.oil_pv > rsAr.oil_sp+10)){
 						$("#h5_pv_oil").css("background-color", "red");
 					} else{
 						$("#h5_pv_oil").css("background-color", "");
@@ -2687,8 +2687,8 @@ function div_change(value){
 						$("#h6_pv_mw").css("background-color", "");
 					}
 					
-					$("#h6_sp_oil").text((rsAr.oil_sp-10)+"~"+(rsAr.oil_sp+10));
-					if((rsAr.oil_pv < rsAr.oil_sp-10) || (rsAr.oil_pv > rsAr.oil_sp+10)){
+					$("#h6_sp_oil").text((rsAr.oil_sp-30)+"~"+(rsAr.oil_sp+10));
+					if((rsAr.oil_pv < rsAr.oil_sp-30) || (rsAr.oil_pv > rsAr.oil_sp+10)){
 						$("#h6_pv_oil").css("background-color", "red");
 					} else{
 						$("#h6_pv_oil").css("background-color", "");

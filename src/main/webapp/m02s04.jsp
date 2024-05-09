@@ -419,9 +419,9 @@ td{
 														        <th class="r4">최대냉각속도</th>
 														        <th class="r5">전산가</th>
 														        <th class="r6">동점도</th>
-														        <th class="r7">전산가</th>
+														        <th class="r7">수분</th>
 														        <th class="r8">최대냉각속도</th>
-														        <th class="r9">수분</th>
+														        <th class="r9">전산가</th>
 													     	</tr>
 													    </thead>
 													    <tbody>
@@ -429,53 +429,53 @@ td{
 													    		<td>1호기</td>
 													    		<td rowspan="6">15~18</td>
 													    		<td rowspan="6">0.05%이하</td>
-													    		<td rowspan="6">95℃/Sec이상</td>
+													    		<td rowspan="6">93.7~114.6<br>℃/Sec이상</td>
 													    		<td rowspan="6">1.0이하</td>
-													    		<td></td>
-													    		<td></td>
-													    		<td></td>
-													    		<td></td>
-													    		<td></td>
+													    		<td id="kv_1" class="data-cell"></td>
+													    		<td id="mc_1" class="data-cell"></td>
+													    		<td id="mcr_1" class="data-cell"></td>
+													    		<td id="tan_1" class="data-cell"></td>
+													    		<td id="ivf_1" class="data-cell"></td>
 													    	</tr>
 													    	<tr>
 													    		<td>2호기</td>
-													    		<td></td>
-													    		<td></td>
-													    		<td></td>
-													    		<td></td>
-													    		<td></td>
+													    		<td id="kv_2" class="data-cell"></td>
+													    		<td id="mc_2" class="data-cell"></td>
+													    		<td id="mcr_2" class="data-cell"></td>
+													    		<td id="tan_2" class="data-cell"></td>
+													    		<td id="ivf_2" class="data-cell"></td>
 													    	</tr>
 													    	<tr>
 													    		<td>3호기</td>
-													    		<td></td>
-													    		<td></td>
-													    		<td></td>
-													    		<td></td>
-													    		<td></td>
+													    		<td id="kv_3" class="data-cell"></td>
+													    		<td id="mc_3" class="data-cell"></td>
+													    		<td id="mcr_3" class="data-cell"></td>
+													    		<td id="tan_3" class="data-cell"></td>
+													    		<td id="ivf_3" class="data-cell"></td>
 													    	</tr>
 													    	<tr>
 													    		<td>4호기</td>
-													    		<td></td>
-													    		<td></td>
-													    		<td></td>
-													    		<td></td>
-													    		<td></td>
+													    		<td id="kv_4" class="data-cell"></td>
+													    		<td id="mc_4" class="data-cell"></td>
+													    		<td id="mcr_4" class="data-cell"></td>
+													    		<td id="tan_4" class="data-cell"></td>
+													    		<td id="ivf_4" class="data-cell"></td>
 													    	</tr>
 													    	<tr>
 													    		<td>5호기</td>
-													    		<td></td>
-													    		<td></td>
-													    		<td></td>
-													    		<td></td>
-													    		<td></td>
+													    		<td id="kv_5" class="data-cell"></td>
+													    		<td id="mc_5" class="data-cell"></td>
+													    		<td id="mcr_5" class="data-cell"></td>
+													    		<td id="tan_5" class="data-cell"></td>
+													    		<td id="ivf_5" class="data-cell"></td>
 													    	</tr>
 													    	<tr>
 													    		<td>6호기</td>
-													    		<td></td>
-													    		<td></td>
-													    		<td></td>
-													    		<td></td>
-													    		<td></td>
+													    		<td id="kv_6" class="data-cell"></td>
+													    		<td id="mc_6" class="data-cell"></td>
+													    		<td id="mcr_6" class="data-cell"></td>
+													    		<td id="tan_6" class="data-cell"></td>
+													    		<td id="ivf_6" class="data-cell"></td>
 													    	</tr>
 													    	<tr style="height:150px">
 													    		<td>비고</td>
@@ -948,15 +948,143 @@ td{
 			Copyright 2023. All Rights Reserved.
 
 		</div>
+		<div id="reg_div" style="display:none;" title="등록">
+			<form class="form-inline" role="form" id="reg_form" name="reg_form" 
+			method="post" autocomplete="off">
+				<div class="form-group">
+					<label class="control-label" 
+					style="font-size: 14pt;  font-family:headline; font-weight:700; 
+						color:#8C8C8C; width: 60px; text-align: right;">
+					등록: </label>
+				</div>
+				
+				<div class="form-group">
+					<input type="number" class="form-control input-sm" 
+					id="reg_value" name="reg_value" 
+	    					style="width: 280px; height: 34px; 
+	    					font-size: 14pt; font-family :headline; font-weight:700;"/>
+				</div>			
+			</form>
+				<input type="hidden" id="reg_tagId" name="reg_tagId" />
+		</div>
+		
+		
+		
 	</div>
 
 	<script>
-		// for ESM environment, need to import modules as:
-		// import bb, {gauge} from "billboard.js";
-
+	
+	$(function(){
+		var now = new Date();
 		
+		
+		for(var j=-3; j<1; j++){
+			var y_value = now.getFullYear() + j;
+			$("#s_year").append("<option value='"+y_value+"'>"+y_value+"년</option>");	
+		}
+		
+		$("#s_year").val(now.getFullYear());
+		$("#s_month").val(now.getMonth()+1);
+		getYearCount();
+		
+		// 클릭 이벤트
+		$('.data-cell').click(function() {
+	        var cellId = $(this).attr('id'); 
+	        var cellContent = $(this).text(); 
+	        $("#reg_tagId").val(cellId);      
+	        $("#reg_value").val(cellContent);
+			
+	        var splitId = cellId.split("_")[0];
+	        
+	        if(splitId == "ivf" || splitId == "bigo"){
+	        	
+	        } else{
+	        regDialog.dialog("open");
+	        }
+	    });
+		//
+	})
+		
+	function getYearCount(){
+		$.post("m02/s04/count_m02s04.jsp", {
+		    "year": $("#s_year").val()
+		}).done(function(response) {
+			getList();	
+		}).fail(function(xhr, status, error) {
+			console.log("실패:", xhr.status);
+		});
+	}
+	
+	function getList(){
+		$.ajax({
+			type : "POST",
+			url : "m02/s04/select_m02s04.jsp",
+			cache : false,
+			dataType : "json",
+			data : {
+				"year":$("#s_year").val(),
+				"month":$("#s_month").val()
+				},
+			success : function(rsJson) {
+				
+				if (rsJson && rsJson.status == "ok") {
+					var rsAr = rsJson.rows;
+					
+					for(var i=0; i<rsAr.length; i++){
+						var hogi = rsAr[i].hogi;
+						$("#kv_"+hogi).text(rsAr[i].kv)
+						$("#mc_"+hogi).text(rsAr[i].mc)
+						$("#mcr_"+hogi).text(rsAr[i].mcr)
+						$("#tan_"+hogi).text(rsAr[i].tan)
+						$("#ivf_"+hogi).text(rsAr[i].ivf)
+						$("#bigo_"+hogi).text(rsAr[i].bigo)
+						
+					}
+				}
+			}
+		})
+	}
+	
+	
+	
+	
+	
 		/*다이얼로그*/
-
+		var regDialog;
+		regDialog = $("#reg_div").dialog({
+			autoOpen:false,
+			//autoOpen:true,
+			height:180,
+			width:400,
+			modal:false,
+			stack:false,
+			buttons:{
+				"등 록":function(){
+					$.post("m02/s04/update_m02s04.jsp",{
+						"year":$("#s_year").val(),
+						"month":$("#s_month").val(),
+						"id":$("#reg_tagId").val(),
+						"value":$("#reg_value").val()
+					}).done(function(response) {
+						getList();
+						$("#reg_form")[0].reset();
+					}).fail(function(xhr, status, error) {
+						console.log("실패:", xhr.status);
+						alert("실패");
+					});
+					
+					regDialog.dialog("close");
+					
+				},
+				"닫 기":function(){
+					$("#reg_form")[0].reset();
+					regDialog.dialog("close");
+				}
+			}
+		});
+		
+		
+		
 		/* 이벤트 */
 		$("#totalButton").on("click", function(){
 			$("#totalButton").css("display", "none");
@@ -977,6 +1105,9 @@ td{
 			
 		});
 		
+		$("#s_year, #s_month").on("change", function(){
+			getYearCount();
+		})
 		
 		/*차트 불러오는 함수*/
 	</script>

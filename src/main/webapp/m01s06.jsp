@@ -80,7 +80,7 @@
 
 .scrolltbody tbody {
     display: block;
-    height: 370px;
+    height: 280px;
 
     overflow-x: hidden;
 }
@@ -89,50 +89,21 @@
 /*호기목록*/
 .scrolltbody2 {
     display: block;
-    width: 740px;
+    width: 1900px;
     border-collapse: collapse;
     border: 0px solid #000;
 }
 
 .scrolltbody2 td { border: 1px solid #000; border-top: 0;}
 
-.scrolltbody2 thead {
-    display: block;
-	width: 740px;
-    overflow-x: hidden;
-}
 
 .scrolltbody2 tbody {
     display: block;
-    width: 740px;
-    height: 120px;
+    height: 200px;
 
     overflow-x: hidden;
 }
 
-/*태그목록 사용*/
-.scrolltbody3 {
-    display: block;
-    width: 400px;
-    border-collapse: collapse;
-    border: 0px solid #000;
-}
-
-.scrolltbody3 td { border: 1px solid #000; border-top: 0;}
-
-.scrolltbody3 thead {
-    display: block;
-	width: 400px;
-    overflow-x: hidden;
-}
-
-.scrolltbody3 tbody {
-    display: block;
-    width: 400px;
-    height: 220px;
-
-    overflow-x: hidden;
-}
 
 
 	.dropdown-colorselector {
@@ -173,8 +144,33 @@
     background-color: #122d64;
     color:#FFFFFF;
     border-color: #FFFFFF !important;
+    height: 30px; 
+    font-size:16pt; 
+    font-family: headline;
 }
-	
+
+#gantryList .r1{
+	width: 50px;
+}
+#gantryList .r2{
+	width: 500px;
+}
+#gantryList .r3{
+	width: 500px;
+}
+#gantryList .r4{
+	width: 150px;
+}
+#gantryList .r5{
+	width: 150px;
+}
+#gantryList .r6{
+	width: 200px;
+}
+#gantryList .r7{
+	width: 80px;
+}
+
 	
 	
 </style>
@@ -300,17 +296,20 @@ var fn_logout = function () {
             
             <div id="collapse4" class="body">				
 				
-                <table id="factory_list" class="table table-bordered table-hover table-responsive scrolltbody2">
+                <table id="gantryList" class="table table-bordered table-hover table-responsive scrolltbody2">
 					<thead>
 						<tr>
-							<th class="text-center cell" style=" width: 50px; height: 30px; font-size:16pt; font-family: headline;">NO</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family: headline;">공장</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family: headline;">수량</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family: headline;">중량</th>
-							<th class="text-center cell" style=" width: 120px; height: 30px; font-size:16pt; font-family: headline;">철통수</th>
+							<th class="text-center cell r1">NO</th>
+							<th class="text-center cell r2">품번</th>
+							<th class="text-center cell r3">품명</th>
+							<th class="text-center cell r4">강종</th>
+							<th class="text-center cell r5">T급</th>
+							<th class="text-center cell r6">진합LOT</th>
+							<th class="text-center cell r7">통 수량</th>
 						</tr>
 					</thead>
-					<tbody id="factory_contents">
+					<tbody id="gantryContents">
+					
 					</tbody>
 				</table>
             </div>
@@ -352,47 +351,6 @@ var fn_logout = function () {
             </header>
             <div id="collapse4" class="body">
 				
-                <table id="cp_list2" class="table table-bordered table-hover table-responsive scrolltbody">
-					<thead>
-						<tr>
-							<th class="text-center cell" style=" width: 50px; height: 30px; font-size:16pt; font-family:headline;">NO</th>
-							<th class="text-center cell" style=" width: 70px; height: 30px; font-size:16pt; font-family:headline;">CP</th>
-							<th class="text-center cell" style=" width: 220px; height: 30px; font-size:16pt; font-family:headline;">품번</th>
-							<th class="text-center cell" style=" width: 340px; height: 30px; font-size:16pt; font-family:headline;">품명</th>
-							<th class="text-center cell" style=" width: 240px; height: 30px; font-size:16pt; font-family:headline;">규격</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family:headline;">수량</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family:headline;">중량</th>
-							<th class="text-center cell" style=" width: 80px; height: 30px; font-size:16pt; font-family:headline;">철통수</th>
-						</tr>
-					</thead>
-					<tbody id="cp_contents2">
-						<tr>
-							
-						</tr>
-					</tbody>
-				</table>		
-				
-                <table id="jijil_list2" class="table table-bordered table-hover table-responsive scrolltbody">
-					<thead>
-						<tr>
-							<th class="text-center cell" style=" width: 50px; height: 30px; font-size:16pt; font-family:headline;">NO</th>
-							<th class="text-center cell" style=" width: 240px; height: 30px; font-size:16pt; font-family:headline;">재질경도</th>
-							<th class="text-center cell" style=" width: 220px; height: 30px; font-size:16pt; font-family:headline;">품번</th>
-							<th class="text-center cell" style=" width: 340px; height: 30px; font-size:16pt; font-family:headline;">품명</th>
-							<th class="text-center cell" style=" width: 240px; height: 30px; font-size:16pt; font-family:headline;">규격</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family:headline;">수량</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family:headline;">중량</th>
-							<th class="text-center cell" style=" width: 80px; height: 30px; font-size:16pt; font-family:headline;">철통수</th>
-						</tr>
-					</thead>
-					<tbody id="jijil_contents2">
-						<tr>
-							
-						</tr>
-					</tbody>
-				</table>				
-						
-				
                 <table id="factory_list2" class="table table-bordered table-hover table-responsive scrolltbody">
 					<thead>
 						<tr>
@@ -416,25 +374,6 @@ var fn_logout = function () {
 					</tbody>
 				</table>				
 				
-                <table id="temper_list2" class="table table-bordered table-hover table-responsive scrolltbody">
-					<thead>
-						<tr>
-							<th class="text-center cell" style=" width: 50px; height: 30px; font-size:16pt; font-family:headline;">NO</th>
-							<th class="text-center cell" style=" width: 120px; height: 30px; font-size:16pt; font-family:headline;">템퍼링 온도</th>
-							<th class="text-center cell" style=" width: 220px; height: 30px; font-size:16pt; font-family:headline;">품번</th>
-							<th class="text-center cell" style=" width: 340px; height: 30px; font-size:16pt; font-family:headline;">품명</th>
-							<th class="text-center cell" style=" width: 240px; height: 30px; font-size:16pt; font-family:headline;">규격</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family:headline;">수량</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family:headline;">중량</th>
-							<th class="text-center cell" style=" width: 80px; height: 30px; font-size:16pt; font-family:headline;">철통수</th>
-						</tr>
-					</thead>
-					<tbody id="temper_contents2">
-						<tr>
-							
-						</tr>
-					</tbody>
-				</table>				
 				
             </div>
         </div>
@@ -486,23 +425,7 @@ var fn_logout = function () {
   
   $(function(){
 	  fn_check();
-	  
-	 $("#loading").show(); 
-		//CP
-	  $("#cp_list").hide();
-	  $("#cp_list2").hide();
-	  //재질별
-	  $("#jijil_list").hide();
-	  $("#jijil_list2").hide();
-	  //공장별
-	  $("#factory_list").show();
-	  $("#factory_list2").show();
-	  //온도별
-	  $("#temper_list").hide();
-	  $("#temper_list2").hide();  
-	 
-	 //설비별 조회
-	// getFactory();	 
+	  getGantryList();
   });
 
 
@@ -971,38 +894,30 @@ function init(){
 		});	
 	}
 	
-	//Factory리스트
-	function getFactoryList(){
+	function getGantryList(){
 		
 		$.ajax({
 			type : "POST",
-			url : "l001005_factoryList.jsp",
+			url : "m01/s06/select_m01s06.jsp",
 			cache : false,
 			dataType : "json",
-			data : {'time':new Date().getTime(),
-				"factory_code":$("#select_factory").val(),
-				"pnum":$("#s_pnum").val(),
-				"pname":$("#s_pname").val()},
 			success : function(rsJson) {
 				if (rsJson && rsJson.status == "ok") {
 					var rsAr = rsJson.rows;
 					var listHtml = "";
+					console.log(rsAr);
 						for(var i=0; i<rsAr.length; i++){	
 							listHtml += "<tr>";
-							listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 50px; word-break:break-all; font-size:15pt; font-family:headline;">'+(i+1)+'</td>';
-							listHtml += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 100px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].factory_code+'</td>';
-							listHtml += '<td class="nr3" style="text-align: left; vertical-align: middle; padding: 1px; height: 30px; width: 220px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].itnbr+'</td>';
-							listHtml += '<td class="nr4" style="text-align: left; vertical-align: middle; padding: 1px; height: 30px; width: 340px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].model_name+'</td>';
-							listHtml += '<td class="nr5" style="text-align: left; vertical-align: middle; padding: 1px; height: 30px; width: 240px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].model_desc+'</td>';
-							listHtml += '<td class="nr6" style="text-align: right; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].out_qty+'</td>';
-							listHtml += '<td class="nr7" style="text-align: right; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].out_weight+'</td>';
-							listHtml += '<td class="nr8" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].cnt+'</td>';
-							listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 240px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].jijil_ht+'</td>';
-							listHtml += '<td class="nr10" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].temper+'</td>';
-							listHtml += '<td class="nr11" style="text-align: right; vertical-align: middle; padding: 1px; height: 20px; width: 70px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].cp_mid+'</td>';
+							listHtml += '<td class="text-center cell r1">'+rsAr[i].listIdx+'</td>';
+							listHtml += '<td class="text-center cell r2">'+rsAr[i].pnum+'</td>';
+							listHtml += '<td class="text-center cell r3">'+rsAr[i].pname+'</td>';
+							listHtml += '<td class="text-center cell r4">'+rsAr[i].gang+'</td>';
+							listHtml += '<td class="text-center cell r5">'+rsAr[i].t_gb+'</td>';
+							listHtml += '<td class="text-center cell r6">'+rsAr[i].jhlot+'</td>';
+							listHtml += '<td class="text-center cell r7">'+rsAr[i].tongCount+'</td>';
 							listHtml += "</tr>";							
 						}
-					$("#factory_list2 tbody").html(listHtml);
+					$("#gantryContents").html(listHtml);
 					
 				} else if (rsJson && rsJson.status == "fail") {
 					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
@@ -1289,217 +1204,6 @@ function init(){
 	
 /*이벤트*/	
   		
-		//CP별
-		$("#cp_contents").delegate('tr','click', function() {
-			
-			var $row = $(this).closest("tr"),
-				$nr1 = $row.find(".nr1").text();	//CP값
-				$nr2 = $row.find(".nr2").text();	//수량
-				$nr3 = $row.find(".nr3").text();	//중량
-				$nr4 = $row.find(".nr4").text();	//철통수
-			
-
-				$("#select_cp").val($nr1);
-				
-			var index = 0;
-			$("#cp_contents > tr").each(function(){
-				if($nr1 == cpArray[index]){
-					$(this).css("background-color","#B2CCFF");						
-				}else{						
-					$(this).css("background-color","#fff");
-				}	
-				index++;
-			});
-			
-			getCPList();
-			getCPPnum();
-			getCPPname();
-		});
-		
-		
-		//재질경도 별
-		$("#jijil_contents").delegate('tr','click', function() {
-			
-			var $row = $(this).closest("tr"),
-				$nr1 = $row.find(".nr1").text();	//재질경도 값
-				$nr2 = $row.find(".nr2").text();	//수량
-				$nr3 = $row.find(".nr3").text();	//중량
-				$nr4 = $row.find(".nr4").text();	//철통수
-			
-
-				$("#select_jijil").val($nr1);
-				
-			var index = 0;
-			$("#jijil_contents > tr").each(function(){
-				if($nr1 == jijilArray[index]){
-					$(this).css("background-color","#B2CCFF");						
-				}else{						
-					$(this).css("background-color","#fff");
-				}	
-				index++;
-			});
-			
-			getJijilList();
-			getJijilPname();
-			getJijilPnum();
-		});		
-		
-		//공장코드 별
-		$("#factory_contents").delegate('tr','click', function() {
-			
-			var $row = $(this).closest("tr"),
-				$nr1 = $row.find(".nr1").text();	//공장코드
-				$nr2 = $row.find(".nr2").text();	//수량
-				$nr3 = $row.find(".nr3").text();	//중량
-				$nr4 = $row.find(".nr4").text();	//철통수
-			
-
-				$("#select_factory").val($nr1);
-				
-			var index = 0;
-			$("#factory_contents > tr").each(function(){
-				if($nr1 == factoryArray[index]){
-					$(this).css("background-color","#B2CCFF");						
-				}else{						
-					$(this).css("background-color","#fff");
-				}	
-				index++;
-			});
-			
-			getFactoryList();
-			getFactoryPnum();
-			getFactoryPname();
-			
-		});		
-		
-		//템퍼링 온도별
-		$("#temper_contents").delegate('tr','click', function() {
-			
-			var $row = $(this).closest("tr"),
-				$nr1 = $row.find(".nr1").text();	//템퍼링 온도
-				$nr2 = $row.find(".nr2").text();	//수량
-				$nr3 = $row.find(".nr3").text();	//중량
-				$nr4 = $row.find(".nr4").text();	//철통수
-			
-
-				$("#select_temper").val($nr1);
-				
-			var index = 0;
-			$("#temper_contents > tr").each(function(){
-				if($nr1 == temperArray[index]){
-					$(this).css("background-color","#B2CCFF");						
-				}else{						
-					$(this).css("background-color","#fff");
-				}	
-				index++;
-			});
-			
-			getTemperList();
-			getTemperPname();
-			getTemperPnum();
-		});		
-		
-		
-		$("#s_pnum").change(function(){
-			var s_search = $("#s_search_gb").val();
-			
-			if(s_search == "2"){
-				getFactoryPname();
-				getFactoryList();
-			}else if(s_search == "3"){
-				getTemperPname();
-				getTemperList();
-			}else if(s_search == "4"){
-				getJijilPname();
-				getJijilList();
-			}else if(s_search == "5"){
-				getCPPname();
-				getCPList();
-			}
-		});
-		
-		
-		
-		$("#s_pname").change(function(){
-			var s_search = $("#s_search_gb").val();
-			
-			if(s_search == "2"){
-				getFactoryPnum();
-				getFactoryList();
-			}else if(s_search == "3"){
-				getTemperPnum();
-				getTemperList();
-			}else if(s_search == "4"){
-				getJijilPnum();
-				getJijilList();
-			}else if(s_search == "5"){
-				getCPPnum();
-				getCPList();
-			}
-		});		
-		
-		$("#s_search_gb").change(function(){
-			$("#loading").show();
-			
-			 var s_search = $("#s_search_gb").val();
-			 if(s_search == "2"){
-				//공장별 조회
-				 $("#hogi_list").hide();
-				 $("#hogi_list2").hide();
-				 $("#cp_list").hide();
-				 $("#cp_list2").hide();
-				 $("#jijil_list").hide();
-				 $("#jijil_list2").hide();	
-				 $("#factory_list").show();
-				 $("#factory_list2").show();
-				 $("#temper_list").hide();
-				 $("#temper_list2").hide();
-				 
-				 getFactory();
-			 }else if(s_search == "3"){
-				//템퍼링 온도별 조회
-				 $("#hogi_list").hide();
-				 $("#hogi_list2").hide();
-				 $("#cp_list").hide();
-				 $("#cp_list2").hide();
-				 $("#jijil_list").hide();
-				 $("#jijil_list2").hide();	
-				 $("#factory_list").hide();
-				 $("#factory_list2").hide();
-				 $("#temper_list").show();
-				 $("#temper_list2").show();				 
-				 
-				 getTemper();
-			 }else if(s_search == "4"){
-				//재질별 조회
-				 $("#hogi_list").hide();
-				 $("#hogi_list2").hide();
-				 $("#cp_list").hide();
-				 $("#cp_list2").hide();
-				 $("#jijil_list").show();
-				 $("#jijil_list2").show();	
-				 $("#factory_list").hide();
-				 $("#factory_list2").hide();
-				 $("#temper_list").hide();
-				 $("#temper_list2").hide();				 
-				 
-				 getJijil();
-			 }else if(s_search == "5"){
-				//CP 조건별 조회
-				 $("#hogi_list").hide();
-				 $("#hogi_list2").hide();
-				 $("#cp_list").show();
-				 $("#cp_list2").show();
-				 $("#jijil_list").hide();
-				 $("#jijil_list2").hide();	
-				 $("#factory_list").hide();
-				 $("#factory_list2").hide();
-				 $("#temper_list").hide();
-				 $("#temper_list2").hide();
-				 
-				 getCP();
-			 }			
-		});
 		
 /*다이얼로그*/
 
