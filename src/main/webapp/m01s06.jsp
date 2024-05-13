@@ -171,6 +171,36 @@
 	width: 80px;
 }
 
+.nr1{
+	width: 100px;
+}
+.nr2{
+	width: 200px;
+}
+.nr3{
+	width: 200px;
+}
+.nr4{
+	width: 350px;
+}
+.nr5{
+	width: 400px;
+}
+.nr6{
+	width: 100px;
+}
+.nr7{
+	width: 100px;
+}
+.nr8{
+	width: 100px;
+}
+.nr9{
+	width: 100px;
+}
+.nr10{
+	width: 100px;
+}
 	
 	
 </style>
@@ -269,29 +299,6 @@ var fn_logout = function () {
                 <div style="padding:11px 14px;" class="icons"><i style="color:white;" class="fa fa-list-alt"></i></div>
                 <h5 style="font-size:14pt; font-family:headline;">생산관리 - 열처리 재공현황 조회</h5>
             </header>
-            <!-- <header style="background:white; height:43px;">
-                <form class="form-inline" role="form" name="searchform" method="post" autocomplete="off">
-					<div class="form-group">
-						<label class="control-label" 
-							style="font-size: 14pt; font-family:headline; font-weight:700;
-							color:#8C8C8C; width: 100px; text-align: right;">검색구분 : </label>
-					</div>
-					
-					
-					<div class="form-group">
-						<select class="form-control input-sm" id="s_search_gb" name="s_search_gb" 
-						style="margin-top:5px; height: 30px; width: 160px; 
-							font-size: 14pt; font-family:headline; font-weight:700;
-							padding-top:1px; padding-bottom:1px;">
-							<option value="2">공장별</option>
-							<option value="3">템퍼링 온도별</option>
-							<option value="4">재질별</option>
-							<option value="5">CP 조건별</option>							
-						</select>
-					</div>        								
-				</form>
-            </header>   -->          
-            
             
             
             <div id="collapse4" class="body">				
@@ -321,31 +328,24 @@ var fn_logout = function () {
             <header style="background:white; height:43px;">
                 <form class="form-inline" role="form" name="searchform" method="post" autocomplete="off">
 					<div class="form-group">
-						<label class="control-label" 
-							style="font-size: 14pt; font-family:headline; font-weight:700;
-							color:#8C8C8C; width: 50px; text-align: right;">품번 : </label>
+						<label class="control-label"
+							style="font-size: 14pt; font-family: headline; color: #8C8C8C; width: 50px; text-align: right; font-weight: 700;">설비
+							: </label>
 					</div>
 
 					<div class="form-group">
-						<select class="form-control input-sm" id="s_pnum" name="s_pnum" 
-						style="margin-top:5px; height: 30px; width: 180px; 
-						font-size: 14pt; font-family:headline;font-weight:700;
-						padding-top:1px; padding-bottom:1px;"></select>
-					</div>                	
-						
-						
-					<div class="form-group">
-						<label class="control-label" 
-							style="font-size: 14pt; font-family:headline; font-weight:700;
-								color:#8C8C8C; width: 50px; text-align: right;">품명 : </label>
-					</div>
-
-					<div class="form-group">
-						<select class="form-control input-sm datepicker" id="s_pname" name="s_pname" 
-						style="margin-top:5px; height: 30px; width: 180px; 
-						font-size: 14pt; font-family:headline; font-weight:700;
-						padding-top:1px; padding-botom:1px;"></select>
-					</div> 									
+						<select class="form-control input-sm" id="hogi" name="hogi"
+							style="margin-top: 5px; height: 30px; width: 140px; font-size: 14pt; padding-top: 1px; padding-bottom: 1px; font-family: headline; font-weight: 700;">
+							<option value="0">전체</option>
+							<option value="1">Q01-HN01</option>
+							<option value="2">Q01-HN02</option>
+							<option value="3">Q01-HN03</option>
+							<option value="4">Q01-HN04</option>
+							<option value="5">Q01-HN05</option>
+							<option value="6">Q01-HN06</option>
+						</select>
+	
+					</div>            	
 															
 				</form>
             </header>
@@ -354,20 +354,19 @@ var fn_logout = function () {
                 <table id="factory_list2" class="table table-bordered table-hover table-responsive scrolltbody">
 					<thead>
 						<tr>
-							<th class="text-center cell" style=" width: 50px; height: 30px; font-size:16pt; font-family:headline;">NO</th>
-							<th class="text-center cell" style=" width: 100px; height: 30px; font-size:16pt; font-family:headline;">공장코드</th>
-							<th class="text-center cell" style=" width: 220px; height: 30px; font-size:16pt; font-family:headline;">품번</th>
-							<th class="text-center cell" style=" width: 340px; height: 30px; font-size:16pt; font-family:headline;">품명</th>
-							<th class="text-center cell" style=" width: 240px; height: 30px; font-size:16pt; font-family:headline;">규격</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family:headline;">수량</th>
-							<th class="text-center cell" style=" width: 130px; height: 30px; font-size:16pt; font-family:headline;">중량</th>
-							<th class="text-center cell" style=" width: 80px; height: 30px; font-size:16pt; font-family:headline;">철통수</th>
-							<th class="text-center cell" style=" width: 240px; height: 30px; font-size:16pt; font-family:headline;">재질경도</th>
-							<th class="text-center cell" style=" width: 120px; height: 30px; font-size:16pt; font-family:headline;">템퍼링온도</th>
-							<th class="text-center cell" style=" width: 70px; height: 30px; font-size:16pt; font-family:headline;">CP</th>
+							<th class="text-center cell nr1">호기</th>
+							<th class="text-center cell nr2">바코드</th>
+							<th class="text-center cell nr3">LOT</th>
+							<th class="text-center cell nr4">품번</th>
+							<th class="text-center cell nr5">품명</th>
+							<th class="text-center cell nr6">강종</th>
+							<th class="text-center cell nr7">CP</th>
+							<th class="text-center cell nr8">소입온도</th>
+							<th class="text-center cell nr9">소려온도</th>
+							<th class="text-center cell nr10">T급</th>
 						</tr>
 					</thead>
-					<tbody id="factory_contents2">
+					<tbody id="lotContents">
 						<tr>
 							
 						</tr>
@@ -426,6 +425,7 @@ var fn_logout = function () {
   $(function(){
 	  fn_check();
 	  getGantryList();
+	  getLotList();
   });
 
 
@@ -938,6 +938,57 @@ function init(){
 			
 		});	
 	}	
+	function getLotList(){
+		
+		$.ajax({
+			type : "POST",
+			url : "m01/s06/select_lot_m01s06.jsp",
+			cache : false,
+			dataType : "json",
+			data:{
+				hogi : $("#hogi").val()
+			},
+			success : function(rsJson) {
+				if (rsJson && rsJson.status == "ok") {
+					var rsAr = rsJson.rows;
+					var listHtml = "";
+					console.log(rsAr);
+						for(var i=0; i<rsAr.length; i++){	
+							listHtml += "<tr>";
+							listHtml += '<td class="text-center cell nr1">' + rsAr[i].hogi + '</td>';
+							listHtml += '<td class="text-center cell nr2">' + rsAr[i].barcode + '</td>';
+							listHtml += '<td class="text-center cell nr3">' + rsAr[i].lot + '</td>';
+							listHtml += '<td class="text-center cell nr4">' + rsAr[i].item_cd + '</td>';
+							listHtml += '<td class="text-center cell nr5">' + rsAr[i].pname + '</td>';
+							listHtml += '<td class="text-center cell nr6">' + rsAr[i].gang + '</td>';
+							listHtml += '<td class="text-center cell nr7">' + rsAr[i].cp + '</td>';
+							listHtml += '<td class="text-center cell nr8">' + rsAr[i].quen + '</td>';
+							listHtml += '<td class="text-center cell nr9">' + rsAr[i].temp + '</td>';
+							listHtml += '<td class="text-center cell nr10">' + rsAr[i].t_gb + '</td>';
+
+							listHtml += "</tr>";							
+						}
+					$("#lotContents").html(listHtml);
+					
+				} else if (rsJson && rsJson.status == "fail") {
+					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
+				} else {
+					alert("에러발생!");
+				}
+				
+//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
+				
+			},	// success 끝
+			error: function(req, status) {
+				if (req.status == 0 || status == "timeout") {
+					alert("네트워크 연결 확인 후 다시 시도해주세요.");
+				} else {
+					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
+				}
+			},
+			
+		});	
+	}	
 	
 	
 	//공장리스트 품번
@@ -1203,7 +1254,9 @@ function init(){
 	}	
 	
 /*이벤트*/	
-  		
+  		$("#hogi").on('change', function(){
+  			getLotList();
+  		})
 		
 /*다이얼로그*/
 

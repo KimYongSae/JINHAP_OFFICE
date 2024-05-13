@@ -202,7 +202,7 @@ $(document).ready(function(){
 							<li><a href="m04s01.jsp"><span>설비보전관리</span></a></li>
 							<li><a href="m04s02.jsp"><span>OPL 요령서</span></a></li>
 							<li><a href="m04s03.jsp"><span>SPARE 부품관리</span></a></li>
-							<li><a href="//"><span>예방보전</span></a></li>
+							<li><a href="m04s04.jsp"><span>예방보전</span></a></li>
 						</ul>
 			    	</div>
 

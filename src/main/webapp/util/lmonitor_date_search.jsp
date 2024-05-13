@@ -20,6 +20,7 @@
 		Calendar n_cal = Calendar.getInstance();	//현재
 		Calendar y_cal = Calendar.getInstance();	//어제날짜
 		Calendar bw_cal = Calendar.getInstance();	//1주전
+		Calendar lastYearCal = Calendar.getInstance();	//1년전
 		
 		n_cal.setTime(now);
 		
@@ -41,6 +42,9 @@
 		
 		bw_cal.setTime(now);
 		bw_cal.add(Calendar.DATE, -7);
+		
+		lastYearCal.setTime(now);
+		lastYearCal.add(Calendar.YEAR, -1);
 
 //		System.out.println("1시간  후 : "+a_cal.getTime());
 //		System.out.println("1시간  후 : "+sdf.format(a_cal.getTime()));
@@ -61,6 +65,7 @@
 		
 		rowObj.put("bw_date",sdf.format(bw_cal.getTime()).substring(0,10));
 
+		rowObj.put("lastYear",sdf.format(lastYearCal.getTime()).substring(0,10));
 		
 		mainArray.add(rowObj);
 		

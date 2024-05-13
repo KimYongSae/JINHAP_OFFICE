@@ -29,6 +29,9 @@
 	case "tan":
 		columnSql = "total_acid_number";
 		break;
+	case "ivf":
+		columnSql = "ivf";
+		break;
 	}
 	
 	

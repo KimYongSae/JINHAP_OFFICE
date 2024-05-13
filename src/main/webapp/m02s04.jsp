@@ -492,432 +492,432 @@ td{
 															<th class="tm"></th>
 															<th class="tm">관리항목</th>
 															<th class="tm">관리범위</th>
-															<th class="tm">23년 7월</th>
-															<th class="tm">23년 8월</th>
-															<th class="tm">23년 9월</th>
-															<th class="tm">23년 10월</th>
-															<th class="tm">23년 11월</th>
-															<th class="tm">23년 12월</th>
-															<th class="tm">24년 1월</th>
-															<th class="tm">24년 2월</th>
-															<th class="tm">24년 3월</th>
-															<th class="tm">24년 4월</th>
-															<th class="tm">24년 5월</th>
-															<th class="tm">24년 6월</th>
+															<th class="tm" id="month-11">23년 7월</th>
+															<th class="tm" id="month-10">23년 8월</th>
+															<th class="tm" id="month-9">23년 9월</th>
+															<th class="tm" id="month-8">23년 10월</th>
+															<th class="tm" id="month-7">23년 11월</th>
+															<th class="tm" id="month-6">23년 12월</th>
+															<th class="tm" id="month-5">24년 1월</th>
+															<th class="tm" id="month-4">24년 2월</th>
+															<th class="tm" id="month-3">24년 3월</th>
+															<th class="tm" id="month-2">24년 4월</th>
+															<th class="tm" id="month-1">24년 5월</th>
+															<th class="tm" id="month-0">24년 6월</th>
 															<th class="tm">비고</th>
 														</tr>
 														<tr>
 															<td rowspan="4">1호기</td>
 															<td>동점도</td>
 															<td>15~18</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="kv1-11"></td>
+															<td id="kv1-10"></td>
+															<td id="kv1-9"></td>
+															<td id="kv1-8"></td>
+															<td id="kv1-7"></td>
+															<td id="kv1-6"></td>
+															<td id="kv1-5"></td>
+															<td id="kv1-4"></td>
+															<td id="kv1-3"></td>
+															<td id="kv1-2"></td>
+															<td id="kv1-1"></td>
+															<td id="kv1-0"></td>
 															<td>15~18</td>
 														</tr>
 														<tr>
 															<td>수분</td>
 															<td>0.05이하</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="mc1-11"></td>
+															<td id="mc1-10"></td>
+															<td id="mc1-9"></td>
+															<td id="mc1-8"></td>
+															<td id="mc1-7"></td>
+															<td id="mc1-6"></td>
+															<td id="mc1-5"></td>
+															<td id="mc1-4"></td>
+															<td id="mc1-3"></td>
+															<td id="mc1-2"></td>
+															<td id="mc1-1"></td>
+															<td id="mc1-0"></td>
 															<td>0.05이하</td>
 														</tr>
 														<tr>
 															<td>최대냉각속도</td>
 															<td>93.7~114.6</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="mcr1-11"></td>
+															<td id="mcr1-10"></td>
+															<td id="mcr1-9"></td>
+															<td id="mcr1-8"></td>
+															<td id="mcr1-7"></td>
+															<td id="mcr1-6"></td>
+															<td id="mcr1-5"></td>
+															<td id="mcr1-4"></td>
+															<td id="mcr1-3"></td>
+															<td id="mcr1-2"></td>
+															<td id="mcr1-1"></td>
+															<td id="mcr1-0"></td>
 															<td>93.7~114.6</td>
 														</tr>
 														<tr>
 															<td>전산가</td>
 															<td>1.0이하</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="tan1-11"></td>
+															<td id="tan1-10"></td>
+															<td id="tan1-9"></td>
+															<td id="tan1-8"></td>
+															<td id="tan1-7"></td>
+															<td id="tan1-6"></td>
+															<td id="tan1-5"></td>
+															<td id="tan1-4"></td>
+															<td id="tan1-3"></td>
+															<td id="tan1-2"></td>
+															<td id="tan1-1"></td>
+															<td id="tan1-0"></td>
 															<td>1.0이하</td>
 														</tr>
 														<tr>
 															<td rowspan="4">2호기</td>
 															<td>동점도</td>
 															<td>15~18</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="kv2-11"></td>
+															<td id="kv2-10"></td>
+															<td id="kv2-9"></td>
+															<td id="kv2-8"></td>
+															<td id="kv2-7"></td>
+															<td id="kv2-6"></td>
+															<td id="kv2-5"></td>
+															<td id="kv2-4"></td>
+															<td id="kv2-3"></td>
+															<td id="kv2-2"></td>
+															<td id="kv2-1"></td>
+															<td id="kv2-0"></td>
 															<td>15~18</td>
 														</tr>
 														<tr>
 															<td>수분</td>
 															<td>0.05이하</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="mc2-11"></td>
+															<td id="mc2-10"></td>
+															<td id="mc2-9"></td>
+															<td id="mc2-8"></td>
+															<td id="mc2-7"></td>
+															<td id="mc2-6"></td>
+															<td id="mc2-5"></td>
+															<td id="mc2-4"></td>
+															<td id="mc2-3"></td>
+															<td id="mc2-2"></td>
+															<td id="mc2-1"></td>
+															<td id="mc2-0"></td>
 															<td>0.05이하</td>
 														</tr>
 														<tr>
 															<td>최대냉각속도</td>
 															<td>93.7~114.6</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="mcr2-11"></td>
+															<td id="mcr2-10"></td>
+															<td id="mcr2-9"></td>
+															<td id="mcr2-8"></td>
+															<td id="mcr2-7"></td>
+															<td id="mcr2-6"></td>
+															<td id="mcr2-5"></td>
+															<td id="mcr2-4"></td>
+															<td id="mcr2-3"></td>
+															<td id="mcr2-2"></td>
+															<td id="mcr2-1"></td>
+															<td id="mcr2-0"></td>
 															<td>93.7~114.6</td>
 														</tr>
 														<tr>
 															<td>전산가</td>
 															<td>1.0이하</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="tan2-11"></td>
+															<td id="tan2-10"></td>
+															<td id="tan2-9"></td>
+															<td id="tan2-8"></td>
+															<td id="tan2-7"></td>
+															<td id="tan2-6"></td>
+															<td id="tan2-5"></td>
+															<td id="tan2-4"></td>
+															<td id="tan2-3"></td>
+															<td id="tan2-2"></td>
+															<td id="tan2-1"></td>
+															<td id="tan2-0"></td>
 															<td>1.0이하</td>
 														</tr>
 														<tr>
 															<td rowspan="4">3호기</td>
 															<td>동점도</td>
 															<td>15~18</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="kv3-11"></td>
+															<td id="kv3-10"></td>
+															<td id="kv3-9"></td>
+															<td id="kv3-8"></td>
+															<td id="kv3-7"></td>
+															<td id="kv3-6"></td>
+															<td id="kv3-5"></td>
+															<td id="kv3-4"></td>
+															<td id="kv3-3"></td>
+															<td id="kv3-2"></td>
+															<td id="kv3-1"></td>
+															<td id="kv3-0"></td>
 															<td>15~18</td>
 														</tr>
 														<tr>
 															<td>수분</td>
 															<td>0.05이하</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="mc3-11"></td>
+															<td id="mc3-10"></td>
+															<td id="mc3-9"></td>
+															<td id="mc3-8"></td>
+															<td id="mc3-7"></td>
+															<td id="mc3-6"></td>
+															<td id="mc3-5"></td>
+															<td id="mc3-4"></td>
+															<td id="mc3-3"></td>
+															<td id="mc3-2"></td>
+															<td id="mc3-1"></td>
+															<td id="mc3-0"></td>
 															<td>0.05이하</td>
 														</tr>
 														<tr>
 															<td>최대냉각속도</td>
 															<td>93.7~114.6</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="mcr3-11"></td>
+															<td id="mcr3-10"></td>
+															<td id="mcr3-9"></td>
+															<td id="mcr3-8"></td>
+															<td id="mcr3-7"></td>
+															<td id="mcr3-6"></td>
+															<td id="mcr3-5"></td>
+															<td id="mcr3-4"></td>
+															<td id="mcr3-3"></td>
+															<td id="mcr3-2"></td>
+															<td id="mcr3-1"></td>
+															<td id="mcr3-0"></td>
 															<td>93.7~114.6</td>
 														</tr>
 														<tr>
 															<td>전산가</td>
 															<td>1.0이하</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="tan3-11"></td>
+															<td id="tan3-10"></td>
+															<td id="tan3-9"></td>
+															<td id="tan3-8"></td>
+															<td id="tan3-7"></td>
+															<td id="tan3-6"></td>
+															<td id="tan3-5"></td>
+															<td id="tan3-4"></td>
+															<td id="tan3-3"></td>
+															<td id="tan3-2"></td>
+															<td id="tan3-1"></td>
+															<td id="tan3-0"></td>
 															<td>1.0이하</td>
 														</tr>
 														<tr>
 															<td rowspan="4">4호기</td>
 															<td>동점도</td>
 															<td>15~18</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="kv4-11"></td>
+															<td id="kv4-10"></td>
+															<td id="kv4-9"></td>
+															<td id="kv4-8"></td>
+															<td id="kv4-7"></td>
+															<td id="kv4-6"></td>
+															<td id="kv4-5"></td>
+															<td id="kv4-4"></td>
+															<td id="kv4-3"></td>
+															<td id="kv4-2"></td>
+															<td id="kv4-1"></td>
+															<td id="kv4-0"></td>
 															<td>15~18</td>
 														</tr>
 														<tr>
 															<td>수분</td>
 															<td>0.05이하</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="mc4-11"></td>
+															<td id="mc4-10"></td>
+															<td id="mc4-9"></td>
+															<td id="mc4-8"></td>
+															<td id="mc4-7"></td>
+															<td id="mc4-6"></td>
+															<td id="mc4-5"></td>
+															<td id="mc4-4"></td>
+															<td id="mc4-3"></td>
+															<td id="mc4-2"></td>
+															<td id="mc4-1"></td>
+															<td id="mc4-0"></td>
 															<td>0.05이하</td>
 														</tr>
 														<tr>
 															<td>최대냉각속도</td>
 															<td>93.7~114.6</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="mcr4-11"></td>
+															<td id="mcr4-10"></td>
+															<td id="mcr4-9"></td>
+															<td id="mcr4-8"></td>
+															<td id="mcr4-7"></td>
+															<td id="mcr4-6"></td>
+															<td id="mcr4-5"></td>
+															<td id="mcr4-4"></td>
+															<td id="mcr4-3"></td>
+															<td id="mcr4-2"></td>
+															<td id="mcr4-1"></td>
+															<td id="mcr4-0"></td>
 															<td>93.7~114.6</td>
 														</tr>
 														<tr>
 															<td>전산가</td>
 															<td>1.0이하</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="tan4-11"></td>
+															<td id="tan4-10"></td>
+															<td id="tan4-9"></td>
+															<td id="tan4-8"></td>
+															<td id="tan4-7"></td>
+															<td id="tan4-6"></td>
+															<td id="tan4-5"></td>
+															<td id="tan4-4"></td>
+															<td id="tan4-3"></td>
+															<td id="tan4-2"></td>
+															<td id="tan4-1"></td>
+															<td id="tan4-0"></td>
 															<td>1.0이하</td>
 														</tr>
 														<tr>
 															<td rowspan="4">5호기</td>
 															<td>동점도</td>
 															<td>15~18</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="kv5-11"></td>
+															<td id="kv5-10"></td>
+															<td id="kv5-9"></td>
+															<td id="kv5-8"></td>
+															<td id="kv5-7"></td>
+															<td id="kv5-6"></td>
+															<td id="kv5-5"></td>
+															<td id="kv5-4"></td>
+															<td id="kv5-3"></td>
+															<td id="kv5-2"></td>
+															<td id="kv5-1"></td>
+															<td id="kv5-0"></td>
 															<td>15~18</td>
 														</tr>
 														<tr>
 															<td>수분</td>
 															<td>0.05이하</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="mc5-11"></td>
+															<td id="mc5-10"></td>
+															<td id="mc5-9"></td>
+															<td id="mc5-8"></td>
+															<td id="mc5-7"></td>
+															<td id="mc5-6"></td>
+															<td id="mc5-5"></td>
+															<td id="mc5-4"></td>
+															<td id="mc5-3"></td>
+															<td id="mc5-2"></td>
+															<td id="mc5-1"></td>
+															<td id="mc5-0"></td>
 															<td>0.05이하</td>
 														</tr>
 														<tr>
 															<td>최대냉각속도</td>
 															<td>93.7~114.6</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="mcr5-11"></td>
+															<td id="mcr5-10"></td>
+															<td id="mcr5-9"></td>
+															<td id="mcr5-8"></td>
+															<td id="mcr5-7"></td>
+															<td id="mcr5-6"></td>
+															<td id="mcr5-5"></td>
+															<td id="mcr5-4"></td>
+															<td id="mcr5-3"></td>
+															<td id="mcr5-2"></td>
+															<td id="mcr5-1"></td>
+															<td id="mcr5-0"></td>
 															<td>93.7~114.6</td>
 														</tr>
 														<tr>
 															<td>전산가</td>
 															<td>1.0이하</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="tan5-11"></td>
+															<td id="tan5-10"></td>
+															<td id="tan5-9"></td>
+															<td id="tan5-8"></td>
+															<td id="tan5-7"></td>
+															<td id="tan5-6"></td>
+															<td id="tan5-5"></td>
+															<td id="tan5-4"></td>
+															<td id="tan5-3"></td>
+															<td id="tan5-2"></td>
+															<td id="tan5-1"></td>
+															<td id="tan5-0"></td>
 															<td>1.0이하</td>
 														</tr>
 														<tr>
 															<td rowspan="4">6호기</td>
 															<td>동점도</td>
 															<td>15~18</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="kv6-11"></td>
+															<td id="kv6-10"></td>
+															<td id="kv6-9"></td>
+															<td id="kv6-8"></td>
+															<td id="kv6-7"></td>
+															<td id="kv6-6"></td>
+															<td id="kv6-5"></td>
+															<td id="kv6-4"></td>
+															<td id="kv6-3"></td>
+															<td id="kv6-2"></td>
+															<td id="kv6-1"></td>
+															<td id="kv6-0"></td>
 															<td>15~18</td>
 														</tr>
 														<tr>
 															<td>수분</td>
 															<td>0.05이하</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="mc6-11"></td>
+															<td id="mc6-10"></td>
+															<td id="mc6-9"></td>
+															<td id="mc6-8"></td>
+															<td id="mc6-7"></td>
+															<td id="mc6-6"></td>
+															<td id="mc6-5"></td>
+															<td id="mc6-4"></td>
+															<td id="mc6-3"></td>
+															<td id="mc6-2"></td>
+															<td id="mc6-1"></td>
+															<td id="mc6-0"></td>
 															<td>0.05이하</td>
 														</tr>
 														<tr>
 															<td>최대냉각속도</td>
 															<td>93.7~114.6</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="mcr6-11"></td>
+															<td id="mcr6-10"></td>
+															<td id="mcr6-9"></td>
+															<td id="mcr6-8"></td>
+															<td id="mcr6-7"></td>
+															<td id="mcr6-6"></td>
+															<td id="mcr6-5"></td>
+															<td id="mcr6-4"></td>
+															<td id="mcr6-3"></td>
+															<td id="mcr6-2"></td>
+															<td id="mcr6-1"></td>
+															<td id="mcr6-0"></td>
 															<td>93.7~114.6</td>
 														</tr>
 														<tr>
 															<td>전산가</td>
 															<td>1.0이하</td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+															<td id="tan6-11"></td>
+															<td id="tan6-10"></td>
+															<td id="tan6-9"></td>
+															<td id="tan6-8"></td>
+															<td id="tan6-7"></td>
+															<td id="tan6-6"></td>
+															<td id="tan6-5"></td>
+															<td id="tan6-4"></td>
+															<td id="tan6-3"></td>
+															<td id="tan6-2"></td>
+															<td id="tan6-1"></td>
+															<td id="tan6-0"></td>
 															<td>1.0이하</td>
 														</tr>
 													</table>
@@ -968,6 +968,26 @@ td{
 				<input type="hidden" id="reg_tagId" name="reg_tagId" />
 		</div>
 		
+		<div id="ivf_div" style="display:none;" title="등록">
+			<form class="form-inline" role="form" id="ivf_form" name="ivf_form" 
+			method="post" autocomplete="off">
+				<div class="form-group">
+					<label class="control-label" 
+					style="font-size: 14pt;  font-family:headline; font-weight:700; 
+						color:#8C8C8C; width: 60px; text-align: right;">
+					등록: </label>
+				</div>
+				
+				<div class="form-group">
+					<input type="text" class="form-control input-sm" 
+					id="ivf_value" name="ivf_value" 
+	    					style="width: 280px; height: 34px; 
+	    					font-size: 14pt; font-family :headline; font-weight:700;"/>
+				</div>			
+			</form>
+				<input type="hidden" id="ivf_tagId" name="ivf_tagId" />
+		</div>
+		
 		
 		
 	</div>
@@ -993,13 +1013,15 @@ td{
 	        var cellContent = $(this).text(); 
 	        $("#reg_tagId").val(cellId);      
 	        $("#reg_value").val(cellContent);
+	        $("#ivf_tagId").val(cellId);      
+	        $("#ivf_value").val(cellContent);
 			
 	        var splitId = cellId.split("_")[0];
 	        
 	        if(splitId == "ivf" || splitId == "bigo"){
-	        	
+	        	ivfDialog.dialog("open");
 	        } else{
-	        regDialog.dialog("open");
+	        	regDialog.dialog("open");
 	        }
 	    });
 		//
@@ -1010,6 +1032,7 @@ td{
 		    "year": $("#s_year").val()
 		}).done(function(response) {
 			getList();	
+			calcMonth();
 		}).fail(function(xhr, status, error) {
 			console.log("실패:", xhr.status);
 		});
@@ -1044,8 +1067,77 @@ td{
 			}
 		})
 	}
+	function getTotalList(){
+		$.ajax({
+			type : "POST",
+			url : "m02/s04/select_total_m02s04.jsp",
+			cache : false,
+			dataType : "json",
+			data : {
+				"year":$("#s_year").val(),
+				"month":$("#s_month").val()
+				},
+			success : function(rsJson) {
+				var syear = $("#s_year").val();
+				var smonth = $("#s_month").val();
+				
+				if (rsJson && rsJson.status == "ok") {
+					var rsAr = rsJson.rows;
+					
+					for(var i=0; i<rsAr.length; i++){
+						var keys = Object.keys(rsAr[i]);
+						for(var j=0; j < keys.length; j ++){
+							var keyArr = keys[j].split("-");
+							var keyId = "";
+							
+							if (smonth - parseInt(keyArr[1]) >= 0) {
+				                keyId = keyArr[3] + keyArr[2] + "-" + (smonth - parseInt(keyArr[1]));
+				                console.log(keyId);
+				                console.log(rsAr[i][keys[j]]);
+				                
+				                $("#" + keyId).text(rsAr[i][keys[j]]);
+				                
+				            } else {
+				                keyId = keyArr[3] + keyArr[2] + "-" + (smonth - parseInt(keyArr[1]) + 12);
+				                console.log(keyId);
+				                console.log(rsAr[i][keys[j]]);
+				                $("#" + keyId).text(rsAr[i][keys[j]]);
+				                
+				            }
+							
+						}
+						
+					}
+				}
+			}
+		})
+	}
 	
-	
+	function calcMonth() {
+	    let year = parseInt($("#s_year").val());  // 연도를 정수로 변환
+	    let month = parseInt($("#s_month").val());  // 월을 정수로 변환
+
+	    for(let i = 0; i < 12; i++){
+	        let displayMonth = month - i;
+	        let displayYear = year;
+
+	   		if(displayMonth <= 0){
+	   			displayYear --;
+	   			displayMonth += 12;
+	   			
+	   		
+	   		 	let displayYearLastTwo = String(displayYear).slice(-2);
+	        	$("#month-" + i).text(displayYearLastTwo + "년 " + displayMonth + "월");
+	   		} else{
+	   			
+	   		 	let displayYearLastTwo = String(displayYear).slice(-2);
+	        	$("#month-" + i).text(displayYearLastTwo + "년 " + displayMonth + "월");
+	   			
+	   		}
+		}
+	    getTotalList();
+	}
+
 	
 	
 	
@@ -1067,6 +1159,7 @@ td{
 						"value":$("#reg_value").val()
 					}).done(function(response) {
 						getList();
+						getTotalList();
 						$("#reg_form")[0].reset();
 					}).fail(function(xhr, status, error) {
 						console.log("실패:", xhr.status);
@@ -1079,6 +1172,40 @@ td{
 				"닫 기":function(){
 					$("#reg_form")[0].reset();
 					regDialog.dialog("close");
+				}
+			}
+		});
+		
+		var ivfDialog;
+		ivfDialog = $("#ivf_div").dialog({
+			autoOpen:false,
+			//autoOpen:true,
+			height:180,
+			width:400,
+			modal:false,
+			stack:false,
+			buttons:{
+				"등 록":function(){
+					$.post("m02/s04/update_m02s04.jsp",{
+						"year":$("#s_year").val(),
+						"month":$("#s_month").val(),
+						"id":$("#ivf_tagId").val(),
+						"value":$("#ivf_value").val()
+					}).done(function(response) {
+						getList();
+						getTotalList();
+						$("#ivf_form")[0].reset();
+					}).fail(function(xhr, status, error) {
+						console.log("실패:", xhr.status);
+						alert("실패");
+					});
+					
+					ivfDialog.dialog("close");
+					
+				},
+				"닫 기":function(){
+					$("#ivf_form")[0].reset();
+					ivfDialog.dialog("close");
 				}
 			}
 		});
