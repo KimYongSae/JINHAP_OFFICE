@@ -175,13 +175,13 @@
 	width: 100px;
 }
 .nr2{
-	width: 200px;
+	width: 150px;
 }
 .nr3{
-	width: 200px;
+	width: 150px;
 }
 .nr4{
-	width: 350px;
+	width: 250px;
 }
 .nr5{
 	width: 400px;
@@ -201,7 +201,13 @@
 .nr10{
 	width: 100px;
 }
-	
+.rtime{
+	width: 100px;
+}
+.rauto{
+	width: 100px;
+}	
+
 	
 </style>
 
@@ -345,7 +351,44 @@ var fn_logout = function () {
 							<option value="6">Q01-HN06</option>
 						</select>
 	
-					</div>            	
+					</div> 
+					<div class="form-group">
+							<label class="control-label" 
+							style="font-size: 14pt; font-family:headline; 
+							color:#8C8C8C; width: 50px; text-align: right;">기간 : </label>
+						</div>
+						
+						<!-- 발생일 -->
+						<div class="form-group">
+							<input type="text" class="form-control input-sm datepicker" id="s_date" name="s_date" 
+							style="margin-top:5px; height: 30px; width: 140px; 
+							font-size: 14pt; font-family:headline;"  
+							placeholder="예)2020-01-01"
+							onkeyup="auto_date_format(event, this);"/>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control input-sm timepicker" id="s_time" name="s_time" 
+							style="margin-top:5px; height: 30px; width: 120px; 
+							font-size: 14pt; font-family:headline;"  
+							placeholder="00:00:00"
+							onkeyup="auto_time_format(event, this);"/>
+						</div>						
+						~						
+						<!-- 해제일 -->
+						<div class="form-group">
+							<input type="text" class="form-control input-sm datepicker" id="e_date" name="e_date" 
+							style="margin-top:5px; height: 30px; width: 140px; 
+							font-size: 14pt; font-family:headline;"  
+							placeholder="예)2020-01-01"
+							onkeyup="auto_date_format(event, this);"/>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control input-sm timepicker" id="e_time" name="e_time" 
+							style="margin-top:5px; height: 30px; width: 120px; 
+							font-size: 14pt; font-family:headline;"  
+							placeholder="23:59:59"
+							onkeyup="auto_time_format(event, this);"/>
+						</div>
 															
 				</form>
             </header>
@@ -355,6 +398,8 @@ var fn_logout = function () {
 					<thead>
 						<tr>
 							<th class="text-center cell nr1">호기</th>
+							<th class="text-center cell rtime">입고시간</th>
+							<th class="text-center cell rauto">자동/수동</th>
 							<th class="text-center cell nr2">바코드</th>
 							<th class="text-center cell nr3">LOT</th>
 							<th class="text-center cell nr4">품번</th>
@@ -425,7 +470,8 @@ var fn_logout = function () {
   $(function(){
 	  fn_check();
 	  getGantryList();
-	  getLotList();
+	  
+	  date_search();
   });
 
 
@@ -487,412 +533,12 @@ function init(){
 	    obj.value = comma(uncomma(obj.value));
 	}
 	
-	var cpArray = new Array();
 	
-	function getCP(){
-		$.ajax({
-			type : "POST",
-			url : "l001005_cp.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-	//				console.log(rsAr);
-					
-					var listHtml = "";
-						for(var i=0; i<rsAr.length; i++){
-							cpArray[i] = rsAr[i].cp_mid;
-							listHtml += "<tr>";
-							listHtml += '<td class="nr" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 50px; word-break:break-all; font-size:15pt; font-family:headline;">'+(i+1)+'</td>';
-							listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].cp_mid+'</td>';
-							listHtml += '<td class="nr2" style="text-align: right; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].out_qty+'</td>';
-							listHtml += '<td class="nr3" style="text-align: right; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].out_weight+'</td>';
-							listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].cnt+'</td>';
-							listHtml += "</tr>";						
-							
-						}
-					$("#cp_list tbody").html(listHtml);
-					$("#loading").hide();
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-	//			timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});	
-	}
 	
-	//CP리스트
-	function getCPList(){
-		
-		$.ajax({
-			type : "POST",
-			url : "l001005_cpList.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime(),
-				"cp_mid":$("#select_cp").val(),
-				"pnum":$("#s_pnum").val(),
-				"pname":$("#s_pname").val()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					var listHtml = "";
-						for(var i=0; i<rsAr.length; i++){	
-							listHtml += "<tr>";
-							listHtml += '<td class="nr" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 50px; word-break:break-all; font-size:15pt; font-family:headline;">'+(i+1)+'</td>';
-							listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 70px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].cp_mid+'</td>';
-							listHtml += '<td class="nr2" style="text-align: left; vertical-align: middle; padding: 1px; height: 30px; width: 220px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].bubun+'</td>';
-							listHtml += '<td class="nr3" style="text-align: left; vertical-align: middle; padding: 1px; height: 30px; width: 340px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].model_name+'</td>';
-							listHtml += '<td class="nr4" style="text-align: left; vertical-align: middle; padding: 1px; height: 30px; width: 240px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].model_desc+'</td>';
-							listHtml += '<td class="nr5" style="text-align: right; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].out_qty+'</td>';
-							listHtml += '<td class="nr6" style="text-align: right; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].out_weight+'</td>';
-							listHtml += '<td class="nr7" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].cnt+'</td>';
-							listHtml += "</tr>";							
-						}
-					$("#cp_list2 tbody").html(listHtml);
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});	
-	}	
-	
-	//CP조건 리스트 품번
-	function getCPPnum(){
-		
-		$.ajax({
-			type : "POST",
-			url : "l001005_cpPnum.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime(),
-				"cp_mid":$("#select_cp").val(),
-				"pname":$("#s_pname").val()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					var pnum = "";
-					pnum = pnum+"<option value=''>품번</option>";
-						for(var i=0; i<rsAr.length; i++){
-							pnum = pnum + "<option value='"+rsAr[i].itnbr+"'>"+rsAr[i].itnbr+"</option>";
-						}
-						$("#s_pnum").empty().append(pnum);
-						$("#s_pnum").select2();
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});	
-	}	
 
-	//CP조건 리스트 품명
-	function getCPPname(){
-		
-		$.ajax({
-			type : "POST",
-			url : "l001005_cpPname.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime(),
-				"cp_mid":$("#select_cp").val(),
-				"pnum":$("#s_pnum").val()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					var pname = "";
-					pname = pname+"<option value=''>품명</option>";
-						for(var i=0; i<rsAr.length; i++){	
-							pname = pname + "<option value='"+rsAr[i].model_name+"'>"+rsAr[i].model_name+"</option>";
-						}
-						
-						$("#s_pname").empty().append(pname);
-						$("#s_pname").select2();
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});	
-	}	
-	
-	var jijilArray = new Array();
-	//재질별 경도
-	function getJijil(){
-		$.ajax({
-			type : "POST",
-			url : "l001005_jijil.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-	//				console.log(rsAr);
-					
-					var listHtml = "";
-						for(var i=0; i<rsAr.length; i++){
-							jijilArray[i] = rsAr[i].jijil_ht;
-							listHtml += "<tr>";
-							listHtml += '<td class="nr" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 50px; word-break:break-all; font-size:15pt; font-family:headline;">'+(i+1)+'</td>';
-							listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 240px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].jijil_ht+'</td>';
-							listHtml += '<td class="nr2" style="text-align: right; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].out_qty+'</td>';
-							listHtml += '<td class="nr3" style="text-align: right; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].out_weight+'</td>';
-							listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].cnt+'</td>';
-							listHtml += "</tr>";						
-						}
-					$("#jijil_list tbody").html(listHtml);
-					$("#loading").hide();
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-	//			timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});	
-	}	
-	
-	//Jijil리스트
-	function getJijilList(){
-		
-		$.ajax({
-			type : "POST",
-			url : "l001005_jijilList.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime(),
-				"jijil_ht":$("#select_jijil").val(),
-				"pnum":$("#s_pnum").val(),
-				"pname":$("#s_pname").val()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					var listHtml = "";
-						for(var i=0; i<rsAr.length; i++){	
-							listHtml += "<tr>";
-							listHtml += '<td class="nr" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 50px; word-break:break-all; font-size:15pt; font-family:headline;">'+(i+1)+'</td>';
-							listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 240px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].jijil_ht+'</td>';
-							listHtml += '<td class="nr2" style="text-align: left; vertical-align: middle; padding: 1px; height: 30px; width: 220px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].bubun+'</td>';
-							listHtml += '<td class="nr3" style="text-align: left; vertical-align: middle; padding: 1px; height: 30px; width: 340px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].model_name+'</td>';
-							listHtml += '<td class="nr4" style="text-align: left; vertical-align: middle; padding: 1px; height: 30px; width: 240px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].model_desc+'</td>';
-							listHtml += '<td class="nr5" style="text-align: right; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].out_qty+'</td>';
-							listHtml += '<td class="nr6" style="text-align: right; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].out_weight+'</td>';
-							listHtml += '<td class="nr7" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].cnt+'</td>';
-							listHtml += "</tr>";							
-						}
-					$("#jijil_list2 tbody").html(listHtml);
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});	
-	}	
-	
-	//재질경도 리스트 품번
-	function getJijilPnum(){
-		
-		$.ajax({
-			type : "POST",
-			url : "l001005_jijilPnum.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime(),
-				"jijil_ht":$("#select_jijil").val(),
-				"pname":$("#s_pname").val()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					var pnum = "";
-					pnum = pnum+"<option value=''>품번</option>";
-						for(var i=0; i<rsAr.length; i++){
-							pnum = pnum + "<option value='"+rsAr[i].itnbr+"'>"+rsAr[i].itnbr+"</option>";
-						}
-						$("#s_pnum").empty().append(pnum);
-						$("#s_pnum").select2();
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});	
-	}	
-
-	//재질경도 리스트 품명
-	function getJijilPname(){
-		
-		$.ajax({
-			type : "POST",
-			url : "l001005_jijilPname.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime(),
-				"jijil_ht":$("#select_jijil").val(),
-				"pnum":$("#s_pnum").val()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					var pname = "";
-					pname = pname+"<option value=''>품명</option>";
-						for(var i=0; i<rsAr.length; i++){	
-							pname = pname + "<option value='"+rsAr[i].model_name+"'>"+rsAr[i].model_name+"</option>";
-						}
-						
-						$("#s_pname").empty().append(pname);
-						$("#s_pname").select2();
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});	
-	}	
 	
 	
-	var factoryArray = new Array();
 	
-	function getFactory(){
-		$.ajax({
-			type : "POST",
-			url : "l001005_factory.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-	//				console.log(rsAr);
-					
-					var listHtml = "";
-						for(var i=0; i<rsAr.length; i++){
-							factoryArray[i] = rsAr[i].factory_code;
-							listHtml += "<tr>";
-							listHtml += '<td class="nr" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 50px; word-break:break-all; font-size:15pt; font-family:headline;">'+(i+1)+'</td>';
-							listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].factory_code+'</td>';
-							listHtml += '<td class="nr2" style="text-align: right; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].out_qty+'</td>';
-							listHtml += '<td class="nr3" style="text-align: right; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].out_weight+'</td>';
-							listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].cnt+'</td>';
-							listHtml += "</tr>";						
-						}
-					$("#factory_list tbody").html(listHtml);
-					$("#loading").hide();
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-	//			timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});	
-	}
 	
 	function getGantryList(){
 		
@@ -946,7 +592,11 @@ function init(){
 			cache : false,
 			dataType : "json",
 			data:{
-				hogi : $("#hogi").val()
+				hogi : $("#hogi").val(),
+				"sdate":$("#s_date").val(),
+	          	"edate":$("#e_date").val(),
+	          	"stime":$("#s_time").val(),
+	          	"etime":$("#e_time").val()
 			},
 			success : function(rsJson) {
 				if (rsJson && rsJson.status == "ok") {
@@ -956,6 +606,8 @@ function init(){
 						for(var i=0; i<rsAr.length; i++){	
 							listHtml += "<tr>";
 							listHtml += '<td class="text-center cell nr1">' + rsAr[i].hogi + '</td>';
+							listHtml += '<td class="text-center cell rtime">' + rsAr[i].time + '</td>';
+							listHtml += '<td class="text-center cell rauto"></td>';
 							listHtml += '<td class="text-center cell nr2">' + rsAr[i].barcode + '</td>';
 							listHtml += '<td class="text-center cell nr3">' + rsAr[i].lot + '</td>';
 							listHtml += '<td class="text-center cell nr4">' + rsAr[i].item_cd + '</td>';
@@ -990,126 +642,37 @@ function init(){
 		});	
 	}	
 	
-	
-	//공장리스트 품번
-	function getFactoryPnum(){
+function date_search(){
 		
 		$.ajax({
 			type : "POST",
-			url : "l001005_factoryPnum.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime(),
-				"factory_code":$("#select_factory").val(),
-				"pname":$("#s_pname").val()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					var pnum = "";
-					pnum = pnum+"<option value=''>품번</option>";
-						for(var i=0; i<rsAr.length; i++){
-							pnum = pnum + "<option value='"+rsAr[i].itnbr+"'>"+rsAr[i].itnbr+"</option>";
-						}
-						$("#s_pnum").empty().append(pnum);
-						$("#s_pnum").select2();
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});	
-	}	
-
-	//공장리스트 품명
-	function getFactoryPname(){
-		
-		$.ajax({
-			type : "POST",
-			url : "l001005_factoryPname.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime(),
-				"factory_code":$("#select_factory").val(),
-				"pnum":$("#s_pnum").val()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					var pname = "";
-					pname = pname+"<option value=''>품명</option>";
-						for(var i=0; i<rsAr.length; i++){	
-							pname = pname + "<option value='"+rsAr[i].model_name+"'>"+rsAr[i].model_name+"</option>";
-						}
-						
-						$("#s_pname").empty().append(pname);
-						$("#s_pname").select2();
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});	
-	}	
-	
-	
-	var temperArray = new Array();
-	//템퍼링 온도별
-	function getTemper(){
-		$.ajax({
-			type : "POST",
-			url : "l001005_temper.jsp",
+			url : "util/lmonitor_date_search.jsp",
 			cache : false,
 			dataType : "json",
 			data : {'time':new Date().getTime()},
 			success : function(rsJson) {
 				if (rsJson && rsJson.status == "ok") {
 					var rsAr = rsJson.rows;
-	//				console.log(rsAr);
 					
-					var listHtml = "";
-						for(var i=0; i<rsAr.length; i++){
-							temperArray[i] = rsAr[i].temper;
-							listHtml += "<tr>";
-							listHtml += '<td class="nr" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 50px; word-break:break-all; font-size:15pt; font-family:headline;">'+(i+1)+'</td>';
-							listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].temper+'</td>';
-							listHtml += '<td class="nr2" style="text-align: right; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].out_qty+'</td>';
-							listHtml += '<td class="nr3" style="text-align: right; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].out_weight+'</td>';
-							listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].cnt+'</td>';
-							listHtml += "</tr>";						
-						}
-					$("#temper_list tbody").html(listHtml);
-					$("#loading").hide();
+					//$("#s_sdate").val(rsAr[0].b_date);
+					$("#s_date").val(rsAr[0].y_date);
+					//$("#s_stime").val(rsAr[0].b_time.substring(0,2)+":00:00");
+					$("#s_time").val("08:00:00");
+					//$("#s_stime").val(rsAr[0].n_time);
+//					console.log("1:"+$("#s_sdate").val()+", "+$("#s_stime").val());
+					
+					$("#e_date").val(rsAr[0].n_date);
+					//$("#s_etime").val(rsAr[0].a_time.substring(0,2)+":00:00");	
+					//$("#s_etime").val(rsAr[0].n_time);
+					$("#e_time").val("08:00:00");
+					
 				} else if (rsJson && rsJson.status == "fail") {
 					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
 				} else {
 					alert("에러발생!");
 				}
 				
-	//			timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
+				getLotList();
 			},	// success 끝
 			error: function(req, status) {
 				if (req.status == 0 || status == "timeout") {
@@ -1120,141 +683,10 @@ function init(){
 			},
 			
 		});	
-	}	
-	
-	//템퍼링 온도리스트
-	function getTemperList(){
-		
-		$.ajax({
-			type : "POST",
-			url : "l001005_temperList.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime(),
-				"temper":$("#select_temper").val(),
-				"pnum":$("#s_pnum").val(),
-				"pname":$("#s_pname").val()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					var listHtml = "";
-						for(var i=0; i<rsAr.length; i++){	
-							listHtml += "<tr>";
-							listHtml += '<td class="nr" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 50px; word-break:break-all; font-size:15pt; font-family:headline;">'+(i+1)+'</td>';
-							listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].temper+'</td>';
-							listHtml += '<td class="nr2" style="text-align: left; vertical-align: middle; padding: 1px; height: 30px; width: 220px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].bubun+'</td>';
-							listHtml += '<td class="nr3" style="text-align: left; vertical-align: middle; padding: 1px; height: 30px; width: 340px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].model_name+'</td>';
-							listHtml += '<td class="nr4" style="text-align: left; vertical-align: middle; padding: 1px; height: 30px; width: 240px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].model_desc+'</td>';
-							listHtml += '<td class="nr5" style="text-align: right; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].out_qty+'</td>';
-							listHtml += '<td class="nr6" style="text-align: right; vertical-align: middle; padding: 1px; height: 30px; width: 130px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].out_weight+'</td>';
-							listHtml += '<td class="nr7" style="text-align: center; vertical-align: middle; padding: 1px; height: 30px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].cnt+'</td>';
-							listHtml += "</tr>";							
-						}
-					$("#temper_list2 tbody").html(listHtml);
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});	
-	}	
-	
-	//톔퍼링 온도 리스트 품번
-	function getTemperPnum(){
-		
-		$.ajax({
-			type : "POST",
-			url : "l001005_temperPnum.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime(),
-				"temper":$("#select_temper").val(),
-				"pname":$("#s_pname").val()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					var pnum = "";
-					pnum = pnum+"<option value=''>품번</option>";
-						for(var i=0; i<rsAr.length; i++){
-							pnum = pnum + "<option value='"+rsAr[i].itnbr+"'>"+rsAr[i].itnbr+"</option>";
-						}
-						$("#s_pnum").empty().append(pnum);
-						$("#s_pnum").select2();
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-			
-		});	
-	}	
-
-	//템퍼링온도 리스트 품명
-	function getTemperPname(){
-		
-		$.ajax({
-			type : "POST",
-			url : "l001005_temperPname.jsp",
-			cache : false,
-			dataType : "json",
-			data : {'time':new Date().getTime(),
-				"temper":$("#select_temper").val(),
-				"pnum":$("#s_pnum").val()},
-			success : function(rsJson) {
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					var pname = "";
-					pname = pname+"<option value=''>품명</option>";
-						for(var i=0; i<rsAr.length; i++){	
-							pname = pname + "<option value='"+rsAr[i].model_name+"'>"+rsAr[i].model_name+"</option>";
-						}
-						
-						$("#s_pname").empty().append(pname);
-						$("#s_pname").select2();
-				} else if (rsJson && rsJson.status == "fail") {
-					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
-				} else {
-					alert("에러발생!");
-				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
-				
-			},	// success 끝
-			error: function(req, status) {
-				if (req.status == 0 || status == "timeout") {
-					alert("네트워크 연결 확인 후 다시 시도해주세요.");
-				} else {
-					alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
-				}
-			},
-		});	
-	}	
+}
 	
 /*이벤트*/	
-  		$("#hogi").on('change', function(){
+  		$("#hogi, #s_date, #s_time, #e_date, #e_time").on('change', function(){
   			getLotList();
   		})
 		

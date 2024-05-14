@@ -389,6 +389,16 @@ td{
 															월별
 														</button>
 													</div>
+													<div class="form-group pull-right" id="excelGroup" style="display:none;">
+														<div class="form-group">
+															<button class="btn btn-default pull-right btn-sm"
+																type="button"
+																style="margin-top: 6px; height: 31px; width: 160px; font-size: 14pt; font-weight: 700; font-family: headline; padding-top: 1px; padding-bottom: 1px;"
+																id="excelBtn">
+																<i class="glyphicon glyphicon-save"></i> 엑셀다운로드
+															</button>
+														</div>
+													</div>
 													
 											</form>
 							            </header>
@@ -400,7 +410,6 @@ td{
 											<div class="container" id="oilMonth">
 												<div class="row">
 													<h1 class="text-center control-label" id="ymtitle">
-													2024년 01월 소입유 분석
 													</h1>
 												</div>
 												<div class="row">
@@ -1033,6 +1042,7 @@ td{
 		}).done(function(response) {
 			getList();	
 			calcMonth();
+			$("#ymtitle").text($("#s_year").val()+"년 "+$("#s_month").val()+"월 소입유 분석");
 		}).fail(function(xhr, status, error) {
 			console.log("실패:", xhr.status);
 		});
@@ -1216,6 +1226,7 @@ td{
 		$("#totalButton").on("click", function(){
 			$("#totalButton").css("display", "none");
 			$("#monthButton").css("display", "block");
+			$("#excelGroup").css("display", "block");
 			
 			$("#oilMonth").css("display", "none");
 			$("#monthTotal").css("display", "block");
@@ -1225,6 +1236,7 @@ td{
 		$("#monthButton").on("click", function(){
 			$("#monthButton").css("display", "none");
 			$("#totalButton").css("display", "block");
+			$("#excelGroup").css("display", "none");
 			
 			$("#monthTotal").css("display", "none");
 			$("#oilMonth").css("display", "block");
@@ -1234,7 +1246,18 @@ td{
 		
 		$("#s_year, #s_month").on("change", function(){
 			getYearCount();
+			
 		})
+		
+		$("#excelBtn").on("click", function() {
+
+			var form = document.forms["searchform"];
+			console.log(form);
+			form.action = "m02/s04/export_m02s04_excel.jsp";
+
+			form.submit();
+
+		});
 		
 		/*차트 불러오는 함수*/
 	</script>

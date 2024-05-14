@@ -18,7 +18,7 @@
 	
 	switch(idArr[0]){
 	case "kv":
-		columnSql = "kinematic_viscosity";
+		columnSql = "dongjeomdo";
 		break;
 	case "mc":
 		columnSql = "moisture_content";
@@ -27,7 +27,7 @@
 		columnSql = "max_cooling_rate";
 		break;
 	case "tan":
-		columnSql = "total_acid_number";
+		columnSql = "jeonsanga";
 		break;
 	case "ivf":
 		columnSql = "ivf";

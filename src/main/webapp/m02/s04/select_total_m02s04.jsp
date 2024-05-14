@@ -23,10 +23,10 @@
 	sql.append("COALESCE(year1, 0) AS year1, ");
 	sql.append("COALESCE(month1, 0) AS month1, ");
 	sql.append("COALESCE(hogi, 0) AS hogi, ");
-	sql.append("COALESCE(kinematic_viscosity, '') AS kinematic_viscosity, ");
+	sql.append("COALESCE(dongjeomdo, '') AS kinematic_viscosity, ");
 	sql.append("COALESCE(moisture_content, '') AS moisture_content, ");
 	sql.append("COALESCE(max_cooling_rate, '') AS max_cooling_rate, ");
-	sql.append("COALESCE(total_acid_number, '') AS total_acid_number, ");
+	sql.append("COALESCE(jeonsanga, '') AS total_acid_number, ");
 	sql.append("COALESCE(ivf, '') AS ivf, ");
 	sql.append("COALESCE(bigo, '') AS bigo ");
 	sql.append(" FROM tb_oil ");

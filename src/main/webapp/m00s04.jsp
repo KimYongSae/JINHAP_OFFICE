@@ -560,7 +560,7 @@ var fn_logout = function () {
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700; border-top: 0;"
 							id="h1_change_temp"
-							>온도변경중</th>						
+							></th>						
 							<th  class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700;"
@@ -740,7 +740,7 @@ var fn_logout = function () {
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700; border-top:0;"
 							id="h2_temp_change"
-							>온도변경중</th>						
+							></th>						
 							<th  class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700;"
@@ -1100,7 +1100,7 @@ var fn_logout = function () {
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700; border-top:0;"
 							id="h4_temp_change"
-							>온도변경중</th>
+							></th>
 							<th  class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700;"
@@ -1280,7 +1280,7 @@ var fn_logout = function () {
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700; border-top:0;"
 							id="h5_temp_change"
-							>온도변경중</th>
+							></th>
 							<th  class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700;"
@@ -1460,7 +1460,7 @@ var fn_logout = function () {
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700; border-top:0;"
 							id="h6_temp_change"
-							>온도변경중</th>
+							></th>
 							<th  class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700;"

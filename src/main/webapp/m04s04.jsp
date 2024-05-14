@@ -192,7 +192,7 @@
 .r7 { width: 5%; }
 .r8 { width: 5%; }
 .r9 { width: 5%; }
-.r10 { width: 5%; }
+.r10 { width: 10%; }
 
 .nr1 { width: 5%; }
 .nr2 { width: 5%; }
@@ -437,7 +437,7 @@ td{
 															type="button"
 															style="margin-top: 6px; height: 31px; width: 100px; font-size: 14pt; font-weight: 700; font-family: headline; padding-top: 1px; padding-bottom: 1px; display:none;"
 															id="hogiButton">
-															설비별 등록
+															등록
 														</button>
 													</div>
 													
@@ -461,11 +461,10 @@ td{
 														        <th class="r6" rowspan="3"> 관리기준</th>
 														        <th rowspan="2" colspan="4"> 관리기준<br>[마모도에 대한 판정기준]</th>
 														        <th class="r8">점검일자</th>
-														        <th class="r9" rowspan="2">확인자</th>
 														        <th class="r10" rowspan="3">비고</th>
 													     	</tr>
 													     	<tr>
-													     		<th>5/30</th>
+													     		<th></th>
 													     	</tr>
 													     	<tr>
 													     		<th class="r7">상</th>
@@ -473,7 +472,6 @@ td{
 													     		<th class="r7">하</th>
 													     		<th class="r7">교체준비</th>
 													     		<th>측정</th>
-													     		<th>관리자</th>
 												     		</tr>
 													    </thead>
 													    <tbody>
@@ -491,16 +489,18 @@ td{
 													    		<td>
 													    			<input type="text" class="form-control input-sm" id="" name="" />
 												    			</td>
-													    		<td></td>
-													    		<td></td>
+													    		<td>
+													    			<input type="text" class="form-control input-sm" id="" name="" />
+												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td>중간세정기</td>
 													    		<td>
 													    			<input type="text" class="form-control input-sm" id="" name="" />
 												    			</td>
-													    		<td></td>
-													    		<td></td>
+													    		<td>
+													    			<input type="text" class="form-control input-sm" id="" name="" />
+												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td rowspan="2">상부 기어축</td>
@@ -515,16 +515,18 @@ td{
 													    		<td>
 													    			<input type="text" class="form-control input-sm" id="" name="" />
 												    			</td>
-													    		<td></td>
-													    		<td></td>
+													    		<td>
+													    			<input type="text" class="form-control input-sm" id="" name="" />
+												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td>중간세정기</td>
 													    		<td>
 													    			<input type="text" class="form-control input-sm" id="" name="" />
 												    			</td>
-													    		<td></td>
-													    		<td></td>
+													    		<td>
+													    			<input type="text" class="form-control input-sm" id="" name="" />
+												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td rowspan="2">상부 스프라켓</td>
@@ -539,16 +541,18 @@ td{
 													    		<td>
 													    			<input type="text" class="form-control input-sm" id="" name="" />
 												    			</td>
-													    		<td></td>
-													    		<td></td>
+													    		<td>
+													    			<input type="text" class="form-control input-sm" id="" name="" />
+												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td>중간세정기</td>
 													    		<td>
 													    			<input type="text" class="form-control input-sm" id="" name="" />
 												    			</td>
-													    		<td></td>
-													    		<td></td>
+													    		<td>
+													    			<input type="text" class="form-control input-sm" id="" name="" />
+												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td rowspan="2">상부베어링</td>
@@ -563,16 +567,18 @@ td{
 													    		<td>
 													    			<input type="text" class="form-control input-sm" id="" name="" />
 												    			</td>
-													    		<td></td>
-													    		<td></td>
+													    		<td>
+													    			<input type="text" class="form-control input-sm" id="" name="" />
+												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td>중간세정기</td>
 													    		<td>
 													    			<input type="text" class="form-control input-sm" id="" name="" />
 												    			</td>
-													    		<td></td>
-													    		<td></td>
+													    		<td>
+													    			<input type="text" class="form-control input-sm" id="" name="" />
+												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td rowspan="2">하부 스프라켓</td>
@@ -587,16 +593,18 @@ td{
 													    		<td>
 													    			<input type="text" class="form-control input-sm" id="" name="" />
 												    			</td>
-													    		<td></td>
-													    		<td></td>
+													    		<td>
+													    			<input type="text" class="form-control input-sm" id="" name="" />
+												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td>중간세정기</td>
 													    		<td>
 													    			<input type="text" class="form-control input-sm" id="" name="" />
 												    			</td>
-													    		<td></td>
-													    		<td></td>
+													    		<td>
+													    			<input type="text" class="form-control input-sm" id="" name="" />
+												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td rowspan="2">하부 기어축</td>
@@ -611,16 +619,18 @@ td{
 													    		<td>
 													    			<input type="text" class="form-control input-sm" id="" name="" />
 												    			</td>
-													    		<td></td>
-													    		<td></td>
+													    		<td>
+													    			<input type="text" class="form-control input-sm" id="" name="" />
+												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td>중간세정기</td>
 													    		<td>
 													    			<input type="text" class="form-control input-sm" id="" name="" />
 												    			</td>
-													    		<td></td>
-													    		<td></td>
+													    		<td>
+													    			<input type="text" class="form-control input-sm" id="" name="" />
+												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td rowspan="2">하부 베어링</td>
@@ -635,16 +645,18 @@ td{
 													    		<td>
 													    			<input type="text" class="form-control input-sm" id="" name="" />
 												    			</td>
-													    		<td></td>
-													    		<td></td>
+													    		<td>
+													    			<input type="text" class="form-control input-sm" id="" name="" />
+												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td>중간세정기</td>
 													    		<td>
 													    			<input type="text" class="form-control input-sm" id="" name="" />
 												    			</td>
-													    		<td></td>
-													    		<td></td>
+													    		<td>
+													    			<input type="text" class="form-control input-sm" id="" name="" />
+												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td rowspan="2">체인 레일</td>
@@ -659,16 +671,18 @@ td{
 													    		<td>
 													    			<input type="text" class="form-control input-sm" id="" name="" />
 												    			</td>
-													    		<td></td>
-													    		<td></td>
+													    		<td>
+													    			<input type="text" class="form-control input-sm" id="" name="" />
+												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td>중간세정기</td>
 													    		<td>
 													    			<input type="text" class="form-control input-sm" id="" name="" />
 												    			</td>
-													    		<td></td>
-													    		<td></td>
+													    		<td>
+													    			<input type="text" class="form-control input-sm" id="" name="" />
+												    			</td>
 													    	</tr>
 													    </tbody>
 													</table>
