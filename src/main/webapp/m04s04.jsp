@@ -429,6 +429,12 @@ td{
 													<div class="form-group pull-right" style="padding-right: 40px;">
 														<button class="btn btn-info btn-sm"
 															type="button"
+															style="margin-top: 6px; height: 31px; width: 160px; font-size: 14pt; font-weight: 700; font-family: headline; padding-top: 1px; padding-bottom: 1px; display:none;"
+															id="excelBtn">
+															<i class="glyphicon glyphicon-save"></i> 엑셀 다운로드
+														</button>
+														<button class="btn btn-info btn-sm"
+															type="button"
 															style="margin-top: 6px; height: 31px; width: 100px; font-size: 14pt; font-weight: 700; font-family: headline; padding-top: 1px; padding-bottom: 1px;"
 															id="totalButton">
 															종합
@@ -450,6 +456,7 @@ td{
 											
 											<div class="container" id="hogiCheck">
 												<div class="row">
+													<form id="inspectionForm">
 													<table class="table table-bordered text-center">
 														<thead>
 													    	<tr>
@@ -487,19 +494,19 @@ td{
 													    		<td rowspan="2">32.2~40.5</td>
 													    		<td rowspan="2">40.6~41.7</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="rf-chain_oil" name="rf-chain_oil" />
 												    			</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="rf-chain_oil_bigo" name="rf-chain_oil_bigo" />
 												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td>중간세정기</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="rf-chain_a" name="rf-chain_a" />
 												    			</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="rf-chain_a_bigo" name="rf-chain_a_bigo" />
 												    			</td>
 													    	</tr>
 													    	<tr>
@@ -513,19 +520,19 @@ td{
 													    		<td rowspan="2">54mm</td>
 													    		<td rowspan="2">53.4mm</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="top-gear_oil" name="top-gear_oil" />
 												    			</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="top-gear_oil_bigo" name="top-gear_oil_bigo" />
 												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td>중간세정기</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="top-gear_a" name="top-gear_a" />
 												    			</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="top-gear_a_bigo" name="top-gear_a_bigo" />
 												    			</td>
 													    	</tr>
 													    	<tr>
@@ -539,19 +546,19 @@ td{
 													    		<td rowspan="2">77mm</td>
 													    		<td rowspan="2">75.9mm</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="top-sprocket_oil" name="top-sprocket_oil" />
 												    			</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="top-sprocket_oil_bigo" name="top-sprocket_oil_bigo" />
 												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td>중간세정기</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="top-sprocket_a" name="top-sprocket_a" />
 												    			</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="top-sprocket_a_bigo" name="top-sprocket_a_bigo" />
 												    			</td>
 													    	</tr>
 													    	<tr>
@@ -565,19 +572,19 @@ td{
 													    		<td rowspan="2"></td>
 													    		<td rowspan="2"></td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="top-bearing_oil" name="top-bearing_oil" />
 												    			</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="top-bearing_oil_bigo" name="top-bearing_oil_bigo" />
 												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td>중간세정기</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="top-bearing_a" name="top-bearing_a" />
 												    			</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="top-bearing_a_bigo" name="top-bearing_a_bigo" />
 												    			</td>
 													    	</tr>
 													    	<tr>
@@ -591,19 +598,19 @@ td{
 													    		<td rowspan="2">77mm</td>
 													    		<td rowspan="2">75.9mm</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="bottom-sprocket_oil" name="bottom-sprocket_oil" />
 												    			</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="bottom-sprocket_oil_bigo" name="bottom-sprocket_oil_bigo" />
 												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td>중간세정기</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="bottom-sprocket_a" name="bottom-sprocket_a" />
 												    			</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="bottom-sprocket_a_bigo" name="bottom-sprocket_a_bigo" />
 												    			</td>
 													    	</tr>
 													    	<tr>
@@ -617,19 +624,19 @@ td{
 													    		<td rowspan="2">54mm</td>
 													    		<td rowspan="2">53.4mm</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="bottom-gear_oil" name="bottom-gear_oil" />
 												    			</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="bottom-gear_oil_bigo" name="bottom-gear_oil_bigo" />
 												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td>중간세정기</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="bottom-gear_a" name="bottom-gear_a" />
 												    			</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="bottom-gear_a_bigo" name="bottom-gear_a_bigo" />
 												    			</td>
 													    	</tr>
 													    	<tr>
@@ -643,19 +650,19 @@ td{
 													    		<td rowspan="2"></td>
 													    		<td rowspan="2"></td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="bottom-bearing_oil" name="bottom-bearing_oil" />
 												    			</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="bottom-bearing_oil_bigo" name="bottom-bearing_oil_bigo" />
 												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td>중간세정기</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="bottom-bearing_a" name="bottom-bearing_a" />
 												    			</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="bottom-bearing_a_bigo" name="bottom-bearing_a_bigo" />
 												    			</td>
 													    	</tr>
 													    	<tr>
@@ -669,23 +676,24 @@ td{
 													    		<td rowspan="2">40mm</td>
 													    		<td rowspan="2">39mm</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="chain_oil" name="chain_oil" />
 												    			</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="chain_oil_bigo" name="chain_oil_bigo" />
 												    			</td>
 													    	</tr>
 													    	<tr>
 													    		<td>중간세정기</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="chain_a" name="chain_a" />
 												    			</td>
 													    		<td>
-													    			<input type="text" class="form-control input-sm" id="" name="" />
+													    			<input type="text" class="form-control input-sm" id="chain_a_bigo" name="chain_a_bigo" />
 												    			</td>
 													    	</tr>
 													    </tbody>
 													</table>
+													</form>
 												</div>
 											</div>
 											<div class="container" id="checkTotal" style="display:none;">
@@ -718,25 +726,25 @@ td{
 																<td class="nr3" colspan="2">23.83 ~ 40.5</td>
 																<td class="nr4">mm</td>
 																<td class="nr5" rowspan="2">지그 활용</td>
-																<td class="nr6"></td>
-																<td class="nr7"></td>
-																<td class="nr8"></td>
-																<td class="nr9"></td>
-																<td class="nr10"></td>
-																<td class="nr11"></td>
-																<td class="nr12"></td>
+																<td class="nr6" id="rf-chain_1_oil"></td>
+																<td class="nr7" id="rf-chain_2_oil"></td>
+																<td class="nr8" id="rf-chain_3_oil"></td>
+																<td class="nr9" id="rf-chain_4_oil"></td>
+																<td class="nr10" id="rf-chain_5_oil"></td>
+																<td class="nr11" id="rf-chain_6_oil"></td>
+																<td class="nr12" ></td>
 															</tr>
 															<tr>
 																<td>중간세정기</td>
 																<td>23.83 ~ 40.5</td>
 																<td>22.2 ~ 37.7</td>
 																<td>mm</td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
+																<td class="nr6" id="rf-chain_1_a"></td>
+																<td class="nr7" id="rf-chain_2_a"></td>
+																<td class="nr8" id="rf-chain_3_a"></td>
+																<td class="nr9" id="rf-chain_4_a"></td>
+																<td class="nr10" id="rf-chain_5_a"></td>
+																<td class="nr11" id="rf-chain_6_a"></td>
 																<td></td>
 															</tr>
 															<tr>
@@ -745,23 +753,23 @@ td{
 																<td class="nr3" colspan="2" rowspan="2">60 ~ 54</td>
 																<td class="nr4">mm</td>
 																<td class="nr5" rowspan="2">V/C 측정</td>
-																<td class="nr6"></td>
-																<td class="nr7"></td>
-																<td class="nr8"></td>
-																<td class="nr9"></td>
-																<td class="nr10"></td>
-																<td class="nr11"></td>
+																<td class="nr6" id="top-gear_1_oil"></td>
+																<td class="nr7" id="top-gear_2_oil"></td>
+																<td class="nr8" id="top-gear_3_oil"></td>
+																<td class="nr9" id="top-gear_4_oil"></td>
+																<td class="nr10" id="top-gear_5_oil"></td>
+																<td class="nr11" id="top-gear_6_oil"></td>
 																<td class="nr12"></td>
 															</tr>
 															<tr>
 																<td>중간세정기</td>
 																<td>mm</td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
+																<td class="nr6" id="top-gear_1_a"></td>
+																<td class="nr7" id="top-gear_2_a"></td>
+																<td class="nr8" id="top-gear_3_a"></td>
+																<td class="nr9" id="top-gear_4_a"></td>
+																<td class="nr10" id="top-gear_5_a"></td>
+																<td class="nr11" id="top-gear_6_a"></td>
 																<td></td>
 															</tr>
 															<tr>
@@ -770,23 +778,23 @@ td{
 																<td class="nr3" colspan="2" rowspan="2">110 ~ 77</td>
 																<td class="nr4">mm</td>
 																<td class="nr5" rowspan="2">V/C 측정</td>
-																<td class="nr6"></td>
-																<td class="nr7"></td>
-																<td class="nr8"></td>
-																<td class="nr9"></td>
-																<td class="nr10"></td>
-																<td class="nr11"></td>
+																<td class="nr6" id="top-sprocket_1_oil"></td>
+																<td class="nr7" id="top-sprocket_2_oil"></td>
+																<td class="nr8" id="top-sprocket_3_oil"></td>
+																<td class="nr9" id="top-sprocket_4_oil"></td>
+																<td class="nr10" id="top-sprocket_5_oil"></td>
+																<td class="nr11" id="top-sprocket_6_oil"></td>
 																<td class="nr12"></td>
 															</tr>
 															<tr>
 																<td>중간세정기</td>
 																<td>mm</td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
+																<td class="nr6" id="top-sprocket_1_a"></td>
+																<td class="nr7" id="top-sprocket_2_a"></td>
+																<td class="nr8" id="top-sprocket_3_a"></td>
+																<td class="nr9" id="top-sprocket_4_a"></td>
+																<td class="nr10" id="top-sprocket_5_a"></td>
+																<td class="nr11" id="top-sprocket_6_a"></td>
 																<td></td>
 															</tr>
 															<tr>
@@ -795,23 +803,23 @@ td{
 																<td class="nr3" colspan="2" rowspan="2"></td>
 																<td class="nr4">mm</td>
 																<td class="nr5" rowspan="2">육안점검</td>
-																<td class="nr6"></td>
-																<td class="nr7"></td>
-																<td class="nr8"></td>
-																<td class="nr9"></td>
-																<td class="nr10"></td>
-																<td class="nr11"></td>
+																<td class="nr6" id="top-bearing_1_oil"></td>
+																<td class="nr7" id="top-bearing_2_oil"></td>
+																<td class="nr8" id="top-bearing_3_oil"></td>
+																<td class="nr9" id="top-bearing_4_oil"></td>
+																<td class="nr10" id="top-bearing_5_oil"></td>
+																<td class="nr11" id="top-bearing_6_oil"></td>
 																<td class="nr12"></td>
 															</tr>
 															<tr>
 																<td>중간세정기</td>
 																<td>mm</td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
+																<td class="nr6" id="top-bearing_1_a"></td>
+																<td class="nr7" id="top-bearing_2_a"></td>
+																<td class="nr8" id="top-bearing_3_a"></td>
+																<td class="nr9" id="top-bearing_4_a"></td>
+																<td class="nr10" id="top-bearing_5_a"></td>
+																<td class="nr11" id="top-bearing_6_a"></td>
 																<td></td>
 															</tr>
 															<tr>
@@ -820,23 +828,23 @@ td{
 																<td class="nr3" colspan="2" rowspan="2">110 ~ 77</td>
 																<td class="nr4">mm</td>
 																<td class="nr5" rowspan="2">V/C 측정</td>
-																<td class="nr6"></td>
-																<td class="nr7"></td>
-																<td class="nr8"></td>
-																<td class="nr9"></td>
-																<td class="nr10"></td>
-																<td class="nr11"></td>
+																<td class="nr6" id="bottom-sprocket_1_oil"></td>
+																<td class="nr7" id="bottom-sprocket_2_oil"></td>
+																<td class="nr8" id="bottom-sprocket_3_oil"></td>
+																<td class="nr9" id="bottom-sprocket_4_oil"></td>
+																<td class="nr10" id="bottom-sprocket_5_oil"></td>
+																<td class="nr11" id="bottom-sprocket_6_oil"></td>
 																<td class="nr12"></td>
 															</tr>
 															<tr>
 																<td>중간세정기</td>
 																<td>mm</td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
+																<td class="nr6" id="bottom-sprocket_1_a"></td>
+																<td class="nr7" id="bottom-sprocket_2_a"></td>
+																<td class="nr8" id="bottom-sprocket_3_a"></td>
+																<td class="nr9" id="bottom-sprocket_4_a"></td>
+																<td class="nr10" id="bottom-sprocket_5_a"></td>
+																<td class="nr11" id="bottom-sprocket_6_a"></td>
 																<td></td>
 															</tr>
 															<tr>
@@ -845,23 +853,23 @@ td{
 																<td class="nr3" colspan="2" rowspan="2">60 ~ 54</td>
 																<td class="nr4">mm</td>
 																<td class="nr5" rowspan="2">V/C 측정</td>
-																<td class="nr6"></td>
-																<td class="nr7"></td>
-																<td class="nr8"></td>
-																<td class="nr9"></td>
-																<td class="nr10"></td>
-																<td class="nr11"></td>
+																<td class="nr6" id="bottom-gear_1_oil"></td>
+																<td class="nr7" id="bottom-gear_2_oil"></td>
+																<td class="nr8" id="bottom-gear_3_oil"></td>
+																<td class="nr9" id="bottom-gear_4_oil"></td>
+																<td class="nr10" id="bottom-gear_5_oil"></td>
+																<td class="nr11" id="bottom-gear_6_oil"></td>
 																<td class="nr12"></td>
 															</tr>
 															<tr>
 																<td>중간세정기</td>
 																<td>mm</td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
+																<td class="nr6" id="bottom-gear_1_a"></td>
+																<td class="nr7" id="bottom-gear_2_a"></td>
+																<td class="nr8" id="bottom-gear_3_a"></td>
+																<td class="nr9" id="bottom-gear_4_a"></td>
+																<td class="nr10" id="bottom-gear_5_a"></td>
+																<td class="nr11" id="bottom-gear_6_a"></td>
 																<td></td>
 															</tr>
 															<tr>
@@ -870,23 +878,23 @@ td{
 																<td class="nr3" colspan="2" rowspan="2"></td>
 																<td class="nr4">mm</td>
 																<td class="nr5" rowspan="2">육안점검</td>
-																<td class="nr6"></td>
-																<td class="nr7"></td>
-																<td class="nr8"></td>
-																<td class="nr9"></td>
-																<td class="nr10"></td>
-																<td class="nr11"></td>
+																<td class="nr6" id="bottom-bearing_1_oil"></td>
+																<td class="nr7" id="bottom-bearing_2_oil"></td>
+																<td class="nr8" id="bottom-bearing_3_oil"></td>
+																<td class="nr9" id="bottom-bearing_4_oil"></td>
+																<td class="nr10" id="bottom-bearing_5_oil"></td>
+																<td class="nr11" id="bottom-bearing_6_oil"></td>
 																<td class="nr12"></td>
 															</tr>
 															<tr>
 																<td>중간세정기</td>
 																<td>mm</td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
+																<td class="nr6" id="bottom-bearing_1_a"></td>
+																<td class="nr7" id="bottom-bearing_2_a"></td>
+																<td class="nr8" id="bottom-bearing_3_a"></td>
+																<td class="nr9" id="bottom-bearing_4_a"></td>
+																<td class="nr10" id="bottom-bearing_5_a"></td>
+																<td class="nr11" id="bottom-bearing_6_a"></td>
 																<td></td>
 															</tr>
 															<tr>
@@ -895,23 +903,23 @@ td{
 																<td class="nr3" colspan="2" rowspan="2">100 ~ 40</td>
 																<td class="nr4">mm</td>
 																<td class="nr5" rowspan="2">V/C 측정</td>
-																<td class="nr6"></td>
-																<td class="nr7"></td>
-																<td class="nr8"></td>
-																<td class="nr9"></td>
-																<td class="nr10"></td>
-																<td class="nr11"></td>
+																<td class="nr6" id="chain_1_oil"></td>
+																<td class="nr7" id="chain_2_oil"></td>
+																<td class="nr8" id="chain_3_oil"></td>
+																<td class="nr9" id="chain_4_oil"></td>
+																<td class="nr10" id="chain_5_oil"></td>
+																<td class="nr11" id="chain_6_oil"></td>
 																<td class="nr12"></td>
 															</tr>
 															<tr>
 																<td>중간세정기</td>
 																<td>mm</td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
+																<td class="nr6" id="chain_1_a"></td>
+																<td class="nr7" id="chain_2_a"></td>
+																<td class="nr8" id="chain_3_a"></td>
+																<td class="nr9" id="chain_4_a"></td>
+																<td class="nr10" id="chain_5_a"></td>
+																<td class="nr11" id="chain_6_a"></td>
 																<td></td>
 															</tr>
 														</tbody>
@@ -943,7 +951,7 @@ td{
 			Copyright 2023. All Rights Reserved.
 
 		</div>
-		<div id="reg_div" style="display:none;" title="등록">
+		<!-- <div id="reg_div" style="display:none;" title="등록">
 			<form class="form-inline" role="form" id="reg_form" name="reg_form" 
 			method="post" autocomplete="off">
 				<div class="form-group">
@@ -981,7 +989,7 @@ td{
 				</div>			
 			</form>
 				<input type="hidden" id="ivf_tagId" name="ivf_tagId" />
-		</div>
+		</div> -->
 		
 		
 		
@@ -993,7 +1001,7 @@ td{
 		date_search();
 		
 		
-		// 클릭 이벤트
+		/* // 클릭 이벤트
 		$('.data-cell').click(function() {
 	        var cellId = $(this).attr('id'); 
 	        var cellContent = $(this).text(); 
@@ -1009,7 +1017,7 @@ td{
 	        } else{
 	        	regDialog.dialog("open");
 	        }
-	    });
+	    }); */
 		//
 	})
 	
@@ -1046,7 +1054,8 @@ td{
 					//$("#s_etime").val(rsAr[0].a_time.substring(0,2)+":00:00");	
 					//$("#s_etime").val(rsAr[0].n_time);
 					//$("#s_etime").val("08:00:00");
-					
+					getList();
+					getTotalList();
 				} else if (rsJson && rsJson.status == "fail") {
 					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
 				} else {
@@ -1065,46 +1074,105 @@ td{
 		});
 	}
 		
-	/* function getYearCount(){
-		$.post("m02/s04/count_m02s04.jsp", {
-		    "year": $("#s_year").val()
-		}).done(function(response) {
-			getList();	
-			calcMonth();
-		}).fail(function(xhr, status, error) {
-			console.log("실패:", xhr.status);
-		});
-	} */
+	function getList(){
+		$.ajax({
+            type: "POST",
+            dataType : "json",
+            url: "m04/s04/select_m04s04.jsp",  // 실제 JSP 파일의 경로로 변경
+            data: { hogi: $("#hogi").val(),
+            	date: $("#s_sdate").val()
+            	},
+            success: function(response) {
+                if (response.status === "ok") {
+                    var rows = response.rows;
+                    console.log(rows);
+                    for (var i = 0; i < rows.length; i++) {
+                        var item = rows[i].inspection_item;
+                        $("#" + item + "_oil").val(rows[i].oil_value);
+                        $("#" + item + "_oil_bigo").val(rows[i].oil_bigo);
+                        $("#" + item + "_a").val(rows[i].a_value);
+                        $("#" + item + "_a_bigo").val(rows[i].a_bigo);
+                    }
+                } else {
+                    alert("Error: " + response.message);
+                }
+            },
+            error: function(xhr, status, error) {
+                alert("An error occurred: " + error);
+            }
+        });
+		
+	}
+	$('#saveButton').click(function() {
+        insertList();
+    });
+	$('#refreshButton').click(function() {
+        date_search();
+    });
 	
-	/* function getList(){
+	function getTotalList(){
+		$.ajax({
+            type: "POST",
+            dataType : "json",
+            data:{
+            	sdate: $("#t_sdate").val(),
+            	edate: $("#t_edate").val()
+            },
+            url: "m04/s04/select_total_m04s04.jsp", 
+            success: function(response) {
+            	$("td[id*='_oil'], td[id*='_a']").text("");
+                if (response.status === "ok") {
+                    var rows = response.rows;
+                    for (var i = 0; i < rows.length; i++) {
+                        var item = rows[i].inspection_item;
+                        var hogiPrefix = "_" + rows[i].hogi;
+                        $("#" + item + hogiPrefix + "_oil").text(rows[i].oil_value);
+                        $("#" + item + hogiPrefix + "_a").text(rows[i].a_value);
+                    }
+                } else {
+                    alert("Error: " + response.message);
+                }
+            },
+            error: function(xhr, status, error) {
+                alert("An error occurred: " + error);
+            }
+        });
+		
+	}
+	
+	function exportExcel(){
+		$.ajax({
+            type: "POST",
+            data:{
+            	sdate: $("#t_sdate").val(),
+            	edate: $("#t_edate").val()
+            },
+            url: "m04/s04/export_m04s04_excel.jsp", 
+            success: function(response) {
+            },
+            error: function(xhr, status, error) {
+                alert("An error occurred: " + error);
+            }
+        });
+		
+	}
+	
+	
+	
+	function insertList(){
+		var formDataArray = $('#inspectionForm').serializeArray();
+		formDataArray.push({name: "date",value: $("#s_sdate").val()});
+		formDataArray.push({name: "hogi",value: $("#hogi").val()});
 		$.ajax({
 			type : "POST",
-			url : "m02/s04/select_m02s04.jsp",
+			url : "m04/s04/insert_m04s04.jsp",
 			cache : false,
-			dataType : "json",
-			data : {
-				"year":$("#s_year").val(),
-				"month":$("#s_month").val()
-				},
+			data : formDataArray,
 			success : function(rsJson) {
-				
-				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;
-					
-					for(var i=0; i<rsAr.length; i++){
-						var hogi = rsAr[i].hogi;
-						$("#kv_"+hogi).text(rsAr[i].kv)
-						$("#mc_"+hogi).text(rsAr[i].mc)
-						$("#mcr_"+hogi).text(rsAr[i].mcr)
-						$("#tan_"+hogi).text(rsAr[i].tan)
-						$("#ivf_"+hogi).text(rsAr[i].ivf)
-						$("#bigo_"+hogi).text(rsAr[i].bigo)
-						
-					}
-				}
+				alert('저장 성공');
 			}
 		})
-	} */
+	}
 	/* function getTotalList(){
 		$.ajax({
 			type : "POST",
@@ -1180,7 +1248,7 @@ td{
 	
 	
 		/*다이얼로그*/
-		var regDialog;
+		/* var regDialog;
 		regDialog = $("#reg_div").dialog({
 			autoOpen:false,
 			//autoOpen:true,
@@ -1246,14 +1314,15 @@ td{
 					ivfDialog.dialog("close");
 				}
 			}
-		});
+		}); */
 		
 		
 		
 		/* 이벤트 */
 		$("#totalButton").on("click", function(){
 			$("#totalButton").css("display", "none");
-			$("#hogiButton").css("display", "block");
+			$("#hogiButton").css("display", "inline-block");
+			$("#excelBtn").css("display", "inline-block");
 			
 			$("#hogiCheck").css("display", "none");
 			$("#checkTotal").css("display", "block");
@@ -1266,6 +1335,7 @@ td{
 		$("#hogiButton").on("click", function(){
 			$("#hogiButton").css("display", "none");
 			$("#totalButton").css("display", "block");
+			$("#excelBtn").css("display", "none");
 			
 			$("#checkTotal").css("display", "none");
 			$("#hogiCheck").css("display", "block");
@@ -1275,10 +1345,22 @@ td{
 			
 		});
 		
-		$("#s_year, #s_month").on("change", function(){
-			getYearCount();
+		$("#t_sdate, #t_edate").on("change", function(){
+			getTotalList();
+		});
+		$("#s_sdate, #hogi").on("change", function(){
+			getList();
 		});
 		
+		$("#excelBtn").on("click", function() {
+
+			var form = document.forms["searchform"];
+			console.log(form);
+			form.action = "m04/s04/export_m04s04_excel.jsp";
+
+			form.submit();
+
+		});
 		/*차트 불러오는 함수*/
 	</script>
 
