@@ -55,6 +55,7 @@
         fis = new FileInputStream(excelFilePath);
         Workbook workbook = new XSSFWorkbook(fis);
 
+        workbook.setForceFormulaRecalculation(true);
         pstmt = conn.prepareStatement(query);
         pstmt.setDate(1, java.sql.Date.valueOf(sdate));
         pstmt.setDate(2, java.sql.Date.valueOf(edate));
