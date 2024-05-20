@@ -374,11 +374,11 @@ var fn_logout = function () {
 							font-size: 16pt; font-family:headline;">
 								규격
 							</th>
-							<th class="text-center cell" 
+							<!-- <th class="text-center cell" 
 							style="width: 80px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								수량
-							</th>
+							</th> -->
 							<th class="text-center cell" 
 							style="width: 90px; height: 30px; 
 							font-size: 16pt; font-family:headline;">

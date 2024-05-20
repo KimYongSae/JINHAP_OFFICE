@@ -18,6 +18,7 @@
 	JSONArray mapArray = new JSONArray();
 	JSONArray mapArray2 = new JSONArray();
 	
+	
 	Statement stmt = null;
 	ResultSet rs = null;
 	try{
@@ -65,14 +66,108 @@
 			//1호기
 			//생산능력
 			mapObj.put("hogi",rs.getString("hogi"));
-			mapObj.put("lot_weight",rs.getString("total_lot_weight"));
+			Integer lotWeight = 0; 
+
+			int value = rs.getInt("total_lot_weight");  
+			if (rs.wasNull()) {  
+			} else {
+			    lotWeight = value / 100;
+			}
+
+			mapObj.put("lot_weight", lotWeight); 
+
+
+			
 			mapObj.put("lot_count",rs.getString("total_count"));
 			mapArray.add(mapObj);
 			
 		}
-		/* sql2.append("SELECT a.hogi AS hogi, a.proc_cnt AS proc_cnt, ");
-		sql2.append(" b.proc_gb AS proc_gb FROM v_hogi_gantry_cnt AS a ");
-		sql2.append(" INNER JOIN tb_hogi_job AS b ON a.hogi = b.hogi");
+		
+		
+		
+
+		sql2.append("SELECT 1 AS hogi,");
+		sql2.append(" SUM(time_difference_seconds) AS total_time_difference");
+		sql2.append(" FROM (");
+		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, time_difference_seconds, VALUE, NULL AS value_detail");
+		sql2.append(" FROM v_auto_delay1");
+		sql2.append(" WHERE tdatetime >= '").append(sdate).append("' AND tdatetime <= '").append(edate).append("'");
+		sql2.append(" UNION");
+		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, UNIX_TIMESTAMP(prev_tdatetime) - UNIX_TIMESTAMP(tdatetime) AS time_difference_seconds, VALUE, value_detail");
+		sql2.append(" FROM tb_delay_manual");
+		sql2.append(" WHERE hogi = '1' AND tdatetime >= '").append(sdate).append("' AND tdatetime <= '").append(edate).append("'");
+		sql2.append(" ) AS union_result");
+		sql2.append(" WHERE union_result.value != 1");
+		sql2.append(" UNION ");
+
+		sql2.append("SELECT 2 AS hogi,");
+		sql2.append(" SUM(time_difference_seconds) AS total_time_difference");
+		sql2.append(" FROM (");
+		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, time_difference_seconds, VALUE, NULL AS value_detail");
+		sql2.append(" FROM v_auto_delay2");
+		sql2.append(" WHERE tdatetime >= '").append(sdate).append("' AND tdatetime <= '").append(edate).append("'");
+		sql2.append(" UNION");
+		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, UNIX_TIMESTAMP(prev_tdatetime) - UNIX_TIMESTAMP(tdatetime) AS time_difference_seconds, VALUE, value_detail");
+		sql2.append(" FROM tb_delay_manual");
+		sql2.append(" WHERE hogi = '2' AND tdatetime >= '").append(sdate).append("' AND tdatetime <= '").append(edate).append("'");
+		sql2.append(" ) AS union_result");
+		sql2.append(" WHERE union_result.value != 1");
+		sql2.append(" UNION ");
+
+		sql2.append("SELECT 3 AS hogi,");
+		sql2.append(" SUM(time_difference_seconds) AS total_time_difference");
+		sql2.append(" FROM (");
+		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, time_difference_seconds, VALUE, NULL AS value_detail");
+		sql2.append(" FROM v_auto_delay3");
+		sql2.append(" WHERE tdatetime >= '").append(sdate).append("' AND tdatetime <= '").append(edate).append("'");
+		sql2.append(" UNION");
+		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, UNIX_TIMESTAMP(prev_tdatetime) - UNIX_TIMESTAMP(tdatetime) AS time_difference_seconds, VALUE, value_detail");
+		sql2.append(" FROM tb_delay_manual");
+		sql2.append(" WHERE hogi = '3' AND tdatetime >= '").append(sdate).append("' AND tdatetime <= '").append(edate).append("'");
+		sql2.append(" ) AS union_result");
+		sql2.append(" WHERE union_result.value != 1");
+		sql2.append(" UNION ");
+
+		sql2.append("SELECT 4 AS hogi,");
+		sql2.append(" SUM(time_difference_seconds) AS total_time_difference");
+		sql2.append(" FROM (");
+		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, time_difference_seconds, VALUE, NULL AS value_detail");
+		sql2.append(" FROM v_auto_delay4");
+		sql2.append(" WHERE tdatetime >= '").append(sdate).append("' AND tdatetime <= '").append(edate).append("'");
+		sql2.append(" UNION");
+		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, UNIX_TIMESTAMP(prev_tdatetime) - UNIX_TIMESTAMP(tdatetime) AS time_difference_seconds, VALUE, value_detail");
+		sql2.append(" FROM tb_delay_manual");
+		sql2.append(" WHERE hogi = '4' AND tdatetime >= '").append(sdate).append("' AND tdatetime <= '").append(edate).append("'");
+		sql2.append(" ) AS union_result");
+		sql2.append(" WHERE union_result.value != 1");
+		sql2.append(" UNION ");
+
+		sql2.append("SELECT 5 AS hogi,");
+		sql2.append(" SUM(time_difference_seconds) AS total_time_difference");
+		sql2.append(" FROM (");
+		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, time_difference_seconds, VALUE, NULL AS value_detail");
+		sql2.append(" FROM v_auto_delay5");
+		sql2.append(" WHERE tdatetime >= '").append(sdate).append("' AND tdatetime <= '").append(edate).append("'");
+		sql2.append(" UNION");
+		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, UNIX_TIMESTAMP(prev_tdatetime) - UNIX_TIMESTAMP(tdatetime) AS time_difference_seconds, VALUE, value_detail");
+		sql2.append(" FROM tb_delay_manual");
+		sql2.append(" WHERE hogi = '5' AND tdatetime >= '").append(sdate).append("' AND tdatetime <= '").append(edate).append("'");
+		sql2.append(" ) AS union_result");
+		sql2.append(" WHERE union_result.value != 1");
+		sql2.append(" UNION ");
+
+		sql2.append("SELECT 6 AS hogi,");
+		sql2.append(" SUM(time_difference_seconds) AS total_time_difference");
+		sql2.append(" FROM (");
+		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, time_difference_seconds, VALUE, NULL AS value_detail");
+		sql2.append(" FROM v_auto_delay6");
+		sql2.append(" WHERE tdatetime >= '").append(sdate).append("' AND tdatetime <= '").append(edate).append("'");
+		sql2.append(" UNION");
+		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, UNIX_TIMESTAMP(prev_tdatetime) - UNIX_TIMESTAMP(tdatetime) AS time_difference_seconds, VALUE, value_detail");
+		sql2.append(" FROM tb_delay_manual");
+		sql2.append(" WHERE hogi = '6' AND tdatetime >= '").append(sdate).append("' AND tdatetime <= '").append(edate).append("'");
+		sql2.append(" ) AS union_result");
+		sql2.append(" WHERE union_result.value != 1");
 	
 		rs = stmt.executeQuery(sql2.toString());
 		
@@ -80,16 +175,15 @@
 			JSONObject delayObj = new JSONObject();
 			
 			delayObj.put("hogi", rs.getString("hogi"));
-			delayObj.put("proc_cnt", rs.getString("proc_cnt"));
-			delayObj.put("proc_gb", rs.getString("proc_gb"));
+			delayObj.put("delay", rs.getInt("total_time_difference")/3600);
 			mapArray2.add(delayObj);
-		} */
+		}
 		
 		
 	     result = mainObj.toJSONString();
 	     mainObj.put("status", String.valueOf("ok"));			       
 	     mainObj.put("rows",mapArray);
-	     /* mainObj.put("delay",mapArray2); */
+	     mainObj.put("delay",mapArray2);
 		       
 		       
 //		       conn.commit();

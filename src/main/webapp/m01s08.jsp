@@ -602,32 +602,33 @@
 			success:function(result){
 				
 				var data = result.rows;
-				/* var delay = result.delay; */
+				var delay = result.delay;
 				//var timeDifference = calculateTimeDifference();
 				var totalFCR = 0;
 				var totalHP = 0;
 				
 				for(var i=0; i<data.length; i++){
 					
-					/* var hourlyProduction = (data[i].v1 / (timeDifference-data[i].v7)).toFixed(2);
+					var hourlyProduction = (data[i].lot_weight / (24-delay[i].delay)).toFixed(2);
 					var fillingComplianceRate;
 					var progressRate;
 					
 					if(i == 1 || i == 2){
 						fillingComplianceRate = (hourlyProduction / 500);
-						progressRate = (parseInt(data[i].v1) / 12000 * 100).toFixed(0);
+						progressRate = (parseInt(data[i].lot_weight) / 12000 * 100).toFixed(0);
 					} else{
 						fillingComplianceRate = (hourlyProduction / 1000);
-						progressRate = (parseInt(data[i].v1) / 24000 * 100).toFixed(0);
+						progressRate = (parseInt(data[i].lot_weight) / 24000 * 100).toFixed(0);
 					}
 					if(fillingComplianceRate > 1){
 						fillingComplianceRate = 1;
-					} */
+					}
 					//console.log("v1 : "+progressRate);
 					//$("#ht"+(i+1)+"_v1").text(parseInt(data[i].v1).toLocaleString()+" Kg");
-					//$("#ht"+(i+1)+"_v4").text(progressRate.toLocaleString()+" %");
-					$("#ht"+(i+1)+"_v1").text(data[i].lot_weight);
+					$("#ht"+(i+1)+"_v4").text(progressRate.toLocaleString()+" %");
+					$("#ht"+(i+1)+"_v1").text(data[i].lot_weight.toLocaleString()+" Kg");
 					$("#ht"+(i+1)+"_v6").text(data[i].lot_count);
+					$("#ht"+(i+1)+"_v7").text(delay[i].delay);
 					//$("#ht"+(i+1)+"_v4").text(parseInt(data[i].v4).toLocaleString()+" %");
 /* 					$("#ht"+(i+1)+"_v1").text(data[i].v1+" Kg");
 					//$("#ht"+(i+1)+"_v2").text(data[i].v2+" Kg");
@@ -635,7 +636,7 @@
 					//$("#ht"+(i+1)+"_v3").text(data[i].v3+" %");
 					$("#ht"+(i+1)+"_v4").text(data[i].v4+" %");
 					//$("#ht"+(i+1)+"_v5").text(data[i].v5+" %"); */
-					/* if(i == 6){
+					if(i == 6){
 						$("#ht"+(i+1)+"_v5").text((totalFCR.toFixed(2)/6).toFixed(2) + " %");
 						$("#ht"+(i+1)+"_v2").text(totalHP.toLocaleString() + " Kg");
 					} else{
@@ -644,7 +645,7 @@
 					$("#ht"+(i+1)+"_v2").text(parseInt(hourlyProduction).toLocaleString() + " Kg");
 						totalHP += parseInt(hourlyProduction);
 					}
-					$("#ht"+(i+1)+"_v7").text(data[i].v7+" 시간");
+					$/* ("#ht"+(i+1)+"_v7").text(data[i].v7+" 시간");
 					$("#ht"+(i+1)+"_v6").text(data[i].v6+" LOT"); */
 					
 					
