@@ -303,6 +303,23 @@
 										<td class="text-center cell" id="ht6_v7">
 										</td>
 									</tr>
+									<tr>
+										<th class="text-center cell">
+											운전상태
+										</th>
+										<td class="text-center cell" id="ht1_auto">
+										</td>
+										<td class="text-center cell" id="ht2_auto">
+										</td>
+										<td class="text-center cell" id="ht3_auto">
+										</td>
+										<td class="text-center cell" id="ht4_auto">
+										</td>
+										<td class="text-center cell" id="ht5_auto">
+										</td>
+										<td class="text-center cell" id="ht6_auto">
+										</td>
+									</tr>
 								</tbody>
 							</table>
             			</div>
@@ -324,10 +341,11 @@
 	
 	
 	$(function() {
-	    getChartData();
+		getChartData3();
 	    getChartData2();
 	    setInterval(getChartData, 10000);
 	    setInterval(getChartData2, 10000);
+	    setInterval(getChartData3, 10000);
 	    now_search()
 	    setInterval(now_search(), 1000);
 	});
@@ -365,7 +383,9 @@
 							+
 							rsAr[0].n_time.substring(3,5)+"분"
 							);
-					
+					sdate = rsAr[0].n_date;
+					etime = rsAr[0].n_time;
+					getChartData();
 
 				} else if (rsJson && rsJson.status == "fail") {
 					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
@@ -731,18 +751,29 @@ function calculateTimeDifference() {
 			url:"m01/s00/select_m01s00.jsp",
 			type:"post",
 			dataType:"json",
-			data:{},
+			data:{
+				"sdate" : sdate,
+				"etime" : etime
+			},
 			success:function(result){
 				console.log(result);
 				
 				var data = result.rows;
+				var delay = result.delay;
 				var timeDifference = calculateTimeDifference();
 				console.log(timeDifference);
 				
 				for(var i=0; i<data.length; i++){
 					
-					var hourlyProduction = (data[i].v1 / (timeDifference-data[i].v7)).toFixed(2);
-					//var hourlyProduction = (data[i].v1 / timeDifference).toFixed(2);
+					var sdateStr = data[i].sdate.replace(".0", "");
+    				var edateStr = data[i].edate.replace(".0", "");
+    				var sdate2 = new Date(sdateStr);
+    			    var edate2 = new Date(edateStr);
+    			    var tttt = edate2 - sdate2;
+    			    var hoursDifference = tttt / (1000 * 60 * 60);
+    			    	hoursDifference = hoursDifference.toFixed(2);
+					var hourlyProduction = (data[i].v1 / (hoursDifference)).toFixed(2);
+					
 					var fillingComplianceRate;
 					
 					if(i == 1 || i == 2){
@@ -763,7 +794,7 @@ function calculateTimeDifference() {
 					//$("#ht"+(i+1)+"_v5").text(data[i].v5+" %");
 					//$("#ht"+(i+1)+"_v6").text(data[i].v6+" LOT");
 					$("#ht"+(i+1)+"_v7").css("font-size", "25px");
-					$("#ht"+(i+1)+"_v7").text(data[i].v7+" 시간");
+					$("#ht"+(i+1)+"_v7").text(delay[i].delay+" 시간");
 					
 					switch(i){
 						case 0:
@@ -815,6 +846,26 @@ function calculateTimeDifference() {
 					//$("#ht"+(i+1)+"_before").text(data[i].before_pname);
 					$("#ht"+(i+1)+"_after").text(data[i].after_pname);
 					
+					}
+			}
+		});
+	}
+	function getChartData3(){
+		$.ajax({
+			url:"m01/s00/select_m01s00_auto.jsp",
+			type:"post",
+			dataType:"json",
+			data:{},
+			success:function(result){
+				console.log(result);
+				
+				var data = result.rows;
+				
+				
+				for(var i=0; i<data.length; i++){
+					
+					$("#ht"+data[i].hogi+"_auto").css("font-size", "25px");
+					$("#ht"+data[i].hogi+"_auto").text(data[i].auto);
 					}
 			}
 		});

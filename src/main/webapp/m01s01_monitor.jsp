@@ -386,7 +386,6 @@
 		now_search();
 		
 		dateInterval = setInterval('now_search()',1000);
-		getMonitoringData();
 		setInterval('getMonitoringData()',10000);
 		
 	});
@@ -424,7 +423,9 @@
 							+
 							rsAr[0].n_time.substring(3,5)+"분"
 							);
-					
+					sdate = rsAr[0].n_date;
+					etime = rsAr[0].n_time;
+					getMonitoringData();
 
 				} else if (rsJson && rsJson.status == "fail") {
 					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
@@ -467,7 +468,10 @@
 			url:"m01/s01/select_m01s01_monitor_1.jsp",
 			type:"post",
 			dataType:"json",
-			data:{},
+			data:{
+				"sdate" : sdate,
+				"etime" : etime
+			},
 			success:function(result){
 				//console.log(result);
 				
@@ -480,11 +484,19 @@
 				
 				for(var i=0; i<data.length; i++){
 					
-					var hourlyProduction = (data[i].v1 / (timeDifference-data[i].v7)).toFixed(2);
 					//var hourlyProduction = (data[i].v1 / timeDifference).toFixed(2);
+					var sdateStr = data[i].sdate.replace(".0", "");
+    				var edateStr = data[i].edate.replace(".0", "");
+    				var sdate2 = new Date(sdateStr);
+    			    var edate2 = new Date(edateStr);
+    			    var tttt = edate2 - sdate2;
+    			    var hoursDifference = tttt / (1000 * 60 * 60);
+    			    	hoursDifference = hoursDifference.toFixed(2);
+					var hourlyProduction = (data[i].v1 / (hoursDifference)).toFixed(2);
+    			    
 					var fillingComplianceRate;
 					var progressRate;
-					
+					console.log(data[i].sdate)
 					if(i == 1 || i == 2){
 						fillingComplianceRate = (hourlyProduction / 500);
 						progressRate = (parseInt(data[i].v1) / 12000 * 100).toFixed(0);
@@ -495,7 +507,6 @@
 					if(fillingComplianceRate > 1){
 						fillingComplianceRate = 1;
 					}
-					console.log("v1 : "+progressRate);
 					$("#ht"+(i+1)+"_v1").text(parseInt(data[i].v1).toLocaleString()+" Kg");
 					$("#ht"+(i+1)+"_v4").text(progressRate.toLocaleString()+" %");
 					//$("#ht"+(i+1)+"_v4").text(parseInt(data[i].v4).toLocaleString()+" %");
@@ -514,7 +525,8 @@
 					$("#ht"+(i+1)+"_v2").text(parseInt(hourlyProduction).toLocaleString() + " Kg");
 						totalHP += parseInt(hourlyProduction);
 					}
-					$("#ht"+(i+1)+"_v7").text(data[i].v7+" 시간");
+					/* $("#ht"+(i+1)+"_v7").text(data[i].v7+" 시간"); */
+					$("#ht"+(i+1)+"_v7").text(delay[i].delay + " 시간");
 					$("#ht"+(i+1)+"_v6").text(data[i].v6+" LOT");
 					
 					

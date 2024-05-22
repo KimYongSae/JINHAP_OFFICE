@@ -386,11 +386,13 @@
 		now_search();
 		
 		dateInterval = setInterval('now_search()',1000);
-		getMonitoringData();
+		
 		setInterval('getMonitoringData()',10000);
 		
 	});
 	
+	var sdate = ;
+	var etime = ;
 	/*함수*/
 	function now_search(){
 		$.ajax({
@@ -424,8 +426,9 @@
 							+
 							rsAr[0].n_time.substring(3,5)+"분"
 							);
-					
-
+					sdate = rsAr[0].n_date;
+					etime = rsAr[0].ntime;
+					getMonitoringData();		
 				} else if (rsJson && rsJson.status == "fail") {
 					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
 				} else {
@@ -463,11 +466,19 @@
 	}
 	
 	function getMonitoringData(){
+		  if (typeof sdate === 'undefined' || typeof etime === 'undefined') {
+		        console.error("sdate와 etime 변수가 정의되지 않았습니다.");
+		        return;
+		    }
+		  console.log(sdate)
 		$.ajax({
 			url:"m01/s01/select_m01s01_monitor_1.jsp",
 			type:"post",
 			dataType:"json",
-			data:{},
+			data:{
+				"sdate" : sdate,
+				"etime" : etime
+			},
 			success:function(result){
 				//console.log(result);
 				
@@ -495,7 +506,6 @@
 					if(fillingComplianceRate > 1){
 						fillingComplianceRate = 1;
 					}
-					console.log("v1 : "+progressRate);
 					$("#ht"+(i+1)+"_v1").text(parseInt(data[i].v1).toLocaleString()+" Kg");
 					$("#ht"+(i+1)+"_v4").text(progressRate.toLocaleString()+" %");
 					//$("#ht"+(i+1)+"_v4").text(parseInt(data[i].v4).toLocaleString()+" %");
