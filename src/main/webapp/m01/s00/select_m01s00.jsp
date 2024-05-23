@@ -8,7 +8,6 @@
 	
 	String sdate = request.getParameter("sdate");
 	String etime = request.getParameter("etime");
-	
 	String delaySdate = sdate + " 08:00:00";
 	String delayEdate = sdate + " " + etime;
 	
@@ -84,7 +83,8 @@ from v_machine_performance_total
 
 
 
-		 sql.append("SELECT 1 AS hogi, IFNULL(SUM(lot_weight), 0) AS weight, IFNULL(COUNT(idx), 0) AS lot_count, IFNULL(STR_TO_DATE(MIN(datetiem1), '%Y%m%d%H%i%s'), '1970-01-01 00:00:00') AS sdate, IFNULL(MAX(check_time), '1970-01-01 00:00:00') AS edate ");
+		 sql.append("SELECT 1 AS hogi, IFNULL(SUM(lot_weight), 0) AS weight, IFNULL(COUNT(idx), 0) AS lot_count, IFNULL(STR_TO_DATE(MIN(datetiem1), '%Y%m%d%H%i%s'), '1970-01-01 00:00:00') AS sdate, IFNULL(MAX(check_time), '1970-01-01 00:00:00') AS edate, ");
+		 sql.append(" COUNT(DISTINCT lot_group) AS distinct_lot_groups ");
 		 sql.append("FROM ( ");
 		 sql.append("    SELECT main.*, MIN(STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s')) OVER (PARTITION BY lot_group) AS first_datetiem1_in_group, COUNT(*) OVER (PARTITION BY lot_group) AS lot_group_count ");
 		 sql.append("    FROM ( ");
@@ -92,14 +92,15 @@ from v_machine_performance_total
 		 sql.append("        FROM tb_tong_log t ");
 		 sql.append("        CROSS JOIN (SELECT @group_num := 0, @prev_gubun := '', @prev_lot_group := NULL) AS init ");
 		 sql.append("        WHERE hogi = '1' ");
-		 sql.append("        AND STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '" + sdate + " 07:00:00' AND '" + sdate + " 12:00:00' ");
+		 sql.append("        AND STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '" + sdate + " 07:00:00' AND '" + sdate + " " + etime + "' ");
 		 sql.append("    ) AS main ");
 		 sql.append(") AS sub ");
 		 sql.append("WHERE STR_TO_DATE(IFNULL(sub.first_datetiem1_in_group, '1970-01-01 00:00:00'), '%Y-%m-%d %H:%i:%s') BETWEEN '" + sdate + " 08:00:00' AND '" + sdate + " " + etime + "' ");
 
 		 sql.append("UNION ALL ");
 
-		 sql.append("SELECT 2 AS hogi, IFNULL(SUM(lot_weight), 0) AS weight, IFNULL(COUNT(idx), 0) AS lot_count, IFNULL(STR_TO_DATE(MIN(datetiem1), '%Y%m%d%H%i%s'), '1970-01-01 00:00:00') AS sdate, IFNULL(MAX(check_time), '1970-01-01 00:00:00') AS edate ");
+		 sql.append("SELECT 2 AS hogi, IFNULL(SUM(lot_weight), 0) AS weight, IFNULL(COUNT(idx), 0) AS lot_count, IFNULL(STR_TO_DATE(MIN(datetiem1), '%Y%m%d%H%i%s'), '1970-01-01 00:00:00') AS sdate, IFNULL(MAX(check_time), '1970-01-01 00:00:00') AS edate, ");
+		 sql.append(" COUNT(DISTINCT lot_group) AS distinct_lot_groups ");
 		 sql.append("FROM ( ");
 		 sql.append("    SELECT main.*, MIN(STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s')) OVER (PARTITION BY lot_group) AS first_datetiem1_in_group, COUNT(*) OVER (PARTITION BY lot_group) AS lot_group_count ");
 		 sql.append("    FROM ( ");
@@ -107,14 +108,15 @@ from v_machine_performance_total
 		 sql.append("        FROM tb_tong_log t ");
 		 sql.append("        CROSS JOIN (SELECT @group_num := 0, @prev_gubun := '', @prev_lot_group := NULL) AS init ");
 		 sql.append("        WHERE hogi = '2' ");
-		 sql.append("        AND STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '" + sdate + " 07:00:00' AND '" + sdate + " 12:00:00' ");
+		 sql.append("        AND STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '" + sdate + " 07:00:00' AND '" + sdate + " " + etime + "' ");
 		 sql.append("    ) AS main ");
 		 sql.append(") AS sub ");
 		 sql.append("WHERE STR_TO_DATE(IFNULL(sub.first_datetiem1_in_group, '1970-01-01 00:00:00'), '%Y-%m-%d %H:%i:%s') BETWEEN '" + sdate + " 08:00:00' AND '" + sdate + " " + etime + "' ");
 
 		 sql.append("UNION ALL ");
 
-		 sql.append("SELECT 3 AS hogi, IFNULL(SUM(lot_weight), 0) AS weight, IFNULL(COUNT(idx), 0) AS lot_count, IFNULL(STR_TO_DATE(MIN(datetiem1), '%Y%m%d%H%i%s'), '1970-01-01 00:00:00') AS sdate, IFNULL(MAX(check_time), '1970-01-01 00:00:00') AS edate ");
+		 sql.append("SELECT 3 AS hogi, IFNULL(SUM(lot_weight), 0) AS weight, IFNULL(COUNT(idx), 0) AS lot_count, IFNULL(STR_TO_DATE(MIN(datetiem1), '%Y%m%d%H%i%s'), '1970-01-01 00:00:00') AS sdate, IFNULL(MAX(check_time), '1970-01-01 00:00:00') AS edate, ");
+		 sql.append(" COUNT(DISTINCT lot_group) AS distinct_lot_groups ");
 		 sql.append("FROM ( ");
 		 sql.append("    SELECT main.*, MIN(STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s')) OVER (PARTITION BY lot_group) AS first_datetiem1_in_group, COUNT(*) OVER (PARTITION BY lot_group) AS lot_group_count ");
 		 sql.append("    FROM ( ");
@@ -122,14 +124,15 @@ from v_machine_performance_total
 		 sql.append("        FROM tb_tong_log t ");
 		 sql.append("        CROSS JOIN (SELECT @group_num := 0, @prev_gubun := '', @prev_lot_group := NULL) AS init ");
 		 sql.append("        WHERE hogi = '3' ");
-		 sql.append("        AND STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '" + sdate + " 07:00:00' AND '" + sdate + " 12:00:00' ");
+		 sql.append("        AND STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '" + sdate + " 07:00:00' AND '" + sdate + " " + etime + "' ");
 		 sql.append("    ) AS main ");
 		 sql.append(") AS sub ");
 		 sql.append("WHERE STR_TO_DATE(IFNULL(sub.first_datetiem1_in_group, '1970-01-01 00:00:00'), '%Y-%m-%d %H:%i:%s') BETWEEN '" + sdate + " 08:00:00' AND '" + sdate + " " + etime + "' ");
 
 		 sql.append("UNION ALL ");
 
-		 sql.append("SELECT 4 AS hogi, IFNULL(SUM(lot_weight), 0) AS weight, IFNULL(COUNT(idx), 0) AS lot_count, IFNULL(STR_TO_DATE(MIN(datetiem1), '%Y%m%d%H%i%s'), '1970-01-01 00:00:00') AS sdate, IFNULL(MAX(check_time), '1970-01-01 00:00:00') AS edate ");
+		 sql.append("SELECT 4 AS hogi, IFNULL(SUM(lot_weight), 0) AS weight, IFNULL(COUNT(idx), 0) AS lot_count, IFNULL(STR_TO_DATE(MIN(datetiem1), '%Y%m%d%H%i%s'), '1970-01-01 00:00:00') AS sdate, IFNULL(MAX(check_time), '1970-01-01 00:00:00') AS edate, ");
+		 sql.append(" COUNT(DISTINCT lot_group) AS distinct_lot_groups ");
 		 sql.append("FROM ( ");
 		 sql.append("    SELECT main.*, MIN(STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s')) OVER (PARTITION BY lot_group) AS first_datetiem1_in_group, COUNT(*) OVER (PARTITION BY lot_group) AS lot_group_count ");
 		 sql.append("    FROM ( ");
@@ -137,14 +140,15 @@ from v_machine_performance_total
 		 sql.append("        FROM tb_tong_log t ");
 		 sql.append("        CROSS JOIN (SELECT @group_num := 0, @prev_gubun := '', @prev_lot_group := NULL) AS init ");
 		 sql.append("        WHERE hogi = '4' ");
-		 sql.append("        AND STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '" + sdate + " 07:00:00' AND '" + sdate + " 12:00:00' ");
+		 sql.append("        AND STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '" + sdate + " 07:00:00' AND '" + sdate + " " + etime + "' ");
 		 sql.append("    ) AS main ");
 		 sql.append(") AS sub ");
 		 sql.append("WHERE STR_TO_DATE(IFNULL(sub.first_datetiem1_in_group, '1970-01-01 00:00:00'), '%Y-%m-%d %H:%i:%s') BETWEEN '" + sdate + " 08:00:00' AND '" + sdate + " " + etime + "' ");
 
 		 sql.append("UNION ALL ");
 
-		 sql.append("SELECT 5 AS hogi, IFNULL(SUM(lot_weight), 0) AS weight, IFNULL(COUNT(idx), 0) AS lot_count, IFNULL(STR_TO_DATE(MIN(datetiem1), '%Y%m%d%H%i%s'), '1970-01-01 00:00:00') AS sdate, IFNULL(MAX(check_time), '1970-01-01 00:00:00') AS edate ");
+		 sql.append("SELECT 5 AS hogi, IFNULL(SUM(lot_weight), 0) AS weight, IFNULL(COUNT(idx), 0) AS lot_count, IFNULL(STR_TO_DATE(MIN(datetiem1), '%Y%m%d%H%i%s'), '1970-01-01 00:00:00') AS sdate, IFNULL(MAX(check_time), '1970-01-01 00:00:00') AS edate, ");
+		 sql.append(" COUNT(DISTINCT lot_group) AS distinct_lot_groups ");
 		 sql.append("FROM ( ");
 		 sql.append("    SELECT main.*, MIN(STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s')) OVER (PARTITION BY lot_group) AS first_datetiem1_in_group, COUNT(*) OVER (PARTITION BY lot_group) AS lot_group_count ");
 		 sql.append("    FROM ( ");
@@ -152,14 +156,15 @@ from v_machine_performance_total
 		 sql.append("        FROM tb_tong_log t ");
 		 sql.append("        CROSS JOIN (SELECT @group_num := 0, @prev_gubun := '', @prev_lot_group := NULL) AS init ");
 		 sql.append("        WHERE hogi = '5' ");
-		 sql.append("        AND STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '" + sdate + " 07:00:00' AND '" + sdate + " 12:00:00' ");
+		 sql.append("        AND STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '" + sdate + " 07:00:00' AND '" + sdate + " " + etime + "' ");
 		 sql.append("    ) AS main ");
 		 sql.append(") AS sub ");
 		 sql.append("WHERE STR_TO_DATE(IFNULL(sub.first_datetiem1_in_group, '1970-01-01 00:00:00'), '%Y-%m-%d %H:%i:%s') BETWEEN '" + sdate + " 08:00:00' AND '" + sdate + " " + etime + "' ");
 
 		 sql.append("UNION ALL ");
 
-		 sql.append("SELECT 6 AS hogi, IFNULL(SUM(lot_weight), 0) AS weight, IFNULL(COUNT(idx), 0) AS lot_count, IFNULL(STR_TO_DATE(MIN(datetiem1), '%Y%m%d%H%i%s'), '1970-01-01 00:00:00') AS sdate, IFNULL(MAX(check_time), '1970-01-01 00:00:00') AS edate ");
+		 sql.append("SELECT 6 AS hogi, IFNULL(SUM(lot_weight), 0) AS weight, IFNULL(COUNT(idx), 0) AS lot_count, IFNULL(STR_TO_DATE(MIN(datetiem1), '%Y%m%d%H%i%s'), '1970-01-01 00:00:00') AS sdate, IFNULL(MAX(check_time), '1970-01-01 00:00:00') AS edate, ");
+		 sql.append(" COUNT(DISTINCT lot_group) AS distinct_lot_groups ");
 		 sql.append("FROM ( ");
 		 sql.append("    SELECT main.*, MIN(STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s')) OVER (PARTITION BY lot_group) AS first_datetiem1_in_group, COUNT(*) OVER (PARTITION BY lot_group) AS lot_group_count ");
 		 sql.append("    FROM ( ");
@@ -167,7 +172,7 @@ from v_machine_performance_total
 		 sql.append("        FROM tb_tong_log t ");
 		 sql.append("        CROSS JOIN (SELECT @group_num := 0, @prev_gubun := '', @prev_lot_group := NULL) AS init ");
 		 sql.append("        WHERE hogi = '6' ");
-		 sql.append("        AND STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '" + sdate + " 07:00:00' AND '" + sdate + " 12:00:00' ");
+		 sql.append("        AND STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '" + sdate + " 07:00:00' AND '" + sdate + " " + etime + "' ");
 		 sql.append("    ) AS main ");
 		 sql.append(") AS sub ");
 		 sql.append("WHERE STR_TO_DATE(IFNULL(sub.first_datetiem1_in_group, '1970-01-01 00:00:00'), '%Y-%m-%d %H:%i:%s') BETWEEN '" + sdate + " 08:00:00' AND '" + sdate + " " + etime + "' ");
@@ -190,7 +195,7 @@ from v_machine_performance_total
 			
 			mapObj.put("hogi",rs.getString("hogi"));
 			mapObj.put("v1",rs.getInt("weight")*0.01);
-			mapObj.put("v6",rs.getString("lot_count"));
+			mapObj.put("v6",rs.getString("distinct_lot_groups"));
 			mapObj.put("sdate",rs.getString("sdate"));
 			mapObj.put("edate",rs.getString("edate"));
 			mapArray.add(mapObj);
