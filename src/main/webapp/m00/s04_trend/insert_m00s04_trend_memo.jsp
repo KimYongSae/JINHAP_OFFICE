@@ -45,47 +45,47 @@
 }
 	
 	switch(memoC){
-	case "소입1로":
+	case "소입1":
 	case "q1 메모":
 		temp = "q1_memo";
 		
 		break;
-	case "소입2로":
+	case "소입2":
 	case "q2 메모":
 		temp = "q2_memo";
 		
 		break;
-	case "소입3로":
+	case "소입3":
 	case "q3 메모":
 		temp = "q3_memo";
 		
 		break;
-	case "소입4로":
+	case "소입4":
 	case "q4 메모":
 		temp = "q4_memo";
 		
 		break;
-	case "소입5로":
+	case "소입5":
 	case "q5 메모":
 		temp = "q5_memo";
 		
 		break;
-	case "소려1로":
+	case "소려1":
 	case "t1 메모":
 		temp = "t1_memo";
 		
 		break;
-	case "소려2로":
+	case "소려2":
 	case "t2 메모":
 		temp = "t2_memo";
 		
 		break;
-	case "소려3로":
+	case "소려3":
 	case "t3 메모":
 		temp = "t3_memo";
 		
 		break;
-	case "소려4로":
+	case "소려4":
 	case "t4 메모":
 		temp = "t4_memo";
 		
@@ -130,7 +130,7 @@
 		if (exists == 1) {
 		    updateSql.append(" UPDATE "+fromSql+" SET ");
 			switch(memoC){
-			case "소입1로":
+			case "소입1":
 			case "q1 메모":
 				updateSql.append(" q1_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
@@ -139,7 +139,7 @@
 				updateSql.append(" worker = '" + worker + "'");
 				
 				break;
-			case "소입2로":
+			case "소입2":
 			case "q2 메모":
 				updateSql.append(" q2_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
@@ -148,7 +148,7 @@
 				updateSql.append(" worker = '" + worker + "'");
 				
 				break;
-			case "소입3로":
+			case "소입3":
 			case "q3 메모":
 				updateSql.append(" q3_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
@@ -157,7 +157,7 @@
 				updateSql.append(" worker = '" + worker + "'");
 				
 				break;
-			case "소입4로":
+			case "소입4":
 			case "q4 메모":
 				updateSql.append(" q4_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
@@ -166,7 +166,7 @@
 				updateSql.append(" worker = '" + worker + "'");
 				
 				break;
-			case "소입5로":
+			case "소입5":
 			case "q5 메모":
 				updateSql.append(" q5_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
@@ -175,7 +175,7 @@
 				updateSql.append(" worker = '" + worker + "'");
 				
 				break;
-			case "소려1로":
+			case "소려1":
 			case "t1 메모":
 				updateSql.append(" t1_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
@@ -184,7 +184,7 @@
 				updateSql.append(" worker = '" + worker + "'");
 				
 				break;
-			case "소려2로":
+			case "소려2":
 			case "t2 메모":
 				updateSql.append(" t2_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
@@ -193,7 +193,7 @@
 				updateSql.append(" worker = '" + worker + "'");
 				
 				break;
-			case "소려3로":
+			case "소려3":
 			case "t3 메모":
 				updateSql.append(" t3_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
@@ -202,7 +202,7 @@
 				updateSql.append(" worker = '" + worker + "'");
 				
 				break;
-			case "소려4로":
+			case "소려4":
 			case "t4 메모":
 				updateSql.append(" t4_memo = '" + memo + "', ");
 				updateSql.append(" quenching = '" + quenching + "', ");
@@ -245,39 +245,39 @@
 		} else {
 			updateSql.append(" INSERT INTO "+fromSql);
 			switch(memoC){
-			case "소입1로":
+			case "소입1":
 				updateSql.append(" (datetime1, q1_memo, quenching, tempering, cp, worker) ");
 				
 				break;
-			case "소입2로":
+			case "소입2":
 				updateSql.append(" (datetime1, q2_memo, quenching, tempering, cp, worker) ");
 				
 				break;
-			case "소입3로":
+			case "소입3":
 				updateSql.append(" (datetime1, q3_memo, quenching, tempering, cp, worker) ");
 				
 				break;
-			case "소입4로":
+			case "소입4":
 				updateSql.append(" (datetime1, q4_memo, quenching, tempering, cp, worker) ");
 				
 				break;
-			case "소입5로":
+			case "소입5":
 				updateSql.append(" (datetime1, q5_memo, quenching, tempering, cp, worker) ");
 				
 				break;
-			case "소려1로":
+			case "소려1":
 				updateSql.append(" (datetime1, t1_memo, quenching, tempering, cp, worker) ");
 				
 				break;
-			case "소려2로":
+			case "소려2":
 				updateSql.append(" (datetime1, t2_memo, quenching, tempering, cp, worker) ");
 				
 				break;
-			case "소려3로":
+			case "소려3":
 				updateSql.append(" (datetime1, t3_memo, quenching, tempering, cp, worker) ");
 				
 				break;
-			case "소려4로":
+			case "소려4":
 				updateSql.append(" (datetime1, t4_memo, quenching, tempering, cp, worker) ");
 				
 				break;

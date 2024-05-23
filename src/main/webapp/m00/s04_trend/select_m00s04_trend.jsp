@@ -880,11 +880,11 @@ switch (hogi) {
       
       a_pvObj.put("name","세정기");
       a_pvObj.put("data",a_pvArr);
-      a_pvObj.put("color","#ZXECGE");
+      a_pvObj.put("color","#364822");
       
       cp_pvObj.put("name","CP");
       cp_pvObj.put("data",cp_pvArr);
-      cp_pvObj.put("color","#ANRWYD");
+      cp_pvObj.put("color","#859371");
       
       q1MvObj.put("name","q1 메모");
       q1MvObj.put("data",q1_MvArr);

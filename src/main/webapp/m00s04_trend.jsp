@@ -215,7 +215,7 @@ var fn_logout = function () {
 
 
 
-<body onload="init();" data-offset="60" data-target=".navbar">
+<body  data-offset="60" data-target=".navbar">
 	<div id="loading" style="display:none;">
 		<img id="loading-image" src="resources/img/loading2.gif" alt="Loading..." />
 	</div>
