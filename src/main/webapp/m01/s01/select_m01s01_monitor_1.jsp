@@ -179,7 +179,6 @@ from v_machine_performance_total
 
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery(sql.toString());
-	System.out.println(sql.toString());
 		
 		while(rs.next()){
 			JSONObject mapObj = new JSONObject();			
