@@ -559,7 +559,7 @@ var fn_logout = function () {
 							<th  class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
 							font-size: 10pt; font-family:headline; font-weight:700; border-top: 0;"
-							id="h1_change_temp"
+							id="h1_temp_change"
 							></th>						
 							<th  class="text-center cell" 
 							style="background-color:#FFFFFF; width: 60px; height: 30px; 
@@ -1918,6 +1918,11 @@ function div_change(value){
 					$("#h1_spv_oil").text(rsAr.oil_sp);
 					$("#h1_spv_cp").text(rsAr.cp_sp.toFixed(3));
 					
+					$("#h1_temp_change").text(rsAr.type);
+					if(rsAr.type !== "운전중"){
+					    $("#h1_temp_change").css("color", "red");
+					}
+					
 					// 퀜칭로 온도범위
 					$("#h1_sp_q1_spec").text((rsAr.q1_sp-150)+"~"+(rsAr.q1_sp+50));
 					if((rsAr.q1_pv < rsAr.q1_sp-150) || (rsAr.q1_pv > rsAr.q1_sp+50)){
@@ -2056,6 +2061,11 @@ function div_change(value){
 					$("#h2_spv_oil").text(rsAr.oil_sp);
 					$("#h2_spv_cp").text(rsAr.cp_sp.toFixed(3));
 					
+					$("#h2_temp_change").text(rsAr.type);
+					if(rsAr.type !== "운전중"){
+					    $("#h2_temp_change").css("color", "red");
+					}
+					
 					// 퀜칭로 온도범위
 					$("#h2_sp_q1_spec").text((rsAr.q1_sp-150)+"~"+(rsAr.q1_sp+50));
 					if((rsAr.q1_pv < rsAr.q1_sp-150) || (rsAr.q1_pv > rsAr.q1_sp+50)){
@@ -2193,6 +2203,12 @@ function div_change(value){
 					$("#h3_spv_mw").text(rsAr.a_sp); 
 					$("#h3_spv_oil").text(rsAr.oil_sp);
 					$("#h3_spv_cp").text(rsAr.cp_sp.toFixed(3));
+					
+					$("#h3_temp_change").text(rsAr.type);
+					if(rsAr.type !== "운전중"){
+					    $("#h3_temp_change").css("color", "red");
+					}
+					
 					
 					/* $("#h3_sp_q1_spec").text(rsAr.q1_sp);
 					$("#h3_sp_q2_spec").text(rsAr.q2_sp);
@@ -2345,6 +2361,11 @@ function div_change(value){
 					$("#h4_spv_oil").text(rsAr.oil_sp);
 					$("#h4_spv_cp").text(rsAr.cp_sp.toFixed(3));
 					
+					$("#h4_temp_change").text(rsAr.type);
+					if(rsAr.type !== "운전중"){
+					    $("#h4_temp_change").css("color", "red");
+					}
+					
 					// 퀜칭로 온도범위
 					$("#h4_sp_q1_spec").text((rsAr.q1_sp-150)+"~"+(rsAr.q1_sp+50));
 					if((rsAr.q1_pv < rsAr.q1_sp-150) || (rsAr.q1_pv > rsAr.q1_sp+50)){
@@ -2483,6 +2504,11 @@ function div_change(value){
 					$("#h5_spv_oil").text(rsAr.oil_sp);
 					$("#h5_spv_cp").text(rsAr.cp_sp.toFixed(3));
 					
+					$("#h5_temp_change").text(rsAr.type);
+					if(rsAr.type !== "운전중"){
+					    $("#h5_temp_change").css("color", "red");
+					}
+					
 					// 퀜칭로 온도범위
 					$("#h5_sp_q1_spec").text((rsAr.q1_sp-150)+"~"+(rsAr.q1_sp+50));
 					if((rsAr.q1_pv < rsAr.q1_sp-150) || (rsAr.q1_pv > rsAr.q1_sp+50)){
@@ -2620,6 +2646,11 @@ function div_change(value){
 					$("#h6_spv_mw").text(rsAr.a_sp); 
 					$("#h6_spv_oil").text(rsAr.oil_sp);
 					$("#h6_spv_cp").text(rsAr.cp_sp.toFixed(3));
+					
+					$("#h6_temp_change").text(rsAr.type);
+					if(rsAr.type !== "운전중"){
+					    $("#h6_temp_change").css("color", "red");
+					}
 					
 					// 퀜칭로 온도범위
 					$("#h6_sp_q1_spec").text((rsAr.q1_sp-150)+"~"+(rsAr.q1_sp+50));

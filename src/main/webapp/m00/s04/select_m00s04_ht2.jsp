@@ -13,10 +13,21 @@
 	StringBuffer whereSql = new StringBuffer();
 	JSONObject mainObj = new JSONObject();  
 	
-	sql.append("SELECT * ");
-	sql.append("FROM tb_temp2_now ");
-	sql.append("ORDER BY datetime1 DESC ");
-	sql.append("LIMIT 1 ");
+	sql.append("SELECT ");
+	sql.append("    tb1.*, ");
+	sql.append("    vd1.TYPE ");
+	sql.append("FROM ( ");
+	sql.append("    SELECT * ");
+	sql.append("    FROM tb_temp2_now ");
+	sql.append("    ORDER BY DATETIME1 DESC ");
+	sql.append("    LIMIT 1 ");
+	sql.append(") AS tb1 ");
+	sql.append("CROSS JOIN ( ");
+	sql.append("    SELECT TYPE ");
+	sql.append("    FROM v_auto_delay2 ");
+	sql.append("    ORDER BY tdatetime DESC ");
+	sql.append("    LIMIT 1 ");
+	sql.append(") AS vd1;");
 	     
 	
 	Statement stmt = null;
@@ -62,6 +73,8 @@
 			
 			rowObj.put("a_sp", rs.getInt("a_sp")*0.1);
 			rowObj.put("cp_sp", rs.getInt("cp_sp")*0.001);
+			
+			rowObj.put("type", rs.getString("type"));
 	        
 		}
 		    	
