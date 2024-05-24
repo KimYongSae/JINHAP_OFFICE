@@ -19,19 +19,162 @@
 	Statement stmt = null;
 	ResultSet rs = null;
 	try{
-		sql.append("SELECT a.hogi, a.pname AS afterPname, b.pname AS beforePname ");
-		sql.append("FROM ");
-		sql.append("    (SELECT hogi, pname, ");
-		sql.append("            ROW_NUMBER() OVER(PARTITION BY hogi ORDER BY regtime DESC) AS num ");
-		sql.append("     FROM tb_out_log ");
-		sql.append("     WHERE input_gb = 'W') a ");
-		sql.append("JOIN ");
-		sql.append("    (SELECT hogi, pname, ");
-		sql.append("            ROW_NUMBER() OVER(PARTITION BY hogi ORDER BY regtime DESC) AS num ");
-		sql.append("     FROM tb_out_log ");
-		sql.append("     WHERE input_gb = 'W') b ");
-		sql.append("ON a.hogi = b.hogi AND a.num = 1 AND b.num = 2 ");
-		sql.append("ORDER BY a.hogi;");
+		sql.append("SELECT ");
+		sql.append("    tb_out_log.hogi, ");
+		sql.append("    tb_recipe_auto1.pname AS recipe_pname, ");
+		sql.append("    tb_recipe_auto1.pnum AS recipe_pnum ");
+		sql.append("FROM ( ");
+		sql.append("    SELECT ");
+		sql.append("        hogi, ");
+		sql.append("        pname, ");
+		sql.append("        pnum, ");
+		sql.append("        regtime, ");
+		sql.append("        ROW_NUMBER() OVER(PARTITION BY hogi ORDER BY regtime DESC) AS num ");
+		sql.append("    FROM tb_out_log ");
+		sql.append("    WHERE input_gb = 'W' AND hogi = 1 ");
+		sql.append(") AS tb_out_log ");
+		sql.append("JOIN ( ");
+		sql.append("    SELECT ");
+		sql.append("        pname, ");
+		sql.append("        pnum, ");
+		sql.append("        ROW_NUMBER() OVER(PARTITION BY pnum ORDER BY pnum) AS rn ");
+		sql.append("    FROM tb_recipe_auto1 ");
+		sql.append(") AS tb_recipe_auto1 ");
+		sql.append("ON tb_out_log.pnum = tb_recipe_auto1.pnum AND tb_recipe_auto1.rn = 1 ");
+		sql.append("WHERE tb_out_log.num = 1 ");
+
+		sql.append("UNION ALL ");
+
+		sql.append("SELECT ");
+		sql.append("    tb_out_log.hogi, ");
+		sql.append("    tb_recipe_auto2.pname AS recipe_pname, ");
+		sql.append("    tb_recipe_auto2.pnum AS recipe_pnum ");
+		sql.append("FROM ( ");
+		sql.append("    SELECT ");
+		sql.append("        hogi, ");
+		sql.append("        pname, ");
+		sql.append("        pnum, ");
+		sql.append("        regtime, ");
+		sql.append("        ROW_NUMBER() OVER(PARTITION BY hogi ORDER BY regtime DESC) AS num ");
+		sql.append("    FROM tb_out_log ");
+		sql.append("    WHERE input_gb = 'W' AND hogi = 2 ");
+		sql.append(") AS tb_out_log ");
+		sql.append("JOIN ( ");
+		sql.append("    SELECT ");
+		sql.append("        pname, ");
+		sql.append("        pnum, ");
+		sql.append("        ROW_NUMBER() OVER(PARTITION BY pnum ORDER BY pnum) AS rn ");
+		sql.append("    FROM tb_recipe_auto2 ");
+		sql.append(") AS tb_recipe_auto2 ");
+		sql.append("ON tb_out_log.pnum = tb_recipe_auto2.pnum AND tb_recipe_auto2.rn = 1 ");
+		sql.append("WHERE tb_out_log.num = 1 ");
+
+		sql.append("UNION ALL ");
+
+		sql.append("SELECT ");
+		sql.append("    tb_out_log.hogi, ");
+		sql.append("    tb_recipe_auto3.pname AS recipe_pname, ");
+		sql.append("    tb_recipe_auto3.pnum AS recipe_pnum ");
+		sql.append("FROM ( ");
+		sql.append("    SELECT ");
+		sql.append("        hogi, ");
+		sql.append("        pname, ");
+		sql.append("        pnum, ");
+		sql.append("        regtime, ");
+		sql.append("        ROW_NUMBER() OVER(PARTITION BY hogi ORDER BY regtime DESC) AS num ");
+		sql.append("    FROM tb_out_log ");
+		sql.append("    WHERE input_gb = 'W' AND hogi = 3 ");
+		sql.append(") AS tb_out_log ");
+		sql.append("JOIN ( ");
+		sql.append("    SELECT ");
+		sql.append("        pname, ");
+		sql.append("        pnum, ");
+		sql.append("        ROW_NUMBER() OVER(PARTITION BY pnum ORDER BY pnum) AS rn ");
+		sql.append("    FROM tb_recipe_auto3 ");
+		sql.append(") AS tb_recipe_auto3 ");
+		sql.append("ON tb_out_log.pnum = tb_recipe_auto3.pnum AND tb_recipe_auto3.rn = 1 ");
+		sql.append("WHERE tb_out_log.num = 1 ");
+
+		sql.append("UNION ALL ");
+
+		sql.append("SELECT ");
+		sql.append("    tb_out_log.hogi, ");
+		sql.append("    tb_recipe_auto4.pname AS recipe_pname, ");
+		sql.append("    tb_recipe_auto4.pnum AS recipe_pnum ");
+		sql.append("FROM ( ");
+		sql.append("    SELECT ");
+		sql.append("        hogi, ");
+		sql.append("        pname, ");
+		sql.append("        pnum, ");
+		sql.append("        regtime, ");
+		sql.append("        ROW_NUMBER() OVER(PARTITION BY hogi ORDER BY regtime DESC) AS num ");
+		sql.append("    FROM tb_out_log ");
+		sql.append("    WHERE input_gb = 'W' AND hogi = 4 ");
+		sql.append(") AS tb_out_log ");
+		sql.append("JOIN ( ");
+		sql.append("    SELECT ");
+		sql.append("        pname, ");
+		sql.append("        pnum, ");
+		sql.append("        ROW_NUMBER() OVER(PARTITION BY pnum ORDER BY pnum) AS rn ");
+		sql.append("    FROM tb_recipe_auto4 ");
+		sql.append(") AS tb_recipe_auto4 ");
+		sql.append("ON tb_out_log.pnum = tb_recipe_auto4.pnum AND tb_recipe_auto4.rn = 1 ");
+		sql.append("WHERE tb_out_log.num = 1 ");
+
+		sql.append("UNION ALL ");
+
+		sql.append("SELECT ");
+		sql.append("    tb_out_log.hogi, ");
+		sql.append("    tb_recipe_auto5.pname AS recipe_pname, ");
+		sql.append("    tb_recipe_auto5.pnum AS recipe_pnum ");
+		sql.append("FROM ( ");
+		sql.append("    SELECT ");
+		sql.append("        hogi, ");
+		sql.append("        pname, ");
+		sql.append("        pnum, ");
+		sql.append("        regtime, ");
+		sql.append("        ROW_NUMBER() OVER(PARTITION BY hogi ORDER BY regtime DESC) AS num ");
+		sql.append("    FROM tb_out_log ");
+		sql.append("    WHERE input_gb = 'W' AND hogi = 5 ");
+		sql.append(") AS tb_out_log ");
+		sql.append("JOIN ( ");
+		sql.append("    SELECT ");
+		sql.append("        pname, ");
+		sql.append("        pnum, ");
+		sql.append("        ROW_NUMBER() OVER(PARTITION BY pnum ORDER BY pnum) AS rn ");
+		sql.append("    FROM tb_recipe_auto5 ");
+		sql.append(") AS tb_recipe_auto5 ");
+		sql.append("ON tb_out_log.pnum = tb_recipe_auto5.pnum AND tb_recipe_auto5.rn = 1 ");
+		sql.append("WHERE tb_out_log.num = 1 ");
+
+		sql.append("UNION ALL ");
+
+		sql.append("SELECT ");
+		sql.append("    tb_out_log.hogi, ");
+		sql.append("    tb_recipe_auto6.pname AS recipe_pname, ");
+		sql.append("    tb_recipe_auto6.pnum AS recipe_pnum ");
+		sql.append("FROM ( ");
+		sql.append("    SELECT ");
+		sql.append("        hogi, ");
+		sql.append("        pname, ");
+		sql.append("        pnum, ");
+		sql.append("        regtime, ");
+		sql.append("        ROW_NUMBER() OVER(PARTITION BY hogi ORDER BY regtime DESC) AS num ");
+		sql.append("    FROM tb_out_log ");
+		sql.append("    WHERE input_gb = 'W' AND hogi = 6 ");
+		sql.append(") AS tb_out_log ");
+		sql.append("JOIN ( ");
+		sql.append("    SELECT ");
+		sql.append("        pname, ");
+		sql.append("        pnum, ");
+		sql.append("        ROW_NUMBER() OVER(PARTITION BY pnum ORDER BY pnum) AS rn ");
+		sql.append("    FROM tb_recipe_auto6 ");
+		sql.append(") AS tb_recipe_auto6 ");
+		sql.append("ON tb_out_log.pnum = tb_recipe_auto6.pnum AND tb_recipe_auto6.rn = 1 ");
+		sql.append("WHERE tb_out_log.num = 1 ");
+
+		sql.append("ORDER BY hogi;");
+
 
 
 		stmt = conn.createStatement();
@@ -41,8 +184,8 @@
 			JSONObject mapObj = new JSONObject();			
 			//1호기
 			//생산능력
-			mapObj.put("after_pname",rs.getString("afterPname"));
-			mapObj.put("before_pname",rs.getString("beforePname"));
+			mapObj.put("after_pname",rs.getString("recipe_pname"));
+			mapObj.put("hogi",rs.getString("hogi"));
 			mapArray.add(mapObj);
 			
 		}

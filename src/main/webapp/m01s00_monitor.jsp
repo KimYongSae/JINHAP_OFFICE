@@ -772,7 +772,12 @@ function calculateTimeDifference() {
     			    var tttt = edate2 - sdate2;
     			    var hoursDifference = tttt / (1000 * 60 * 60);
     			    	hoursDifference = hoursDifference.toFixed(2);
-					var hourlyProduction = (data[i].v1 / (hoursDifference)).toFixed(2);
+    			    	var hourlyProduction;
+    					if (hoursDifference == 0) {
+    					    hourlyProduction = 0;
+    					} else {
+    					    hourlyProduction = (data[i].v1 / hoursDifference).toFixed(2);
+    					}
 					
 					var fillingComplianceRate;
 					

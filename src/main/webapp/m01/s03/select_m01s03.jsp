@@ -24,6 +24,7 @@
 			sql.append("  sub.*,");
 			sql.append("  first_datetiem1_in_group,");
 			sql.append("  tra_filtered.*,");
+			sql.append("  wrk_filtered.stime, wrk_filtered.etime, wrk_filtered.in_min, wrk_filtered.in_cnt, wrk_filtered.lot_weight AS work_weight,  ");
 			sql.append(" lot_group_count ");
 			sql.append("FROM (");
 			sql.append("  SELECT ");
@@ -46,6 +47,11 @@
 			sql.append("    ROW_NUMBER() OVER (PARTITION BY pnum ORDER BY pname) AS rn");
 			sql.append("  FROM tb_recipe_auto"+hogi+"");
 			sql.append(" ) AS tra_filtered ON sub.item_cd = tra_filtered.pnum AND tra_filtered.rn = 1");
+			sql.append(" LEFT OUTER JOIN (");
+			sql.append("  SELECT *,");
+			sql.append("    ROW_NUMBER() OVER (PARTITION BY s_bar_time ORDER BY STR_TO_DATE(stime, '%Y-%m-%d %H:%i:%s')) AS rn");
+			sql.append("  FROM v_work"+hogi+"");
+			sql.append(" ) AS wrk_filtered ON STR_TO_DATE(sub.first_datetiem1_in_group, '%Y-%m-%d %H:%i:%s') = wrk_filtered.s_bar_time AND wrk_filtered.rn = 1");
 			sql.append(" WHERE STR_TO_DATE(sub.first_datetiem1_in_group, '%Y-%m-%d %H:%i:%s') BETWEEN '"+sdate+" 08:00:00' AND '"+edate+" 08:00:00'");
 			sql.append(" ORDER BY STR_TO_DATE(sub.datetiem1, '%Y%m%d%H%i%s') asc;");		 
 		 
