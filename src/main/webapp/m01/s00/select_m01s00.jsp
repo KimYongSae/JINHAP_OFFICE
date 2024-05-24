@@ -206,10 +206,6 @@ from v_machine_performance_total
 		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, time_difference_seconds, VALUE, NULL AS value_detail");
 		sql2.append(" FROM v_auto_delay1");
 		sql2.append(" WHERE tdatetime >= '").append(delaySdate).append("' AND tdatetime <= '").append(delayEdate).append("'");
-		sql2.append(" UNION");
-		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, UNIX_TIMESTAMP(prev_tdatetime) - UNIX_TIMESTAMP(tdatetime) AS time_difference_seconds, VALUE, value_detail");
-		sql2.append(" FROM tb_delay_manual");
-		sql2.append(" WHERE hogi = '1' AND tdatetime >= '").append(delaySdate).append("' AND tdatetime <= '").append(delayEdate).append("'");
 		sql2.append(" ) AS union_result");
 		sql2.append(" WHERE union_result.value != 1");
 		sql2.append(" UNION ");
@@ -220,10 +216,6 @@ from v_machine_performance_total
 		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, time_difference_seconds, VALUE, NULL AS value_detail");
 		sql2.append(" FROM v_auto_delay2");
 		sql2.append(" WHERE tdatetime >= '").append(delaySdate).append("' AND tdatetime <= '").append(delayEdate).append("'");
-		sql2.append(" UNION");
-		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, UNIX_TIMESTAMP(prev_tdatetime) - UNIX_TIMESTAMP(tdatetime) AS time_difference_seconds, VALUE, value_detail");
-		sql2.append(" FROM tb_delay_manual");
-		sql2.append(" WHERE hogi = '2' AND tdatetime >= '").append(delaySdate).append("' AND tdatetime <= '").append(delayEdate).append("'");
 		sql2.append(" ) AS union_result");
 		sql2.append(" WHERE union_result.value != 1");
 		sql2.append(" UNION ");
@@ -234,10 +226,6 @@ from v_machine_performance_total
 		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, time_difference_seconds, VALUE, NULL AS value_detail");
 		sql2.append(" FROM v_auto_delay3");
 		sql2.append(" WHERE tdatetime >= '").append(delaySdate).append("' AND tdatetime <= '").append(delayEdate).append("'");
-		sql2.append(" UNION");
-		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, UNIX_TIMESTAMP(prev_tdatetime) - UNIX_TIMESTAMP(tdatetime) AS time_difference_seconds, VALUE, value_detail");
-		sql2.append(" FROM tb_delay_manual");
-		sql2.append(" WHERE hogi = '3' AND tdatetime >= '").append(delaySdate).append("' AND tdatetime <= '").append(delayEdate).append("'");
 		sql2.append(" ) AS union_result");
 		sql2.append(" WHERE union_result.value != 1");
 		sql2.append(" UNION ");
@@ -248,10 +236,6 @@ from v_machine_performance_total
 		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, time_difference_seconds, VALUE, NULL AS value_detail");
 		sql2.append(" FROM v_auto_delay4");
 		sql2.append(" WHERE tdatetime >= '").append(delaySdate).append("' AND tdatetime <= '").append(delayEdate).append("'");
-		sql2.append(" UNION");
-		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, UNIX_TIMESTAMP(prev_tdatetime) - UNIX_TIMESTAMP(tdatetime) AS time_difference_seconds, VALUE, value_detail");
-		sql2.append(" FROM tb_delay_manual");
-		sql2.append(" WHERE hogi = '4' AND tdatetime >= '").append(delaySdate).append("' AND tdatetime <= '").append(delayEdate).append("'");
 		sql2.append(" ) AS union_result");
 		sql2.append(" WHERE union_result.value != 1");
 		sql2.append(" UNION ");
@@ -262,10 +246,6 @@ from v_machine_performance_total
 		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, time_difference_seconds, VALUE, NULL AS value_detail");
 		sql2.append(" FROM v_auto_delay5");
 		sql2.append(" WHERE tdatetime >= '").append(delaySdate).append("' AND tdatetime <= '").append(delayEdate).append("'");
-		sql2.append(" UNION");
-		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, UNIX_TIMESTAMP(prev_tdatetime) - UNIX_TIMESTAMP(tdatetime) AS time_difference_seconds, VALUE, value_detail");
-		sql2.append(" FROM tb_delay_manual");
-		sql2.append(" WHERE hogi = '5' AND tdatetime >= '").append(delaySdate).append("' AND tdatetime <= '").append(delayEdate).append("'");
 		sql2.append(" ) AS union_result");
 		sql2.append(" WHERE union_result.value != 1");
 		sql2.append(" UNION ");
@@ -276,10 +256,6 @@ from v_machine_performance_total
 		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, time_difference_seconds, VALUE, NULL AS value_detail");
 		sql2.append(" FROM v_auto_delay6");
 		sql2.append(" WHERE tdatetime >= '").append(delaySdate).append("' AND tdatetime <= '").append(delayEdate).append("'");
-		sql2.append(" UNION");
-		sql2.append(" SELECT idx, hogi, tdatetime, prev_tdatetime, COMMENT, UNIX_TIMESTAMP(prev_tdatetime) - UNIX_TIMESTAMP(tdatetime) AS time_difference_seconds, VALUE, value_detail");
-		sql2.append(" FROM tb_delay_manual");
-		sql2.append(" WHERE hogi = '6' AND tdatetime >= '").append(delaySdate).append("' AND tdatetime <= '").append(delayEdate).append("'");
 		sql2.append(" ) AS union_result");
 		sql2.append(" WHERE union_result.value != 1");
 	
