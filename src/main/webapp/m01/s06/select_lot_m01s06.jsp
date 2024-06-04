@@ -62,10 +62,6 @@
 	sql.append("ORDER BY ttl.datetiem1 DESC ");
 	sql.append("LIMIT 20");
 
-	System.out.println(sql.toString());
-	
-	
-	
 	
 	Statement stmt = null;
 	ResultSet rs = null;

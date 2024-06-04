@@ -169,10 +169,10 @@ $(document).ready(function(){
 			    		<ul style="text-align: center;">
 							<li><a href="m01s00.jsp"><span>종합생산현황</span></a></li>
 							<li><a href="m01s01.jsp"><span>설비별 생산실적</span></a></li>
-							<li><a href="m01s08.jsp"><span>설비별 생산실적(일자별)</span></a></li>
+							<li><a href="m01s08.jsp"><span>일별 생산 실적</span></a></li>
 							<li><a href="m01s02.jsp"><span>설비별 효율관리</span></a></li>							
-							<li><a href="m01s07.jsp"><span>생산 모니터링 현황(미완)</span></a></li>							
-							<li><a href="m01s06.jsp"><span>열처리 재공현황(협의예정)</span></a></li>
+							<li><a href="m01s07.jsp"><span>생산 모니터링 현황</span></a></li>							
+							<li><a href="m01s06.jsp"><span>열처리 재공현황</span></a></li>
 							<li><a href="m01s04.jsp"><span>열처리 작업일보 현황</span></a></li>
 							<li><a href="m01s03.jsp"><span>LOT 보고서</span></a></li>
 						</ul>

@@ -83,7 +83,7 @@ from v_machine_performance_total
 
 
 
-		 sql.append("SELECT 1 AS hogi, IFNULL(SUM(lot_weight), 0) AS weight, IFNULL(COUNT(idx), 0) AS lot_count, IFNULL(STR_TO_DATE(MIN(datetiem1), '%Y%m%d%H%i%s'), '1970-01-01 00:00:00') AS sdate, IFNULL(MAX(check_time), '1970-01-01 00:00:00') AS edate, ");
+		 /* sql.append("SELECT 1 AS hogi, IFNULL(SUM(lot_weight), 0) AS weight, IFNULL(COUNT(idx), 0) AS lot_count, IFNULL(STR_TO_DATE(MIN(datetiem1), '%Y%m%d%H%i%s'), '1970-01-01 00:00:00') AS sdate, IFNULL(MAX(check_time), '1970-01-01 00:00:00') AS edate, ");
 		 sql.append(" COUNT(DISTINCT lot_group) AS distinct_lot_groups ");
 		 sql.append("FROM ( ");
 		 sql.append("    SELECT main.*, MIN(STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s')) OVER (PARTITION BY lot_group) AS first_datetiem1_in_group, COUNT(*) OVER (PARTITION BY lot_group) AS lot_group_count ");
@@ -176,9 +176,38 @@ from v_machine_performance_total
 		 sql.append("    ) AS main ");
 		 sql.append(") AS sub ");
 		 sql.append("WHERE STR_TO_DATE(IFNULL(sub.first_datetiem1_in_group, '1970-01-01 00:00:00'), '%Y-%m-%d %H:%i:%s') BETWEEN '" + sdate + " 08:00:00' AND '" + sdate + " " + etime + "' ");
-
+ */
+		 
+		 sql.append("SELECT ");
+		 sql.append("    hogi, ");
+		 sql.append("    IFNULL(SUM(lot_weight), 0) AS weight, ");
+		 sql.append("    IFNULL(COUNT(idx), 0) AS lot_count, ");
+		 sql.append("    IFNULL(STR_TO_DATE(MIN(datetiem1), '%Y%m%d%H%i%s'), '1970-01-01 00:00:00') AS sdate, ");
+		 sql.append("    IFNULL(MAX(check_time), '1970-01-01 00:00:00') AS edate, ");
+		 sql.append("    COUNT(DISTINCT lot_group) AS distinct_lot_groups ");
+		 sql.append("FROM ( ");
+		 sql.append("    SELECT ");
+		 sql.append("        main.*, ");
+		 sql.append("        MIN(STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s')) OVER (PARTITION BY lot_group) AS first_datetiem1_in_group, ");
+		 sql.append("        COUNT(*) OVER (PARTITION BY lot_group) AS lot_group_count ");
+		 sql.append("    FROM ( ");
+		 sql.append("        SELECT ");
+		 sql.append("            t.*, ");
+		 sql.append("            @group_num := IF(@prev_gubun = '1', @group_num + 1, @group_num) AS lot_group, ");
+		 sql.append("            @prev_gubun := gubun ");
+		 sql.append("        FROM tb_tong_log t ");
+		 sql.append("        CROSS JOIN (SELECT @group_num := 0, @prev_gubun := '', @prev_lot_group := NULL) AS init ");
+		 sql.append("        WHERE hogi IN ('1', '2', '3', '4', '5', '6') ");
+		 sql.append("        AND STR_TO_DATE(datetiem1, '%Y%m%d%H%i%s') BETWEEN '" + sdate + " 07:00:00' AND '" + sdate + " " + etime + "' ");
+		 sql.append("        ORDER BY hogi ");
+		 sql.append("    ) AS main ");
+		 sql.append(") AS sub ");
+		 sql.append("WHERE STR_TO_DATE(IFNULL(sub.first_datetiem1_in_group, '1970-01-01 00:00:00'), '%Y-%m-%d %H:%i:%s') BETWEEN '" + sdate + " 08:00:00' AND '" + sdate + " " + etime + "'  ");
+		 sql.append("GROUP BY hogi;");
+ 
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery(sql.toString());
+		int cnt = 1;
 		while(rs.next()){
 			JSONObject mapObj = new JSONObject();			
 			//1호기
@@ -192,13 +221,23 @@ from v_machine_performance_total
 			mapObj.put("v6",rs.getString("v6"));
 			mapObj.put("v7",rs.getString("v7")); */
 			
+			for(; cnt < rs.getInt("hogi"); cnt++){
+				mapObj.put("hogi",cnt);
+				mapObj.put("v1","0");
+				mapObj.put("v6","0");
+				mapObj.put("sdate","0");
+				mapObj.put("edate","0");
+				mapArray.add(mapObj);
+				mapObj = new JSONObject();
+			}
+			
 			mapObj.put("hogi",rs.getString("hogi"));
 			mapObj.put("v1",rs.getInt("weight")*0.01);
 			mapObj.put("v6",rs.getString("distinct_lot_groups"));
 			mapObj.put("sdate",rs.getString("sdate"));
 			mapObj.put("edate",rs.getString("edate"));
 			mapArray.add(mapObj);
-			
+			cnt++;
 		}
 		sql2.append("SELECT 1 AS hogi,");
 		sql2.append(" SUM(time_difference_seconds) AS total_time_difference");

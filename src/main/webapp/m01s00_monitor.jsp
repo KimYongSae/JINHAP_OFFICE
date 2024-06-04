@@ -179,7 +179,9 @@
 	    font-family: headline;
 	    font-weight: 700;
 	}
-
+h2{
+	color:red;
+}
 	
 	
 </style>
@@ -194,6 +196,8 @@
             	<div class="row">
             	<h1 class="text-center control-label" id="now_datetime" 
             		style="font-weight:bold; font-size:20pt;"></h1>
+            		<h2>* 현재 보이는 실적과 효율등은 생산 로트투입완료 시점을 기준으로 보여지고 있습니다. (실시간 투입되는 수치와는 차이가 있습니다.) 
+            		</h2>
             </div>
 <!-- 	            	<div class="row" style="height: 100%; display:flex; 
 	            	flex-direction: column; justify-content: space-between; height: 100%;"> -->
@@ -778,10 +782,11 @@ function calculateTimeDifference() {
     					} else {
     					    hourlyProduction = (data[i].v1 / hoursDifference).toFixed(2);
     					}
-					
+   					var hogi = data[i].hogi;
+    					
 					var fillingComplianceRate;
 					
-					if(i == 1 || i == 2){
+					if(hogi == 2 || hogi == 3){
 						fillingComplianceRate = (hourlyProduction / 500);
 					} else{
 						fillingComplianceRate = (hourlyProduction / 1000);
@@ -794,12 +799,12 @@ function calculateTimeDifference() {
 					//$("#ht"+(i+1)+"_v2").text(data[i].v2+" Kg");
 					//$("#ht"+(i+1)+"_v3").text(data[i].v3+" %");
 					//$("#ht"+(i+1)+"_v4").text(data[i].v4+" %");
-					$("#ht"+(i+1)+"_v5").css("font-size", "25px");
-					$("#ht"+(i+1)+"_v5").text((fillingComplianceRate * 100).toFixed(1)+" %");
+					$("#ht"+(hogi)+"_v5").css("font-size", "25px");
+					$("#ht"+(hogi)+"_v5").text((fillingComplianceRate * 100).toFixed(1)+" %");
 					//$("#ht"+(i+1)+"_v5").text(data[i].v5+" %");
 					//$("#ht"+(i+1)+"_v6").text(data[i].v6+" LOT");
-					$("#ht"+(i+1)+"_v7").css("font-size", "25px");
-					$("#ht"+(i+1)+"_v7").text(delay[i].delay+" 시간");
+					$("#ht"+(hogi)+"_v7").css("font-size", "25px");
+					$("#ht"+(hogi)+"_v7").text(delay[i].delay+" 시간");
 					
 					switch(i){
 						case 0:

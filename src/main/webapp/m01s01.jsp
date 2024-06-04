@@ -465,7 +465,7 @@ var fn_logout = function () {
             <div id="collapse4" class="body">
                <iframe id="monitor" src="m01s01_monitor.jsp" class="row" frameborder="0"
 			            	scrolling="no" ALLOWTRANSPARENCY="true"
-			            		style="width:1800px; height:700px;">
+			            		style="width:1800px; height:730px;">
 			            	</iframe>
                
 			

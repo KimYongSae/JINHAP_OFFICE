@@ -292,7 +292,6 @@ var fn_logout = function () {
 						style="margin-top:5px; height: 30px; width: 160px; 
 						font-size: 14pt; font-family:headline;
 						padding-top:1px; padding-bottom:1px;">
-							<option value="">설비선택</option>
 							<option value="1">Q01-HN01</option>
 							<option value="2">Q01-HN02</option>
 							<option value="3">Q01-HN03</option>
@@ -348,42 +347,42 @@ var fn_logout = function () {
 							font-size: 16pt; font-family:headline;">
 								작업일자
 							</th>
-							<th class="text-center cell" 
+							<!-- <th class="text-center cell" 
 							style="width: 80px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								설비명
-							</th>
+							</th> -->
 							
 							<th class="text-center cell" 
 							style="width: 200px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
-								열처리 LOT번호
+								LOT
 							</th>
 							<th class="text-center cell" 
-							style="width: 140px; height: 30px; 
+							style="width: 300px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								품번
 							</th>							
 							<th class="text-center cell" 
-							style="width: 140px; height: 30px; 
+							style="width: 450px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								품명
 							</th>
-							<th class="text-center cell" 
+							<!-- <th class="text-center cell" 
 							style="width: 140px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								규격
-							</th>
+							</th> -->
 							<!-- <th class="text-center cell" 
 							style="width: 80px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								수량
 							</th> -->
-							<th class="text-center cell" 
+							<!-- <th class="text-center cell" 
 							style="width: 90px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
 								중량
-							</th>
+							</th> -->
 							<th class="text-center cell" 
 							style="width: 80px; height: 30px; 
 							font-size: 16pt; font-family:headline;">
@@ -505,7 +504,7 @@ var fn_logout = function () {
      				</tr>
      				<tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>
      				
-                    <tr>
+                    <!-- <tr>
       					<td><label class="control-label col-lg-4" 
       					style="padding-top:3px; width: 120px; text-align: right; 
       					font-size: 16pt; font-family:headline;">
@@ -550,7 +549,7 @@ var fn_logout = function () {
       					<td style="padding-bottom:30px;">&nbsp;</td>
       					<td>&nbsp;</td>
      				</tr>
-     				<tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>     				
+     				<tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>  -->    				
      				
 <!--      				
                     <tr>
@@ -676,7 +675,7 @@ var fn_logout = function () {
 		
 //		getLotInfo();
 		$("#loading").show();
-		//getLotlist();
+		//getLotList();
 	});
 	
 
@@ -767,27 +766,27 @@ var fn_logout = function () {
 	    obj.value = comma(uncomma(obj.value));
 	}	
 
-	/* function getLotInfo(){
+	function getLotInfo(){
 		$.ajax({
 			type : "POST",
-			url : "l000004_lotinfo.jsp",
+			url : "m01/s03/select_m01s03.jsp",
 			cache : false,
 			dataType : "json",
-			data : {'time':new Date().getTime(),
-					"wdate":$("#i_date").val(),
-					"hogi":$("#i_hogi").val()},
+			data : {
+					"hogi":$("#s_hogi").val(),
+					"sdate":$("#s_date").val()
+			},
 			success : function(rsJson) {
 				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;		
+					var rsAr = rsJson.rows;
 					$("#i_lotnum").val(rsAr[0].lotno);
+					
 					
 				} else if (rsJson && rsJson.status == "fail") {
 					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
 				} else {
 					alert("에러발생!");
 				}
-				
-//				timer = setTimeout(function(){ o.run(); }, o.pollInterval);
 				
 			},	// success 끝
 			error: function(req, status) {
@@ -800,56 +799,54 @@ var fn_logout = function () {
 			
 		});	
 				
-	} */
+	}
 
 	
 	
 	var cntArray = new Array();
-	function getLotlist(){
+	var rsAr;
+	function getLotList(){
 		$.ajax({
 			type : "POST",
-			url : "l000004.jsp",
+			url : "m01/s03/select_m01s03.jsp",
 			cache : false,
 			dataType : "json",
-			data : {'time':new Date().getTime(),
-					"sdate":$("#s_date").val(),
-					"hogi":$("#s_hogi").val()},
+			data : {
+				"hogi":$("#s_hogi").val(),
+				"sdate":$("#s_date").val()
+			},
 			success : function(rsJson) {
 				if (rsJson && rsJson.status == "ok") {
-					var rsAr = rsJson.rows;		
+					rsAr = rsJson.rows;		
 					var listHtml = "";
-					
-					
-					for(var i=0; i<rsAr.length; i++){
-						if(rsAr[i].pno != null){
-							cntArray[i] = rsAr[i].cnt;
-							listHtml += "<tr>";						
-							listHtml += '<td class="nr" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline;">'+(i+1)+'</td>';
-							listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+rsAr[i].cnt+'</td>';
-							listHtml += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].wdate+'</td>';
-							listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].hogi+'</td>';
-							listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 100px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+rsAr[i].hogi2+'</td>';
-							listHtml += '<td class="nr5" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 200px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].process_code+'</td>';
-							listHtml += '<td class="nr6" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].pno+'</td>';
-							listHtml += '<td class="nr7" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].model+'</td>';
-							listHtml += '<td class="nr8" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i].spec+'</td>';
-							listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;">'+comma(rsAr[i].qty)+'</td>';
-							listHtml += '<td class="nr10" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 90px; word-break:break-all; font-size:15pt; font-family:headline;">'+comma(rsAr[i].weight)+'</td>';
-							
-							if(rsAr[i].file_yn == 'Y'){
-								listHtml += '<td class="nr11" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;">'+
-								'<button type="button" class="btn btn-default" onclick=viewFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true; style="width:70px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-search"></i></button>'
-								+'</td>';
-								listHtml += '<td class="nr11" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;">'+
-								'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true; style="width:70px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-remove"></i></button>'
-								+'</td>';						
-							}else{
-								listHtml += '<td class="nr11" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';
-								listHtml += '<td class="nr11" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';							
-							}
-							
-							listHtml += "</tr>";
-						}
+					for(var i=0; i<Object.keys(rsAr).length; i++){
+						cntArray[i] = i;
+						listHtml += "<tr>";						
+						listHtml += '<td class="nr" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline;">'+(i+1)+'</td>';
+						listHtml += '<td class="nr1" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 60px; word-break:break-all; font-size:15pt; font-family:headline; display:none;">'+i+'</td>';
+						listHtml += '<td class="nr2" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 120px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i][0].first_datetiem1_in_group+'</td>';
+						/* listHtml += '<td class="nr3" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i][0].hogi+'</td>'; */
+						listHtml += '<td class="nr4" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 100px; word-break:break-all; font-size:15pt; font-family:headline; display:none;"></td>';
+						listHtml += '<td class="nr5" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 200px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i][0].lot+'</td>';
+						listHtml += '<td class="nr6" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 300px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i][0].item_cd+'</td>';
+						listHtml += '<td class="nr7" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 450px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i][0].pname+'</td>';
+						/* listHtml += '<td class="nr8" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i][0].gang+'</td>'; */
+						listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';
+						listHtml += '<td class="nr10" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';
+						
+						/* if(rsAr[i].file_yn == 'Y'){
+							listHtml += '<td class="nr11" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;">'+
+							'<button type="button" class="btn btn-default" onclick=viewFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true; style="width:70px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-search"></i></button>'
+							+'</td>';
+							listHtml += '<td class="nr11" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;">'+
+							'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true; style="width:70px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-remove"></i></button>'
+							+'</td>';						
+						}else{
+							listHtml += '<td class="nr11" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';
+							listHtml += '<td class="nr11" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';							
+						} */
+						
+						listHtml += "</tr>";
 					}
 					
 					$("#lot_list tbody").html(listHtml);
@@ -969,7 +966,7 @@ $("#saveBtn").on("click",function(){
 	
 	
 	setTimeout(function(){
-		getLotlist();
+		getLotList();
 //		getLotInfo();
 	},400);
 });
@@ -981,20 +978,19 @@ $("#printBtn").on("click",function(){
 	var hogi = $("#i_hogi").val();
 	
 	
-	
-	if(cnt == 0){
+	/* if(cnt == 0){
 		$("#alertSpan").text("LOT를 선택해주십시오!");
 		alertDialog.dialog("open");
 		return;
-	}
+	} */
 	
 	$.ajax({
 		type : "POST",
-		url : "l000004_pdf.jsp",
+		url : "m01/s03/m01s03_pdf.jsp",
 		cache : false,
 		dataType : "json",
 		data : {'time':new Date().getTime(),
-				"cnt":cnt,
+				"json" : JSON.stringify(rsAr[cnt]), 
 				"hogi":hogi},
 		success : function(rsJson) {
 			if (rsJson && rsJson.status == "ok") {
@@ -1003,7 +999,7 @@ $("#printBtn").on("click",function(){
 				$("#alertSpan").text("보고서가 생성되었습니다.");
 				alertDialog.dialog("open");
 				
-				getLotlist();
+				getLotList();
 				$("#loading").hide();
 				
 			} else if (rsJson && rsJson.status == "fail") {
@@ -1030,7 +1026,7 @@ $("#printBtn").on("click",function(){
 
 $("#s_hogi").change(function(){
 	$("#loading").show();
-	getLotlist();
+	getLotList();
 });
 
 
@@ -1042,6 +1038,7 @@ $("#lot_contents").delegate('tr','click', function() {
 	
 	
 	var $row = $(this).closest("tr"),
+		$nr = $row.find(".nr").text();
 		$nr1 = $row.find(".nr1").text();	//cnt
 		$nr2 = $row.find(".nr2").text();	//작업일자
 		$nr3 = $row.find(".nr3").text();	//설비 (3호기, 4호기 ...)
@@ -1071,10 +1068,10 @@ $("#lot_contents").delegate('tr','click', function() {
 	var index = 0;
 	$("#lot_contents > tr").each(function(){
 		if($nr1 == cntArray[index]){
-			$(this).css("background-color","#B2CCFF");						
-		}else{						
+			$(this).css("background-color","#B2CCFF");
+		}else{
 			$(this).css("background-color","#fff");
-		}	
+		}
 		index++;
 	});
 });
@@ -1082,7 +1079,7 @@ $("#lot_contents").delegate('tr','click', function() {
 
 $("#searchbtn").on("click",function(){
 	$("#loading").show();
-	getLotlist();
+	getLotList();
 });
 
 
@@ -1118,7 +1115,7 @@ $("#searchbtn").on("click",function(){
 				setTimeout(function(){
 					$("#alertSpan").text("파일이 삭제되었습니다.");
 					alertDialog.dialog("open");
-					getLotlist();
+					getLotList();
 					fileDel_cnt = 0;
 				},400);					
 				confirmDialog.dialog("close");

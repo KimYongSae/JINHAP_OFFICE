@@ -84,6 +84,9 @@
 		font-weight:700;
 		
 	}
+	h2{
+	color:red;
+}
 </style>
 
 </head>
@@ -93,11 +96,13 @@
             <div class="row">
             	<h1 class="text-center control-label" id="now_datetime" 
             		style="font-weight:bold; font-size:30pt;"></h1>
+            		<h2>* 현재 보이는 실적과 효율등은 생산 로트투입완료 시점을 기준으로 보여지고 있습니다. (실시간 투입되는 수치와는 차이가 있습니다.) 
+            		</h2>
             </div>		
 			<div class="row">
               <table id="temp"
                class="table table-bordered table-hover table-responsive scrolltbody"
-               style= "font-size: 30px; width: 1400px; margin: auto; height: 750px;">
+               style= "font-size: 25px; width: 1400px; margin: auto; height: 750px;">
 					
 						<tr>
 							<th rowspan = "2" style="background-color: white; width:450px; color:black">5호기(시간당 1000kg)<br/> 설비효율</th>
@@ -110,7 +115,7 @@
 						</tr>
 						<tr>
 							<th rowspan = "2">기준시간</th>
-							<th rowspan = "2">주간<br>08:00 ~ 20:00</th>
+							<th rowspan = "2" id = "day">주간<br>08:00 ~ 20:00</th>
 							<th>목표 생산량</th>
 							<td>12,000Kg</td>
 						</tr>
@@ -201,15 +206,16 @@
 		
 		now_search();
 		
-		dateInterval = setInterval('now_search()',1000);
+		dateInterval = setInterval('now_search()',10000);
 		
 		
-		getDayData();
-		getNightData();
-		getTotalData();
-		getPnameData();
+		
 	});
-	
+	var sdate;
+	var edate;
+	var n_sdate;
+	var n_edate;
+	var yChk;
 	function now_search(){
 		$.ajax({
 			type : "POST",
@@ -243,9 +249,29 @@
 							rsAr[0].n_time.substring(3,5)+"분"
 							);
 					var hour = parseInt(rsAr[0].n_time.substring(0,2));
-					if( hour >= 8 && hour < 20){
-						$("#night").html('전일 야간<br>20:00 ~ 08:00');
+					
+					if( hour >=0  && hour < 8){
+						sdate = rsAr[0].y_date;
+						edate = rsAr[0].n_date;
+					} else{
+						sdate = rsAr[0].n_date;
+						edate = rsAr[0].t_date;
 					}
+					
+					if( hour >= 8 && hour < 20){
+
+						n_sdate = rsAr[0].y_date;
+						n_edate = rsAr[0].n_date;
+						yChk = true;
+					} else{
+						n_sdate = rsAr[0].n_date;
+						n_edate = rsAr[0].t_date;
+						yChk = false;
+					}
+					getDayData();
+					getNightData();
+					getTotalData();
+					getPnameData();
 
 				} else if (rsJson && rsJson.status == "fail") {
 					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
@@ -272,24 +298,53 @@
 			url:"m01/s02/select_m01s02_ht5_monitor_day.jsp",
 			type:"post",
 			dataType:"json",
-			data:{},
+			data:{
+				"sdate" : sdate
+			},
 			success:function(result){
 				var data = result.rows;
+				var delay = result.delay;
+				var totalFCR = 0;
+				var totalHP = 0;
 				
-				var v3 = data[0].v3;
-				var v4 = data[0].v4;
-				var v5 = data[0].v5;
-				var v6 = data[0].v6;
-				var v7 = data[0].v7;
-				var v8 = data[0].v8;
-				var result = (v3 / 12000 * 100).toFixed(2) + " %";
-				
-				$("#v_3").text(v3+" Kg");
-				$("#v_4").text(v4+" Kg");
-				$("#v_5").text(result);
-				$("#v_6").text(v6+" 시간");
-				$("#v_7").text(v7+" LOT");
-				$("#v_8").text(v8+" %");
+				for(var i=0; i<data.length; i++){
+					
+					var sdateStr = data[i].sdate.replace(".0", "");
+    				var edateStr = data[i].edate.replace(".0", "");
+    				var sdate2 = new Date(sdateStr);
+    			    var edate2 = new Date(edateStr);
+    			    var tttt = edate2 - sdate2;
+    			    var hoursDifference = tttt / (1000 * 60 * 60);
+    			    	hoursDifference = hoursDifference.toFixed(2);
+					var hourlyProduction;
+					if (hoursDifference == 0) {
+					    hourlyProduction = 0;
+					} else {
+					    hourlyProduction = (data[i].v1 / hoursDifference).toFixed(2);
+					}
+					var hogi = data[i].hogi;
+					
+					var fillingComplianceRate;
+					var progressRate;
+					console.log(data[i].sdate)
+					if(hogi == 2 || hogi == 3){
+						fillingComplianceRate = (hourlyProduction / 500);
+						progressRate = (parseInt(data[i].v1) / 6000 * 100).toFixed(0);
+					} else{
+						fillingComplianceRate = (hourlyProduction / 1000);
+						progressRate = (parseInt(data[i].v1) / 12000 * 100).toFixed(0);
+					}
+					if(fillingComplianceRate > 1){
+						fillingComplianceRate = 1;
+					}
+					$("#v_3").text(parseInt(data[i].v1).toLocaleString()+" Kg");
+					$("#v_5").text(progressRate.toLocaleString()+" %");
+					$("#v_8").text((fillingComplianceRate * 100).toFixed(2)+" %");
+					$("#v_4").text(parseInt(hourlyProduction).toLocaleString() + " Kg");
+					$("#v_6").text(delay[i].delay + " 시간");
+					$("#v_7").text(data[i].v6+" LOT");
+					$("#day").html("주간<br>"+data[i].sdate.substring(11,16)+" ~ "+data[i].edate.substring(11,16));
+				}	
 			}
 		});
 	}
@@ -299,24 +354,58 @@
 			url:"m01/s02/select_m01s02_ht5_monitor_night.jsp",
 			type:"post",
 			dataType:"json",
-			data:{},
+			data:{
+				"sdate" : n_sdate,
+				"edate" : n_edate
+			},
 			success:function(result){
 				var data = result.rows;
-								
-				var v9 = data[0].v9;
-				var v10 = data[0].v10;
-				var v11 = data[0].v11;
-				var v12 = data[0].v12;
-				var v13 = data[0].v13;
-				var v14 = data[0].v14;
-				var result = (v9 / 12000 * 100).toFixed(2) + " %";
+				var delay = result.delay;
+				var totalFCR = 0;
+				var totalHP = 0;
 				
-				$("#v_9").text(v9+" Kg");
-				$("#v_10").text(v10+" Kg");
-				$("#v_11").text(result);
-				$("#v_12").text(v12+" 시간");
-				$("#v_13").text(v13+" LOT");
-				$("#v_14").text(v14+" %");
+				for(var i=0; i<data.length; i++){
+					
+					var sdateStr = data[i].sdate.replace(".0", "");
+    				var edateStr = data[i].edate.replace(".0", "");
+    				var sdate2 = new Date(sdateStr);
+    			    var edate2 = new Date(edateStr);
+    			    var tttt = edate2 - sdate2;
+    			    var hoursDifference = tttt / (1000 * 60 * 60);
+    			    	hoursDifference = hoursDifference.toFixed(2);
+					var hourlyProduction;
+					if (hoursDifference == 0) {
+					    hourlyProduction = 0;
+					} else {
+					    hourlyProduction = (data[i].v1 / hoursDifference).toFixed(2);
+					}
+					var hogi = data[i].hogi;
+					
+					var fillingComplianceRate;
+					var progressRate;
+					console.log(data[i].sdate)
+					if(hogi == 2 || hogi == 3){
+						fillingComplianceRate = (hourlyProduction / 500);
+						progressRate = (parseInt(data[i].v1) / 6000 * 100).toFixed(0);
+					} else{
+						fillingComplianceRate = (hourlyProduction / 1000);
+						progressRate = (parseInt(data[i].v1) / 12000 * 100).toFixed(0);
+					}
+					if(fillingComplianceRate > 1){
+						fillingComplianceRate = 1;
+					}
+					$("#v_9").text(parseInt(data[i].v1).toLocaleString()+" Kg");
+					$("#v_11").text(progressRate.toLocaleString()+" %");
+					$("#v_14").text((fillingComplianceRate * 100).toFixed(2)+" %");
+					$("#v_10").text(parseInt(hourlyProduction).toLocaleString() + " Kg");
+					$("#v_12").text(delay[i].delay + " 시간");
+					$("#v_13").text(data[i].v6+" LOT");
+					if(yChk){
+						$("#night").html("전일 야간<br>"+data[i].sdate.substring(11,16)+" ~ "+data[i].edate.substring(11,16));
+					} else{
+						$("#night").html("야간<br>"+data[i].sdate.substring(11,16)+" ~ "+data[i].edate.substring(11,16));
+					}
+				}	
 			}
 		});
 	}
@@ -326,24 +415,53 @@
 			url:"m01/s02/select_m01s02_ht5_monitor_total.jsp",
 			type:"post",
 			dataType:"json",
-			data:{},
+			data:{
+				"sdate" : sdate,
+				"edate" : edate
+			},
 			success:function(result){
 				var data = result.rows;
+				var delay = result.delay;
+				var totalFCR = 0;
+				var totalHP = 0;
 				
-				var v15 = data[0].v15;
-				var v16 = data[0].v16;
-				var v17 = data[0].v17;
-				var v18 = data[0].v18;
-				var v19 = data[0].v19;
-				var v20 = data[0].v20;
-				var result = (v15 / 24000 * 100).toFixed(2) + " %";
-				
-				$("#v_15").text(v15+" Kg");
-				$("#v_16").text(v16+" Kg");
-				$("#v_17").text(result);
-				$("#v_18").text(v18+" 시간");
-				$("#v_19").text(v19+" LOT");
-				$("#v_20").text(v20+" %");
+				for(var i=0; i<data.length; i++){
+					
+					var sdateStr = data[i].sdate.replace(".0", "");
+    				var edateStr = data[i].edate.replace(".0", "");
+    				var sdate2 = new Date(sdateStr);
+    			    var edate2 = new Date(edateStr);
+    			    var tttt = edate2 - sdate2;
+    			    var hoursDifference = tttt / (1000 * 60 * 60);
+    			    	hoursDifference = hoursDifference.toFixed(2);
+					var hourlyProduction;
+					if (hoursDifference == 0) {
+					    hourlyProduction = 0;
+					} else {
+					    hourlyProduction = (data[i].v1 / hoursDifference).toFixed(2);
+					}
+					var hogi = data[i].hogi;
+					
+					var fillingComplianceRate;
+					var progressRate;
+					console.log(data[i].sdate)
+					if(hogi == 2 || hogi == 3){
+						fillingComplianceRate = (hourlyProduction / 500);
+						progressRate = (parseInt(data[i].v1) / 12000 * 100).toFixed(0);
+					} else{
+						fillingComplianceRate = (hourlyProduction / 1000);
+						progressRate = (parseInt(data[i].v1) / 24000 * 100).toFixed(0);
+					}
+					if(fillingComplianceRate > 1){
+						fillingComplianceRate = 1;
+					}
+					$("#v_15").text(parseInt(data[i].v1).toLocaleString()+" Kg");
+					$("#v_17").text(progressRate.toLocaleString()+" %");
+					$("#v_20").text((fillingComplianceRate * 100).toFixed(2)+" %");
+					$("#v_16").text(parseInt(hourlyProduction).toLocaleString() + " Kg");
+					$("#v_18").text(delay[i].delay + " 시간");
+					$("#v_19").text(data[i].v6+" LOT");
+				}	
 			}
 		});
 	}
@@ -356,7 +474,6 @@
 			data:{},
 			success:function(result){
 				var data = result.rows;
-				
 				$("#v_1").text(data[0].pname);
 				$("#v_2").text(data[1].pname);
 			}			

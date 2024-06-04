@@ -75,6 +75,9 @@
 	    color:#FFFFFF;
 	    border-color: #FFFFFF !important;
 	}
+h2{
+	color:red;
+}
 
 </style>
 
@@ -85,6 +88,8 @@
             <div class="row">
             	<h1 class="text-center control-label" id="now_datetime" 
             		style="font-weight:bold; font-size:20pt;"></h1>
+            		<h2>* 현재 보이는 실적과 효율등은 생산 로트투입완료 시점을 기준으로 보여지고 있습니다. (실시간 투입되는 수치와는 차이가 있습니다.) 
+            		</h2>
             </div>
 			<div class="row" style="padding-top:30px">
               <table id="temp"
@@ -385,8 +390,7 @@
 		
 		now_search();
 		
-		dateInterval = setInterval('now_search()',1000);
-		setInterval('getMonitoringData()',10000);
+		dateInterval = setInterval('now_search()',10000);
 		
 	});
 	
@@ -498,12 +502,12 @@
 					} else {
 					    hourlyProduction = (data[i].v1 / hoursDifference).toFixed(2);
 					}
-					
+					var hogi = data[i].hogi;
 					
 					var fillingComplianceRate;
 					var progressRate;
 					console.log(data[i].sdate)
-					if(i == 1 || i == 2){
+					if(hogi == 2 || hogi == 3){
 						fillingComplianceRate = (hourlyProduction / 500);
 						progressRate = (parseInt(data[i].v1) / 12000 * 100).toFixed(0);
 					} else{
@@ -513,8 +517,8 @@
 					if(fillingComplianceRate > 1){
 						fillingComplianceRate = 1;
 					}
-					$("#ht"+(i+1)+"_v1").text(parseInt(data[i].v1).toLocaleString()+" Kg");
-					$("#ht"+(i+1)+"_v4").text(progressRate.toLocaleString()+" %");
+					$("#ht"+(hogi)+"_v1").text(parseInt(data[i].v1).toLocaleString()+" Kg");
+					$("#ht"+(hogi)+"_v4").text(progressRate.toLocaleString()+" %");
 					//$("#ht"+(i+1)+"_v4").text(parseInt(data[i].v4).toLocaleString()+" %");
 /* 					$("#ht"+(i+1)+"_v1").text(data[i].v1+" Kg");
 					//$("#ht"+(i+1)+"_v2").text(data[i].v2+" Kg");
@@ -523,23 +527,23 @@
 					$("#ht"+(i+1)+"_v4").text(data[i].v4+" %");
 					//$("#ht"+(i+1)+"_v5").text(data[i].v5+" %"); */
 					if(i == 6){
-						$("#ht"+(i+1)+"_v5").text((totalFCR.toFixed(2)/6).toFixed(2) + " %");
-						$("#ht"+(i+1)+"_v2").text(totalHP.toLocaleString() + " Kg");
+						$("#ht"+(hogi)+"_v5").text((totalFCR.toFixed(2)/6).toFixed(2) + " %");
+						$("#ht"+(hogi)+"_v2").text(totalHP.toLocaleString() + " Kg");
 					} else{
-					$("#ht"+(i+1)+"_v5").text((fillingComplianceRate * 100).toFixed(2)+" %");
+					$("#ht"+(hogi)+"_v5").text((fillingComplianceRate * 100).toFixed(2)+" %");
 						totalFCR += parseFloat((fillingComplianceRate * 100).toFixed(2));
-					$("#ht"+(i+1)+"_v2").text(parseInt(hourlyProduction).toLocaleString() + " Kg");
+					$("#ht"+(hogi)+"_v2").text(parseInt(hourlyProduction).toLocaleString() + " Kg");
 						totalHP += parseInt(hourlyProduction);
 					}
 					/* $("#ht"+(i+1)+"_v7").text(data[i].v7+" 시간"); */
-					$("#ht"+(i+1)+"_v7").text(delay[i].delay + " 시간");
-					$("#ht"+(i+1)+"_v6").text(data[i].v6+" LOT");
+					$("#ht"+(hogi)+"_v7").text(delay[i].delay + " 시간");
+					$("#ht"+(hogi)+"_v6").text(data[i].v6+" LOT");
 					
 					
 				}
 				for(var i=0; i<delay.length; i++){
 					if(delay[i].proc_gb != 0 && delay[i].proc_cnt == 0){
-						$("#hogi"+(i+1)).css({
+						$("#hogi"+(hogi)).css({
 							"background-color" : "red",
 							"color" : "white"
 						})

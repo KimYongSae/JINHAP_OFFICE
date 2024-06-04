@@ -19,6 +19,7 @@
 		Calendar a_cal = Calendar.getInstance();	//후
 		Calendar n_cal = Calendar.getInstance();	//현재
 		Calendar y_cal = Calendar.getInstance();	//어제날짜
+		Calendar t_cal = Calendar.getInstance();	//내일날짜
 		Calendar bw_cal = Calendar.getInstance();	//1주전
 		Calendar lastYearCal = Calendar.getInstance();	//1년전
 		
@@ -39,6 +40,9 @@
 		
 		y_cal.setTime(now);
 		y_cal.add(Calendar.DATE, -1);
+		
+		t_cal.setTime(now);
+		t_cal.add(Calendar.DATE, 1);
 		
 		bw_cal.setTime(now);
 		bw_cal.add(Calendar.DATE, -7);
@@ -62,6 +66,8 @@
 		rowObj.put("a_time",sdf.format(a_cal.getTime()).substring(11,19));		
 
 		rowObj.put("y_date",sdf.format(y_cal.getTime()).substring(0,10));
+		
+		rowObj.put("t_date",sdf.format(t_cal.getTime()).substring(0,10));
 		
 		rowObj.put("bw_date",sdf.format(bw_cal.getTime()).substring(0,10));
 

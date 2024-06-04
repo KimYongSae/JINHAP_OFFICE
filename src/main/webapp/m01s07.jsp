@@ -161,7 +161,7 @@
 	font-weight: normal;
 }
 
-th {
+thead th {
 	background-color: #122d64;
 	color:#FFFFFF;
 	border-color: #FFFFFF !important;
@@ -170,7 +170,9 @@ th {
 	font-family: headline;
 	font-weight: 700;
 }
-
+tbody th {
+	text-align: center;
+}
 .r1{
 	width:10%;
 }
@@ -178,7 +180,7 @@ th {
 	width:10%;
 }
 .r3{
-	width:20%;
+	width:15%;
 }
 
 </style>
@@ -306,9 +308,10 @@ th {
 												<thead>
 													<tr>
 														<th class="r1" rowspan="2"></th>
-														<th class="r2" rowspan="2">온도</th>
-														<th colspan="2">1호기</th>
-														<th colspan="2">2호기</th>
+														<th class="r2" rowspan="2">시간</th>
+														<th id="first_hogi" colspan="2">1호기</th>
+														<th class="r2" rowspan="2">시간</th>
+														<th id="second_hogi" colspan="2">2호기</th>
 													</tr>
 													<tr>
 														<th class="r3">LOT</th>
@@ -320,172 +323,193 @@ th {
 												</thead>
 												<tbody>
 													<tr>
-														<td>대기위치</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>호퍼 투입</td>
+														<td id = "stime-f-1"></td>
+														<td id = "lot-f-1"></td>
+														<td id = "pname-f-1"></td>
+														<td id = "stime-s-1"></td>
+														<td id = "lot-s-1"></td>
+														<td id = "pname-s-1"></td>
 													</tr>
 													<tr>
-														<td>대기위치</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소입로 구간_1</td>
+														<td id = "stime-f-2"></td>
+														<td id = "lot-f-2"></td>
+														<td id = "pname-f-2"></td>
+														<td id = "stime-s-2"></td>
+														<td id = "lot-s-2"></td>
+														<td id = "pname-s-2"></td>
 													</tr>
 													<tr>
-														<td>호퍼 투입</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소입로 구간_2</td>
+														<td id = "stime-f-3"></td>
+														<td id = "lot-f-3"></td>
+														<td id = "pname-f-3"></td>
+														<td id = "stime-s-3"></td>
+														<td id = "lot-s-3"></td>
+														<td id = "pname-s-3"></td>
 													</tr>
 													<tr>
-														<td>소입로 구간_1</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소입로 구간_3</td>
+														<td id = "stime-f-4"></td>
+														<td id = "lot-f-4"></td>
+														<td id = "pname-f-4"></td>
+														<td id = "stime-s-4"></td>
+														<td id = "lot-s-4"></td>
+														<td id = "pname-s-4"></td>
 													</tr>
 													<tr>
-														<td>소입로 구간_2</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소입로 구간_4</td>
+														<td id = "stime-f-5"></td>
+														<td id = "lot-f-5"></td>
+														<td id = "pname-f-5"></td>
+														<td id = "stime-s-5"></td>
+														<td id = "lot-s-5"></td>
+														<td id = "pname-s-5"></td>
 													</tr>
 													<tr>
-														<td>소입로 구간_3</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소입로 구간_5</td>
+														<td id = "stime-f-6"></td>
+														<td id = "lot-f-6"></td>
+														<td id = "pname-f-6"></td>
+														<td id = "stime-s-6"></td>
+														<td id = "lot-s-6"></td>
+														<td id = "pname-s-6"></td>
 													</tr>
 													<tr>
-														<td>소입로 구간_4</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소입로 구간_6</td>
+														<td id = "stime-f-7"></td>
+														<td id = "lot-f-7"></td>
+														<td id = "pname-f-7"></td>
+														<td id = "stime-s-7"></td>
+														<td id = "lot-s-7"></td>
+														<td id = "pname-s-7"></td>
 													</tr>
 													<tr>
-														<td>소입로 구간_5</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소입로 구간_7</td>
+														<td id = "stime-f-8"></td>
+														<td id = "lot-f-8"></td>
+														<td id = "pname-f-8"></td>
+														<td id = "stime-s-8"></td>
+														<td id = "lot-s-8"></td>
+														<td id = "pname-s-8"></td>
 													</tr>
 													<tr>
-														<td>소입로 구간_6</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소입로 구간_8</td>
+														<td id = "stime-f-9"></td>
+														<td id = "lot-f-9"></td>
+														<td id = "pname-f-9"></td>
+														<td id = "stime-s-9"></td>
+														<td id = "lot-s-9"></td>
+														<td id = "pname-s-9"></td>
 													</tr>
 													<tr>
-														<td>소입로 구간_7</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소입유조</td>
+														<td id = "stime-f-10"></td>
+														<td id = "lot-f-10"></td>
+														<td id = "pname-f-10"></td>
+														<td id = "stime-s-10"></td>
+														<td id = "lot-s-10"></td>
+														<td id = "pname-s-10"></td>
 													</tr>
 													<tr>
-														<td>소입로 구간_8</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>중간세정</td>
+														<td id = "stime-f-11"></td>
+														<td id = "lot-f-11"></td>
+														<td id = "pname-f-11"></td>
+														<td id = "stime-s-11"></td>
+														<td id = "lot-s-11"></td>
+														<td id = "pname-s-11"></td>
 													</tr>
 													<tr>
-														<td>소입유조</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소려로 구간_1</td>
+														<td id = "stime-f-12"></td>
+														<td id = "lot-f-12"></td>
+														<td id = "pname-f-12"></td>
+														<td id = "stime-s-12"></td>
+														<td id = "lot-s-12"></td>
+														<td id = "pname-s-12"></td>
 													</tr>
 													<tr>
-														<td>중간세정</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소려로 구간_2</td>
+														<td id = "stime-f-13"></td>
+														<td id = "lot-f-13"></td>
+														<td id = "pname-f-13"></td>
+														<td id = "stime-s-13"></td>
+														<td id = "lot-s-13"></td>
+														<td id = "pname-s-13"></td>
 													</tr>
 													<tr>
-														<td>소려로 구간_1</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소려로 구간_3</td>
+														<td id = "stime-f-14"></td>
+														<td id = "lot-f-14"></td>
+														<td id = "pname-f-14"></td>
+														<td id = "stime-s-14"></td>
+														<td id = "lot-s-14"></td>
+														<td id = "pname-s-14"></td>
 													</tr>
 													<tr>
-														<td>소려로 구간_2</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소려로 구간_4</td>
+														<td id = "stime-f-15"></td>
+														<td id = "lot-f-15"></td>
+														<td id = "pname-f-15"></td>
+														<td id = "stime-s-15"></td>
+														<td id = "lot-s-15"></td>
+														<td id = "pname-s-15"></td>
 													</tr>
 													<tr>
-														<td>소려로 구간_3</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소려로 구간_5</td>
+														<td id = "stime-f-16"></td>
+														<td id = "lot-f-16"></td>
+														<td id = "pname-f-16"></td>
+														<td id = "stime-s-16"></td>
+														<td id = "lot-s-16"></td>
+														<td id = "pname-s-16"></td>
 													</tr>
 													<tr>
-														<td>소려로 구간_4</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소려로 구간_6</td>
+														<td id = "stime-f-17"></td>
+														<td id = "lot-f-17"></td>
+														<td id = "pname-f-17"></td>
+														<td id = "stime-s-17"></td>
+														<td id = "lot-s-17"></td>
+														<td id = "pname-s-17"></td>
 													</tr>
 													<tr>
-														<td>소려로 구간_5</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소려로 구간_7</td>
+														<td id = "stime-f-18"></td>
+														<td id = "lot-f-18"></td>
+														<td id = "pname-f-18"></td>
+														<td id = "stime-s-18"></td>
+														<td id = "lot-s-18"></td>
+														<td id = "pname-s-18"></td>
 													</tr>
 													<tr>
-														<td>소려로 구간_6</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소려로 구간_8</td>
+														<td id = "stime-f-19"></td>
+														<td id = "lot-f-19"></td>
+														<td id = "pname-f-19"></td>
+														<td id = "stime-s-19"></td>
+														<td id = "lot-s-19"></td>
+														<td id = "pname-s-19"></td>
 													</tr>
 													<tr>
-														<td>소려로 구간_7</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소려로 구간_9</td>
+														<td id = "stime-f-20"></td>
+														<td id = "lot-f-20"></td>
+														<td id = "pname-f-20"></td>
+														<td id = "stime-s-20"></td>
+														<td id = "lot-s-20"></td>
+														<td id = "pname-s-20"></td>
 													</tr>
 													<tr>
-														<td>소려로 구간_8</td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
+														<th>소려로 구간_10</td>
+														<td id = "stime-f-21"></td>
+														<td id = "lot-f-21"></td>
+														<td id = "pname-f-21"></td>
+														<td id = "stime-s-21"></td>
+														<td id = "lot-s-21"></td>
+														<td id = "pname-s-21"></td>
 													</tr>
 												</tbody>
 												
@@ -518,6 +542,9 @@ th {
 	</div>
 
 	<script>
+		$(function(){
+			getList("1-2");
+		})
 		// for ESM environment, need to import modules as:
 		// import bb, {gauge} from "billboard.js";
 
@@ -535,12 +562,15 @@ th {
 		
 		$("#btn1-2").click(function() {
 		    toggleVisibility("#hogi1-2", "#hogi3-4", "#hogi5-6");
+		    getList("1-2");
 		});
 		$("#btn3-4").click(function() {
 		    toggleVisibility("#hogi3-4", "#hogi1-2", "#hogi5-6");
+		    getList("3-4");
 		});
 		$("#btn5-6").click(function() {
 		    toggleVisibility("#hogi5-6", "#hogi3-4", "#hogi1-2");
+		    getList("5-6");
 		});
 
 		
@@ -557,6 +587,77 @@ th {
 		    $("#btn5-6").removeClass("btn-info");
 		    $("#btn5-6").addClass("btn-primary");
 		}) */
+		
+		
+		function getList(hogiValue){
+			$("tbody td").text("");
+			switch(hogiValue){
+			case "1-2" :
+				$("#first_hogi").text("1호기");
+				$("#second_hogi").text("2호기");
+				break;
+			case "3-4" :
+				$("#first_hogi").text("3호기");
+				$("#second_hogi").text("4호기");
+				break;
+			case "5-6" :
+				$("#first_hogi").text("5호기");
+				$("#second_hogi").text("6호기");
+				break;
+				
+			}
+			
+			$.ajax({
+				type : "POST",
+				url : "m01/s07/select_m01s07.jsp",
+				cache : false,
+				dataType : "json",
+				data:{
+					hogi : hogiValue,
+				},
+				success : function(rsJson) {
+					if (rsJson && rsJson.status == "ok") {
+						var rsAr = rsJson.rows;
+							for(var i=0; i<rsAr.length; i++){
+								var stime = new Date(rsAr[i].stime);
+								var now = new Date();
+								var timeDiff = (now - stime) / 60000;
+								var tenMin = Math.floor(timeDiff / 10) + 1;
+								var first_second = "";
+								if(["1", "3", "5"].includes(rsAr[i].hogi)) {
+									first_second = "f";
+								} else{
+									first_second = "s";
+								}
+								
+								$("#stime-"+first_second+"-"+tenMin).text(rsAr[i].stime);
+								$("#lot-"+first_second+"-"+tenMin).text(rsAr[i].lot);
+								$("#pname-"+first_second+"-"+tenMin).text(rsAr[i].item_cd);
+								console.log("#stime-"+first_second+"-"+tenMin);
+								
+							}
+						
+					} else if (rsJson && rsJson.status == "fail") {
+						alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");
+					} else {
+						alert("에러발생!");
+					}
+					
+				},	// success 끝
+				error: function(req, status) {
+					if (req.status == 0 || status == "timeout") {
+						alert("네트워크 연결 확인 후 다시 시도해주세요.");
+					} else {
+						alert("처리중 예외가 발생하였습니다. 브라우저를 완전히 종료 후 다시 시도해 보시기 바랍니다.");
+					}
+				},
+				
+			});	
+			
+		}
+		
+		
+		
 		
 		
 	</script>

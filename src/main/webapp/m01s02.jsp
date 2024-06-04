@@ -238,7 +238,7 @@ var fn_logout = function () {
 	<div id="contents">
         
 <div class="content" style="height:1000px;"> 
-	  <div style="position:relative;left:-275px;top:-185px;">
+	  <div style="position:relative;left:-275px;top:-260px;">
 	  
 	  
    <div id="room1" style="width:100%; height:20px; position:absolute; left:272px; top:185px; font-size:16px; font-weight:600; color:black;">  
@@ -286,7 +286,7 @@ var fn_logout = function () {
 	            background-color:white;">
 			       	<iframe id="hogi" class="row" frameborder="0"
 	            	scrolling="no" ALLOWTRANSPARENCY="true"
-	            		style="width:1800px; height:950px;">
+	            		style="width:1800px; height:900px;">
 	            	</iframe>           		            		            		            		            	
 	            
 	            </div>
