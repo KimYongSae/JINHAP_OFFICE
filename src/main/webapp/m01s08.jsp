@@ -453,7 +453,7 @@
 															<td style="text-align: center; vertical-align: middle;
 															 padding: 1px; height: 75px; width: 150px; 
 															 font-size:25pt; font-family:headline; font-weight:700;
-															 background-color:lavender;">합계</td>
+															 background-color:lavender;">종합</td>
 															<td style="text-align: center; vertical-align: middle;
 															 padding: 1px; height: 75px; width: 150px; 
 															 font-size:20pt; font-family:headline; font-weight:700;
@@ -582,6 +582,23 @@
         
         }
     }
+    
+    function calculateTimeDifference() {
+	    const now = new Date();
+	    let eightAm;
+
+	    if (now.getHours() >= 8) {
+	        // 오늘 8시
+	        eightAm = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 8, 0, 0);
+	    } else {
+	        // 어제 8시
+	        eightAm = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1, 8, 0, 0);
+	    }
+
+	    const difference = now - eightAm;
+	    return difference / 3600000;
+	}
+    
     function getMonitoringData(){
     	var i_date = $("#s_sdate").val();
     	var date = new Date(i_date);
@@ -600,64 +617,75 @@
 				"edate":nextDay
 			},
 			success:function(result){
+				//console.log(result);
 				
 				var data = result.rows;
 				var delay = result.delay;
-				//var timeDifference = calculateTimeDifference();
-				var totalFCR = 0;
-				var totalHP = 0;
+				var timeDifference = calculateTimeDifference();
+				
+				var totalv1=0;
+				var totalHP=0;
+				var avgFCR=0;
+				var avgLot=0;
+				var totalDelay=0;
+				
+				//console.log(timeDifference);
 				
 				for(var i=0; i<data.length; i++){
 					
-					var hourlyProduction = (data[i].lot_weight / (24-delay[i].delay)).toFixed(2);
+					//var hourlyProduction = (data[i].v1 / timeDifference).toFixed(2);
+					var sdateStr = data[i].sdate.replace(".0", "");
+    				var edateStr = data[i].edate.replace(".0", "");
+    				var sdate2 = new Date(sdateStr);
+    			    var edate2 = new Date(edateStr);
+    			    var tttt = edate2 - sdate2;
+    			    var hoursDifference = tttt / (1000 * 60 * 60);
+    			    	hoursDifference = hoursDifference.toFixed(2);
+					var hourlyProduction;
+					if (hoursDifference == 0) {
+					    hourlyProduction = 0;
+					} else {
+					    hourlyProduction = (data[i].v1 / hoursDifference).toFixed(2);
+					}
+					var hogi = data[i].hogi;
+					
 					var fillingComplianceRate;
 					var progressRate;
-					
-					if(i == 1 || i == 2){
+					console.log(data[i].sdate)
+					if(hogi == 2 || hogi == 3){
 						fillingComplianceRate = (hourlyProduction / 500);
-						progressRate = (parseInt(data[i].lot_weight) / 12000 * 100).toFixed(0);
+						progressRate = (parseInt(data[i].v1) / 12000 * 100).toFixed(0);
 					} else{
 						fillingComplianceRate = (hourlyProduction / 1000);
-						progressRate = (parseInt(data[i].lot_weight) / 24000 * 100).toFixed(0);
+						progressRate = (parseInt(data[i].v1) / 24000 * 100).toFixed(0);
 					}
 					if(fillingComplianceRate > 1){
 						fillingComplianceRate = 1;
 					}
-					//console.log("v1 : "+progressRate);
-					//$("#ht"+(i+1)+"_v1").text(parseInt(data[i].v1).toLocaleString()+" Kg");
-					$("#ht"+(i+1)+"_v4").text(progressRate.toLocaleString()+" %");
-					$("#ht"+(i+1)+"_v1").text(data[i].lot_weight.toLocaleString()+" Kg");
-					$("#ht"+(i+1)+"_v6").text(data[i].lot_count);
-					$("#ht"+(i+1)+"_v7").text(delay[i].delay);
-					//$("#ht"+(i+1)+"_v4").text(parseInt(data[i].v4).toLocaleString()+" %");
-/* 					$("#ht"+(i+1)+"_v1").text(data[i].v1+" Kg");
-					//$("#ht"+(i+1)+"_v2").text(data[i].v2+" Kg");
-					$("#ht"+(i+1)+"_v2").text(hourlyProduction + " Kg");
-					//$("#ht"+(i+1)+"_v3").text(data[i].v3+" %");
-					$("#ht"+(i+1)+"_v4").text(data[i].v4+" %");
-					//$("#ht"+(i+1)+"_v5").text(data[i].v5+" %"); */
-					if(i == 6){
-						$("#ht"+(i+1)+"_v5").text((totalFCR.toFixed(2)/6).toFixed(2) + " %");
-						$("#ht"+(i+1)+"_v2").text(totalHP.toLocaleString() + " Kg");
-					} else{
-					$("#ht"+(i+1)+"_v5").text((fillingComplianceRate * 100).toFixed(2)+" %");
-						totalFCR += parseFloat((fillingComplianceRate * 100).toFixed(2));
-					$("#ht"+(i+1)+"_v2").text(parseInt(hourlyProduction).toLocaleString() + " Kg");
-						totalHP += parseInt(hourlyProduction);
-					}
-					$/* ("#ht"+(i+1)+"_v7").text(data[i].v7+" 시간");
-					$("#ht"+(i+1)+"_v6").text(data[i].v6+" LOT"); */
+					
+					$("#ht"+(hogi)+"_v1").text(parseInt(data[i].v1).toLocaleString()+" Kg");
+					totalv1 += parseInt(data[i].v1);
+					$("#ht"+(hogi)+"_v2").text(parseInt(hourlyProduction).toLocaleString() + " Kg");
+					totalHP += parseInt(hourlyProduction);
+					$("#ht"+(hogi)+"_v4").text(progressRate.toLocaleString()+" %");
+					$("#ht"+(hogi)+"_v5").text((fillingComplianceRate * 100).toFixed(2)+" %");
+					avgFCR += parseFloat((fillingComplianceRate * 100).toFixed(2));
+					$("#ht"+(hogi)+"_v6").text(data[i].v6+" LOT");
+					avgLot += parseInt(data[i].v6);
+					console.log(avgLot);
+					$("#ht"+(hogi)+"_v7").text(delay[i].delay + " 시간");
+					totalDelay += delay[i].delay;
 					
 					
 				}
-				/* for(var i=0; i<delay.length; i++){
-					if(delay[i].proc_gb != 0 && delay[i].proc_cnt == 0){
-						$("#hogi"+(i+1)).css({
-							"background-color" : "red",
-							"color" : "white"
-						})
-					}
-				} */
+				$("#ht7_v1").text(totalv1.toLocaleString()+" Kg");
+				$("#ht7_v2").text(totalHP.toLocaleString() + " Kg");
+				$("#ht7_v5").text((avgFCR/6).toFixed(2)+" %");
+				$("#ht7_v6").text((avgLot/6).toFixed(2)+" LOT");
+				$("#ht7_v7").text(totalDelay + " 시간");
+				
+				
+				
 			}
 		});
 	}

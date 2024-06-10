@@ -336,7 +336,7 @@ h2{
 							<td style="text-align: center; vertical-align: middle;
 							 padding: 1px; height: 75px; width: 150px; 
 							 font-size:25pt; font-family:headline; font-weight:700;
-							 background-color:lavender;">합계</td>
+							 background-color:lavender;">종합</td>
 							<td style="text-align: center; vertical-align: middle;
 							 padding: 1px; height: 75px; width: 150px; 
 							 font-size:20pt; font-family:headline; font-weight:700;
@@ -482,8 +482,13 @@ h2{
 				var data = result.rows;
 				var delay = result.delay;
 				var timeDifference = calculateTimeDifference();
-				var totalFCR = 0;
-				var totalHP = 0;
+				
+				var totalv1=0;
+				var totalHP=0;
+				var avgFCR=0;
+				var avgLot=0;
+				var totalDelay=0;
+				
 				//console.log(timeDifference);
 				
 				for(var i=0; i<data.length; i++){
@@ -517,38 +522,30 @@ h2{
 					if(fillingComplianceRate > 1){
 						fillingComplianceRate = 1;
 					}
+					
 					$("#ht"+(hogi)+"_v1").text(parseInt(data[i].v1).toLocaleString()+" Kg");
-					$("#ht"+(hogi)+"_v4").text(progressRate.toLocaleString()+" %");
-					//$("#ht"+(i+1)+"_v4").text(parseInt(data[i].v4).toLocaleString()+" %");
-/* 					$("#ht"+(i+1)+"_v1").text(data[i].v1+" Kg");
-					//$("#ht"+(i+1)+"_v2").text(data[i].v2+" Kg");
-					$("#ht"+(i+1)+"_v2").text(hourlyProduction + " Kg");
-					//$("#ht"+(i+1)+"_v3").text(data[i].v3+" %");
-					$("#ht"+(i+1)+"_v4").text(data[i].v4+" %");
-					//$("#ht"+(i+1)+"_v5").text(data[i].v5+" %"); */
-					if(i == 6){
-						$("#ht"+(hogi)+"_v5").text((totalFCR.toFixed(2)/6).toFixed(2) + " %");
-						$("#ht"+(hogi)+"_v2").text(totalHP.toLocaleString() + " Kg");
-					} else{
-					$("#ht"+(hogi)+"_v5").text((fillingComplianceRate * 100).toFixed(2)+" %");
-						totalFCR += parseFloat((fillingComplianceRate * 100).toFixed(2));
+					totalv1 += parseInt(data[i].v1);
 					$("#ht"+(hogi)+"_v2").text(parseInt(hourlyProduction).toLocaleString() + " Kg");
-						totalHP += parseInt(hourlyProduction);
-					}
-					/* $("#ht"+(i+1)+"_v7").text(data[i].v7+" 시간"); */
-					$("#ht"+(hogi)+"_v7").text(delay[i].delay + " 시간");
+					totalHP += parseInt(hourlyProduction);
+					$("#ht"+(hogi)+"_v4").text(progressRate.toLocaleString()+" %");
+					$("#ht"+(hogi)+"_v5").text((fillingComplianceRate * 100).toFixed(2)+" %");
+					avgFCR += parseFloat((fillingComplianceRate * 100).toFixed(2));
 					$("#ht"+(hogi)+"_v6").text(data[i].v6+" LOT");
+					avgLot += parseInt(data[i].v6);
+					console.log(avgLot);
+					$("#ht"+(hogi)+"_v7").text(delay[i].delay + " 시간");
+					totalDelay += delay[i].delay;
 					
 					
 				}
-				for(var i=0; i<delay.length; i++){
-					if(delay[i].proc_gb != 0 && delay[i].proc_cnt == 0){
-						$("#hogi"+(hogi)).css({
-							"background-color" : "red",
-							"color" : "white"
-						})
-					}
-				}
+				$("#ht7_v1").text(totalv1.toLocaleString()+" Kg");
+				$("#ht7_v2").text(totalHP.toLocaleString() + " Kg");
+				$("#ht7_v5").text((avgFCR/6).toFixed(2)+" %");
+				$("#ht7_v6").text((avgLot/6).toFixed(2)+" LOT");
+				$("#ht7_v7").text(totalDelay + " 시간");
+				
+				
+				
 			}
 		});
 	}

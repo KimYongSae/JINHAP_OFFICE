@@ -675,7 +675,7 @@ var fn_logout = function () {
 		
 //		getLotInfo();
 		$("#loading").show();
-		//getLotList();
+		getLotList();
 	});
 	
 
@@ -805,6 +805,7 @@ var fn_logout = function () {
 	
 	var cntArray = new Array();
 	var rsAr;
+	var filenameValue;
 	function getLotList(){
 		$.ajax({
 			type : "POST",
@@ -831,20 +832,21 @@ var fn_logout = function () {
 						listHtml += '<td class="nr6" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 300px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i][0].item_cd+'</td>';
 						listHtml += '<td class="nr7" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 450px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i][0].pname+'</td>';
 						/* listHtml += '<td class="nr8" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 140px; word-break:break-all; font-size:15pt; font-family:headline;">'+rsAr[i][0].gang+'</td>'; */
-						listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';
-						listHtml += '<td class="nr10" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';
+						//listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';
+						//listHtml += '<td class="nr10" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;"></td>'/
 						
-						/* if(rsAr[i].file_yn == 'Y'){
-							listHtml += '<td class="nr11" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;">'+
-							'<button type="button" class="btn btn-default" onclick=viewFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true; style="width:70px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-search"></i></button>'
+						if(rsAr[i][0].filename != null && rsAr[i][0].filename != ""){
+							listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;">'+
+							"<button type='button' class='btn btn-default' onclick=viewFile('"+rsAr[i][0].filename+"'); return false; event.cancelBubble = true; style='width:70px;height:40px; font-size:15pt; font-family:headline; font-weight:700;'><i class='fa fa-search'></i></button>"
 							+'</td>';
-							listHtml += '<td class="nr11" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;">'+
-							'<button type="button" class="btn btn-default" onclick=delFile('+rsAr[i].cnt+'); return false; event.cancelBubble = true; style="width:70px;height:40px; font-size:15pt; font-family:headline; font-weight:700;"><i class="fa fa-remove"></i></button>'
-							+'</td>';						
+							listHtml += '<td class="nr10" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;">'+
+							"<button type='button' class='btn btn-default' onclick=delFile('"+rsAr[i][0].filename+"'); return false; event.cancelBubble = true; style='width:70px;height:40px; font-size:15pt; font-family:headline; font-weight:700;'><i class='fa fa-remove'></i></button>"
+							+'</td>';
+							filenameValue = rsAr[i][0].filename;
 						}else{
-							listHtml += '<td class="nr11" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';
-							listHtml += '<td class="nr11" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';							
-						} */
+							listHtml += '<td class="nr9" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';
+							listHtml += '<td class="nr10" style="text-align: center; vertical-align: middle; padding: 1px; height: 40px; width: 80px; word-break:break-all; font-size:15pt; font-family:headline;"></td>';							
+						}
 						
 						listHtml += "</tr>";
 					}
@@ -874,20 +876,20 @@ var fn_logout = function () {
 	}	
 	
 	
-	function viewFile(c_val){
+	function viewFile(filename){
 		$.ajax({
 			type : "POST",
-			url : "l000004_file.jsp",
+			url : "m01/s03/m01s03_file.jsp",
 			cache : false,
 			dataType : "json",
 			data : {'time':new Date().getTime(),
-					"cnt":c_val},
+					"filename":filename},
 			success : function(rsJson) {
 				if (rsJson && rsJson.status == "ok") {
 					var rsAr = rsJson.rows;		
 					
 					
-					var _iframe = "<iframe src='/sunil/reports/"+rsAr[0].filename+"' style='width:100%; height:780px;'></iframe>";
+					var _iframe = "<iframe src='/JINHAP_OFFICE/reports/lot/"+rsAr[0].filename+"' style='width:100%; height:780px;'></iframe>";
 					
 					
 					$("#carousel-form").empty().append(_iframe);					
@@ -1108,8 +1110,8 @@ $("#searchbtn").on("click",function(){
 		stack:false,
 		buttons:{
 			"삭 제":function(){
-				$.post("d000004_file.jsp",{
-					"cnt":fileDel_cnt
+				$.post("m01/s03/delete_m01s03_file.jsp",{
+					"filename":filenameValue
 				},250);
 				
 				setTimeout(function(){

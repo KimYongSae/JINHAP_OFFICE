@@ -29,7 +29,8 @@
 		sql.append("  sub.*,");
 		sql.append("  first_datetiem1_in_group,");
 		sql.append("  tra_filtered.*,");
-		sql.append(" lot_group_count ");
+		sql.append(" lot_group_count, ");
+		sql.append(" filename ");
 		sql.append("FROM (");
 		sql.append("  SELECT ");
 		sql.append("    main.*,");
@@ -51,6 +52,9 @@
 		sql.append("    ROW_NUMBER() OVER (PARTITION BY pnum ORDER BY pname) AS rn");
 		sql.append("  FROM tb_recipe_auto"+hogi+"");
 		sql.append(" ) AS tra_filtered ON sub.item_cd = tra_filtered.pnum AND tra_filtered.rn = 1");
+		sql.append(" LEFT OUTER JOIN (");
+		sql.append(" SELECT * FROM tb_lot_report");
+		sql.append(" ) AS tlr ON sub.hogi = tlr.hogi AND sub.item_cd = tlr.item_cd AND sub.first_datetiem1_in_group = tlr.first_datetiem1 ");
 		sql.append(" WHERE STR_TO_DATE(sub.first_datetiem1_in_group, '%Y-%m-%d %H:%i:%s') BETWEEN '"+sdateStr+" 08:00:00' AND '"+edateStr+" 08:00:00'");
 		sql.append(" ORDER BY STR_TO_DATE(sub.datetiem1, '%Y%m%d%H%i%s') asc;");		 
 		 
@@ -94,6 +98,7 @@
                 Timestamp timestamp = rs.getTimestamp("first_datetiem1_in_group");
                 String formattedDate = sdf2.format(timestamp);
                 rowObj.put("first_datetiem1_in_group", formattedDate);
+                rowObj.put("filename", rs.getString("filename"));
                 
                 Timestamp timestamp2 = rs.getTimestamp("check_time");
                 String formattedDate2 = "";

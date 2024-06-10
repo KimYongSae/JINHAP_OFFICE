@@ -38,7 +38,7 @@
 <%@page import="net.sourceforge.barbecue.*" %>
 <%@include file="../../db/DBConnector.jsp" %>
 <%@include file="../../db/DBConnector_MSSQL.jsp" %>
-<%@include file="m01s04_GraphicVo.jsp" %>
+<%@include file="m01s03_GraphicVo.jsp" %>
   
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
@@ -53,6 +53,7 @@
 	StringBuilder barcodeStringBuilder = new StringBuilder();
 	String sdate;
 	String edate;
+	String item_cd;
             JSONArray jsonArray = new JSONArray(jsonData);
 
             JSONObject jsonindex0 = jsonArray.getJSONObject(jsonArray.length() - 1);
@@ -80,6 +81,7 @@
             
             reportMap.put("lotno", jsonindex0.get("lot"));
             reportMap.put("item_cd", jsonindex0.get("item_cd"));
+            item_cd = jsonindex0.getString("item_cd");
             reportMap.put("pname", jsonindex0.get("pname"));
             reportMap.put("gang", jsonindex0.get("gang"));
             reportMap.put("t_gb", jsonindex0.get("t_gb"));
@@ -132,8 +134,8 @@
         }
         
 
-        // 바코드
-        StringBuffer sql_ms = new StringBuffer();
+        /* // 바코드
+       StringBuffer sql_ms = new StringBuffer();
         
         sql_ms.append("SELECT barcode, inspvalue1, inspvalue2, inspvalue3, insprange ");
 		sql_ms.append("FROM jqis_if_spc_heat ");
@@ -180,7 +182,7 @@
 			reportMap.put("x" + count, "");
 		}
 		// 바코드 끝
-		
+		 */
 	StringBuffer graphSql = new StringBuffer();
 	List<GraphicVo> gList = new ArrayList<GraphicVo>();
 		
@@ -241,7 +243,7 @@
 		String abPath = request.getServletContext().getRealPath("/reports/"+fileName+".jrxml");
 		String abPath2 = request.getServletContext().getRealPath("/reports/"+fileName2+".jrxml");
 		
-		String savePath = request.getServletContext().getRealPath("/reports");
+		String savePath = request.getServletContext().getRealPath("/reports/lot");
 		
 		String heat_lot = "";
 		
@@ -322,6 +324,19 @@
 			ut2.setDestinationFileName(savePath+"/"+fileName+"_"+now+".pdf");			
 			ut2.mergeDocuments();
 			
+			StringBuffer u_sql = new StringBuffer();
+			/* u_sql.append("UPDATE tb_lot_report SET filename = '"+fileName+"_"+now+".pdf"+"', ");
+			u_sql.append("file_yn = 'Y' ");
+			u_sql.append("WHERE  = "+cnt+" "); */
+			u_sql.append(" INSERT INTO tb_lot_report (hogi, first_datetiem1, item_cd, filename, yn)");
+			u_sql.append(" VALUES ("+hogi+", '"+sdate+"', '"+item_cd+"', '"+fileName+"_"+now+".pdf"+"', 'Y')");
+			u_sql.append(" ON DUPLICATE KEY UPDATE");
+			u_sql.append("    filename = VALUES(filename),");
+			u_sql.append("    yn = VALUES(yn)");
+
+			System.out.println(u_sql.toString());
+			stmt = conn.createStatement();
+			stmt.executeUpdate(u_sql.toString());
 			
 			
 			
@@ -342,6 +357,13 @@
 	}finally{
 		out.print(mainObj);
 		out.flush();
+		 try {
+		        if (rs != null) rs.close();
+		        if (stmt != null) stmt.close();
+		        if (conn != null) conn.close();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
 	}
 	
 	
