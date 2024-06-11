@@ -137,7 +137,7 @@
 		sql.append(" WHERE STR_TO_DATE(sub.first_datetiem1_in_group, '%Y-%m-%d %H:%i:%s') BETWEEN '"+sdate+" 08:00:00' AND '"+edate+" 08:00:00'");
 		sql.append(" ORDER BY STR_TO_DATE(sub.datetiem1, '%Y%m%d%H%i%s') asc;");
 
-		System.out.println(sql.toString());
+		System.out.println("1");
 		
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery(sql.toString());
@@ -155,7 +155,7 @@
 		XSSFCell objCell = null;
 		
 		CellStyle styleHd = objWorkBook.createCellStyle();   //제목 스타일
-		
+		System.out.println("2");
 		Font font = objWorkBook.createFont();
 		font.setFontHeightInPoints((short)10);
 		font.setFontName("맑은 고딕");
@@ -330,7 +330,7 @@
 		    }
 		}
 		String barcodeString = barcodeStringBuilder.length() > 0 ? barcodeStringBuilder.toString() : "";
-
+		System.out.println("3");
 		// 바코드별 강도
 		/*
 		sql_ms.append("SELECT barcode, inspvalue1, insprange ");
@@ -371,7 +371,7 @@
 		    
 		}
 		*/
-		for(int i = 7; i < 57; i ++){
+		/* for(int i = 7; i < 57; i ++){
 			objRow = objSheet.getRow(i);
 			objCell = objRow.getCell(7);
 		    if (objCell.getCellType() == CellType.FORMULA) {
@@ -389,7 +389,7 @@
 		    if (objCell.getCellType() == CellType.FORMULA) {
 		        evaluator.evaluateFormulaCell(objCell);
 		    }
-		}
+		} */
 		// 비가동
 		delaySql.append(" SELECT hogi, tdatetime, prev_tdatetime, type, detail, ");
 		delaySql.append(" TIME(tdatetime) AS ttime, ");
@@ -412,7 +412,6 @@
 		StringBuffer delayBuffer = new StringBuffer();
 		int rsCounter = 0;
 		int delayIndex = 57;
-		
 		while(rs2.next()){
 			if(rsCounter == 4){
 				rsCounter = 1;
@@ -442,7 +441,7 @@
 		out.clear();
 
 		out = pageContext.pushBody();
-
+		
 		/* fileOut = response.getOutputStream(); */
 	    String saveDirectory = request.getRealPath("/") + "upload/";
 	    File outputFile = new File(saveDirectory + sFileName); // 저장할 파일 경로 및 이름

@@ -13,13 +13,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="navbar-header">
-					<img style="padding-top:2px; padding-left:12px;height: 42px;" src="resources/images/jinhap4.gif"/><!-- 선일 로고 -->
+					<img style="padding-top:2px; padding-left:12px;height: 42px;" src="resources/images/logo.png"/>
 				</div>
 				
 				
-				<h2 style="display: inline-block;">(주)진합</h2>
+				<h2 style="display: inline-block;">(주)****</h2>
 				<ul style="display: inline-block;" class="pjtname">
-	            	<li class="pjtnamebg">진합 등대사업</li>
+	            	<li class="pjtnamebg">*********</li>
 	            </ul>
 	             	
 				

@@ -6,7 +6,8 @@
 <%@include file="../../db/DBConnector.jsp" %>
 <%
 	
-	String sdate = request.getParameter("sdate");
+//String sdate = request.getParameter("sdate");
+	String sdate = "2024-05-23";
 	String edate = request.getParameter("edate");
 	String delaySdate = sdate + " 08:00:00";
 	String delayEdate = edate + " 08:00:00";

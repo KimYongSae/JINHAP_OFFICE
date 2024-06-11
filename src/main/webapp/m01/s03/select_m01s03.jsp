@@ -57,7 +57,7 @@
 		sql.append(" ) AS tlr ON sub.hogi = tlr.hogi AND sub.item_cd = tlr.item_cd AND sub.first_datetiem1_in_group = tlr.first_datetiem1 ");
 		sql.append(" WHERE STR_TO_DATE(sub.first_datetiem1_in_group, '%Y-%m-%d %H:%i:%s') BETWEEN '"+sdateStr+" 08:00:00' AND '"+edateStr+" 08:00:00'");
 		sql.append(" ORDER BY STR_TO_DATE(sub.datetiem1, '%Y%m%d%H%i%s') asc;");		 
-		 
+		
 		 
 		JSONObject mainObj = new JSONObject();
 		JSONArray mainArray = new JSONArray();

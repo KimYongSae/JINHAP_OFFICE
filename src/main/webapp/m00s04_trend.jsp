@@ -461,12 +461,14 @@ var fn_logout = function () {
 					
 					//$("#s_sdate").val(rsAr[0].b_date);
 					$("#s_sdate").val(rsAr[0].y_date);
+					$("#s_sdate").val("2024-05-23");
 					//$("#s_stime").val(rsAr[0].b_time.substring(0,2)+":00:00");
 					$("#s_stime").val("08:00:00");
 					//$("#s_stime").val(rsAr[0].n_time);
 //					console.log("1:"+$("#s_sdate").val()+", "+$("#s_stime").val());
 					
 					$("#s_edate").val(rsAr[0].n_date);
+					$("#s_edate").val("2024-05-24");
 					//$("#s_etime").val(rsAr[0].a_time.substring(0,2)+":00:00");	
 					//$("#s_etime").val(rsAr[0].n_time);
 					$("#s_etime").val("08:00:00");

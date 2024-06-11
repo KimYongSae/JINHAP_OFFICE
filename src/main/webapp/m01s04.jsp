@@ -1258,8 +1258,9 @@ var tdate = "";
 		
 		var ydate = yDate.getFullYear()+"-"+date_set(yDate.getMonth()+1)+"-"+date_set(yDate.getDate());
 
-		$("#s_date").val(ydate);
-		
+		//$("#s_date").val(ydate);
+		$("#s_date").val("2024-05-23");
+		getLotList();
 		$("#s_sdate").val(tdate);
 		$("#s_ydate").val(ydate);
 	

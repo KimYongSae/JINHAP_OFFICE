@@ -669,7 +669,8 @@ var fn_logout = function () {
 		var tdate = now.getFullYear()+"-"+date_set(now.getMonth()+1)+"-"+date_set(now.getDate());
 //		$("#s_sdate").val(tdate);
 //		$("#s_edate").val(tdate);
-		$("#s_date").val(tdate);
+		//$("#s_date").val(tdate);
+		$("#s_date").val("2024-06-05");
 		
 //		$("#i_date").val(tdate);
 		

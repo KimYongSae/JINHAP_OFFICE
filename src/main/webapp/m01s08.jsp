@@ -538,7 +538,8 @@
 				if (rsJson && rsJson.status == "ok") {
 					var rsAr = rsJson.rows;
 					
-					$("#s_sdate").val(rsAr[0].y_date);
+					//$("#s_sdate").val(rsAr[0].y_date);
+					$("#s_sdate").val("2024-05-23");
 					getMonitoringData();
 				} else if (rsJson && rsJson.status == "fail") {
 					alert("데이터 불러오는중 예외가 발생하였습니다.\n다시 시도하시기 바랍니다.");

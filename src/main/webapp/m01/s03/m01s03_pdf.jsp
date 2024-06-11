@@ -305,16 +305,16 @@
             
             
 			//파일 저장용
-			JasperExportManager.exportReportToPdfFile(jasperPrint,"D:/Job/report_bak/"+fileName+"_"+now+".pdf");
+			/* JasperExportManager.exportReportToPdfFile(jasperPrint,"D:/Job/report_bak/"+fileName+"_"+now+".pdf");
 			JasperExportManager.exportReportToPdfFile(jasperPrint2,"D:/Job/graph_bak/"+fileName2+"_"+now+".pdf");
-			
+			 */
 			//PC 저장용 병합본
-			PDFMergerUtility ut = new PDFMergerUtility();
+			//PDFMergerUtility ut = new PDFMergerUtility();
 			
-			ut.addSource("D:/Job/report_bak/"+fileName+"_"+now+".pdf");
+			/* ut.addSource("D:/Job/report_bak/"+fileName+"_"+now+".pdf");
 			ut.addSource("D:/Job/graph_bak/"+fileName2+"_"+now+".pdf");
 			ut.setDestinationFileName("D:/Job/"+fileName+"_"+now+".pdf");			
-			ut.mergeDocuments();
+			ut.mergeDocuments(); */
 			
 			//프리뷰용 병합본
 			PDFMergerUtility ut2 = new PDFMergerUtility();
